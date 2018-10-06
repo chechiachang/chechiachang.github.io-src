@@ -10,4 +10,4 @@ hugo:
 	hugo
 
 publish: clean hugo
-	cp -r public/* ../chechiachang.github.io/
+	cd public; git add . && git commit -m "Generate from src" && git push origin master
