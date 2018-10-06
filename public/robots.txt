@@ -1,2 +1,0 @@
-User-agent: *
-Sitemap: https://chechiachang.github.io/sitemap.xml

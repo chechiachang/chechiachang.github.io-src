@@ -10,4 +10,4 @@ hugo:
 	hugo
 
 publish: clean hugo
-	cp -r public/* ..
+	cp -r public/* ../chechiachang.github.io/
