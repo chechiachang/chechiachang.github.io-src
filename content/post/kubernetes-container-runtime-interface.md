@@ -23,6 +23,89 @@ menu:
     weight: 1
 ---
 
-**Kubernetes**
+# Outline
+
+1. CRI-O
+2. Container Runtime Interface (CRI)
+3. Open Container Inititive (OCI)
+
+# What is CRI-O
+
+OCI-based implementation of Kubernetes Container Runtime Interface
+http://cri-o.io/
+
+# OCI and CRI
+
+Open Container Inititive
+- A industrial standard for container.
+
+Container Runtime Interface
+- Interface of container runtime for Kubelet
+
+# Open Container Inititive
+
+- 
+- Currently has two spec
+  - runtime spec
+  - image spec 
+
+https://www.opencontainers.org/
+
+# CRI-O
+
+# CRI-O vs Docker
+
+1. Docker has lots of features not needed in K8s
+
+# Container Runtime Interface
+
+- Interface of container runtime for Kubelet
+- Kubernetes 1.6+ introduced CRI
+- Pre-CRI Docker integration was removed in 1.7
+
+```
+
+```
+ 
+
+# Let's use CRI-O
+
+Podman
+
+Podman to cri-o as Docker-cli to Docker daemon.
+
+[podman](https://github.com/containers/libpod)
+
+[Podman tutorial](https://github.com/containers/libpod/blob/master/docs/tutorials/podman_tutorial.md)
+
+We should able to migrate from any OCI comfortant runtime and registry without pain.
+
+# Run Kubernetes on CRI-O 
+
+Install cri-o
+
+```
+sudo add-apt-repository ppa:projectatomic/ppa \
+  && sudo apt-get update \
+  && sudo apt-get install cri-o-runc
+```
+https://github.com/kubernetes-sigs/cri-o/blob/master/kubernetes.md
+
+[Minikube](https://github.com/kubernetes/minikube/blob/master/docs/alternative_runtimes.md#using-cri-o)
+
+
+```bash
+minikube start \
+  --network-plugin=cni \
+  --container-runtime=cri-o
+
+minikube start \
+  --network-plugin=cni \
+  --extra-config=kubelet.container-runtime=remote \
+  --extra-config=kubelet.container-runtime-endpoint=/var/run/crio/crio.sock \
+  --extra-config=kubelet.image-service-endpoint=/var/run/crio/crio.sock
+```
+
+# References
 
 https://kubernetes.io/blog/2016/12/container-runtime-interface-cri-in-kubernetes/
