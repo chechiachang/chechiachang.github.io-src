@@ -26,47 +26,51 @@ menu:
 # Outline
 
 1. CRI-O
-2. Container Runtime Interface (CRI)
-3. Open Container Inititive (OCI)
+2. Open Container Initiative (OCI)
+3. Container Runtime Interface (CRI)
+4. Kubernetes on CRI-O
 
 # What is CRI-O
 
 OCI-based implementation of Kubernetes Container Runtime Interface
+
 http://cri-o.io/
 
 # OCI and CRI
 
 Open Container Inititive
-- A industrial standard for container.
+- A industrial standard for container
 
 Container Runtime Interface
 - Interface of container runtime for Kubelet
 
-# Open Container Inititive
+# Open Container Initiative
 
-- 
+open governance structure (project) for the express purpose of creating open industry standards around container formats and runtime
+- formed under the auspices of the Linux Foundation
 - Currently has two spec
   - runtime spec
   - image spec 
 
 https://www.opencontainers.org/
 
+# For user
+
+- All OCI con
+- Similar UX
+
+https://www.opencontainers.org/blog/2018/06/20/cri-o-how-standards-power-a-container-runtime
+
 # CRI-O
-
-# CRI-O vs Docker
-
-1. Docker has lots of features not needed in K8s
-
-# Container Runtime Interface
 
 - Interface of container runtime for Kubelet
 - Kubernetes 1.6+ introduced CRI
 - Pre-CRI Docker integration was removed in 1.7
 
-```
+# CRI-O vs Docker
 
-```
- 
+- OCI-based implementation for Kubernetes
+- Build to support Kubernetes runtime (no unessasary features)
 
 # Let's use CRI-O
 
