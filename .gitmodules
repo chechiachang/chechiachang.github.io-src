@@ -1,6 +1,6 @@
 [submodule "themes/jane"]
 	path = themes/jane
-	url = https://github.com/xianmin/hugo-theme-jane.git
+	url = git@github.com:xianmin/hugo-theme-jane.git
 [submodule "public"]
 	path = public
-	url = https://github.com/chechiachang/chechiachang.github.io.git
+	url = git@github.com:chechiachang/chechiachang.github.io.git
