@@ -19,7 +19,7 @@ mathjax: true
 
 menu:
   main:
-    parent: "docs"
+    parent: "Docs"
     weight: 1
 ---
 
