@@ -6,7 +6,10 @@ init:
 server:
 	hugo server -D
 
-hugo:
+clean:
+	rm -rf public
+
+hugo: clean
 	hugo
 
 publish: init hugo
