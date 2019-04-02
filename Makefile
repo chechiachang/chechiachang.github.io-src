@@ -3,6 +3,9 @@ THEME := "hugo-theme-air"
 init:
 	git submodule update --init
 
+talk:
+	hugo new --kind talk talk/new
+
 server:
 	hugo server -D
 
