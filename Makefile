@@ -12,5 +12,5 @@ clean:
 hugo: clean
 	hugo
 
-publish: init hugo
+publish: hugo
 	cd public; git add . && git commit -m "Generate from src" && git push origin master
