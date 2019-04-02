@@ -21,10 +21,20 @@ date_format = "Jan 2006"
 [[item]]
   organization = "Coursera"
   organization_url = "https://www.coursera.org"
-  title = "Neural Networks and Deep Learning"
+  title = "Smart Contracts"
   url = ""
-  certificate_url = "https://www.coursera.org"
-  date_start = "2018-10-01"
+  certificate_url = "https://www.coursera.org/account/accomplishments/certificate/SVVRJKGKGHP6"
+  date_start = "2018-09-24"
+  date_end = ""
+  description = ""
+
+[[item]]
+  organization = "Coursera"
+  organization_url = "https://www.coursera.org"
+  title = "Blockchain Basics"
+  url = ""
+  certificate_url = "https://www.coursera.org/account/accomplishments/certificate/KHVFUSKLFYJB"
+  date_start = "2018-09-24"
   date_end = ""
   description = ""
 
