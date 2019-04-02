@@ -1,7 +1,7 @@
 THEME := "hugo-theme-air"
 
 init:
-	git submodule update --init
+	git submodule update --init --remote
 
 talk:
 	hugo new --kind talk talk/new
