@@ -24,8 +24,7 @@ event_url = "https://battle.devopstw.club/"
 abstract = "Jenkins is one of the most long popular CI frameworks based on Java. Jenkins provides deep customization, features enriched by hundreds of plugins to support any projects."
 
 # Summary. An optional shortened abstract.
-summary = "Jenkins on Kubernetes"
-
+summary = "Working pipeline with jenkins-x on Kubernetes."
 # Is this a featured talk? (true/false)
 featured = false
 
@@ -70,6 +69,7 @@ url_code = ""
   focal_point = "Top"
 +++
 
-1. Distributed Master+slave handling paralell pipeline steps
-2. Kubernetes based dynamics agents sclaing (jenkins-kubernetes)
-3. Customized test reports for multiple language (ex. go-junit-report)
+1. How to deploy a cloud-native Jenkins with Jenkins X.
+2. A pipeline with Kubernetes based dynamics worker sclaing (jenkins-kubernetes).
+3. Give it a try.
+4. (Defered) Customized test reports for multiple language (ex. go-junit-report)
