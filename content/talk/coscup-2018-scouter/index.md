@@ -27,7 +27,7 @@ abstract = "是的，我們做了一款七龍珠中的戰鬥力探測器，透�
 summary = "是的，我們做了一款七龍珠中的戰鬥力探測器，透過人臉辨識技術探測工程師在Github上的的開源貢獻力"
 
 # Is this a featured talk? (true/false)
-featured = false
+featured = true
 
 # Tags (optional).
 #   Set `tags = []` for no tags, or use the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
