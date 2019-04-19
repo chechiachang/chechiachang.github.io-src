@@ -38,7 +38,7 @@ tags = ["kubernetes", "jenkins", "devops"]
 #   E.g. `slides = "example-slides"` references 
 #   `content/slides/example-slides.md`.
 #   Otherwise, set `slides = ""`.
-slides = ""
+slides = "jenkins-x-on-kubernetes"
 
 # Optional filename of your slides within your talk folder or a URL.
 url_slides = ""
