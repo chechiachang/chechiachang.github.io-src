@@ -343,6 +343,16 @@ jx create pullrequest
 
 #### Summary
 
+- Demonstrate a Jenkins pipeline
+- Jenkins plugin
+  - master slave cluster
+  - kubernetes plugin
+  - lovely GUI
+- jx on k8s
+- jx cli
+
+---
+
 - Jenkins 簡單用
   - 設定與維護人力會比其他工具稍微多
 
@@ -351,7 +361,8 @@ jx create pullrequest
   - 預期有特殊需求
 
 - Jenkins X
-  - 應用依賴 Kubernetes 開發，測試，部屬
+  - 應用依賴 Kubernetes 開發，測試，部屬 (ex. kubernetes client-go)
+  - 使用 jx 一站式服務
 
 ---
 The End
