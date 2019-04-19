@@ -55,7 +55,7 @@ projects = ["scouter"]
 # Links (optional).
 url_pdf = ""
 url_video = ""
-url_code = ""
+url_code = "https://github.com/chechiachang/scouter"
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder. 

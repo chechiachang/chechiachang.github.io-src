@@ -23,10 +23,10 @@ external_link = "https://github.com/chechiachang/scouter"
 
 # Links (optional).
 url_pdf = ""
-url_code = ""
+url_code = "https://github.com/chechiachang/scouter"
 url_dataset = ""
-url_slides = ""
-url_video = ""
+url_slides = "https://www.slideshare.net/CheChiaChang/coscup-scouter-face-recognizer-retrieves-your-github-contribution"
+url_video = "https://www.youtube.com/watch?time_continue=23618&v=4SWO4x7bNjo"
 url_poster = ""
 
 # Custom links (optional).
@@ -43,5 +43,3 @@ url_poster = ""
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
   focal_point = ""
 +++
-
-https://github.com/chechiachang/scouter

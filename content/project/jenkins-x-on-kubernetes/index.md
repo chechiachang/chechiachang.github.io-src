@@ -23,7 +23,7 @@ external_link = "https://github.com/chechiachang/jenkins-x-on-kubernetes"
 
 # Links (optional).
 url_pdf = ""
-url_code = ""
+url_code = "https://github.com/chechiachang/jenkins-x-on-kubernetes"
 url_dataset = ""
 url_slides = ""
 url_video = ""
