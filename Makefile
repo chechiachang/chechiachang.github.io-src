@@ -1,11 +1,17 @@
 init:
 	git submodule update --init --remote
 
-talk:
-	hugo new --kind talk talk/new
+title:
+	if [ -z $${TITLE} ]; then echo 'TITLE env is required.' && exit 1; fi
 
-project:
-	hugo new --kind project project/new
+talk: title
+	hugo new --kind talk talk/$${TITLE}
+
+project: title
+	hugo new --kind project project/$${TITLE}
+
+post: title
+	hugo new --kind post post/$${TITLE}
 
 server:
 	hugo server -D

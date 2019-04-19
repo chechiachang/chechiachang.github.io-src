@@ -8,3 +8,15 @@ Source Code of My Github Page
 # Theme
 
 [Academic](https://sourcethemes.com/academic/docs/install/)
+
+# Create Content
+
+Add new talk
+```
+TITLE=my-talk-title make talk
+```
+
+Add new project
+```
+TITLE=my-talk-title make project
+```
