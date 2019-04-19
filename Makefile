@@ -13,6 +13,9 @@ project: title
 post: title
 	hugo new --kind post post/$${TITLE}
 
+slides: title
+	hugo new --kind slides slides/$${TITLE}
+
 server:
 	hugo server -D
 
