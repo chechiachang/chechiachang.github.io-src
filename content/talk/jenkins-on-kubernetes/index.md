@@ -50,7 +50,9 @@ url_slides = ""
 #   E.g. `projects = ["deep-learning"]` references 
 #   `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
-projects = []
+projects = [
+  "jenkins-x-on-kubernetes",
+]
 
 # Links (optional).
 url_pdf = ""
@@ -61,12 +63,13 @@ url_code = ""
 # To use, add an image named `featured.jpg/png` to your page's folder. 
 [image]
   # Caption (optional)
-  caption = ""
+  caption = "jenkins-x.png"
 
   # Focal point (optional)
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
-  focal_point = ""
+  focal_point = "Top"
 +++
+
 1. Distributed Master+slave handling paralell pipeline steps
 2. Kubernetes based dynamics agents sclaing (jenkins-kubernetes)
 3. Customized test reports for multiple language (ex. go-junit-report)

@@ -4,6 +4,9 @@ init:
 talk:
 	hugo new --kind talk talk/new
 
+project:
+	hugo new --kind project project/new
+
 server:
 	hugo server -D
 
