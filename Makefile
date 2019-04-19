@@ -1,5 +1,3 @@
-THEME := "hugo-theme-air"
-
 init:
 	git submodule update --init --remote
 
