@@ -1,3 +1,9 @@
+---
+title: "CRI, OCI, CRI-O"
+date: 2018-08-19T18:00:35+08:00
+draft: false
+---
+
 footer: Che-Chia David Chang, 2018,  [https://github.com/chechiachang](https://github.com/chechiachang)
 slidenumbers: true
 

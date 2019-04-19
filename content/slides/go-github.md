@@ -1,3 +1,9 @@
+---
+title: "Github API with go-github"
+date: 2018-04-19T18:00:35+08:00
+draft: false
+---
+
 footer: Che-Chia David Chang, 2018,  [https://github.com/chechiachang/my-speeches/tree/master/go-github](https://github.com/chechiachang/my-speeches/tree/master/go-github)
 slidenumbers: true
 
