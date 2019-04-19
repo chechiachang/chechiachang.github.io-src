@@ -54,7 +54,7 @@ projects = ["scouter"]
 
 # Links (optional).
 url_pdf = ""
-url_video = ""
+url_video = "https://www.youtube.com/watch?time_continue=23618&v=4SWO4x7bNjo"
 url_code = ""
 
 # Featured image
@@ -75,3 +75,7 @@ url_code = ""
 1. 初心者的人臉辨識技術 ，Face Recognition API
 2. 使用 Golang 在 Github 上做 Data Mining
 3. 從零開始的 side project，開發心路歷程與收穫分享
+
+Live Stream on Youtube
+
+{{< youtube id="4SWO4x7bNjo?start=23633" >}}
