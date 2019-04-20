@@ -366,3 +366,5 @@ jx create pullrequest
 
 ---
 The End
+
+{{< figure library="1" src="jenkins/github-page-qrcode.png" title="" width="45%" height="45%">}}
