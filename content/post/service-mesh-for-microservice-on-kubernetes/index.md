@@ -1,9 +1,9 @@
 +++
-title = "Service Mesh for Microservices on Kubernetes"
-subtitle = "Service Mesh for Microservices on Kubernetes"
+title = "Service Mesh on Kubernetes"
+subtitle = "Service Mesh on Kubernetes"
 
 # Add a summary to display on homepage (optional).
-summary = "微服務蓬勃發展，傳統的 Monolith 被分解為分散的為服務，已取得更高的效能與更彈性的管理。當眾多的為服務同時運作，產生複雜的依賴與交流，網路層不再只是有『有通就好』，而是需要精細且彈性的流量管理與監控，來提供穩定的效能。本次主題將基於 Kubernetes 平台上的 Istio ，探討 Service Mesh 的概念與相關應用。"
+summary = "微服務蓬勃發展，傳統的 Monolith 被分解為分散的為服務，已取得更高的效能與更彈性的管理。當眾多的為服務同時運作，產生複雜的依賴與交流，網路層不再只是有『有通就好』，而是需要精細且彈性的流量管理與監控，來提供穩定的效能。本次主題將基於 Kubernetes 平台上的 Istio ，實際部署，並一步一步操作Istio 的功能。"
 
 date = 2019-05-06T18:12:15+08:00
 draft = false
@@ -40,10 +40,13 @@ categories = []
 
 # Outline
 
-- Why Service Mesh
-- Inter-pod connections
-- Lots of Micro-Services
-- Components: control plane & sidecar
+- What is Service Mesh
+- Why Istio
+- Demo
+
+---
+
+Workshop
 
 # Create GKE
 
@@ -131,6 +134,14 @@ Apply destination rules
 kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.1/samples/bookinfo/networking/destination-rule-all.yaml
 
 curl -v ${INGRESS_HOST}:{$INGRESS_PORT}/productpage
+```
+
+### Brief review
+
+```
+kubectl get virtualservices
+kubectl get destinationrules
+kubectl get gateways
 ```
 
 # Istio Tasks
