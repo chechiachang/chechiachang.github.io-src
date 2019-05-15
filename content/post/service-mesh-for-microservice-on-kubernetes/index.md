@@ -1,9 +1,9 @@
 +++
-title = "Service Mesh on Kubernetes"
-subtitle = "Service Mesh on Kubernetes"
+title = "Istio 三分鐘就入坑 部屬篇"
+subtitle = "Istio 三分鐘就入坑 部屬篇"
 
 # Add a summary to display on homepage (optional).
-summary = "微服務蓬勃發展，傳統的 Monolith 被分解為分散的為服務，已取得更高的效能與更彈性的管理。當眾多的為服務同時運作，產生複雜的依賴與交流，網路層不再只是有『有通就好』，而是需要精細且彈性的流量管理與監控，來提供穩定的效能。本次主題將基於 Kubernetes 平台上的 Istio ，實際部署，並一步一步操作Istio 的功能。"
+summary = "基於 Kubernetes 平台上的 Istio ，實際部署，並一步一步操作Istio 的功能。"
 
 date = 2019-05-06T18:12:15+08:00
 draft = false
@@ -37,16 +37,6 @@ categories = []
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
   focal_point = ""
 +++
-
-# Outline
-
-- What is Service Mesh
-- Why Istio
-- Demo
-
----
-
-Workshop
 
 # Create GKE
 

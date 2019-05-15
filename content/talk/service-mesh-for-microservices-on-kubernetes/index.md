@@ -69,6 +69,8 @@ url_code = "https://github.com/istio/istio"
   focal_point = ""
 +++
 
+---
+
 ### Outlines
 
 傳統的 Monolith被分解為分散的微服務，以取得更高的效能與更彈性的管理。當眾多的為服務同時運作，產生複雜的依賴與交流，網路層不再只是有『有通就好』，而是需要精細且彈性的流量管理與監控，來提供>穩定的效能。本次主題將基於 Kubernetes 平台上的 Istio ，探討 Service Mesh 的概念與相關應用。
@@ -90,6 +92,8 @@ url_code = "https://github.com/istio/istio"
 3. 能使用 Istio 於 Kubernetes，進行服務網路的管理。
 
 ---
+
+### 你有聽過 Microservice / Istio有聽過嗎？
 
 今天來介紹一款好藥：Istio。如果你有以下問題：
 
