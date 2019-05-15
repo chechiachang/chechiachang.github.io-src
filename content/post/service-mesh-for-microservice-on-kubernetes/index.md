@@ -1,6 +1,6 @@
 +++
-title = "Istio 三分鐘就入坑 部屬篇"
-subtitle = "Istio 三分鐘就入坑 部屬篇"
+title = "Istio 三分鐘就入坑 佈署篇"
+subtitle = "Istio 三分鐘就入坑 佈署篇"
 
 # Add a summary to display on homepage (optional).
 summary = "基於 Kubernetes 平台上的 Istio ，實際部署，並一步一步操作Istio 的功能。"
