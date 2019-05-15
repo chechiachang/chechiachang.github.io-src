@@ -39,10 +39,11 @@ tags = ["kubernetes", "istio", "service-mesh"]
 #   E.g. `slides = "example-slides"` references 
 #   `content/slides/example-slides.md`.
 #   Otherwise, set `slides = ""`.
-slides = "service-mesh-with-istio"
+slides = ""
+#slides = "service-mesh-with-istio"
 
 # Optional filename of your slides within your talk folder or a URL.
-url_slides = ""
+url_slides = "https://docs.google.com/presentation/d/1Myn9v2OrWtrnzHIk_5KrKhE0f-rW51lxZMaX6IlYfak/edit?usp=sharing"
 
 # Projects (optional).
 #   Associate this talk with one or more of your projects.
@@ -70,7 +71,7 @@ url_code = "https://github.com/istio/istio"
 
 ### Outlines
 
-微服務蓬勃發展，傳統的 Monolith被分解為分散的為服務，已取得更高的效能與更彈性的管理。當眾多的為服務同時運作，產生複雜的依賴與交流，網路層不再只是有『有通就好』，而是需要精細且彈性的流量管理與監控，來提供>穩定的效能。本次主題將基於 Kubernetes 平台上的 Istio ，探討 Service Mesh 的概念與相關應用。
+傳統的 Monolith被分解為分散的微服務，以取得更高的效能與更彈性的管理。當眾多的為服務同時運作，產生複雜的依賴與交流，網路層不再只是有『有通就好』，而是需要精細且彈性的流量管理與監控，來提供>穩定的效能。本次主題將基於 Kubernetes 平台上的 Istio ，探討 Service Mesh 的概念與相關應用。
 
 1. 何為 Service Mesh ？為何需要 Service Mesh ？
 2. Service Mesh 基本概念
@@ -90,8 +91,8 @@ url_code = "https://github.com/istio/istio"
 
 ---
 
-今天來介紹一款好藥：Istio。
-如果你有以下問題：
+今天來介紹一款好藥：Istio。如果你有以下問題：
+
 - 維運大量(成千上百)微服務
 - 需要服務對服務的流量控制，監控，管理
 
@@ -101,10 +102,13 @@ url_code = "https://github.com/istio/istio"
 
 如果手上有一個 App，會希望依照 Monolith 的架構，或是 Microservices？
 Microservices 聽起來又新又潮。相對於 Monolith有許多明顯的好處：
+
 - Decoupling
 - Scalability
 - Performance
+
 也有明顯的壞處：
+
 - Development Complexity
 - Operation Cost
 
@@ -113,7 +117,9 @@ Microservices 聽起來又新又潮。相對於 Monolith有許多明顯的好處
 ---
 
 何為 Service Mesh？
+
 使用Microservie 可能會遇到的問題：
-- Monitoring
+
 - Traffic control
+- Monitoring
 - A/B Testing
