@@ -73,7 +73,7 @@ url_code = "https://github.com/istio/istio"
 
 ### Outlines
 
-傳統的 Monolith被分解為分散的微服務，以取得更高的效能與更彈性的管理。當眾多的為服務同時運作，產生複雜的依賴與交流，網路層不再只是有『有通就好』，而是需要精細且彈性的流量管理與監控，來提供>穩定的效能。本次主題將基於 Kubernetes 平台上的 Istio ，探討 Service Mesh 的概念與相關應用。
+傳統的 Monolith被分解為分散的微服務，以取得更高的效能與更彈性的管理。當眾多的為服務同時運作，產生複雜的依賴與交流，網路層不再只是有『有通就好』，而是需要精細且彈性的流量管理與監控，來提供穩定的效能。本次主題將基於 Kubernetes 平台上的 Istio ，探討 Service Mesh 的概念與相關應用。
 
 1. 何為 Service Mesh ？為何需要 Service Mesh ？
 2. Service Mesh 基本概念
@@ -121,6 +121,10 @@ Microservices 聽起來又新又潮。相對於 Monolith有許多明顯的好處
 ---
 
 何為 Service Mesh？
+
+- Service Mesh: Model / Pattern
+- Implementations: linkerd, istio, ...
+- 基於底層的網路服務，在複雜的 topology 中可靠的傳遞
 
 使用Microservie 可能會遇到的問題：
 
