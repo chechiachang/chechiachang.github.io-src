@@ -16,7 +16,7 @@ featured = false
 
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = ["quantum", "quantum-computing", "ibm", "ibm-q-experience", "beginner"]
+tags = ["quantum-computing", "ibm-q-experience", "tutorial"]
 categories = []
 
 # Projects (optional).
@@ -25,7 +25,7 @@ categories = []
 #   E.g. `projects = ["deep-learning"]` references 
 #   `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
-# projects = ["internal-project"]
+projects = ["quantum-computing-journey"]
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder. 
@@ -38,15 +38,22 @@ categories = []
   focal_point = ""
 +++
 
+This post is about my learning steps for quantum-computing.
+
+For a quick-start tutorial, check my workshop project throught the project link above.
+
 # Resources
 
 https://www.coursera.org/learn/quantum-computing-algorithms
 
 [IBM Q Experience](https://quantum-computing.ibm.com)
 
-Qiskit
+[https://github.com/Qiskit/openqasm](https://github.com/Qiskit/openqasm)
 
-# Learning steps
+[https://github.com/Qiskit/qiskit-tutorials](https://github.com/Qiskit/qiskit-tutorials)
+
+
+# IBM Q Experience
 
 ### Day 1
 
