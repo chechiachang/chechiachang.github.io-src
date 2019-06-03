@@ -44,7 +44,16 @@ For a quick-start tutorial, check my workshop project throught the project link 
 
 # Resources
 
-https://www.coursera.org/learn/quantum-computing-algorithms
+Courses
+
+[Coursera](https://www.coursera.org/learn/quantum-computing-algorithms)
+
+[on MIT x pro](https://mitxpro.mit.edu/courses/course-v1:MITxPRO+QCx0+1T2019/about)
+
+[Quantum Information Processing from UW Madison](http://pages.cs.wisc.edu/~dieter/Courses/2010f-CS880/lectures.html)
+
+[Quantum Computation by John Preskill](http://www.theory.caltech.edu/people/preskill/ph229/)
+
 
 [IBM Q Experience](https://quantum-computing.ibm.com)
 
