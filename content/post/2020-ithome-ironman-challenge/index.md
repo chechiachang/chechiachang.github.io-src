@@ -1,9 +1,9 @@
 +++
-title = "2020 Ithome Ironman Challenge"
-subtitle = ""
+title = "2020 IT邦幫忙鐵人賽"
+subtitle = "2020 IT邦幫忙鐵人賽"
 
 # Add a summary to display on homepage (optional).
-summary = ""
+summary = "2020 IT邦幫忙鐵人賽"
 
 date = 2019-09-09T16:56:03+08:00
 draft = false
@@ -38,12 +38,17 @@ categories = []
   focal_point = ""
 +++
 
-受有[友人](https://ithelp.ithome.com.tw/2020ironman/signup/team/63)邀請（推坑）參加了[2020 It邦幫忙鐵人賽](https://ithelp.ithome.com.tw/2020ironman)，挑戰在30天內，每天發一篇技術分享文章。一方面將工作上遇到的問題與解法分享給社群，另一方面也是給自己一點成長的壓力，把這段時間的心得沈澱下來，因此也了這系列文章。
+各位好，我是Che-Chia Chang，社群上常用的名子是 David Chang。是個軟體工程師，專長的領域是後端開發，開發維運，容器化應用，以及Kubernetes開發管理。目前為 [Golang Taiwan Meetup](https://www.meetup.com/golang-taipei-meetup/) 的 organizer。
+
+受到[友人們](https://ithelp.ithome.com.tw/2020ironman/signup/team/63)邀請（推坑）參加了[2020 It邦幫忙鐵人賽](https://ithelp.ithome.com.tw/2020ironman)，挑戰在30天內，每天發一篇技術分享文章。一方面將工作上遇到的問題與解法分享給社群，另一方面也是給自己一點成長的壓力，把這段時間的心得沈澱下來，因此也了這系列文章。
 
 本系列文章重點有三：
-1. 提供的解決方案，附上一步步的操作步驟
-2. 著重 Google Cloud Platform，特別是Google Compute Engine (GCE) 與Google Kubernetes Engine (GKE) 兩大服務
-3. 從維運的角度除錯，分析問題，提升穩定性
+
+1. 提供的解決方案，附上一步步的操作步驟。希望讓讀者可以重現完整操作步驟，直接使用，或是加以修改
+
+2. 著重 Google Cloud Platform，特別是Google Compute Engine (GCE) 與Google Kubernetes Engine (GKE) 兩大服務。這也是我最熟悉的平台，順便推廣，並分享一些雷點。
+
+3. 從維運的角度除錯，分析問題，提升穩定性。
 
 預定的主題如下（可能會依照實際撰寫狀況微調）
 
@@ -86,16 +91,18 @@ categories = []
   - 基本 GCP 日誌管理與錯誤回報
   - Stackdriver 服務的日誌管理，監測數據，告警
 
-文章發表於
+文章發表於[鐵人挑戰頁面](https://ithelp.ithome.com.tw/users/20120327/ironman/2444)，同時發布與本站備份。有任何謬誤，還煩請各方大德<3透過底下的聯絡方式聯絡我，感激不盡。
 
 ---
 
 Features
+
 - step-by-step guide for deployment: guarentee a running deployment on GCP
 - basic configuration, usage, monitoring, networking on GKE
 - debugging, stability analysis in an aspect of devop
 
 Topics
+
 - ELK stack(8)
   - Deploy self-hosted ELK stack on GCE instance
   - Secure ELK stack with SSL and role-based authentication
