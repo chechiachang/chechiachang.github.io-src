@@ -1,23 +1,23 @@
-+++
-title = "2020 IT邦幫忙鐵人賽"
-subtitle = "2020 IT邦幫忙鐵人賽"
+---
+title: "2020 IT邦幫忙鐵人賽"
+subtitle: "2020 IT邦幫忙鐵人賽"
 
 # Add a summary to display on homepage (optional).
-summary = "2020 IT邦幫忙鐵人賽"
+summary: "2020 IT邦幫忙鐵人賽"
 
-date = 2019-09-09T16:56:03+08:00
-draft = false
+date: 2019-09-09T16:56:03+08:00
+draft: false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors = []
+authors: []
 
 # Is this a featured post? (true/false)
-featured = true
+featured: true
 
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = []
-categories = []
+tags: []
+categories: []
 
 # Projects (optional).
 #   Associate this post with one or more of your projects.
@@ -29,14 +29,14 @@ categories = []
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder. 
-[image]
+image:
   # Caption (optional)
-  caption = ""
+  caption: ""
 
   # Focal point (optional)
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
-  focal_point = ""
-+++
+  focal_point: ""
+---
 
 各位好，我是Che-Chia Chang，社群上常用的名子是 David Chang。是個軟體工程師，專長的領域是後端開發，開發維運，容器化應用，以及Kubernetes開發管理。目前為 [Golang Taiwan Meetup](https://www.meetup.com/golang-taipei-meetup/) 的 organizer。
 

@@ -23,4 +23,4 @@ menu:
     weight: 1
 ---
 
--> [Slides here]({{< ref "/slides/container-runtime-interface.md" >}}) <-
+-> [Slides here]({{< ref "/slides/container-runtime-interface/index.md" >}}) <-
