@@ -41,7 +41,7 @@ image:
 [2020 It邦幫忙鐵人賽](https://ithelp.ithome.com.tw/2020ironman) 系列文章
 
 - [Self-host ELK stack on GCP]({{< ref "/post/self-host-elk-stack-on-gcp" >}})
-- Secure ELK Stask
+- [Secure ELK Stask]({{< ref "/post/secure-elk-stack" >}})
 - 監測 Google Compute Engine 上服務的各項數據
 - 監測 Google Kubernetes Engine 的各項數據
 - 使用 logstash pipeline 做數據前處理

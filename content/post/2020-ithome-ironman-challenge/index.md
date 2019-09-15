@@ -53,7 +53,8 @@ image:
 預定的主題如下（可能會依照實際撰寫狀況微調）
 
 - ELK Stask on GCP (8)
-  - GCE 上自架 ELK Stask
+  - [Self-host ELK stack on GCP]({{< ref "/post/self-host-elk-stack-on-gcp" >}})
+  - [Secure ELK Stask]({{< ref "/post/secure-elk-stack" >}})
   - ELK Stask 的安全性連線(TLS/HTTP2) 設定
   - 監測 Google Compute Engine 上服務的各項數據
   - 監測 Google Kubernetes Engine 的各項數據
