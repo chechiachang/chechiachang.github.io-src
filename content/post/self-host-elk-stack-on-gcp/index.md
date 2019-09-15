@@ -38,9 +38,9 @@ image:
   focal_point: ""
 ---
 
-[2020 It邦幫忙鐵人賽](https://ithelp.ithome.com.tw/2020ironman)系列文章
+[2020 It邦幫忙鐵人賽](https://ithelp.ithome.com.tw/2020ironman) 系列文章
 
-- Self-host ELK stack on GCP
+- [Self-host ELK stack on GCP]({{< ref "/post/self-host-elk-stack-on-gcp" >}})
 - Secure ELK Stask
 - 監測 Google Compute Engine 上服務的各項數據
 - 監測 Google Kubernetes Engine 的各項數據
@@ -52,26 +52,30 @@ image:
 
 由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。
 
-對我的文章有興趣，歡迎到我的網站上 [https://chechiachang.github.io](https://chechiachang.github.io)閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。
+對我的文章有興趣，歡迎到我的網站上 [https://chechiachang.github.io](https://chechiachang.github.io) 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。
 
 --
 
 # 簡介 ELK stack
 
-ELK 的元件:
+[官方說明文件](https://www.elastic.co/guide/index.html)
+
+### ELK 的元件
 
 - Elasticsearch: 基於 Lucene 的分散式全文搜索引擎
 - Logstash: 數據處理 pipeline
-- Kibana: ELK stack 的管理後台與資料視覺化工具
-- Beats: 輕量級的應用端資料收集器，會從被監控端收集 log 與監控資料(metrics)
+- Kibana: ELK stack 的管理後台與數據視覺化工具
+- Beats: 輕量級的應用端數據收集器，會從被監控端收集 log 與監控數據(metrics)
 
-ELK 的工作流程: beats -> (logstash) -> elasticsearch -> kibana
+### ELK 的工作流程
+
+beats -> (logstash) -> elasticsearch -> kibana
 
 1. 將 beats 放在應用端的主機上，或是在容器化環境種作為 sidecar，跟應用放在一起
 2. 設定 beats 從指定的路徑收集 log 與 metrics
 3. 設定 beats 向後輸出的遠端目標
-4. (Optional) beats 輸出到 logstash ，先進行資料的變更、格式整理，在後送到 elasticsearch
-5. beats 向後輸出到 elasticsearch，儲存資料文件(document)，並依照樣式(template)與索引(index)儲存，便可在 elasticsearch 上全文搜索資料
+4. (Optional) beats 輸出到 logstash ，先進行數據的變更、格式整理，在後送到 elasticsearch
+5. beats 向後輸出到 elasticsearch，儲存數據文件(document)，並依照樣式(template)與索引(index)儲存，便可在 elasticsearch 上全文搜索數據
 7. 透過 Kibana，將 elasticsearch 上的 log 顯示
 
 
@@ -99,34 +103,47 @@ Lets get our hands dirty.
 
 這邊只是帶大家過一下基礎安裝流程，我們在私有網路中搭建一台 standalone 的 ELK stack，通通放在一台節點(node)上。
 
+```
 elk-node-standalone 10.140.0.10
 app-node-1          10.140.0.11
 ...                 ...
+```
 
 本機的 ELK stack 元件，彼此透過 localhost 連線
 
-- Elasticsearch: localhost:9200
-- Kibana: localhost:5601
-- Apm-server: localhost:8200
+- Elasticsearch:  localhost:9200
+- Kibana:         localhost:5601
+- Apm-server:     localhost:8200
 - Self Monitoring Services
 
 私有網路中的外部服務透過 10.140.0.10
 
 - beats 從其他 node 輸出到 Elasticsearch: 10.140.0.10:9200
 - beats 從其他 node 輸出到 Apm-server:    10.140.0.10:8200
-- 在內部網路中，透過 browser 存取 Kibana:  10.140.0.10:5601
+- 在內部網路中 透過 browser 存取 Kibana:  10.140.0.10:5601
 
 standalone 的好處:
+
 - 方便 (再次強調這篇只是示範，實務上不要貪一時方便，維運崩潰)
 - 最簡化設定，ELK 有非常大量的設定可以調整，這篇簡化了大部分
 
 Standalone可能造成的問題:
+
 - No High Availablity: 沒有任何容錯備援可以 failover，這台掛就全掛
 - 外部服務多的話，很容易就超過 node 上對於網路存取的限制，造成 tcp drop 或 delay。需要調整 ulimit 來增加網路，當然這在雲端上會給維運帶來更多麻煩，不是一個好解法。
 
+如果要有 production ready 的 ELK
+
+- HA 開起來
+- 把服務分散到不同 node 上, 方便之後 scale out 多開幾台
+  - elasticsearch-1, elasticsearch-2, elasticsearch-3...
+  - kibana-1
+  - apm-server-1, apm-server-2, ...
+- 如果應用在已經容器化, 這些服務元件也可以上 Kubernetes 做容器自動化，這個部份蠻好玩，如果有時間我們來聊這篇
+
 # 主機設定
 
-Elasticsearch 儲存資料會佔用不少硬碟空間，我個人的習慣是只要有額外占用儲存空間，都要另外掛載硬碟，不要占用 root，所以這邊會需要另外掛載硬碟。
+Elasticsearch 儲存數據會佔用不少硬碟空間，我個人的習慣是只要有額外占用儲存空間，都要另外掛載硬碟，不要占用 root，所以這邊會需要另外掛載硬碟。
 
 GCP 上使用 Google Compote Engine 的朋友，可以照 [Google 官方操作步驟操作](https://cloud.google.com/compute/docs/disks/add-persistent-disk?hl=zh-tw)
 
@@ -146,7 +163,7 @@ $ ls /mnt/disks/elk
 /mnt/disks/elk/kibana
 ```
 
-至於需要多少容量，取決收集資料的數量，落差非常大，可以先上個 100Gb ，試跑一段時間，再視情況 scale storage disk。
+至於需要多少容量，取決收集數據的數量，落差非常大，可以先上個 100Gb ，試跑一段時間，再視情況 scale storage disk。
 
 
 # 開防火牆
@@ -176,29 +193,34 @@ sudo apt-get install elasticsearch
 
 安裝完後路徑長這樣
 
+```
 /etc/elasticsearch
 /etc/elasticsearch/elasticsearch.yml
 /etc/elasticsearch/jvm.options
 
-附帶的管理工具
-
+# Utility
 /usr/share/elasticsearch/bin/
 
-Log 在
-
+# Log
 /var/log/elasticsearch/elasticsearch.log
+```
+
 有需要也可以複寫設定檔，把 log 也移到 /mnt/disks/elk/elasticsearch/logs
+
+### 服務控制
 
 透過 systemd 管理，我們可以用 systemctl 控制，
 用戶 elasticsearch:elasticsearch，操作時會需要 sudo 權限。
 
-但在啟動前要先調整資料儲存路徑，並把權限移轉給使用者。
+但在啟動前要先調整數據儲存路徑，並把權限移轉給使用者。
 ```
 mkdir -p /mnt/disks/elk/elasticsearch
 chown elasticsearch:elasticsearch /mnt/disks/elk/elasticsearch
 ```
 
-更改設定檔案
+### 設定檔案
+
+ELK 提供了許多可設定調整的設定,但龐大的設定檔案也十分難上手。我們這邊先簡單更改以下設定檔案
 ```
 sudo vim /etc/elasticsearch/elasticsearch.yml
 
@@ -303,13 +325,13 @@ http://10.140.0.10/app/monitoring#
 
 # Filebeat
 
-以上是 ELK 最基本架構: elasticsearch 引擎與前端視覺化管理工具 Kibana。當然現在進去 kibana 是沒有資料的，所以我們現在來安裝第一個 beat，收集第一筆資料。
+以上是 ELK 最基本架構: elasticsearch 引擎與前端視覺化管理工具 Kibana。當然現在進去 kibana 是沒有數據的，所以我們現在來安裝第一個 beat，收集第一筆數據。
 
-你可能會覺得奇怪: 我現在沒有任何需要監控的應用，去哪收集資料?
+你可能會覺得奇怪: 我現在沒有任何需要監控的應用，去哪收集數據?
 
-ELK 提供的自我監測 (self-monitoring) 的功能，也就是在 node 上部屬 filebeat 並啟用 modules，便可以把這台 node 上的 elasticsearch 運行的狀況，包含cpu 狀況、記憶體用量、儲存空間用量、安全性告警、...都做為資料，傳到 elasticsearch 中，並在 [Kibana monitoring 頁面]() 製圖顯示。
+ELK 提供的自我監測 (self-monitoring) 的功能，也就是在 node 上部屬 filebeat 並啟用 modules，便可以把這台 node 上的 elasticsearch 運行的狀況，包含cpu 狀況、記憶體用量、儲存空間用量、安全性告警、...都做為數據，傳到 elasticsearch 中，並在 Kibana monitoring 頁面製圖顯示。
 
-這邊也剛好做為我們 ELK stack 的第一筆資料收集。
+這邊也剛好做為我們 ELK stack 的第一筆數據收集。
 
 WARNING: 這邊一樣要提醒， production 環境多半會使用另外一組的 elasticsearch 來監控主要的這組 elastic stack，以維持 elk stack 的穩定性，才不會自己 monitoring 自己，結果 elastic 掛了，metrics 跟錯誤訊息都看不到。
 
@@ -378,24 +400,24 @@ $ sudo journalctl -fu filebeat
 Sep 15 06:28:50 elk filebeat[9143]: 2019-09-15T06:28:50.176Z        INFO        [monitoring]        log/log.go:145        Non-zero metrics in the last 30s        {"monitoring": {"metrics": {"beat":{"cpu":{"system":{"ticks":1670860,"time":{"ms":66}},"total":{"ticks":6964660,"time":{"ms":336},"value":6964660},"user":{"ticks":5293800,"time":{"ms":270}}},"handles":{"limit":{"hard":4096,"soft":1024},"open":11},"info":{"ephemeral_id":"62fd4bfa-1949-4356-9615-338ca6a95075","uptime":{"ms":786150373}},"memstats":{"gc_next":7681520,"memory_alloc":4672576,"memory_total":457564560376,"rss":-32768},"runtime":{"goroutines":98}},"filebeat":{"events":{"active":-29,"added":1026,"done":1055},"harvester":{"open_files":4,"running":4}},"libbeat":{"config":{"module":{"running":0}},"output":{"events":{"acked":1055,"active":-50,"batches":34,"total":1005},"read":{"bytes":248606},"write":{"bytes":945393}},"pipeline":{"clients":9,"events":{"active":32,"published":1026,"total":1026},"queue":{"acked":1055}}},"registrar":{"states":{"current":34,"update":1055},"writes":{"success":35,"total":35}},"system":{"load":{"1":1.49,"15":0.94,"5":1.15,"norm":{"1":0.745,"15":0.47,"5":0.575}}}}}}
 ```
 
-如果資料都有送出，就可以回到 kibana 的頁面，看一下目前這個 elasticsearch 集群，有開啟 monitoring 功能的元件們，是否都有正常工作。
+如果數據都有送出，就可以回到 kibana 的頁面，看一下目前這個 elasticsearch 集群，有開啟 monitoring 功能的元件們，是否都有正常工作。
 
 http://10.140.0.10/app/monitoring#
 
 頁面長得像這樣
 
-{{< figure library="1" src="elk/kibana-monitoring.png" title="" width="100%" height="100%">}
+{{< figure library="1" src="elk/kibana-monitoring.png" title="" width="100%" height="100%">}}
 
-Standalone cluster 中的 filebeat，是還未跟 elasticsearch 配對完成的資料，會顯示在另外一個集群中，配對完後會歸到 elk cluster 中，就是我們的主要 cluster。
+Standalone cluster 中的 filebeat，是還未跟 elasticsearch 配對完成的數據，會顯示在另外一個集群中，配對完後會歸到 elk cluster 中，就是我們的主要 cluster。
 
 點進去可以看各個元件的服務情形。
 
 
 # 小結
 
-簡單思考 self-host ELK stack 搭建的架構
-在單一 node 上安裝最簡易的 elastic stack
-設定元件的 output 位置
-設定 self-monitoring
+- 簡單思考 self-host ELK stack 搭建的架構
+- 在單一 node 上安裝最簡易的 elastic stack
+- 設定元件的 output 位置
+- 設定 self-monitoring
 
-獲得一個裸奔但是功能完整的 ELK
+恭喜各位獲得一個裸奔但是功能完整的 ELK, 我們下篇再向安全性邁進。
