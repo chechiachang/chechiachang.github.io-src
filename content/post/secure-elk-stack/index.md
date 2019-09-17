@@ -48,9 +48,11 @@ projects: []
 
 總之為了啟用 authentication & https，這篇要做的事情：
 
-- enable x-pack & activate basic license
-- Generate self-signed ca & certificates
-- Configure Elasticsearch, Kibana, & other components
+* enable x-pack & activate basic license
+* Generate self-signed ca, server certificate, client certificate
+* Configure Elasticsearch, Kibana, & other components to
+  * use server certificate when act as server
+  * use client certificate when connect to an ELK server
 
 ---
 
@@ -180,9 +182,40 @@ elasticsearch.password: "***********"
 
 [官方 tutorial](https://www.elastic.co/guide/en/elastic-stack-overview/7.3/encrypting-internode-communications.html)
 
+一堆官方文件，我們先跳過XD
+
+https://www.elastic.co/guide/en/elastic-stack-overview/7.3/elasticsearch-security.html
+https://www.elastic.co/guide/en/elastic-stack-overview/7.3/ssl-tls.html
+https://www.elastic.co/guide/en/elasticsearch/reference/7.3/configuring-tls.html#configuring-tls
+https://www.elastic.co/guide/en/elasticsearch/reference/7.3/certutil.html
+
+# 分析一下需求跟規格
+
+我們需要為每一個 node 生一組 certificate，把 client certificates 提供給其他 client，連入時會驗證 client 是否為 authenticated user。
+
+針對目前這個 single-node ELK stack，我們可能有幾種選擇
+
+* 簽一個 localhost，當然這個只能在 localhost 上的客戶端元件使用，別的 node 無法用這個連入
+* 簽一個 public DNS elk.chechiachang.com，可以在公開網路上使用，別人也可以使用這個DNS嘗試連入
+* 簽一個私有網域的 DNS，例如在 GCP 上可以使用[內部dns服務](https://cloud.google.com/compute/docs/internal-dns?hl=zh-tw)
+  * 長這樣 elk.asia-east1-b.c.chechiachang.internal
+  * [INSTANCE_NAME].[ZONE].c.[PROJECT_ID].internal
+* 一份 server certificate 中簽署複數個 site
+
+我們這邊選擇使用內部 dns，elk.asia-east1-b-c-chechaichang.internal，讓這個 single-node elk 只能透過內部網路存取。
+
+  * elasticsearch: elk.asia-east1-b.c.chechaichang.internal:9200
+  * kibana: elk.asia-east1-b.c.chechaichang.internal:5601
+  * 外部要連近來 kibana，我們使用 vpn 服務連進私有網路
+
+如果想使用外部 dns，讓 elk stack 在公開網路可以使用，ex. elk.chechiachang.com，可以
+
+  * GCP 的 load balancer掛進來，用 GCP 的 certificate manager 自動管理 certificate
+  * 或是在 node 上開一個 nginx server，再把 certificate 用 certbot 生出來
+
 # Generate certificates
 
-先把 X.509 digital certificate 的 certificate authority(CA) 生出來，由於生出來的 .p12 檔案格式，裡頭除了憑證(public cerficiate)以外還包含私鑰，我們可以設定密碼保護這個檔案
+先把 X.509 digital certificate 的 certificate authority(CA) 生出來。我們可以設定密碼保護這個檔案
 
 ```
 mkdir -p /etc/elasticsearch/config
@@ -192,11 +225,17 @@ mkdir -p /etc/elasticsearch/config
   -out /etc/elasticsearch/config/elastic-stack-ca.p12
 ```
 
-生出來是 PKCS#12 格式，包含：
+生出來是 PKCS#12 格式的 keystore，包含：
 
 * CA 的 public certificate
 * CA 的基本資訊
-* 簽署 certificates 使用的私鑰(private key)
+* 簽署其他 node certificates 使用的私鑰(private key)
+
+用 openssl 工具看一下內容，如果有密碼這邊要用密碼解鎖
+
+```
+$ openssl pkcs12 -in /etc/elasticsearch/config/elastic-stack-ca.p12 -info -nokeys
+```
 
 附帶說明，X.509 有多種檔案格式
 
@@ -206,57 +245,23 @@ mkdir -p /etc/elasticsearch/config
 * .p7b, .p7c
 * ...
 
-另外檔案格式可以有其他用途，也就是說裡面裝的不一定是 X.509 憑證
+另外檔案格式可以有其他用途，也就是說裡面裝的不一定是 X.509 憑證。裡面的內容也不同。
 
 ELK 設定的過程中，由於不是所有的 ELK component 都支援使用 .p12 檔案，我們在設定過程中會互相專換，或是混用多種檔案格式。
 
-# 簡單講一下 certificate
+# Generate certificate
 
-* X.509 是公鑰憑證(public key certificate) 的一套標準，用在很多網路通訊協定 (包含 TLS/SSL)
-* certificate 包含公鑰及識別資訊(hostname, organization, ...等資訊)
-* certificate 是由 certificate authority(CA) 簽署，或是自簽(Self-signed)
-* 使用 browser 連入 https server時，會檢查 server 的 certificate 是否有效，確定這個 server 真的是合法的 site
+我們用 elastic-stack-ca.p12 這組 keystore裡面的 CA 與 private key，為 elk.asia-east1-b.c.chechiachang.internal 簽一個 p12 keystore，裡面有
 
-* 在 elastic stack 上，如果有多個 elasticsearch server node 彼此連線，由於 node 彼此是 client 也是 server
-  * 使用 self-signed CA 產出來的 certificate，連入時會檢查使用的 certificate 是否由同一組 CA 簽署
-  * server 使用 certificate，確定連入 server 的 client 都帶有正確的私鑰與 public certificate，是 authenticated user
+* node certificate
+* node key
+* CA certificate
 
----
+這邊只產生一組 server certificate 給 single-node cluster 的 node-1
 
-# 分析一下需求跟規格
+如果 cluster 中有多個 elasticsearch，為每個 node 產生 certificate 時都要使用同樣 CA 來簽署，讓 server 信任這組 CA。
 
-我們需要為每一個 node 生一組 certificate，把 client side certificates提供給其他 client，連入時會驗證 client 是否合法。針對目前這個 single-node ELK stack，我們可能有幾種選擇
-
-* 簽一個 localhost，當然這個只能在 localhost 上的客戶端元件使用，別的 node 無法用這個連入
-* 簽一個 public DNS elk.chechiachang.com，可以在公開網路上使用，別人也可以使用這個DNS嘗試連入
-* 簽一個私有網域的 DNS，例如在 GCP 上可以使用[內部dns服務](https://cloud.google.com/compute/docs/internal-dns?hl=zh-tw)
-  * 長這樣 elk.asia-east1-b.c.chechiachang-elk.internal
-  * [INSTANCE_NAME].[ZONE].c.[PROJECT_ID].internal
-
-我們這邊選擇使用內部 dns，elk.asia-east1-b-c-chechaichang-elk.internal，讓這個 single-node elk 只能透過內部網路存取
-
-  * elasticsearch: elk.asia-east1-b.c.chechaichang.internal:9200
-  * kibana: elk.asia-east1-b.c.chechaichang.internal:5601
-  * 外部要連近來 kibana，我們使用 vpn 服務連進私有網路
-  * (Optional) 如果真的很想使用外部 dns，elk.chechiachang.com，可以使用
-    * GCP 的 load balancer掛進來，用 GCP 的 certificate manager 自動管理 certificate
-    * 或是在 node 上開一個 nginx server，再把 certificate 用 certbot 生出來
-
----
-
-# 開始設定
-
-一堆官方文件，我們先跳過XD
-
-https://www.elastic.co/guide/en/elastic-stack-overview/7.3/elasticsearch-security.html
-https://www.elastic.co/guide/en/elastic-stack-overview/7.3/ssl-tls.html
-https://www.elastic.co/guide/en/elasticsearch/reference/7.3/configuring-tls.html#configuring-tls
-https://www.elastic.co/guide/en/elasticsearch/reference/7.3/certutil.html
-
-### Generate certificate
-
-CA 已經剛剛產生完了，在 /etc/elasticsearch/config/elastic-stack-ca.p12，裡面有 CA 的 public certificate 與 private key，用來為 node 簽 certificate
-我們用這組 CA ，為 elk.asia-east1-b.c.chechiachang.internal 簽一個 p12 keystore，裡面有 node certificate, node key, & CA certificate.
+使用 elasticsearch-certutil 簡化簽署過程，從產生 CA ，到使用 CA 簽署 certificate。另外，再產生 certificate 中使用 Subject Alternative Name(SAN)，並輸入 ip 與 dns。
 
 ```
 # certificate for site: private dns with Elastic CA
@@ -265,22 +270,20 @@ CA 已經剛剛產生完了，在 /etc/elasticsearch/config/elastic-stack-ca.p12
   --name elk.asia-east1-b.c.chechaichang.internal \
   --dns elk.asia-east1-b.c.chechaichang.internal \
   --ip 10.140.0.10 \
-  -out /etc/elasticsearch/config/elastic-certificates.p12
+  -out /etc/elasticsearch/config/node-1.p12
 ```
 
-輸出在 /etc/elasticsearch/config/elastic-certificates.p12
-
-用 openssl 工具看一下內容，如果有密碼這邊要用密碼解鎖
+用 openssl 看一下內容，如果有密碼這邊要用密碼解鎖
 
 ```
-# check certificate info
-openssl pkcs12 -in /etc/elasticsearch/config/elastic-certificates.p12 -info -nokeys
+$ openssl pkcs12 -in /etc/elasticsearch/config/node-1.p12 -info -nokeys
 ```
 
-因為我們這邊只有一個 single-node ，伺服器端用這個 certificate ，啟用 ssl。
-客戶端，去使用這個 certificate 產生出來的，客戶端使用 client.cer 與 client.key 與 server 連線，server 才接受客戶端是安全的。
+server 用這個 certificate ，啟用 ssl。
 
-如果是用 root 權限操作，記得把所有權還給 elasticsearch 的使用者，避免 permission denied
+client 使用這個 certificate 產生出來的 client.cer 與 client.key 與 server 連線，server 才接受客戶端是安全的。
+
+記得把所有權還給 elasticsearch 的使用者，避免 permission denied
 
 ```
 # Change owner to fix read permission
@@ -294,9 +297,11 @@ chown -R elasticsearch:elasticsearch /etc/elasticsearch/config
 /usr/share/elasticsearch/bin/elasticsearch-keystore add xpack.security.transport.ssl.truststore.secure_password
 ```
 
-### 更新 elasticsearch 設定
+關於 [X.509 Certifcate 之後有空我們來聊一下這篇]()
 
-Certificates 都生完了，接下來把 elasticsearch 的參數改一改
+# 更新 elasticsearch 設定
+
+Certificates 都生完了，接下來更改 elasticsearch 的參數，在 transport layer 啟用 ssl。啟用 security 後，在 transport layer 啟動 ssl 是必須的。
 
 ```
 $ sudo vim /etc/elasticsearch/elasticsearch.yml
@@ -305,11 +310,11 @@ xpack.security.enabled: true
 xpack.security.transport.ssl.enabled: true
 # use certificate. full will verify dns and ip
 xpack.security.transport.ssl.verification_mode: certificate
-xpack.security.transport.ssl.keystore.path: /etc/elasticsearch/config/elastic-certificates.p12
-xpack.security.transport.ssl.truststore.path: /etc/elasticsearch/config/elastic-certificates.p12
+xpack.security.transport.ssl.keystore.path: /etc/elasticsearch/config/node-1.p12
+xpack.security.transport.ssl.truststore.path: /etc/elasticsearch/config/node-1.p12
 ```
 
-啟用 security 與 transport layer 的 ssl，然後指定 keystore路徑，讓 server 使用這個驗證連入 client authentication
+啟用 security 與 transport layer 的 ssl，然後指定 keystore路徑，讓 server 執行 client authentication
 由於這筆 p12 帶有 CA certificate 作為 trusted certificate entry，所以也可以順便當作 trustore，讓 client 信任這個 CA
 
 security 這邊提供了 server side (elasticsearch) 在檢查客戶端連線時的檢查模式(vertification mode)，[文件有說明](https://www.elastic.co/guide/en/elasticsearch/reference/current/security-settings.html#ssl-tls-settings)，可以設定 
@@ -317,14 +322,14 @@ security 這邊提供了 server side (elasticsearch) 在檢查客戶端連線時
 * certificate: 檢查 certificate 加密是否有效
 * full: 簽 node certificate 時可以指定 ip dns，啟用會檢查來源 node ip dns 是否也正確
 
-HTTP 也開起來
+(Optional) HTTP layer 啟動 ssl
 
 ```
 vim /etc/elasticsearch/elasticsearch.yml
 
 xpack.security.http.ssl.enabled: true
-xpack.security.http.ssl.keystore.path: /etc/elasticsearch/config/elastic-certificates.p12
-xpack.security.http.ssl.truststore.path: /etc/elasticsearch/config/elastic-certificates.p12
+xpack.security.http.ssl.keystore.path: /etc/elasticsearch/config/node-1.p12
+xpack.security.http.ssl.truststore.path: /etc/elasticsearch/config/node-1.p12
 
 /usr/share/elasticsearch/bin/elasticsearch-keystore add xpack.security.http.ssl.keystore.secure_password
 /usr/share/elasticsearch/bin/elasticsearch-keystore add xpack.security.http.ssl.truststore.secure_password
@@ -337,7 +342,7 @@ sudo systemctl restart elasticsearch
 tail -f /var/log/elasticsearch/elasticsearch.log
 ```
 
-然後你就發現，原來 kibana 連入連線，不斷被 server 這端拒絕。所以以下要來設定 kibana
+然後你就發現，原來 kibana 連入 的 http 連線，不斷被 server 這端拒絕。所以以下要來設定 kibana
 
 ---
 
@@ -346,14 +351,27 @@ tail -f /var/log/elasticsearch/elasticsearch.log
 https://www.elastic.co/guide/en/kibana/7.3/using-kibana-with-security.html
 https://www.elastic.co/guide/en/kibana/7.3/configuring-tls.html
 
-使用剛剛簽的 server certificate，從裡面 parse 出 client-ca.cer，還有 client.cer 與 client.key，給 client 做 authentication
+使用剛剛簽的 server certificate，從裡面 parse 出 client-ca.cer，還有 client.cer 與 client.key
 
 ```
 mkdir -p /etc/kibana/config
 
-openssl pkcs12 -in /etc/elasticsearch/config/elastic-certificates.p12 -nocerts -nodes > /etc/kibana/config/client.key
-openssl pkcs12 -in /etc/elasticsearch/config/elastic-certificates.p12 -clcerts -nokeys > /etc/kibana/config/client.cer
-openssl pkcs12 -in /etc/elasticsearch/config/elastic-certificates.p12 -cacerts -nokeys -chain > /etc/kibana/config/client-ca.cer
+$ openssl pkcs12 --help
+Usage: pkcs12 [options]
+Valid options are:
+ -chain              Add certificate chain
+ -nokeys             Don't output private keys
+ -nocerts            Don't output certificates
+ -clcerts            Only output client certificates
+ -cacerts            Only output CA certificates
+ -info               Print info about PKCS#12 structure
+ -nodes              Don't encrypt private keys
+ -in infile          Input filename
+
+# no certs, no descript
+openssl pkcs12 -in /etc/elasticsearch/config/node-1.p12 -nocerts -nodes > /etc/kibana/config/client.key
+openssl pkcs12 -in /etc/elasticsearch/config/node-1.p12 -clcerts -nokeys > /etc/kibana/config/client.cer
+openssl pkcs12 -in /etc/elasticsearch/config/node-1.p12 -cacerts -nokeys -chain > /etc/kibana/config/client-ca.cer
 
 sudo chown -R kibana:kibana /etc/kibana/config/
 ```
@@ -371,9 +389,10 @@ elasticsearch.ssl.certificateAuthorities: [ "/etc/kibana/config/client-ca.cer" ]
 elasticsearch.ssl.verificationMode: full
 ```
 
-注意這邊 elasticsearch.hosts 我們已經從 http://localhost 換成 https 的內部 dns，原有的 localhost 已經無法使用（如果 elasicsearch 有 enforce https 的話）
+* 指定 ssl.certificate, ssl.key 做連線 elasticsearch server 時的 user authentication
+* 由於我們是 self-signed CA，所以需要讓客戶端信任這個我們自簽的 CA
 
-把 ca 餵給客戶端，讓客戶端信任這個我們自簽的 CA，並指定連線時 authentication 使用的 key 與 cer
+注意這邊 elasticsearch.hosts 我們已經從 http://localhost 換成 https 的內部 dns，原有的 localhost 已經無法使用（如果 elasicsearch 有 enforce https 的話）
 
 重啟 Kibana，看一下 log
 
@@ -386,27 +405,32 @@ journalctl -fu kibana
 
 然而，除了 kibana 以外，我們還有其他的 client 需要連入 elasticsearch
 
-* 我們還需要把上述步驟在 apm-server, filebeat, 其他的 beat 上也設定
-* 如果在 k8s 上，要把 certificate 等檔案用 volume 掛進去...(好苦)
-* 然後為了讓這些 client 能連入 kibana ，將 document tempalte 匯入 kibana，我們還需要
+* 把上述步驟在 apm-server, filebeat, 其他的 beat 上也設定
+* 如果在 k8s 上，要把 cer, key 等檔案用 volume 掛進去
 
-就是他們彼此互打，都要有 certificate(汗)，歡迎來到 https 的世界
+Kibana 本身也有 server 的功能，讓其他 client 連入。例如讓 filebeat 自動將 document tempalte 匯入 kibana，我們也需要設定 
 
-# 但基本上的設定都一樣，下面可以不用看下去了XD
+* kibana server certificate
+* filebeat client to kibana server
+
+就是他們彼此互打，都要有 ca, key, cert
+
+### 但基本上的設定都一樣，下面可以不用看下去了XD
 
 如果有用到再查文件就好，這邊直接小結
 
 * 設定 security 前要先想號自己的需求，如何連入，安全性設定到哪邊
-* 使用 utility 自簽 CA，然後產生 node certificates
-* 使用 node certificate 再 parse 出 ca-certificate, client cers, key
-
+* 使用 utility 自簽 CA，然後產生 server certificate
+* 使用 server certificate 再 parse 出 ca-certificate, client cers, key
 
 ---
 
 # kibana 作為 server
 
-kibana 連入 elasticsearch時， kibana 是 client 吃 elasticsearch 的憑證
-apm-server 連入 kibana時，kibana 是 server，要產生 server 憑證，然後parse 後餵給 apm-server(client)
+工作路徑可能是這樣： app(apm-client library) -> apm-server -> kibana -> elasticsearch
+
+* kibana 連入 elasticsearch時， kibana 是 client 吃 elasticsearch 的憑證
+* apm-server 連入 kibana時，kibana 是 server，apm-server 吃 kibana 的憑證
 
 首先更改 kibana 設定
 ```
@@ -422,16 +446,16 @@ server.ssl.key: /etc/kibana/config/client.key
 journalctl -fu kibana
 ```
 
----
-
 # Apm-server
 
 https://www.elastic.co/guide/en/apm/server/7.3/securing-apm-server.html
 
-apm-server 連入 kibana時，我們把 kibana 的憑證餵給 apm-server
-那應用端的 apm-client (ex. apm-python-client)，連入 apm-server
-* 在 http 的狀況下，可以只使用 secret-token(裸奔)
+應用端的 apm-client (ex. apm-python-client)，連入 apm-server
+
+* 在 http 的狀況下，雖然有使用 secret-token，但還是裸奔
 * 在 https 的狀況下，要把 certificates，然後餵給應用端的client library
+
+更改 apm-server 的設定
 
 ```
 sudo vim /etc/apm-server/apm-server.yml
@@ -445,13 +469,15 @@ host: "0.0.0.0:8200"
 kibana:
   protocol: "https"
   ssl.enabled: true
+
 output.kibana:
   enable: false # can only have 1 output
 output.elasticsearch:
+
 monitoring.elasticsearch:
   protocol: "https"
   username: "elastic"
-  password: ""
+  password: "*******************"
   hosts: ["elk.asia-east1-b.c.checahichang.internal:9200"]
   ssl.enabled: true
   ssl.verification_mode: full
@@ -466,6 +492,7 @@ systemctl restart apm-server
 journalctl -fu apm-server
 ```
 
+# APM library
 
 應用端的設定就需要依據 library 的實做設定，例如 flask-apmagent-python
 
@@ -475,11 +502,9 @@ ELASTIC_APM_SERVER_CERT=/etc/elk/certificates/client.cer
 
 [細節文件在此](https://www.elastic.co/guide/en/apm/agent/python/current/configuration.html#config-server-cert)
 
----
+# filebeat
 
-# 怎麼還有
-
-記得我們在 node 上有安裝 Self-monitoring filebeat，elasticsearch 改成 ssl 這邊當然也連不盡去了，再做同樣操作...
+記得我們在 node 上有安裝 Self-monitoring filebeat，elasticsearch 改成 ssl 這邊當然也連不盡去了，再做同樣操作
 
 https://www.elastic.co/guide/en/beats/filebeat/7.3/filebeat-reference-yml.html
 
@@ -487,9 +512,9 @@ https://www.elastic.co/guide/en/beats/filebeat/7.3/filebeat-reference-yml.html
 sudo apt-get install filebeat
 
 mkdir -p /etc/filebeat/config
-openssl pkcs12 -in /etc/elasticsearch/config/elastic-certificates.p12 -nocerts -nodes > /etc/filebeat/config/client.key
-openssl pkcs12 -in /etc/elasticsearch/config/elastic-certificates.p12 -clcerts -nokeys > /etc/filebeat/config/client.cer
-openssl pkcs12 -in /etc/elasticsearch/config/elastic-certificates.p12 -cacerts -nokeys -chain > /etc/filebeat/config/client-ca.cer
+openssl pkcs12 -in /etc/elasticsearch/config/node-1.p12 -nocerts -nodes > /etc/filebeat/config/client.key
+openssl pkcs12 -in /etc/elasticsearch/config/node-1.p12 -clcerts -nokeys > /etc/filebeat/config/client.cer
+openssl pkcs12 -in /etc/elasticsearch/config/node-1.p12 -cacerts -nokeys -chain > /etc/filebeat/config/client-ca.cer
 ```
 
 Restart filebeat
@@ -507,9 +532,9 @@ journalctl -fu filebeat
 ```
 
 mkdir -p /etc/beats/config
-openssl pkcs12 -in /etc/elasticsearch/config/elastic-certificates.p12 -nocerts -nodes > /etc/beats/config/client.key
-openssl pkcs12 -in /etc/elasticsearch/config/elastic-certificates.p12 -clcerts -nokeys > /etc/beats/config/client.cer
-openssl pkcs12 -in /etc/elasticsearch/config/elastic-certificates.p12 -cacerts -nokeys -chain > /etc/beats/config/client-ca.cer
+openssl pkcs12 -in /etc/elasticsearch/config/node-1.p12 -nocerts -nodes > /etc/beats/config/client.key
+openssl pkcs12 -in /etc/elasticsearch/config/node-1.p12 -clcerts -nokeys > /etc/beats/config/client.cer
+openssl pkcs12 -in /etc/elasticsearch/config/node-1.p12 -cacerts -nokeys -chain > /etc/beats/config/client-ca.cer
 
 gcloud compute scp elk:/etc/beats/config/* .
  client-ca.cer
