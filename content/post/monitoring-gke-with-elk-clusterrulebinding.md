@@ -1,0 +1,51 @@
+---
+title: "Monitoring Gke With Elk - clusterrulebinding"
+subtitle: ""
+summary: ""
+authors: []
+tags: []
+categories: []
+date: 2019-09-10T17:06:29+08:00
+lastmod: 2019-09-10T17:06:29+08:00
+featured: false
+draft: false
+---
+
+```
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: elk
+subjects:
+- kind: ServiceAccount
+  name: elk
+  namespace: elk
+roleRef:
+  kind: ClusterRole
+  name: elk
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  name: elk
+  labels:
+    k8s-app: elk
+rules:
+- apiGroups: [""] # "" indicates the core API group
+  resources:
+  - namespaces
+  - pods
+  verbs:
+  - get
+  - watch
+  - list
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: elk
+  namespace: elk
+  labels:
+    k8s-app: elk
+```
