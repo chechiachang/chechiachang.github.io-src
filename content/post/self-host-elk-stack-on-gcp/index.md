@@ -42,8 +42,8 @@ image:
 
 - [Self-host ELK stack on GCP]({{< ref "/post/self-host-elk-stack-on-gcp" >}})
 - [Secure ELK Stask]({{< ref "/post/secure-elk-stack" >}})
-- 監測 Google Compute Engine 上服務的各項數據
-- 監測 Google Kubernetes Engine 的各項數據
+- [監測 Google Compute Engine 上服務的各項數據]({{< ref "/post/monitoring-gce-with-elk" >}})
+- [監測 Google Kubernetes Engine 的各項數據]({{<ref "/post/monitoring-gke-with-elk" >}})
 - 使用 logstash pipeline 做數據前處理
 - Elasticsearch 日常維護：數據清理，效能調校，永久儲存
 - Debug ELK stack on GCP

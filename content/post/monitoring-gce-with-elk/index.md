@@ -28,8 +28,21 @@ image:
 projects: []
 ---
 
-Filebeat
-===
+[2020 It邦幫忙鐵人賽](https://ithelp.ithome.com.tw/2020ironman) 系列文章
+
+- [Self-host ELK stack on GCP]({{< ref "/post/self-host-elk-stack-on-gcp" >}})
+- [Secure ELK Stask]({{< ref "/post/secure-elk-stack" >}})
+- [監測 Google Compute Engine 上服務的各項數據]({{< ref "/post/monitoring-gce-with-elk" >}})
+- [監測 Google Kubernetes Engine 的各項數據]({{<ref "/post/monitoring-gke-with-elk" >}})
+- 使用 logstash pipeline 做數據前處理
+- Elasticsearch 日常維護：數據清理，效能調校，永久儲存
+- Debug ELK stack on GCP
+
+作為範例的 ELK 的版本是當前的 stable release 7.3.1。
+
+由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。
+
+---
 
 ELK 的 beats 是輕量級的系統監測收集器，beats 收集到的 data 經過 mapping 可以送到 Elasticsearch 後，進行彈性的搜尋比對。
 
