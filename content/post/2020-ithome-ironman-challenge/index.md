@@ -55,13 +55,12 @@ image:
 - ELK Stask on GCP (8)
   - [Self-host ELK stack on GCP]({{< ref "/post/self-host-elk-stack-on-gcp" >}})
   - [Secure ELK Stask]({{< ref "/post/secure-elk-stack" >}})
-  - ELK Stask 的安全性連線(TLS/HTTP2) 設定
-  - 監測 Google Compute Engine 上服務的各項數據
-  - 監測 Google Kubernetes Engine 的各項數據
-  - 使用 logstash pipeline 做數據前處理
+  - [監測 Google Compute Engine 上服務的各項數據]({{< ref "/post/monitoring-gce-with-elk" >}})
+  - [監測 Google Kubernetes Engine 的各項數據]({{<ref "/post/monitoring-gke-with-elk" >}})
+  - [是否選擇 ELK 作為解決方案]({{< ref "/post/elastic-or-not-elastic" >}})
+  - [使用 logstash pipeline 做數據前處理]({{< ref "/post/logstash-on-gke" >}})
   - Elasticsearch 日常維護：數據清理，效能調校，永久儲存
-  - 於 GKE 上為 ELK stack 除錯
-  - 我們為何不使用 Elastic Cloud Sass 方案
+  - Debug ELK stack on GCP
 - GKE 維運心得 (5)
   - 我的 Kubernetes 除錯流程
   - Kubectl cheat sheet
