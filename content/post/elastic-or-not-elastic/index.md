@@ -2,8 +2,8 @@
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
 title: "ELK or Not ELK"
-subtitle: "ELK or Not ELK"
-summary: "ELK or Not ELK"
+subtitle: ""
+summary: ""
 authors: []
 tags: []
 categories: []

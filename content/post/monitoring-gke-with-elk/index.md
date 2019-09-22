@@ -2,8 +2,8 @@
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
 title: "Monitoring GKE With Elk"
-subtitle: "Monitoring GKE With Elk"
-summary: "Monitoring GKE With Elk"
+subtitle: ""
+summary: ""
 authors: []
 tags: ["kubernetes", "elk", "filebeat", "fluentd", "log", "daemonsets", "pod-affinity"]
 categories: []

@@ -1,6 +1,6 @@
 +++
 title = "Operator With Operator SDK"
-subtitle = "Operator with Operator SDK"
+subtitle = ""
 
 # Add a summary to display on homepage (optional).
 summary = ""

@@ -1,14 +1,14 @@
 ---
 title: "X.509 certificate"
-subtitle: "X.509 certificate"
-summary: "X.509 certificate"
+subtitle: ""
+summary: ""
 authors: []
 tags: ["elk", "https", "ssl", "tls", "xpack", "kubernetes"]
 categories: []
 date: 2019-09-17T10:15:36+08:00
 lastmod: 2019-09-17T10:15:36+08:00
 featured: false
-draft: true
+draft: false
 ---
 
 # 簡單講一下 certificate

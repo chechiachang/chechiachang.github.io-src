@@ -2,8 +2,8 @@
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
 title: "Monitoring GCE With ELK"
-subtitle: "Monitoring GCE with ELK"
-summary: "Monitoring GCE with ELK"
+subtitle: ""
+summary: ""
 authors: []
 tags: []
 categories: []

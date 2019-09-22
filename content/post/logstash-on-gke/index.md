@@ -2,8 +2,8 @@
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
 title: "Logstash on GKE"
-subtitle: "Logstash on GKE"
-summary: "Logstash on GKE"
+subtitle: ""
+summary: ""
 authors: []
 tags: []
 categories: []

@@ -1,6 +1,6 @@
 ---
 title: "2020 IT邦幫忙鐵人賽"
-subtitle: "2020 IT邦幫忙鐵人賽"
+subtitle: ""
 
 # Add a summary to display on homepage (optional).
 summary: "2020 IT邦幫忙鐵人賽"

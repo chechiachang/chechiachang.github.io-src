@@ -2,8 +2,8 @@
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
 title: "Secure Elk Stack"
-subtitle: "Secure ELK stack"
-summary: "Secure ELK stack"
+subtitle: ""
+summary: ""
 authors: []
 tags: ["elk", "tls", "xpack", "kubernetes"]
 categories: []

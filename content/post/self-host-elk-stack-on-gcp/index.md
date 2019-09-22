@@ -1,9 +1,9 @@
 ---
 title: "Self-host ELK stack - Installation"
-subtitle: "Self-host ELK stack - Installation"
+subtitle: ""
 
 # Add a summary to display on homepage (optional).
-summary: "Self-host ELK stack on GCP - Installation"
+summary: ""
 
 date: 2019-09-15T11:43:03+08:00
 draft: false
