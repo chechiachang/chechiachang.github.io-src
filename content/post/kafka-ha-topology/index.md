@@ -72,9 +72,9 @@ projects: []
 
 ### Topology
 
-需要將 zookeeper 放在不同的機器上，不同的網路環境，甚至是不同的雲平台區域上，以承受不同繩故的故障。例如區域性的網路故障。
+需要將 zookeeper 放在不同的機器上，不同的網路環境，甚至是不同的雲平台區域上，以承受不同程度的故障。例如單台機器故障，或是區域性的網路故障。
 
-我們這邊會使用 Kubernetes PodAntiAffinity，讓 scheduler 在部屬時，必須將 zookeeper 分散到不同的機器上。設定如下：
+我們這邊會使用 Kubernetes PodAntiAffinity，要求 scheduler 在部屬時，必須將 zookeeper 分散到不同的機器上。設定如下：
 
 ```
 vim values-staging.yaml
@@ -129,8 +129,8 @@ Zookeeper 對於資料一致性，有這些保障 [Consistency Guarantees](https
 * 原子性：資料更新只有成功或失敗，沒有部份效果
 * 系統一致性：可戶端連到 server 看到的東西都是一樣，無關連入哪個 server
 * 可靠性：
-  * 可戶端的更新請求，一但收到回覆更新成功，便會持續保存狀態。某些錯誤會造成客戶端收不到回覆，這邊就無法確保 server 上的狀態使否被更新了，或是請求遺失了。
-  * 從客戶讀取到的資料都是以確認的資料，不會因為 server 故障回滾而回到舊的狀態
+  * 客戶端的更新請求，一但收到 server 回覆更新成功，便會持續保存狀態。某些錯誤會造成客戶端收不到回覆， 可能是網路問題，或是 server 內部問題，這邊就無法確定 server 上的狀態，是否被更新了，或是請求已經遺失了。
+  * 從客戶讀取到的資料都是以確認的資料，不會因為 server 故障回滾(Roll back)而回到舊的狀態
 
 # Kafka 的設定
 
@@ -206,6 +206,7 @@ configurationOverrides:
 kafka 預設使用複本，所有機制與設計都圍繞著複本。如果（因為某些原因）不希望使用複本，可將 replication factor 設為 1。
 
 replication 的單位是 topic partition，正常狀況下
+
 * 一個 partition 會有一個 leader，以及零個或以上個 follower
 * leader + follower 總數是 replication factor
 * 所有讀寫都是對 leader 讀寫
@@ -214,11 +215,13 @@ replication 的單位是 topic partition，正常狀況下
 ### Election & Load balance
 
 通常一個 topic 會有多個 partition，也就是說，每個 topic 會有多個 partition leader，分散負載
-* 通常 topic partition 的總數會比 broker 的數量多
-  * 以上一篇範例，我們有三個 kafka-0-broker 各自是一個 Pod
-  * 有 topic: ticker 跟預設的 `__consumer_offset__`，乘上 partition number 的設定值(N)，會有 2N 個 partitions
-  * partitiion 會有各自的複本，kafka 會盡量將相同 topic 的複本分散到不同 broker 上
-  * kafka 也會盡量維持 partition 的 leader 分散在不同的 broker 上，這個部分 kafka 會透過算法做 leader election，也可手動使用腳本做 [Balancing leadership](https://kafka.apache.org/documentation/#basic_ops_leader_balancing)
+
+通常 topic partition 的總數會比 broker 的數量多
+
+* 以上一篇範例，我們有三個 kafka-0-broker 各自是一個 Pod
+* 有 topic: ticker 跟預設的 `__consumer_offset__`，乘上 partition number 的設定值(N)，會有 2N 個 partitions
+* partitiion 會有各自的複本，kafka 會盡量將相同 topic 的複本分散到不同 broker 上
+* kafka 也會盡量維持 partition 的 leader 分散在不同的 broker 上，這個部分 kafka 會透過算法做 leader election，也可手動使用腳本做 [Balancing leadership](https://kafka.apache.org/documentation/#basic_ops_leader_balancing)
 
 總之，topic 的 partition 與 leader 會分散到 broker 上，維持 partition 的可用性。
 
