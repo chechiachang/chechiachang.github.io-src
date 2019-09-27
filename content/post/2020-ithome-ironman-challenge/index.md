@@ -66,12 +66,16 @@ image:
   - Kubectl cheat sheet
   - 使用 cert-manager 維護 TLS/HTTPS
   - 使用 redhat operator-sdk 初探 CRD 與 operator
-    - 我的 operator 範例分享
-- 在 GKE 上部署 Kafka HA (4)
-  - 使用 helm 部署 kafka-ha
-  - 集群內部的 HA 設定，網路設定
-  - 應用端的基本範例，效能調校
-  - 在 GKE 上維運 kafka
+  - 我的 operator 範例分享
+- Kafka HA on Kubernetes
+  - [Deploy kafka-ha]({{ ref "/post/kafka-deployment-on-kubernetes" }})
+  - [Kafka Introduction]({{ ref "/post/kafka-introduction" }})
+  - [kafka 基本使用]({{ ref "/post/kafka-basic-usage" }}) 
+  - [kafka operation scripts]({{ ref "/post/kafka-operation-script"}})
+  - [集群內部的 HA topology]({{ ref "/post/kafka-ha-topology" }})
+  - [集群內部的 HA 細節]({{ ref "/post/kafka-ha-continuerd" }})
+  - Prometheus Metrics Exporter 很重要
+  - 效能調校
 - 在 GKE 上部署 Redis HA (4)
   - 使用 helm 部署 redis-ha
   - 集群內部的 HA 設定，網路設定

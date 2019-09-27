@@ -45,7 +45,7 @@ projects: []
   - [kafka 基本使用]({{ ref "/post/kafka-basic-usage" }}) 
   - [kafka operation scripts]({{ ref "/post/kafka-operation-script"}})
   - [集群內部的 HA topology]({{ ref "/post/kafka-ha-topology" }})
-  - 集群內部的 HA 設定，網路設定
+  - [集群內部的 HA 細節]({{ ref "/post/kafka-ha-continuerd" }})
   - Prometheus Metrics Exporter 很重要
   - 效能調校
   

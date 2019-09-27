@@ -41,10 +41,11 @@ projects: []
   - Debug ELK stack on GCP
 - Kafka HA on Kubernetes
   - [Deploy kafka-ha]({{ ref "/post/kafka-deployment-on-kubernetes" }})
-  - 應用使用 kafka 的設定
-  - kafka utility scripts, topic operation, kafka benchmark
-  - 集群內部的 HA topology
-  - 集群內部的 HA 設定，網路設定
+  - [Kafka Introduction]({{ ref "/post/kafka-introduction" }})
+  - [kafka 基本使用]({{ ref "/post/kafka-basic-usage" }}) 
+  - [kafka operation scripts]({{ ref "/post/kafka-operation-script"}})
+  - [集群內部的 HA topology]({{ ref "/post/kafka-ha-topology" }})
+  - [集群內部的 HA 細節]({{ ref "/post/kafka-ha-continuerd" }})
   - Prometheus Metrics Exporter 很重要
   - 效能調校
   
