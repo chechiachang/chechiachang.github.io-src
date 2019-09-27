@@ -107,5 +107,39 @@ ISR 的狀態不放在 kafka 而放在 zookeeper 上，也就是目前哪些 nod
 
 kafka's approach 與 majority vote，在等待 message commit ack 上所花的成本是一樣的。 然而在 leader election 上，kafka 的 ISR 確保了更多個 eligiable leader 的數量，持續維持在合理的數量，而不會要維持大量個 redundency。ISR 放在外部，更方便 kafka 做 leader rebalance，增加穩定度。
 
-tradeoff
+# Unclean leader election
 
+如果 leaders 都死光了會怎樣？
+
+只要有一個 replica in-sync，Kafka 就保證資料的完整性。然而所有可用的 leaders 都死了，這個就無法保證。
+
+如果這個情形發生了，kafka 會做以下處理
+
+* 等 ISR 中有人完全回復過來，然後選這個 node 作為 leader(有資料遺失的風險)
+* 直接選擇第一個回覆的 node (不一定在 ISR 中)，先回覆的就指派為 leader
+
+前者犧牲 availability （回覆前沒有 leader 可作讀寫）來確保資料是來自 ISR，雖然錯誤中無法讀寫(downtime)，但可以確定錯誤前跟錯誤後的資料都來自 ISR
+
+後者犧牲 consistency （來自非 ISR 的 leader 可能導致資料不正確），然而卻能更快的從錯誤中回覆，減少 downtime
+
+0.11.0.0  後的 kafka 預設是選擇前者，也就是 consistency over availability，當然這可以在設定更改。
+
+# Availability and Durability Guarantees
+
+近一步考慮 client 的影響。
+
+Producer 在寫入時可以選擇 message 需要多少 acknowledge，0, 1 or all，ack=all 指的是 message 收到所有 in-sync replicas 的 ack
+
+* 如果 2 replicas 中有 1 個故障，這時寫入只要收到 1 個 ISR 的 ack，就達成 ack=all
+* 但如果不幸剩下一個 replicas 也死了 (0/0 ack)，寫入的資料就會遺失
+
+有些使用情境，會希望資料的耐用度(Durability)優先於可用性(Availability)，可以透過以下兩個方式設定
+
+* 禁用 unclean leader election，效果是如果所有的 replicas 都失效，則整個 partition 都失效，直到前一個 leader 回復正常。
+* 指定可接受的最少 ISR，如果 partition 中的 ISR 低於這個數量，就停止寫入這個 partition，直到 ISR 的數量回覆。
+
+這樣雖然犧牲了可用性，卻可以最大程度地確保資料的可靠性。
+
+# 複本管理
+
+上面的討論都只是再說一個 topic，實務中 kafka 中會有大量的 topic ，乘上 partition number 與 replication factor，成千上萬的複本分散在集群中，kafka 會試圖分散 replicas 到集群中，並讓 leader 的數量平均在 node 上
