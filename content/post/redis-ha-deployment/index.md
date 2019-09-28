@@ -44,6 +44,8 @@ projects: []
 
 對我的文章有興趣，歡迎到我的網站上 [https://chechiachang.github.io](https://chechiachang.github.io) 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。
 
+今天的文會比較短，因為我早上在綠島已經水肺潛水潛了三趟，有點累哈哈
+
 ![Exausted Cat Face](https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg)
 
 ---
@@ -57,7 +59,7 @@ Redis 另外提供了一個 solution [Redis cluster (multiple writer solution)](
 
 # Deploy
 
-我把我的寶藏都在這了[https://github.com/chechiachang/kafka-on-kubernetes](https://github.com/chechiachang/kafka-on-kubernetes)
+我把我的寶藏都在這了[https://github.com/chechiachang/go-redis-ha](https://github.com/chechiachang/go-redis-ha)
 
 下載下來的 .sh ，跑之前養成習慣貓一下
 ```
@@ -76,6 +78,10 @@ helm upgrade --install ${HELM_NAME} stable/redis-ha --version 3.6.1 -f values-st
 
 沒用過 helm 的大德可以參考 [Helm Quickstart](https://helm.sh/docs/using_helm/#quickstart)，先把 helm cli 與 kubernetes 上的 helm tiller 都設定好
 
+### Redis-ha
+
+[helm chart github](https://github.com/helm/charts/tree/master/stable/redis-ha)
+
 # Install
 
 這邊是用 upgrade --install，已安裝就 upgrade，沒安裝就 install，之後可以用這個指令升版
@@ -83,6 +89,40 @@ helm upgrade --install ${HELM_NAME} stable/redis-ha --version 3.6.1 -f values-st
 ```
 helm upgrade --install ${HELM_NAME} incubator/kafka --version 0.16.2 -f values-staging.yaml
 ```
+
+### values-staging
+
+完整的 values.yaml 在 [helm chart github](https://github.com/helm/charts/blob/master/stable/redis-ha/values.yaml)
+
+```
+image:
+  repository: redis
+  tag: 5.0.5-alpine
+  pullPolicy: IfNotPresent
+
+## replicas number for each component
+replicas: 3
+
+servers:
+  serviceType: ClusterIP  # [ClusterIP|LoadBalancer]
+  annotations: {}
+
+auth: true
+
+## Redis password
+## Defaults to a random 10-character alphanumeric string if not set and auth is true
+## ref: https://github.com/kubernetes/charts/blob/master/stable/redis-ha/templates/redis-auth-secret.yaml
+##
+#redisPassword:
+
+## Use existing secret containing key `authKey` (ignores redisPassword)
+existingSecret: redis-credentials
+
+## Defines the key holding the redis password in existing secret.
+authKey: auth
+```
+
+這邊有準備 secret/redis-credentials 裡面的 key[auth] 存放 redis 密碼，要連入的 pod 需要掛載 secret 並把 auth 匯入。
 
 ### Version
 
@@ -93,29 +133,21 @@ helm upgrade --install ${HELM_NAME} incubator/kafka --version 0.16.2 -f values-s
 * Redis Image:      redis:5.0.5-alpine
 * Redis exporter:   oliver006/redis_exporter:v0.31.0
 
-# Architecture
+安裝完變這樣
+```
+$ kubectl get po | grep redis
 
-- Pods
-  - redis-server-0-master (only read/write instance)
-  - redis-server-1-slave (readonly, master elagiable) 
-  - redis-server-2-slave (readonly, master elagiable) 
-  - ...
-  - haproxy server (stateless replica)
-  - haproxy server (stateless replica)
-  - ...
-  - [Client] redis-client app
-  - ...
-  - [Monitoring] redis-metrics-exporter (sidecar container with redis server)
-  - [Monitoring] haproxy-metrics-exporter (native supported by haproxy)
+NAME                                                     READY   STATUS      RESTARTS   AGE
+redis-2-redis-ha-server-0                                3/3     Running     0          3d4h
+redis-2-redis-ha-server-1                                3/3     Running     0          3d5h
+redis-2-redis-ha-server-2                                3/3     Running     0          3d4h
+```
 
-# Redis HA
+describe pod 可以看到裡面有三個 container
 
-We use stable/redis-ha with haproxy. Check [this doc] (TODO) to find why we use this.
-
-- Current
-  - chart version: 3.6.1 redis version: 5.0.5
-  - redis:5.0.5-alpine
-  - All pods are master elagible with auto failover
+* redis: 主要的 redis
+* sentinel: 維護 redis 可用性的服務，會監測 redis 狀態，並把連線指派到新的 master
+* redis-exporter: 把 redis 的運行資料(metrics) 送出到 promethues
 
 # Networking
 
@@ -126,15 +158,6 @@ redis-redis-ha              ClusterIP   None           <none>        6379/TCP,26
 redis-redis-ha-announce-0   ClusterIP   10.3.243.81    <none>        6379/TCP,26379/TCP            46m    app=redis-ha,release=redis,statefulset.kubernetes.io/pod-name=redis-redis-ha-server-0
 redis-redis-ha-announce-1   ClusterIP   10.3.250.151   <none>        6379/TCP,26379/TCP            46m    app=redis-ha,release=redis,statefulset.kubernetes.io/pod-name=redis-redis-ha-server-1
 redis-redis-ha-announce-2   ClusterIP   10.3.242.59    <none>        6379/TCP,26379/TCP            46m    app=redis-ha,release=redis,statefulset.kubernetes.io/pod-name=redis-redis-ha-server-2
-```
-
-### DNS
-
-```
-nslookup haproxy-service
-
-Name:      haproxy-service
-Address 1: 10.15.252.147 haproxy-service.default.svc.cluster.local
 ```
 
 ```
@@ -149,129 +172,44 @@ Name:      redis-redis-ha-server-1.redis-redis-ha.default.svc.cluster.local
 Address 1: 10.0.0.43 redis-redis-ha-server-1.redis-redis-ha.default.svc.cluster.local
 ```
 
-# Connect
+# 連線
 
-All standard connection to redis should get connection through haproxy. Haproxy will maintain tcp connection to current redis-master host.
+所有連線透過 redis-redis-ha service 連入
 ```
-redis-cli -h haproxy-service -p 6479 -a <password>
+redis-cli -h redis-redis-ha -p 6479 -a <password>
 ```
 
-Haproxy itself connect to redis using services for each redis instance pods. Check `haproxy.cfg` for configuration.
+或是直接指定 redis instance 連入。
 ```
 redis-cli -h redis-redis-ha-announce-0 -p 6479 -a <password>
 redis-cli -h redis-redis-ha-announce-1 -p 6479 -a <password>
 redis-cli -h redis-redis-ha-announce-2 -p 6479 -a <password>
 ```
 
-Connect through one service to all redis instances with loadbalancing. Since kubernetes servivce does not distinguish writable master from readonly slaves,
-there is no garantee to high availability (with only 1/3 change of sucess with 1 master and 2 slaves)
-DON'T USE THIS
+但上面兩者會有問題，redis 只有 master 是 writable，連入 slave 會變成 readonly，如果沒有任何 probe 機智，那就是每次連線時有 2/3 機率會連到 readonly 的 redis slave 。所以連線前要先找到正確的 master
+
+# Sentinel
+
+Sentinel 是 redis 官方提供的 HA solution，主要負責監控 redis 的狀態，並控制 redis master 的 failover 機制，一但超過 threshold，sentinel 就會把 master failover 到其他 slave 上。並把 master 連線指向新 master。
+
+redis sentinel 與 redis 使用相容的 api，直接使用 redis-cli 透過 26479 port 連入，可以連到 sentinel，透過 sentinel 可以取得 redis master 的狀態與連線設定。
 ```
-redis-cli -h redis-redis-ha -p 6479 -a <password>
-```
-
-# Auto Failover
-
-### Single Slave failure
-
-- [Client] Connection not affected
-- [Kubernetes] service liveness check fail
-- [Sentinel] notice a slave failure
-
-```
-# +sdown slave 10.3.243.81:6379 10.3.243.81 6379 @ mymaster 10.3.250.151 6379
-# -sdown sentinel 0c09a3866dba0f3b43ef2e383b5dc05980900fd8 10.3.243.81 26379 @ mymaster 10.3.250.151 6379
-# -sdown slave 10.3.243.81:6379 10.3.243.81 6379 @ mymaster 10.3.250.151 6379
+redis-cli -h redis-redis-ha -p 26479
 ```
 
-### Single Master failure
+# App 端支援 sentinel
 
-- [Kubernetes] service liveness check fail
-  - [Kubernetes] dns endpoints changed
-  - [Client] connect to another slave (read-only)
-- [Sentinel] liveness check fail
-  - [Sentinel] reach quorum and failover old master to new master from 1 of existing slave
+需要有支援 sentinel 的 redis client library，例如: python redis-py 有支援 sentinel 的設定。
 
-```
-# oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
-# Redis version=5.0.5, bits=64, commit=00000000, modified=0, pid=1, just started
-# Configuration loaded
-* Running mode=sentinel, port=26379.
-# WARNING: The TCP backlog setting of 511 cannot be enforced because /proc/sys/net/core/somaxconn is set to the lower value of 128.
-# Sentinel ID is e6be0f70406122877338f7c814b17a7c7b648d82
+這邊就會比較麻煩，因為不是所有的語言對 redis-sentinel 的支援性都夠好，或是沒辦法設定到妮旺使用的情境上。
 
-# +monitor master mymaster 10.3.243.81 6379 quorum 2
-* +slave slave 10.3.250.151:6379 10.3.250.151 6379 @ mymaster 10.3.243.81 6379
-* +sentinel sentinel 0c09a3866dba0f3b43ef2e383b5dc05980900fd8 10.3.243.81 26379 @ mymaster 10.3.243.81 6379
+如果你找得到支援性良好的套件，恭喜你。不然就像我們公司，與我們的需求有衝突，只好自己 fork library。
 
-# +new-epoch 4
-# +sdown slave 10.3.250.151:6379 10.3.250.151 6379 @ mymaster 10.3.243.81 6379
-# -sdown slave 10.3.250.151:6379 10.3.250.151 6379 @ mymaster 10.3.243.81 6379
-* +slave slave 10.3.242.59:6379 10.3.242.59 6379 @ mymaster 10.3.243.81 6379
-* +sentinel sentinel 31f8f52b34feaddcabdd6bf1827aeb02be44d2e3 10.3.242.59 26379 @ mymaster 10.3.243.81 6379
-# +sdown master mymaster 10.3.243.81 6379
-# +sdown sentinel 0c09a3866dba0f3b43ef2e383b5dc05980900fd8 10.3.243.81 26379 @ mymaster 10.3.243.81 6379
+所以說直接使用有支援 redis-sentinel 可能會遇到一些問題。那也沒有更好的解決方法？我們下次說明使用 HAproxy 的高可用方案。
 
-# +new-epoch 5
-# +vote-for-leader 31f8f52b34feaddcabdd6bf1827aeb02be44d2e3 5
-# +odown master mymaster 10.3.243.81 6379 #quorum 2/2
-# Next failover delay: I will not start a failover before Tue Jul  9 07:00:01 2019
-# +config-update-from sentinel 31f8f52b34feaddcabdd6bf1827aeb02be44d2e3 10.3.242.59 26379 @ mymaster 10.3.243.81 6379
-# +switch-master mymaster 10.3.243.81 6379 10.3.242.59 6379
-* +slave slave 10.3.250.151:6379 10.3.250.151 6379 @ mymaster 10.3.242.59 6379
-* +slave slave 10.3.243.81:6379 10.3.243.81 6379 @ mymaster 10.3.242.59 6379
-# +sdown slave 10.3.243.81:6379 10.3.243.81 6379 @ mymaster 10.3.242.59 6379
-# Executing user requested FAILOVER of 'mymaster'
-
-# +new-epoch 6
-# +try-failover master mymaster 10.3.242.59 6379
-# +vote-for-leader e6be0f70406122877338f7c814b17a7c7b648d82 6
-# +elected-leader master mymaster 10.3.242.59 6379
-# +failover-state-select-slave master mymaster 10.3.242.59 6379
-# +selected-slave slave 10.3.250.151:6379 10.3.250.151 6379 @ mymaster 10.3.242.59 6379
-* +failover-state-send-slaveof-noone slave 10.3.250.151:6379 10.3.250.151 6379 @ mymaster 10.3.242.59 6379
-* +failover-state-wait-promotion slave 10.3.250.151:6379 10.3.250.151 6379 @ mymaster 10.3.242.59 6379
-# +promoted-slave slave 10.3.250.151:6379 10.3.250.151 6379 @ mymaster 10.3.242.59 6379
-# +failover-state-reconf-slaves master mymaster 10.3.242.59 6379
-# +failover-end master mymaster 10.3.242.59 6379
-# +switch-master mymaster 10.3.242.59 6379 10.3.250.151 6379
-* +slave slave 10.3.243.81:6379 10.3.243.81 6379 @ mymaster 10.3.250.151 6379
-* +slave slave 10.3.242.59:6379 10.3.242.59 6379 @ mymaster 10.3.250.151 6379
-# +sdown slave 10.3.243.81:6379 10.3.243.81 6379 @ mymaster 10.3.250.151 6379
-# -sdown sentinel 0c09a3866dba0f3b43ef2e383b5dc05980900fd8 10.3.243.81 26379 @ mymaster 10.3.250.151 6379
-# -sdown slave 10.3.243.81:6379 10.3.243.81 6379 @ mymaster 10.3.250.151 6379
-```
-
-### 2/3 Master Failure
-
-- Get error: NOREPLICAS Not enough good replicas to write.
-- Whole redis become readonly for a while since there is no healthy mater
-- Might fail to auto-recover or loss data if sentinel lose quorum
-- Auto-recover
-- Become writable after the replica quorum requirements reached
-
-### Single Sentinel Failure
-
-
-### Haproxy Failure
-
-Since haproxy-server are stateless and working independently, haproxy-service should be fine as long as there is at least 1 healthy haproxy-server.
-Kubernetes will restart failed haproxy-server, and server will re-establish liveness checks and connection to redis instances.
-
-# Debug
-
-Run a client pod (ex. golang) with sleep command
-```
-kubectl run go-test --image golang:1.12.6-alpine3.10 --command sleep 36000
-kubectl exec -it go-test-xxxxxxxxx-xxxxx sh
-```
-
-Run a client pod (ex. python) with sleep command
-```
-kubectl run python-test --image python:3.6.5-alpine --command sleep 36000
-kubectl exec -it python-test-xxxxxxxxx-xxxxx sh
-```
 # Benchmark
+
+部署完後，可以跑一下 benchmark，看看在 kubernetes 上運行的效能有沒有符合需求。
 
 Run a redis pod with sleep command
 NOTE: CPU usage (rapidly) increasing during benchmark
