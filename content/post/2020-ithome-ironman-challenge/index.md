@@ -61,12 +61,6 @@ image:
   - [使用 logstash pipeline 做數據前處理]({{< ref "/post/logstash-on-gke" >}})
   - Elasticsearch 日常維護：數據清理，效能調校，永久儲存
   - Debug ELK stack on GCP
-- GKE 維運心得 (5)
-  - 我的 Kubernetes 除錯流程
-  - Kubectl cheat sheet
-  - 使用 cert-manager 維護 TLS/HTTPS
-  - 使用 redhat operator-sdk 初探 CRD 與 operator
-  - 我的 operator 範例分享
 - Kafka HA on Kubernetes
   - [Deploy kafka-ha]({{ ref "/post/kafka-deployment-on-kubernetes" }})
   - [Kafka Introduction]({{ ref "/post/kafka-introduction" }})
@@ -76,7 +70,7 @@ image:
   - [集群內部的 HA 細節]({{ ref "/post/kafka-ha-continuerd" }})
   - Prometheus Metrics Exporter 很重要
   - 效能調校
-- 在 GKE 上部署 Redis HA (4)
+- 在 GKE 上部署 Redis HA (5)
   - [使用 helm 部署 redis-ha]({{< ref "/post/redis-ha-deployment" >}})
   - [Redis HA with sentinel]({{< ref "/post/redis-ha-sentinel" >}})
   - [Redis sentinel topology]({{< ref "/post/redis-ha-topology" >}})
@@ -89,6 +83,12 @@ image:
   - 輸出 kubernetes 的監測數據
   - 輸出 redis-ha 的監測數據
   - 輸出 kafka 的監測數據
+- GKE 維運心得 (5)
+  - 我的 Kubernetes 除錯流程
+  - Kubectl cheat sheet
+  - 使用 cert-manager 維護 TLS/HTTPS
+  - 使用 redhat operator-sdk 初探 CRD 與 operator
+  - 我的 operator 範例分享
 - GCP 網路設定 (3)
   - 防火牆的私有網路基本設定
   - 配合 GKE 實現負載均衡
