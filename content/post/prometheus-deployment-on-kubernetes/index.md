@@ -42,6 +42,7 @@ categories = []
 
 - Prometheus / Grafana (5)
   - [GKE 上自架 Prometheus / Grafana]({{< ref "/posts/prometheus-deployment-on-kubernetes" >}})
+  - [GKE 上自架 Grafana 與設定]({{< ref "/posts/prometheus-deployment-on-kubernetes" >}})
   - 使用 exporter 監測 GKE 上的各項服務
   - 輸出 kubernetes 的監測數據
   - 輸出 redis-ha 的監測數據
@@ -95,6 +96,13 @@ categories = []
 
 如果要收集服務運行資料，可以直接選 prometheus。如果有收集 log 進行交叉比對，可以考慮 elk。
 
+### Helm
+
+我們這邊用 helm 部屬，之所以用 helm ，因為這是我想到最簡單的方法，能讓輕鬆擁有一套功能完整的 prometheus。所以我們先用。
+
+沒用過 helm 的大德可以參考 [Helm Quickstart](https://helm.sh/docs/using_helm/#quickstart)，先把 helm cli 與 kubernetes 上的 helm tiller 都設定好
+
+
 # Deploy Prometheus
 
 我把我的寶藏都放在這了[https://github.com/chechiachang/prometheus-kubernetes](https://github.com/chechiachang/prometheus-kubernetes)
@@ -111,19 +119,157 @@ helm upgrade --install ${HELM_NAME} stable/prometheus \
   --values values-staging.yaml
 ```
 
-### Helm
-
-我們這邊用 helm 部屬，之所以用 helm ，因為這是我想到最簡單的方法，能讓輕鬆擁有一套功能完整的 prometheus。所以我們先用。
-
-沒用過 helm 的大德可以參考 [Helm Quickstart](https://helm.sh/docs/using_helm/#quickstart)，先把 helm cli 與 kubernetes 上的 helm tiller 都設定好
+### Configuration
 
 [Prometheus Stable Chart](https://github.com/helm/charts/tree/master/stable/prometheus)
+
+values.yaml 很長，但其實各個元件設定是重複的,設定好各自的 image,
+replicas, service, topology 等等
+ 
+```
+alertmanager:
+  enabled: true
+
+kubeStateMetrics:
+  enabled: true
+
+nodeExporter:
+  enabled: true
+
+server:
+  enabled: true
+
+pushgateway:
+  enabled: true
+```
+
+底下有更多 runtime 的設定檔
+
+* 定義好 global 的 scrape 間距，越短 metrics 維度就越精準
+* PersistenVolume 強謝建議開起來，維持歷史的資料
+  * 加上 storage usage 的 self monitoring（之後會講) 才不會滿出來 server 掛掉
+* server 的 scrapeConfigs 是 server 去收集的 job 設定。稍後再來細講。
+
+```
+server:
+  global:
+    ## How frequently to scrape targets by default
+    ##
+    scrape_interval: 10s
+    ## How long until a scrape request times out
+    ##
+    scrape_timeout: 10s
+    ## How frequently to evaluate rules
+    ##
+    evaluation_interval: 10s
+  persistentVolume:
+    ## If true, Prometheus server will create/use a Persistent Volume Claim
+    ## If false, use emptyDir
+    ##
+    enabled: true
+
+    ## Prometheus server data Persistent Volume access modes
+    ## Must match those of existing PV or dynamic provisioner
+    ## Ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
+    ##
+    accessModes:
+      - ReadWriteOnce
+
+    ## Prometheus server data Persistent Volume annotations
+    ##
+    annotations: {}
+
+    ## Prometheus server data Persistent Volume existing claim name
+    ## Requires server.persistentVolume.enabled: true
+    ## If defined, PVC must be created manually before volume will be bound
+    existingClaim: ""
+
+    ## Prometheus server data Persistent Volume mount root path
+    ##
+    mountPath: /data
+
+    ## Prometheus server data Persistent Volume size
+    ##
+    size: 80Gi
+
+alertmanagerFiles:
+
+serverFiles:
+
+```
 
 部屬完看一下
 
 ```
-kubectl get po --selector='app=prometheus'
+kubectl get pods --selector='app=prometheus'
 
+NAME                                             READY   STATUS    RESTARTS   AGE
+prometheus-alertmanager-694d6694c6-dvkwd         2/2     Running   0          8d
+prometheus-kube-state-metrics-85f6d75f8b-7vlkp   1/1     Running   0          8d
+prometheus-node-exporter-2mpjc                   1/1     Running   0          8d
+prometheus-node-exporter-kg7fj                   1/1     Running   0          51d
+prometheus-node-exporter-snnn5                   1/1     Running   0          8d
+prometheus-pushgateway-5cdfb4979c-dnmjn          1/1     Running   0          8d
+prometheus-server-59b8b8ccb4-bplkx               2/2     Running   0          8d
 
+kubectl get services --selector='app=prometheus'
+
+NAME                            TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
+prometheus-alertmanager         ClusterIP   10.15.241.66   <none>        80/TCP     197d
+prometheus-kube-state-metrics   ClusterIP   None           <none>        80/TCP     197d
+prometheus-node-exporter        ClusterIP   None           <none>        9100/TCP   197d
+prometheus-pushgateway          ClusterIP   10.15.254.0    <none>        9091/TCP   197d
+prometheus-server               ClusterIP   10.15.245.10   <none>        80/TCP     197d
+
+kubectl get endpoints --selector='app=prometheus'
+
+NAME                            ENDPOINTS                                             AGE
+prometheus-alertmanager         10.12.6.220:9093                                      197d
+prometheus-kube-state-metrics   10.12.6.222:8080                                      197d
+prometheus-node-exporter        10.140.0.30:9100,10.140.0.9:9100,10.140.15.212:9100   197d
+prometheus-pushgateway          10.12.6.211:9091                                      197d
+prometheus-server               10.12.3.14:9090                                       197d
 ```
 
+簡單說明一下
+
+* prometheus-server 是主要的 api-server 以及 time series database
+* alertmanager 負責告警工作
+* pushgateway 提供 client 端主動推送 metrics 給 server 的 endpoint
+* kube-state-metrics 是開來收集 cluster wide 的 metrics, 像是 pods running counts, deployment ready count, total pods number 等等 metrics
+* node-exporter 是 daemonsets, 把每一個 node 的 metrics, 像是 memory, cpu, disk...等資料,收集出來
+
+主要服務存取就是透過 prometheus-server
+
+# Access Prometheus server
+
+除了直接 exec -it 進去 prometheus-server 以外，由於 prometheus 本身有提供 web portal, 所以我們這邊透過 port forwarding 打到本機上
+
+```
+PROMETHEUS_POD_NAME=$(kc get po -n default --selector='app=prometheus,component=server' -o=jsonpath='{.items[0].metadata.name}')
+
+kubectl --namespace default port-forward ${PROMETHEUS_POD_NAME} 9090
+```
+
+透過 browser 就可以連入操作
+
+```
+http://localhost:9090
+```
+
+也可以透過 [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) 用程式接入控制
+
+# Prometheus Web
+
+Prometheus 本慎提供的 UI 其實功能就很強大
+
+* 可以查到 (已經匯入存在) 的 metrics
+* 可以在上面執行 PromQL 查詢語法
+* 查詢運行的 status
+* 查詢目前所有收集的 targets 的狀態,有收集器掛了也可以在這邊看到
+
+# 小結
+
+* 輕鬆自架 prometheus
+* Prometheus 頁面有精簡，但是功能完整的 graph 製圖
+* 但大家通常會使用 Grafana 搭配使用, 用過都說讚, 我們明天繼續
