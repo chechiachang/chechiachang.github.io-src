@@ -77,10 +77,11 @@ image:
   - Prometheus Metrics Exporter 很重要
   - 效能調校
 - 在 GKE 上部署 Redis HA (4)
-  - 使用 helm 部署 redis-ha
-  - 集群內部的 HA 設定，網路設定
-  - 應用端的基本範例，效能調校
-  - 在 GKE 上維運 redis
+  - [使用 helm 部署 redis-ha]({{< ref "/post/redis-ha-deployment" >}})
+  - [Redis HA with sentinel]({{< ref "/post/redis-ha-sentinel" >}})
+  - [Redis sentinel topology]({{< ref "/post/redis-ha-topology" >}})
+  - [Redis HA with HAproxy]({{ ref "/post/redis-ha-on-haproxy" }})
+  - Prometheus Metrics Exporter
 - Prometheus / Grafana (5)
   - GKE 上自架 Prometheus / Grafana
   - 使用 exporter 監測 GKE 上的各項服務
