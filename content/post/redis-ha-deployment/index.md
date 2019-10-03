@@ -138,9 +138,9 @@ authKey: auth
 $ kubectl get po | grep redis
 
 NAME                                                     READY   STATUS      RESTARTS   AGE
-redis-2-redis-ha-server-0                                3/3     Running     0          3d4h
-redis-2-redis-ha-server-1                                3/3     Running     0          3d5h
-redis-2-redis-ha-server-2                                3/3     Running     0          3d4h
+redis-1-redis-ha-server-0                                3/3     Running     0          3d4h
+redis-1-redis-ha-server-1                                3/3     Running     0          3d5h
+redis-1-redis-ha-server-2                                3/3     Running     0          3d4h
 ```
 
 describe pod 可以看到裡面有三個 container
