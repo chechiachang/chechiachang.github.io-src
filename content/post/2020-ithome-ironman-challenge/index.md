@@ -81,6 +81,7 @@ image:
   - [Redis HA with sentinel]({{< ref "/post/redis-ha-sentinel" >}})
   - [Redis sentinel topology]({{< ref "/post/redis-ha-topology" >}})
   - [Redis HA with HAproxy]({{ ref "/post/redis-ha-on-haproxy" }})
+  - [Redis HA Failure Recovery]({{ ref "/post/redis-ha-failure-recovery" }})
   - Prometheus Metrics Exporter
 - Prometheus / Grafana (5)
   - GKE 上自架 Prometheus / Grafana
