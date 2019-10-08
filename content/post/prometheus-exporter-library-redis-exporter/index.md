@@ -6,7 +6,7 @@ subtitle = ""
 summary = ""
 
 date = 2019-10-06T8:12:10+08:00
-draft = true
+draft = false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
 authors = []
@@ -41,7 +41,7 @@ categories = []
 [2020 It邦幫忙鐵人賽](https://ithelp.ithome.com.tw/2020ironman) 系列文章
 
 - Prometheus / Grafana (5)
-  - [GKE 上自架 Prometheus / Grafana]({{< ref "/posts/prometheus-deployment-on-kubernetes" >}})
+  - [GKE 上自架 Prometheus / Grafana]({{< ref "/post/prometheus-deployment-on-kubernetes" >}})
   - GKE 上自架 Grafana 與設定
   - 使用 exporter 監測 GKE 上的各項服務
   - 輸出 redis-ha 的監測數據
