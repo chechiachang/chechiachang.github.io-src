@@ -57,9 +57,52 @@ categories = []
 
 ---
 
-https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/
+# 摘要
 
-Ingress
+* Nginx Ingress Controller 運作原理
+* 設定 Nginx Ingress Controller
+
+# 運作原理
+
+昨天講完 nginx ingress controller 部屬，今天來談談 controller 是如何運作的。
+
+* Nginx 使用 config file (nginx.conf) 做全域設定，為了讓 nginx 能隨 config file 更新，controller 要偵測 config file 變更，並且 reload nginx
+* 針對 upstream (後端 app 的 endpoint) 變更，使用 lua-nginx-module 來更新。因為 kubernetes 上，service 後的服務常常會動態的變更，scaling，但 endpint ip list 又需要更新到 nginx，所以使用 lua 額外處理
+
+在 kubernetes 上要如何做到上述兩件事呢?
+
+* 一般 controller 都使用同步 loop 來檢查 current state 是否與 desired state
+* desired state 使用 k8s object 描述，例如 ingress, services, configmap 等等 object
+* Nginx ingress controller 這邊使用的是 client-go 中的 Kubernetes Informer 的 [SharedInformer](https://godoc.org/k8s.io/client-go/informers#SharedInformerFactory)，可以根據 object 的更新執行 callback
+* 由於無法檢查每一次的 object 更動，是否對 config 產生影響，這邊直接每次更動都產生全新的 model
+* 如果新產生的 model 與現有相同，就跳過 reload
+* 如果 model 只影響 endpoint，使用 nginx 內部的 lua handler 產生新的 endpoint list，來避免因為 upstream 服務變更造成的頻繁 reload
+* 如果新 Model 影響不只 endpoint，則取代現有 model，然後觸發 reload
+
+
+具體會觸發 reload 的事件，[請見官方文件](https://kubernetes.github.io/ingress-nginx/how-it-works/#when-a-reload-is-required)
+
+除了監測 objects，build model，觸發 reload，之前 controller 還會將 ingress 送到 [kubernetes validating admission webhook server](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#validatingadmissionwebhook) 做驗證，避免描述 desired state 的 ingress 有 syntax error，導致整個 controller 爆炸。
+
+# Configuration
+
+要透過 controller 更改 nginx 設定，有以下三種方式
+
+* 更改 configmap，對全域的 controller 設定
+* 更改 ingress 上的 annotation，這些 annotation 針對獨立 ingress 生效
+* 有更深入的客製化，是上述兩者達不到或尚未實作，可以使用 [Custom Template](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/custom-template/) 來做到，把 nginx.tmpl mount 進 controller
+
+# Configmap 
+
+由於把全域設定放到 configmap 上，nginx ingress controller 非常好調度與擴展，[controller 官方說明文件](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/) 除了列出目前已經支援的設定外，也直接附上 nginx 官方的文件說明連結，讓使用者查詢時方便比對。
+
+當需要更改需求，可以 google nginx 的關鍵字，找到 nginx 上設定的功能選項後，來 controller 的文件，找看看目前是否已經支援。有時候有需要對照 nginx 官方文件，來正確設定 controller。
+
+# Annotation
+
+有很多 Nginx 的設定是根據 ingress 不同而有調整，例如針對這個 ingress 做白名單，設定 session，設定 ssl 等等，這些針對特定 ingress 所做的設定，可以直接寫在 [ingress annotation](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/) 裡面。
+
+例如下面這個 Ingress
 
 ```
 apiVersion: extensions/v1beta1
@@ -72,7 +115,7 @@ metadata:
     certmanager.k8s.io/cluster-issuer: letsencrypt-prod
     kubernetes.io/ingress.allow-http: "true"
     ingress.kubernetes.io/force-ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/whitelist-source-range: "{{ .Values.ingress.annotations.whitelistSourceRange }}"
+    nginx.ingress.kubernetes.io/whitelist-source-range: "34.35.36.37"
     nginx.ingress.kubernetes.io/proxy-body-size: "20m"
     ingress.kubernetes.io/proxy-body-size: "20m"
     # https://github.com/Shopify/ingress/blob/master/docs/user-guide/nginx-configuration/annotations.md#custom-nginx-upstream-hashing
@@ -85,3 +128,19 @@ metadata:
     nginx.ingress.kubernetes.io/session-cookie-expires: "3600"
     nginx.ingress.kubernetes.io/session-cookie-max-age: "3600"
 ```
+
+* nginx.ingress.kubernetes.io
+  * whitelist-source-range: 只允許白名單 ip
+  * load-balance: "ip_hash": 更改預設 round_robin 的 [load balance](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#load-balance)，為了做 session cookie
+  *  affinity: "cookie": 設定 upstream 的 [session affinity](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#session-affinity)
+  *  session-cookie-name: "route"
+  *  session-cookie-hash: "sha1"
+  *  session-cookie-expires: "3600"
+  *  session-cookie-max-age: "3600"
+
+
+如果後端 server 有 session 需求，希望相同 source ip 來的 request 能持續到相同的 endpoint。才做了以上設定。
+
+# helm configuration
+
+helm 的 configuration 也是重要的設定，這裡在安裝時決定了 nginx ingress controller 的 topology、replicas、resource、k8s runtime 設定如 healthz & readiness、其實都會影響 nginx 具體的設定。這部分就會有很多考量。有機會我們再來分享。
