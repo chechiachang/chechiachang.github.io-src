@@ -40,7 +40,7 @@ categories = []
 
 [2020 It邦幫忙鐵人賽](https://ithelp.ithome.com.tw/2020ironman) 系列文章
 
-這邊該了一些大綱，原本的內容還有一些 kubernetes 的設定，以及 GCP 相關服務的介紹。但既然我們的主題是把東西搬上 k8s 的踩雷旅程，那我們就繼續搬，繼續踩。剩下的時間大概會有四個題目。
+這邊改了一些大綱，原本的內容還有一些 kubernetes 的設定，以及 GCP 相關服務的介紹。但既然我們的主題是把東西搬上 k8s 的踩雷旅程，那我們就繼續搬，繼續踩。剩下的時間大概會有四個題目。
 
 - Nginx Ingress Controller
 - Cert-manager
