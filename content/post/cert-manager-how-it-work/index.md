@@ -74,11 +74,17 @@ Issuer 要怎麼翻成中文XD，憑證頒發機構？
 
 cert-manager 上可以定義單一 namespace 的 issuers.certmanager 與集群都可使用的 clusterissuers.certmanager
 
-有了簽發憑證的單位，接下來要定義如何取得 certificate
+cert-manager 有支援幾種的 issuer type
+
+* CA: 使用 x509 keypair 產生certificate，存在 kubernetes secret
+* Self signed: 自簽 certificate
+* ACME: 從 ACME (ex. Let's Encrypt) server 取得 ceritificate
+* Vault: 從 Vault PKI backend 頒發 certificate
+* Venafi: Venafi Cloud
 
 # Certificate
 
-certificates.certmanager.k8s.io 是 CRD，用來告訴 cert-manager 要如何取得 certificate
+有了簽發憑證的單位，接下來要定義如何取得 certificate。certificates.certmanager.k8s.io 是 CRD，用來告訴 cert-manager 要如何取得 certificate
 
 [certifcates.certmanager.k8s.io](https://docs.cert-manager.io/en/latest/reference/certificates.html#certificates) 提供了簡單範例
 
@@ -116,10 +122,114 @@ spec:
 * 與 certificate.certmanager 都放在相同 namespace 中，產生 certificate.certmanager 的時候要注意才不會找不到 secret
 * 這邊指定了 certificate 的有效期間與 renew 時間 (預設值)，有需要可以更改
 
+# 配合 Ingress 設置 tls
 
+有上述的設定，接下來可以請求 tls certificate
 
-* certificaterequests.certmanager.k8s.io 
-  * challenges.certmanager.k8s.io
-  * clusterissuers.certmanager.k8s.io
-  * issuers.certmanager.k8s.io
-  * orders.certmanager.k8s.io
+記得我們上篇 Nginx Ingress Controller 提到的 ingreess 設定嗎？這邊準備了一個適合配合 nginx ingress 使用的 tls 設定
+
+```
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: my-nginx-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/issuer: "letsencrypt-prod"
+
+spec:
+  tls:
+  - hosts:
+    - foo.example.com
+    secretName: my-nginx-ingrss-tls
+  rules:
+  - host: foo.example.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: chechiachang-backend
+          servicePort: 80
+```
+
+這個 ingress apply 後，就會根據 spec.tls 的 hosts 設定，自動產生一個 certificate.certmanager 資源，並在這個資源使用 letsencryp-prod。
+
+不用我們手動 apply 新的 ceritificate，這邊是 cert-manager 使用了 annotation 來觸發 [Ingress-shim](https://docs.cert-manager.io/en/latest/tasks/issuing-certificates/ingress-shim.html)，簡單來說，當 ingress 上有使用 cert-manager.io 的 annotation 時，cert-manager 就會根據 ingress 設定內容，抽出 spec.tls 與 isuer annotation，來產生同名的 certificates.certmanager，這個 certificateas.certmanager 會觸發接下的 certificate 頒發需求。
+
+只要部署 Issuer 與 Ingress 就可以自動產生 certificate。當然，希望手動 apply certificates.certmanager 也是行得通。
+
+把產生了 certificate.certmanager 拉出來看
+ 
+```
+kubectl describe certificate my-nginx-ingress
+
+ Name:         my-nginx-ingress
+ Namespace:    default
+ API Version:  cert-manager.io/v1alpha2
+ Kind:         Certificate
+ Metadata:
+   Cluster Name:
+   Creation Timestamp:  2019-10-10T17:58:37Z
+   Generation:          0
+   Owner References:
+     API Version:           extensions/v1beta1
+     Block Owner Deletion:  true
+     Controller:            true
+     Kind:                  Ingress
+     Name:                  my-nginx-ingress
+   Resource Version:        9295
+ Spec:
+   Dns Names:
+     example.your-domain.com
+   Issuer Ref:
+     Kind:       Issuer
+     Name:       letsencrypt-prod
+   Secret Name:  my-nginx-ingress-tls
+ Status:
+   Acme:
+     Order:
+       URL:  https://acme-prod-v02.api.letsencrypt.org/acme/order/7374163/13665676
+   Conditions:
+     Last Transition Time:  2019-10-10T18:05:57Z
+     Message:               Certificate issued successfully
+     Reason:                CertIssued
+     Status:                True
+     Type:                  Ready
+ Events:
+   Type     Reason          Age                From          Message
+   ----     ------          ----               ----          -------
+   Normal   CreateOrder     1d                 cert-manager  Created new ACME order, attempting validation...
+   Normal   DomainVerified  1d                 cert-manager  Domain "foo.example.com" verified with "http-01" validation
+   Normal   IssueCert       1d                 cert-manager  Issuing certificate...
+   Normal   CertObtained    1d                 cert-manager  Obtained certificate from ACME server
+   Normal   CertIssued      1d                 cert-manager  Certificate issued Successfully
+```
+
+把 certificate 從 secret 撈出來看
+
+```
+$ kubectl describe secret my-nginx-ingress-tls
+
+Name:         my-nginx-ingress-tls
+Namespace:    default
+Labels:       cert-manager.io/certificate-name=my-nginx-ingrsss-tls
+Annotations:  cert-manager.io/alt-names=foo.example.com
+              cert-manager.io/common-name=foo.example.com
+              cert-manager.io/issuer-kind=Issuer
+              cert-manager.io/issuer-name=letsencrypt-prod
+
+Type:  kubernetes.io/tls
+
+Data
+====
+tls.crt:  3566 bytes
+tls.key:  1675 bytes
+```
+
+如此便可以透過 ingress 設定 nginx 使用 https
+
+# 小結
+
+ * 了解 *.certmanager.k8s.io CRD 定義與意義
+ * 設定 Issuer 與 certificate
+ * 透過 ingress-shim 直接部署 ingress 來產生 certificate
