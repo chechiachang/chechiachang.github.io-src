@@ -44,7 +44,6 @@ categories = []
 
 - Nginx Ingress Controller
 - Cert-manager
-- Jenkin-x on Kubernetes
 - Kubernetes CRD & Operator-sdk
 
 由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。
