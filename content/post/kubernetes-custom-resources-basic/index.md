@@ -69,7 +69,6 @@ custom resource 一但註冊，就可以依據 resource 的 CRD (custom resource
 
 例如：我們在 cert-manager 中設定 certificates.certmanager.k8s.io 資源，來描述我們希望取得 x509 certificate 的 desired state，但我們在 certificates.certmanager 上面沒有寫『透過 Let's Encrypt 取得 x509 certificate』的實現邏輯，仍然能透過 cert-manager 產生 x509 certiticate，因為 cert-manager 內部已經定義 certificates.certmanager.k8s.io 的 custom controller。
 
-如果沒有 cert-manager 中的 custom controller，就算我們定義了 certificates.certmanager.k8s.io，也進行操作，沒有 cert-manager 中 controller 的邏輯，也還是生不出 x509 certificate。
 
 基本的 custom resource 操作
 
@@ -77,12 +76,60 @@ custom resource 一但註冊，就可以依據 resource 的 CRD (custom resource
   * 不然 API 會回覆 error: the server doesn't have a resource type
 * 有 CRD 便可以 apply custom resource 到集群中
 * 部署 custom controller，監測 custom resource 的 desired state 內容，並實現達到 desired state 的業務邏輯
-  * 沒有 custom controller，custom resource 就只是可以 apply 與 update 的資料儲存結構
+  * 沒有 custom controller，custom resource 就只是可以 apply 與 update 的資料儲存結構，沒有 cert-manager 中 controller 的邏輯，也還是生不出 x509 certificate。
 
 ```
 kubectl get chechiachang
 error: the server doesn't have a resource type "chechiachang"
 ```
 
+custom controller 也可以跟其他的 kubernetes resource 互動，例如 cert-manager 在產生 certificate 的時候，會把產生的 certificate 檔案放在 secret 中，cert-manager 會依據 order 中定義的 lifecycle ，持續檢查 certificate 的有效性，如果接近過期，則會觸發新的一輪 order。
 
+我們也可以寫一個操作 Configmap 與 Deployment Resource 的 custom controller，來進行 deploymnet 的 Image 更新。
 
+# 我需要 custom resource 嗎
+
+kubernetes 在[should I add custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#should-i-add-a-custom-resource-to-my-kubernetes-cluster) 有列表分析該不該使用 custom resource ，將你的 API 邏輯整合到 kubernetes API 上。幾個判斷參考:
+
+* API 是 [declarative model](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#declarative-apis)，如果不是可能不適合跟 kubernetes API 整合，獨立成為一個自己運行的服務即可
+* 需要使用 kubernetes 
+* 需要使用 kubectl 控制
+* API 需要使用 [kubernetes 支援的功能](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#common-features)
+* 正哉開發全新功能，因為整合舊的服務到 kubernetes API 工程浩大
+
+# 也許 configmap/secret 就可以解決
+
+如果只是需要將資料儲存在 kubernetes 上，有一個 build-int 的 kubernetes resource 很適合，就是 configmap。可以瘀考以下條件，判斷是否 configmap 搭配能監看 configmap 的 controller 就可以達成需求。
+
+* 已經有完整的 config file，例如 mysql.cnf, nginx.conf...
+* 主要用途是把檔案掛載到 Pod 中的 process 使用
+* 使用時的格式，是整個檔案放在 Pod 中，或是使用環境變數塞到 Pod 裡面，而不是透過 kubernetes API 存取 (ex 使用 kubectl)
+* 更新 configmpa 時更新 Pod，會比更新 custom resource 時更新 Pod 容易
+
+如果使用 CRD 或 Aggregated kubernetes API，大多符合下列條件
+
+* 使用 kubernetes libraries 與客戶端 (ex kubectl) 操作 custom resource
+* 需要 top level 的 kubernetes 支援，例如可以 kubectl get cheachiachang
+* 自動化 kubernetes 物件
+* 需要用到 .spec, .status, .metadata，這些比較 desired state 與 currenty state 的功能
+* 需要抽象類別來管理一群 controlled resource
+
+# Custom Resource Definition
+
+[Custom Resoure Definition](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions) 讓使用者可以定義 custom resource，定義 custom resource 的格式包括名稱與 data schema，然後交給 kubernetes API 去處理 custom resource 的儲存。
+
+也就是說，透過 CRD 我們不用寫 custom resource 的 API，例如 cert-manager 不用寫 certificates.certmanager.k8s.io 的 API，而是向 kubernetes API server 註冊 CRD，讓 kubernetes API server 看得懂 custom source 的定義，並且直接使用 kubernetes API server，進行 custom resource 的 CRUD。
+
+我們可以透過 kubectl (API server) 操作 certificates.certmanager.k8s.io，這個請求也是送到 kubernetes API server。
+
+# API server aggregation
+
+能夠透過註冊 CRD ，就可以使用原來的 kubernetes API 來進行 CRUD ，是因為 kubernetes API 對於普通的 API 操作提供泛型 (generic) 介面，直接使用 CRUD 的邏輯。
+
+由於是 kubernetes Aggregated API ，所有 kubernetes 的 clients 都一起兼容新註冊的 custom resource，不用在 API 要定義，在冊戶端也要定義。註冊完的 custom resource definition，可以直接透過 kubectl 存取。
+
+# 小結
+
+* custom resource 簡介
+* custom resource 使用的情境與條件
+* custom resource definition 與 Aggregated API
