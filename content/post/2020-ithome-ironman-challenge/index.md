@@ -61,13 +61,13 @@ image:
   - [使用 logstash pipeline 做數據前處理]({{< ref "/post/logstash-on-gke" >}})
   - Elasticsearch 日常維護：數據清理，效能調校，永久儲存
   - Debug ELK stack on GCP
-- Kafka HA on Kubernetes
+- Kafka HA on Kubernetes(6)
   - [Deploy kafka-ha]({{ ref "/post/kafka-deployment-on-kubernetes" }})
   - [Kafka Introduction]({{ ref "/post/kafka-introduction" }})
   - [kafka 基本使用]({{ ref "/post/kafka-basic-usage" }}) 
   - [kafka operation scripts]({{ ref "/post/kafka-operation-script"}})
   - [集群內部的 HA topology]({{ ref "/post/kafka-ha-topology" }})
-  - [集群內部的 HA 細節]({{ ref "/post/kafka-ha-continuerd" }})
+  - [集群內部的 HA 細節]({{ ref "/post/kafka-ha-continued" }})
   - Prometheus Metrics Exporter 很重要
   - 效能調校
 - 在 GKE 上部署 Redis HA (5)
@@ -78,24 +78,22 @@ image:
   - [Redis HA Failure Recovery]({{ ref "/post/redis-ha-failure-recovery" }})
   - Prometheus Metrics Exporter
 - Prometheus / Grafana (5)
-  - GKE 上自架 Prometheus / Grafana
-  - 使用 exporter 監測 GKE 上的各項服務
-  - 輸出 kubernetes 的監測數據
-  - 輸出 redis-ha 的監測數據
-  - 輸出 kafka 的監測數據
-- GKE 維運心得 (5)
-  - 我的 Kubernetes 除錯流程
-  - Kubectl cheat sheet
-  - 使用 cert-manager 維護 TLS/HTTPS
-  - 使用 redhat operator-sdk 初探 CRD 與 operator
-  - 我的 operator 範例分享
-- GCP 網路設定 (3)
-  - 防火牆的私有網路基本設定
-  - 配合 GKE 實現負載均衡
-  - DNS 基本觀念，從 kube-dns 到 GCP DNS service
-- GCP 日誌管理 (2)
-  - 基本 GCP 日誌管理與錯誤回報
-  - Stackdriver 服務的日誌管理，監測數據，告警
+  - [GKE 上自架 Prometheus]({{< ref "/post/prometheus-deployment-on-kubernetes" >}})
+  - [GKE 上自架 Grafana]({{< ref "/post/prometheus-deploy-grafana" >}})
+  - [scrape config & exporter]({{< ref "/post/prometheus-scrape">}})
+  - [Dive into Redis Exporter]({{< ref "/post/prometheus-exporter-library-redis-exporter" >}})
+  - [輸出 kube-state 的監測數據]({{< ref "/post/prometheus-kube-state-metrics-exporter" >}})
+- Nginx Ingress (3)
+  - [Deploy Nginx Ingress Controller]({{< ref "/post/kubernetes-nginx-ingress-controller" >}})
+  - [Configure Nginx Ingress]({{< ref "/post/kubernetes-nginx-ingress-config" >}})
+- Cert-manager (3)
+  - [Deploy cert-manager]({{< ref "/post/cert-manager-deployment" >}})
+  - [How cert-manager work]({{< ref "/post/cert-manager-how-it-work" >}})
+  - [Cert-manager complete workflow]({{< ref "/post/cert-manager-complete-workflow" >}})
+- Kubernetes CRD & Operator-sdk (3)
+  - [Introduction about custom resource]({{< ref "/post/kubernetes-custom-resources-basic">}})
+  - [Deployment & Usage]({{< ref "/post/kubernetes-custom-resources-basic">}})
+  - [Deployment & Usage]({{< ref "/post/kubernetes-custom-resource-with-operator-sdk">}})
 
 文章發表於[鐵人挑戰頁面](https://ithelp.ithome.com.tw/users/20120327/ironman/2444)，同時發布與本站備份。有任何謬誤，還煩請各方大德<3透過底下的聯絡方式聯絡我，感激不盡。
 
