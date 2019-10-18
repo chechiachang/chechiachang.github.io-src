@@ -19,7 +19,7 @@ slides:
 
 David Chang
 
-QRCode
+{{< figure library="1" src="kubernetes-kafka-qrcode.png" height="60%" width="60%" title="" >}}
 
 ---
 
