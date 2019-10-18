@@ -1,380 +1,386 @@
 ---
-title: "High Available Kafka on Kubernetes"
-date: 2019-10-18T19:36:50+08:00
-draft: true
+# Documentation: https://sourcethemes.com/academic/docs/managing-content/
+
+title: "Deploy Kafka on Kubernetes"
+summary: ""
+authors: []
+tags: []
+categories: []
+date: 2019-10-18T16:12:42+08:00
+slides:
+  # Choose a theme from https://github.com/hakimel/reveal.js#theming
+  theme: white
+  # Choose a code highlighting style (if highlighting enabled in `params.toml`)
+  #   Light style: github. Dark style: dracula (default).
+  highlight_style: github
 ---
 
-### High Available Kafka on Kubernetes
+### Deploy Kafka on Kubernetes
+
+David Chang
+
+QRCode
+
+---
+
+### About Me
+
+David (Che-Chia) Chang
+
+- Backend / Devops @ [MachiX](https://machix.com/)
+- [Golang Taipei Meetup](https://www.meetup.com/golang-taipei-meetup/)
+- [2020 Ithelp Ironman Challenge](https://ithelp.ithome.com.tw/users/20120327/ironman/2444)
+- [https://t.me/chechiachang](https://t.me/chechiachang)
 
 ---
 
 ### Outline
 
 - Introduction to Kafka
-- Deploy with Helm
-- Basic Topology
-- Ithelp Ironman Challenge
+- Deploy Kafka with Helm
+- Kafka Topology
+- [Ithelp Ironman 30 days Challenge (7th-12nd day)](https://ithelp.ithome.com.tw/articles/10219040)
 
 ---
 
 ### Introduction
 
+{{< figure src="https://kafka.apache.org/images/logo.png" height="70%" width="70%" title="" >}}
+
 [https://kafka.apache.org/](https://kafka.apache.org/)
 
-A distributed streaming platform
+---
 
-- Cloud native serverless
-- For modern cloud applications on Kubernetes. 
+### Distributed streaming platform
 
-[!](https://kafka.apache.org/images/kafka_diagram.png)
-
+- Publish & Subscribe: r/w data like messaging system
+- Store data in distributed, replicated, fault-tolerant cluster
+- Scalable
+- Realtime
 
 ---
 
-### Outlines
+### Concepts
 
-- [Install Jenkins with jx](#install)
-- [Create a Pipeline with jx](#pipeline)
-- [Develope with jx client](#client)
-
-check [Jenkins-X Github Repo](https://github.com/jenkins-x/jx)
+- Kafka run as a cluster
+- Kafka cluster stores streams of **records** in categories called **topics**
+- record = (key, value, timestamp)
 
 ---
 
-<a name="install"></a>
+### Kafka Diagram
 
-### Install
-
-Create GKE cluster & Get Credentials
-```
-gcloud init
-gcloud components update
-```
-
-```
-CLUSTER_NAME=jenkins-server
-#CLUSTER_NAME=jenkins-serverless
-
-gcloud container clusters create ${CLUSTER_NAME} \
-  --num-nodes 1 \
-  --machine-type n1-standard-4 \
-  --enable-autoscaling \
-  --min-nodes 1 \
-  --max-nodes 2 \
-  --zone asia-east1-b \
-  --preemptible
-```
+{{< figure src="https://kafka.apache.org/23/images/kafka-apis.png" height="70%" width="70%" title="" >}}
 
 ---
 
-Create GKE cluster & Get Credentials
+### Topic Partitions
 
-```
-# Get credentials to access cluster with kubectl
-gcloud container clusters get-credentials ${CLUSTER_NAME}
-
-# Check cluster stats.
-kubectl get nodes
-```
+{{< figure src="https://kafka.apache.org/23/images/log_anatomy.png" height="70%" width="70%" title="" >}}
 
 ---
 
-Download [Jenkins X Release](https://github.com/jenkins-x/jx/releases) & install jx on Local Machine
+### Topic Partitions
 
-```
-JX_VERSION=v2.0.2
-OS_ARCH=darwin-amd64
-#OS_ARCH=linux-amd64
-curl -L https://github.com/jenkins-x/jx/releases/download/"${JX_VERSION}"/jx-"${OS_ARCH}".tar.gz | tar xzv
-sudo mv jx /usr/local/bin
-jx version
-
-NAME               VERSION
-jx                 2.0.2
-Kubernetes cluster v1.11.7-gke.12
-kubectl            v1.11.9-dispatcher
-helm client        v2.11.0+g2e55dbe
-helm server        v2.11.0+g2e55dbe
-git                git version 2.20.1
-Operating System   Mac OS X 10.14.4 build 18E226
-```
+- Data categorized by topic
+- Data replicated in partitions
+- Durability
+  - consumer able to r/w complete data from at least 1 partition
+  - in order
 
 ---
 
-(Install Option 1) Serverless Jenkins Pipeline
+### Distributed Data Streaming
 
-```
-DEFAULT_PASSWORD=mySecretPassWord123
-jx install \
-  --default-admin-password=${DEFAULT_PASSWORD} \
-  --provider='gke'
-```
+- Scalible r/w bandwith
+- Data Durability
 
----
-
-Install options:
-
-- Select Jenkins installation type:
-  - [x] Serverless Jenkins X Pipelines with Tekon
-  - [ ] Static Master Jenkins
-- Pick default workload build pack
-  - [x] Kubernetes Workloads: Automated CI+CD with GitOps Promotion
-  - [ ] Library Workloads: CI+Release but no CD
-
-```
-Your Kubernetes context is now set to the namespace: jx
-INFO[0231] To switch back to your original namespace use: jx namespace jx
-...
-```
+- Consistency
+- Availability
+- Partition Tolerance
 
 ---
 
-(Install Option 2) Static Jenkins Server
+### Multi Consumer
 
-```
-DEFAULT_PASSWORD=mySecretPassWord123
-
-jx install \
-  --default-admin-password=${DEFAULT_PASSWORD} \
-  --provider='gke'
-```
+{{< figure src="https://kafka.apache.org/23/images/log_consumer.png" height="70%" width="70%" title="" >}}
 
 ---
 
-Options:
+### Consumer Group
 
-- Select Jenkins installation type:
-  - [ ] Serverless Jenkins X Pipelines with Tekon
-  - [x] Static Master Jenkins
-- Pick default workload build pack
-  - [x] Kubernetes Workloads: Automated CI+CD with GitOps Promotion
-  - [ ] Library Workloads: CI+Release but no CD
-
-```
-INFO[0465]Your Kubernetes context is now set to the namespace: jx
-INFO[0465] To switch back to your original namespace use: jx namespace default
-
-Access Static Jenkins Server through Domain with username and password
-Domain http://jenkins.jx.11.22.33.44.nip.io/
-```
+{{< figure src="https://kafka.apache.org/23/images/consumer-groups.png" height="70%" width="70%" title="" >}}
 
 ---
 
-### Uninstall
+### Consumer Group
 
-```
-jx uninstall
-# rm -rf ~/.jx
-```
+- Partition deliver record to one consumer within each subscribing consumer group
 
 ---
 
-### Setup CI/CD Pipeline
+### Deployment
 
-Create Quickstart Repository
-
-```
-kubectl get pods --namespace jx --watch
-```
-
-```
-# cd workspace
-jx create quickstart
-```
+[Helm Kafka](https://github.com/helm/charts/tree/master/incubator/kafka)
 
 ---
 
-Options:
+### Deployment
+
+[https://github.com/chechiachang/kafka-on-kubernetes](https://github.com/chechiachang/kafka-on-kubernetes)
 
 ```
-$ select the quickstart you wish to create  [Use arrows to move, type to filter]
-  aspnet-app
-  dlang-http
-> golang-http
-  jenkins-cwp-quickstart
-  jenkins-quickstart
-  node-http
+cat install.sh
 
-INFO[0121] Watch pipeline activity via:    jx get activity -f serverless-jenkins-quickstart -w
+#!/bin/bash
+# https://github.com/helm/charts/tree/master/incubator/kafka
+
+HELM_NAME=kafka-1
+helm repo add incubator http://storage.googleapis.com/kubernetes-charts-incubator
+
+helm upgrade --install ${HELM_NAME} incubator/kafka --version 0.16.2 -f values-staging.yaml
 ```
+
+Check values-staging.yaml before deployment
 
 ---
 
-Check log of the first run
+### Helm Chart Values
 
 ```
-jx logs pipeline
-```
+cat values-staging.yaml
 
----
+# ------------------------------------------------------------------------------
+# Kafka:
+# ------------------------------------------------------------------------------
 
-Add a setup step for pullrequest
-```
-cd serverless-jenkins-quickstart
-jx create step --pipeline pullrequest \
-  --lifecycle setup \
-  --mode replace \
-  --sh "echo hello world"
-```
+## The StatefulSet installs 3 pods by default
+replicas: 3
 
-Validate pipeline step for each modification
-```
-jx step validate
-```
+## The kafka image repository
+image: "confluentinc/cp-kafka"
 
-A build-pack pod started after git push. Watch pod status with kubectl.
-```
-kubectl get pods --namespace jx --watch
-```
+## The kafka image tag
+imageTag: "5.0.1"  # Confluent image for Kafka 2.0.0
 
----
+## Specify a imagePullPolicy
+## ref: http://kubernetes.io/docs/user-guide/images/#pre-pulling-images
+imagePullPolicy: "IfNotPresent"
 
-Check Build Status on Prow (Serverless)
+## Configure resource requests and limits
+## ref: http://kubernetes.io/docs/user-guide/compute-resources/
+resources: {}
+  # limits:
+  #   cpu: 200m
+  #   memory: 1536Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 1024Mi
+kafkaHeapOptions: "-Xmx4G -Xms1G"
 
-http://deck.jx.130.211.245.13.nip.io/
-Login with username and password
+## The StatefulSet Update Strategy which Kafka will use when changes are applied.
+## ref: https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#update-strategies
+updateStrategy:
+  type: "OnDelete"
 
----
+## Start and stop pods in Parallel or OrderedReady (one-by-one.)  Note - Can not change after first release.
+## ref: https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/#pod-management-policy
+podManagementPolicy: OrderedReady
 
-Import Existing Repository
+## If RBAC is enabled on the cluster, the Kafka init container needs a service account
+## with permissisions sufficient to apply pod labels
+rbac:
+  enabled: false
 
-```
-# In source code repository
-# Import jx to remote jenkins-server. This will apply a Jenkinsfile to repository by default
-jx import \
---url git@github.com:chechiachang/serverless-jenkins-quickstart.git
+affinity:
+   podAntiAffinity:
+     requiredDuringSchedulingIgnoredDuringExecution:
+     - labelSelector:
+         matchExpressions:
+         - key: app
+           operator: In
+           values:
+           - kafka
+       topologyKey: "kubernetes.io/hostname"
+   podAffinity:
+     preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 50
+        podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+            - key: app
+              operator: In
+              values:
+                - zookeeper
+          topologyKey: "kubernetes.io/hostname"
+
+## Configuration Overrides. Specify any Kafka settings you would like set on the StatefulSet
+## here in map format, as defined in the official docs.
+## ref: https://kafka.apache.org/documentation/#brokerconfigs
+##
+
+configurationOverrides:
+  "default.replication.factor": 3
+  "offsets.topic.replication.factor": 1 # Increased from 1 to 2 for higher output
+  # "offsets.topic.num.partitions": 3
+  "confluent.support.metrics.enable": false  # Disables confluent metric submission
+  # "auto.leader.rebalance.enable": true
+  # "auto.create.topics.enable": true
+  # "controlled.shutdown.enable": true
+  # "controlled.shutdown.max.retries": 100
+  "message.max.bytes": "16000000" # Extend global topic max message bytes to 16 Mb
+
+## Persistence configuration. Specify if and how to persist data to a persistent volume.
+##
+
+persistence:
+  enabled: true
+
+## Prometheus Exporters / Metrics
+##
+
+prometheus:
+  ## Prometheus JMX Exporter: exposes the majority of Kafkas metrics
+  jmx:
+    enabled: true
+
+  ## Prometheus Kafka Exporter: exposes complimentary metrics to JMX Exporter
+  kafka:
+    enabled: true
+topics: []
+
+# ------------------------------------------------------------------------------
+# Zookeeper:
+# ------------------------------------------------------------------------------
+
+zookeeper:
+  ## If true, install the Zookeeper chart alongside Kafka
+  ## ref: https://github.com/kubernetes/charts/tree/master/incubator/zookeeper
+  enabled: true
 ```
 
 ---
 
-Update jenkins-x.yml
+### Kubernetes Configurations
+
+* replicas
+* resource
+* pod affinity
+* persistence
+
+---
+
+### Kafka Configurations
+
+* zookeeper
+* configurationOverrides
+
 ```
-jx create step
-git commit
-git push
+  "default.replication.factor": 3
+  "offsets.topic.replication.factor": 1 # Increased from 1 to 2 for higher output
+  # "offsets.topic.num.partitions": 3
+  # "auto.leader.rebalance.enable": true
+  # "auto.create.topics.enable": true
+  "message.max.bytes": "16000000" # Extend global topic max message bytes to 16 Mb
 ```
 
 ---
 
-Trouble Shooting: Failed to get jx resources
-```
-jx get pipelines
-```
+### Monitoring Configurations
 
-Make sure your jx (or kubectl) context is with the correct GKE and namespace
+* prometheus exporter
+
+* monitoring is the key to production
+
+---
+
+### Deploy after Understande Configs
+
+* All Kafka garantees are based on a correctly configured cluster
+* Incorrect configs will cause cluster unstable and data loss
+
+* Now we can deploy :)
+
+---
+
+### Pods
+
 ```
-kc config set-context gke_my-project_asia-east1-b_jenkins \
-  --namespace=jx
+$ kubectl get po | grep kafka
+
+NAME                                                     READY   STATUS      RESTARTS   AGE
+kafka-1-0                                                1/1     Running     0          224d
+kafka-1-1                                                1/1     Running     0          224d
+kafka-1-2                                                1/1     Running     0          224d
+kafka-1-exporter-88786d84b-z954z                         1/1     Running     0          224d
+kafka-1-zookeeper-0                                      1/1     Running     0          224d
+kafka-1-zookeeper-1                                      1/1     Running     0          224d
+kafka-1-zookeeper-2                                      1/1     Running     0          224d
 ```
 
 ---
 
-### Helm vs Jenkins X
+### Availability
 
-- [Jenkins Helm Chart](https://github.com/helm/charts/tree/master/stable/jenkins) 
-  - create Jenkins master and slave cluster on Kubernetes
-  - utilizing the Jenkins Kubernetes plugin.
+ex. replication factor=3
 
-- Jenkin Platform with jx
-  - Jenkins Platform native to Kubernetes
-  - Powerful cloud native components: Prow, Nexus, Docker Registry, Tekton Pipeline, ...
+* 3 partitions, each 1 in a kafka-broker
+* 1 master partition 2 slave partitions (readonly)
+* data **sync** from master to slave
 
 ---
 
-### Check jenkins-x examples
+### Availability
 
-https://github.com/jenkins-x-buildpacks/jenkins-x-kubernetes/tree/master/packs
-
----
-
-# jx Client
-
-```
-jx get urls
-
-Name                      URL
-jenkins                   http://jenkins.jx.11.22.33.44.nip.io
-jenkins-x-chartmuseum     http://chartmuseum.jx.11.22.33.44.nip.io
-jenkins-x-docker-registry http://docker-registry.jx.11.22.33.44.nip.io
-jenkins-x-monocular-api   http://monocular.jx.11.22.33.44.nip.io
-jenkins-x-monocular-ui    http://monocular.jx.11.22.33.44.nip.io
-nexus                     http://nexus.jx.11.22.33.44.nip.io
-```
+* kafka keep a number of slave in-synced
+  * too many in-sync -> slow down write confirm
+  * not enough will -> data loss
 
 ---
 
-Get Cluster Status
+### On slave failure
 
-```
-jx diagnose
-```
-
-Get Applications & Pipelines
-
-```
-jx get applications
-jx get pipelines
-```
+* client not affected
+* keep enough in-sync slaves
+* wait dead slave to back online
 
 ---
 
-Get CI Activities & build log
+### On master failure
 
-```
-jx get activities
-jx get activities --filter='jenkins-x-on-kubernetes'
-
-jx get build log
-
-INFO[0003] view the log at: http://jenkins.jx.11.22.33.44.nip.io/job/chechiachang/job/jenkins-x-on-kubernetes/job/feature-add-test/3/console
-...
-```
+* slave select new master within in-synced slaves
+* new master sync to slaves
+* new master serve clients
+* wait dead master to back online and become slave
 
 ---
 
-Trigger Build & Check Activity
+### Configs Availability
 
-```
-jx start pipeline
-jx start pipeline --filter='jenkins-x-on-kubernetes/feature-add-test'
-
-jx get activities --filter='jenkins-x-on-kubernetes'
-```
+* Metadata are stored in zookeeper
+  * topic configs
+  * partition configs
+  * consumer offsets
 
 ---
 
-Create Pull Request
+### 重點
 
-```
-jx create pullrequest
-```
-
----
-
-#### Summary
-
-- Demonstrate a Jenkins pipeline
-- Jenkins plugin
-  - master slave cluster
-  - kubernetes plugin
-  - lovely GUI
-- jx on k8s
-- jx cli
+* 要仔細看完 helm chart values 的設定，設錯就幹掉重來
+* kafka 的概念與設定，要花時間研究清楚
+* resource & JVM heap size
+* prometheus is a must
 
 ---
 
-- Jenkins 簡單用
-  - 設定與維護人力會比其他工具稍微多
+### Ithelp Ironman Challenge
 
-- Jenkins 複雜用
-  - Deep Customization: 希望花時間打造最符合自己需求的工具
-  - 預期有特殊需求
+* 30 天內容都是 step-by-step
+* 內容只是仔細看官方文件
 
-- Jenkins X
-  - 應用依賴 Kubernetes 開發，測試，部屬 (ex. kubernetes client-go)
-  - 使用 jx 一站式服務
+* challenge -> 自我成長
+* 給輸在起跑點的人
 
 ---
-The End
 
-{{< figure library="1" src="jenkins/github-page-qrcode.png" title="" width="45%" height="45%">}}
+### Thank you
