@@ -580,37 +580,172 @@ TODO 分另外一篇
 
 這邊我們要從 ethereum 上，將 ERC-20 token 與 binance chain 上的 BNB 做交換
 
-準備需要用到的東西
+### 準備需要用到的東西
 
-* 在 binance testnet 準備好 address 與 BNB，這邊沿用我們上篇使用的 address
-  * [tbnb1hq6v49an3wwhrd8ny7qj3exgfmvpvuelkcaj9p](https://testnet-explorer.binance.org/address/tbnb1hq6v49an3wwhrd8ny7qj3exgfmvpvuelkcaj9p)
-* ethereum testnet ropsten 上部署 ERC20 token 作為我們的 ethereum token
-  * [https://ropsten.etherscan.io/address/0xDec348688B060fB44144971461b3BAaC8BD1e571](https://ropsten.etherscan.io/address/0xDec348688B060fB44144971461b3BAaC8BD1e571)
-  * [ERC-20 Token Party Parrot Token](https://ropsten.etherscan.io/token/0xDec348688B060fB44144971461b3BAaC8BD1e571)
+##### binance testnet
 
+* 準備好 address 與 BNB，這邊沿用我們上篇使用的 address [tbnb1hq6v49an3wwhrd8ny7qj3exgfmvpvuelkcaj9p](https://testnet-explorer.binance.org/address/tbnb1hq6v49an3wwhrd8ny7qj3exgfmvpvuelkcaj9p)
+
+##### ethereum testnet (ropsten)
+
+* Admin Address [[ropsten etherscan]](https://ropsten.etherscan.io/address/0x938a452d293c23c2cdeae0bf01760d8ecc4f826b)
+* 部署 ERC20 token [[ropsten etherscan]](https://ropsten.etherscan.io/address/0xDec348688B060fB44144971461b3BAaC8BD1e571)，我自己發行的 [Party Parrot Token (PPT)](https://ropsten.etherscan.io/token/0xDec348688B060fB44144971461b3BAaC8BD1e571) ![](https://cultofthepartyparrot.com/parrots/hd/parrot.gif)
+* ERC20 Atomic Swapper 智能合約
+  * [binance-chain/bep3-smartcontract](https://github.com/chechiachang/bep3-smartcontracts) 提供
+
+##### Node/VM
+
+* 用來執行 bep3 deputy process 
+  * [https://github.com/binance-chain/bep3-deputy](https://github.com/binance-chain/bep3-deputy) 提供
+
+### workflow
+
+我們看一下官方提供的這張圖
+
+![](https://docs.binance.org/assets/eth2bnc.png)
+
+1. Wallet Address 在 ERC20 Token (PPToken) approve() Swap Contract 一部分 Token
+2. 初始化 Swap Transaction(tx)
+3. Deputy 監測到 Ethereum 鏈上的 swap tx，向 Binance Chain 發起一個對應的 HTLT tx，等待 Binance 上的 claim tx
+4. Wallet Address 向 Binance Chain 執行 HTLT claim()
+5. Deputy 監測到 Binance Chain 上的 claim tx 與 swap complete，代為向 Ethereum claim ERC-20
+
+### 執行 deputy
+
+我們可以先將 deputy 程序跑起來，這邊使用的是 [Binance Chaing/bep3-deputy](https://github.com/binance-chain/bep3-deputy)
 
 ```bash
-tbnbcli token HTLT \
-  --from  <from-addr> \
-  --chain-id Binance-Chain-Nile \
-  --height-span  <heightSpan>  \
-  --amount <amount> \
-  --expected-income <expectedIncome> \
-  --recipient-other-chain <deputy ethereum address> \
-  --sender-other-chain <client ethereum address> \
-  --recipient-addr <client bep2 address> \
-  --cross-chain \
-  --trust-node \
-  --node http://data-seed-pre-0-s3.binance.org:80
+go get github.com/binance-chain/bep3-deputy
+cd ${GOPATH}/src/github.com/binance-chain/bep3-deputy
+
+$ go mod download
+$ make build
+go build  -o build/deputy main.go
 ```
 
+啟動本地 MySQL，這邊直接用 docker 起一個無密碼的
+```
+$ docker run \
+  --name some-mysql \
+  -e MYSQL_ALLOW_EMPTY_PASSWORD=yes \
+  -e MYSQL_DATABASE=deputy \
+  -d \
+  mysql:5.7.27
+```
+
+設定 config/confg.json
+
+```json
+{
+  "db_config": {
+    "dialect": "mysql",
+    "db_path": "root:@(localhost:3306)/deputy?charset=utf8&parseTime=True&loc=Local",
+  },
+  "chain_config": {
+    "bnb_start_height": 42516056,
+
+    "other_chain": "ETH",
+    "other_chain_start_height": 6495598
+  },
+  "admin_config": {
+    "listen_addr": "127.0.0.1:8080"
+  },
+  "bnb_config": {
+    "key_type": "mnemonic",
+    "mnemonic": "<my-mnemonic>",
+    "rpc_addr": "tcp://data-seed-pre-0-s1.binance.org:80",
+    "symbol": "BNB",
+    "deputy_addr": "tbnb1a6pv5gmnsay4a9sr7nvd0mldz29a6kdxye37ce",
+    "fetch_interval": 2,
+  },
+  "eth_config": {
+    "swap_type": "erc20_swap",
+    "key_type": "private_key",
+    "private_key": "<my-private-key>",
+    "provider": "https://ropsten.infura.io/v3/cd9643b1870b489b93477921cb767882",
+    "swap_contract_addr": "0xA08E0F38462eCd107adE62Ee3004850f2448f3d6",
+    "token_contract_addr": "0xDec348688B060fB44144971461b3BAaC8BD1e571",
+    "deputy_addr": "0x938a452d293c23C2CDEae0Bf01760D8ECC4F826b",
+    "gas_limit": 300000,
+    "gas_price": 20000000000,
+  }
+}
+```
+
+這樣注意幾個地方
+
+* db_config 填上 mysql url，有設密碼的話一並帶入
+* chain_config.bnb_start_height 可以先追到目前的 block height，畢竟我們的 swap tx 都在 deputy 起來之後才會產生，可以跳過啟動時 sync block 的時間。如果是要追過去的 tx，就要調整 block 的高度，並且給予足夠的時間上 deputy 去 sync block。可以到 [testnet-explorer](https://testnet-explorer.binance.org/) 查目前的 block height。
+* chain_config.other_chain_start_height 也追到最新的 eth block height，可以到 [Etherscan](https://ropsten.etherscan.io/) 查目前的 block height
+* bnb_config 填上 bnb addr 與助記祠
+* eth_config 填上 eth addr 與 private key
+* eth_config.deupty_addr 使用 Admin addr，並填上 private key
+
+把 deputy 以 testnet 為目標執行起來
+
+```bash
+./build/deputy --help
+
+./build/deputy \
+  --bnb-network 0 \
+  --config-type local \
+  --config-path config/config.json
+
+2019-10-25 17:16:48 DEBUG Debug sent a request
+2019-10-25 17:16:48 INFO fetch ETH cur height: 6641795
+2019-10-25 17:16:48 DEBUG Debug sent a request
+2019-10-25 17:16:48 DEBUG Debug sent a request
+2019-10-25 17:16:48 INFO fetch BNB cur height: 46215517
+2019-10-25 17:16:48 DEBUG Debug sent a request
+2019-10-25 17:16:48 INFO fetch try to get ahead block, chain=BNB, height=46215518
+```
+
+deputy 啟動後，就會依據 db 中的 block 資料，開始一路追 block，發現是相關的 addr 就把 tx 拉下來處理。
+
+由於我們這邊是新 db，我們又直接跳到最新的 block，應該不會需要太多時間就能追上。
+
+deputy 有 admin api 可以使用
+```bash
+curl http://localhost:8080
+
+curl http://localhost:8080/failed_swaps/1
+the number of total failed swaps is 0, the offset of query is 0
+
+curl http://localhost:8080/status
+```
+
+```json
+{
+    "mode": "NormalMode",
+    "bnb_chain_height": 46215719,
+    "bnb_sync_height": 46215718,
+    "other_chain_height": 6641804,
+    "other_chain_sync_height": 6641804,
+    "bnb_chain_last_block_fetched_at": "2019-10-25T17:18:52+08:00",
+    "other_chain_last_block_fetched_at": "2019-10-25T17:18:40+08:00",
+    "bnb_status": {
+        "balance": [
+            {
+                "symbol": "BNB",
+                "free": "18.99812504",
+                "locked": "0.00000000",
+                "frozen": "0.00000000"
+            }
+        ]
+    },
+    "other_chain_status": {
+        "allowance": "9.8e+13",
+        "erc20_balance": "9.999999969e+20",
+        "eth_balance": "6.982922764"
+    }
+}
+```
+
+可以看到 deputy 上設定的 bnb_addr, eth_addr 的狀態 
+
+* other_chain_status.allowance: 9.8e+13
+
 ---
-
-架設 swap deputy，實現自動 atomic swap
-
-### Prerequisites
-
-git clone git@github.com:binance-chain/bep3-deputy.git
 
 ### References
 
