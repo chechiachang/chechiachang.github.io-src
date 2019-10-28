@@ -805,12 +805,13 @@ Go to swap contract，call  htlt()
   * outAmount * exchange rate, the default rate is 1. 
   * 10 0000000000
 
-### Deputy
+### Deputy Call HTLT on Binance Chain
 
+Deputy 監測 Ethereum 上的 block 狀態，特別是會取得 Swap contract address 的 swap tx，並在 Binance Chain 上產生對應的 HTLT。
 
 ### Claim HTLT on Binance Chain
 
-使用 tbnb addr 查詢
+Binance Chain 上產生 HTLT 後，客戶端這邊可以使用 tbnb 以 recipient addr 查詢 Binance Chain 上的 Swap ID
 
 ```bash
 tbnbcli token query-swapIDs-by-recipient  \
@@ -831,32 +832,7 @@ tbnbcli token query-swapIDs-by-recipient  \
 ]
 ```
 
-都是過去使用的 swap id，可能是 height span 太高，導致一直都爬不到
-
-* randomNumberHash: 
-  * SHA256(randomNumber||timestamp), randomNumber is 32-length random byte array. 
-  * 0x0000000000000000000000000000000000000000000000000000000000000000
-* timestamp: 
-  * it should be about 10 mins span around current timestamp. [unix timestamp](https://www.unixtimestamp.com/) 
-  * 1572250902 (now + 60 sec * 10 min)
-* heightSpan: 
-  * it's a customized filed for deputy operator. it should be more than 200 for this deputy.
-  * 60
-* recipientAddr: 
-  * deputy address on Ethereum. 
-  * 0x938a452d293c23C2CDEae0Bf01760D8ECC4F826b
-* bep2SenderAddr: 
-  * omit this field with 0x0
-  * 0x0000000000000000000000000000000000000000
-* bep2RecipientAddr: 
-  * Decode your testnet address from bech32 encoded to hex
-  * 0xee82ca237387495e9603f4d8d7efed128bdd59a6
-* outAmount: 
-  * approved amount, should be bumped by e^10. 
-  * 10 0000000000
-* bep2Amount: 
-  * outAmount * exchange rate, the default rate is 1. 
-  * 10 0000000000
+都是過去使用的 swap id，如果都沒有新的 swap 出來，可能是 height span 太高，導致一直都爬不到
 
 ```
 SWAP_ID=c2be98ac3b9ee7153e5ba84edfefca1917b6e2ec72d2576bf6cce584cbd6095e
@@ -866,6 +842,37 @@ tbnbcli token query-swap \
   --trust-node \
   --node http://data-seed-pre-0-s3.binance.org:80
 ```
+
+這邊要對一下 random number, to wallet addr, out amount 等參數，如果 HTLT 符合，客戶就可以執行 Claim HTLT
+
+```
+./tbnbcli token claim \
+  --swap-id ${SWAP_ID} \
+  --random-number ${RANDOM_NUMBER} \
+  --from ${FROM_KEY} \
+  --chain-id Binance-Chain-Nile \
+  --trust-node \
+  --node http://data-seed-pre-0-s3.binance.org:80
+```
+
+### Deputy Claim ERC20 Token
+
+客戶端在 Binance Chain 上 Claim HTLT，Deputy 在 Ethereuem 上 Claim HTLT，至此完成 Atomic Swap 兩邊的流程。客戶端從 Binance Chain Claim，Deputy 從 Ethereuem 上 Claim。完整流程
+如下：
+
+* Client Call HTLT on Ethereum -> Deputy Call HTLT on Binance Chain
+* Client Check HTLT Status on Binance Chain
+* Client Call Claim HTLT on Binance Chain -> Deputy Call Claim HTLT on Ethereum
+
+### Client APP javascript Demo
+
+[希望直接寫成 javascript app 可以參考這篇](https://docs.binance.org/atomic-swap.html#6-demo-for-client-app-swap-erc20-to-bep2)
+
+---
+
+# Swap Tokens from Binance Chain to Ethereum
+
+這邊進行反向操作，客戶發起從 Binance Chain 換到 Ethereum 上的請求，Deputy 做對應的處理，把 Token Swap 到 Ethereum。我們依樣依照[這份文件](https://docs.binance.org/atomic-swap.html#swap-tokens-from-binance-chain-to-ethereum)操作。
 
 ---
 
