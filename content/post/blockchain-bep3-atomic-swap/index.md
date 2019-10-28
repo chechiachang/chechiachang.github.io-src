@@ -580,7 +580,7 @@ TODO 分另外一篇
 
 這邊我們要從 ethereum 上，將 ERC-20 token 與 binance chain 上的 BNB 做交換
 
-### 準備需要用到的東西
+# 準備需要用到的東西
 
 ##### binance testnet
 
@@ -746,6 +746,146 @@ curl http://localhost:8080/status
 * other_chain_status.allowance: 9.8e+13
 
 ---
+
+# 開始 Swap
+
+複習一下流程
+
+![](https://docs.binance.org/assets/eth2bnc.png)
+
+0. 部署好 swap contract & deputy，啟動 deputy process
+1. Wallet Address 在 ERC20 Token (PPToken) approve()，給 Swap Contract 一部分 Token
+2. 初始化 Swap Transaction(tx)
+3. Deputy 監測到 Ethereum 鏈上的 swap tx，向 Binance Chain 發起一個對應的 HTLT tx，等待 Binance 上的 claim tx
+4. Wallet Address 向 Binance Chain 執行 HTLT claim()
+5. Deputy 監測到 Binance Chain 上的 claim tx 與 swap complete，代為向 Ethereum claim ERC-20
+
+### ERC20 contract Approve() 
+
+到 ERC20 contract 的頁面，選擇 approve 
+
+spender: swap contract address
+value: 10000 PPToken (乘上 10^18)
+
+[到 etherscan 上查看](https://ropsten.etherscan.io/address/0xdec348688b060fb44144971461b3baac8bd1e571#events)
+
+### Call HTLT function
+
+Go to swap contract，call  htlt()
+
+用 etherscan 送上去，然後就壞掉了，[Etherscan 上壞掉的 tx](https://ropsten.etherscan.io/tx/0xbd0c829ad2466fcd6e49a12bbac1849827fb9e7a251271816401ed4c9bfe2fa8) 不知為什麼 QAQ
+
+{{< figure library="1" src="bep3-atomic-swap-failure-01.png" height="70%" width="70%" title="" >}}
+{{< figure library="1" src="bep3-atomic-swap-failure-02.png" height="70%" width="70%" title="" >}}
+
+開 remix IDE，重新嘗試參數
+
+* randomNumberHash: 
+  * SHA256(randomNumber||timestamp), randomNumber is 32-length random byte array. 
+  * 0x0000000000000000000000000000000000000000000000000000000000000000
+* timestamp: 
+  * it should be about 10 mins span around current timestamp. [unix timestamp](https://www.unixtimestamp.com/) 
+  * 1572250902 (now + 60 sec * 10 min)
+* heightSpan: 
+  * it's a customized filed for deputy operator. it should be more than 200 for this deputy.
+  * 10000
+* recipientAddr: 
+  * deputy address on Ethereum. 
+  * 0x938a452d293c23C2CDEae0Bf01760D8ECC4F826b
+* bep2SenderAddr: 
+  * omit this field with 0x0
+  * 0x0000000000000000000000000000000000000000
+* bep2RecipientAddr: 
+  * Decode your testnet address from bech32 encoded to hex
+  * 0xee82ca237387495e9603f4d8d7efed128bdd59a6
+* outAmount: 
+  * approved amount, should be bumped by e^10. 
+  * 10 0000000000
+* bep2Amount: 
+  * outAmount * exchange rate, the default rate is 1. 
+  * 10 0000000000
+
+### Deputy
+
+
+### Claim HTLT on Binance Chain
+
+使用 tbnb addr 查詢
+
+```bash
+tbnbcli token query-swapIDs-by-recipient  \
+  --recipient-addr tbnb1a6pv5gmnsay4a9sr7nvd0mldz29a6kdxye37ce \
+  --chain-id Binance-Chain-Nile \
+  --trust-node \
+  --node http://data-seed-pre-0-s3.binance.org:80
+```
+
+獲得過去產生的 swap list
+
+```json
+[
+  "c2be98ac3b9ee7153e5ba84edfefca1917b6e2ec72d2576bf6cce584cbd6095e",
+  "18c938b994c62bcce9e8cedcb426a603863d95565a246c323a1df89d5c4226c1",
+  "5c4fdd60ce44fa4be6de70e65df3f8295df88178fd381b4242a8c2d047663a1b",
+  "a47c89dfca910cbb34dec92acebebb59d2c62e7f90bf216a87c2c23c84e48d4f"
+]
+```
+
+都是過去使用的 swap id，可能是 height span 太高，導致一直都爬不到
+
+* randomNumberHash: 
+  * SHA256(randomNumber||timestamp), randomNumber is 32-length random byte array. 
+  * 0x0000000000000000000000000000000000000000000000000000000000000000
+* timestamp: 
+  * it should be about 10 mins span around current timestamp. [unix timestamp](https://www.unixtimestamp.com/) 
+  * 1572250902 (now + 60 sec * 10 min)
+* heightSpan: 
+  * it's a customized filed for deputy operator. it should be more than 200 for this deputy.
+  * 60
+* recipientAddr: 
+  * deputy address on Ethereum. 
+  * 0x938a452d293c23C2CDEae0Bf01760D8ECC4F826b
+* bep2SenderAddr: 
+  * omit this field with 0x0
+  * 0x0000000000000000000000000000000000000000
+* bep2RecipientAddr: 
+  * Decode your testnet address from bech32 encoded to hex
+  * 0xee82ca237387495e9603f4d8d7efed128bdd59a6
+* outAmount: 
+  * approved amount, should be bumped by e^10. 
+  * 10 0000000000
+* bep2Amount: 
+  * outAmount * exchange rate, the default rate is 1. 
+  * 10 0000000000
+
+```
+SWAP_ID=c2be98ac3b9ee7153e5ba84edfefca1917b6e2ec72d2576bf6cce584cbd6095e
+tbnbcli token query-swap \
+  --swap-id ${SWAP_ID} \
+  --chain-id Binance-Chain-Nile \
+  --trust-node \
+  --node http://data-seed-pre-0-s3.binance.org:80
+```
+
+---
+
+### GCE
+
+```
+gcloud compute ssh dep3-deputy
+
+sudo apt-get update
+sudo apt-get install mysql-server
+sudo cat /etc/mysql/debian.cnf
+
+wget https://dl.google.com/go/go1.13.3.linux-amd64.tar.gz
+tar -C /usr/local -xzf go1.13.3.linux-amd64.tar.gz
+export PATH=$PATH:/usr/local/go/bin
+
+go get github.com/binance-chain/bep3-deputy
+go mod tidy
+go build  -o build/deputy main.go
+```
 
 ### References
 
