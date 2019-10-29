@@ -846,7 +846,7 @@ tbnbcli token query-swap \
 這邊要對一下 random number, to wallet addr, out amount 等參數，如果 HTLT 符合，客戶就可以執行 Claim HTLT
 
 ```
-./tbnbcli token claim \
+tbnbcli token claim \
   --swap-id ${SWAP_ID} \
   --random-number ${RANDOM_NUMBER} \
   --from ${FROM_KEY} \
@@ -873,6 +873,109 @@ tbnbcli token query-swap \
 # Swap Tokens from Binance Chain to Ethereum
 
 這邊進行反向操作，客戶發起從 Binance Chain 換到 Ethereum 上的請求，Deputy 做對應的處理，把 Token Swap 到 Ethereum。我們依樣依照[這份文件](https://docs.binance.org/atomic-swap.html#swap-tokens-from-binance-chain-to-ethereum)操作。
+
+1. 客戶端在 Binance Chain 上 Call HTLT()
+2. Deputy 在 Ethereum 上 Init Swap tx
+3. Deputy Call Approve() 到 ethereum swap contract
+4. 客戶端取得 swap 資訊
+5. 客戶端在 Ethereum 上 Call Claim()，取得 ERC-20 Token
+6. Deputy 在 Binance 上 Call Claim()，取得 Binance Chain Token
+
+### 在 Binance Chain 上 HTLT
+
+客戶端發起 HTLT 請求，需要從客戶端 Wallet 送出（但因為我們這邊只使用一個 Binance Address，所以發起的 Addr 跟 Deputy Binance addr 是一樣的。
+
+這邊鎖進 10:BNB，等待 100:PPT 從 ethereum 近來
+
+```
+DEPUTY_BNB_WALLET_ADDR=tbnb1a6pv5gmnsay4a9sr7nvd0mldz29a6kdxye37ce
+CLIENT_BNB_WALLET_ADDR=${DEPUTY_BNB_WALLET_ADDR}
+CLIENT_ETHEREUM_ADDR=0x938a452d293c23C2CDEae0Bf01760D8ECC4F826b
+
+tbnbcli token HTLT \
+  --from ${CLIENT_BNB_WALLET_ADDR} \
+  --recipient-addr ${DEPUTY_BNB_WALLET_ADDR}  \
+  --chain-id Binance-Chain-Nile  \
+  --height-span 500 \
+  --amount  10:BNB  \
+  --expected-income 100:PPT  \
+  --recipient-other-chain ${CLIENT_ETHEREUM_ADDR}  \
+  --cross-chain \
+  --trust-node \
+  --node http://data-seed-pre-0-s3.binance.org:80
+```
+
+HTLT 回復的結果如下，可以在[Binance Testnet Explorer](https://testnet-explorer.binance.org/tx/D653FC7B5D2048A2A165F49426CDCAD733703CF534367133819091892E3A1F14)
+
+```
+Random number: 75267ba4cc4f2d9ddbf9f90dc1ea813ae2a4d2114eb2ef2cb7ff0a5d285c7396
+Timestamp: 1572337686
+Random number hash: dabd990af86582969d47218012ecdb09899b9ad2b069c05be94ef82bea889a1b
+Password to sign with 'tbnb1a6pv5gmnsay4a9sr7nvd0mldz29a6kdxye37ce':
+Committed at block 46889130 (tx hash: D653FC7B5D2048A2A165F49426CDCAD733703CF534367133819091892E3A1F14, response: {Code:0 Data:[119 24 196 176 181 1 29 177 60 107 100 166 55 16 253 136 159 3 204 56 109 46 63 87 93 9 239 158 138 172 21 129] Log:Msg 0: swapID: 7718c4b0b5011db13c6b64a63710fd889f03cc386d2e3f575d09ef9e8aac1581 Info: GasWanted:0 GasUsed:0 Tags:[{Key:[115 101 110 100 101 114] Value:[116 98 110 98 49 97 54 112 118 53 103 109 110 115 97 121 52 97 57 115 114 55 110 118 100 48 109 108 100 122 50 57 97 54 107 100 120 121 101 51 55 99 101] XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0} {Key:[114 101 99 105 112 105 101 110 116] Value:[116 98 110 98 49 119 120 101 112 108 121 119 55 120 56 97 97 104 121 57 51 119 57 54 121 104 119 109 55 120 99 113 51 107 101 52 102 102 97 115 112 51 100] XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0} {Key:[97 99 116 105 111 110] Value:[72 84 76 84] XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}] Codespace: XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0})
+```
+
+取得 swap id 與 random number，使用 swap ip 查詢
+
+```
+SWAP_ID=7718c4b0b5011db13c6b64a63710fd889f03cc386d2e3f575d09ef9e8aac1581
+tbnbcli token query-swap \
+  --swap-id ${SWAP_ID} \
+  --chain-id Binance-Chain-Nile \
+  --trust-node \
+  --node http://data-seed-pre-0-s3.binance.org:80
+```
+
+回復當前的狀態
+
+```json
+{
+   "from":"tbnb1a6pv5gmnsay4a9sr7nvd0mldz29a6kdxye37ce",
+   "to":"tbnb1a6pv5gmnsay4a9sr7nvd0mldz29a6kdxye37ce",
+   "out_amount":[
+      {
+         "denom":"BNB",
+         "amount":"10"
+      }
+   ],
+   "in_amount":null,
+   "expected_income":"100:PPT",
+   "recipient_other_chain":"0x938a452d293c23C2CDEae0Bf01760D8ECC4F826b",
+   "random_number_hash":"dabd990af86582969d47218012ecdb09899b9ad2b069c05be94ef82bea889a1b",
+   "random_number":"",
+   "timestamp":"1572337686",
+   "cross_chain":true,
+   "expire_height":"46889630",
+   "index":"2245",
+   "closed_time":"0",
+   "status":"Open"
+}
+```
+
+### Deputy Appove Token
+
+Deputy 已經抓到 Binance Chain 上的 tx，會記錄在 Mysql 內
+
+```
+use deputy;
+
+select * from tx_log limit 10;
+
+| id | chain | swap_id                                                          | tx_type   | tx_hash                                                          | contract_addr | sender_addr                                 | receiver_addr                               | sender_other_chain                         | other_chain_addr                           | in_amount | out_amount | out_coin | random_number_hash                                               | expire_height | timestamp  | random_number | block_hash                                                       | height   | status    | confirmed_num | create_time | update_time |
+|  2 | BNB   | 7718c4b0b5011db13c6b64a63710fd889f03cc386d2e3f575d09ef9e8aac1581 | BEP2_HTLT | d653fc7b5d2048a2a165f49426cdcad733703cf534367133819091892e3a1f14 |               | tbnb1a6pv5gmnsay4a9sr7nvd0mldz29a6kdxye37ce | tbnb1a6pv5gmnsay4a9sr7nvd0mldz29a6kdxye37ce |                                            | 0x938a452d293c23C2CDEae0Bf01760D8ECC4F826b | 100:PPT   | 10         | BNB      | dabd990af86582969d47218012ecdb09899b9ad2b069c05be94ef82bea889a1b |      46889630 | 1572337686 |               | 6948f34e4013da29c9922306b60b2c12f174925c63ff2a46d6b2fc3acd7a3774 | 46889130 | CONFIRMED |             6 |  1572337694 |  1572337695 |
+```
+
+### Deputy Send HTLT on Ethereum
+
+查詢 Ethereum 上的 HTLT
+
+### 客戶端 Call Claim 取得 ERC-20 Token
+
+客戶端取得 100:PPT
+
+### Deputy Call HTLT Claim 取得 Binance Token
+
+Deputy 取得 10:BNB
 
 ---
 
