@@ -71,7 +71,7 @@ slides:
 
 ### 1. 容器 (Container)
 
-* 怕缺東西整麼辦，整包包好放上去跑
+* 怕缺東西，整包包好放上去跑
   * app
   * app 的程式庫(library)
   * 作業系統 Linux 的一部分，補足不同 server 上缺的東西
