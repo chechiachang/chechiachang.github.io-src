@@ -39,9 +39,8 @@ Binance 在 [BEP3: HTLC and Atomic Peg](https://github.com/binance-chain/BEPs/bl
 在某些應用場景，我們會希望兩個獨立主鏈上的資產能後互動，例如在 binance chain 上執行快速的 transaction，然而也要使用 etheruem 上既有的 ERC-20 tokens，這時便需要一個溝通兩條鏈的機制。
 
 * 簡介 Atomic Swap 基本運作流程說明
-* [在 Binance Chain 上互換兩個 address 的 binance asset]({{< ref "#atomic-swap-on-binance-chain" >}})
-* [將 asset 從 ethereum token 與 binance asset 做交換]({{< ref "#atomic-swap-from-ethereum-to-binance-chain">}})
-* 將 asset 從 binance asset 與 ethereum token 做交換
+* [在 Binance Chain 上互換兩個 address 的 binance asset]({{< ref "/post/blockchain-bep3-atomic-swap" >}})
+* [將 asset 從 ethereum token 與 binance asset 做交換]({{< ref "/post/blockchain-bep3-atomic-swap-from-ethereum-to-binance-chain">}})
 
 ---
 

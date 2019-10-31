@@ -5,7 +5,7 @@ title: "Blockchain Bep3 Atomic Swap From Ethereum to Binance Chain"
 subtitle: ""
 summary: ""
 authors: []
-tags: []
+tags: ["blockchain", "bep3", "binance", "ethereum","erc-20"]
 categories: []
 date: 2019-10-31T15:21:44+08:00
 lastmod: 2019-10-31T15:21:44+08:00
@@ -30,29 +30,27 @@ projects: []
 
 ### BEP3 Atomic Swap 2 - 從 Ethereum swap 到 Binance Chain
 
-* [在 Binance Chain 上互換兩個 address 的 binance asset]({{< ref "#atomic-swap-on-binance-chain" >}})
-* [將 asset 從 ethereum token 與 binance asset 做交換]({{< ref "#atomic-swap-from-ethereum-to-binance-chain">}})
+* [在 Binance Chain 上互換兩個 address 的 binance asset]({{< ref "/post/blockchain-bep3-atomic-swap" >}})
+* [將 asset 從 ethereum token 與 binance asset 做交換]({{< ref "/post/blockchain-bep3-atomic-swap-from-ethereum-to-binance-chain" >}})
 
 ---
 
 # 從 Ethereum swap 到 Binance Chain
 
-這邊我們要從 ethereum 上，將 ERC-20 token 與 binance chain 上的 BNB 做交換
+這邊我們要從 ethereum 上，將 ERC-20 token 與 binance chain 上的 BNB 做交換，先準備需要用到的東西
 
-### 準備需要用到的東西
-
-##### binance testnet
+### binance testnet
 
 * 準備好 address 與 BNB，這邊沿用我們上篇使用的 address [tbnb1hq6v49an3wwhrd8ny7qj3exgfmvpvuelkcaj9p](https://testnet-explorer.binance.org/address/tbnb1hq6v49an3wwhrd8ny7qj3exgfmvpvuelkcaj9p)
 
-##### ethereum testnet (ropsten)
+### ethereum testnet (ropsten)
 
 * Admin Address [[ropsten etherscan]](https://ropsten.etherscan.io/address/0x938a452d293c23c2cdeae0bf01760d8ecc4f826b)
 * 部署 ERC20 token [[ropsten etherscan]](https://ropsten.etherscan.io/address/0xDec348688B060fB44144971461b3BAaC8BD1e571)，我自己發行的 [Party Parrot Token (PPT)](https://ropsten.etherscan.io/token/0xDec348688B060fB44144971461b3BAaC8BD1e571) ![](https://cultofthepartyparrot.com/parrots/hd/parrot.gif)
 * 部署 ERC20 Atomic Swapper 智能合約
   * [binance-chain/bep3-smartcontract](https://github.com/chechiachang/bep3-smartcontracts) 提供
 
-##### Node/VM
+### Node/VM
 
 * 用來執行 bep3 deputy process 
   * [https://github.com/binance-chain/bep3-deputy](https://github.com/binance-chain/bep3-deputy) 提供
@@ -133,7 +131,7 @@ $ docker run \
 
 這樣注意幾個地方
 
-* db_config 填上 mysql url，有設密碼的話一並帶入
+* db_config 填上 mysql url，有設密碼的話一併帶入
 * chain_config.bnb_start_height 可以先追到目前的 block height，畢竟我們的 swap tx 都在 deputy 起來之後才會產生，可以跳過啟動時 sync block 的時間。如果是要追過去的 tx，就要調整 block 的高度，並且給予足夠的時間上 deputy 去 sync block。可以到 [testnet-explorer](https://testnet-explorer.binance.org/) 查目前的 block height。
 * chain_config.other_chain_start_height 也追到最新的 eth block height，可以到 [Etherscan](https://ropsten.etherscan.io/) 查目前的 block height
 * bnb_config 填上 bnb addr 與助記祠
