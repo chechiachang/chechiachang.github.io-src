@@ -17,6 +17,7 @@ copyright = "chechiachang &copy; 2016"
 
 # Enable analytics by entering your Google Analytics tracking ID
 googleAnalytics = "UA-137400455-1"
+googleTagManager = "GTM-KHBZVPS"
 
 ############################
 ## Advanced options below ##
