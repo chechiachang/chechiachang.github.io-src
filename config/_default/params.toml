@@ -158,3 +158,7 @@ sharing = true
     api_key = ""
     index_name = ""
     show_logo = false
+
+[marketing]
+  google_analytics = "UA-137400455-1"
+  google_tag_manager = "GTM-KHBZVPS"
