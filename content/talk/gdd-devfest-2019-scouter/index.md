@@ -33,11 +33,11 @@ image:
 
 # Custom links (optional).
 #   Uncomment and edit lines below to show custom links.
-# links:
-# - name: Follow
-#   url: https://twitter.com
-#   icon_pack: fab
-#   icon: twitter
+links:
+- name: Google Photo
+  url: https://photos.google.com/share/AF1QipN0zAXDtpCwjnJ44NoBlISUDh2bD1HrPIb3zoSbw6ckRgOjP0xA8i9rk5Q9Otnn0w?key=aC01d2xUOEZDczdHdFl6VS1lNjB6THRNT1Jnc3dR
+  icon_pack: fab
+  icon: google
 
 # Optional filename of your slides within your talk's folder or a URL.
 url_slides: "https://docs.google.com/presentation/d/1WMOZ7EXDinXvQHBwl08KaFQVYKktq_4eOlEvXlzZtcY/edit#slide=id.g6c2194b22d_2_35"
