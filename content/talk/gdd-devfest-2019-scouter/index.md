@@ -44,7 +44,7 @@ url_slides: "https://docs.google.com/presentation/d/1WMOZ7EXDinXvQHBwl08KaFQVYKk
 
 url_code:
 url_pdf:
-url_video:
+url_video: https://youtu.be/OXfJRA0qeIw?list=PL5ZANox03XxeCZvz4cdANf82qm5Z2S2ZR&t=103
 
 # Markdown Slides (optional).
 #   Associate this talk with Markdown slides.
