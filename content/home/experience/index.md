@@ -20,11 +20,24 @@ date_format = "Jan 2006"
 
 [[experience]]
   title = "DevOps Engineer"
+  company = "Silkrode"
+  company_url = "https://www.silkrode.com.tw/"
+  location = "Taipei, Taiwan"
+  date_start = "2020-05-01"
+  date_end = ""
+  description = """
+  Managed dozens of GKE Kubernetes clusters.
+  Introduced infrastructure as code.
+  Create and maintain fully automated CI/CD piplines for microservices deployment.
+  """
+
+[[experience]]
+  title = "DevOps Engineer"
   company = "Mithril"
   company_url = "https://mith.io/"
   location = "Taipei, Taiwan"
   date_start = "2018-10-01"
-  date_end = ""
+  date_end = "2019-12-25"
   description = """
   Create and maintain fully automated CI/CD piplines for microservices deployment.
   Manage multiple GKE Kubernetes clusters.
