@@ -16,8 +16,8 @@ baseurl = "https://chechia.net/"
 copyright = "chechiachang &copy; 2016"
 
 # Enable analytics by entering your Google Analytics tracking ID
-# googleAnalytics = "UA-137400455-1"
-# googleTagManager = "GTM-KHBZVPS"
+googleAnalytics = "UA-169903302-1"
+googleTagManager = "GTM-NSBJFRS"
 
 ############################
 ## Advanced options below ##
