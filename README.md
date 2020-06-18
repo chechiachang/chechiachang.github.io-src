@@ -1,7 +1,7 @@
 Source Code of My Github Page
 ===
 
-[https://chechiachang.github.io](https://chechiachang.github.io)
+[https://chechia.net](https://chechia.net)
 
 # Powered by Hugo
 
@@ -42,14 +42,12 @@ make hugo publish
 # Bind google search
 
 - go to google search console
-- Add site https://chechiachang.github.io
+- Add site https://chechia.net
   - Authorized by google analysis with google email account
-- Submit https://chechiachang.github.io/sitemap.xml to console
+- Submit https://chechia.net/sitemap.xml to console
 - Wait for data processing
 
 # TODOs
-
-- [ ] Upgrade theme/academic
 
 - [x] ITHome 30 days ironman challenge
   - [x] https://ithelp.ithome.com.tw/users/20120327/ironman/2444

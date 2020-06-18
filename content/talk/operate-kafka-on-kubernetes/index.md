@@ -61,7 +61,7 @@ slides: ""
 projects: []
 ---
 
-後端工程與Devops，專精開發流程自動化，微服務開發，容器化，Kubernetes 維運。常出沒於 Golang Taipei 與 CNCF 社群，喜歡分享演講與撰寫技術文章。https://chechiachang.github.io/
+後端工程與Devops，專精開發流程自動化，微服務開發，容器化，Kubernetes 維運。常出沒於 Golang Taipei 與 CNCF 社群，喜歡分享演講與撰寫技術文章。https://chechia.net/
 
 - 2019 GDG DevFest Kaohsiung
 - 2018, 2019 IThome Cloud Summit

@@ -38,7 +38,7 @@ projects: []
 * Elasticsearch 日常維護：數據清理，效能調校，永久儲存
 * Debug ELK stack on GCP
 
-對我的文章有興趣，歡迎到我的網站上 [https://chechiachang.github.io](https://chechiachang.github.io) 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。
+對我的文章有興趣，歡迎到我的網站上 [https://chechia.net](https://chechia.net) 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。
 
 --
 

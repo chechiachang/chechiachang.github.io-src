@@ -64,7 +64,7 @@ projects: []
   * prometheus
   * kubernetes on gcp
 * 但不會再一篇 10000 字了，逼死我吧...
-* 寫不完的部份 30 天候會在IT邦幫忙，或是[我的 Github Page https://chechiachang.github.io/](https:/chechiachang.github.io)補完
+* 寫不完的部份 30 天候會在IT邦幫忙，或是[我的 Github Page https://chechia.net/](https:/chechia.net)補完
 
 寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。
 
