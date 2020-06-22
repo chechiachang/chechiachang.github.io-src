@@ -19,8 +19,13 @@ slides: title
 server:
 	hugo server -D --bind 0.0.0.0 --port 1313
 
+.PHONY: hugo publish
+
 hugo:
 	hugo
 
-publish: hugo
+clean:
+	rm -rf public/*
+
+publish: clean hugo
 	cd public; git add . && git commit -m "Generate from src" && git push origin master
