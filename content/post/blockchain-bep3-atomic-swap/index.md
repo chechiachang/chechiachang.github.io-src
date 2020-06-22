@@ -608,8 +608,8 @@ Go to swap contract，call  htlt()
 
 用 etherscan 送上去，然後就壞掉了，[Etherscan 上壞掉的 tx](https://ropsten.etherscan.io/tx/0xbd0c829ad2466fcd6e49a12bbac1849827fb9e7a251271816401ed4c9bfe2fa8) 不知為什麼 QAQ
 
-{{< figure library="1" src="bep3-atomic-swap-failure-01.png" height="70%" width="70%" title="" >}}
-{{< figure library="1" src="bep3-atomic-swap-failure-02.png" height="70%" width="70%" title="" >}}
+{{< figure library="1" src="bep3-atomic-swap-failure-01.jpg" height="70%" width="70%" title="" >}}
+{{< figure library="1" src="bep3-atomic-swap-failure-02.jpg" height="70%" width="70%" title="" >}}
 
 開 remix IDE，重新嘗試參數
 

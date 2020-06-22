@@ -25,7 +25,7 @@ Back-End Developer, Kuberentes admin, DevOps
 3. Work with limitation of github API
 4. An application of github user data
 
-{{< figure library="1" src="octocat.png" title="" >}}
+{{< figure library="1" src="octocat.jpg" title="" >}}
 
 ---
 

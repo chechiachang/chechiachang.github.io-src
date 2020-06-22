@@ -58,7 +58,7 @@ For COSCUP!
 [Github API](https://developer.github.com/v3/)
 [go-github](https://github.com/google/go-github) (Api library in Golang)
 
-![inline](../images/octocat.png)
+![inline](../images/octocat.jpg)
 
 ---
 

@@ -39,7 +39,7 @@ url_poster = ""
 # To use, add an image named `featured.jpg/png` to your page's folder. 
 [image]
   # Caption (optional)
-  caption = "jenkins-x.png"
+  caption = "jenkins-x.jpg"
 
   # Focal point (optional)
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight

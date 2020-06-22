@@ -94,7 +94,7 @@ scrape_configs:
 
 透過 Grafana -> explore 就可以看到 Prometheus 的 metrics
 
-![Prometheus Self Metrics](static/img/prometheus-self-metrics.png)
+![Prometheus Self Metrics](static/img/prometheus-self-metrics.jpg)
 
 而使用 metrics 時最好先查到說明文件，確定 metrics 的定義與計算方法，才可以有效的製圖。關於 [Prometheus Exporter 的 metrics 說明](https://wiki.lnd.bz/display/LFTC/Prometheus) 可以到這裡來找。
 

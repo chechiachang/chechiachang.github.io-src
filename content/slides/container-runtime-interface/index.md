@@ -26,7 +26,7 @@ Back-End Developer, Kuberentes admin, DevOps
 3. CRI-O 
 4. Kubernetes on CRI-O 
 
-{{< figure library="1" src="cri-o.png" title="" >}}
+{{< figure library="1" src="cri-o.jpg" title="" >}}
 {{< figure library="1" src="kubernetes.png" title="" >}}
 
 --- 
@@ -64,8 +64,8 @@ Kubernetes (before 1.6) native supports
 - Docker
 - rkt
 
-{{< figure library="1" src="docker-angry.png" title="" >}}
-{{< figure library="1" src="rkt.png" title="" >}}
+{{< figure library="1" src="docker-angry.jpg" title="" >}}
+{{< figure library="1" src="rkt.jpg" title="" >}}
 
 ---
 
@@ -81,7 +81,7 @@ Kubernetes (before 1.6) native supports
 
 ### Container Runtime Interface(CRI)
 
-{{< figure library="1" src="containerd.png" title="" >}}
+{{< figure library="1" src="containerd.jpg" title="" >}}
 
 ---
 
@@ -149,7 +149,7 @@ kubelet -> cri-o -> runC -> container
 
 ---
 
-{{< figure library="1" src="cri-o-arch.png" title="" >}}
+{{< figure library="1" src="cri-o-arch.jpg" title="" >}}
 
 ---
 
