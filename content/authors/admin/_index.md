@@ -13,7 +13,7 @@ role = "Back-End / DevOps"
 
 # Organizations/Affiliations
 #   Separate multiple entries with a comma, using the form: `[ {name="Org1", url=""}, {name="Org2", url=""} ]`.
-organizations = [ { name = "從零開始的軟體工程師之旅", url = "https://www.facebook.com/software.from.scratch" } ]
+organizations = [ { name = "從零開始的軟體工程師之旅", url = "https://www.facebook.com/engineer.from.scratch" } ]
 
 # Short bio (displayed in user profile at end of posts)
 bio = "A software engineer specilized in Back-End development, DevOps, containerization and Kubernetes administration."
@@ -58,7 +58,7 @@ user_groups = []
 [[social]]
   icon = "facebook"
   icon_pack = "fab"
-  link = "https://www.facebook.com/software.from.scratch"
+  link = "https://www.facebook.com/engineer.from.scratch"
 
 [[social]]
   icon = "github"
