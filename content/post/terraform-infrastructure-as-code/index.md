@@ -30,17 +30,19 @@ projects: []
 
 # About this presentation
 
-- [Speaker note]()
+- [Full transcript]()
 - [Presentation file]()
 - [Source Code on Github](https://github.com/chechiachang/chechiachang.github.io-src/blob/master/content/post/terraform-infrastructure-as-code/index.md)
-- [Check chechia.net for full contents of past talks](https://chechia.net)
+- [chechia.net](https://chechia.net) <- full contents
+- [Follow my page to get notification](https://www.facebook.com/engineer.from.scratch)
+  - Like it if you really like it :)
 
 # Outlline
 
+- our story: issues, steps, & results
 - basics IaC, terraform
 - benefits
 - risks and 坑
-- our story: issues, steps, & results
 - to be or not to be
 
 experience oriented
@@ -66,15 +68,14 @@ I would like to introduce terraform (IaC)
 so that I can
 - review all existing resources
 - minimize error from manual operation
-- minimize efforts to operate infra
-- delegate infra operations to junior team members
+- ASAP!!
 
 As a devops,
 I would like to fully enforce terraform (IaC)
 so that I can
-- restrict manual operation
+- minimize efforts to operate infra
+- delegate infra operations to junior team members
 - minimize IAM privilges
-- Separate global infra scope into project infra scope
 
 # Introduction
 
@@ -90,7 +91,9 @@ so that I can
 # IaC
 
 - Programatic way to operate infra
+- declarative (functional) vs. imperative (procedural) 
 - Perfect for public cloud, cloud native, virtualized resources
+- Benefits: cost (reduction), speed (faster execution) and risk (remove errors and security violations)
 
 # Terraform
 
@@ -99,6 +102,11 @@ so that I can
 - Declarative (functional) IaC
 - Invoke API delegation
 - State management
+- providers: azure / aws / gcp /alicloud / ...
+
+# Demo
+
+https://github.com/chechiachang/terraform-playground
 
 # Scope
 
@@ -110,28 +118,23 @@ so that I can
 - Networking
 - Load Balancer
 
-# Expected Result
-
-- Zero manual operation error
-- Infra workflow with infra review
-
-# Unexpected Results
-
-- We made a massive infra migration
-
 # Expected benefits
 
-- (Preference) Better readability to GUI. Allow comment everywhere.
-- Standarized infra. Infra as a (stable) product.
-- Easy to create identical dev, staging, prod envs
-- Minimize manual operation. Fully automized infra pipeline.
-- Reviewed infra. Better workflow. Code needs reviews, so do infra.
+- Minimize manual operation.
+- Zero manual operation error
+  - Standarized infra. Infra as a (stable) product.
+- fast, really fast to duplicate envs
+
+- Infra workflow with infra review
+  - Easy to create identical dev, staging, prod envs
+  - Reviewed infra. Better workflow. Code needs reviews, so do infra.
+- Fully automized infra pipeline.
 
 # Other Benefits
 
 - Don't afraid to change prod sites anymore
-- understand resources from API aspect
-  - how terraform work with GCP API
+  - We made a massive infra migration in this quater!!
+- Better readability to GUI. Allow comment everywhere.
 
 # Risks
 
@@ -141,22 +144,21 @@ so that I can
 - State management
 - A little latency between infra version and terraform provider version
 
-# State
-
-- Shared but synced
-- watch out for state conflicts when colaborating
-  - state diff. could cause terraform mis-plan
-- Solution: synced state lock
-  - Colatorative edit (git branch & PR), synchronized terraform plan & apply
-  - or better: automation
-
 # Reduce Risks
 
-  - Sufficient understanding to infra & terraform
-  - Sufficient training to juniors
-  - Minimize IAM privilege: remove update / delete permissions
+- Sufficient understanding to infra & terraform
+- Sufficient training to juniors
+- Minimize IAM privilege: remove update / delete permissions
 
-# Privide template
+# Git-flow
+
+- edit tf
+- push new branch commit
+- PR, review & discussion
+- merge & apply
+- revert to previous tag if necessary
+
+# (Utility) Provide template
 
 - wrap resources for
   - better accesibility
@@ -176,11 +178,40 @@ so that I can
 - IaC to automation.
 - Comment (for infra) is important. You have to write doc anyway. Why not put in IaC?
 
-# Appendix.I understand resources from API aspect
+# Q&A
+
+- [Full transcript]()
+- [Presentation file]()
+- [Source Code on Github](https://github.com/chechiachang/chechiachang.github.io-src/blob/master/content/post/terraform-infrastructure-as-code/index.md)
+- [chechia.net](https://chechia.net) <- full contents
+- [Follow my page to get notification](https://www.facebook.com/engineer.from.scratch)
+  - Like it if you really like it :)
+
+# Appendix.I more about terraform
+
+terraform validate
+terraform import
+terraform module
+terraform cloud & state management
+
+# Appendix.I understand State conflict
+
+- Shared but synced
+- watch out for state conflicts when colaborating
+  - state diff. could cause terraform mis-plan
+- Solution: synced state lock
+  - Colatorative edit (git branch & PR), synchronized terraform plan & apply
+  - or better: automation
+
+
+# Appendix.II understand resources from API aspect
 
 GCP Load Balancer
 
 ### GCP Load Balancing
+
+- understand resources from API aspect
+  - how terraform work with GCP API
 
 - internal
   - regional
