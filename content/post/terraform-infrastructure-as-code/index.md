@@ -7,8 +7,8 @@ summary: ""
 authors: []
 tags: []
 categories: []
-date: 2020-07-14T16:46:09+08:00
-lastmod: 2020-07-14T16:46:09+08:00
+date: 2020-06-14T16:46:09+08:00
+lastmod: 2020-06-14T16:46:09+08:00
 featured: false
 draft: false
 
@@ -30,9 +30,8 @@ projects: []
 
 # About this presentation
 
-- [Full transcript]()
-- [Presentation file]()
-- [Source Code on Github](https://github.com/chechiachang/chechiachang.github.io-src/blob/master/content/post/terraform-infrastructure-as-code/index.md)
+- [Full transcript]({{< ref "/post/terraform-infrastructure-as-code-transcript" >}})
+- [Github get-started / SOP](https://github.com/chechiachang/terraform-playground)
 - [chechia.net](https://chechia.net) <- full contents
 - [Follow my page to get notification](https://www.facebook.com/engineer.from.scratch)
   - Like it if you really like it :)
@@ -151,6 +150,8 @@ https://github.com/chechiachang/terraform-playground
 - Minimize IAM privilege: remove update / delete permissions
 
 # Git-flow
+
+[Our SOP](https://github.com/chechiachang/terraform-playground/blob/master/SOP.md)
 
 - edit tf
 - push new branch commit
