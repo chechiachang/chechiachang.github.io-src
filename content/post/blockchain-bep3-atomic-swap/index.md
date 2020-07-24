@@ -26,6 +26,11 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
+
+menu:
+  main:
+    parent: "Blockchain"
+    weight: 1
 ---
 
 # BEP3 Atomic Swap

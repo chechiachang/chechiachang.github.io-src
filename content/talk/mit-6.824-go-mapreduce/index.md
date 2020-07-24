@@ -1,7 +1,7 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "MIT 6.824 Distributed System Learning Note"
+title: "Golang Taipei #46: MIT 6.824 Distributed System Learning Note"
 event: Golang Taipei Gathering #46 X Maicoin
 event_url: "https://www.meetup.com/golang-taipei-meetup/events/267181856/"
 location: "Maicoin HQ"
@@ -60,4 +60,9 @@ slides: ""
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
+
+menu:
+  main:
+    parent: "Talks"
+    weight: 1
 ---

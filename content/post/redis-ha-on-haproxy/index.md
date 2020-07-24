@@ -1,42 +1,47 @@
-+++
-title = "Redis Ha HAProxy"
-subtitle = ""
+---
+title: "Redis Ha HAProxy"
+subtitle: ""
 
 # Add a summary to display on homepage (optional).
-summary = ""
+summary: ""
 
-date = 2019-10-02T16:12:10+08:00
-draft = true
+date: 2019-10-02T16:12:10+08:00
+draft: true
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors = []
+authors: []
 
 # Is this a featured post? (true/false)
-featured = false
+featured: false
 
 # Tags and categories
-# For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = ["kubernetes", "redis", "ci", "cd"]
-categories = []
+# For example, use `tags: []` for no tags, or the form `tags: ["A Tag", "Another Tag"]` for one or more tags.
+tags: ["kubernetes", "redis", "ci", "cd"]
+categories: []
 
 # Projects (optional).
 #   Associate this post with one or more of your projects.
 #   Simply enter your project's folder or file name without extension.
-#   E.g. `projects = ["deep-learning"]` references 
+#   E.g. `projects: ["deep-learning"]` references 
 #   `content/project/deep-learning/index.md`.
-#   Otherwise, set `projects = []`.
-# projects = ["internal-project"]
+#   Otherwise, set `projects: []`.
+# projects: ["internal-project"]
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder. 
-[image]
+image:
   # Caption (optional)
-  caption = ""
+  caption: ""
 
   # Focal point (optional)
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
-  focal_point = ""
-+++
+  focal_point: ""
+
+menu:
+  main:
+    parent: "Ithelp 鐵人賽"
+    weight: 1
+---
 
 [2020 It邦幫忙鐵人賽](https://ithelp.ithome.com.tw/2020ironman) 系列文章
 

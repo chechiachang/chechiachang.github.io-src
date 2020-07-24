@@ -1,74 +1,77 @@
-+++
-title = "Service Mesh for Microservices on Kubernetes"
+---
+title: "Ithome Cloud Summit 2019: Service Mesh for Microservices on Kubernetes"
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-date = 2019-05-15T12:00:00+08:00
-date_end = 2019-05-15T12:30:00+08:00
-all_day = false
+date: 2019-05-15T12:00:00+08:00
+date_end: 2019-05-15T12:30:00+08:00
+all_day: false
 
 # Schedule page publish date (NOT talk date).
-publishDate = 2019-04-02T17:10:57+08:00
+publishDate: 2019-04-02T17:10:57+08:00
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors = []
+authors: []
 
 # Location of event.
-location = "台北國際會議中心 (TICC)：110台北市信義區信義路五段1號"
+location: "台北國際會議中心 (TICC)：110台北市信義區信義路五段1號"
 
 # Name of event and optional event URL.
-event = "IThome Cloud Summit 2019"
-event_url = "https://cloudsummit.ithome.com.tw/"
+event: "IThome Cloud Summit 2019"
+event_url: "https://cloudsummit.ithome.com.tw/"
 
 # Abstract. What's your talk about?
-abstract = "當眾多的為服務同時運作，產生複雜的依賴與交流，網路層不再只是有『有通就好』，而是需要精細且彈性的流量管理與監控，來提供穩定的效能。本次主題將基於 Kubernetes 平台上的 Istio ，探討 Service Mesh 的概念與相關應用。"
+abstract: "當眾多的為服務同時運作，產生複雜的依賴與交流，網路層不再只是有『有通就好』，而是需要精細且彈性的流量管理與監控，來提供穩定的效能。本次主題將基於 Kubernetes 平台上的 Istio ，探討 Service Mesh 的概念與相關應用。"
 
 # Summary. An optional shortened abstract.
-summary = "基於 Kubernetes 平台上的 Istio ，探討 Service Mesh 的概念與相關應用。"
+summary: "基於 Kubernetes 平台上的 Istio ，探討 Service Mesh 的概念與相關應用。"
 
 # Is this a featured talk? (true/false)
-featured = false
+featured: false
 
 # Tags (optional).
-#   Set `tags = []` for no tags, or use the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = ["kubernetes", "istio", "service-mesh"]
+#   Set `tags: []` for no tags, or use the form `tags: ["A Tag", "Another Tag"]` for one or more tags.
+tags: ["kubernetes", "istio", "service-mesh"]
 
 # Markdown Slides (optional).
 #   Associate this page with Markdown slides.
 #   Simply enter your slide deck's filename without extension.
-#   E.g. `slides = "example-slides"` references 
+#   E.g. `slides: "example-slides"` references 
 #   `content/slides/example-slides.md`.
-#   Otherwise, set `slides = ""`.
-slides = ""
-#slides = "service-mesh-with-istio"
+#   Otherwise, set `slides: ""`.
+slides: ""
+#slides: "service-mesh-with-istio"
 
 # Optional filename of your slides within your talk folder or a URL.
-url_slides = "https://docs.google.com/presentation/d/1Myn9v2OrWtrnzHIk_5KrKhE0f-rW51lxZMaX6IlYfak/edit?usp=sharing"
+url_slides: "https://docs.google.com/presentation/d/1Myn9v2OrWtrnzHIk_5KrKhE0f-rW51lxZMaX6IlYfak/edit?usp=sharing"
 
 # Projects (optional).
 #   Associate this talk with one or more of your projects.
 #   Simply enter your project's folder or file name without extension.
-#   E.g. `projects = ["deep-learning"]` references 
+#   E.g. `projects: ["deep-learning"]` references 
 #   `content/project/deep-learning/index.md`.
-#   Otherwise, set `projects = []`.
-projects = []
+#   Otherwise, set `projects: []`.
+projects: []
 
 # Links (optional).
-url_pdf = ""
-url_video = ""
-url_code = "https://github.com/istio/istio"
+url_pdf: ""
+url_video: ""
+url_code: "https://github.com/istio/istio"
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder. 
-[image]
+image:
   # Caption (optional)
-  caption = "cncf/istio.png"
+  caption: "cncf/istio.png"
 
   # Focal point (optional)
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
-  focal_point = ""
-+++
+  focal_point: ""
 
+menu:
+  main:
+    parent: "Talks"
+    weight: 1
 ---
 
 ### Outlines
