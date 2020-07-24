@@ -1,7 +1,7 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "從零開始的人臉辨識，七龍珠戰鬥力探測器"
+title: "GDG DevFest 2019: 從零開始的人臉辨識，七龍珠戰鬥力探測器"
 event: GDG DevFest 2019 Kaohsiung 
 event_url: "https://gdg-kaohsiung.kktix.cc/events/devfest-kaohsiung-2019"
 location: "高雄市數位內容創意中心 DAKUO"
@@ -59,4 +59,9 @@ slides: ""
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: ["scouter"]
+
+menu:
+  main:
+    parent: "Talks"
+    weight: 1
 ---

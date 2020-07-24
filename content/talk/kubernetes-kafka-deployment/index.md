@@ -1,7 +1,7 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "Deploy Kafka on Kubernetes"
+title: "Cloud Native Taiwan #21: Deploy Kafka on Kubernetes"
 event: "SDN x Cloud Native Meetup #21"
 event_url: "https://www.meetup.com/CloudNative-Taiwan/events/264490611/"
 location: "天瓏資訊書店"
@@ -59,4 +59,9 @@ slides: "kubernetes-kafka-deployment"
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
+
+menu:
+  main:
+    parent: "Talks"
+    weight: 1
 ---

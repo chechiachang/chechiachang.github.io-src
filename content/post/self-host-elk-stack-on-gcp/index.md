@@ -36,6 +36,11 @@ image:
   # Focal point (optional)
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
   focal_point: ""
+
+menu:
+  main:
+    parent: "Ithelp 鐵人賽"
+    weight: 1
 ---
 
 [2020 It邦幫忙鐵人賽](https://ithelp.ithome.com.tw/2020ironman) 系列文章

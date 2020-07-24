@@ -1,42 +1,47 @@
-+++
-title = "Nginx Ingress"
-subtitle = ""
+---
+title: "Nginx Ingress"
+subtitle: ""
 
 # Add a summary to display on homepage (optional).
-summary = ""
+summary: ""
 
-date = 2019-05-23T11:30:31+08:00
-draft = true
+date: 2019-05-23T11:30:31+08:00
+draft: true
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors = []
+authors: []
 
 # Is this a featured post? (true/false)
-featured = false
+featured: false
 
 # Tags and categories
-# For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = []
-categories = []
+# For example, use `tags: []` for no tags, or the form `tags: ["A Tag", "Another Tag"]` for one or more tags.
+tags: []
+categories: []
 
 # Projects (optional).
 #   Associate this post with one or more of your projects.
 #   Simply enter your project's folder or file name without extension.
-#   E.g. `projects = ["deep-learning"]` references 
+#   E.g. `projects: ["deep-learning"]` references 
 #   `content/project/deep-learning/index.md`.
-#   Otherwise, set `projects = []`.
-# projects = ["internal-project"]
+#   Otherwise, set `projects: []`.
+# projects: ["internal-project"]
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder. 
-[image]
+image:
   # Caption (optional)
-  caption = ""
+  caption: ""
 
   # Focal point (optional)
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
-  focal_point = ""
-+++
+  focal_point: ""
+
+menu:
+  main:
+    parent: "Kubernetes"
+    weight: 1
+---
 
 ### What is 
 

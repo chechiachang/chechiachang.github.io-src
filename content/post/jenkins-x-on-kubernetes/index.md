@@ -1,42 +1,47 @@
-+++
-title = "Jenkins X on Kubernetes"
-subtitle = ""
+---
+title: "Jenkins X on Kubernetes"
+subtitle: ""
 
 # Add a summary to display on homepage (optional).
-summary = ""
+summary: ""
 
-date = 2019-04-19T12:15:41+08:00
-draft = false
+date: 2019-04-19T12:15:41+08:00
+draft: false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors = []
+authors: []
 
 # Is this a featured post? (true/false)
-featured = false
+featured: false
 
 # Tags and categories
-# For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = ["jenkins", "ci", "cd", "kubernetes"]
-categories = []
+# For example, use `tags: []` for no tags, or the form `tags: ["A Tag", "Another Tag"]` for one or more tags.
+tags: ["jenkins", "ci", "cd", "kubernetes"]
+categories: []
 
 # Projects (optional).
 #   Associate this post with one or more of your projects.
 #   Simply enter your project's folder or file name without extension.
-#   E.g. `projects = ["deep-learning"]` references 
+#   E.g. `projects: ["deep-learning"]` references 
 #   `content/project/deep-learning/index.md`.
-#   Otherwise, set `projects = []`.
-projects = ["jenkins-x-on-kubernetes"]
+#   Otherwise, set `projects: []`.
+projects: ["jenkins-x-on-kubernetes"]
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder. 
-[image]
+image:
   # Caption (optional)
-  caption = "jenkis-x.png"
+  caption: "jenkis-x.png"
 
   # Focal point (optional)
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
-  focal_point = "Top"
-+++
+  focal_point: "Top"
+
+menu:
+  main:
+    parent: "Kubernetes"
+    weight: 1
+---
 
 [Jenkins](https://jenkins.io/) is one of the earliest open source antomation server and remains the most common option in use today. Over the years, Jenkins has evolved into a powerful and flexible framework with hundreds of plugins to support automation for any project.
 

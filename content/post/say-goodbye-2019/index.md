@@ -26,6 +26,11 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
+
+menu:
+  main:
+    parent: "Ithelp 鐵人賽"
+    weight: 1
 ---
 
 今年結束了，回顧一下今年做的事情

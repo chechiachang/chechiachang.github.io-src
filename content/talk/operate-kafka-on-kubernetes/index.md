@@ -1,7 +1,7 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "Operate Kafka on Kubernetes"
+title: "Ithome Cloud Summit 2020: Operate Kafka on Kubernetes"
 event: "2020 IThome Cloud Summit"
 event_url: "https://cloudsummit.ithome.com.tw/"
 location: "台北國際會議中心 (TICC)"
@@ -59,6 +59,11 @@ slides: ""
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
+
+menu:
+  main:
+    parent: "Talks"
+    weight: 1
 ---
 
 後端工程與Devops，專精開發流程自動化，微服務開發，容器化，Kubernetes 維運。常出沒於 Golang Taipei 與 CNCF 社群，喜歡分享演講與撰寫技術文章。https://chechia.net/

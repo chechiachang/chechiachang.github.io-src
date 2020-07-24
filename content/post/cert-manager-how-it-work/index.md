@@ -6,7 +6,7 @@ subtitle: ""
 summary: ""
 authors: []
 tags: []
-categories: []
+categories: ["kubernetes", "devops"]
 date: 2019-10-11T11:24:34+08:00
 lastmod: 2019-10-11T11:24:34+08:00
 featured: false
@@ -26,6 +26,11 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
+
+menu:
+  main:
+    parent: "Ithelp 鐵人賽"
+    weight: 1
 ---
 
 [2020 It邦幫忙鐵人賽](https://ithelp.ithome.com.tw/2020ironman) 系列文章

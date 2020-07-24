@@ -20,6 +20,11 @@ url_poster: ""
 # Custom links (optional).
 #   Uncomment line below to enable. For multiple links, use the form `[{...}, {...}, {...}]`.
 # links: [{icon_pack = "fab", icon="twitter", name="Follow", url = "https://twitter.com"}]
+
+menu:
+  main:
+    parent: "Projects"
+    weight: 1
 ---
 
 Learn distributed system with MIT 6.824

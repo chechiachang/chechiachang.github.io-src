@@ -1,42 +1,47 @@
-+++
-title = "Redis Ha on Kubernetes"
-subtitle = "Deploy & operate High Available Redis on Kubernetes"
+---
+title: "Redis Ha on Kubernetes"
+subtitle: "Deploy & operate High Available Redis on Kubernetes"
 
 # Add a summary to display on homepage (optional).
-summary = "Deploy & operate High Available Redis on Kubernetes"
+summary: "Deploy & operate High Available Redis on Kubernetes"
 
-date = 2019-08-23T16:12:10+08:00
-draft = true
+date: 2019-08-23T16:12:10+08:00
+draft: true
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors = []
+authors: []
 
 # Is this a featured post? (true/false)
-featured = false
+featured: false
 
 # Tags and categories
-# For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = ["kubernetes", "redis", "ci", "cd"]
-categories = []
+# For example, use `tags: []` for no tags, or the form `tags: ["A Tag", "Another Tag"]` for one or more tags.
+tags: ["kubernetes", "redis", "ci", "cd"]
+categories: []
 
 # Projects (optional).
 #   Associate this post with one or more of your projects.
 #   Simply enter your project's folder or file name without extension.
-#   E.g. `projects = ["deep-learning"]` references 
+#   E.g. `projects: ["deep-learning"]` references 
 #   `content/project/deep-learning/index.md`.
-#   Otherwise, set `projects = []`.
-# projects = ["internal-project"]
+#   Otherwise, set `projects: []`.
+# projects: ["internal-project"]
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder. 
-[image]
+image:
   # Caption (optional)
-  caption = ""
+  caption: ""
 
   # Focal point (optional)
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
-  focal_point = ""
-+++
+  focal_point: ""
+
+menu:
+  main:
+    parent: "Kubernetes"
+    weight: 1
+---
 
 [Redis](https://redis.io)
 

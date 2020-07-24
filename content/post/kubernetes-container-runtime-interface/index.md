@@ -19,7 +19,7 @@ mathjax: true
 
 menu:
   main:
-    parent: "Docs"
+    parent: "Kubernetes"
     weight: 1
 ---
 

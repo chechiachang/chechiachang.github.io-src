@@ -1,42 +1,47 @@
-+++
-title = "Istio 三分鐘就入坑 佈署篇"
-subtitle = "Istio 三分鐘就入坑 佈署篇"
+---
+title: "Istio 三分鐘就入坑 佈署篇"
+subtitle: "Istio 三分鐘就入坑 佈署篇"
 
 # Add a summary to display on homepage (optional).
-summary = "基於 Kubernetes 平台上的 Istio ，實際部署，並一步一步操作Istio 的功能。"
+summary: "基於 Kubernetes 平台上的 Istio ，實際部署，並一步一步操作Istio 的功能。"
 
-date = 2019-05-06T18:12:15+08:00
-draft = false
+date: 2019-05-06T18:12:15+08:00
+draft: false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors = []
+authors: []
 
 # Is this a featured post? (true/false)
-featured = false
+featured: false
 
 # Tags and categories
-# For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = ["kubernetes", "istio", "service-mesh"]
-categories = []
+# For example, use `tags: []` for no tags, or the form `tags: ["A Tag", "Another Tag"]` for one or more tags.
+tags: ["kubernetes", "istio", "service-mesh"]
+categories: []
 
 # Projects (optional).
 #   Associate this post with one or more of your projects.
 #   Simply enter your project's folder or file name without extension.
-#   E.g. `projects = ["deep-learning"]` references 
+#   E.g. `projects: ["deep-learning"]` references 
 #   `content/project/deep-learning/index.md`.
-#   Otherwise, set `projects = []`.
-# projects = ["internal-project"]
+#   Otherwise, set `projects: []`.
+# projects: ["internal-project"]
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder. 
-[image]
+image:
   # Caption (optional)
-  caption = ""
+  caption: ""
 
   # Focal point (optional)
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
-  focal_point = ""
-+++
+  focal_point: ""
+
+menu:
+  main:
+    parent: "Kubernetes"
+    weight: 1
+---
 
 # Create GKE
 
