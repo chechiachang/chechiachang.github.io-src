@@ -35,6 +35,8 @@ menu:
 
 # About this presentation
 
+This article is part of [Infrastructure as Code: introduce Terraform from stratch]
+
 - [Full transcript]({{< ref "/post/terraform-infrastructure-as-code-transcript" >}})
 - [Github get-started / SOP](https://github.com/chechiachang/terraform-playground)
 - [chechia.net](https://chechia.net) <- full contents
