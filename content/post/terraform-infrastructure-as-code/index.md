@@ -46,7 +46,11 @@ Check my website [chechia.net](https://chechia.net) for other blog. [Follow my p
 
 # 引言 Infrastructure as Code
 
-雲端運算風行的時代，工程師可以很在 GUI 介面上，很輕易的部署資料中心的架構。輸入基本資訊，滑鼠點個一兩下，就可以在遠端啟用運算機器，啟用資料庫，設置虛擬網路與路由，幾分鐘就可以完成架設服務的基礎建設(infrastructure)，開始運行服務。
+從字面上解釋，IaC 就是用程式碼描述 infrastructure。那為何會出現這個概念？
+
+如果不 IaC 是什麼狀況？我們還是可以透過 GUI 或是 API 操作。隨叫隨用
+
+雲端運算風行，工程師可以很在 GUI 介面上，很輕易的部署資料中心的架構。輸入基本資訊，滑鼠點個一兩下，就可以在遠端啟用運算機器，啟用資料庫，設置虛擬網路與路由，幾分鐘就可以完成架設服務的基礎建設(infrastructure)，開始運行服務。
 
 然而隨著
 - 雲平台提供更多新的（複雜的）服務
