@@ -27,3 +27,7 @@ image:
 #   Otherwise, set `projects = []`.
 projects: []
 ---
+
+# Manage TLS certificate in a cluster
+
+https://kubernetes.io/docs/tasks/tls/managing-tls-in-a-cluster/
