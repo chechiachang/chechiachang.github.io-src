@@ -46,7 +46,7 @@ Check my website [chechia.net](https://chechia.net) for other blog. [Follow my p
 # About this presentation
 
 開始之前，先分享一些資源
- - 投影片
+ - [投影片](https://slides.com/chechiachang/terraform-introduction/edit)
  - 講稿
  - 程式碼
  - SOP 範本
@@ -108,16 +108,17 @@ Check my website [chechia.net](https://chechia.net) for other blog. [Follow my p
 
 有實際需求才找解決方案，沒有需求就不用衝動導入新技術，導入過程中還是蠻累的
 
-# Our user story
+# 需求
 
 從維運的角度，需求大概長這樣
 
 - 提升穩定度
   - infra 交付標準化
   - 交付自動化
-  - infra 提交要能夠 review
+  -  測試環境
+- infra 提交要能夠 review
 - 提升效率
-  - 老闆要的。超快部屬，腳本跑下去要快，還要更快。
+  - 老闆要的。超快部屬，腳本跑下去要快，還要更快
 
 - 次要目標
   - 成本，效能最佳化，希望能在整理過程中，找到最適合的可行架構
@@ -153,45 +154,64 @@ Check my website [chechia.net](https://chechia.net) for other blog. [Follow my p
   - 一個是我告訴你步驟，你一步一步幫我做完，就會得到我要的結果
   - terraform 是宣告式，說明邏輯跟結果，例如我要 1 2 3 台機器，terraform 自己去幫我打 Google API 這樣，把機器生出來
   - ansible 是命令式，我把步驟寫成一堆命令腳本 playbook ，ansible 幫我照著跑下去，理論上跑完後我的機器也準備好
-- IaC 地端跟雲端都能做，但雲端做起來效果超級好
-  - 完全展現雲端運算的特性，迅速、彈性、隨用隨叫，調度大量的虛擬化資源
-  - 新增東西很快，不要的資源，要刪掉也很快
-    - 不小心刪錯也很快(大誤)，所以我說新人一個手起刀落公司整個雲弄不見也是有可能的，「啊我的雲勒」「被 terraform 砍了」。不要笑，那個新人就是我，我自己剛學的時候就有把整個 db 變不見過，差點一到職就引咎辭職(XD。用這些技術還是有很多安全要注意，稍後會細講注意的安全事項。    
 
-總之，Iac 就是用程式化的語法，精準的描述雲端的狀態或是步驟，完全沒有模糊的地帶。帶來的好處，降低維運的錯誤風險，加快維運效率，最佳化節省成本。
 
 Terraform
 ---
 
-官網在這邊，自己看
+- 官網在這邊，自己看 https://www.terraform.io/
+- 宣告式的 Iac 工具
+- 單一語法描述各家 API
+- 透過 provider 轉換 tf 成為 API call
 
-宣告式的 Iac 工具，具體怎麼操作，我等等直接 demo 給大家看比較清楚
+# Terraform Core Workflow
 
-my-gce.tf
-state
-remote
+https://www.terraform.io/guides/core-workflow.html
 
-# Concepts
-
-terraform 核心概念
-- tf file，就是宣告式的表達 infra ，描述期待的infra長這樣，ex. tf file 裡有這些機器 1 2 3 台這樣
-  - resource 一個一個物件描述，後面可能是對映 provider 的 API Endpoint (ex. GCP GKE API)
-- remote resources，是真實存在遠端的機器，例如 GCP 雲端實際上只有 1 2 兩台這樣。
-- terraform diff tf vs remote，算出 plan，少的生出來，多的上去砍掉
-  - 注意是 diff state 喔，所以每次都要記得 plan 時候會自動 refresh state
-- state 又是什麼? remote 是一個動態環境，可能會多會少，這樣沒辦法 diff，state 是把我執行當下，遠端相關資源的狀態快照存起來，然後根據這個 snapshop 去 diff
-- apply 只是拿你的期待去 diff state，terraform 幫你算出來差多少，例如我們這邊就是遠端少一台。terraform 透過 provider 去知道，喔這一台要去打那些 GCP API，把這台生出來。
-
-# 工作流程
-
-三個步驟
-- 撰寫期待狀態 tf file
+- Write 撰寫期待狀態 tf file
 - plan 計畫試算結果
 - apply 用期待狀態去更新遠端
+  - tf file，就是宣告式的表達 infra ，描述期待的infra長這樣，ex. tf file 裡有這些機器 1 2 3 台這樣
+    - resource 一個一個物件描述，後面可能是對映 provider 的 API Endpoint (ex. GCP GKE API)
+  - remote resources，是真實存在遠端的機器，例如 GCP 雲端實際上只有 1 2 兩台這樣。
+  - terraform diff tf vs remote，算出 plan，少的生出來，多的上去砍掉
 
 # Demo 1
 
+- (empty project)
+- add my-gce.tf
+- state
+- check GUI remote
+
+- existing my-gce
+- remove my-gce.tf
+- plan
+- 這邊不 apply 我 demo 還要用
+
+這邊這樣有理解 terraform 的基本流程嗎？編寫，計畫，apply 三步驟
+很單純
+然後講一點細節
+
+- state
+- remove (out of scope)
+- plan -> addd
+- apply (deplicated ID)
+
+- mv state (Danger)
+- rename state with the same ID -> destroy and recreate (Danger)
+
 # State
+
+- terraform 經手(apply) 過的 resource 會納入 state (scope)
+- 不在 scope 裡的 resource 不會納入 plan，不會被 destroy，但可能會 create duplicated ID
+- terraform 允許直接操作 state
+  - import
+  - remove
+  - 但我不允許XD
+
+- 注意是 diff state 喔，所以每次 plan 時候會自動 refresh state
+- state 又是什麼? remote 是一個動態環境，可能會多會少，這樣沒辦法 diff，state 是把我執行當下，遠端相關資源的狀態快照存起來，然後根據這個 snapshop 去 diff
+- apply 只是拿你的期待去 diff state，terraform 幫你算出來差多少，例如我們這邊就是遠端少一台。terraform 透過 provider 去知道，喔這一台要去打那些 GCP API，把這台生出來。
 
 State，是核心概念，我當初自己卡觀念是卡這邊，所以我特別拉出來講
 - 雲端空蕩蕩，refresh state 也是空的，tf file 多加一個 VM，plan 覺得要 create
@@ -200,13 +220,22 @@ State，是核心概念，我當初自己卡觀念是卡這邊，所以我特別
   - 相同 ID 的資源不在 state 中，這些 resource 不在當前 state 的 scopor 中，refresh state 是空的，tf file 沒東西，plan 覺得沒增沒減
   - 相同 ID 的資源不在 state 中，這些 resource 不在當前 state 的 scopor 中，refresh state 是空的，tf file 有相同 ID 的資源，plan 覺得要 create，但實際 apply，API error 遠端已經有相同 ID 的資源存在
 
-# State 小結
+# 小結
 
-- terraform 經手(apply) 過的 resource 會納入 state (scope)
-- 不在 scope 裡的 resource 不會納入 plan，不會被 destroy，但可能會 create duplicated ID
-- 允許直接操作 state
-  - import
-  - remove
+- Write -> Plan -> Apply
+- State
+- 大家都會 terraform 惹
+
+---
+
+# 初步使用感想
+
+- IaC 地端跟雲端都能做，但雲端做起來效果超級好
+  - 完全展現雲端運算的特性，迅速、彈性、隨用隨叫，調度大量的虛擬化資源
+  - 新增東西很快，不要的資源，要刪掉也很快
+    - 不小心刪錯也很快(大誤)，所以我說新人一個手起刀落公司整個雲弄不見也是有可能的，「啊我的雲勒」「被 terraform 砍了」。不要笑，那個新人就是我，我自己剛學的時候就有把整個 db 變不見過，差點一到職就引咎辭職(XD。用這些技術還是有很多安全要注意，稍後會細講注意的安全事項。    
+
+總之，Iac 就是用程式化的語法，精準的描述雲端的狀態或是步驟，完全沒有模糊的地帶。帶來的好處，降低維運的錯誤風險，加快維運效率，最佳化節省成本。
 
 # 新手 state 的雷
 
@@ -214,6 +243,51 @@ State，是核心概念，我當初自己卡觀念是卡這邊，所以我特別
   - 避免直接操作 state
 - state 可能有 sensitive 資料
 - 推薦使用外部帶有 lock 的 state storage
+
+導入
+---
+
+# 導入工具之後
+
+新工具導入時要做好風險評估，每個人都是第一次用 terraform ，用起來很快很爽的同時也要不斷宣導安全概念，雷在哪裡坑在哪裡。
+
+使用 terraform 的風險
+- 打 DELET API 超快，砍起來很方便，但很多時候方便 = 危險。眼看小明一個手起刀落，談笑間，公有雲灰飛煙滅(XD，通通變不見。現在在講故事很開心，實際發生的話大家都笑不出來，全公司 RD 都跑來維運部門排隊盯著你看，就算修好也要懲處。壓力超大。但小明砍錯東西不是小明的錯，是大環境的錯是 SOP 的錯(XD。認真的，團隊沒有提供 SOP，新人砍錯東西當然是團隊負責。所以我們 SOP 第一行就寫得很清楚。
+- 看見 destroy 就雙手離開鍵盤，直接求救，這樣還能出事嗎
+- 再來，給予特殊的 IAM 權限，例如只能新增不能刪除的權限
+- 進一步導入 git-flow，push、review、PR，讓他連犯錯的機會都沒有
+- 根本還是要給予新人足夠的訓練，然後同時保障公司安全。
+  - 給新人過大權限砍錯東西，或是工作流程一堆坑，根本是在誘導新人犯錯，團隊的資深成員要檢討。
+
+# 逐漸導入
+
+- 導入的過程不斷檢討跟修改，最後找出適合我們公司的流程
+- 檢討透明，有錯就修 SOP，修工作流程。讓你的工作流程跟工作環境，固若金湯，成員很難在裡面犯錯，這才是 DevOps 在做這的事。
+- 官方建議的最佳實作 https://www.terraform.io/docs/cloud/guides/recommended-practices/index.html
+- 至於我們是如何逐漸導入 IaC 到公司的開發流程中？具體的導入步驟如下
+
+
+# Introduction: IaC
+
+1. 舊架構保存。先把雲端上已經有的機器，terraform 裡面叫資源，import 成代碼
+1. 檢查舊架構。所有設定都變成代碼了，跟你看程式碼一樣，一拍兩瞪眼沒有任何模稜兩可。整理過程中找出合理跟不合理的設定。有可能會發現一些雷，只是還沒爆炸，也趁機修一修。
+1. 然後，依照這些現行的資源，去整理一份適合公司的環境範本，之後所有的新環境都這這個範本部屬，確定新的環境都有合理的規劃。
+1. 到此，所有新環境都是同一份範本生出來的，環境已經標準化了。不會再有零碎的小錯誤。聽起來超讚，但有時候出錯就是一起全錯，超慘(XD。當然有錯就修範本，修 SOP。同樣的錯永不再犯，不用再修第二次。
+
+# Introduction: Git-flow
+
+1. 然後，導入版本控管，整合 git-flow 的開發流程。寫 SOP，之後所有變更都要
+  1. 先把 master 封起來，所有人都不准直接改架構
+  1. 開新 branch，commit
+  1. 開 PR 大家 review，大家都看過了吼，再 merge 進去，這樣有錯就不是一個人的鍋而是大家一起背鍋(XD。不是拉，review 能大幅降低錯誤，分享團隊經驗加速新人訓練，並且讓所有人 on the same page，不會再有「阿靠這機器誰開的」有人不知情的事情。
+  1. 永遠只使用 master 來部屬雲端資源，也是確定所有架構都經過多人 review。
+
+# Introduction: Pipeline Automation
+
+1. 最後，整合 CICD，讓架構的部屬完全自動化。把人工降到最低，同時也把人工錯誤的機率降到最低，當然這個也是沒錯都沒錯，要錯一起錯的狀態(XD，使用時還是要注意。但如果執行的很穩定的話，自動化絕對是值得投資的。因為現在把架構當作產品做，部屬完要測試功能，網路設定是否正確，監控是否完整，proxy 是不是要打看看。這些都整合進 infra 自動 pipeline。部屬完就是測試，然後交付給其他團隊。
+1. 之後就是不斷調整 SOP，跟 CI/CD pipeline。把維運步驟轉成程式維護。
+
+犯錯過一次，永不再犯。這個對於長期團隊經營非常重要，讓經驗跟知識累積，團隊質量才會成長。IaC 在這點幫助很大。
 
 Demo 2
 ---
@@ -240,42 +314,45 @@ P.S. 專案可以按照公司需求分，資源太多太擠就拆分成幾個資
 
 有 review 才有品質可言，code 都要 review，infra 自然也需要 review。IaC + git-flow 是必要的。
 
-導入
----
+# Demo 2
 
-- 上面這些流程，不是一開始就有的
-- 導入的過程不斷檢討跟修改，最後找出適合我們公司的流程
-- 至於我們是如何逐漸導入 IaC 到公司的開發流程中？具體的導入步驟如下
+# 工具 + 流程
 
-# Introduction: IaC
+導入的成功與否，不是最佳實踐，而是各個階段，都給予團隊適合的挑戰與協助
 
-1. 舊架構保存。先把雲端上已經有的機器，terraform 裡面叫資源，import 成代碼
-1. 檢查舊架構。所有設定都變成代碼了，跟你看程式碼一樣，一拍兩瞪眼沒有任何模稜兩可。整理過程中找出合理跟不合理的設定。有可能會發現一些雷，只是還沒爆炸，也趁機修一修。
-1. 然後，依照這些現行的資源，去整理一份適合公司的環境範本，之後所有的新環境都這這個範本部屬，確定新的環境都有合理的規劃。
-1. 到此，所有新環境都是同一份範本生出來的，環境已經標準化了。不會再有零碎的小錯誤。聽起來超讚，但有時候出錯就是一起全錯，超慘(XD。當然有錯就修範本，修 SOP。同樣的錯永不再犯，不用再修第二次。
+- Git-flow SOP 範例
+  - 中文版，超長，上面操作過了，這邊不細講，大家自己上去看
+  - 但如果團隊是第一次導入 terraform，我強烈建議要有類似的東西
+- Provide template
 
-# Introduction: Git-flow
+demo 時不是有 makefile，makefile 裡面寫的小腳本跟本身 IaC 沒有關係，提供一些而外的小腳本輔助，可以進一步降低人工操作，提升效率，又增加安全。工具不一定完全適合團隊吧，這時候就需要補足團隊文化跟工具間的落差，潤滑一下。
 
-1. 然後，導入版本控管，整合 git-flow 的開發流程。寫 SOP，之後所有變更都要
-  1. 先把 master 封起來，所有人都不准直接改架構
-  1. 開新 branch，commit
-  1. 開 PR 大家 review，大家都看過了吼，再 merge 進去，這樣有錯就不是一個人的鍋而是大家一起背鍋(XD。不是拉，review 能大幅降低錯誤，分享團隊經驗加速新人訓練，並且讓所有人 on the same page，不會再有「阿靠這機器誰開的」有人不知情的事情。
-  1. 永遠只使用 master 來部屬雲端資源，也是確定所有架構都經過多人 review。
+再說一次，新人做錯，不是他做錯，而是團隊沒有提供他足夠的協助。如何讓新人也能有高產出同時又顧及安全，資深工程師是這邊在資深。提供一些一用性工具是必要的。
 
-# Introduction: Pipeline Automation
+- Terraform module
 
-1. 最後，整合 CICD，讓架構的部屬完全自動化。把人工降到最低，同時也把人工錯誤的機率降到最低，當然這個也是沒錯都沒錯，要錯一起錯的狀態(XD，使用時還是要注意。但如果執行的很穩定的話，自動化絕對是值得投資的。因為現在把架構當作產品做，部屬完要測試功能，網路設定是否正確，監控是否完整，proxy 是不是要打看看。這些都整合進 infra 自動 pipeline。部屬完就是測試，然後交付給其他團隊。
-1. 之後就是不斷調整 SOP，跟 CI/CD pipeline。把維運步驟轉成程式維護。
+又是一個 terraform 的功能
 
-犯錯過一次，永不再犯。這個對於長期團隊經營非常重要，讓經驗跟知識累積，團隊質量才會成長。IaC 在這點幫助很大。
+簡單來說，GKE 也許定義了 2 個子物件(ex. Cluster，Node-pool)，總共有 30 個參數
+- 你其實不需要那麼多參數 XD
+- 建立一個 my-gke-module，一個物件，5 個必填參數，5 個有預設值的選填參數
+- 也許寫錯的機會只剩 5 個，也許工時只需要 5/30
+- 需求變更就改 module，讓你的操作物件本身就是符合實際需求的
+
+能手動改的地方就是能犯錯的地方，黑箱封裝可以保護整體架構，並提高易用性
 
 雜項
 ---
 
-上面是 IaC 在我們公司
-如果是用 terraform 以外的工具，可以參考流程，也許殊途同歸
+# 其他
 
-# Expected benefits
+- 上面是 IaC 在我們公司的流程
+- 我們選 terraformㄨ
+- 如果是用 terraform 以外的工具，可以參考流程，也許殊途同歸
+
+https://www.terraform.io/intro/vs/index.html
+
+# 優缺點
 
 好，跟團隊一步一步溝通改進，花了一兩個月，成功導入。是否有解決當初的問題？
 
@@ -300,70 +377,15 @@ P.S. 專案可以按照公司需求分，資源太多太擠就拆分成幾個資
 
 降低人工，快速，準確，自動化，有信心
 
-# Risks
-
-新工具導入時要做好風險評估，每個人都是第一次用 terraform ，用起來很快很爽的同時也要不斷宣導安全概念，雷在哪裡坑在哪裡。
-
-使用 terraform 的風險
-- 打 DELET API 超快，砍起來很方便，但很多時候方便 = 危險。眼看小明一個手起刀落，談笑間，公有雲灰飛煙滅(XD，通通變不見。現在在講故事很開心，實際發生的話大家都笑不出來，全公司 RD 都跑來維運部門排隊盯著你看，就算修好也要懲處。壓力超大。但小明砍錯東西不是小明的錯，是大環境的錯是 SOP 的錯(XD。認真的，團隊沒有提供 SOP，新人砍錯東西當然是團隊負責。所以我們 SOP 第一行就寫得很清楚。
-- 看見 destroy 就雙手離開鍵盤，直接求救，這樣還能出事嗎
-- 再來，給予特殊的 IAM 權限，例如只能新增不能刪除的權限
-- 進一步導入 git-flow，push、review、PR，讓他連犯錯的機會都沒有
-- 根本還是要給予新人足夠的訓練，然後同時保障公司安全。
-
-# 正確的工作流程會降低風險
-
-反之亦然。工作流程是很重要的，軟體工程，有對的流程，才可能有對的結果。
-
-給新人過大權限砍錯東西，或是工作流程一堆坑，根本是在誘導新人犯錯，團隊的資深成員要檢討。
-
-檢討透明，有錯就修 SOP，修工作流程。讓你的工作流程跟工作環境，固若金湯，成員很難在裡面犯錯，這才是 DevOps 在做這的事。
-
-# terraform 雷
-
-會用但又還不精通，這時最危險
-- state
-
-附錄(但很重要)
----
-
-導入的成功與否，不是最佳實踐，而是各個階段，都給予團隊適合的挑戰與協助
-
-# Git-flow SOP 範例
-
-中文版，超長，上面操作過了，這邊不細講，大家自己上去看
-
-但如果團隊是第一次導入 terraform，我強烈建議要有類似的東西
-
-# Provide template
-
-demo 時不是有 makefile，makefile 裡面寫的小腳本跟本身 IaC 沒有關係，提供一些而外的小腳本輔助，可以進一步降低人工操作，提升效率，又增加安全。工具不一定完全適合團隊吧，這時候就需要補足團隊文化跟工具間的落差，潤滑一下。
-
-再說一次，新人做錯，不是他做錯，而是團隊沒有提供他足夠的協助。如何讓新人也能有高產出同時又顧及安全，資深工程師是這邊在資深。提供一些一用性工具是必要的。
-
-# Terraform module
-
-又是一個 terraform 的功能
-
-簡單來說，GKE 也許定義了 2 個子物件(ex. Cluster，Node-pool)，總共有 30 個參數
-- 你其實不需要那麼多參數 XD
-- 建立一個 my-gke-module，一個物件，5 個必填參數，5 個有預設值的選填參數
-- 也許寫錯的機會只剩 5 個，也許工時只需要 5/30
-- 需求變更就改 module，讓你的操作物件本身就是符合實際需求的
-
-能手動改的地方就是能犯錯的地方，黑箱封裝可以保護整體架構，並提高易用性
-
-小結
----
-
-- IaC 很讚，特別是 public cloud
-
 Q&A
 ---
 
 還有空我們再來講 terraform 的細節
 
 有事歡迎透過粉專私敲，因為我也需要人討論
+
+還有時間再聊
+---
 
 # terraform
 
@@ -378,15 +400,16 @@ Q&A
 - 更怕同時多人憶起 apply，GCP API 直接被打亂，會有不可預期的錯誤
 - 解法是使用 terraform remote backend，不要用 local state，使用 DB 、storage 或是 terraform cloud，透過一隻 lock 來保證 synchronized state
 
-# GCP Load Balancer
+# 間接理解 API
+
+ex.  GCP Load Balancer
 
 這個講下去就太多了，基本上透過爬 terraform google provider 的文件，然後去比對
 
 - 因為去點 GUI 其實感受不到 GCP API 的調用，但是使用 terraform 轉寫資源時候就很有感，打這個 API 跟打這個 API，tf 檔案上其實看得出來。
 - 進一步去查，才發現 GCP Load Balancer 內網或外網、http 或 tcp、全球或區域，使用的 Load Balancer 行為不一樣，因為底下的實作不一樣。但之前使用 GUI 時其實不會去想為啥設定不一樣，使用 terraform 就會被迫去了解，強迫學習XD。
 
-垃圾話
----
+# 垃圾話
 
 - 最佳實踐不是問題 ，如何導入才是問題
 - 可以不用躺著上班，但是不能跪著上班
