@@ -48,9 +48,10 @@ Check my website [chechia.net](https://chechia.net) for other blog. [Follow my p
 
 開始之前，先分享一些資源
  - [投影片](https://slides.com/chechiachang/terraform-introduction/edit)
- - 講稿
- - 程式碼
- - SOP 範本
+ - [講稿](https://chechia.net/post/terraform-infrastructure-as-code-transcript/)
+ - [程式碼](https://github.com/chechiachang/terraform-playground)
+ - [SOP 範本](https://github.com/chechiachang/terraform-playground/blob/master/SOP.md)
+ - [Facebook 粉專](https://www.facebook.com/engineer.from.scratch/)
 
 都放在這裡，因為有附逐字稿，所以如果很忙的朋友，掃了 QR code 就可以回家自己看了，不用客氣。
 
