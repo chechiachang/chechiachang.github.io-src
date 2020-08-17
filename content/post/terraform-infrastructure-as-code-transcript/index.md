@@ -127,7 +127,7 @@ Check my website [chechia.net](https://chechia.net) for other blog. [Follow my p
   - 新人好上手，Junior 同事也能「安全」的操作，看到這個安全兩個字了嗎? 安全第一，在訓練新的 op 時要注意安全，不然他上去 GUI 點一點，一個手起刀落 DB 就不見了，整個維運團隊一周不用睡覺。安全第一吼。
   - 權限控管，IAM 也用 terraform 管理，權限管理人多手雜越用越亂，可以考慮使用 IaC，一覽無遺
 
-# Promatical approach for infra
+# Programatical approach for infra
 
 啊不就是 Infrastructure as code XD
 - 導入前，大家都有聽過，大家都覺得很想導入，但沒人有經驗，每個人都超怕，但又不知道在怕三小
