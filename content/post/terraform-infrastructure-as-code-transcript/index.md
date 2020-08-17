@@ -36,6 +36,7 @@ menu:
 This article is part of [Infrastructure as Code: introduce Terraform from stratch]({{< ref "/post/terraform-infrastructure-as-code" >}})
 - [Get-started examples / SOP on Github](https://github.com/chechiachang/terraform-playground)
 - [Introducation to Terraform Iac: Speaker transcript]({{< ref "/post/terraform-infrastructure-as-code" >}})
+- [Presentation file](https://slides.com/chechiachang/terraform-introduction/edit)
 
 Check my website [chechia.net](https://chechia.net) for other blog. [Follow my page to get notification](https://www.facebook.com/engineer.from.scratch). Like my page if you really like it :)
 
