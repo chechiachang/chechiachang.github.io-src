@@ -182,6 +182,7 @@ https://www.terraform.io/guides/core-workflow.html
 
 - (empty project)
 - add my-gce.tf
+- git diff
 - state
 - check GUI remote
 
@@ -293,6 +294,12 @@ State，是核心概念，我當初自己卡觀念是卡這邊，所以我特別
 
 Demo 2
 ---
+
+- NAME=terraform-devops make gke redis sql
+- module
+- git commit 
+- Review on github
+- Merge request
 
 # Repo
 
