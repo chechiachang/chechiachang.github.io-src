@@ -1,7 +1,7 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "Self Sign Tls With Own Ca"
+title: "OpenSSL Self Sign TLS With Ca"
 subtitle: ""
 summary: ""
 authors: []
