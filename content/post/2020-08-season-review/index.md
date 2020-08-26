@@ -55,10 +55,6 @@ projects: []
 
 # 填坑中，文章尚未完成
 
-```
-hugo list drafts
-```
-
 - aws
   - post/play-aws-eks-with-low-cost: 精算小神童，如何用最少的 credits 玩 aws eks 服務
 
@@ -71,6 +67,9 @@ hugo list drafts
 
 - terraform
   - post/terraform-infrastructure-as-code-module
+
+- kubernetes
+  - borg, omega, and kubernetes
 
 # 作者外出取材中...
 
