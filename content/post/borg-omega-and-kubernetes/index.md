@@ -50,7 +50,7 @@ https://storage.googleapis.com/pub-tools-public-publication-data/pdf/44843.pdf
 # Container
 
 - Google 使用 Container 來提昇 utilization
-  - 把 batch jobs 跟預留資源的服務 (user-facing app) 放在一起，使用閒置時的資院跑 batch job
+  - 把 batch jobs 跟預留資源的服務 (user-facing app) 放在一起，使用閒置時的資源跑 batch job
 - 現代 container 的定義是 runtime-isolation 與 image
 
 # Application-oriented infrastructure
