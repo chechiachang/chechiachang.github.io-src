@@ -5,6 +5,8 @@ title: "Kubernetes Custom Resources with Operator SDK"
 subtitle: ""
 summary: ""
 authors: []
+tags: ["kubernetes", "crd", "gcp"]
+categories: ["kubernetes", "crd"]
 tags: []
 categories: []
 date: 2019-10-15T17:28:12+08:00

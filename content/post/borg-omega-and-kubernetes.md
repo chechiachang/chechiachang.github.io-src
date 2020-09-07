@@ -5,8 +5,8 @@ title: "Borg Omega and Kubernetes 摘要翻譯"
 subtitle: ""
 summary: ""
 authors: []
-tags: []
-categories: []
+tags: ["kubernetes", "google", "borg"]
+category: ["kubernetes"]
 date: 2020-08-26T13:50:52+08:00
 lastmod: 2020-08-26T13:50:52+08:00
 featured: false

@@ -5,8 +5,8 @@ title: "Redis Ha Sentinel"
 subtitle: ""
 summary: ""
 authors: []
-tags: []
-categories: []
+tags: ["kubernetes", "redis", "ithome", "haproxy"]
+categories: ["kubernetes", "redis"]
 date: 2019-09-29T17:14:38+08:00
 lastmod: 2019-09-29T17:14:38+08:00
 featured: false

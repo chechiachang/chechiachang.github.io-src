@@ -5,8 +5,8 @@ title: "Kafka-basic-usage"
 subtitle: ""
 summary: ""
 authors: []
-tags: []
-categories: []
+tags: ["kafka", "kubernetes", "ithome"]
+categories: ["kubernetes", "kafka"]
 date: 2019-09-24T21:59:49+08:00
 lastmod: 2019-09-24T21:59:49+08:00
 featured: false

@@ -5,8 +5,8 @@ title: "Monitoring GCE With ELK"
 subtitle: ""
 summary: ""
 authors: []
-tags: []
-categories: []
+tags: ["elasticsearch", "devops", "logstash", "ithome"]
+categories: ["kubernetes", "logstash"]
 date: 2019-09-18T19:10:50+08:00
 lastmod: 2019-09-18T19:10:50+08:00
 featured: false

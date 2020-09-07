@@ -5,8 +5,8 @@ title: "Gitops With Argo Cd"
 subtitle: ""
 summary: ""
 authors: []
-tags: []
-categories: []
+tags: ["gcp", "argocd", "devops"]
+categories: ["kubernetes", "argocd"]
 date: 2020-07-28T11:03:51+08:00
 lastmod: 2020-07-28T11:03:51+08:00
 featured: false

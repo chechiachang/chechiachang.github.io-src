@@ -6,7 +6,7 @@ subtitle: ""
 summary: ""
 authors: []
 tags: ["blockchain", "atomic-swap"]
-categories: []
+categories: ["blockchain"]
 date: 2019-11-08T08:03:30+08:00
 lastmod: 2019-11-08T08:03:30+08:00
 featured: false

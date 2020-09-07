@@ -6,7 +6,7 @@ subtitle: ""
 summary: ""
 authors: []
 tags: ["blockchain", "bep3", "binance", "ethereum","erc-20"]
-categories: []
+categories: ["blockchain"]
 date: 2019-10-22T10:35:20+08:00
 lastmod: 2019-10-22T10:35:20+08:00
 featured: false

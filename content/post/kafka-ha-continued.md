@@ -5,8 +5,8 @@ title: "Kafka HA Continued"
 subtitle: ""
 summary: ""
 authors: []
-tags: []
-categories: []
+tags: ["kafka", "kubernetes", "ithome"]
+categories: ["kubernetes", "kafka"]
 date: 2019-09-26T22:50:32+08:00
 lastmod: 2019-09-26T22:50:32+08:00
 featured: false

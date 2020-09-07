@@ -5,8 +5,8 @@ title: "Cert Manager How It Work"
 subtitle: ""
 summary: ""
 authors: []
-tags: []
-categories: ["kubernetes", "devops"]
+tags: ["kubernetes", "cert-manager", "devops"]
+categories: ["kubernetes", "cert-manager"]
 date: 2019-10-11T11:24:34+08:00
 lastmod: 2019-10-11T11:24:34+08:00
 featured: false

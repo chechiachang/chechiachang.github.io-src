@@ -5,8 +5,8 @@ title: "Terraform Infrastructure as Code"
 subtitle: ""
 summary: ""
 authors: []
-tags: []
-categories: []
+tags: ["kubernetes", "terraform"]
+categories: ["kubernetes", "terraform"]
 date: 2020-06-27T11:15:48+08:00
 lastmod: 2020-06-27T11:15:48+08:00
 featured: false

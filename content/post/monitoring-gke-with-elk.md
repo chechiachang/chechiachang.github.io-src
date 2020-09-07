@@ -5,8 +5,8 @@ title: "Monitoring GKE With Elk"
 subtitle: ""
 summary: ""
 authors: []
-tags: ["kubernetes", "elk", "filebeat", "fluentd", "log", "daemonsets", "pod-affinity"]
-categories: []
+tags: ["kubernetes", "logstash", "ithome", "filebeat", "fluentd"]
+categories: ["kubernetes", "logstash"]
 date: 2019-09-19T17:06:29+08:00
 lastmod: 2019-09-19T17:06:29+08:00
 featured: false

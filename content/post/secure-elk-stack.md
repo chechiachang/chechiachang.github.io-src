@@ -5,8 +5,8 @@ title: "Secure Elk Stack"
 subtitle: ""
 summary: ""
 authors: []
-tags: ["elk", "tls", "xpack", "kubernetes"]
-categories: []
+tags: ["tls", "elasticsearch", "devops", "logstash"]
+categories: ["kubernetes", "elasticsearch"]
 date: 2019-09-15T23:00:33+08:00
 lastmod: 2019-09-15T23:00:33+08:00
 featured: false

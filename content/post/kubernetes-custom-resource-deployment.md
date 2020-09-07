@@ -5,8 +5,8 @@ title: "Kubernetes Custom Resource Deployment"
 subtitle: ""
 summary: ""
 authors: []
-tags: []
-categories: []
+tags: ["kubernetes", "crd", "gcp"]
+categories: ["kubernetes", "crd"]
 date: 2019-10-13T22:03:08+08:00
 lastmod: 2019-10-13T22:03:08+08:00
 featured: false

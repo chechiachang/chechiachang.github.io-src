@@ -5,8 +5,8 @@ title: "ELK or Not ELK"
 subtitle: ""
 summary: ""
 authors: []
-tags: []
-categories: ["kubernetes", "elasticsearch", "devops"]
+tags: ["elasticsearch", "devops"]
+categories: ["kubernetes", "elasticsearch"]
 date: 2019-09-18T18:51:40+08:00
 lastmod: 2019-09-18T18:51:40+08:00
 featured: false

@@ -5,8 +5,8 @@ title: "Kafka Deployment on Kubernetes"
 subtitle: ""
 summary: ""
 authors: []
-tags: []
-categories: []
+tags: ["kafka", "kubernetes", "ithome"]
+categories: ["kubernetes", "kafka"]
 date: 2019-09-22T09:58:41+08:00
 lastmod: 2019-09-22T09:58:41+08:00
 featured: false

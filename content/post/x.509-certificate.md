@@ -3,8 +3,8 @@ title: "X.509 certificate"
 subtitle: ""
 summary: ""
 authors: []
-tags: ["elk", "https", "ssl", "tls", "xpack", "kubernetes"]
-categories: []
+tags: ["kubernetes", "tls", "certificate"]
+categories: ["kubernetes", "certificate"]
 date: 2019-09-17T10:15:36+08:00
 lastmod: 2019-09-17T10:15:36+08:00
 featured: false

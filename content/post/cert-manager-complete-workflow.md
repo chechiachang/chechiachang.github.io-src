@@ -5,8 +5,8 @@ title: "Cert Manager Complete Workflow"
 subtitle: ""
 summary: ""
 authors: []
-tags: []
-categories: ["kubernetes", "devops"]
+tags: ["kubernetes", "cert-manager", "devops"]
+categories: ["kubernetes", "cert-manager"]
 date: 2019-10-12T17:41:25+08:00
 lastmod: 2019-10-12T17:41:25+08:00
 featured: false

@@ -5,8 +5,8 @@ title: "從零開始的 Infrastructure as Code: Terraform - 01"
 subtitle: "Infrastucture as Code: introduce Terraform from scratch"
 summary: ""
 authors: []
-tags: ["terraform", "kubernetes", "devops"]
-categories: []
+tags: ["kubernetes", "terraform", "devops"]
+categories: ["kubernetes", "terraform"]
 date: 2020-06-14T16:46:09+08:00
 lastmod: 2020-06-14T16:46:09+08:00
 featured: false

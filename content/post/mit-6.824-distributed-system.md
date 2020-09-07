@@ -6,9 +6,9 @@ draft: false
 summary: "跟著 MIT 6.824 深入淺出分散式系統"
 subtitle: "跟著 MIT 6.824 深入淺出分散式系統"
 
-tags: ["mit", "lecture", "distributed-system", "golang"]
 authors: []
-categories: []
+tags: ["mit", "lecture", "distributed-system", "golang"]
+categories: ["golang", "distributed-system"]
 featured: false
 
 projects: ["mit-6.824-distributed-system"]

@@ -5,8 +5,8 @@ title: "Logstash on GKE"
 subtitle: ""
 summary: ""
 authors: []
-tags: []
-categories: []
+tags: ["elasticsearch", "devops", "logstash"]
+categories: ["kubernetes", "elasticsearch"]
 date: 2019-09-21T15:22:23+08:00
 lastmod: 2019-09-21T15:22:23+08:00
 featured: false

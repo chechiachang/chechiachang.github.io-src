@@ -5,8 +5,8 @@ title: "Kafka HA Topology"
 subtitle: ""
 summary: ""
 authors: []
-tags: []
-categories: []
+tags: ["kafka", "kubernetes"]
+categories: ["kubernetes", "kafka"]
 date: 2019-09-25T22:50:32+08:00
 lastmod: 2019-09-25T22:50:32+08:00
 featured: false

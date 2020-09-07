@@ -5,8 +5,8 @@ title: "Redis Ha Deployment"
 subtitle: ""
 summary: ""
 authors: []
-tags: []
-categories: []
+tags: ["kubernetes", "redis", "ithome"]
+categories: ["kubernetes", "redis"]
 date: 2019-09-28T15:14:23+08:00
 lastmod: 2019-09-28T15:14:23+08:00
 featured: false
