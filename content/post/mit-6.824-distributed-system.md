@@ -14,6 +14,11 @@ featured: false
 projects: ["mit-6.824-distributed-system"]
 ---
 
+https://github.com/chechiachang/mit-6.824-distributed-system
+
+* 課程講義中文翻譯
+* 個人心得
+
 跟著 MIT 6.824 學習分散式系統
 
 這個專案儲存 MIT 6.824 分散式系統編程的上課內容，我將內容翻譯程中文，加上個人學習筆記

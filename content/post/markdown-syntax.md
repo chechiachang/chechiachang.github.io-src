@@ -19,6 +19,7 @@ math = true
 series = ["Themes Guide"]
 aliases = ["migrate-from-jekyl"]
 thumbnail = "images/building.png"
+traft = true
 +++
 
 This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.
