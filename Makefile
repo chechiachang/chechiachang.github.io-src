@@ -16,8 +16,12 @@ post: title
 slides: title
 	hugo new --kind slides slides/$${TITLE}
 
-server:
+dev:
 	hugo server -D --bind 0.0.0.0 --port 1313
+
+prod:
+	hugo server -e production --bind 0.0.0.0 --port 1313
+
 
 .PHONY: hugo publish
 

@@ -1,0 +1,11 @@
+- item: "facebook"
+  url: "https://www.facebook.com/engineer.from.scratch"
+- item: "github"
+  url: "https://github.com/chechiachang"
+- item: "twitter"
+  url: "https://twitter.com/chechiachang"
+- item: "linkedin"
+  url: "https://www.linkedin.com/in/che-chia-chang-92194a4a/"
+#- item: "rss"
+#  url: "index.xml"
+#  internal:  true

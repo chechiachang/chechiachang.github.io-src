@@ -1,0 +1,12 @@
+- name: Home
+  link: /
+#- name: Archives
+#  link: post/rich-content/
+# - name: Mus
+#   link: /categories/music/
+- name: 系列文
+  submenu:
+    - name: 2020 iThome 鐵人賽優勝文章
+      link: post/2020-ithome-ironman-challenge/
+- name: About
+  link: about/
