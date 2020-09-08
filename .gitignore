@@ -8,3 +8,5 @@ resources/
 
 # windows
 **/Thumbs.db
+
+**/.DS_Store
