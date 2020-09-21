@@ -9,7 +9,7 @@ tags: ["kubernetes", "google", "borg"]
 category: ["kubernetes"]
 date: 2020-09-12T13:50:52+08:00
 lastmod: 2020-09-12T13:50:52+08:00
-featured: false
+featured: true
 draft: false
 
 ---
