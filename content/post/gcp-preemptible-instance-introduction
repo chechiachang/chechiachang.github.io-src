@@ -7,7 +7,7 @@ tags: ["kubernetes", "gcp", "preemptible", "spot-instance"]
 category: ["kubernetes"]
 date: 2020-09-22T11:03:40+08:00
 featured: true
-draft: true
+draft: false
 ---
 
 # 先占虛擬機，技術文件二三事
