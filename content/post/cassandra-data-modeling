@@ -1,0 +1,55 @@
+---
+title: "Cassandra Data Modeling"
+date: 2020-09-24T16:47:35+08:00
+draft: true
+---
+
+https://cassandra.apache.org/doc/latest/data_modeling/intro.html
+
+Apache Cassandra Documentation v4.0-beta3
+
+RMDBS
+- object domain driven: table_person, table_property
+- normalization: join when query data from separated tables
+- centralized storage
+- primary key, index key
+- relational integrity: foriegn key constraint
+
+cassandra
+- query driven: table_view_person_property
+- denormalization: same data duplicated across multiple tables
+- partition: across multiple storage nodes
+- primary key: (partition key, clustering key)
+  - consistent hashing: func(partition key) -> partitions
+- queries invlove single table
+
+Data Model Analysis
+
+- partition size
+- data redundancy
+- disk space
+- lightweight transaction (LWT)
+
+### Denormalization
+
+- performance
+- business requirement: ex. enclosed historical snapshot
+
+### Query-first design
+
+- domain object -> table
+- query -> table
+
+---
+
+Defining Application Queries
+
+
+---
+
+Demo Run
+
+https://hub.docker.com/r/bitnami/cassandra/
+
+curl -sSL https://raw.githubusercontent.com/bitnami/bitnami-docker-cassandra/master/docker-compose.yml > docker-compose.yml
+$ docker-compose up -d
