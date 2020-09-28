@@ -16,7 +16,7 @@ draft: false
 
 # 前言
 
-這是原文完整版本。太長不讀 (TL;DR) 請見[Borg Omega and Kubernetes 前世今生摘要]({{< ref "/post/borg-omega-and-kubernetes-tldr" >}}
+這是原文完整版本。太長不讀 (TL;DR) 請見[Borg Omega and Kubernetes 前世今生摘要]({{< ref "/post/borg-omega-and-kubernetes-tldr" >}})
 
 原文：https://storage.googleapis.com/pub-tools-public-publication-data/pdf/44843.pdf
 
@@ -28,9 +28,9 @@ draft: false
 
 越來越多應用都在 Borg 上開發執行， Google 的應用與 infratructure 團隊開發許多工具與服務，形成 Borg 生態系。這些系統提供設定 (configure) 與更新 (update) 工作、預測資源需求、動態推送設定到執行中的工作、服務發現 (service discovery) 與負載均衡 (Load balancing)，等等功能。這些生態系的開發基於 Google 不同團隊的需求，產生一個不同起源 (heterogeneous)、只針對各別需求的 (ad-hoc) 一個堆不同系統，Borg 的使用者需要使用不同的程式語言與程序，來與這些系統互動。Borg 仍然是 Google 主要的容器管理系統，因為他規模 (scale) 巨大，功能多樣，而且極度堅固 (robustness)。
 
-Omega 是 Borg 的下一代，目的是改善 Borg 生態系的軟體工程。Omega 承襲許多 Borg 測試成功的模式，但不同於 Borg，Omega 有完整的架構設計，整體更加一致。Omega 將集群狀態 ( cluster state) 存放在中心化(centralized)、基於 Paxos 算法、交易導向 (transaction-oriented) 的儲存系統，讓集群的控制面板 (control panel) 存取，例如 scheduler。Omega 使用樂觀的併發控制 (optimistic concurrency control) 來處理偶發的衝突，這一層解藕 (decoupling) 的設計，使得原先的 Borgmaster 的功能可以拆分成多個元件，取代原本單一 (monolithic) 集中 (centralized) 的 master，被所有變更請求堵塞。許多 Omage 成功的創新也會被迭代回去 Borg 中。
+Omega 是 Borg 的下一代，目的是改善 Borg 生態系的軟體工程。Omega 承襲許多 Borg 測試成功的模式，但不同於 Borg，Omega 有完整的架構設計，整體更加一致。Omega 將集群狀態 (cluster state) 存放在中心化 (centralized)、基於 Paxos 算法、交易導向 (transaction-oriented) 的儲存系統，讓集群的控制面板 (control panel) 存取，例如 scheduler。Omega 使用樂觀的併發控制 (optimistic concurrency control) 來處理偶發的衝突，這一層解藕 (decoupling) 的設計，使得原先的 Borgmaster 的功能可以拆分成多個元件，取代原本單一 (monolithic) 集中 (centralized) 的 master，被所有變更請求堵塞。許多 Omage 成功的創新也會被迭代回去 Borg 中。
 
-第三套 Google 開發的容器管理系統是 Kubernetes，這時外界工程師也開始對 Linux 容器有興趣，而 Google 同時在開發並推展自己的公有雲架構。Kubernetes 在這樣的背景下構思並開發。與 Borg 及 Omega 不同，Kubernetes 是開源軟體，不限於 Google 內部開發。Kubernetes 內部有共享的持久層儲存 (persistent store)，服務元件持續監測有關物件，與 Omega 類似。不同的是，Omega 允許信任的控制面板的元件直接存取儲存庫，Kubernetes 則透過 domain-specific 的 REST API 存取，來提供高階 (higher-level) 的 API 版本控制、驗證、語意處理 (semantics)、以及存取政策 (policy)，來支援更廣泛的用戶端。更重要的是 Kubernetes 著重工程師在 cluster 上開發與執行應用的體驗，簡化複雜分散式系統(distributed system) 的管理與部屬 (deploy)，同時仍能透過容器來提升資源的使用率。
+第三套 Google 開發的容器管理系統是 Kubernetes，這時外界工程師也開始對 Linux 容器有興趣，而 Google 同時在開發並推展自己的公有雲架構。Kubernetes 在這樣的背景下構思並開發。與 Borg 及 Omega 不同，Kubernetes 是開源軟體，不限於 Google 內部開發。Kubernetes 內部有共享的持久層儲存 (persistent store)，服務元件持續監測有關物件，與 Omega 類似。不同的是，Omega 允許信任的控制面板的元件直接存取儲存庫，Kubernetes 則透過 domain-specific 的 REST API 存取，來提供高階 (higher-level) 的 API 版本控制、驗證、語意處理 (semantics)、以及存取政策 (policy)，來支援更廣泛的用戶端。更重要的是 Kubernetes 著重工程師在 cluster 上開發與執行應用的體驗，簡化複雜分散式系統 (distributed system) 的管理與部屬 (deploy)，同時仍能透過容器來提升資源的使用率。
 
 這篇文章描述 Google 從 Borg 到 Kubernetes 獲得的知識與經驗。
 
