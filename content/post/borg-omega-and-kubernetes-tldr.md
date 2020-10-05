@@ -14,7 +14,7 @@ draft: false
 
 ---
 
-這是原文翻譯的太長不讀 (TL;DR) 版本。完整翻譯請見[Borg Omega and Kubernetes 前世今生浩文完整翻譯]({{< ref "/post/borg-omega-and-kubernetes" >}}
+這是原文翻譯的太長不讀 (TL;DR) 版本。完整翻譯請見[Borg Omega and Kubernetes 前世今生浩文完整翻譯]({{< ref "/post/borg-omega-and-kubernetes" >}})
 
 原文：https://storage.googleapis.com/pub-tools-public-publication-data/pdf/44843.pdf
 
