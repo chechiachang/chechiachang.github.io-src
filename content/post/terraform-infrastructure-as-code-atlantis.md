@@ -7,10 +7,10 @@ summary: ""
 authors: []
 tags: ["kubernetes", "terraform"]
 categories: ["kubernetes", "terraform"]
-date: 2020-10-04T11:15:48+08:00
-lastmod: 2020-10-04T11:15:48+08:00
+date: 2020-10-07T11:15:48+08:00
+lastmod: 2020-10-07T11:15:48+08:00
 featured: false
-draft: true
+draft: false
 
 menu:
   main:
