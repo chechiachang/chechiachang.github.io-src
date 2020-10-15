@@ -5,7 +5,7 @@ summary: ""
 authors: []
 tags: ["kubernetes", "gcp", "preemptible", "spot-instance"]
 category: ["kubernetes"]
-date: 2020-09-24T15:03:19+08:00
+date: 2020-09-29T15:03:19+08:00
 draft: true
 ---
 

@@ -5,8 +5,8 @@ summary: ""
 authors: []
 tags: ["kubernetes", "gcp", "preemptible", "spot-instance"]
 category: ["kubernetes"]
-date: 2020-09-23T12:22:02+08:00
-draft: true
+date: 2020-09-25T12:22:02+08:00
+draft: false
 ---
 
 ### 關於資源評估

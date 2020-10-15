@@ -6,7 +6,7 @@ authors: []
 tags: ["kubernetes", "gcp", "preemptible", "spot-instance"]
 category: ["kubernetes"]
 date: 2020-09-23T16:23:14+08:00
-draft: true
+draft: false
 ---
 
 # 先占虛擬機終止流程 (Preemption process)

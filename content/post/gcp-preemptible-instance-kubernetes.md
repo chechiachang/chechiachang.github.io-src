@@ -5,9 +5,9 @@ summary: ""
 authors: []
 tags: ["kubernetes", "gcp", "preemptible", "spot-instance"]
 category: ["kubernetes"]
-date: 2020-09-22T17:24:20+08:00
+date: 2020-09-26T17:24:20+08:00
 featured: true
-draft: true
+draft: false
 ---
 
 ### 先占虛擬機與 Kubernetes

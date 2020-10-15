@@ -7,7 +7,7 @@ tags: ["kubernetes", "gcp", "preemptible", "spot-instance"]
 category: ["kubernetes"]
 date: 2020-09-22T14:39:00+08:00
 featured: true
-draft: true
+draft: false
 ---
 
 我們以下幾個需求：
