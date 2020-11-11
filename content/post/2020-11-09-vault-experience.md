@@ -98,6 +98,8 @@ Transfer risks in authentication to IAM oauth
 
 vault login -method=aws -path=aws role=chechia
 
+---
+
 # Internal
 
 ### Security Model
@@ -129,3 +131,13 @@ Encrypted Backend
 
 Client to vault server
 - ACL
+
+---
+
+# Terraform
+
+key management
+path policy
+很怕低級錯誤
+
+有一種強不是強，不出錯，是開發習慣好很多
