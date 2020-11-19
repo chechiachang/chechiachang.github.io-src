@@ -4,17 +4,19 @@ init:
 title:
 	if [ -z $${TITLE} ]; then echo 'TITLE env is required.' && exit 1; fi
 
+DATE := $(shell date +%Y-%m-%d)
+
 talk: title
-	hugo new --kind talk talk/$${TITLE}
+	hugo new --kind talk talk/$(DATE)-$${TITLE}
 
 project: title
-	hugo new --kind project project/$${TITLE}
+	hugo new --kind project project/$(DATE)-$${TITLE}
 
 post: title
-	hugo new --kind post post/$${TITLE}
+	hugo new --kind post post/$(DATE)-$${TITLE}
 
 slides: title
-	hugo new --kind slides slides/$${TITLE}
+	hugo new --kind slides slides/$(DATE) $${TITLE}
 
 dev:
 	hugo server -D --bind 0.0.0.0 --port 1313
