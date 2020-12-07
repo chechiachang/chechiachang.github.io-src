@@ -7,6 +7,8 @@
 - name: 系列文
   submenu:
     - name: 2020 iThome 鐵人賽優勝文章
-      link: post/2020-ithome-ironman-challenge/
+      link: post/2020-09-09-ithome-ironman-challenge/
+    - name: 2019 iThome 鐵人賽優勝文章
+      link: post/2019-09-09-ithome-ironman-challenge/
 - name: About
   link: about/
