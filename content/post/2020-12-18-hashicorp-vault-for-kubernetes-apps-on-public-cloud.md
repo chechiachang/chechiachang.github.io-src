@@ -33,6 +33,10 @@ github
 
 https://landscape.cncf.io/selected=vault
 
+# CNCF Radar
+
+https://radar.cncf.io/2021-02-secrets-management
+
 # Issues of secret management
 
 Secret life cycle
