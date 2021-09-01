@@ -13,7 +13,7 @@ project: title
 	hugo new --kind project project/$(DATE)-$${TITLE}
 
 post: title
-	hugo new --kind post post/$(DATE)-$${TITLE}
+	hugo new --kind post post/$(DATE)-$${TITLE}.md
 
 slides: title
 	hugo new --kind slides slides/$(DATE) $${TITLE}
