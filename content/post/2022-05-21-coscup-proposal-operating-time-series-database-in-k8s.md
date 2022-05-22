@@ -26,9 +26,13 @@ tags:
 
 ### Description
 
-Influxdb 為市占最高的 time series DBMS 之一，使用上與 RDBMS 有不同優勢。本次演講的 influxdb 版本為 Influxdb OSS / enterprise 1.9+
+Influxdb 為市占最高的 time series DBMS 之一，使用上與 RDBMS 有不同優劣勢。
 
-社群常聽到有人問：可不可以在 K8s 上跑 database，所以來分享一下到底可不可以
+在維運方面，database 有許多相似需求：穩定性、高可用性、備份、還原、資源管理、調度、災難復原...等。社群常聽到有人問：可不可以在 K8s 上跑 database。
+
+本演講會分享在 k8s 中維運，實務上所遇到的問題，提供一些思考方向。
+
+本次演講的 influxdb 版本為 Influxdb OSS / enterprise 1.9+
 
 ### Content
 
@@ -36,10 +40,11 @@ Influxdb 為市占最高的 time series DBMS 之一，使用上與 RDBMS 有不�
 
 - 簡介 Influxdb，time series 與 RDBMS 的差異
 - 使用 time series 的幾個情境: 
-- 在 k8s 上跑 DB 穩嗎: Availability、faillure recovery、
-- 在 k8s 上跑 DB 資源管理: OOMKilled、cpu throttling、OutOfDisk
-- 在 k8s 上跑 DB 方便嗎: data migration、backup & restore、data retention
-- 小結: 你該不該用 cloud service、放在 VM、在 K8s 上跑 database
+- 在 k8s 上跑 DB
+  - 穩定性 Availability、HA (enterprise)、faillure recovery
+  - 資源管理 OOMKilled、cpu throttling、OutOfDisk
+  - DB management: data migration、backup & restore、data retention
+- 小結: 你該不該用 cloud service / VM / 在 K8s 上跑 database
 
 ### About me
 
@@ -60,5 +65,3 @@ Microsoft 最有價值從業人員 MVP。
 
 - 推薦有 k8s 使用經驗的從業人員，對 k8s 有上手經驗
 - 問可不可以在 k8s 上面跑 database 的人
-
-https://k8s.af/
