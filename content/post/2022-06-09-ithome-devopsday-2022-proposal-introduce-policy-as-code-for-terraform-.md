@@ -28,7 +28,7 @@ tags:
 
 Terraform 是一個很棒的 Infrastructure as Code 的工具，能夠以現代的軟體工程流程來穩定的建構 infrastructure，並隨著需求變更自動化迭代，將新的 feature 安全地更新到既有的 infrastructure 上。只要是 Infrastructure 有關的問題，我一律推薦 Terraform。
 
-Terraform 的品質就等於 infrastrcure 的品質，好的 terraform 帶你上天堂，不好的 terraform 全 team 火葬場。
+這也意味 Terraform 的品質就等於 infrastructure 的品質，好的 terraform 帶你上天堂，不好的 terraform 全 team 火葬場。
 - Infrastructure 有太多資安的考量，新的風險不斷被檢查出來，連帶要不斷的 patch terraform code 來避免潛在的資安風險
 - Infrastructure 會不斷地更新，例如公有雲的 api 不斷更新，去年的 code 已經跟不上今年的最佳實踐了
 - 好的工程師寫出的 terraform code 屌打菜鳥工程師，要如何讓團隊依循更好的實踐，避免寫出爛 code
