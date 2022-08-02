@@ -24,6 +24,8 @@ tags:
 
 別人的 K8s 死袂了 - Kubernetes Failure Stories
 
+Slides: https://docs.google.com/presentation/d/1jIQBPQ2T4XESTOtaW441KkdatJo6mONZVGf-26CgSdc/edit#slide=id.p
+
 ### Description
 
 在一個簡單的系統中，資深工程師可以很清楚地指出，這裡有出過問題、這裡有風險、這裡有雷，做後起團隊的前車之鑑。
