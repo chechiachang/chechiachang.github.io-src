@@ -24,6 +24,9 @@ tags:
 
 在 k8s 上跑 time series database 甘苦談 - Operating Time Series Database in K8s
 
+Slides: https://docs.google.com/presentation/d/1PZryGImYRALMJfbEMuf_jPd2P-qzIwDmVd5DgXSuqq0/edit#slide=id.p
+Youtube live record: https://youtu.be/YexUnVOZC8M?t=9421
+
 ### Description
 
 Influxdb 為市占最高的 time series DBMS 之一，使用上與 RDBMS 有不同優劣勢。
