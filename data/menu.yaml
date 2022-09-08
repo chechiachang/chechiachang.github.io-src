@@ -1,12 +1,22 @@
 - name: Home
   link: /
+- name: DevOps
+  submenu:
+    - name: "[Terraform] 從零開始學"
+      link: /post/2020-06-14-terraform-infrastructure-as-code
+    - name: "[Terraform] 30 天公有雲範例"
+      link: https://ithelp.ithome.com.tw/articles/10258904
+    - name: "[Terraform] 2021 iThome 鐵人賽佳作文章"
+      link: post/2021-09-01-ithome-ironman-go/
 - name: iThome 系列文
   submenu:
+    - name: 2022 14th iThome 鐵人賽參賽WIP
+      link: post/2022-09-08-14th-ithome-ironman-chanllenge/
     - name: 2021 13th iThome 鐵人賽佳作文章
       link: post/2021-09-01-ithome-ironman-go/
-    - name: 2020 iThome 鐵人賽佳作文章
+    - name: 2020 12th iThome 鐵人賽佳作文章
       link: post/2020-09-09-ithome-ironman-challenge/
-    - name: 2019 iThome 鐵人賽優勝文章
+    - name: 2019 11th iThome 鐵人賽優勝文章
       link: post/2019-09-09-ithome-ironman-challenge/
 - name: Leather Craft
   link: https://www.instagram.com/c.c.leather/
