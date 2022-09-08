@@ -1,5 +1,5 @@
 ---
-title: "Prometheus Deploy Grafana"
+title: "Prometheus Scrape"
 subtitle: ""
 
 # Add a summary to display on homepage (optional).

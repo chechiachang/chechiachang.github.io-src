@@ -1,14 +1,16 @@
 - name: Home
   link: /
-#- name: Archives
-#  link: post/rich-content/
-# - name: Mus
-#   link: /categories/music/
-- name: 系列文
+- name: iThome 系列文
   submenu:
+    - name: 2021 13th iThome 鐵人賽佳作文章
+      link: post/2021-09-01-ithome-ironman-go/
     - name: 2020 iThome 鐵人賽佳作文章
       link: post/2020-09-09-ithome-ironman-challenge/
     - name: 2019 iThome 鐵人賽優勝文章
       link: post/2019-09-09-ithome-ironman-challenge/
+- name: Leather Craft
+  link: https://www.instagram.com/c.c.leather/
+- name: Scuba Diving
+  link: https://www.instagram.com/dive.with.cat.coach/
 - name: About
   link: about/
