@@ -3,7 +3,7 @@ title: "2022 06 09 IThome 2022 DevOpsDay Introducing policy as code for terrafor
 date: 2022-06-09T01:04:12+08:00 # Date of post creation.
 #description: "Article description." # Description used for search engine.
 featured: true # Sets if post is a featured post, making appear on the home page side bar.
-draft: true
+draft: false
 toc: false # Controls if a table of contents should be generated for first-level links automatically.
 # menu: main
 #featureImage: "/images/path/file.jpg" # Sets featured image on blog post.
@@ -23,6 +23,10 @@ tags:
 ### Titleq
 
 從零導入 Policy as Code 到 terraform 甘苦談 - Introducing policy as code for terraform
+
+### Presentation
+
+[Google Slides](https://docs.google.com/presentation/d/1yawazO1B_sP5Yiav-XLGJXW3ZS2JTV0wGuJwhrUKQ3A/edit?usp=sharing)
 
 ### Description
 

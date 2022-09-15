@@ -11,7 +11,7 @@
 - name: iThome 系列文
   submenu:
     - name: 2022 14th iThome 鐵人賽參賽WIP
-      link: post/2022-09-08-14th-ithome-ironman-chanllenge/
+      link: /post/2022-09-12-14th-ithome-ironman-iac-aws-workshop-01-introduction/
     - name: 2021 13th iThome 鐵人賽佳作文章
       link: post/2021-09-01-ithome-ironman-go/
     - name: 2020 12th iThome 鐵人賽佳作文章

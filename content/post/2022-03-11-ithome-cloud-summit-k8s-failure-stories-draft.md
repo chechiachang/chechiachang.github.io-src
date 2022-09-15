@@ -24,7 +24,7 @@ tags:
 
 別人的 K8s 死袂了 - Kubernetes Failure Stories
 
-Slides: https://docs.google.com/presentation/d/1jIQBPQ2T4XESTOtaW441KkdatJo6mONZVGf-26CgSdc/edit#slide=id.p
+[Google Slides](https://docs.google.com/presentation/d/1jIQBPQ2T4XESTOtaW441KkdatJo6mONZVGf-26CgSdc/edit)
 
 ### Description
 

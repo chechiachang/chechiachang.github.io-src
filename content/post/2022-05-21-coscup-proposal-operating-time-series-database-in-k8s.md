@@ -3,7 +3,7 @@ title: "2022 05 21 COSCUP Operating Time Series Database in K8s" # Title of the 
 date: 2022-05-21T01:04:12+08:00 # Date of post creation.
 #description: "Article description." # Description used for search engine.
 featured: true # Sets if post is a featured post, making appear on the home page side bar.
-draft: true
+draft: false
 toc: false # Controls if a table of contents should be generated for first-level links automatically.
 # menu: main
 #featureImage: "/images/path/file.jpg" # Sets featured image on blog post.
@@ -24,7 +24,7 @@ tags:
 
 在 k8s 上跑 time series database 甘苦談 - Operating Time Series Database in K8s
 
-Slides: https://docs.google.com/presentation/d/1PZryGImYRALMJfbEMuf_jPd2P-qzIwDmVd5DgXSuqq0/edit#slide=id.p
+[Google Slides](https://docs.google.com/presentation/d/1PZryGImYRALMJfbEMuf_jPd2P-qzIwDmVd5DgXSuqq0/edit)
 Youtube live record: https://youtu.be/YexUnVOZC8M?t=9421
 
 ### Description
