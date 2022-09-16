@@ -1,5 +1,5 @@
 ---
-title: "2022 06 09 IThome 2022 DevOpsDay Introducing policy as code for terraform" # Title of the blog post.
+title: "IThome 2022 DevOpsDay Introducing policy as code for terraform" # Title of the blog post.
 date: 2022-06-09T01:04:12+08:00 # Date of post creation.
 #description: "Article description." # Description used for search engine.
 featured: true # Sets if post is a featured post, making appear on the home page side bar.
