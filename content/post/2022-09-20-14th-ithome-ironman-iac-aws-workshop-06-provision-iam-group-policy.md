@@ -111,7 +111,7 @@ tags:
 有哪些 aws 已經預先定義好的 policy 可以使用？
 - 可以上 aws web console -> iam -> policies 下查詢
 
-![AWS Web Console IAM Policies]()
+![AWS Web Console IAM Policies](https://ithelp.ithome.com.tw/upload/images/20220920/20120327I5BmCCMAky.png)
 
 這些預先定義的 policy，是 aws 依照最常出現的使用情境，事先建立的 policy
 - 使用者不用再建議
@@ -175,7 +175,9 @@ AWS web console 提供根據使用紀錄，提建議修改 policy
 - 我們可以自己手寫 policy，依照最小權限原則，一條一條加入 permission
 - 或是我們可以上 aws web console 找看看有無預先定義好的 policy
 
-![AWS Web Console IAM Policies: billing]()
+![AWS Web Console IAM Policies: billing](https://ithelp.ithome.com.tw/upload/images/20220920/20120327nNp3eZnW9v.png)
+
+![AWS Web Console IAM Policies: billing difference](https://ithelp.ithome.com.tw/upload/images/20220920/20120327nhmspwn04K.png)
 
 我們搜尋 billing 有看到四個 policy，每個 policy 都有附上 description 說明使用的目的
 - Billing
@@ -191,6 +193,8 @@ AWS web console 提供根據使用紀錄，提建議修改 policy
 - 點擊 AWSBillingConductorFullAccess，跳到 Policies >> AWSBillingConductorFullAccess 頁面
 - 可以看到 policy 的完整 arn，Amazon Resource Name (ARN) 唯一識別AWS 資源，類似於 ID
 - 然後把 arn 填入 [module.am_group_with_policies_billing](https://github.com/chechiachang/terragrunt-infrastructure-modules/pull/1/files#diff-858c29afbd11c170c1b2d1f0368b50368ff0d056682ec1ddc51cd2014b04f275R46)
+
+![AWS Web Console IAM Policies: AWSBillingConductorFullAccess](https://ithelp.ithome.com.tw/upload/images/20220920/20120327PmO72VOmMV.png)
 
 ### plan & apply
 
