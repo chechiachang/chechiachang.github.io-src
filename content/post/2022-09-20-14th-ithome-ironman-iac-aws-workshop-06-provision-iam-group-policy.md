@@ -458,3 +458,17 @@ aws-vault exec terraform-30day-root-iam-user --no-session  --  terragrunt apply
 眼尖的同學應該有注意到我們把 `create_login_profile = false` 先關掉
 - 因為我們還沒有準備 pgp key，這個又要明天再來了
 
+### TODO 與進度
+
+- [x] 透過 root account 設定一組 IAM User
+- [x] 透過 root account 設定多個 aws child accounts
+- [x] root 中設定 IAM User
+  - [x] 將手動產生的 Administrator 的 IAM User import terraform 中
+  - [x] 補上 root account IAM Policy
+  - [x] 補上 root account IAM Group
+- [ ] security 中設定 IAM User
+  - [ ] security 設定 password policy
+  - [ ] security 設定 MFA policy
+- [ ] security 中設定 IAM Policy & Group
+- [ ] dev 中設定 IAM role
+- [ ] 允許 security assume dev IAM role
