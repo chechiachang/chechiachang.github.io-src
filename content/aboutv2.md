@@ -1,7 +1,8 @@
-Che-Chia Chang，專長的領域是後端開發，開發維運，容器化應用，以及Kubernetes開發管理。
+Che-Chia Chang，專長的領域是，開發維運，容器化應用，以及Kubernetes開發管理。
+
 Microsoft 最有價值從業人員 MVP。
 
-目前為 Golang Taiwan Meetup Organizer，常出現於 CNTUG，DevOps Taipei，GDG Taipei， Golang Taipei Meetup。
+常出現於 CNTUG，DevOps Taipei，GDG Taipei，Golang Taipei Meetup。
 
 Che-Chia Chang, an SRE specialize in container and Kubernetes operation. An active member of CNTUG, DevOps Taipei, GDS Taipei, Golang Taiwan Meetup.
 Microsoft Most Valuable Professional since 2020.
