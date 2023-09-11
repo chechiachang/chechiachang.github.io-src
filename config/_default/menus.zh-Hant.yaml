@@ -1,0 +1,42 @@
+# Navigation Links
+#   To link a homepage widget, specify the URL as a hash `#` followed by the filename of the
+#     desired widget in your `content/home/` folder.
+#   The weight parameter defines the order that the links will appear in.
+
+main:
+  #- name: 首頁
+  #  url: '/'
+  #  weight: 10
+  - name: 演講
+    url: '#talks'
+    weight: 20
+  - name: 發文
+    url: '#posts'
+    weight: 30
+  - name: 專案
+    url: '#projects'
+    weight: 40
+  #- name: 出版
+  #  url: '#featured'
+  #  weight: 50
+  #- name: 聯絡
+  #  url: '#contact'
+  #  weight: 60
+  - name: 皮件
+    url: https://www.instagram.com/c.c.leather/
+    weight: 70
+  - name: 水肺
+    url: https://www.instagram.com/dive.with.cat.coach/
+    weight: 80
+  - name: 微軟MVP
+    url: https://mvp.microsoft.com/zh-TW/mvp/profile/e407d0b9-5c01-eb11-a815-000d3a8ccaf5
+    weight: 90
+  #- name: 關於
+  #  url: '#about'
+  #  weight: 100
+
+# Link to a PDF of your resume/CV from the menu.
+# To enable, copy your resume/CV to `static/uploads/resume.pdf` and uncomment the lines below.
+#  - name: CV
+#    url: uploads/resume.pdf
+#    weight: 70

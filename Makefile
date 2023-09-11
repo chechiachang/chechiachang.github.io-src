@@ -19,10 +19,10 @@ slides: title
 	hugo new --kind slides slides/$(DATE) $${TITLE}
 
 dev:
-	hugo server -D --bind 0.0.0.0 --port 1313
+	hugo server --disableFastRender -D --bind 0.0.0.0 --port 1313
 
 prod:
-	hugo server -e production --bind 0.0.0.0 --port 1313
+	hugo server --disableFastRender -D -e production --bind 0.0.0.0 --port 1313
 
 
 .PHONY: hugo publish
