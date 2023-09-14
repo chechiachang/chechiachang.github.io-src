@@ -17,13 +17,13 @@ marketing:
   seo:
     site_type: Person
     local_business_type: ''
-    org_name: ''
-    description: 'A highly-customizable Hugo academic resume theme powered by Wowchemy website builder.'
-    twitter: 'wowchemy'
+    org_name: 'chechia-net'
+    description: 'A SRE'
+    twitter: 'chechiachang'
   analytics:
-    google_analytics: ''
+    google_analytics: 'G-QYR8JCDGM9'
     baidu_tongji: ''
-    google_tag_manager: ''
+    google_tag_manager: 'GTM-NSBJFRS'
     microsoft_clarity: ''
   verification:
     google: ''
