@@ -1,14 +1,14 @@
 ---
 # Documentation: https://wowchemy.com/docs/managing-content/
 
-title: "Vault Workshop Get Started"
+title: "Vault Workshop 04: Dynamic Secret with AWS"
 subtitle: ""
 summary: ""
 authors: []
 tags: []
 categories: []
-date: 2023-09-13T21:42:26+08:00
-lastmod: 2023-09-13T21:42:26+08:00
+date: 2023-09-13T23:42:26+08:00
+lastmod: 2023-09-13T23:42:26+08:00
 featured: false
 draft: false
 
@@ -25,8 +25,15 @@ image:
 #   Simply enter your project's folder or file name without extension.
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
-projects: ["/zh-hant/projects/vault-playground"]
+projects: []
 
 tags: ["vault", "iac", "workshop", "terraform", "鐵人賽2023"]
 categories: ["vault"]
 ---
+
+如果你希望追蹤最新的草稿，請見[鐵人賽2023](http://localhost:1313/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/)
+
+整篇 Workshop 會使用的範例與原始碼，放在 [Github Repository: vault-playground](http://chechia.net/zh-hant/#projects)
+
+# Day 03：初探 Dynamic Secret 與 AWS 整合
+

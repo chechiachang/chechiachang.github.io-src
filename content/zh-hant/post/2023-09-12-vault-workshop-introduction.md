@@ -29,13 +29,15 @@ tags: ["vault", "iac", "workshop", "terraform", "鐵人賽2023"]
 categories: ["vault"]
 ---
 
+如果你希望追蹤最新的草稿，請見[鐵人賽2023](http://localhost:1313/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/)
+
 # Day 01 前言：從零開始的 Hashicorp Vault Workshop
 
 從零開始 workshop 系列已經做了四年，內容包含 k8s, terraform, aws 等。
 
 深深覺得要學習一個工具，還是要動手做。
 
-所以有了 30 天手把手 workshop 系列文，讓有興趣教處的朋友，能以相對低的門檻入門。
+所以有了 30 天手把手 workshop 系列文，讓有興趣接觸的朋友，能以相對低的門檻入門。
 
 關於內容
 
@@ -72,7 +74,9 @@ categories: ["vault"]
 
 # What is Vault?
 
-本段內容使用 chatGPT-3.5 翻譯 https://developer.hashicorp.com/vault/docs/what-is-vault 內容，並由筆者人工校驗
+本段內容使用 chatGPT-3.5 翻譯
+https://developer.hashicorp.com/vault/docs/what-is-vault
+內容，並由筆者人工校驗
 
 base context
 ```
