@@ -31,7 +31,7 @@ tags: ["vault", "iac", "workshop", "terraform", "鐵人賽2023"]
 categories: ["vault"]
 ---
 
-如果你希望追蹤最新的草稿，請見[鐵人賽2023](http://localhost:1313/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/)
+如果你希望追蹤最新的草稿，請見[鐵人賽2023](https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/)
 
 整篇 Workshop 會使用的範例與原始碼，放在 [Github Repository: vault-playground](http://chechia.net/zh-hant/#projects)
 
