@@ -7,16 +7,16 @@ title:
 DATE := $(shell date +%Y-%m-%d)
 
 talk: title
-	hugo new --kind talk talk/$(DATE)-$${TITLE}
+	hugo new --kind talk content/zh-hant/talk/$(DATE)-$${TITLE}
 
 project: title
-	hugo new --kind project project/$(DATE)-$${TITLE}
+	hugo new --kind project content/zh-hant/project/$(DATE)-$${TITLE}
 
 post: title
-	hugo new --kind post post/$(DATE)-$${TITLE}.md
+	hugo new --kind post content/zh-hant/post/$(DATE)-$${TITLE}.md
 
 slides: title
-	hugo new --kind slides slides/$(DATE) $${TITLE}
+	hugo new --kind slides content/zh-hant/slides/$(DATE) $${TITLE}
 
 dev:
 	hugo server --disableFastRender -D --bind 0.0.0.0 --port 1313
