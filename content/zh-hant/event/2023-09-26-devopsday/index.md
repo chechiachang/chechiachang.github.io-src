@@ -59,3 +59,17 @@ slides: devopsday-2023-vault
 projects:
   - example
 ---
+
+HashiCorp Vault 自建金鑰管理最佳入坑姿勢
+
+本次演講從導入 HashiCorp Vault 作為起點，直接提供實務上經驗，分享建議的設定與路上可能有的雷。
+
+- Vault 入坑的困難
+- Vault + Terraform 一入坑就 IaC
+- mount path + role + policy 命名與管理
+- 升級與維護
+- 會依據企業需求提供實際用例 demo，當天提供 github code example
+
+中階
+- 預期聽眾是有 Vault 使用經驗，希望能更有效率管理 Vault 的人
+- 不會講太多基本功能介紹 vault 介紹
