@@ -1,14 +1,14 @@
 ---
 # Documentation: https://wowchemy.com/docs/managing-content/
 
-title: "Vault Workshop 04: Dynamic Secret with AWS"
+title: "Vault Workshop 05: Dynamic Secret with AWS"
 subtitle: ""
 summary: ""
 authors: []
 tags: []
 categories: []
-date: 2023-09-13T23:42:26+08:00
-lastmod: 2023-09-13T23:42:26+08:00
+date: 2023-09-14T01:42:26+08:00
+lastmod: 2023-09-14T01:42:26+08:00
 featured: false
 draft: false
 
@@ -35,5 +35,5 @@ categories: ["vault"]
 
 整篇 Workshop 會使用的範例與原始碼，放在 [Github Repository: vault-playground](http://chechia.net/zh-hant/#projects)
 
-# Day 03：初探 Dynamic Secret 與 AWS 整合
+# Day 05：Dynamic Secret 與 AWS 整合
 
