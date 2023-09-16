@@ -37,7 +37,7 @@ categories: ["vault"]
 
 整篇 Workshop 會使用的範例與原始碼，放在 [Github Repository: vault-playground](http://chechia.net/zh-hant/#projects)
 
-# Day 06：Authentication
+# Day 05：Authentication
 
 在前面的文章中，你已經創建了第一個秘密，了解了秘密引擎，並在以開發模式啟動的 Vault 服務器中探索了動態秘密。
 
