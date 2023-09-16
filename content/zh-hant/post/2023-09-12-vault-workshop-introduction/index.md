@@ -31,6 +31,8 @@ categories: ["vault"]
 
 如果你希望追蹤最新的草稿，請見[鐵人賽2023](https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/)
 
+本 workshop 也接受網友的許願清單，[如果有興趣的題目可於第一篇底下留言](https://ithelp.ithome.com.tw/articles/10317378)，筆者會盡力實現，但不做任何保證
+
 # Day 01 前言：從零開始的 Hashicorp Vault Workshop
 
 從零開始 workshop 系列已經做了四年，內容包含 k8s, terraform, aws 等。
@@ -55,6 +57,25 @@ categories: ["vault"]
 - [2021 鐵人賽: Terraform Workshop - Infrastructure as Code for Public Cloud](https://ithelp.ithome.com.tw/users/20120327/ironman/4057)
 - [2020 鐵人賽: Kubernetes X DevOps X 從零開始導入工具 X 需求分析](https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2020/)
 - [2019 鐵人賽: Kubernetes](https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2019/)
+
+# 預定內容與許願清單
+
+本 workshop 預計有底下內容
+- Day 01 前言：從零開始的 Hashicorp Vault Workshop
+- Day 02 準備：執行一個本地開發用途的 Vault
+- Day 03：細探 Secret Engine 秘密引擎
+- Day 04：Secret Engine KV V2
+- Day 05：Authentication
+
+本 workshop 也接受網友的許願清單，[如果有興趣的題目可於第一篇底下留言](https://ithelp.ithome.com.tw/articles/10317378)，筆者會盡力實現，但不做任何保證
+- github auth method
+- Dynamic Secrets
+- tls certificate management
+- Infrastructure as Code for Vault
+- Vault Kuberntes integration
+- Azure integration
+- AWS integration
+- [token in detail](https://developer.hashicorp.com/vault/docs/concepts/tokens#root-tokens)
 
 ### 關於翻譯工具 chatGPT
 
