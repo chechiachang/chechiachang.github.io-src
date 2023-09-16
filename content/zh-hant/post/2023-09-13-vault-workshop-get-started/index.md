@@ -27,7 +27,7 @@ image:
 #   Otherwise, set `projects = []`.
 projects: []
 
-tags: ["vault", "iac", "workshop", "terraform", "鐵人賽2023"]
+tags: ["vault", "iac", "workshop", "terraform", "鐵人賽2023", "chatgpt"]
 categories: ["vault"]
 ---
 

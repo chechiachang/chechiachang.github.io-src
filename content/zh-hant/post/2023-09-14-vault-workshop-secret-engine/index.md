@@ -27,7 +27,7 @@ image:
 #   Otherwise, set `projects = []`.
 projects: []
 
-tags: ["vault", "iac", "workshop", "terraform", "鐵人賽2023"]
+tags: ["vault", "iac", "workshop", "terraform", "鐵人賽2023", "chatgpt"]
 categories: ["vault"]
 ---
 
@@ -270,7 +270,7 @@ https://developer.hashicorp.com/vault/tutorials/getting-started/getting-started-
 
 base context
 ```
-我希望你能充當一名繁體中文翻譯，拼寫修正者和改進者。我將用英文與程式語言與您對話，你將翻譯它，並以已糾正且改進的版本回答，以繁體中文表達。我希望你能用更美麗和優雅、高級的繁體中文詞語和句子替換我簡化的詞語和句子。保持意義不變。我只希望你回答糾正和改進，不要寫解釋。不要使用敬語，請用你取代您。
+我希望你能充當一名繁體中文翻譯，拼寫修正者和改進者。我將用英文與程式語言與你對話，你將翻譯它，並以已糾正且改進的版本回答，以繁體中文表達。我希望你能用更美麗和優雅、高級的繁體中文詞語和句子替換我簡化的詞語和句子。保持意義不變。我只希望你回答糾正和改進，不要寫解釋。不要使用敬語，請用你取代您。
 ```
 
 result correction
