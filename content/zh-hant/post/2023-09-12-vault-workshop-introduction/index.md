@@ -25,7 +25,7 @@ image:
 #   Otherwise, set `projects = []`.
 projects: []
 
-tags: ["vault", "iac", "workshop", "terraform", "鐵人賽2023"]
+tags: ["vault", "iac", "workshop", "terraform", "鐵人賽2023", "chatgpt"]
 categories: ["vault"]
 ---
 
@@ -80,7 +80,7 @@ https://developer.hashicorp.com/vault/docs/what-is-vault
 
 base context
 ```
-我希望你能充當一名繁體中文翻譯，拼寫修正者和改進者。我將用英文與程式語言與您對話，你將翻譯它，並以已糾正且改進的版本回答，以繁體中文表達。我希望你能用更美麗和優雅、高級的繁體中文詞語和句子替換我簡化的詞語和句子。保持意義不變。我只希望你回答糾正和改進，不要寫解釋。不要使用敬語，請用你取代您。
+我希望你能充當一名繁體中文翻譯，拼寫修正者和改進者。我將用英文與程式語言與你對話，你將翻譯它，並以已糾正且改進的版本回答，以繁體中文表達。我希望你能用更美麗和優雅、高級的繁體中文詞語和句子替換我簡化的詞語和句子。保持意義不變。我只希望你回答糾正和改進，不要寫解釋。不要使用敬語，請用你取代您。
 ```
 
 result correction
@@ -92,7 +92,7 @@ result correction
 
 ### What is Vault?
 
-HashiCorp Vault 是一套基於身份的私鑰和加密管理系統。所謂的"私鑰"，是您希望嚴格控制存取的資訊，例如 API key、密碼和certificate。Vault 提供加密服務，並透過認證和授權方法進行管控。使用 Vault 的使用者介面、命令列介面或 HTTP API，可以安全地儲存和管理私鑰及其他敏感資料，並能嚴格控制（限制）其存取權，並可進行 audit。
+HashiCorp Vault 是一套基於身份的私鑰和加密管理系統。所謂的"私鑰"，是你希望嚴格控制存取的資訊，例如 API key、密碼和certificate。Vault 提供加密服務，並透過認證和授權方法進行管控。使用 Vault 的使用者介面、命令列介面或 HTTP API，可以安全地儲存和管理私鑰及其他敏感資料，並能嚴格控制（限制）其存取權，並可進行 audit。
 
 現代系統需要存取大量的私鑰，包括資料庫憑證、外部服務的 API key、面向服務的架構通訊憑證等。了解誰正在存取哪些私鑰可能相當困難，尤其當這種存取可能因平台而異。而在此基礎上加入key rolling、安全儲存和詳細的audit trail，若無自訂的解決方案幾乎是不可能的。這正是 Vault 發揮作用的地方。
 
@@ -100,7 +100,7 @@ Vault 會驗證並授權客戶端（用戶、機器、應用程序）在提供�
 
 ### Vault 如何運作：
 
-Vault 主要使用 token，且 token 與客戶端的 policy 相關聯。每一 policy 都是基於 path-based 的，policy rule 限制每個客戶端對於每一 path 的行動和存取能力。使用 Vault，您可以手動建立 token 並指派給您的客戶端，或客戶端可以登入並獲得 token。下面的插圖顯示了 Vault 的核心工作流程。
+Vault 主要使用 token，且 token 與客戶端的 policy 相關聯。每一 policy 都是基於 path-based 的，policy rule 限制每個客戶端對於每一 path 的行動和存取能力。使用 Vault，你可以手動建立 token 並指派給你的客戶端，或客戶端可以登入並獲得 token。下面的插圖顯示了 Vault 的核心工作流程。
 
 ![](https://developer.hashicorp.com/_next/image?url=https%3A%2F%2Fcontent.hashicorp.com%2Fapi%2Fassets%3Fproduct%3Dvault%26version%3Drefs%252Fheads%252Frelease%252F1.14.x%26asset%3Dwebsite%252Fpublic%252Fimg%252Fhow-vault-works.png%26width%3D2077%26height%3D1343&w=3840&q=75)
 
@@ -126,7 +126,7 @@ Vault 的核心工作流程包含四個階段：
 
 ### Vault 的主要功能包括
 
-安全的秘密存儲：可以在 Vault 中存儲任意的金鑰/值秘密。Vault 在將這些秘密寫入持久性存儲之前會對其進行加密，因此獲取原始存儲並不足以存取您的秘密。Vault 可以寫入磁盤、Consul 等。
+安全的秘密存儲：可以在 Vault 中存儲任意的金鑰/值秘密。Vault 在將這些秘密寫入持久性存儲之前會對其進行加密，因此獲取原始存儲並不足以存取你的秘密。Vault 可以寫入磁盤、Consul 等。
 
 動態秘密：Vault 可以為某些系統即時生成秘密，例如 AWS 或 SQL 數據庫。例如，當應用程序需要存取 S3 桶時，它會要求 Vault 提供憑證，Vault 將即時生成具有有效權限的 AWS 密鑰對。在創建這些動態秘密後，Vault 也會在租期到期後自動撤銷它們。
 
@@ -138,5 +138,5 @@ Vault 的核心工作流程包含四個階段：
 
 ### 什麼是 HCP Vault？
 
-HashiCorp Cloud Platform (HCP) Vault 是 Vault 的託管版本，由 HashiCorp 運營，使組織能夠快速啟動並運行。HCP Vault 使用與自託管的 Vault 相同的二進制文件，這意味著您將擁有一致的用戶體驗。您可以使用相同的 Vault 客戶端與 HCP Vault 通信，就像您使用自託管的 Vault 一樣。請參考 HCP Vault 文檔以獲得更多資訊。
+HashiCorp Cloud Platform (HCP) Vault 是 Vault 的託管版本，由 HashiCorp 運營，使組織能夠快速啟動並運行。HCP Vault 使用與自託管的 Vault 相同的二進制文件，這意味著你將擁有一致的用戶體驗。你可以使用相同的 Vault 客戶端與 HCP Vault 通信，就像你使用自託管的 Vault 一樣。請參考 HCP Vault 文檔以獲得更多資訊。
 
