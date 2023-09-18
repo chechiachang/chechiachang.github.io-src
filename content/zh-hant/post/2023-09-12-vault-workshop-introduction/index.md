@@ -66,12 +66,16 @@ categories: ["vault"]
 - Day 03：細探 Secret Engine 秘密引擎
 - Day 04：Secret Engine KV V2
 - Day 05：Authentication
+- Day 06: Github auth method
+- Day 07: Policy
 
 本 workshop 也接受網友的許願清單，[如果有興趣的題目可於第一篇底下留言](https://ithelp.ithome.com.tw/articles/10317378)，筆者會盡力實現，但不做任何保證
-- github auth method
 - Dynamic Secrets
 - tls certificate management
 - Infrastructure as Code for Vault
+  - deploy
+  - policy
+  - auth method
 - Vault Kuberntes integration
 - Azure integration
 - AWS integration
@@ -106,7 +110,7 @@ base context
 
 result correction
 ```
-部分英文內容為專有名詞，產生的繁體中文翻譯結果中，這些名詞維持英文，不需要翻譯成英文：key，certificate，token，policy，policy rule，path，path-based，key rolling，audit，audit trail，plain text，key value，Consul，S3 bucket，Leasing，Renewal，binary
+部分英文內容為專有名詞，產生的繁體中文翻譯結果中，這些名詞維持英文，不需要翻譯成中文：key，certificate，token，policy，policy rule，path，path-based，key rolling，audit，audit trail，plain text，key value，Consul，S3 bucket，Leasing，Renewal，binary
 
 修正下列翻譯：秘密改為私鑰，數據改為資料，數據庫改為資料庫，數據改為資料，訪問改為存取，源代碼改為原始碼。
 ```

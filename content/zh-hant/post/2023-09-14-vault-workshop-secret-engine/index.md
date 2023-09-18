@@ -277,7 +277,7 @@ base context
 
 result correction
 ```
-部分英文內容為專有名詞，產生的繁體中文翻譯結果中，這些名詞維持英文，不需要翻譯成英文：key，certificate，token，policy，policy rule，path，path-based，key rolling，audit，audit trail，plain text，key value，Consul，S3 bucket，Leasing，Renewal，binary
+部分英文內容為專有名詞，產生的繁體中文翻譯結果中，這些名詞維持英文，不需要翻譯成中文：key，certificate，token，policy，policy rule，path，path-based，key rolling，audit，audit trail，plain text，key value，Consul，S3 bucket，Leasing，Renewal，binary
 
 修正下列翻譯：秘密改為私鑰，數據改為資料，數據庫改為資料庫，數據改為資料，訪問改為存取，源代碼改為原始碼。
 ```

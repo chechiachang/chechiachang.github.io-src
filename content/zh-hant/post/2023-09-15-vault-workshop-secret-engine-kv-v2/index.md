@@ -643,7 +643,7 @@ base context
 
 result correction
 ```
-部分英文內容為專有名詞，產生的繁體中文翻譯結果中，這些名詞維持英文，不需要翻譯成英文：key，value，certificate，token，policy，policy rule，path，path-based，key rolling，audit，audit trail，plain text，key value，Consul，S3 bucket，Leasing，Renewal，binary，prefix，instance，metadata。
+部分英文內容為專有名詞，產生的繁體中文翻譯結果中，這些名詞維持英文，不需要翻譯成中文：key，value，certificate，token，policy，policy rule，path，path-based，key rolling，audit，audit trail，plain text，key value，Consul，S3 bucket，Leasing，Renewal，binary，prefix，instance，metadata。
 
 修正下列翻譯：數據改為資料，數據庫改為資料庫，數據改為資料，訪問改為存取，源代碼改為原始碼，信息改為資訊，命令改為指令，禁用改為停用，默認改為預設。
 ```
