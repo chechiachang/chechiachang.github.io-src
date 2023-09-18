@@ -76,7 +76,7 @@ You may need to set the following environment variables:
 
 # dev 模式預設配置的 unseal key 與 root token
     Unseal Key: QDUAuY7Kltsc/3bVwUYF39u8aEFgWNRs/1D5yxFtim4=
-    Root Token: hvs.J30e53uuKDhrWVttCvK0DJaN
+    Root Token: hvs.J30e...0DJaN
 
 # 開發模式絕不應在生產安裝中使用！
     Development mode should NOT be used in production installations!
@@ -101,7 +101,7 @@ cat ~/.vault-token
 output
 
 ```bash
-hvs.J30e53uuKDhrWVttCvK0DJaN%
+hvs.J30e...0DJaN%
 ```
 
 vault CLI 自動取用本地儲存的 root token，所以已經自動完成 authentication，不用額外進行 authentication，也可以使用 Vault
@@ -133,7 +133,7 @@ The unseal key and root token are displayed below in case you want to
 seal/unseal the Vault or re-authenticate.
 
 Unseal Key: hNi8T3YctTZrLYlKezLAJttfiF97D1Vy7Tq+HMM3y9w=
-Root Token: hvs.qCqY9ZO3oNS6VrrKMHp89KYv
+Root Token: hvs.qCqY...p89KYv
 
 Development mode should NOT be used in production installations!
 ```
@@ -177,19 +177,19 @@ Code: 403. Errors:
 建議：永遠不要儲存 root token 在本地電腦上。非常容易遺忘自己本地有儲存 root token。
 
 ```bash
-echo hvs.qCqY9ZO3oNS6VrrKMHp89KYv > ~/.vault-token
+echo hvs.qCqY...p89KYv > ~/.vault-token
 ```
 
 另一個方式是使用環境變數 `VAULT_TOKEN`
 
 ```bash
-VAULT_TOKEN=hvs.qCqY9ZO3oNS6VrrKMHp89KYv vault secrets list
+VAULT_TOKEN=hvs.qCqY...p89KYv vault secrets list
 ```
 
 上面是在 CLI 前面插入環境變數，下面是 export `VAULT_TOKEN` 到當前 session 的環境變數
 
 ```bash
-export VAULT_TOKEN=hvs.qCqY9ZO3oNS6VrrKMHp89KYv
+export VAULT_TOKEN=hvs.qCqY...p89KYv
 vault secrets list
 ```
 
@@ -214,7 +214,7 @@ output
 
 ```bash
 VAULT_ADDR=http://127.0.0.1:8200
-VAULT_TOKEN=hvs.qCqY9ZO3oNS6VrrKMHp89KYv
+VAULT_TOKEN=hvs.qCqY...p89KYv
 ```
 
 當然，`VAULT_TOKEN` 的存在時間越久，token 曝險的機率就越高。
@@ -269,11 +269,11 @@ root token在開發中很有用，但在 production 環境中應該非常謹慎�
 root token 預設配置 root policy，我們可以產生權限較小的 token，並指配置最小必要權限(least privilege)
 
 ```
-VAULT_TOKEN=hvs.qCqY9ZO3oNS6VrrKMHp89KYv vault token create
+VAULT_TOKEN=hvs.qCqY...p89KYv vault token create
 
 Key                  Value
 ---                  -----
-token                hvs.FbAeXWmXGAeCCCV0G04kjBIp
+token                hvs.FbAeX...kjBIp
 token_accessor       rPOOSI06WGnFo9MVOvS8luhn
 token_duration       ∞
 token_renewable      false
@@ -282,7 +282,7 @@ identity_policies    []
 policies             ["root"]
 ```
 
-已創建token，輸出中以key value的表格描述了此token。創建的token在此處顯示為 hvs.FbAeXWmXGAeCCCV0G04kjBIp
+已創建token，輸出中以key value的表格描述了此token。創建的token在此處顯示為 hvs.FbAeX...kjBIp
 
 此token是root token的子token，並且預設情況下，它會繼承其 parent token的policy 權限。
 
@@ -294,7 +294,7 @@ token是核心身份驗證方法(core auth method)。你可以使用生成的tok
 vault login
 ```
 
-在回傳的輸入令中輸入新產生的 child token hvs.FbAeXWmXGAeCCCV0G04kjBIp
+在回傳的輸入令中輸入新產生的 child token hvs.FbAeX...kjBIp
 ```bash
 
 WARNING! The VAULT_TOKEN environment variable is set! The value of this
@@ -312,7 +312,7 @@ update its value accordingly.
 unset VAULT_TOKEN
 ```
 
-然後再次執行 vault login，在回傳的輸入令中輸入新產生的 child token hvs.FbAeXWmXGAeCCCV0G04kjBIp
+然後再次執行 vault login，在回傳的輸入令中輸入新產生的 child token hvs.FbAeX...kjBIp
 
 ```bash
 vault login
@@ -329,7 +329,7 @@ again. Future Vault requests will automatically use this token.
 
 Key                  Value
 ---                  -----
-token                hvs.FbAeXWmXGAeCCCV0G04kjBIp
+token                hvs.FbAeX...kjBIp
 token_accessor       rPOOSI06WGnFo9MVOvS8luhn
 token_duration       ∞
 token_renewable      false
@@ -346,12 +346,12 @@ policies             ["root"]
 vault token create
 ```
 
-output，第二隻 token 為 hvs.FDjvyRFXoVC6DF5tYvLCQVFG。每一隻 token 都是不重複的。
+output，第二隻 token 為 hvs.FDjvyRFXo...QVFG。每一隻 token 都是不重複的。
 
 ```
 Key                  Value
 ---                  -----
-token                hvs.FDjvyRFXoVC6DF5tYvLCQVFG
+token                hvs.FDjvyRFXo...QVFG
 token_accessor       gLe7IrUMUq4eb2pZWVdUhbHv
 token_duration       ∞
 token_renewable      false
@@ -367,13 +367,13 @@ policies             ["root"]
 目前的 token 樹狀結構
 
 初始 root token (啟動 dev Server 時預設產生的)
-  - child: hvs.FbAeXWmXGAeCCCV0G04kjBIp
-    - grandchild: hvs.FDjvyRFXoVC6DF5tYvLCQVFG
+  - child: hvs.FbAeX...kjBIp
+    - grandchild: hvs.FDjvyRFXo...QVFG
 
 你可以使用指令，撤銷第一把產生的 token (child)
 
 ```bash
-vault token revoke hvs.FbAeXWmXGAeCCCV0G04kjBIp
+vault token revoke hvs.FbAeX...kjBIp
 ```
 
 CLI output，顯示 token 已經撤銷

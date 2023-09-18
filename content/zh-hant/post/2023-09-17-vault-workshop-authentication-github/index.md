@@ -54,7 +54,7 @@ Vault 支援用於人員使用者的身份驗證方法。GitHub 身份驗證，�
 你可以使用下列指令，在 path=github/ 下啟用 GitHub 身份驗證方法。
 
 ```bash
-export VAULT_TOKEN=hvs.qCqY9ZO3oNS6VrrKMHp89KYv
+export VAULT_TOKEN=hvs.qCqY...9KYv
 vault auth enable github
 ```
 
@@ -215,7 +215,7 @@ again. Future Vault requests will automatically use this token.
 
 Key                    Value
 ---                    -----
-token                  hvs.CAESIBMsgvXNDOE6n4ZLMWZ_3GH4oC2A0G3cVtCTwOtrq6igGh4KHGh2cy5OYzBRV3hmMU4xR3ZkWHhzODJuRHRncU0
+token                  hvs.CAESI...ncU0
 token_accessor         lKVpMawotXg1fXcgRvpAOAwQ
 token_duration         768h
 token_renewable        true
@@ -248,7 +248,7 @@ display_name        github-chechiachang
 entity_id           5d8af1ab-53a2-e1c5-61bf-bb0b6c7d190f
 expire_time         2023-10-18T22:10:34.812089+08:00
 explicit_max_ttl    0s
-id                  hvs.CAESIBMsgvXNDOE6n4ZLMWZ_3GH4oC2A0G3cVtCTwOtrq6igGh4KHGh2cy5OYzBRV3hmMU4xR3ZkWHhzODJuRHRncU0
+id                  hvs.CAESI...ncU0
 issue_time          2023-09-16T22:10:34.812099+08:00
 meta                map[org:chechia-net username:chechiachang]
 num_uses            0
@@ -281,7 +281,7 @@ again. Future Vault requests will automatically use this token.
 
 Key                    Value
 ---                    -----
-token                  hvs.CAESIIR3XBwj27kCOI76Qm01RmWigR8IraYW4daHOptol0VBGh4KHGh2cy44aEh4dE05UVdraG9hNmFWUURRRFBRcmE
+token                  hvs.CAES...RcmE
 token_accessor         6DbsDizOenhCuWMmUWspTZwp
 token_duration         768h
 token_renewable        true
@@ -316,7 +316,7 @@ again. Future Vault requests will automatically use this token.
 
 Key                  Value
 ---                  -----
-token                hvs.J80wvFtkQqwg4ihuIm1mmjoh
+token                hvs.J80w...mjoh
 token_accessor       DaI1V1rq9tKZX5EaO4AfMI26
 token_duration       ∞
 token_renewable      false
