@@ -68,10 +68,18 @@ categories: ["vault"]
 - Day 05：Authentication
 - Day 06: Github auth method
 - Day 07: Policy
+- Day 08: Docker and Initialization
 
 本 workshop 也接受網友的許願清單，[如果有興趣的題目可於第一篇底下留言](https://ithelp.ithome.com.tw/articles/10317378)，筆者會盡力實現，但不做任何保證
 - Dynamic Secrets
 - tls certificate management
+- configuration
+- docker
+  - initialization
+  - ha
+- storage backend
+  - filesystem
+  - postgresql
 - Infrastructure as Code for Vault
   - deploy
   - policy
