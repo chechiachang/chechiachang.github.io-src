@@ -16,14 +16,8 @@ categories: ["vault", "terraform", "kubernetes"]
 
 # https://markdown-slides.netlify.app/slides/example/
 ---
-{{< slide background-image="background.jpg" >}}
 
-### 去找吧！我把所有財寶都放在那裡！
-
-- 投影片，speaker notes
-- example github repository
-- 30 days terraform workshop
-- 其他文章 DevOps / Kubernetes / Vault
+{{< slide background-image="onepiece.jpg" >}}
 
 {{% speaker_note %}}
 Q1: 有過使用 hashicorp vault 的人請舉手
@@ -42,7 +36,6 @@ Q3: 有使用 iac deploy vault stack，或是有使用 iac / vcs 管理 vault �
 {{% /speaker_note %}}
 
 ---
-
 {{< slide background-image="background.jpg" >}}
 
 ## HashiCorp Vault
@@ -62,15 +55,18 @@ s
 [About Me](https://chechia.net/zh-hant/)
 
 ---
+{{< slide background-image="background.jpg" >}}
 
-## Outline: prod-ready
+### Outline
+### from dev to prod-ready
 
 - terraform deployment IaC
   - on aws / azure / gcp / k8s
-  - get-started
+  - 如何開始
 - terraform configuration IaC
-  - secret backends / auth method / role / policy /audit
-  - gitflow / tested / automation
+  - IaC everything
+    - secret backends / auth method / role / policy / audit ... 
+  - 工作流程自動化 gitflow / tested / automation
 
 {{% speaker_note %}}
 manage vault infra & vault configuration from a aspect of devops
@@ -80,10 +76,20 @@ manage vault infra & vault configuration from a aspect of devops
 
 ## Vault 基礎的學習資源
 
-- Vault + Kubernetes 請出門左轉DE會議室(Now)
 - [2023-05-10 雲端地端通吃的私鑰管理平台](https://docs.google.com/presentation/d/1iex9lm89OCIR8IAoD1RPe4vcW--bcKBmMHoixDybqP8/edit?usp=sharing)
-- [Vault 鐵人賽 30- day workshop](https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/)
+- [2023 鐵人賽: vault 10- day workshop](https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/)
+- [2021 鐵人賽: terraform 30 day workshop](https://ithelp.ithome.com.tw/users/20120327/ironman/4057)
 - [範例 Github](https://github.com/chechiachang/vault-playground)
+- 同一時間，Vault + Kubernetes 請出門對面DE會議室
+
+{{% speaker_note %}}
+不會講 vault 的基礎操作，但如果你需要學習資源，你可以來這邊找
+第一個 google slides 是我在其他場合的演講，適合第一次接觸 vault，或是正在評估是否要導入 vault 的團隊
+
+第二個今年的 ithome 2023鐵人賽，我寫的內容就是 vault workshop，雖然寫到第十篇就因故停更，但前面 1-8 篇剛好是 vault 操作基礎，使用 chatgpt 翻譯 vault official tutorial，也是適合第一次使用 vault 的人
+
+第三個是如果沒接觸過 infrastructure as code IaC，這個也是鐵人賽的 30 day workshop，這個有完賽佳作
+{{% /speaker_note %}}
 
 ---
 
@@ -97,23 +103,54 @@ manage vault infra & vault configuration from a aspect of devops
 - Restrict Storage Access
 
 {{% speaker_note %}}
+
+進入 production 前的維運問題
+
+vault 官方建議的 prod checklist
+大多需要定期更新，維護，而非一勞永逸一次性作業
+
+例如 end-to-end TLS certificate 需要管理與更新
+
+auditing 對 vault 的存取紀錄需要安全的輸出，並且能夠檢核。設定做一次就可以生效。但是實務上未來會需要不斷的根據外部稽核需求調整
+
+immutable upgrades 指的是當你使用 vault server 與 storage backend，vault server 本身是 immutable 的，你可以自己使用 official binary build VM Image (ex. aws ami)，或是透過 container image release 來更新
+
+upgrade frequently，但要做的安全，而且有效率，最好是做到半自動化或是全自動化，如果沒有 IaC 會比較耗工
+
 {{% /speaker_note %}}
 
 ---
 
 ## Infrastructure as Code
 
-- Deploy
-  - (多環境)測試
-- HA
-  - storage backend
-  - load balancer
-- 維護：改 config，升級更新，監控，scheduled failover
+導入 IaC ，做到頻繁且安全的 vault 更新，但同時又要有效率甚至全自動化
+
+- multiple env: dev, stag, prod
+- programable / reusable: 標準化，可重複使用的 code
+- tested infrastructure
 
 {{% speaker_note %}}
-要如何達成上面這些事情？
-- 需要 get started
-- 大量的測試
+以 vault 為目標
+維運 vault 的第一目標：安全第一，不求高效能，但是追求安全
+是我們要將 deploy / release / upgrade vault 中的風險降到最低
+
+infra: 升級 vault 版本，調整 VM / container，調整 load balancer，除錯
+config: 更改 auth-method / policy
+- policy 容易改壞但無法及時發現，要用時才發現權限壞了
+{{% /speaker_note %}}
+
+---
+
+## 如何開始 IaC for Vault
+
+  - immutable Vault server
+  - storage backend
+  - load balancer
+  - security group / firewall rule
+
+{{% speaker_note %}}
+IaC 好棒，那有沒有什麼資源可以幫助我們開始 deploy IaC Vault
+答案是有的
 {{% /speaker_note %}}
 
 ---
@@ -323,6 +360,8 @@ configure vault policy with CLI
 
 ---
 
+## [hashicorp official tutorial](https://developer.hashicorp.com/vault/tutorials/policies/policies#write-a-policy)
+
 ```
 vault policy write admin admin-policy.hcl
 
@@ -340,9 +379,123 @@ CLI 管理很不方便
 
 ---
 
-## Demo
+## How to use
 
+prerequisites: vault, terraform, terragrunt
 
+```
+git clone git@github.com:chechiachang/vault-playground.git
+
+cd vault-playground/usage/03-terraform-lives/
+
+terragrunt init
+terragrunt plan
+```
+
+{{% speaker_note %}}
+terraform 與 terragrunt 我的部落格上都有許多介紹文章，ithome 鐵人賽也有 30day workshop
+{{% /speaker_note %}}
+
+---
+
+## VCS & PR review
+
+- local lint with [git pre-commit hook](https://github.com/antonbabenko/pre-commit-terraform#terraform_fmt)
+- PR
+  - lint check
+  - pipeline module test `terraform test` on github action
+  - integration test against vault dev server
+  - review
+- merge / automation
+  - apply to dev environment automatically
+  - release candidate tag will apply to stag automatically
+  - release tag will push to pre-production and production
+
+---
+
+## Multiple environment
+
+- dev -> stag -> prod 環境很接近
+  - IaC + config as code
+- 搭設新環境只需1分鐘(VM)，甚至數秒(container)，可以進行大量的測試
+
+---
+
+## Test
+
+- IaC code 可以使用 `terraform test`
+- config as code 可以使用 `terraform test`
+- live infrastructure 可以使用 terratest
+
+---
+
+## Test [Example](https://github.com/chechiachang/vault-playground/tree/master/usage/03-terraform-modules/secret_backend/kv_v2)
+
+```
+resource "test_assertions" "main" {
+  component = "main"
+  equal "mount_path" {
+    description = "default mount_path is ${local.mount_path}"
+    got         = local.mount_path
+    want        = local.mount_path
+  }
+
+  equal "max_versions" {
+    description = "default max_versions is 10"
+    got         = local.max_versions
+    want        = 10
+  }
+
+  equal "delete_version_after" {
+    description = "default delete_version_after is 10"
+    got         = local.delete_version_after
+    want        = 12600
+  }
+```
+
+{{% speaker_note %}}
+這個 module 只是一個 kv engine，所以隨手寫了一個簡單的 test
+Demo 我在本地隨手跑一下測試
+當你使用 terraform 時間夠久，使用規模越大時，會有復雜的 module，這時有寫測試的 module 就是天差地遠
+{{% /speaker_note %}}
+
+---
+
+## Policy as code for vault
+
+- vault ACL 是基於 path 設定權限
+- 當policy有成千上萬條，彼此可能會 conflict
+- policy 的 policy
+  - 高高層次的(公司的資安政策)透過 policy as code 定義
+  - 寫到 vault policy
+- [Open Policy Agent (OPA)](https://www.openpolicyagent.org/docs/latest/#1-download-opa)
+- [Sentinel(Vault Enterprise): EGP](https://developer.hashicorp.com/vault/tutorials/policies/sentinel#endpoint-governing-policies-egps)
+
+---
+
+## Gitflow & automation
+
+- PR
+  - [atlantis](https://www.runatlantis.io/) run terraform plan
+- PR merged
+- PR apply
+  - apply to dev environment automatically with gitflow
+  - release candidate tag will apply to stag automatically
+  - release tag will push to pre-production and production
+
+{{% speaker_note %}}
+goto https://www.runatlantis.io/
+PR comment 下會有針對 dev environemtn plan 的結果
+使用 github webhook，可以直接在 PR approved 後，命令 atlantis 直接 apply 到 dev server
+避免使用工程師 local machine 存取遠端環境，避免工程師取得管理員權限，避免人為操作失誤造成的 incident
+{{% /speaker_note %}}
+
+---
+
+## Summary
+
+- 使用 IaC deploy vault，並依照團隊需求逐步調整 infra
+- 使用 IaC 管理 vault 內部一切 config
 
 ---
 
