@@ -229,7 +229,7 @@ goto https://github.com/hashicorp/terraform-aws-vault-starter
 
 ## Integrated storage
 
-- goto [integrated-storage](https://developer.hashicorp.com/vault/docs/internals/integrated-storage)
+- [integrated-storage](https://developer.hashicorp.com/vault/docs/internals/integrated-storage)
 - Raft Consensus protocol
   - 出incident要有辦法解
   - stateful server
