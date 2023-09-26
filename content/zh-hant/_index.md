@@ -5,6 +5,11 @@ date: 2022-10-24
 type: landing
 
 sections:
+  - block: tag_cloud
+    content:
+      title: Popular Topics
+    design:
+      columns: '2'
   - block: about.biography
     id: about
     content:
