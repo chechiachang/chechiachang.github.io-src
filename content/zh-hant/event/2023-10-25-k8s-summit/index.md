@@ -50,7 +50,7 @@ url_video: ''
 #   Simply enter your slide deck's filename without extension.
 #   E.g. `slides = "example-slides"` references `content/slides/example-slides.md`.
 #   Otherwise, set `slides = ""`.
-slides: ""
+slides: 2023-10-25-k8s-resource-as-code
 
 # Projects (optional).
 #   Associate this post with one or more of your projects.
@@ -78,3 +78,7 @@ Infrastrure as Code (IaC) 與 PaC，在萬物都該 as Code 得時代，你還�
 當服務的 app code base 都已經用 chart 打包，使用 vcs 管理後，為何依賴的 k8s resource (namespace, secret, label, crd, ...) 不需要推上 vcs 管理的？
 
 本次演講集合幾個管理 k8s 的範例，將 k8s resource 以 code 管理，推上 vcs，並使用 argoCD, secret operator, ... 等工具進行管理，來讓避免低級的人工操作錯誤，降低團隊整體失誤率，並降低 k8s admin 管理的成本，提高管理效率
+
+# target group
+
+Kubernetes User who want to increase performance in k8s management
