@@ -35,9 +35,17 @@ image:
   focal_point: Right
 
 links:
-  - icon: twitter
+  - name: 活動連結
+    icon: calendar
+    icon_pack: fa
+    url: https://devopsdays.tw/2023/session-page/2279
+  - name: Facebook
+    icon: facebook
     icon_pack: fab
-    name: Follow
+    url: https://www.facebook.com/engineer.from.scratch
+  - name: Twitter
+    icon: twitter
+    icon_pack: fab
     url: https://twitter.com/chechiachang
 url_code: ''
 url_pdf: ''

@@ -1,8 +1,8 @@
 ---
 title: "SRE Conference: Cloud Infrastructure Saving Engineering  雲端省錢工程"
 
-event: Kubernetes Summit 2024
-event_url: https://sre.ithome.com.tw/2024/
+event: SRE Conference 2024
+event_url: https://sre.ithome.com.tw/2024/session-page/2548
 
 location: 富邦國際會議中心
 address:
@@ -36,9 +36,17 @@ image:
   focal_point: Right
 
 links:
-  - icon: twitter
+  - name: 活動連結
+    icon: calendar
+    icon_pack: fa
+    url: https://sre.ithome.com.tw/2024/session-page/2548
+  - name: Facebook
+    icon: facebook
     icon_pack: fab
-    name: Follow
+    url: https://www.facebook.com/engineer.from.scratch
+  - name: Twitter
+    icon: twitter
+    icon_pack: fab
     url: https://twitter.com/chechiachang
 url_code: ''
 url_pdf: ''
@@ -50,7 +58,7 @@ url_video: ''
 #   Simply enter your slide deck's filename without extension.
 #   E.g. `slides = "example-slides"` references `content/slides/example-slides.md`.
 #   Otherwise, set `slides = ""`.
-slides: 2024-04-26-aws-k8s-cost-down-strategies
+slides: 2024-04-26-saving-money-on-cloud-k8s
 
 # Projects (optional).
 #   Associate this post with one or more of your projects.
@@ -61,6 +69,7 @@ slides: 2024-04-26-aws-k8s-cost-down-strategies
 #  - example
 
 ---
+
 # Info
 
 Title: SRE Conference: Cloud Infrastructure Saving Engineering 雲端省錢工程
@@ -71,11 +80,9 @@ Title: SRE Conference: Cloud Infrastructure Saving Engineering 雲端省錢工�
 
 本次演講以實務的範例，分享幾個節省雲端開銷的方法，包含：導入 spot instance，成本計算與預測工具，動態資源調整HPA與VPA，saving plan...，並分享如何改變文化，提高團隊的成本意識，實際的降低開銷
 
-# target group
+# Target group
 
 AWS & Kubernetes User who want to decrease overall cost of infrastructure
-
-# 
 
 - 導入工具：有哪些工具可以使用
 - 分析現況：精算各團隊與各專案成本
@@ -83,7 +90,7 @@ AWS & Kubernetes User who want to decrease overall cost of infrastructure
 - 改善流程：有效率的維持省錢 workflow
 - 改變文化：持續性低維持新服務與舊服務的合理成本
 
-# author
+# Author
 
 Che-Chia Chang，專長的領域是後端開發，開發維運，容器化應用，以及Kubernetes開發管理。
 Microsoft 最有價值從業人員 MVP。
@@ -95,15 +102,14 @@ Microsoft Most Valuable Professional since 2020.
 
 https://chechia.net
 
-2018 Ithome Cloud Summit
-2018 Ithome Kubernetes Summit
-2019 Ithome Cloud Summit
-2020 Ithome Cloud Summit
-2020/12/18	Cloud Native Taiwan 年末聚會
-2020/8/17	DevOps Taiwan Meetup #26 - 從零開始導入 Terraform
-2021 Ithome Cloud Summit
-2022 Ithome Cloud Summit
-2022 COSCUP
-2023 Ithome Kubernetes Summit
-2023 DevOpsDay
-
+- 2023 DevOpsDay
+- 2023 Ithome Kubernetes Summit
+- 2022 COSCUP
+- 2022 Ithome Cloud Summit
+- 2021 Ithome Cloud Summit
+- 2020 DevOps Taiwan Meetup #26 - 從零開始導入 Terraform
+- 2020 Cloud Native Taiwan 年末聚會
+- 2020 Ithome Cloud Summit
+- 2019 Ithome Cloud Summit
+- 2018 Ithome Cloud Summit
+- 2018 Ithome Kubernetes Summit
