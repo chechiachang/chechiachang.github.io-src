@@ -22,7 +22,7 @@ date_end: '2024-04-26T14:00:00Z'
 all_day: false
 
 # Schedule page publish date (NOT talk date).
-publishDate: '2023-04-01T00:00:00Z'
+publishDate: '2024-04-01T00:00:00Z'
 
 authors: []
 tags: ["vault", "iac", "aws", "terraform", "kubernetes", "cost"]
