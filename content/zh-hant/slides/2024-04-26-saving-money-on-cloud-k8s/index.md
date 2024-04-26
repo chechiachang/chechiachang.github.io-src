@@ -17,614 +17,588 @@ slides:
 {{< slide background-image="onepiece.jpg" >}}
 
 {{% speaker_note %}}
-Q1: 有過使用 helm 跟 argocd 的人請舉手
-Q2: k8s object 走 gitflow 管理的比例有超過 9 成的
+投影片跟講稿我都放在我的網站上，如果有興趣可以參考
 {{% /speaker_note %}}
 
 ---
 
-### Resource as Code for K8s Object
-### 如何管理 k8s object
+### Cost Management of Cloud Kubernetes
+### 雲端K8s省錢工程
 
 [Che Chia Chang](https://chechia.net/)
 
 {{% speaker_note %}}
+兩個關鍵字：雲端 / k8s
+如果你有在使用公有雲，而且有在跑 k8s，你是這篇演講的最主要對象
+如果你是私有雲 k8s，或是其他的雲端服務，有一些相通的概念，會有一些參考價值
+如果你是地端的機器，雖然概念相同，但成本控制的做法完全是另外一個故事，你可以當午休時間的故事聽聽看
 {{% /speaker_note %}}
+
+---
+
+### About Me
+### Che Chia Chang
+
+- SRE @ [Maicoin](https://www.linkedin.com/company/maicoin/jobs/)
+- [Microsoft MVP](https://mvp.microsoft.com/zh-TW/MVP/profile/e407d0b9-5c01-eb11-a815-000d3a8ccaf5)
+- 個人部落格[chechia.net](https://chechia.net/)
+- presentation and speaker notes
+- 鐵人賽 (Terraform / Vault 手把手入門)
 
 ---
 
 ### Outline
 
-Manage Kubernetes Objects in Gitflow
-
-- kubectl
-- helm chart
-- argocd (gitflow)
-  - applicationset
-- test
+- Cost on Public Cloud
+- K8s Compute Resource Management
+- Monitoring
+- Cost Analysis and Prediction
+- Resource Recommendation
+- Saving Plan
+- Spot Instance
+- HPA / VPA
+- Q&A
 
 {{% speaker_note %}}
+這是我們今天的大綱
 
-今天的內容前半部像是講古
-
-首先會講 kubectl create / apply
-kubectl 使用，然後官方有提醒我們使用 kubectl 管理 k8s object 時的 trade-off，這些 trade-off 我們可以使用其他的工具來彌補
-
-導入 helm chart，來打包 k8s objects 變成一個完整地發布單位
-
-argocd 走 gitflow 來發布
-
-然後在 workflow 裡加入測試，確保 k8s objects 的交付品質
-
+我們會先講一下在公有雲上的成本
+然後講一下 k8s 的運算資源管理
+接著講一下監控，為何成本控管的基礎是監控
+如何使用工具成本分析，未來成本預測
+然後使用工具建議合適的資源
+最後講實務上要如何降低成本，例如 saving plan / spot instance / HPA / VPA，依照執行的難度排序，有時間的話也會講如何從無到有開始進行
 {{% /speaker_note %}}
 
 ---
 
-### Kubectl
+### Cost on Public Cloud
 
-```
-# Imperative commands 
-kubectl create deployment nginx --image nginx
+open your cloud billing
 
-# Imperative object configuration 
-kubectl create -f nginx.yaml
-
-# Declarative object configuration
-kubectl apply -R -f configs/
-```
-
-[https://kubernetes.io/docs/concepts/overview/working-with-objects/object-management/#management-techniques](https://kubernetes.io/docs/concepts/overview/working-with-objects/object-management/#management-techniques)
+- Compute Resource (cpu, memory)
+- Storage (Disk, EBS, S3...)
+- Database (Compute Resource + Storage)
+- Networking
 
 {{% speaker_note %}}
-kubectl 應該是所有人學 k8s 的第一個工具
-作為官方的 cli 工具，kunectl 非常強大，可以控制幾乎大部分 k8s 的 api，也能對幾乎所有 k8s object 進行操作
+有在使用公有雲的人，把公有雲的 billing 帳單打開來看，可能看到的大概是這幾個項目
+當然因為不同團隊的服務不同，可能會有一些出入，但如果你的公司的產品是 web service，應該會有這幾個項目
 {{% /speaker_note %}}
 
 ---
 
-{{< slide background-image="kubectl.jpg" >}}
+### Today's topic
+
+- Today's topic
+  - Compute Resource
+  - cpu & memory
+
+- Maybe next time
+  - Storage (Disk, EBS, S3...)
+  - Database (Compute Resource + Storage)
+  - Networking
 
 {{% speaker_note %}}
-首先，如同官方文件所描述，kubectl 的使用上，也有各種不同方法。ie. kubectl 交在不同人手上，使用方式是不同的
-官方文件描述
-- Imperative commands 指令式
-- Imperative object configuration 指令物件
-- Declarative object configuration 宣告物件
+Storage 不太好說省就省，因為你的資料量就在那邊，放不下就是要再買，所以 storage 的成本控制，可能是在資料的使用上，例如資料的壓縮，或是資料的備份，或是資料的存取方式，這些是另外一個故事
+使用公有雲的服務，基本上 storage 都是依據使用的大小計價，而且需多服務都可以動態增長，例如動態增加 disk
 
-kubectl create deployment nginx，一行命令告訴 k8s 你要 create deployment
-
-kubectl create -f nginx.yaml，使用者選擇要 create / apply / delete 而 nginx.yaml 裡面描述一個 nginx deployment 物件
-
-kubectl apply -f -R nginx/，使用者描述一個或多個物件，描述物件的狀態。apply 時，由 kubectl 決定要對 object 執行，create / update / delete
-
+Storage / Database / Networking 這幾個項目，我們下集再來談
 {{% /speaker_note %}}
 
 ---
 
-### Issue
+### Cost on Public Cloud
 
-```
-# Imperative commands 
-kubectl create deployment nginx --image nginx
-
-# Imperative object configuration 
-kubectl create -f nginx.yaml
-
-# Declarative object configuration
-kubectl apply -R -f configs/
-```
+CPU / memory intense web service
+- RESTful api
+- long-connetion service
+- business logic
+- save state to disk / database 
 
 {{% speaker_note %}}
-kubectl 這麼好用，那為何不繼續用下去？
+如果你跟敝社一樣是 web service，那麼 cpu / memory 可能是你最大的一筆成本
 
-1. 的問題很明顯，不能 diff
-2.3. 會有一個基礎的 spec，關於 deployment/nginx，因此可以在
+你需要足夠運算能力 serve 客戶，不管是支持用戶的request，進行商業邏輯的運算，然後把運算完成的狀態回傳給客戶，或是存在資料庫中，每一個動作都需要算力
 
-重點
-- change review / diff
-- source record other than live
-- template，一個可重複使用的樣版
-
-2.3. 的問題，你必須對 object 夠了解，才寫得出完整沒 bug 的 spec yaml
-
-3. 聽起來是最完整的，他的問題就是要如何維持 local file 與 live 連結，或是說 sync
-這個有使用 argocd 的人可能就會比較有感覺
-
-大家有興趣可以去看官方描述的內容，這裡不贅述
+足夠的 cpu 跟 memory，不是越多越好，而是足夠，不會浪費，也不會因為不足而影響服務品質
+我們要省錢，就要從這裡下手
 {{% /speaker_note %}}
 
 ---
 
-### Issue
+### 尋找多餘的算力
 
-- change review / diff before apply
-- source of live record
-- template / repetitive apply
-- sync local to live
+- 已有足夠的 cpu / memory，多給也不會增加服務品質的多餘算力
+- 多少才是夠？
+- 減去多少 cpu / memory，依然不改變服務品質
 
 {{% speaker_note %}}
+多少才是夠？這是一個複雜的問題，實務上通常使用 SLA / SLO 來衡量服務品質，然後根據服務品質的要求，來設定 cpu / memory 的配額
 
-- change review / diff before apply
-- source of live record
-- template / repetitive apply
-- sync local to live
-
+我們今天要做的是成本優化，白話的說是降低 cpu / memory 的設定配額，但是我們不能降低到影響服務品質
+甚至退一百步，防守性的來說，我們不希望因為降低 cpu / memory 的設定配額，為了省錢而導致負面的結果，甚至為服務的穩定度背鍋。
 {{% /speaker_note %}}
 
 ---
 
-### Declarative object configuration
+### 維持SLO
 
-```
-nginx
-├── deployment.yaml
-├── ingress.yaml
-└── service.yaml
-redis
-├── deployment.yaml
-├── ingress.yaml
-└── service.yaml
-microservice-a b c ...
-```
+以維持各個服務元件的 SLO為前提，降低 cpu / memory 使用量
 
 {{% speaker_note %}}
-為了 change review，通常會走向 3. Declarative object configuration，可能會長這樣
-一個 git repository
-裡面有多個 directory，描述每一組服務所需要的資源
-使用 kubectl 一次 apply 整個 directory，所以 local file 基本上也反應 live object
-有 local file，很自然而然就會想要放到版本控制，例如 git，這樣又可以走 gitflow
-PR -> review -> merged -> apply master / release tag
+維持個個服務元件的 SLO
+是一個很好的指標，如果你的服務是 99.9% 的 SLA，那麼你的服務就要保證 99.9% 的時間都是正常運作的，那麼你的 cpu / memory 就要足夠支持這個 SLA
+
+談 SLO 之前，你要先知道你的服務的 SLA 是多少，你要先知道當前的狀態是多少
+這個在稍後的 monitoring 會提到，為什麼監控是成本管理的基礎
 {{% /speaker_note %}}
 
 ---
 
+### 基於 SLO 的成本調降
+
+- 負載穩定的元件，可以抓過去 30d 的 p99 cpu time 或 p99 memory usage + buffer
+- 負載不穩定的元件，例如 cpu usage 與受活躍用戶數量正比，需要搭配 HPA 水平拓展
+- 負載不穩定的元件，但又不能水平拓展，例如 stateful service，可以考慮 VPA
 
 {{% speaker_note %}}
-
-有人在 2014 年前用過 k8s 嗎？
-
-古早時期，要用個 redis 還要自己包 service / ingress / deployment，先去 dockerhub 找 redis，然後依據 readme 自己包 deployment，自己測試看 redis 會不會動
-
-現在應該沒有人會因為要去使用 redis 或是 mysql，自己跑去寫 k8s object 了吧
-
-helm v2.0-alpha 2016
-
-現在有 helm + chart
-
-如果只是使用低三方開源的 helm chart，社群幫你維護 service / ingress / deployment 
-- 提供基本的 default value，預設就跑得起來
-- 跑得起來後，跑得好，能使用 k8s orchestration 提供完整的功能，透過 value.yaml 控制
-- 經過測試
-- issue tracking
+負載穩定的元件，固定吃多少 cpu / memory，他的附載不太容易隨外部因素波動的服務，可以抓過去 30d 的 p99 cpu time 或 p99 memory usage + buffer，然後降低 cpu / memory 的設定配額
 {{% /speaker_note %}}
 
 ---
 
-### Helm chart
-
-k8s object 的開發，打包，測試，release
-- k8s 十分強大，享受 orchestration
-- k8s object 變得太複雜
-- 標準化 template，release + upgrade
-
-{{% speaker_note %}}
-chart 作為一個 k8s object 的 release / artifact，有開發流程，版本控管，測試，完整的發佈
-
-app 本身，例如 redis，當然是整個應用的核心。但要能夠在 k8s 執行，並正確地享受 k8s orchestration 的好處，k8s object 非常的重要
-
-甚至，k8s object 複雜度已經遠遠超過過去在 vm 上跑一個 redis，兜一個 systemd unit 就可以跑起來
-
-k8s object 需要 release / version，才能做 object 的固定版本 apply，upgrade 生版，有問題 rollback
-
-在 k8s 上要跑得穩邊的十分閫難，透過社群來維護大部分通運的第三方服務
-{{% /speaker_note %}}
-
----
-
-### Helm Chart Library
-
-```
-helm repo list
-
-NAME       URL
-bitnami    https://charts.bitnami.com/bitnami
-argocd     https://argoproj.github.io/argo-helm
-chaos-mesh https://charts.chaos-mesh.org
-```
-
-{{% speaker_note %}}
-k8s objects 能動很簡單，但要跑得穩又能享受 orchestration 的便利，十分困難
-透過社群來維護大部分通運的第三方服務，透過單一 value.yaml 
-
-社群維護的 chart 不是就一勞永逸
-- 不熱門的 chart
-- 特殊需求時，還是需要 fork chart 回來自己維護
-
-但無論如何，都是大幅降低維運的複雜度
-{{% /speaker_note %}}
-
----
-
-### helm 生態系
-
-ex. helmfile
-
-```
-repositories:
-- name: argocd
-  url: https://argoproj.github.io/argo-helm
-
-helmDefaults:
-  kubeContext: general
-  #verify: true
-  wait: true
-  timeout: 300
-
-context: general
-
-releases:
-- name: argocd
-  namespace: argocd
-  chart: argocd/argo-cd
-  version: 5.31.0
-  values:
-  - values/argocd.yaml
-- name: redis
-
-- name: mysql
-```
-
-[https://github.com/cdwv/awesome-helm](https://github.com/cdwv/awesome-helm)
-
----
-
-### 更高層級的封裝
-
-```
-api-services
-├── nginx
-├── mysql
-└── ingress -> nlb
-daemon-services
-├── redis
-├── mysql
-└── kafka
-```
-
-{{% speaker_note %}}
-底下的依賴標準化，依據穩定的 release 發布之後
-可以再進行更高層級的封裝
-
-重複性的服務，例如每個 microservice 都需要
-例如我有一百個 api service group，都是 restful api，都需要 ingress / service / nginx 等等
-
-底下的元件標準化，降低維護成本
-- 統一版本，醫病維護，升級，退版
-
-例如 daemon service，底下依賴 queue / redis / db
-{{% /speaker_note %}}
-
----
-
-### 微服務
-
-微服務不是問題，微服務底下的 k8s object 才是問題
-- 可以快速，標準化的產生經過測試，微服務單元
-
----
-
-### Issues
-
-- V change review / diff before apply
-- source of live record
-- V template / repetitive apply
-- sync local to live
-
-{{% speaker_note %}}
-version control / gitflow
-
-helm template 有提供許多語法，可以有系統化的產生重複的 k8s object
-ex. 可以跑 for loop / for each
-這個在 IaC 或是 resource as code 的 xxx as code 都十分有利
-{{% /speaker_note %}}
-
----
-
-### Argo CD
-
-[Declarative GitOps CD for Kubernetes](https://argo-cd.readthedocs.io/en/stable/)
-
-![](https://argo-cd.readthedocs.io/en/stable/assets/argocd-ui.gif)
-
----
-
-### Why Argo CD?
-
-Application definitions, configurations, and environments should be declarative and version controlled. Application deployment and lifecycle management should be automated, auditable, and easy to understand.
-
-{{% speaker_note %}}
-application 應該是明確宣告的，清楚描述，並且有版本控管
-描述 application 本身，附帶的設定 secret / configmap
-environment 也應該是宣告式的
-
-application 的部署與 lifecycle 管理，都應該是自動化，可以稽核，而且好理解
-標準化，自動化
-UI 圖像描述，一目瞭然。但事實上如果有做到講 local file 推到版本控制，光是使用 editor 也可以做到一目瞭然
-{{% /speaker_note %}}
-
----
-
-### Argo CD
-
-- gitflow / git repository
-- argocd application sync file from repository
-- argocd controller 自動化的確保 sync
-  - un-sync 自動化處理
-  - 無法 sync 時通知 
-
-{{% speaker_note %}}
-
-gitflow
-- k8s object 的 change 是需要 PR review 的，不是想改就 kubectl apply 下去
-- k8s object 的品質把關，來自高品質的 review
-- 針對 cluster 上的變更都有管控
-
-能夠直接掌握 live object，透過 editor 檢查 git repository，或是透過 argocd UI 檢視
-
-local file 等於 live object
-在複雜的環境裡很重要，ex. k8s 內有成千上百個 helm release，可以用 editor 檢視 local file
-
-不然要透過 k8s 去打 api
-- api call 也是資源啊，能省則省
-- editor 更直覺快速
-
-{{% /speaker_note %}}
-
----
-
-### applicationset
-
-[git generator](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Git/)
-
-```
-apiVersion: argoproj.io/v1alpha1
-kind: ApplicationSet
-metadata:
-  name: general-argocd
-  namespace: argocd
-spec:
-  generators:
-  - git:
-      repoURL: https://github.com/chechiachang/azure-argo
-      revision: master
-      directories:
-      - path: clusters/dev/dev-general/argocd/*
-  template:
-    metadata:
-      name: 'dev-general-argocd-{{path.basename}}'
-      labels:
-        environment: dev
-        type: infra
-        function: argocd
-        cluster: dev-general
-    spec:
-      project: default
-      syncPolicy:
-        automated:
-          prune: true
-      source:
-        repoURL: https://github.com/chechiachang/azure-argo
-        targetRevision: master
-        path: 'clusters/dev/dev-general/argocd/{{path.basename}}'
-      destination:
-        server: https://kubernetes.default.svc
-        namespace: argocd
-```
-
-{{% speaker_note %}}
-argocd 除了 sync 以外還提供的許多功能
-
-applicationset 定義一組 set，可以透過 generator 迭代的產生大量的 application
-ex. 一次 deploy 一群 redis
-{{% /speaker_note %}}
-
----
-
-### applicationset
-
-```
-dev-general
-├── default/redis
-├── default/mysql
-├── default/my-app
-├── nginx-ingress/nginx-ingress
-└── argocd/argocd
-stag-general
-prod-general
-```
-
----
-
-### cluster-wide 的 k8s object
-
-cluster-wide 的 k8s object 也很適合
-- 使用 helm template helper 來管理 value.yaml label / annotation / env / ...
-- namespace
-- rbac
-
-{{% speaker_note %}}
-cluster-wide 的 k8s object 也很適合塞進 argocd 管理
-
-例如 cluster access control，複雜的 rbac rule，也很適合整理成為 helm chart
-- 可以輕鬆實現 user -> rule 多對多
-- 可以快速增減 user group
-{{% /speaker_note %}}
-
----
-
-###  Issues
-
-- V change review / diff before apply
-- V source of live record
-- V template / repetitive apply
-- V sync local to live
-
----
-
-### More Issues: multi-hybrid cluster
-
-- multiple k8s
-  - dev / stag / prod
-- hybrid k8s 
-  - bare metal / public cloud
-
-{{% speaker_note %}}
-由於 k8s 內部的 component 都已經標準化，可以很輕易地複製測試過的 component
-dev 測試 PR branch，staging 跑 release candicate，production 選擇經過測試的 release
-
-能夠確保 dev / stag / prod 的 k8s object 是完全相同的
-
-hybrid 環境管理，某些 k8s 元件應該安裝在哪些 cluster 上
-- aws ingress controller / csi driver / cni node daemonsets
-- local nginx-ingress controller
-{{% /speaker_note %}}
-
----
-
-### More Issues: multi-hybrid cluster
-
-- [argocd cluster generator](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Cluster/)
-
-```
-kind: ApplicationSet
-metadata:
-  name: aws-cni
-  namespace: kube-system
-spec:
-  generators:
-  - clusters:
-      selector:
-        matchLabels:
-          eks: true
-          #bare-metal: true
-          staging: true
-```
-
----
-
-### More Issues: multi-hybrid cluster
-
-- [argocd cluster generator](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Cluster/)
-
-```
-aws-eks-1
-├── aws cni
-├── aws ingress controller
-└── nginx-ingress controller
-bare-metal-1
-├── cilium
-├── bare-metal ingress
-└── nginx-ingress controller
-```
-
-{{% speaker_note %}}
-多座 cluster
-{{% /speaker_note %}}
-
----
-
-### More Issues: multi-hybrid cluster
-
-- applicationset
-
----
-
-### More Issues: Test
-
-k8s object 需不需要測試
-
-- infra-test (bare-metal / self-hosted)
-- release (helm chart)
-- live status
-- stress / load test / chaos engineering
-
-{{% speaker_note %}}
-k8s object 需不需要測試，覺得需要測試的請舉手
-
-k8s object 需不需要測試，就跟這個投影片一樣
-有時間就講一下，沒時間就跳過吧
-
-infra-test provider 應該都測完了
-要測的是 k8s object 的功能是否符合預期
-
-當然，有測試的 helm releae 與沒測試的 helm release 也是天差地遠
-{{% /speaker_note %}}
-
----
-
-### Test: ansible playbook
-
-- 測試 apply 後 k8s object 的 status
-  - ingress 是否 ready
-  - endpoint 是否有產生
-- 可以先測
-  - networking (ingress / svc)
-  - storage (csi / pvc)
-
-```
-- name: Test nginx deployment
-  hosts: {{ host }}
-  gather_facts: no
-  vars:
-    deployment_name: "nginx"
-  tasks:
-  - name: Get deployment status
-    shell: kubectl get deployment {{ deployment_name }} -o=jsonpath='{.status.readyReplicas}'
-    register: deployment_status
-    failed_when: deployment_status.rc != 0
-  - name: Verify deployment is running
-    assert:
-      that:
-        - deployment_status.stdout != 'null'
-        - deployment_status.stdout != '0'
-      fail_msg: 'Deployment {{ deployment_name }} is not running.'
-```
-
----
-
-### More Issues: Test
-
-~~Test~~ Monitoring
-- prometheus rule with helm chart
-- ServiceMonitor
-
-{{% speaker_note %}}
-helm release 一個 api-services
-api service 有 /metrics endpoint
-透過 ServiceMonitor 來持續性的紀錄 metrics
-透過 PrometheusRule 來設定異常 metrics 的告警
-{{% /speaker_note %}}
-
----
-
-### More Issues: Test
-
-- stress-test / load test
-  - k6 
-- chaos-engineering
-  - https://chaos-mesh.org/
-  - https://github.com/asobti/kube-monkey
+### 小結：成本控管的基本概念
+
+- 尋找服務中多餘算力
+- 以維持 SLO 為前提
+- 降低 cpu / memory 使用量
+- 依據元件負載特性，選擇適當的調降方式
 
 {{% speaker_note %}}
 {{% /speaker_note %}}
 
 ---
 
-### Summary
+### Background Knowledge
+### [k8s cpu / memory management](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers)
 
-- kubectl + gitflow
-- helm chart
-- argocd: applicationset / generator
-- test
+https://kubernetes.io/docs/concepts/configuration/manage-resources-containers
 
-Q & A
+- k8s 如何管理 workload 的 cpu 與 memory
+- 調降多少會影響服務品質
+
+{{% speaker_note %}}
+這裡面再講一下 k8s 如何管理 cpu / memory
+
+這邊的重點是，怎麼樣的調整會影響到服務品質，那我們做成本控制的時候，就不要去踩到這個底線
+{{% /speaker_note %}}
+
+---
+
+### [How k8s manage cpu / memory](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#how-pods-with-resource-limits-are-run)
+
+- scheduler 依據 cpu / memory request 調度 pod
+- container runtime 設定 cgroup
+  - cpu 使用量依據 request 佔 node 比例分配
+  - 控制 cpu 用量不超過 limit
+  - memory 使用 limit，超過 limit 會被 oomkill，並依據設定重啟
+  - 當前 node memory 不足時，會依據 pod request Evict pod
+
+{{% speaker_note %}}
+文件講得很清楚
+{{% /speaker_note %}}
+
+---
+
+### 上面都是概念，底下進實作
+
+---
+
+### Monitoring
+
+- Monitoring 是 cost management 的基礎
+- 沒有 monitoring 就沒有 p99 cpu time / p99 memory usage，也沒有 SLI/SLO
+- 如果沒有 monitoring 先補 monitoring
+
+{{% speaker_note %}}
+如果沒有 monitoring，上面的兩大前提都不存在
+目前的 cpu / memory usage，runtime utilization 的資料
+目前SLO，調降之後新的SLO
+{{% /speaker_note %}}
+
+---
+
+{{< slide background-image="grafana-dashboard.png" >}}
+
+---
+
+### Monitoring: 調整前
+
+- 過去的 p99 資源用量
+- 目前的效能表現
+- 多餘的算力 = (分配的 resource - p99)
+
+{{% speaker_note %}}
+做之前要能評估做完大概能省多少
+例如評估完後
+
+如果評估完發現省不了什麼錢，那當然團隊就不一定要做這件事
+{{% /speaker_note %}}
+
+---
+
+### Monitoring: 調整後
+
+調整前後比較
+- 資源用量
+- 目前的效能表現
+- 確定沒有改壞東西
+- 有改壞，要有及時的 alert
+
+{{% speaker_note %}}
+如果你改壞了，及時的 alert 會救你一命
+{{% /speaker_note %}}
+
+---
+
+### Monitoring Tools
+
+- [prometheus.io](https://prometheus.io/)
+- [Kubecost / Opencost](https://docs.kubecost.com/using-kubecost)
+
+---
+
+{{< slide background-image="prometheus.png" >}}
+
+{{% speaker_note %}}
+大家都知道 prometheus 是什麼嗎？
+
+知道的人請舉個手
+不知道的我很簡單說一下
+
+我們想要知道一個 pod 會需要花多少 cpu / memory，你就把它跑起來，然後去紀錄跑起來的 pod 用了多少 cpu / memory，然後根據時間統計，你就可以拉出一張圖，看到這個 pod 用了多少 cpu / memory
+你的 kubelet / cadvisor / container runtime 會知道你的 container 的 cpu / memory 使用量，包含 request & limit 然後是否有 throttling 或是 oomkill，這些資訊都會被 prometheus 收集起來，然後你可以透過其他工具，例如 kubecost 看到這些資訊
+{{% /speaker_note %}}
+
+---
+
+{{< slide background-image="grafana-cpu-usage.png" >}}
+
+https://grafana.com/grafana/dashboards/17375-k8s-resource-monitoring/
+
+{{% speaker_note %}}
+這是 prometheus 收集的資料，vm 的 resource 使用量的 grafana dashboard
+{{% /speaker_note %}}
+
+---
+
+### Cost Analysis and Prediction
+
+- 有了 prometheus 後，我們知道短期/長期的資源使用狀況
+- 要把資源使用轉成成本，需要一個成本計算工具
+- 評估是否要做成本精簡，能夠減少多少錢
+- 管理上的考量：投資人力成本，與預期回報
+
+{{% speaker_note %}}
+
+政治上的考量，做成本節省需要時間跟人力資源
+有一個精準的成本分析，節省空間估算的工具十分有說服力
+
+有這些資料，才可以科學化決策要不要做，該怎麼做
+做之前就能評估做完大概能省多少
+
+如果評估完發現省不了什麼錢，那當然團隊就不一定要做這件事
+
+{{% /speaker_note %}}
+
+---
+
+### Cost Analysis:  billing
+
+- 各家公有元都有自己的費用計算工具
+- [Azure Cost Management](https://azure.microsoft.com/en-us/products/cost-management)
+- [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/)
+- [GCP Cost Breakdown](https://cloud.google.com/billing/docs/how-to/cost-breakdown)
+
+---
+
+{{< slide background-image="azure-cost-management.jpeg" >}}
+
+---
+
+### Cost Analysis: Cloud billing
+
+- 計算長時間的費用趨勢
+- 適合當作成本精簡後的成果回報
+- 不適合當做調整的依據
+- 時間計算較長，反饋時間長，不及時，項目不夠精細
+- 有無更即時的成本分析工具？
+
+---
+
+### Cost Analysis: [Kubecost / Opencost](https://docs.kubecost.com/using-kubecost/)
+
+- 有提供 UI
+- 基於 prometheus
+- 可以針對 allocation 做成本分析 [Cost Allocation](https://docs.kubecost.com/using-kubecost/navigating-the-kubecost-ui/cost-allocation)
+- 可以透過 cloud provider 去撈雲端的使用資料
+
+---
+
+{{< slide background-image="kubecost.jpeg" >}}
+
+---
+
+### Recommedation Tools
+
+- [https://github.com/robusta-dev/krr](https://github.com/robusta-dev/krr)
+- [Kubecost / Opencost Savings](https://docs.kubecost.com/using-kubecost/navigating-the-kubecost-ui/savings)
+- [VPA recommendator](https://github.com/kubernetes/autoscaler/blob/master/vertical-pod-autoscaler/pkg/recommender/README.md)
+
+---
+
+### Recommedation Tools: [Kubecost / Opencost Savings](https://docs.kubecost.com/using-kubecost/navigating-the-kubecost-ui/savings)
+
+- 設定 target utilization
+  - dev 80%+
+  - prod 60%
+
+{{% speaker_note %}}
+根據服務品質的要求，以及公司政策去做設定
+SLA/SLO
+開發與測試環境，在不影響工作的前提，都可以拉到 overcommit
+{{% /speaker_note %}}
+
+---
+
+### Recommedation Tools: KRR
+
+- [https://github.com/robusta-dev/krr](https://github.com/robusta-dev/krr)
+
+---
+
+### Recommedation Tools: KRR
+
+```
+kubectl port-forward svc/prometheus 9090
+
+git clone https://github.com/robusta-dev/krr.git
+source .venv/bin/activate
+python krr.py simple -p http://127.0.0.1:9090 --mem-min 10 --cpu-min 10 --history_duration 720 -q
+```
+
+---
+
+{{< slide background-image="krr.jpeg" >}}
+
+---
+
+### Recommedation Tools: KRR
+
+- 根據 krr 計算的結果，手動調整
+- 有一些工具有提供自動調整 ex VPA
+
+{{% speaker_note %}}
+自動工具比手動需要考量更多因素，這個我們稍候 VPA 再提
+
+請詳閱工具說明再服用
+{{% /speaker_note %}}
+
+---
+
+### Recommedation Tools: [VPA recommendator](https://github.com/kubernetes/autoscaler/blob/master/vertical-pod-autoscaler/pkg/recommender/README.md)
+
+- 需要先知道 VPA 是什麼
+- 直接安裝在 k8s cluster 內
+- 透過 Prometheus 資料，推薦適當的資源
+- 可以自動化推薦資源，調整運行中的 pod，依照設定重啟 pod [VPA mode](https://github.com/kubernetes/autoscaler/blob/master/vertical-pod-autoscaler/README.md#quick-start)
+- 需要可以參考 [helm chart](https://github.com/cowboysysop/charts/tree/master/charts/vertical-pod-autoscaler)
+
+{{% speaker_note %}}
+krr 是可以無腦用的工具，但是 VPA 就不是了
+請設定 VPA mode Off
+請務必需要研究一下在使用
+{{% /speaker_note %}}
+
+---
+
+### 剛上手的做法
+
+沒時間細部研究研究元件的行為，直接調整 request 與 limit
+
+- 先調降 request，不動 limit，對服務衝擊較小
+- 用抓比例的方式動態調整，例如目前 request 距離 p99 request 差距 1000Mi，你先收 500Mi 回來試個水溫
+- p99 直接使用 tool 計算，細節在後面
+- 測試環境先行，有信心在上 production
+
+{{% speaker_note %}}
+如果你第一次做，但對服務元件沒有熟到這種程度，這是比較安全的做法
+公司規模大服務元件複雜，身為 SRE 你只能仰賴 metrics 來判斷服務品質是否受影響，但很多複雜的服務，以及不熟悉的服務，會很難評估
+
+先調降 request，提升單一 node 上的 pod 數量，然後觀察服務品質，如果服務品質沒有受到影響，那麼你可以進一步調降 limit
+市場喊價，先喊個一半，在看能繼續壓到什麼程度
+{{% /speaker_note %}}
+
+---
+
+### 小結
+
+- 收集目前資源使用資料
+- 轉化成公有雲的成本
+- 透過 tool 建議適當的資源
+- 根據服務品質的要求，調降 cpu / memory
+- 回頭檢查 SLO 是否有受到影響
+
+{{% speaker_note %}}
+{{% /speaker_note %}}
+
+---
+
+### HPA
+
+- [k8s/horizontal-pod-autoscale](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
+- 使用 HPA 在成本精簡的意義：因為外部因素改變負載的元件
+- 低負載時不要開太多，高負載時自動加開 pod
+
+---
+
+### HPA: 考量
+
+元件是否能夠水平拓展
+- 啟動的 liveness check / readiness check
+- laod balancer
+- 需要持續調整 scale up / down 的條件與 time windows
+- scale up 對依賴服務的 loading 會有影響 ex. 後面的 db
+- 退場機制，要如何安全的中斷連線，紀錄 state
+
+{{% speaker_note %}}
+要能安全地進出場
+
+進場，pod readiness / liveness
+loading 增加時 scale up time windows
+scale out 對後方服務的影響，是否會出現新的瓶頸
+
+loading 降低時 scale down 是否會影響服務
+{{% /speaker_note %}}
+
+---
+
+### VPA
+
+- [k8s/autoscaler/vertical-pod-autoscaler](https://github.com/kubernetes/autoscaler/blob/master/vertical-pod-autoscaler/README.md#quick-start)
+- 不能水平拓展，只好先垂直拓展
+- 調整資源，有可能會重啟 pod / container
+- [Kubernetes 1.27: In-place Resource Resize for Kubernetes Pods (alpha)](https://kubernetes.io/blog/2023/05/12/in-place-pod-resize-alpha/)
+- [In-Place Pod Resource Resizing always restarts pod](https://github.com/kubernetes/kubernetes/issues/122760)
+- 如果你的 workload 然後不適合做 HPA，但可以接受 resize 後重啟，那可以試試VPA
+
+{{% speaker_note %}}
+1.27 你可以把 InPlacePodVerticalScaling feature gate 開起來
+他不保證 resize 後不會重啟 pod，還是要看你的 container runtime 支援程度
+請先在測試環境中玩一玩
+{{% /speaker_note %}}
+
+---
+
+### Saving Plan / RI
+
+- AWS Saving Plan / RI
+- GCP Committed Use Discount
+- Azure Reservation
+
+{{% speaker_note %}}
+Saving Plan / RI 是一種長期的合約，你可以跟雲端服務商簽約，保證你會用多少資源，然後雲端服務商會給你一個折扣
+七折上下，很適合長期使用的客戶
+
+有 monitoring + prediction，基本上可以確定你會用多少資源，這時候就可以考慮 saving plan / RI
+{{% /speaker_note %}}
+
+---
+
+### Spot Instance
+
+- [azure spot vm](https://azure.microsoft.com/en-us/products/virtual-machines/spot)
+- [aws spot intance](https://aws.amazon.com/ec2/spot/)
+- [gcp spot vm](https://cloud.google.com/spot-vms)
+- 帳面上最高可省 90%
+
+---
+
+### Spot Instance
+
+- 超便宜，打一折
+- 多餘的算力
+- interruption，不保證使用
+- https://aws.amazon.com/ec2/spot/instance-advisor/
+
+{{% speaker_note %}}
+因為一折真的很香，一折是有點拼，但打個 3 折還是很有機會
+{{% /speaker_note %}}
+
+---
+
+### Spot Instance: 分類 workload
+
+interruption 直接影響服務品質的就不宜
+
+不影響服務品質的
+- stateless
+- batch job
+- 將 worklaod 從 monolithic 拆分成小的 batch job
+- 測試環境 dev / stag
+- CI/CD
+
+{{% speaker_note %}}
+
+乍看之下幾個小時~24hr 內會被重啟，好像是犧牲了服務品質，但如果你的服務是可以容忍 interruption 的，例如 batch job，那麼 spot instance 就是一個很好的選擇
+
+將 worklaod 從 monolithic 拆分成小的 batch job，例如你是 api server 處理一個 request 會有很多步驟，你可以把這些步驟拆分成小的 batch job，然後用 queue 串接，這樣你的 api server 就可以用 spot instance 來跑，然後你的 batch job 用 spot instance 跑，這樣你的服務就可以省很多錢
+
+{{% /speaker_note %}}
+
+---
+
+### 小結
+
+- krr 工具調整資源
+- HPA 做水平擴展
+- VPA 自動化調整資源
+- saving plan / RI 長期合約打七折
+- spot instance 打一折
+
+---
+
+### 展望
+
+- cost awareness development
+- find-grade optimization
+- automation
+
+{{% speaker_note %}}
+有了資源預測系統，可以在開發階段就將資源使用回饋給開發團隊
+根據不同服務元件的品質要求，做更細緻的資源管控
+自動化調整，讓人力可以專注在更重要的事情上
+{{% /speaker_note %}}
+
+---
+
+### 小結
+
+- cpu / memory
+- 監測是基礎
+- 依據監測做預測
+- 開始調整
+- 長期合約打七折
+- spot instance 打一折
+- HPA / VPA
+
+--- 
+
+### 感謝
+
+- presentation and speaker notes [chechia.net](https://chechia.net/)
+
+- [Maicoin 職缺](https://www.linkedin.com/company/maicoin/jobs/)
+- 公司福利不錯，業務成長中，想一起共事，歡迎找我聊
+
