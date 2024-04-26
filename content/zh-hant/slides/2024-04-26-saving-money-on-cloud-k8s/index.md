@@ -350,6 +350,18 @@ https://grafana.com/grafana/dashboards/17375-k8s-resource-monitoring/
 
 ---
 
+{{< slide background-image="kubecost-allocation.jpeg" >}}
+
+https://docs.kubecost.com/using-kubecost/navigating-the-kubecost-ui/cost-allocation
+
+---
+
+{{< slide background-image="kubecost-efficiency.png" >}}
+
+https://docs.kubecost.com/using-kubecost/navigating-the-kubecost-ui/cost-allocation/efficiency-idle
+
+---
+
 ### Recommedation Tools
 
 - [https://github.com/robusta-dev/krr](https://github.com/robusta-dev/krr)
@@ -375,6 +387,8 @@ SLA/SLO
 ### Recommedation Tools: KRR
 
 - [https://github.com/robusta-dev/krr](https://github.com/robusta-dev/krr)
+- 免安裝，不影響 k8s 本身
+- 使用外部工具讀取 prometheus 資料
 
 ---
 
@@ -385,8 +399,16 @@ kubectl port-forward svc/prometheus 9090
 
 git clone https://github.com/robusta-dev/krr.git
 source .venv/bin/activate
-python krr.py simple -p http://127.0.0.1:9090 --mem-min 10 --cpu-min 10 --history_duration 720 -q
+
+python krr.py simple \
+  -p http://127.0.0.1:9090 \
+  --mem-min 10 \
+  --cpu-min 10 \
+  --history_duration 720 -q
 ```
+
+{{% speaker_note %}}
+{{% /speaker_note %}}
 
 ---
 
@@ -420,6 +442,16 @@ krr 是可以無腦用的工具，但是 VPA 就不是了
 請設定 VPA mode Off
 請務必需要研究一下在使用
 {{% /speaker_note %}}
+
+---
+
+### Recommedation Tools: 比較
+
+- kubecost 需要 helm install，krr 不需要
+- kubecost 產生一個漂亮的 UI，krr 產生 command line 報表
+
+- VPA 需要 helm install，並且會需要 cluster 權限
+- VPA 可以做到自動化調整，邏輯更複雜，有侵入性，設定有問題會出事
 
 ---
 
