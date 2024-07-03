@@ -1,31 +1,31 @@
 ---
-title: "Hashicorp: managed database credentials with Hashicorp Vault"
+title: "Cloud Summit: Cloud Infrastructure Saving Engineering  雲端省錢工程"
 
-event: Hashicorp Vault 2024
-event_url: 
+event: Cloud Summit 2024
+event_url: https://cloudsummit.ithome.com.tw/2024/session-page/2620
 
-location: National Taiwan University of Science and Technology
+location: 南港展覽館二館7樓
 address:
-  street: No. 43號, Section 4, Keelung Rd, Da’an District
+  street: No. 2, Jingmao 2nd Rd, Nangang District, Taipei City, 115
   city: Taipei
   region: Taiwan
-  postcode: '106'
+  postcode: '115'
   country: Taiwan
 
-summary: 分享幾個節省雲端開銷的方法，包含：成本計算與預測，導入 spot instance，動態資源調整HPA與VPA，saving plan...，並分享如何改變文化，提高團隊的成本意識，實際的降低開銷
-abstract: '使用 AWS 與 Kubernetes，如何省錢？本次演講以實務的範例，分享幾個節省雲端開銷的方法，包含：導入 spot instance，成本計算與預測工具，動態資源調整HPA與VPA，saving plan...，並分享如何改變文化，提高團隊的成本意識，實際的降低開銷'
+summary: 分享幾個節省雲端開銷的方法，包含：導入 spot instance，成本計算與預測工具，動態資源調整HPA與VPA，saving plan
+abstract: '使用 AWS 與 Kubernetes，如何省錢？本次演講以實務的範例，分享幾個節省雲端開銷的方法，包含：導入 spot instance，成本計算與預測工具，動態資源調整 HPA 與 VPA，saving plan...，並分享如何改變文化，提高團隊的成本意識，實際的降低開銷。'
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-date: '2024-08-03T13:20:00Z'
-date_end: '2024-08-04T14:00:00Z'
+date: '2024-07-03T12:45:00Z'
+date_end: '2024-07-03T13:30:00Z'
 all_day: false
 
 # Schedule page publish date (NOT talk date).
-publishDate: '2024-05-09T00:00:00Z'
+publishDate: '2024-07-01T00:00:00Z'
 
 authors: []
-tags: ["iac", "aws", "terraform", "kubernetes", "cost"]
+tags: ["vault", "iac", "aws", "terraform", "kubernetes", "cost"]
 categories: ["kubernetes", "aws"]
 
 # Is this a featured talk? (true/false)
@@ -39,7 +39,7 @@ links:
   - name: 活動連結
     icon: calendar
     icon_pack: fa
-    url: https://coscup.org/2024/en/landing
+    url: https://cloudsummit.ithome.com.tw/2024/session-page/2620
   - name: Facebook
     icon: facebook
     icon_pack: fab
@@ -58,7 +58,7 @@ url_video: ''
 #   Simply enter your slide deck's filename without extension.
 #   E.g. `slides = "example-slides"` references `content/slides/example-slides.md`.
 #   Otherwise, set `slides = ""`.
-slides: 2024-04-26-saving-money-on-cloud-k8s
+slides: 2024-07-03-saving-money-on-cloud-k8s
 
 # Projects (optional).
 #   Associate this post with one or more of your projects.
@@ -70,30 +70,15 @@ slides: 2024-04-26-saving-money-on-cloud-k8s
 
 ---
 
-https://developer.hashicorp.com/vault/docs/secrets/databases
-
-- authentication
-  - (cloud) aws iam role
-  - k8s service account
-  - VM role -> AWS sts
-- access database credentials in vault
-- connect to database
-- monitoring / audit
-- misc
-  - username prefix
-
-cons
-- not able to aquire the credentials if vault is down
-
 # Info
 
-title: COSCUP: Cost Management for Cloud K8s 雲端K8s省錢從打折到骨折
+Title: SRE Conference: Cloud Infrastructure Saving Engineering 雲端省錢工程
 
-使用 AWS 與 Kubernetes 運算就是要 cpu 與 memory，如何為公司省錢，省出職位的價值。
-合理的設定資源，不僅省錢，還提升整體服務穩定度。
-既有服務已經存在，如何逐步改變，降低成本。
+使用 AWS 與 Kubernetes 就是要花錢，如何省錢？
+合理的設定資源，不僅省錢，還提升整體服務穩定度？
+既有服務已經存在，如何逐步改變，降低成本？
 
-本次演講以實務的範例，分享幾個節省雲端開銷的方法，包含：成本計算與預測，導入 spot instance，動態資源調整HPA與VPA，saving plan...，並分享如何改變文化，提高團隊的成本意識，實際的降低開銷
+本次演講以實務的範例，分享幾個節省雲端開銷的方法，包含：導入 spot instance，成本計算與預測工具，動態資源調整HPA與VPA，saving plan...，並分享如何改變文化，提高團隊的成本意識，實際的降低開銷
 
 # Target group
 
