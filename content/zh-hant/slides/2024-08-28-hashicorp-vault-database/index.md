@@ -47,7 +47,7 @@ About Me
 相關資源
 
 - [Demo 範例程式碼 https://github.com/chechiachang/vault-playground](https://github.com/chechiachang/vault-playground) **Demo 用途，請充分理解後再使用**
-- [今日投影片與講稿與其他資源 chechia.net](https://chechia.net/)
+- [今日投影片與講稿與其他資源 chechia.net](https://chechia.net/zh-hant/talk/hashicorp-managed-database-credentials-with-hashicorp-vault/)
 - [2023 Vault 雲端的端通吃的私鑰管理平台](https://chechia.net/zh-hant/talk/hashicorp-vault-on-aws-k8s-%E9%9B%B2%E7%AB%AF%E5%9C%B0%E7%AB%AF%E9%80%9A%E5%90%83%E7%9A%84%E7%A7%81%E9%91%B0%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0/)
 - [從零開始學Terraform手把手入門](https://ithelp.ithome.com.tw/users/20120327/ironman/4057)
 
