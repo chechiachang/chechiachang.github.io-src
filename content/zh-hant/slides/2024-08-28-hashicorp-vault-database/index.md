@@ -280,7 +280,8 @@ vault policy list
 vault policy read dba
 
 // create token for dba (will automatically done in Demo 2)
-vault token create -policy=dba -display-name=dba -ttl=1h -use-limit=1
+vault token create -policy=dba -display-name=dba \
+  -ttl=1h -use-limit=5
 ```
 
 ---
