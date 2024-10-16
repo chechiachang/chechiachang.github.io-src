@@ -72,9 +72,11 @@ slides: 2024-10-24-etcd-workshop
 
 # 工作坊內容
 
-### 上方投影片連結
+### Get Started
 
-### https://github.com/chechiachang/etcd-playground
+1. 請點擊本頁上方投影片連結
+2. Git clone 本次 workshop 資源 https://github.com/chechiachang/etcd-playground
+3. 活動當天現場，會提供一台 Linux VM 做使用
 
 ---
 

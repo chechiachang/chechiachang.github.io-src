@@ -45,7 +45,10 @@ Che Chia Chang
 
 ### 大綱
 
-- 公有雲的費用
+- Etcd 基礎操作
+- Etcd Clusters 操作
+- 搭建 Kubernetes Cluster Control Plane
+- 搭建 Worker Node
 - Q&A
 
 {{% speaker_note %}}
@@ -55,9 +58,19 @@ Che Chia Chang
 
 ### 參考資料
 
+etcd
+
 - https://etcd.io/
 - http://play.etcd.io/play
 - https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/
+
+kubernetes
+
+- https://kubernetes.io/docs/concepts/overview/components/
+- 中文 https://kubernetes.feisky.xyz/concepts/components/
+- https://github.com/kelseyhightower/kubernetes-the-hard-way
+
+examples
 
 - https://github.com/guessi/docker-compose-etcd/blob/master/docker-compose.yml
 - https://github.com/jpetazzo/container.training/blob/main/compose/simple-k8s-control-plane/docker-compose.yaml
