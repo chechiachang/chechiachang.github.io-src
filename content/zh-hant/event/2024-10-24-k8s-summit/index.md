@@ -2,7 +2,7 @@
 title: "Kubernetes Summit: Get started with Etcd & Kubernetes"
 
 event: Kubernetes Summit 2024
-event_url: 
+event_url: https://k8s.ithome.com.tw/2024/workshop-page/3259
 
 location: 台北文創大樓六樓
 address:
@@ -18,7 +18,7 @@ abstract: 'Etcd 是 Kubernetes 的重要元件之一，本次工作坊將帶領�
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
 date: '2024-10-23T13:20:00Z'
-date_end: '2024-10-24T17:00:00Z'
+date_end: '2024-10-24T14:50:00Z'
 all_day: false
 
 # Schedule page publish date (NOT talk date).
@@ -71,6 +71,11 @@ slides: 2024-10-24-etcd-workshop
 ---
 
 # 工作坊內容
+
+兩個場次
+
+- 2024-10-23T13:20-14:50 @ 603+604
+- 2024-10-24T13:20-14:50 @ 605
 
 ### Get Started
 
