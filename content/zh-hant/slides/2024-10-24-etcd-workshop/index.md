@@ -1,6 +1,6 @@
 ---
-title: "Kubernetes Summit: Get started with Etcd & Kubernetes"
-summary: "Etcd 是 Kubernetes 的重要元件之一，本次工作坊將帶領觀眾初探 Etcd，包含安裝，設定，以及操作。並藉由本地的 Etcd 來架設一個最簡單的 Kubernetes Cluster。"
+title: "Kubernetes Summit: Get started with etcd & Kubernetes"
+summary: "etcd 是 Kubernetes 的重要元件之一，本次工作坊將帶領觀眾初探 etcd，包含安裝，設定，以及操作。並藉由本地的 etcd 來架設一個最簡單的 Kubernetes Cluster。"
 authors: []
 tags: ["etcd", "kubernetes"]
 categories: ["kubernetes"]
@@ -14,18 +14,23 @@ slides:
   highlight_style: dracula
 ---
 
-### Workshop: Get started with Etcd & Kubernetes
+### etcd Workshop
 
-- 在 docker 中啟動 Etcd 與 k8s control plane
-- 使用 etcdctl 操作 etcd
-- 操作 etcd cluster
-- 在 docker 中啟動 k8s control plane
-- 使用 kubectl 操作 k8s control plane
+##### 本次 workshop 以 hands-on 的方式進行，累積操作經驗為主，講解與說明為輔。觀念內容有準備教材，需要參與者自行閱讀
+
+- docker 啟動 etcd
+- etcdctl 存取 etcd
+- docker 啟動 etcd cluster
+- docker 啟動 k8s control plane
+- kubectl 存取 k8s control plane
+- 維運 k8s 所需的 etcd operation
+
+##### 參與者需要一台電腦，可以上網，能夠點滑鼠右鍵
 
 ---
 
-### Workshop: Get started with Etcd & Kubernetes
-### 手把手搭建 Etcd 與 K8s 工作坊
+### etcd Workshop
+### 手把手搭建 etcd 與 K8s 工作坊
 
 Che Chia Chang
 [https://chechia.net/](https://chechia.net/)
@@ -48,31 +53,35 @@ Che Chia Chang
 
 ### 大綱
 
-- Etcd 基礎操作
-- Etcd Clusters 操作
-- 搭建 Kubernetes Cluster Control Plane
-  - (Optional) Kubernetes the hard way
+- docker 啟動 etcd
+- etcdctl 存取 etcd
+- docker 啟動 etcd cluster
+- docker 啟動 k8s control plane
+- 維運 k8s 所需的 etcd operation
 - (Optional) 搭建 Worker Node
-- Q&A
 
 {{% speaker_note %}}
 {{% /speaker_note %}}
 
 ---
 
-### 準備
+### 如何進行 workshop
 
-1. 你有一台電腦，可以上網，能夠點滑鼠右鍵
-2. 你會使用 bash 或 powershell terminal
+- 講師會在台上帶頭影片的內容
+- 參與者在自己的機器上操作
+- 參與者可以跟台上的進度，也可以超前進度向後操作
+- 進度落後不太會影響後續操作，不必擔心
+- 加分題是重要但沒時間於今日完成的內容
+- 有很多問題也很正常，產生疑問也是工作坊的目的
 
 ---
 
-### 存取機器
+### 如何存取遠端VM
 
 1. 至[workshop.chechia.net](https://workshop.chechia.net) 領取一台 VM 並簽名
 2. 從講師取得使用者名稱與密碼
-3. 透過 url 連線至你的 VM
-4. 下載教材（複製底下指令，滑鼠右鍵貼到 terminal）
+3. 使用瀏覽器，透過 url 連線至你的 VM，輸入使用者名稱與密碼登入
+4. 下載教材（滑鼠複製底下指令，滑鼠右鍵就能貼到 terminal 中）
 
 ```
 git clone https://github.com/chechiachang/etcd-playground.git
@@ -80,45 +89,67 @@ git clone https://github.com/chechiachang/etcd-playground.git
 
 ---
 
-### Etcd 基礎操作: 啟動一台 Etcd
+### etcd 基礎操作: 啟動一台 etcd
+
+一行一行執行底下指令，來啟動一台 etcd
 
 ```
 cd etcd-playground
 ls
 
 cd 00-prerequsites/
+cat docker-compose.yaml 
+
 docker compose up -d
 docker ps
-docker logs -f etcd-1
+docker logs -f etcd-0
 ```
 
-ctrl + c to exit
-tab to auto complete
+卡住時 ctrl + c to exit
+
+只領打一半可以按 tab auto complete
 
 ---
 
-### Etcd 基礎操作: Etcdctl
+### etcd 基礎操作: etcdctl
 
-請嘗試操作 https://etcd.io/docs/v3.5/tutorials/ 中的幾個範例
+https://etcd.io/docs/v3.5/tutorials/ 中的幾個範例
 - Reading from etcd
 - Writing to etcd
+
+```
+etcdctl get foo
+etcdctl put foo "Hello World"
+etcdctl get foo
+```
+
+---
+
+### etcd 基礎操作: etcdctl
+
+請嘗試操作 https://etcd.io/docs/v3.5/tutorials/ 中的幾個範例
 - How to get keys by prefix
 - How to delete keys
 - How to watch keys
 - How to check Cluster status
 
 ```
-etcdctl get foo
-etcdctl put foo "Hello World"
+etcdctl del foo
+
+etcdctl put k1 value1
+etcdctl put k2 value2
+etcdctl del --prefix k
 ```
 
 ---
 
-### Etcd 基礎操作: 重啟 Etcd
+### etcd 基礎操作: 重啟 etcd
 
-透過以下 command 重啟 Etcd
+透過以下 command 重啟 etcd
+- `docker ps` 確認 etcd 是否還在運行
 
 ```
+docker ps
 docker compose down
 docker ps
 docker compose up -d
@@ -126,9 +157,9 @@ docker compose up -d
 
 ---
 
-### Etcd 基礎操作: Quiz
+### etcd 基礎操作: Quiz
 
-1. 重啟後，是否還能讀取到 foo 的值？為什麼？
+1. 重啟 etcd 後，是否還能讀取到 foo 的值？為什麼？
 2. 請用50個字，描述你目前覺得 etcd 是什麼？
    - 把答案填到 [workshop.chechia.net](https://workshop.chechia.net)
    - 不是考試，隨意發揮，重點在促進大家思考
@@ -142,19 +173,22 @@ etcdctl get foo
 
 ---
 
-### Etcd 基礎操作: Answer
+### etcd 基礎操作: Answer
 
-1. 本 workshop 的 docker-compose.yml 中，Etcd 的資料是存放在本地的 etcd1 資料夾中，因此重啟後，資料不會遺失。透過以下指令可以清除 etcd1 資料夾中的資料
+1. 本 workshop 的 docker-compose.yml 中，etcd 的資料是存放在本地的 etcd0 資料夾中，因此重啟後，資料不會遺失。透過以下指令可以清除 etcd0 資料夾中的資料
 2. https://etcd.io/docs/v3.5/learning/why/
 
 ```
 cd 00-prerequsites/
+ls etcd0
+ls etcd0/member
 
-docker-compose down --volumes
-rm -rf etcd1/*
+docker compose down --volumes
+rm -rf etcd0/*
 
 # 新的 etcd
-docker-compose up -d
+docker compose up -d
+ls etcd0
 ```
 
 ---
@@ -173,8 +207,14 @@ docker-compose up -d
 - 使用 userA 寫入資料
 - 使用 userB 讀取資料
 - 關閉匿名存取
-- 卡住乃兵家常事，大俠請重新來過即可
 - https://etcd.io/docs/v3.5/op-guide/authentication/
+
+##### 卡住乃兵家常事，大俠請重新來過即可
+
+```
+docker compose down --volumes
+rm -rf etcd0/*
+```
 
 ---
 
@@ -191,20 +231,26 @@ etcdctl auth enable
 
 ---
 
-### Etcd Clusters: 啟動多台 Etcd
+### etcd Clusters: 移除舊的 etcd
 
-- 先關閉 01-prerequsites 的 Etcd
+- 先關閉 01-prerequsites 的 etcd
+- 透過 `--volumes` 刪除 docker volume
+- 刪除 etcd local volume 資料夾
 
 ```
 docker compose down --volumes
+rm -rf etcd0/*
 ```
 
 ---
 
-### Etcd Clusters: 啟動多台 Etcd
+### etcd Clusters: 啟動多台 etcd
 
 ```
+cd ../
 cd 01-cluster/
+cat docker-compose.yaml 
+
 docker compose up -d
 docker ps
 
@@ -220,22 +266,29 @@ export ETCDCTL_ENDPOINTS="http://127.0.0.1:2379,http://127.0.0.1:2380,http://127
 
 ---
 
-### Etcd Clusters: 操作
+### etcd Clusters: 檢視狀態
 
 https://etcd.io/docs/v3.5/tutorials/
 - How to check Cluster status
+- 透過 `--help` 檢查每個欄位的意義
 
 ```
 etcdctl endpoint status
-# 查詢 help 檢查每個欄位的意義
 etcdctl endpoint status --help
+
 etcdctl endpoint health
+etcdctl endpoint health --help
 etcdctl endpoint hashkv
+etcdctl endpoint hashkv --help
 ```
 
 ---
 
-### Etcd Clusters: Member
+### etcd Clusters: 操作 Member
+
+- member 是 etcd cluster 中的一個節點
+- leader 是 etcd cluster 中的一個 member
+- 透過 `move-leader` 指令，可以交接 leader
 
 ```
 etcdctl --write-out=table endpoint status
@@ -246,7 +299,7 @@ etcdctl --write-out=table endpoint status
 
 ---
 
-### Etcd Clusters: Member
+### etcd Clusters: Member
 
 https://etcd.io/docs/v3.5/tutorials/
 - How to Add and Remove Members
@@ -272,15 +325,11 @@ etcd member list
 
 ---
 
-### Etcd Clusters: network partition and recovery
-
-- https://etcd.io/docs/v3.5/op-guide/failures/
-
----
-
 ### 閱讀資料
 
+- https://etcd.io/docs/v3.5/faq/
 - https://etcd.io/docs/v3.5/learning/design-learner/
+- https://etcd.io/docs/v3.5/learning/persistent-storage-files/
 
 ---
 
@@ -305,6 +354,7 @@ cd certs
 ./generate.sh
 
 cd ../
+cat docker-compose.yaml
 docker compose up -d
 docker ps
 docker logs kube-apiserver
@@ -316,6 +366,8 @@ docker logs kube-scheduler
 
 ### K8s: kubectl
 
+kubectl 是 Kubernetes 的 CLI 工具，可以透過 kubectl 存取 k8s control plane
+
 ```
 kubectl --kubeconfig=certs/admin.kubeconfig cluster-info
 kubectl --kubeconfig=certs/admin.kubeconfig get all -A
@@ -326,10 +378,9 @@ kubectl --kubeconfig=certs/admin.kubeconfig get all -A
 ### K8s: the hard way
 
 [kelseyhightower/kubernetes-the-hard-way](https://github.com/kelseyhightower/kubernetes-the-hard-way/tree/master) 是一個很棒的學習資源，可以讓你了解到 Kubernetes 的每個細節
-- 我沒辦法做得更好，但我們可以一起過一次裡面做了哪些事
-
-{{% speaker_note %}}
-{{% /speaker_note %}}
+- 這次重點在於 etcd，我們只操作到 etcd 的部分
+- k8s 的部分，在於 k8s 跟 etcd 的互動
+- 有功能的 k8s 還需要部署 node
 
 ---
 
@@ -337,7 +388,7 @@ kubectl --kubeconfig=certs/admin.kubeconfig get all -A
 
 [certs/generate.sh](https://github.com/chechiachang/etcd-playground/blob/main/02-control-panel/certs/generate.sh) 有附上對應的 k8s-the-hard-way 的說明文件
 - ca 與 certs 是部署 k8s control plane 的必要檔案
-- 但非常花時間，本 workshop 會直接使用腳本產生配置
+- 非常花時間，本 workshop 會直接使用腳本產生
 - 加分題：鼓勵大家自己操作過一次 certs 的產生
 
 ```
@@ -347,10 +398,9 @@ ls certs
 
 ---
 
-### K8s: Quiz
+### K8s: 認識 control plane components
 
-3. 請簡述 etcd / apiserver / controller-manager / scheduler 的功能
-4. 為何不同 component 中使用的 certs / kubeconfig 檔案不同？
+- https://kubernetes.io/docs/concepts/overview/components/
 
 ```
 ls apiserver
@@ -360,28 +410,26 @@ ls scheduler
 
 ---
 
-### K8s: Answer
-
-3. https://kubernetes.io/docs/concepts/overview/components/
-4. 呈 3.
-
----
-
 ### K8s: etcd operations for k8s
 
-https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/
+k8s 官方文件中，從維運 k8s 角度，講述如何維運 etcd
+
+- https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/
 - [Securing etcd Clusters](https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/#securing-etcd-clusters) 放在加分題
 
 ---
 
 ### K8s: etcd backup and restore
 
-https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/#backing-up-an-etcd-cluster
+[backing-up-an-etcd-cluster](https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/#backing-up-an-etcd-cluster)
+
+- etcdctl 確定 leader 與 raft index
+- 向 leader node 發送 snapshot request
+- 輸出到 /etcd_data/snapshot.db，會顯示在 etcd1 資料夾中
 
 ```
-# 確定 leader 與 raft index
 etcdctl --write-out=table endpoint status
-# 備份
+
 docker exec -it etcd-1 etcdctl snapshot save /etcd_data/snapshot.db
 ls etcd1
 ```
@@ -390,36 +438,53 @@ ls etcd1
 
 ### K8s: etcd backup and restore
 
-https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/#restoring-an-etcd-cluster
+[restoring-an-etcd-cluster](https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/#restoring-an-etcd-cluster)
+
 - 停止 k8s control plane (apiserver)
+- 複製 snapshot.db 到 etcd2 與 etcd3 資料夾中
+- 對每一個 etcd member 執行 restore
 
 ```
 docker stop kube-apiserver
 
-# 恢復
 cp etcd1/snapshot.db etcd2/snapshot.db
 cp etcd1/snapshot.db etcd3/snapshot.db
+
 docker exec -it etcd-1 etcdctl snapshot restore /etcd_data/snapshot.db
 docker exec -it etcd-2 etcdctl snapshot restore /etcd_data/snapshot.db
 docker exec -it etcd-3 etcdctl snapshot restore /etcd_data/snapshot.db
+
+etcdctl --write-out=table endpoint status
 ```
 
 ---
 
 ### K8s: etcd backup and restore
 
-https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/#scaling-out-etcd-clusters
+[scaling-out-etcd-clusters](https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/#scaling-out-etcd-clusters)
+
 - 修改 01-cluster/docker-compose.yaml
-- 調整底下 comment 中的部分
+- 調整底下 comment 中的部分，修改 ? 的地方
 - 增加兩台 etcd member 到 cluster 中
 
+```
+etcdctl member list
+etcdctl member add <id> --peer-urls=
+etcdctl member list
+docker compose up -d
+```
 
 ---
 
 ### 加分題為自己加分：自己做 ca and tls certs
 
+- 不使用 generate.sh 產生 certs，拉起 k8s control plane
 - 閱讀 generate.sh 的 comment 部分網頁連結
 - 將 generate.sh 的內容，到 terminal 中一段一段 copy paste 執行
+
+```
+git clone https://github.com/chechiachang/etcd-playground.git
+```
 
 ---
 
@@ -435,11 +500,7 @@ https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/#scal
 
 ### (Optional) 搭建 K8s Node
 
----
-
-### 後續
-
-- 回家自己找一台 linux 機器，跑完 k8s the hard way
+https://github.com/kelseyhightower/kubernetes-the-hard-way/blob/master/docs/09-bootstrapping-kubernetes-workers.md
 
 ---
 
