@@ -320,7 +320,7 @@ etcdctl member list
 
 rm -rf etcd3/member
 docker start etcd-3
-etcd member list
+etcdctl member list
 ```
 
 ---
@@ -348,7 +348,7 @@ etcd member list
 ### K8s: 搭建 K8s Control Plane
 
 ```
-cd 02-k8s-control-plane/
+cd 02-control-panel
 
 cd certs
 ./generate.sh
