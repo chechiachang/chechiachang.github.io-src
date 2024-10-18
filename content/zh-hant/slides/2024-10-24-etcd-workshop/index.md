@@ -81,7 +81,8 @@ Che Chia Chang
 1. 至[workshop.chechia.net](https://workshop.chechia.net) 領取一台 VM 並簽名
 2. 從講師取得使用者名稱與密碼
 3. 使用瀏覽器，透過 url 連線至你的 VM，輸入使用者名稱與密碼登入
-4. 下載教材（滑鼠複製底下指令，滑鼠右鍵就能貼到 terminal 中）
+4. Protocol: SSH，port 22，authentication type: password
+5. 下載教材（滑鼠複製底下指令，滑鼠右鍵就能貼到 terminal 中）
 
 ```
 git clone https://github.com/chechiachang/etcd-playground.git
@@ -180,11 +181,11 @@ etcdctl get foo
 
 ```
 cd 00-prerequsites/
-ls etcd0
-ls etcd0/member
+sudo ls etcd0
+sudo ls etcd0/member
 
 docker compose down --volumes
-rm -rf etcd0/*
+sudo rm -rf etcd0/*
 
 # 新的 etcd
 docker compose up -d
@@ -213,7 +214,7 @@ ls etcd0
 
 ```
 docker compose down --volumes
-rm -rf etcd0/*
+sudo rm -rf etcd0/*
 ```
 
 ---
@@ -239,7 +240,7 @@ etcdctl auth enable
 
 ```
 docker compose down --volumes
-rm -rf etcd0/*
+sudo rm -rf etcd0/*
 ```
 
 ---
@@ -318,7 +319,7 @@ etcdctl member list
 etcdctl member add c3697a4fd7a20dcd --peer-urls="http://etcd-3:2380"
 etcdctl member list
 
-rm -rf etcd3/member
+sudo rm -rf etcd3/member
 docker start etcd-3
 etcdctl member list
 ```
