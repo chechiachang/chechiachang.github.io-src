@@ -71,7 +71,7 @@ Che Chia Chang
 - 參與者在自己的機器上操作
 - 參與者可以跟台上的進度，也可以超前進度向後操作
 - 進度落後不太會影響後續操作，不必擔心
-- 加分題是重要但沒時間於今日完成的內容
+- 加分題是重要，但沒時間於今日完成的內容，請自行參考
 - 有很多問題也很正常，產生疑問也是工作坊的目的
 
 ---
@@ -128,8 +128,28 @@ etcdctl get foo
 
 ### etcd 基礎操作: etcdctl
 
-請嘗試操作 https://etcd.io/docs/v3.5/tutorials/ 中的幾個範例
+https://etcd.io/docs/v3.5/tutorials/ 中的幾個範例
 - How to get keys by prefix
+
+```
+etcdctl get --prefix "" 
+etcdctl get "" --prefix --keys-only
+
+etcdctl put foo2 2
+etcdctl put foo5 5
+etcdctl put foo4 4
+etcdctl put foo3 3
+
+etcdctl get foo --prefix --keys-only
+etcdctl get foo --prefix --keys-only --sort-by=KEY --limit=5
+etcdctl get foo --prefix --keys-only --sort-by=MODIFY --limit=5
+```
+
+---
+
+### etcd 基礎操作: etcdctl
+
+請嘗試操作 https://etcd.io/docs/v3.5/tutorials/ 中的幾個範例
 - How to delete keys
 - How to watch keys
 - How to check Cluster status
@@ -348,6 +368,28 @@ etcdctl member list
 
 ### K8s: 搭建 K8s Control Plane
 
+- 確定 etcd cluster 都正常運行
+  - 裡面沒有資料，有的話可以刪除，啟動新的 etcd
+- 透過 docker 啟動 K8s Control Plane
+  - kube-apiserver
+  - kube-controller-manager
+  - kube-scheduler
+
+```
+etcdctl member list
+docker ps -a
+
+etcdctl get "" --prefix --keys-only
+```
+
+---
+
+### K8s: 搭建 K8s Control Plane
+
+- 透過底下指令，啟動 k8s control plane
+  - 這是一個極度簡化的 k8s control plane
+  - 正式環境不會長這樣
+
 ```
 cd 02-control-panel
 
@@ -365,13 +407,54 @@ docker logs kube-scheduler
 
 ---
 
+https://kubernetes.io/docs/concepts/overview/components/
+
+![](https://kubernetes.io/images/docs/components-of-kubernetes.svg)
+
+---
+
 ### K8s: kubectl
 
-kubectl 是 Kubernetes 的 CLI 工具，可以透過 kubectl 存取 k8s control plane
+- 透過 etcdctl 檢查目前的 etcd 資料內容
+- kubectl 是 Kubernetes 的 CLI 工具，可以透過 kubectl 存取 k8s control plane
 
 ```
+etcdctl get "" --prefix --keys-only
+
 kubectl --kubeconfig=certs/admin.kubeconfig cluster-info
 kubectl --kubeconfig=certs/admin.kubeconfig get all -A
+```
+
+---
+
+### K8s: data in etcd
+
+- 使用 etcdctl 存取 k8s 的資料
+- jq
+- yq
+- 選幾個 `/registry` 的 key，探索更多 k8s 內容
+
+```
+etcdctl get "/" --prefix --keys-only --sort-by=KEY
+
+etcdctl get /registry/namespaces/default -w json | jq
+etcdctl get /registry/namespaces/default -w json | yq -P
+```
+
+---
+
+### K8s: data in etcd
+
+k8s 運行時，會將資料存放在 etcd 中
+- 透過 kubectl create namespace workshop 創建一個 namespace
+- 透過 etcdctl 存取 workshop namespace 的資料
+
+```
+etcdctl get "/registry/namespaces" --prefix --keys-only --sort-by=KEY
+
+kubectl --kubeconfig=certs/admin.kubeconfig create namespace workshop
+
+etcdctl get /registry/namespaces/workshop -w json | yq -P
 ```
 
 ---
