@@ -250,6 +250,7 @@ sudo rm -rf etcd0/*
 ### 加分題為自己加分：authentication
 
 ```
+# 可能會用到的 cmd
 etcdctl role add
 etcdctl role grant-permission
 etcdctl user add
@@ -551,7 +552,7 @@ etcdctl --write-out=table endpoint status
 
 ---
 
-### K8s: etcd backup and restore
+### 加分題為自己加分：增加 etcd member
 
 [scaling-out-etcd-clusters](https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/#scaling-out-etcd-clusters)
 
@@ -560,6 +561,7 @@ etcdctl --write-out=table endpoint status
 - 增加兩台 etcd member 到 cluster 中
 
 ```
+# 可能會用到的 cmd
 etcdctl member list
 etcdctl member add <id> --peer-urls=
 etcdctl member list
@@ -574,10 +576,6 @@ docker compose up -d
 - 閱讀 generate.sh 的 comment 部分網頁連結
 - 將 generate.sh 的內容，到 terminal 中一段一段 copy paste 執行
 
-```
-git clone https://github.com/chechiachang/etcd-playground.git
-```
-
 ---
 
 ### 加分題為自己加分: 增加 apiserver
@@ -590,9 +588,28 @@ git clone https://github.com/chechiachang/etcd-playground.git
 
 ---
 
-### (Optional) 搭建 K8s Node
+### 加分題為自己加分: 搭建 K8s Node
 
 https://github.com/kelseyhightower/kubernetes-the-hard-way/blob/master/docs/09-bootstrapping-kubernetes-workers.md
+
+---
+
+### 如何自建 workshop 環境
+
+workshop 提供的機器
+- ubuntu
+- 安裝這些東西 [github.com/chechiachang/terraform-azure](https://github.com/chechiachang/terraform-azure/blob/main/templates/cloud_config/workshop.yaml)
+mac 安裝以下工具
+- docker https://docs.docker.com/desktop/install/mac-install/
+- 安裝 [jq](https://jqlang.github.io/jq/) 與 [yq](https://github.com/mikefarah/yq/releases/tag/v4.44.3)
+
+```
+VERSION=v4.44.3
+BINARY=yq_darwin_amd64
+wget https://github.com/mikefarah/yq/releases/download/${VERSION}/${BINARY} -O yq
+chmod +x yq
+sudo mv yq /usr/bin/yq
+```
 
 ---
 
