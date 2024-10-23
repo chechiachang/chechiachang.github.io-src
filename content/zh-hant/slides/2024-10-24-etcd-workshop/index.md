@@ -43,11 +43,19 @@ Che Chia Chang
 ### 關於我
 
 - Che Chia Chang
-- SRE @ [Maicoin](https://www.linkedin.com/company/maicoin/jobs/)
+- SRE @ [Maicoin](https://www.cake.me/companies/maicoin/jobs)
 - [Microsoft MVP](https://mvp.microsoft.com/zh-TW/MVP/profile/e407d0b9-5c01-eb11-a815-000d3a8ccaf5)
 - 個人部落格[chechia.net](https://chechia.net/)
 - presentation and speaker notes
 - 鐵人賽 (Terraform / Vault 手把手入門)
+
+---
+
+### We're hiring!
+
+https://www.cake.me/companies/maicoin/jobs
+
+![](we-re-hiring.png)
 
 ---
 
