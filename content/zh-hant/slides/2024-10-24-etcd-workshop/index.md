@@ -98,6 +98,29 @@ git clone https://github.com/chechiachang/etcd-playground.git
 
 ---
 
+### 回家如何自建 workshop 環境
+
+workshop 提供的機器
+- ubuntu
+- 安裝這些東西 [github.com/chechiachang/terraform-azure](https://github.com/chechiachang/terraform-azure/blob/main/templates/cloud_config/workshop.yaml)
+mac 安裝以下工具
+- docker https://docs.docker.com/desktop/install/mac-install/
+- 安裝 [jq](https://jqlang.github.io/jq/) 與 [yq](https://github.com/mikefarah/yq/releases/tag/v4.44.3)
+
+---
+
+### 回家如何自建 workshop 環境
+
+```
+VERSION=v4.44.3
+BINARY=yq_darwin_amd64
+wget https://github.com/mikefarah/yq/releases/download/${VERSION}/${BINARY} -O yq
+chmod +x yq
+sudo mv yq /usr/bin/yq
+```
+
+---
+
 ### etcd 基礎操作: 啟動一台 etcd
 
 一行一行執行底下指令，來啟動一台 etcd
@@ -283,15 +306,25 @@ cat docker-compose.yaml
 
 docker compose up -d
 docker ps
+```
 
+---
+
+### etcd Clusters: 檢視狀態
+
+- 預設 etcdctl 會連線到 --endpoints=[127.0.0.1:2379]
+- 使用 --endpoints 指定要連線到的 etcd
+- 使用 export ETCDCTL_ENDPOINTS 指定要連線到的 etcd
+
+```
 etcdctl endpoint status
-
-export ENDPOINTS="http://127.0.0.1:2379,http://127.0.0.1:2380,http://127.0.0.1:2381"
-etcdctl --endpoints $ENDPOINTS endpoint status
-
-etcdctl --endpoints $ENDPOINTS endpoint status --write-out=table
+etcdctl --endpoints "http://127.0.0.1:2379,http://127.0.0.1:2380" endpoint status
+etcdctl --endpoints "http://127.0.0.1:2379,http://127.0.0.1:2380,http://127.0.0.1:2381" endpoint status
 
 export ETCDCTL_ENDPOINTS="http://127.0.0.1:2379,http://127.0.0.1:2380,http://127.0.0.1:2381"
+etcdctl --endpoints $ETCDCTL_ENDPOINTS endpoint status
+etcdctl endpoint status
+
 ```
 
 ---
@@ -536,6 +569,8 @@ ls etcd1
 - 停止 k8s control plane (apiserver)
 - 複製 snapshot.db 到 etcd2 與 etcd3 資料夾中
 - 對每一個 etcd member 執行 restore
+- 或是針對 leader 執行 restore
+- 觀察 raft index 的變化
 
 ```
 docker stop kube-apiserver
@@ -592,24 +627,6 @@ docker compose up -d
 
 https://github.com/kelseyhightower/kubernetes-the-hard-way/blob/master/docs/09-bootstrapping-kubernetes-workers.md
 
----
-
-### 如何自建 workshop 環境
-
-workshop 提供的機器
-- ubuntu
-- 安裝這些東西 [github.com/chechiachang/terraform-azure](https://github.com/chechiachang/terraform-azure/blob/main/templates/cloud_config/workshop.yaml)
-mac 安裝以下工具
-- docker https://docs.docker.com/desktop/install/mac-install/
-- 安裝 [jq](https://jqlang.github.io/jq/) 與 [yq](https://github.com/mikefarah/yq/releases/tag/v4.44.3)
-
-```
-VERSION=v4.44.3
-BINARY=yq_darwin_amd64
-wget https://github.com/mikefarah/yq/releases/download/${VERSION}/${BINARY} -O yq
-chmod +x yq
-sudo mv yq /usr/bin/yq
-```
 
 ---
 
