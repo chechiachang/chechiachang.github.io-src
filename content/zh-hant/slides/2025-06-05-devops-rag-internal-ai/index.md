@@ -110,9 +110,10 @@ docker compose up -d
 
 [github](https://github.com/) repository 開一個新的 repository，然後上傳
 
-```
-# ssh 進去 vm
+1. 移除 notebook 內所有 OpenAI API key
+1. ssh 進去 vm
 
+```
 cd rag-workshop
 
 git remote add new <your-repo-url>
