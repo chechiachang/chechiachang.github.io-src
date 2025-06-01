@@ -101,7 +101,7 @@ slides: 2025-06-05-devops-rag-internal-ai
 1. 安裝 docker
 1. git clone github repository
 1. 啟動 docker 開發環境，下載 docker images
-1. 開啟瀏覽器，連線到 Jupyter Notebook
+1. 開啟瀏覽器，連線到 Jupyter Notebook，token `workshop1234!`
 1. 在 Jupyter Notebook 中，安裝所需的 Python 套件
 
 ```bash
