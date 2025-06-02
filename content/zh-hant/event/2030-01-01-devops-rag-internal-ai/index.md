@@ -17,12 +17,12 @@ abstract: '企業內部文件往往分散於 Confluence、Google Drive、Notion 
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-date: '2025-06-05T12:45:00Z'
-date_end: '2025-06-06T13:30:00Z'
+date: '2030-06-05T12:45:00Z'
+date_end: '2030-06-06T13:30:00Z'
 all_day: false
 
 # Schedule page publish date (NOT talk date).
-publishDate: '2025-05-01T00:00:00Z'
+publishDate: '2030-05-01T00:00:00Z'
 
 authors: []
 tags: ["openai", "generative", "ai", "kubernetes", "devops"]

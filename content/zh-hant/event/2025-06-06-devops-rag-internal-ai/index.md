@@ -4,7 +4,7 @@ title: "Workshop: RAG打造企業AI知識庫：把一甲子功力傳給新人"
 event: DevOpsDay Taipei 2025
 event_url: https://devopsdays.tw/2025/
 
-location: 臺北文創大樓6樓ABC會議室
+location: "臺北文創大樓6樓607 608會議室"
 address:
   street: 台北市信義區光復南路133號
   city: Taipei
@@ -39,7 +39,7 @@ links:
   - name: 活動連結
     icon: calendar
     icon_pack: fa
-    url: https://cloudsummit.ithome.com.tw/2024/session-page/2620
+    url: https://devopsdays.tw/2025/workshop-page/3788
   - name: Facebook
     icon: facebook
     icon_pack: fab
@@ -58,7 +58,7 @@ url_video: ''
 #   Simply enter your slide deck's filename without extension.
 #   E.g. `slides = "example-slides"` references `content/slides/example-slides.md`.
 #   Otherwise, set `slides = ""`.
-slides: 2025-07-03-build-internal-rag-ai-agent
+slides: 2025-06-05-devops-rag-internal-ai
 
 # Projects (optional).
 #   Associate this post with one or more of your projects.
@@ -68,6 +68,72 @@ slides: 2025-07-03-build-internal-rag-ai-agent
 #projects:
 #  - example
 
+---
+
+---
+
+# RAG workshop 行前通知
+
+本次 workshop 以 hands-on 的方式進行，累積操作經驗為主，講解與說明為輔。觀念內容有準備教材，需要參與者自行閱讀。講師會免費提供
+
+1. Azure OpenAI models API key (gpt-4.1, gpt-4.1-mini, text-embedding-3, text-embedding-ada-002...)
+1. Azure VM 供同學遠端操作使用
+
+# --> [投影片與教材](https://chechia.net/zh-hant/slides/2025-06-05-devops-rag-internal-ai/) <--
+
+---
+
+### Workshop 基本需求
+
+1. 有自己的電腦，可以上網
+  1. 選項1: 使用自己的電腦，在 docker 啟動開發環境
+  1. 選項2: 使用自己的電腦，遠端連線講師提供的 VM，在VM 中啟動 docker 開發環境
+1. 會使用 docker
+1. 會使用 python 與 jupyter notebook
+1. 會使用 chatgpt.com 協助除錯
+
+---
+
+### 選項1: 使用自己的電腦
+
+在 workshop 開始前，在自己的電腦上
+
+1. 安裝 docker
+1. git clone github repository
+1. 啟動 docker 開發環境，下載 docker images
+1. 開啟瀏覽器，連線到 Jupyter Notebook，token `workshop1234!`
+1. 在 Jupyter Notebook 中，安裝所需的 Python 套件
+
+```bash
+git clone https://github.com/chechiachang/rag-workshop.git
+
+cd rag-workshop
+
+docker compose up -d
+
+docker exec -it notebook pip install pandas openai qdrant_client tqdm tenacity wget tenacity unstructured markdown ragas sacrebleu langchain_qdrant langchain-openai langchain_openai langchain_community tiktoken
+```
+
+---
+
+### 選項2: 使用遠端 VM
+
+1. 建議使用個人電腦，畢竟免費 VM 名額現場有限
+1. 需要有自己的電腦，有穩定的網路，可以連線到遠端 VM
+1. 需要註冊 tunnel 工具（沒有業配）[ngrok](https://dashboard.ngrok.com/login)
+  1.  登入 Login -> 左手邊 Identity & Access -> Authtokens -> Add Tunnel authtoken -> 記在安全的地方
+  1. 也可以使用 [pinggy](https://pinggy.io/)，但免費有限時
+
+---
+
+### 投影片與教材會放在網站上
+
+[https://chechia.net/zh-hant/slides/2025-06-05-devops-rag-internal-ai/](https://chechia.net/zh-hant/slides/2025-06-05-devops-rag-internal-ai/)
+
+如何存取 VM 也會放在敨影片裡
+
+---
+RAG workshop 行前通知完，大家當天現場見
 ---
 
 # Info

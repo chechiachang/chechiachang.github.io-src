@@ -22,7 +22,7 @@ date_end: '2025-07-03T13:30:00Z'
 all_day: false
 
 # Schedule page publish date (NOT talk date).
-publishDate: '2025-06-01T00:00:00Z'
+publishDate: '2025-06-15T00:00:00Z'
 
 authors: []
 tags: ["openai", "generative", "ai", "kubernetes", "devops"]
