@@ -40,7 +40,7 @@ cd rag-workshop
 
 docker compose up -d
 
-docker exec -it notebook pip install pandas openai qdrant_client tqdm tenacity wget tenacity unstructured markdown ragas sacrebleu langchain_qdrant langchain-openai langchain_openai langchain_community tiktoken
+docker exec -it notebook pip install pandas openai qdrant_client tqdm tenacity wget tenacity unstructured markdown ragas sacrebleu langchain_qdrant langchain-openai langchain_openai langchain_community tiktoken ipywidgets
 
 登入token="workshop1234!"
 ```
@@ -80,12 +80,14 @@ docker exec -it notebook pip install pandas openai qdrant_client tqdm tenacity w
 
 ### RAG Workshop 流程
 
-1. **環境設定：確定參與者都有設定好開發環境**
-1. 為什麼需要 RAG（Retrieval-Augmented Generation）
-1. RAG: Embedding 與向量數據庫
-1. RAG: Embedding Search
-1. RAG: Evaluation
-1. RAG 實際應用: 以 k8s official docs 為例
+1. 10min - **環境設定：確定參與者都有設定好開發環境**
+1. 10min - 為什麼需要 RAG（Retrieval-Augmented Generation）
+1. 10min - Notebook 2 Embedding 與向量數據庫
+1. 10min - Notebook 3 Embedding Search
+1. 10min - Notebook 4 DIY
+1. 10min - Notebook 5 Evaluation
+1. 10min - Notebook 6 k8s RAG QA
+1. 20min - DIY + Q&A
 
 ---
 
@@ -146,10 +148,12 @@ t=2025-06-02T06:17:41+0000 lvl=info msg="started tunnel" obj=tunnels name=comman
 
 1. 環境設定：確定參與者都有設定好開發環境
 1. **為什麼需要 RAG（Retrieval-Augmented Generation）**
-1. RAG: Embedding 與向量數據庫
-1. RAG: Embedding Search
-1. RAG: Evaluation
-1. RAG 實際應用: 以 k8s official docs 為例
+1. Embedding 與向量數據庫
+1. Embedding Search
+1. DIY
+1. Evaluation
+1. 實際應用: 以 k8s official docs 為例
+1. DIY + Q&A
 
 ---
 
@@ -219,7 +223,7 @@ RAG + Context-Aware Knowledge Copilot
 
 ### RAG vs 傳統程式設計（Traditional Programming）
 
-- 對我們需要工具提升知識獲取效率，如何選擇 RAG 或傳統程式設計
+- 需要工具提升知識獲取效率，如何選擇 RAG 或傳統程式設計
 - 在特定任務的效能是否優於人類
 - 哪裡適合用 RAG，哪裡適合用傳統程式設計
 
@@ -273,18 +277,80 @@ LLM（大型語言模型）本身並不具備事實知識，而是依賴訓練�
 1. 為什麼需要 RAG（Retrieval-Augmented Generation）
    1. RAG 在「文件檢索與提示」上優於人類
    1. LLM 補強工程師的語言能力
-1. **RAG: Embedding 與向量數據庫**
-1. RAG: Embedding Search
-1. RAG: Evaluation
-1. RAG 實際應用: 以 k8s official docs 為例
+1. **Embedding 與向量數據庫**
+1. Embedding Search
+1. DIY
+1. Evaluation
+1. k8s RAG QA.ipynb
 
 ---
 
-### RAG Jupyter Notebook
+### RAG Workshop 流程
 
-1. Embedding with OpenAI.ipynb
-2. Embedding Search with Qdrant and OpenAI.ipynb
-3. RAG with OpenAI.ipynb
-4. RAG DIY.ipynb
-5. Evaluation.ipynb
-6. k8s RAG QA.ipynb
+1. 確定參與者都有跑一套RAG起來
+1. **Evaluation**
+1. k8s RAG QA.ipynb
+
+---
+
+### 如何評估 RAG 系統的品質?
+
+1. 人人都會下 prompt，但是誰的 prompt 更好？或是沒差別？
+1. 如何選擇 vector store 的 chunking 策略？
+1. 哪個 retriever 更好？
+1. 要如何持續改善 RAG 系統？下個迭代的改善方向是什麼？
+
+---
+
+### 🎯 評估目的：確保回答品質、可靠性與可控性
+
+1. 保證正確性：檢索出的資訊是正確的，生成的答案忠實於原始 context
+2. 降低幻覺風險：即使有資料，LLM 仍可能亂編
+3. 測量系統品質
+4. 改善依據：幫助驗證Chunking 策略，Prompt 設計，Retriever 模型調整
+5. 自動化監控：品質追蹤、問題定位，建立類似 APM 的 QA 指標
+6. 對 Stakeholder 展示成效：可視化與量化指標，有助溝通與資源投入
+
+{{% speaker_note %}}
+
+評估方式建議
+
+- Retrieval：Recall@K, MRR, nDCG
+- Generation：ROUGE, BERTScore, GPTScore
+- Faithfulness：依據來源資料生成？
+- 人工標註：相關性、正確性、幫助程度
+
+{{% /speaker_note %}}
+
+---
+
+### RAG 應用: 以 k8s official docs 為例
+
+---
+
+### 總結
+
+1. 為什麼需要 RAG（Retrieval-Augmented Generation）
+1. Embedding 與向量數據庫
+1. Embedding Search
+1. DIY
+1. Evaluation
+1. k8s RAG QA.ipynb
+
+---
+
+### MaiCoin: We are Hiring!!
+
+- [Senior Site Reliability Engineer](https://www.linkedin.com/jobs/view/4236558674/)
+- [Senior Data Engineer](https://www.linkedin.com/jobs/view/4236555801)
+- [Senior IT Engineer](https://www.linkedin.com/jobs/view/4236555811)
+- [Blockchain Engineer (Wallet Team)](https://www.linkedin.com/jobs/view/4236556713)
+- [Senior Backend Engineer](https://www.linkedin.com/jobs/view/4236558714)
+- [Micro Service Software Engineer](https://www.linkedin.com/jobs/view/4236523560/)
+- [Cyber Security Engineer](https://www.linkedin.com/jobs/view/4236559632)
+
+---
+
+### DIY + Q&A + 建議
+
+1. 下次會改用 Colab
