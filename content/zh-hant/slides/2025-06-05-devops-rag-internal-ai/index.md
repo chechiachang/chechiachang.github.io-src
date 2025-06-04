@@ -272,13 +272,17 @@ RAG + Context-Aware Knowledge Copilot
 
 ---
 
-### RAG vs 傳統程式設計
+### RAG vs 其他工具
 
-- 需要工具提升知識獲取效率，如何選擇 RAG 或傳統程式設計（Traditional Programming）
-- 在特定任務的效能是否優於人類
-- 哪裡適合用 RAG，哪裡適合用傳統程式設計
+- 需要工具提升知識獲取效率，如何選擇 RAG 或是其他 non-LLM 工具？例如 search engine / fulltext search engine / search algorithm
+- 特定任務的效能是否優於人類
+- 哪裡適合用 RAG，哪裡適合用 non-LLM 工具
 
 {{% speaker_note %}}
+例如
+google search engine 但當然我們不知道他背後的實作
+elasticsearch / lucene / fulltext search engine
+GNU grep 的 Boyer–Moore string-search algorithm
 {{% /speaker_note %}}
 
 ---
@@ -350,6 +354,7 @@ LLM（大型語言模型）本身並不具備事實知識，而是依賴訓練�
 1. 如何選擇 vector store 的 chunking 策略？
 1. 哪個 retriever 更好？
 1. 要如何持續改善 RAG 系統？下個迭代的改善方向是什麼？
+1. 是否符合 production criteria？
 
 ---
 
