@@ -72,9 +72,25 @@ docker exec -it notebook pip install pandas openai qdrant_client tqdm tenacity w
 
 ---
 
-### 以下是 RAG Workshop 當天內容
+##### 以下是 RAG Workshop 當天內容
 
 可以先看，也可以當天再看
+
+![](https://media.tenor.com/aRF-Uwyl0p8AAAAM/frozen2.gif)
+
+---
+
+### RAG Workshop
+
+---
+
+### 關於我
+
+- Che Chia Chang
+- SRE @ [Maicoin](https://www.cake.me/companies/maicoin/jobs)
+- [Microsoft MVP](https://mvp.microsoft.com/zh-TW/MVP/profile/e407d0b9-5c01-eb11-a815-000d3a8ccaf5)
+- 個人部落格[chechia.net](https://chechia.net/) 投影片講稿，鐵人賽 (Terraform / Vault 手把手入門 / Etcd Workshop)
+- :memo: [今天的投影片原始碼與講稿](https://github.com/chechiachang/chechiachang.github.io-src/blob/master/content/zh-hant/slides/2025-06-05-devops-rag-internal-ai/index.md)
 
 ---
 
@@ -144,6 +160,10 @@ t=2025-06-02T06:17:41+0000 lvl=info msg="started tunnel" obj=tunnels name=comman
 
 ---
 
+![](https://miro.medium.com/v2/resize:fit:996/1*ByWkrjbyWmC9W_uWjI1qrw.gif)
+
+---
+
 ### RAG Workshop 流程
 
 1. 環境設定：確定參與者都有設定好開發環境
@@ -154,6 +174,21 @@ t=2025-06-02T06:17:41+0000 lvl=info msg="started tunnel" obj=tunnels name=comman
 1. Evaluation
 1. 實際應用: 以 k8s official docs 為例
 1. DIY + Q&A
+
+---
+
+### 什麼是 RAG
+
+##### RAG（Retrieval-Augmented Generation 檢索增強生成）結合檢索系統與生成式模型（如 GPT）的自然語言處理架構，在生成答案時引用外部知識，使模型回答更準確且具事實根據
+
+1. **Retrieval（檢索）：** 從一個外部知識庫（如文件、向量資料庫等）中找到與問題相關的資訊。通常會用語意向量（embeddings）做相似度搜尋。
+2. **Generation（生成）：** 把檢索到的內容與使用者問題一起丟給 LLM（如 GPT、Claude 等）去生成答案。生成的內容會更具事實根據，並能引用具體資料。
+
+---
+
+![](https://cookbook.openai.com/images/llamaindex_rag_overview.png)
+
+[https://cookbook.openai.com/images/llamaindex_rag_overview.png](https://cookbook.openai.com/images/llamaindex_rag_overview.png)
 
 ---
 
@@ -184,11 +219,45 @@ Fulltext Search Engine 例如 elasticsearch 使用 Lucene
 
 ---
 
+![](https://www.wackybuttons.com/designcodes/0/110/1100986.png)
+
+---
+
 ![](search-in-k8s-official-doc.png)
+
+[https://kubernetes.io/search/](https://kubernetes.io/search/)
 
 {{% speaker_note %}}
 {{% /speaker_note %}}
 
+---
+
+### 情境：Senior 工程師要如何分享知識？
+
+1. 『我有寫一篇文件在某個地方，你找一下』
+1. 『我忘記去年為什麼這樣做了』
+1. 『我去 Slack 上找一下』
+1. 『你要不要先去問 ChatGPT？』
+
+{{% speaker_note %}}
+{{% /speaker_note %}}
+
+---
+
+![](https://ih1.redbubble.net/image.4690208405.0033/st,small,507x507-pad,600x600,f8f8f8.jpg)
+
+{{% speaker_note %}}
+我們不是懶，而是現在要解答許多基本問題，LLM 回答得比人好
+{{% /speaker_note %}}
+
+---
+
+### RAG 讓 DevOps 更智慧的即時反應
+
+1. 提升知識獲取效率: 內部文檔知識AI助手
+1. 知識留存與新人 Onboarding
+1. 加速故障排查: 根據錯誤訊息自動從 Runbook 中檢索處理方式
+1. 優化流程自動化與提升決策品質: 通訊軟體對話 bot，自動生成建議
 
 ---
 
@@ -198,36 +267,22 @@ Fulltext Search Engine 例如 elasticsearch 使用 Lucene
 RAG + Context-Aware Knowledge Copilot
 
 {{% speaker_note %}}
-這邊扯的比較遠，但基本上我們期待的解決方案是這樣
+基本上我們期待的解決方案是這樣
 {{% /speaker_note %}}
 
 ---
 
-### 什麼是 RAG
+### RAG vs 其他工具
 
-##### RAG（Retrieval-Augmented Generation，檢索增強生成）是一種結合檢索系統與生成式模型（如 GPT）的自然語言處理架構，在生成答案時引用外部知識，使模型回答更準確且具事實根據。
-
-1. **Retrieval（檢索）：** 從一個外部知識庫（如文件、向量資料庫等）中找到與問題相關的資訊。通常會用語意向量（embeddings）做相似度搜尋。
-2. **Generation（生成）：** 把檢索到的內容與使用者問題一起丟給 LLM（如 GPT、Claude 等）去生成答案。生成的內容會更具事實根據，並能引用具體資料。
-
----
-
-### RAG 讓 DevOps 更智慧、少繁瑣、即時反應
-
-1. 提升知識獲取效率: 內部文檔知識AI助手
-1. 知識留存與新人 Onboarding
-1. 加速故障排查: 根據錯誤訊息自動從 Runbook 中檢索處理方式
-1. 優化流程自動化與提升決策品質: 通訊軟體對話 bot，自動生成建議
-
----
-
-### RAG vs 傳統程式設計（Traditional Programming）
-
-- 需要工具提升知識獲取效率，如何選擇 RAG 或傳統程式設計
-- 在特定任務的效能是否優於人類
-- 哪裡適合用 RAG，哪裡適合用傳統程式設計
+- 需要工具提升知識獲取效率，如何選擇 RAG 或是其他 non-LLM 工具？例如 search engine / fulltext search engine / search algorithm
+- 特定任務的效能是否優於人類
+- 哪裡適合用 RAG，哪裡適合用 non-LLM 工具
 
 {{% speaker_note %}}
+例如
+google search engine 但當然我們不知道他背後的實作
+elasticsearch / lucene / fulltext search engine
+GNU grep 的 Boyer–Moore string-search algorithm
 {{% /speaker_note %}}
 
 ---
@@ -241,7 +296,7 @@ RAG + Context-Aware Knowledge Copilot
 
 ---
 
-### 有了大語言模型（LLM）後，情境變成：
+### 有了大語言模型後
 
 1. 去 google -> 先問 chatgpt，初步問答理解問題，找到關鍵字
 1. 需要搜尋引擎 -> chatgpt 整合，直接上網搜尋
@@ -261,7 +316,7 @@ chatgpt 會用通順的語言回答問題（優於平均工程師）
 
 ---
 
-##### LLM 不具備專業知識。缺乏內容根據時，LLM 容易產生幻覺(hallucination)
+##### LLM 不具備專業知識。缺乏內容根據時，容易產生幻覺(hallucination)
 
 ![](llm-hallucination.png)
 
@@ -299,10 +354,11 @@ LLM（大型語言模型）本身並不具備事實知識，而是依賴訓練�
 1. 如何選擇 vector store 的 chunking 策略？
 1. 哪個 retriever 更好？
 1. 要如何持續改善 RAG 系統？下個迭代的改善方向是什麼？
+1. 是否符合 production criteria？
 
 ---
 
-### 🎯 評估目的：確保回答品質、可靠性與可控性
+### 評估：確保回答品質可靠性與可控性
 
 1. 保證正確性：檢索出的資訊是正確的，生成的答案忠實於原始 context
 2. 降低幻覺風險：即使有資料，LLM 仍可能亂編
@@ -330,12 +386,20 @@ LLM（大型語言模型）本身並不具備事實知識，而是依賴訓練�
 
 ### 總結
 
-1. 為什麼需要 RAG（Retrieval-Augmented Generation）
+1. 為什麼需要 RAG
 1. Embedding 與向量數據庫
 1. Embedding Search
 1. DIY
 1. Evaluation
-1. k8s RAG QA.ipynb
+1. k8s RAG QA
+
+---
+
+##### 由衷地感謝為 workshop 提供協助的夥伴!
+
+[Mia // Huai-Wen Chang](https://github.com/pymia)
+
+[hunkue](https://github.com/hunkue)
 
 ---
 
