@@ -395,6 +395,14 @@ LLM（大型語言模型）本身並不具備事實知識，而是依賴訓練�
 
 ---
 
+##### 由衷地感謝為 workshop 提供協助的夥伴!
+
+[Mia // Huai-Wen Chang](https://github.com/pymia)
+
+[hunkue](https://github.com/hunkue)
+
+---
+
 ### MaiCoin: We are Hiring!!
 
 - [Senior Site Reliability Engineer](https://www.linkedin.com/jobs/view/4236558674/)
