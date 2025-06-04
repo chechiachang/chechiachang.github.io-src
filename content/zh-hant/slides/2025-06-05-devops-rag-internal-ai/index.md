@@ -395,6 +395,16 @@ LLM（大型語言模型）本身並不具備事實知識，而是依賴訓練�
 
 ---
 
+### 延伸閱讀
+
+1. https://platform.openai.com/docs/guides/embeddings
+1. https://huggingface.co/blog/getting-started-with-embeddings
+1. https://platform.openai.com/docs/guides/optimizing-llm-accuracy#retrieval-augmented-generation-rag
+1. https://docs.ragas.io/en/stable/concepts/metrics/overview/
+1. https://docs.ragas.io/en/stable/concepts/test_data_generation/rag/
+
+---
+
 ##### 由衷地感謝為 workshop 提供協助的夥伴!
 
 [Mia // Huai-Wen Chang](https://github.com/pymia)
