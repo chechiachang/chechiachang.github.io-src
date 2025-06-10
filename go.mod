@@ -1,9 +1,5 @@
-module github.com/HugoBlox/theme-academic-cv
+module github.com/chechiachang/chechiachang.github.io-src
 
-go 1.15
+go 1.24.3
 
-require (
-	github.com/HugoBlox/hugo-blox-builder/modules/blox-bootstrap/v5 v5.9.7
-	github.com/HugoBlox/hugo-blox-builder/modules/blox-plugin-netlify v1.1.2-0.20231108141515-0478cf6921f9
-	github.com/HugoBlox/hugo-blox-builder/modules/blox-plugin-reveal v1.1.2
-)
+require github.com/joshed-io/reveal-hugo v0.0.0-20241030080325-e191f51d09be // indirect
