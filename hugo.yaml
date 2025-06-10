@@ -1,0 +1,273 @@
+baseURL: "https://chechia.net/"
+title: Che-Chia Chang
+theme: ["PaperMod", "github.com/joshed-io/reveal-hugo"]
+
+enableInlineShortcodes: true
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+enableEmoji: true
+pygmentsUseClasses: true
+mainsections: ["posts", "papermod"]
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+pagination:
+  disableAliases: false
+  pagerSize: 5
+
+params:
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  title: Che-Chia Chang
+  description: "Che-Chia Chang's personal blog, portfolio, and more."
+  keywords: [Blog, Portfolio, PaperMod, Kubernetes, DevOps, Cloud Native, AI, Machine Learning, LLM, Azure, GCP, AWS]
+  author: "chechiachang" # single author
+
+  images: ["<link or path of image for opengraph, twitter-cards>"]
+  DateFormat: "January 2, 2006"
+
+  defaultTheme: auto # dark, light
+  disableThemeToggle: false
+  ShowShareButtons: true
+  ShowReadingTime: true
+  disableSpecial1stPost: false
+  displayFullLangName: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
+  ShowAllPagesInArchive: true
+  ShowPageNums: true
+  showtoc: true
+
+  UseHugoToc: true
+  disableScrollToTop: false
+  hidemeta: false
+  hideSummary: false
+  comments: true
+  tocopen: false
+
+  assets:
+    # disableHLJS: true # to disable highlight.js
+    # disableFingerprinting: true
+    favicon: "favicon/favicon.ico"
+    favicon16x16: "favicon/favicon-16x16.png"
+    favicon32x32: "favicon/favicon-32x32.png"
+    apple_touch_icon: "favicon/favicon-32x32.png"
+    safari_pinned_tab: "favicon/favicon-32x32.png"
+
+  label:
+    text: "Home"
+    icon: "favicon/favicon-32x32.png"
+    iconHeight: 35
+
+  # profile-mode
+  profileMode:
+    enabled: false # needs to be explicitly set
+    title: Che-Chia Chang
+    subtitle: "This is subtitle"
+    imageUrl: "<img location>"
+    imageWidth: 120
+    imageHeight: 120
+    imageTitle: my image
+    buttons:
+      - name: Posts
+        url: posts
+      - name: Tags
+        url: tags
+
+  # home-info mode
+  homeInfoParams:
+    Title: "Hi there \U0001F44B"
+    Content: "👋 Welcome to chechia.net, my personal blog and portfolio. I’m Che-Chia Chang, a Site Reliability Engineer (SRE) specializing in DevOps, containerization, and Kubernetes operations. I’m an active member of several tech communities, including the Container Native Taiwan User Group (CNTUG), DevOps Taipei, GDS Taipei, and Golang Taiwan Meetup. Since 2020, I’ve been honored to be recognized as a Microsoft Most Valuable Professional (MVP)."
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/chechiachang"
+    - name: facebook
+      url: "https://www.facebook.com/engineer.from.scratch"
+    - name: linkedin
+      url: "https://www.linkedin.com/in/che-chia-chang-92194a4a/"
+    - name: x
+      url: "https://x.com/chechiachang"
+
+  analytics:
+    google:
+      SiteVerificationTag: "G-QYR8JCDGM9"
+    #bing:
+    #  SiteVerificationTag: "XYZabc"
+    #yandex:
+    #  SiteVerificationTag: "XYZabc"
+
+  cover:
+    hidden: true # hide everywhere but not in structured data
+    hiddenInList: true # hide on list pages and home
+    hiddenInSingle: true # hide on single page
+    responsiveImages: true
+    linkFullImages: true
+
+  editPost:
+    URL: "https://github.com/chechiachang.github.io-src/content"
+    Text: "Suggest Changes" # edit text
+    appendFilePath: true # to append file path to Edit link
+
+  # for search
+  # https://fusejs.io/api/options.html
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
+    keys: ["title", "permalink", "summary", "content"]
+
+# Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
+pygmentsUseClasses: true
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
+    anchorLineNos: true
+    codeFences: false # for reveal.js slides
+    guessSyntax: true
+    lineNos: true
+    style: monokai
+
+# privacy:
+#   vimeo:
+#     disabled: false
+#     simple: true
+
+#   twitter:
+#     disabled: false
+#     enableDNT: true
+#     simple: true
+
+#   instagram:
+#     disabled: false
+#     simple: true
+
+#   youtube:
+#     disabled: false
+#     privacyEnhanced: true
+
+services:
+  instagram:
+    disableInlineCSS: true
+  x:
+    disableInlineCSS: true
+
+# Search
+# https://github.com/adityatelange/hugo-PaperMod/wiki/Features#search-page
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # necessary for search
+
+outputFormats:
+  Reveal:
+    baseName: "index"
+    mediaType: "text/html"
+    isHTML: true
+
+# language
+languages:
+  en:
+    languageName: ":uk:"
+    weight: 1
+    taxonomies:
+      categories: "categories"
+      tags: "tags"
+      series: "series"
+    menu:
+      main:
+        #- name: Talks
+        #  url: '#talks'
+        #  weight: 20
+        - name: Posts
+          url: '#posts'
+          weight: 30
+        #- name: Projects
+        #  url: '#projects'
+        #  weight: 40
+        #- name: slides
+        #  url: /slides/
+        #  weight: 50
+        - name: Leather
+          url: https://www.instagram.com/c.c.leather/
+          weight: 70
+        - name: Scuba
+          url: https://www.instagram.com/dive.with.cat.coach/
+          weight: 80
+        - name: MVP
+          url: https://mvp.microsoft.com/zh-TW/mvp/profile/e407d0b9-5c01-eb11-a815-000d3a8ccaf5
+          weight: 90
+        - identifier: categories
+          name: categories
+          url: /categories/
+          weight: 100
+        - identifier: tags
+          name: tags
+          url: /tags/
+          weight: 120
+        - identifier: search
+          name: search
+          url: /search/
+          weight: 130
+  #zh-tw:
+  #  languageName: ":taiwan:"
+  #  weight: 2
+  #  taxonomies:
+  #    categories: "categories"
+  #    tags: "tags"
+  #    series: "series"
+  #  menu:
+  #    main:
+  #      #- name: 演講
+  #      #  url: '#talks'
+  #      #  weight: 20
+  #      - name: 文章
+  #        url: '#posts'
+  #        weight: 30
+  #      #- name: 專案
+  #      #  url: '#projects'
+  #      #  weight: 40
+  #      #- name: 投影片
+  #      #  url: /slides/
+  #      #  weight: 50
+  #      - name: Leather
+  #        url: https://www.instagram.com/c.c.leather/
+  #        weight: 70
+  #      - name: Scuba
+  #        url: https://www.instagram.com/dive.with.cat.coach/
+  #        weight: 80
+  #      - name: MVP
+  #        url: https://mvp.microsoft.com/zh-TW/mvp/profile/e407d0b9-5c01-eb11-a815-000d3a8ccaf5
+  #        weight: 90
+  #      - identifier: categories
+  #        name: 分類
+  #        url: /categories/
+  #        weight: 100
+  #      - identifier: tags
+  #        name: 標籤
+  #        url: /tags/
+  #        weight: 120
+  #      - identifier: search
+  #        name: 搜尋
+  #        url: /search/
+  #        weight: 130
+  #  params:
+  #    languageAltTitle: "繁體中文"
+  #    homeInfoParams:
+  #      Title: "嗨你好 \U0001F44B"
+  #      Content: "👋 歡迎來到 chechia.net，我的個人部落格與作品集。我是 Che-Chia Chang，是一位專注於 DevOps、容器化以及 Kubernetes 運維的 SRE（Site Reliability Engineer）工程師。我積極參與多個技術社群，包括 CNTUG（Container Native Taiwan User Group）、DevOps Taipei、GDS Taipei 以及 Golang Taiwan Meetup。自 2020 年起，我很榮幸獲得 Microsoft 最有價值專家（MVP）的稱號。"
+# language

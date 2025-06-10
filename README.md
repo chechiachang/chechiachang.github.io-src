@@ -3,25 +3,34 @@ Source Code of My Github Page
 
 [https://chechia.net](https://chechia.net)
 
-# Powered by Hugo
+### hugo
 
-# Theme
-
-[Academic](https://sourcethemes.com/academic/docs/install/)
-
-# Create Content
-
-Add new talk
 ```
-TITLE=my-talk-title make talk
+hugo version
+hugo v0.147.7-189453612e4bedc4f27495a7b1145321c8d89807+extended darwin/arm64 BuildDate=2025-05-31T12:41:12Z VendorInfo=gohugoio
 ```
 
-Add new project
+### PaperMod Theme for Hugo
+
+https://github.com/adityatelange/hugo-PaperMod/wiki/Installation
+
 ```
-TITLE=my-talk-title make project
+git submodule add --depth=1 https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod
+git submodule update --init --recursive
+
+git submodule update --remote --merge
 ```
 
-# Bind google analysis
+### Reveal Slides
+
+https://github.com/joshed-io/reveal-hugo?tab=readme-ov-file#tutorial-add-a-revealjs-presentation-to-an-existing-hugo-site
+
+```
+hugo mod init github.com/chechiachang/chechiachang.github.io-src
+hugo mod get github.com/joshed-io/reveal-hugo
+```
+
+### Bind google analysis
 
 Google Analytics
 - Add a new account
@@ -34,25 +43,10 @@ Enable analytics by entering your Google Analytics tracking ID
 googleAnalytics = ""
 ```
 
-Publish /public to github
-```
-make hugo publish
-```
-
-# Bind google search
+### Bind google search
 
 - go to google search console
 - Add site https://chechia.net
   - Authorized by google analysis with google email account
 - Submit https://chechia.net/sitemap.xml to console
 - Wait for data processing
-
-# TODOs
-
-- [x] ITHome 30 days ironman challenge
-  - [x] https://ithelp.ithome.com.tw/users/20120327/ironman/2444
-
-Features
-- [x] step-by-step guide for deployment: guarentee a running deployment on GCP
-- [x] basic configuration, usage, monitoring, networking on GKE
-- [x] debugging, stability analysis in an aspect of devop
