@@ -75,7 +75,7 @@ You may need to set the following environment variables:
     seal/unseal the Vault or re-authenticate.
 
 # dev 模式預設配置的 unseal key 與 root token
-    Unseal Key: QDUAuY7Kltsc/3bVwUYF39u8aEFgWNRs/1D5yxFtim4=
+    Unseal Key: QDUA...im4=
     Root Token: hvs.J30e...0DJaN
 
 # 開發模式絕不應在生產安裝中使用！
