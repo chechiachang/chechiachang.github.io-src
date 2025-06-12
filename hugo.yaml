@@ -82,8 +82,11 @@ params:
 
   # home-info mode
   homeInfoParams:
-    Title: "Hi there \U0001F44B"
-    Content: "👋 Welcome to chechia.net, my personal blog and portfolio. I’m Che-Chia Chang, a Site Reliability Engineer (SRE) specializing in DevOps, containerization, and Kubernetes operations. I’m an active member of several tech communities, including the Container Native Taiwan User Group (CNTUG), DevOps Taipei, GDS Taipei, and Golang Taiwan Meetup. Since 2020, I’ve been honored to be recognized as a Microsoft Most Valuable Professional (MVP)."
+    Title: "I’m Che-Chia Chang \U0001F44B"
+    Content: >
+      - • Site Reliability Engineer specializing in DevOps, AIOps, and K8s
+
+      - • Microsoft Most Valuable Professional (MVP) since 2020
 
   socialIcons:
     - name: github
@@ -202,12 +205,6 @@ languages:
         #- name: slides
         #  url: /slides/
         #  weight: 50
-        - name: Leather
-          url: https://www.instagram.com/c.c.leather/
-          weight: 70
-        - name: Scuba
-          url: https://www.instagram.com/dive.with.cat.coach/
-          weight: 80
         - name: MVP
           url: https://mvp.microsoft.com/zh-TW/mvp/profile/e407d0b9-5c01-eb11-a815-000d3a8ccaf5
           weight: 90
@@ -219,10 +216,16 @@ languages:
           name: tags
           url: /tags/
           weight: 120
+        #- name: Scuba
+        #  url: https://www.instagram.com/dive.with.cat.coach/
+        #  weight: 130
+        #- name: Leather
+        #  url: https://www.instagram.com/c.c.leather/
+        #  weight: 140
         - identifier: search
           name: search
           url: /search/
-          weight: 130
+          weight: 150
   #zh-tw:
   #  languageName: ":taiwan:"
   #  weight: 2
@@ -244,12 +247,6 @@ languages:
   #      #- name: 投影片
   #      #  url: /slides/
   #      #  weight: 50
-  #      - name: Leather
-  #        url: https://www.instagram.com/c.c.leather/
-  #        weight: 70
-  #      - name: Scuba
-  #        url: https://www.instagram.com/dive.with.cat.coach/
-  #        weight: 80
   #      - name: MVP
   #        url: https://mvp.microsoft.com/zh-TW/mvp/profile/e407d0b9-5c01-eb11-a815-000d3a8ccaf5
   #        weight: 90
@@ -262,9 +259,15 @@ languages:
   #        url: /tags/
   #        weight: 120
   #      - identifier: search
+  #      - name: Leather
+  #        url: https://www.instagram.com/c.c.leather/
+  #        weight: 130
+  #      - name: Scuba
+  #        url: https://www.instagram.com/dive.with.cat.coach/
+  #        weight: 140
   #        name: 搜尋
   #        url: /search/
-  #        weight: 130
+  #        weight: 150
   #  params:
   #    languageAltTitle: "繁體中文"
   #    homeInfoParams:
