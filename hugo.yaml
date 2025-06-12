@@ -209,11 +209,11 @@ languages:
           url: https://mvp.microsoft.com/zh-TW/mvp/profile/e407d0b9-5c01-eb11-a815-000d3a8ccaf5
           weight: 90
         - identifier: categories
-          name: categories
+          name: Categories
           url: /categories/
           weight: 100
         - identifier: tags
-          name: tags
+          name: Tags
           url: /tags/
           weight: 120
         #- name: Scuba
@@ -223,7 +223,7 @@ languages:
         #  url: https://www.instagram.com/c.c.leather/
         #  weight: 140
         - identifier: search
-          name: search
+          name: Search
           url: /search/
           weight: 150
   #zh-tw:

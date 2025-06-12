@@ -1,5 +1,5 @@
 ---
-title: "Cloud Summit 2025: 用 RAG 打造企業可對話 AI 知識庫。有問題問過 AI 後再來問我"
+title: "Cloud Summit 2025: 用 RAG 打造企業可對話 AI 知識庫《有問題問過 AI 後再來問我》"
 date: '2025-06-09T12:45:00Z'
 # weight: 1
 # aliases: ["/test"]
