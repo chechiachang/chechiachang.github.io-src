@@ -1,6 +1,6 @@
 ---
-title: "從 Model Context Protocol 初探 AI Agent Protocol：快速打造多工 Agent Server"
-date: '2025-08-09T12:45:00Z'
+title: "COSCUP: 從 Model Context Protocol 初探 AI Agent Protocol：快速打造多工 Agent Server"
+date: '2025-06-24T12:45:00Z'
 # weight: 1
 # aliases: ["/test"]
 tags: ["openai", "generative", "ai", "kubernetes", "devops"]
@@ -12,7 +12,7 @@ showToc: true
 TocOpen: false
 #UseHugoToc: true
 
-draft: true
+draft: false
 
 hidemeta: false
 comments: true
@@ -40,7 +40,7 @@ disableShare: false
 - [活動連結](https://coscup.org/2025/)
 - [Facebook](https://www.facebook.com/engineer.from.scratch)
 - [Twitter](https://twitter.com/chechiachang)
-- 投影片
+- 投影片 WIP
 
 ---
 
