@@ -36,11 +36,10 @@ disableShare: false
 #    hidden: false # only hide on current single page
 ---
 
-- 活動時間: 2025-06-05T12:45:00Z
-- [活動連結](https://devopsdays.tw/2025/workshop-page/3788)
-- [Facebook](https://www.facebook.com/engineer.from.scratch)
-- [Twitter](https://twitter.com/chechiachang)
-- [投影片](../../slides/2025-06-05-devops-rag-internal-ai)
+### 📅 活動時間: 2025-06-05T12:45:00Z
+### 🔗 [活動連結](https://devopsdays.tw/2025/workshop-page/3788)
+### 📘 聯繫我 [Facebook](https://www.facebook.com/engineer.from.scratch)
+### 📑 [投影片](../../slides/2025-06-05-devops-rag-internal-ai)
 
 ---
 

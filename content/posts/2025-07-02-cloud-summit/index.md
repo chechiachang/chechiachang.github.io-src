@@ -36,11 +36,10 @@ disableShare: false
 #    hidden: false # only hide on current single page
 ---
 
-- 活動時間: 2025-07-03T12:45:00Z
-- [活動連結](https://cloudsummit.ithome.com.tw/2024/session-page/2620)
-- [Facebook](https://www.facebook.com/engineer.from.scratch)
-- [Twitter](https://twitter.com/chechiachang)
-- [投影片 WIP](../../slides/2025-06-05-devops-rag-internal-ai)
+### 📅 活動時間: 2025-07-03T12:45:00Z
+### 🔗 [活動連結](https://cloudsummit.ithome.com.tw/2025/session-page/3668)
+### 📘 聯繫我 [Facebook](https://www.facebook.com/engineer.from.scratch)
+### 📑 [投影片 WIP](../../slides/2025-07-02-cloud-summit-rag/)
 
 ---
 

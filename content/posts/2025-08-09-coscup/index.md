@@ -36,11 +36,10 @@ disableShare: false
 #    hidden: false # only hide on current single page
 ---
 
-- 活動時間: 2025-08-09T12:45:00Z
-- [活動連結](https://coscup.org/2025/)
-- [Facebook](https://www.facebook.com/engineer.from.scratch)
-- [Twitter](https://twitter.com/chechiachang)
-- 投影片 WIP
+### 📅 活動時間：2025-08-09T12:45:00Z
+### 🔗 [活動連結](https://coscup.org/2025/)
+### 📘 聯繫我 [Facebook](https://www.facebook.com/engineer.from.scratch)
+### 📑 投影片WIP
 
 ---
 

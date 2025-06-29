@@ -1,0 +1,11 @@
+about-me = '''
+### 關於我
+
+- Che Chia Chang
+- SRE @ [Maicoin](https://www.cake.me/companies/maicoin/jobs)
+- [Microsoft MVP](https://mvp.microsoft.com/zh-TW/MVP/profile/e407d0b9-5c01-eb11-a815-000d3a8ccaf5)
+- 投影片與講稿都在 [chechia.net](https://chechia.net/) 
+- [K8s Summit 2024: Etcd Workshop](../../slides/2024-10-24-etcd-workshop)
+- [DevOpsDay 2025: RAG Workshop](../../slides/2025-06-05-devops-rag-internal-ai)
+- 鐵人賽 (Terraform / Vault 手把手入門)
+'''
