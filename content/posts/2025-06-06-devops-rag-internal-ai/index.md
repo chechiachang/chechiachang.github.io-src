@@ -155,17 +155,3 @@ Che-Chia Chang is a technology expert specializing in backend development, DevOp
 Actively engaged in the Taiwanese tech community, he frequently shares insights on DevOps, SRE, Kubernetes, and cloud computing at CNTUG, DevOps Taipei, GDG Taipei, and Golang Taipei Meetup. Passionate about promoting best practices in development and operations, he continuously explores and applies the latest advancements in cloud and AI technologies.
 
 https://chechia.net
-
-- 2024 Ithome Kubernetes Summit
-- 2024 Ithome Cloud Summit
-- 2023 DevOpsDay
-- 2023 Ithome Kubernetes Summit
-- 2022 COSCUP
-- 2022 Ithome Cloud Summit
-- 2021 Ithome Cloud Summit
-- 2020 DevOps Taiwan Meetup #26 - 從零開始導入 Terraform
-- 2020 Cloud Native Taiwan 年末聚會
-- 2020 Ithome Cloud Summit
-- 2019 Ithome Cloud Summit
-- 2018 Ithome Cloud Summit
-- 2018 Ithome Kubernetes Summit

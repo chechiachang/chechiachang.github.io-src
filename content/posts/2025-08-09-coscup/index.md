@@ -85,20 +85,6 @@ Actively engaged in the Taiwanese tech community, he frequently shares insights 
 
 https://chechia.net
 
-- 2024 Ithome Kubernetes Summit
-- 2024 Ithome Cloud Summit
-- 2023 DevOpsDay
-- 2023 Ithome Kubernetes Summit
-- 2022 COSCUP
-- 2022 Ithome Cloud Summit
-- 2021 Ithome Cloud Summit
-- 2020 DevOps Taiwan Meetup #26 - 從零開始導入 Terraform
-- 2020 Cloud Native Taiwan 年末聚會
-- 2020 Ithome Cloud Summit
-- 2019 Ithome Cloud Summit
-- 2018 Ithome Cloud Summit
-- 2018 Ithome Kubernetes Summit
-
 # References
 
 - https://arxiv.org/pdf/2504.16736v2
