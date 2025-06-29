@@ -85,17 +85,3 @@ Che-Chia Chang, an SRE specialize in container and Kubernetes operation. An acti
 Microsoft Most Valuable Professional since 2020.
 
 https://chechia.net
-
-- 2024 Cloud Summit
-- 2024 SRE Conference
-- 2023 DevOpsDay Taipei
-- 2023 Kubernetes Summit
-- 2022 COSCUP
-- 2022 Cloud Summit
-- 2021 Cloud Summit
-- 2020 DevOps Taiwan Meetup #26 - 從零開始導入 Terraform
-- 2020 Cloud Native Taiwan 年末聚會
-- 2020 Cloud Summit
-- 2019 Cloud Summit
-- 2018 Cloud Summit
-- 2018 Kubernetes Summit

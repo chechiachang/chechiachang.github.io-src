@@ -33,7 +33,7 @@ reveal_hugo:
 ---
 
 ### etcd Workshop
-### 手把手搭建 etcd 與 K8s 工作坊
+### 手把手搭建 etcd 與 K8s control plane
 
 Che Chia Chang
 [https://chechia.net/](https://chechia.net/)
