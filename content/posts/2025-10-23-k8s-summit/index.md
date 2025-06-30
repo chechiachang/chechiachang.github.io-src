@@ -12,7 +12,7 @@ showToc: true
 TocOpen: false
 #UseHugoToc: true
 
-draft: false
+draft: true
 
 hidemeta: false
 comments: true

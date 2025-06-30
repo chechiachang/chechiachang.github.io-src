@@ -1,5 +1,5 @@
 ---
-title: "HWRC 2025: Workshop: RAG 打造企業知識庫入門，從 embeddings 到 evaluation"
+title: "HWDC 2025: Workshop: RAG 打造企業知識庫入門，從 embeddings 到 evaluation"
 date: '2025-06-28T13:20:00Z'
 # weight: 1
 # aliases: ["/test"]
@@ -12,7 +12,7 @@ showToc: true
 TocOpen: false
 #UseHugoToc: true
 
-draft: false
+draft: true
 
 hidemeta: false
 comments: true
