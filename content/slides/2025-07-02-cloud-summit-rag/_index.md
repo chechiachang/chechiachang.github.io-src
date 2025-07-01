@@ -33,6 +33,9 @@ reveal_hugo:
 
 ### [DevOpsDay 2025: RAG Workshop](../../slides/2025-06-05-devops-rag-internal-ai)
 
+---
+
+![](images/2025-devopsday-rag-workshop.jpg)
 
 {{% /section %}}
 
@@ -40,11 +43,13 @@ reveal_hugo:
 
 ### 大綱
 
-1. 為什麼需要 RAG（Retrieval-Augmented Generation）
-1. Embedding 與向量數據庫
-1. Embedding Search
-1. Evaluation
-1. k8s RAG QA
+1. 什麼是 RAG
+1. 為什麼需要 RAG
+1. 為何需要內部知識庫
+1. RAG Agent 的優勢
+1. RAG Agent 的應用場景
+1. 如何開始/如何進步
+1. QA
 
 ---
 
@@ -54,7 +59,7 @@ reveal_hugo:
 
 - RAG（Retrieval-Augmented Generation 檢索增強生成）
 - 結合檢索系統與生成式模型（如 GPT）的自然語言處理架構
-- 在生成答案時引用外部知識
+- 在生成答案時引用外部知識，增加上下文內容，提供給 LLM（大型語言模型）
 - 使模型回答更準確且具事實根據
 
 🔽
@@ -68,26 +73,13 @@ reveal_hugo:
 
 ---
 
-
 {{< mermaid >}}
----
-title: 生成式AI
----
 graph LR
-    subgraph "RAG"
-        direction LR
-        A2(("使用者問題"))
-        B2("大語言模型
-        (ex. OpenAI gpt-4.2)")
-        C2("文字接龍產生回答")
-        A2 --User Input--> B2
-        B2 --Chat Completion--> C2
-    end
     subgraph "Generative AI"
         direction LR
-        A1(("使用者問題 Query"))
-        B1("大語言模型 LLM
-        (ex. OpenAI gpt-4.2)")
+        A1(("Query"))
+        B1("LLM
+        (gpt-4.2)")
         C1("文字接龍產生回答 Response")
         A1 --User Input--> B1
         B1 --Chat Completion--> C1
@@ -95,312 +87,46 @@ graph LR
 
 {{< /mermaid >}}
 
-{{% /section %}}
+---
+
+{{< mermaid >}}
+graph LR
+    subgraph "RAG"
+        direction LR
+        A2(("Query"))
+        B2("LLM
+        (gpt-4.2)")
+        C2("Response")
+        D2("Vector DB")
+        A2 --User Input--> B2
+        A2 --Embedding Search--> D2
+        D2 --Context--> B2
+        B2 --Chat Completion--> C2
+    end
+    subgraph "Embedding"
+        direction LR
+        A3(("Document"))
+        B3("Embedding Model")
+        C3("Embedding Vector")
+        D3("Vector DB")
+        A3 ----> B3
+        B3 --Embedding--> C3
+        A3 --Store--> D3
+        C3 --Store--> D3
+    end
+
+{{< /mermaid >}}
 
 ---
 
-{{< slide class="side-by-side" >}}
-
-# 📈
-
-# 📊
-
----
-
-1. 當天帶自己的電腦。當天建議自備手機網路
-  1. 選項1: 用電腦在 docker 運行開發環境
-  1. 選項2: 用電腦遠端連線講師提供的 VM，在遠端VM 中運行 docker 開發環境
-1. 會使用 docker
-1. 會使用 python 與 jupyter notebook
-
----
-
-##### 選項1: 使用自己的電腦 :computer:
-
-在 workshop 開始前，在自己的電腦上
-
-1. 安裝 [docker](https://docs.docker.com/get-started/get-docker/)
-1. git clone 教材
-1. 啟動 docker 開發環境，下載 docker images
-1. 安裝所需的 Python 套件
-1. 開啟瀏覽器，連線到[http://localhost:8888](http://localhost:8888)
-1. 登入token=`workshop1234!`
-
-```bash
-git clone https://github.com/chechiachang/rag-workshop.git
-cd rag-workshop
-docker compose up -d
-docker exec -it notebook pip install pandas openai qdrant_client tqdm tenacity wget tenacity unstructured markdown ragas sacrebleu langchain_qdrant langchain-openai langchain_openai langchain_community tiktoken ipywidgets
-```
----
-
-##### 選項2: 使用遠端 VM
-
-1. 有自己的電腦，當天建議自備手機網路，連線到遠端 VM
-1. 提前註冊 tunnel 工具（沒有業配）
-1. [Ngrok](https://dashboard.ngrok.com/login) 登入 Login -> 左手邊 Identity & Access -> Authtokens -> Add Tunnel authtoken -> 記在安全的地方
-1.  也可以使用 [Pinggy](https://pinggy.io/)，但免費有限時
-
----
-
-### 建議
-
-1. 優先使用個人電腦。會盡量提供免費 VM 名額，但依參與人數不保證現場有
-1. 在家先試跑一遍，把 docker image 跟 pip 套件都下載好，現場要載很久
-1. 試完後記得關掉 ngrok，以免用完每月的免費額度
-1. 事先看完內容覺得太簡單可以不用來，但歡迎會後找我聊天ＸＤ
-
----
-
-### 投影片與教材與完整程式碼放在網站上
-
-- [https://chechia.net](https://chechia.net)
-- [https://chechia.net/zh-hant/slides/2025-06-05-devops-rag-internal-ai/](https://chechia.net/zh-hant/slides/2025-06-05-devops-rag-internal-ai/)
-- :memo: [Github 投影片原始碼與講稿](https://github.com/chechiachang/chechiachang.github.io-src/blob/master/content/zh-hant/slides/2025-06-05-devops-rag-internal-ai/index.md)
-
----
-
-##### 以下是 RAG Workshop 當天內容
-
-可以先看，也可以當天再看
-
-![](https://media.tenor.com/aRF-Uwyl0p8AAAAM/frozen2.gif)
-
----
-
-### RAG Workshop
-
----
-
-### 關於我
-
-- Che Chia Chang
-- SRE @ [Maicoin](https://www.cake.me/companies/maicoin/jobs)
-- [Microsoft MVP](https://mvp.microsoft.com/zh-TW/MVP/profile/e407d0b9-5c01-eb11-a815-000d3a8ccaf5)
-- 個人部落格[chechia.net](https://chechia.net/) 投影片講稿，鐵人賽 (Terraform / Vault 手把手入門 / Etcd Workshop)
-- :memo: [今天的投影片原始碼與講稿](https://github.com/chechiachang/chechiachang.github.io-src/blob/master/content/zh-hant/slides/2025-06-05-devops-rag-internal-ai/index.md)
-
----
-
-### RAG Workshop 流程
-
-1. 10min - **環境設定：確定參與者都有設定好開發環境**
-1. 10min - 為什麼需要 RAG（Retrieval-Augmented Generation）
-1. 10min - Notebook 2 Embedding 與向量數據庫
-1. 10min - Notebook 3 Embedding Search
-1. 10min - Notebook 4 DIY
-1. 10min - Notebook 5 Evaluation
-1. 10min - Notebook 6 k8s RAG QA
-1. 20min - DIY + Q&A
-
----
-
-##### 選項1: 使用自己的電腦
-
-1. 有在家先試跑一遍，應該可以在本地存取 Notebook [http://localhost:8888](http://localhost:8888)
-1. 到 [workshop.chechia.net](https://workshop.chechia.net) 取得 OpenAI Key
-1. 可以試著跑 notebook 2-5
-1. 忘記怎麼啟動，可以回到投影片最開始
-
-```
-notebook token: workshop1234!
-AZURE_OPENAI_API_KEY=""
-AZURE_OPENAI_ENDPOINT=""
-```
-
----
-
-##### 選項2: 使用遠端 VM
-
-1. 至[workshop.chechia.net](https://workshop.chechia.net) 領取一台 VM 並簽名
-1. googel sheet 左邊 url，開啟 bastion 連線
-1. Protocol: SSH，port 22，authentication type: password
-1. 帳號密碼在[workshop.chechia.net](https://workshop.chechia.net)
-
----
-
-![](azure-bastion.png)
-
----
-
-##### 選項2: 使用 ngrok 連線到 jupyter notebook
-
-
-1. 進入 VM 後，修改下面 ngrok authtoken。指令一行一行貼上（右鍵）到 bastion 中執行
-1. 透過 https://4d11-52-230-24-207.ngrok-free.app/ 就可以使用 notebook (每個人不一樣)
-
-```
-cd rag-workshop
-NGROK_AUTHTOKEN=<改成你的token>
-sed -i "s/your-token/$NGROK_AUTHTOKEN/" docker-compose.yaml
-docker compose up -d
-docker logs ngrok
-
-t=2025-06-02T06:17:41+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=http://notebook:8888 url=https://4d11-52-230-24-207.ngrok-free.app
-```
-
----
-
-### 以上是 Workshop 環境設定
-
-1. 後面上課都透過這個網址操作
-1. 還沒有看到 jupyter notebook 的人，請舉手
-
----
-
-![](https://miro.medium.com/v2/resize:fit:996/1*ByWkrjbyWmC9W_uWjI1qrw.gif)
-
----
-
-### RAG Workshop 流程
-
-1. 環境設定：確定參與者都有設定好開發環境
-1. **為什麼需要 RAG（Retrieval-Augmented Generation）**
-1. Embedding 與向量數據庫
-1. Embedding Search
-1. DIY
-1. Evaluation
-1. 實際應用: 以 k8s official docs 為例
-1. DIY + Q&A
-
----
-
-### 什麼是 RAG
-
-##### RAG（Retrieval-Augmented Generation 檢索增強生成）結合檢索系統與生成式模型（如 GPT）的自然語言處理架構，在生成答案時引用外部知識，使模型回答更準確且具事實根據
-
-1. **Retrieval（檢索）：** 從一個外部知識庫（如文件、向量資料庫等）中找到與問題相關的資訊。通常會用語意向量（embeddings）做相似度搜尋。
-2. **Generation（生成）：** 把檢索到的內容與使用者問題一起丟給 LLM（如 GPT、Claude 等）去生成答案。生成的內容會更具事實根據，並能引用具體資料。
-
----
-
-![](https://cookbook.openai.com/images/llamaindex_rag_overview.png)
-
-[https://cookbook.openai.com/images/llamaindex_rag_overview.png](https://cookbook.openai.com/images/llamaindex_rag_overview.png)
-
----
-
-### 知識獲取效率在 DevOps 的難題
-
-在快速變動、資訊分散的環境中，難以即時取得需要的知識。「有但找不到、看不懂、用不起來」
-
-1. 知識分散在多個系統、格式與工具中
-1. 知識多為「靜態文件」，難以互動問答，舉例，或是換句話說
-1. 隱性知識未被系統化儲存(例如：口頭傳承、slack 討論、會議紀錄等)
-1. 查詢流程與開發流程脫節
-
----
-
-### 情境：新人工程師要如何到 k8s doc 查到想要的內容？
-
-1. 有問題去 google / stack overflow
-1. 需要搜尋引擎(k8s doc 有提供，但內部文件系統不一定有)
-1. 需要關鍵字(新人怎麼知道要查 Dynamic Persistent Volume Resizing)
-1. 協助理解（舉例，換句話說）
-1. 跨語言門檻
-
-{{% note %}}
-k8s doc 有提供關鍵字搜尋，這個搜尋功能是怎麼做的？
-Programmable Search Engine（PSE）https://developers.google.com/custom-search/docs/tutorial/introduction
-Fulltext Search Engine 例如 elasticsearch 使用 Lucene
-{{% /note %}}
-
----
-
-![](https://www.wackybuttons.com/designcodes/0/110/1100986.png)
-
----
-
-![](search-in-k8s-official-doc.png)
-
-[https://kubernetes.io/search/](https://kubernetes.io/search/)
-
-{{% note %}}
-{{% /note %}}
-
----
-
-### 情境：Senior 工程師要如何分享知識？
-
-1. 『我有寫一篇文件在某個地方，你找一下』
-1. 『我忘記去年為什麼這樣做了』
-1. 『我去 Slack 上找一下』
-1. 『你要不要先去問 ChatGPT？』
-
-{{% note %}}
-{{% /note %}}
-
----
-
-![](https://ih1.redbubble.net/image.4690208405.0033/st,small,507x507-pad,600x600,f8f8f8.jpg)
-
-{{% note %}}
-我們不是懶，而是現在要解答許多基本問題，LLM 回答得比人好
-{{% /note %}}
-
----
-
-### RAG 讓 DevOps 更智慧的即時反應
-
-1. 提升知識獲取效率: 內部文檔知識AI助手
-1. 知識留存與新人 Onboarding
-1. 加速故障排查: 根據錯誤訊息自動從 Runbook 中檢索處理方式
-1. 優化流程自動化與提升決策品質: 通訊軟體對話 bot，自動生成建議
-
----
-
-> DevOps AI Copilot 不應該像圖書館守門員等人來借書，
-> 而應該像導航系統，在你開車時主動告訴你：前方有彎道。
-
-RAG + Context-Aware Knowledge Copilot
-
-{{% note %}}
-基本上我們期待的解決方案是這樣
-{{% /note %}}
-
----
-
-### RAG vs 其他工具
-
-- 需要工具提升知識獲取效率，如何選擇 RAG 或是其他 non-LLM 工具？例如 search engine / fulltext search engine / search algorithm
-- 特定任務的效能是否優於人類
-- 哪裡適合用 RAG，哪裡適合用 non-LLM 工具
-
-{{% note %}}
-例如
-google search engine 但當然我們不知道他背後的實作
-elasticsearch / lucene / fulltext search engine
-GNU grep 的 Boyer–Moore string-search algorithm
-{{% /note %}}
-
----
-
-![](rag-vs-code.png)
-
-{{% note %}}
-適合用 RAG 的情境：客服問答、技術搜尋、知識型 Chatbot、內部知識導航。
-適合用傳統程式的情境：金流控制、流程引擎、帳務系統、安全控制。
-{{% /note %}}
-
----
-
-### 有了大語言模型後
-
-1. 去 google -> 先問 chatgpt，初步問答理解問題，找到關鍵字
-1. 需要搜尋引擎 -> chatgpt 整合，直接上網搜尋
-1. 需要關鍵字 -> chatgpt 幫你找到關鍵字
-1. 協助理解 -> chatgpt 舉例，換句話說
-1. 跨語言門檻 -> chatgpt 翻譯
-
-{{% note %}}
-chatgpt 會用通順的語言回答問題（優於平均工程師）
-{{% /note %}}
-
----
-
-- chatgpt 會用通順的語言，快速（數秒內）上網搜尋，回答問題
-- 過程中不厭其煩地問答，換句話說
-- 回答的格式高度客製化
+### 為什麼使用 RAG？
+
+- 希望 LLM 根據知識庫產生回答
+- 而不是只根據 Model 訓練資料，進行生成式回答。
+- 這樣做可以達到以下目的：
+  - ✅ 減少模型幻覺（hallucination）
+  - ✅ 為使用者提供即時且相關的資訊
+  - ✅ 利用你自己的內容與知識庫
 
 ---
 
@@ -414,80 +140,380 @@ LLM（大型語言模型）本身並不具備事實知識，而是依賴訓練�
 
 ---
 
-### RAG Workshop 流程
+![](images/k8s-hallucination.jpg)
 
-1. 環境設定：確定參與者都有設定好開發環境
-1. 為什麼需要 RAG（Retrieval-Augmented Generation）
-   1. RAG 在「文件檢索與提示」上優於人類
-   1. LLM 補強工程師的語言能力
-1. **Embedding 與向量數據庫**
-1. Embedding Search
-1. DIY
-1. Evaluation
-1. k8s RAG QA.ipynb
+{{% /section %}}
 
 ---
 
-### RAG Workshop 流程
+{{% section %}}
 
-1. 確定參與者都有跑一套RAG起來
-1. **Evaluation**
-1. k8s RAG QA.ipynb
+### 簡單的RAG範例
+
+[https://github.com/chechiachang/rag-workshop/blob/main/notebook/3_RAG_with_OpenAI.ipynb](https://github.com/chechiachang/rag-workshop/blob/main/notebook/3_RAG_with_OpenAI.ipynb)
+
+```
+┌──────────────┐       ┌─────────────────────┐
+│ User Input   │       │ Embedding Model     │
+│ (e.g., Query)├──────▶│ (OpenAI Embeddings) │
+└──────────────┘       └────────────┬────────┘
+                                    │
+                                    ▼
+                            ┌───────────────┐
+                            │ Vector Query  │
+                            │ to Qdrant DB  │
+                            └──────┬────────┘
+                                   ▼
+                        ┌────────────────────┐
+                        │ Retrieved Contexts │
+                        └────────┬───────────┘
+                                 ▼
+                   ┌────────────────────────────┐
+                   │ Prompt Construction Module │
+                   │ (Query + Top-K Contexts)   │
+                   └────────┬───────────────────┘
+                            ▼
+                    ┌────────────────────┐
+                    │ OpenAI Chat Model  │
+                    │ (GPT-4.1 / GPT-4)  │
+                    └────────┬───────────┘
+                             ▼
+                    ┌────────────────────┐
+                    │ Final Answer       │
+                    └────────────────────┘
+```
+🔽
 
 ---
 
-### 如何評估 RAG 系統的品質?
+```python
+import qdrant_client
 
-1. 人人都會下 prompt，但是誰的 prompt 更好？或是沒差別？
-1. 如何選擇 vector store 的 chunking 策略？
-1. 哪個 retriever 更好？
-1. 要如何持續改善 RAG 系統？下個迭代的改善方向是什麼？
-1. 是否符合 production criteria？
+# 使用 Qdrant 作為向量數據庫
+client = qdrant_client.QdrantClient(
+    host="localhost",
+    prefer_grpc=True,
+)
+
+'''
+query_docs 函數用於查詢相關文檔
+查詢指定的 collection_name
+使用指定的模型model進行嵌入查詢
+返回最相關的文檔
+'''
+def query_docs(query, collection_name="covid-qa-3-large", model="text-embedding-3-large" , top_k=5):
+
+    '''
+    query_embeddings 函數用於獲取查詢的語意嵌入向量
+    換句話說，把查詢的問題轉換為向量表示
+    example: "What is COVID-19?" -> [0.1, 0.2, 0.3, ...] 一個固定長度的向量
+    '''
+    query_embeddings = get_embedding(query, model)
+
+    '''
+    使用 Qdrant 客戶端 query_points 函數查詢相關文檔
+    返回指定 collection_name 中與 query_embeddings 最相似的前 top_k 個點
+    '''
+    results = client.query_points(
+        cㄨollection_name=collection_name, // 查詢的 collection 名稱
+        query=query_embeddings, // 輸入查詢的語意嵌入向量
+        limit=5, // 返回前 5 個最相關的點
+        with_payload=True,
+        using="title" // 使用指定的索引字段進行查詢
+    )
+
+    # 提取查詢結果中的 payload（即答案）
+    payloads = [point.payload["answer"] for point in results.points]
+    return payloads
+
+'''
+使用 OpenAI 的 GPT 模型生成回答
+docs 是從向量數據庫中查詢到的相關文檔
+將 context 與原始問題組合成 prompt 將 query + context 組合起來，如：
+
+根據以下資料回答問題：
+===
+[段落1]
+[段落2]
+===
+問題：COVID 的全名是什麼？
+'''
+def generate_answer(query, docs, model="gpt-4o-mini"):
+    context = "\n\n".join(docs)
+    prompt = f"""根據以下內容回答問題：
+    1. 請用繁體中文回答
+    2. 依照內容產生回答
+    3. 附上內容原文作為依據，原文保留內容的原始語言
+    4. 如果內容不包含就回答我不知道
+    
+    內容：
+    {context}
+    
+    問題：
+    {query}
+    """
+
+    res = openai_client.chat.completions.create(
+        model=model, # 使用指定的 OpenAI 模型
+        messages=[
+            {"role": "system", "content": "你是一個 helpful AI 助理"},
+            {"role": "user", "content": prompt}
+        ],
+        temperature=0.2
+    )
+    return res.choices[0].message.content.strip()
+
+# 使用範例
+query = "COVID 的全名是什麼"
+
+# 根據 query 查詢相關文檔 docs
+docs = query_docs(
+    query=query,
+    collection_name="covid-qa-3-large",
+    model="text-embedding-3-large")
+
+# 將查詢結果 docs 與 query 一起生成回答
+answer = generate_answer(
+    query=query, 
+    docs=docs, 
+    model="gpt-4o-mini")
+
+print("\n🧠 回答：")
+print(answer)
+
+🧠 回答：
+COVID 的全名是「Coronavirus Disease 2019」，簡稱 COVID-19。
+
+依據原文：
+"WHO announced “COVID-19” as the name of this new disease on 11 February 2020, following guidelines previously developed with the World Organisation for Animal Health (OIE) and the Food and Agriculture Organization of the United Nations (FAO)."
+```
 
 ---
 
-### 評估：確保回答品質可靠性與可控性
+#### 可以增強 gpt-4o 的冷笑話知識
 
-1. 保證正確性：檢索出的資訊是正確的，生成的答案忠實於原始 context
-2. 降低幻覺風險：即使有資料，LLM 仍可能亂編
-3. 測量系統品質
-4. 改善依據：幫助驗證Chunking 策略，Prompt 設計，Retriever 模型調整
-5. 自動化監控：品質追蹤、問題定位，建立類似 APM 的 QA 指標
-6. 對 Stakeholder 展示成效：可視化與量化指標，有助溝通與資源投入
+![](images/rag-cold-joke.jpg)
+
+---
+
+#### 或是把 K8s 官方文件全部塞進 vector DB
+
+[https://github.com/chechiachang/rag-workshop/blob/main/notebook/6_k8s_RAG_QA.ipynb](https://github.com/chechiachang/rag-workshop/blob/main/notebook/6_k8s_RAG_QA.ipynb)
+
+- 透過 prompt 嚴格限制 LLM 根據上下文提供的文件回答，而不要依賴 LLM 的訓練資料
+- LLM 只提供語言邏輯
+- 這樣可以減少 LLM 的幻覺（hallucination），並提高回答的準確性
+- 增加可觀測性，每個回答都可以追溯到具體的上下文文件
+
+{{% /section %}}
+
+---
+
+{{% section %}}
+
+##### 我知道 RAG 是什麼了，但為何要打造內部知識庫？
+🔽
+
+---
+
+##### 我知道 RAG 是什麼了，但為何要打造內部知識庫？
+
+- 企業內部文件往往分散於 Slack、Confluence、Google Drive、Notion 等平台
+- 傳統關鍵字搜尋難以快速獲取準確資訊
+- 特定職位的工程師會變成回答問題的「門神」
+- 相同的問題被問了無數次
+- 新人需要花費大量時間去搜尋、理解與學習
+- 導致溝通成本高、開發流程受阻
+
+需要一個統一的知識庫，能夠快速檢索、理解並回答問題
+
+---
+
+##### 使用 RAG Agent 增強內部知識傳遞
+
+- 入門的的問題與重複的問題，不需要人類回答
+- LLM 的語言修飾能力優於平均工程師（表達的更通順）
+- LLM 可以根據使用者的問題，提供多元的回答方式（舉例說明，換句話說）
+- **Agent** 結合 [function tools](https://openai.github.io/openai-agents-python/tools/) / mcp server 可以整合更多資料來源
+- RAG Agent 24/7 可用不需休息，也不會失去耐心
+
+---
+
+##### RAG Agent 的優勢
+
+- 入門的的問題與重複的問題 ---> 基礎問題的正確率高
+- LLM 的語言修飾能力優於平均人類 ---> 表達的更通順
+- LLM 根據使用者的問題調整回答方式 ---> 互動問答，舉例說明，換句話說
+- RAG Agent 不需休息，不會失去耐心 ---> 比我本人還高可用
+- 自動化 ---> 結合監測系統，主動推送需要的訊息
+- 標準化回答
+
+---
+
+##### RAG Agent + MCP Server
+
+{{< mermaid >}}
+graph LR
+    subgraph " "
+        direction LR
+        A1("RAG Agent / MCP Client")
+        B1("Confluence MCP Server")
+        B2("Confluence")
+        C1("Github MCP Server")
+        C2("Github")
+        D1("Slack MCP Server")
+        D2("Slack Bot")
+        E1("MySQL MCP Server")
+        E2("MySQL")
+        F1("工程師")
+        A1 --> B1
+        B1 --> B2
+        A1 --> C1
+        C1 --> C2
+        A1 --> D1
+        D1 --> D2
+        A1 --> E1
+        E1 --> E2
+        D2 <--問答--> F1
+    end
+
+{{< /mermaid >}}
+
+透過 [MCP Protocol](https://modelcontextprotocol.io/introduction#general-architecture)，可以將不同的資料來源（如 Confluence、Github、Slack 等）整合到 RAG Agent 中。這樣，RAG Agent 可以在不同的上下文中提供一致的回答。不需要寫額外的程式碼，或只需要 LLM generate 一些簡單的程式碼。
+
+---
+
+##### RAG 自動化: 新人 onboarding
+
+{{< mermaid >}}
+graph LR
+    subgraph " "
+        direction LR
+        A1("Onboarding Tasks")
+        B1("RAG Agent")
+        C1("架構設計文件/SOP/Runbook")
+        D1("階段性測驗")
+        F1("庶務/交接")
+        E1("新人工程師")
+        A1 --> B1
+        C1 --> B1
+        D1 --> B1
+        F1 --> B1
+        B1 --互動式 Onboarding--> E1
+        E1 --提出問題--> B1
+    end
+
+{{< /mermaid >}}
+
+新人在入職時需要了解公司的內部流程、架構設計和運維知識。傳統的 onboarding 過程往往依賴資深工程師手動指導和文檔查閱，效率低下。透過 RAG Agent，可以提供互動式的 onboarding 體驗，並且可以不斷溫習和更新知識。
+
+---
+
+##### RAG 自動化: 第一時間Alert處理
+
+{{< mermaid >}}
+graph LR
+    subgraph " "
+        direction LR
+        A1(("Alert/Metrics"))
+        B1("內部文件 RAG")
+        C1("內部Runbook")
+        D1("架構設計文件")
+        E1("Slack")
+        F1("Alert/文件/處理步驟
+        交給on-duty工程師")
+        A1 --> B1
+        B1 --> C1
+        B1 --> D1
+        A1 --> E1
+        C1 --> E1
+        D1 --> E1
+        E1 --> F1
+    end
+
+{{< /mermaid >}}
+
+工程師處理 alert 時，通常需要查閱內部文件、Runbook 或架構設計文件。這些文件往往分散在不同的系統中，導致查找過程耗時。
+
+---
+
+> AI Copilot 不應該像圖書館守門員等人來借書，
+> 而應該像導航系統，在你開車時主動告訴你：前方有彎道。
 
 {{% note %}}
-
-評估方式建議
-
-- Retrieval：Recall@K, MRR, nDCG
-- Generation：ROUGE, BERTScore, GPTScore
-- Faithfulness：依據來源資料生成？
-- 人工標註：相關性、正確性、幫助程度
-
+基本上我們期待的解決方案是這樣
 {{% /note %}}
 
 ---
 
-### RAG 應用: 以 k8s official docs 為例
+##### 修復完全自動化 k8sGPT
+
+{{< mermaid >}}
+graph LR
+    subgraph " "
+        direction LR
+        A1(("K8s Events/Metrics"))
+        B1("內部文件 RAG")
+        C1("錯誤處理Runbook")
+        D1("架構設計文件")
+        E1("k8sGPT Apply")
+        A1 --> B1
+        B1 --> C1
+        B1 --> D1
+        A1 --> E1
+        C1 --> E1
+        D1 --> E1
+    end
+
+{{< /mermaid >}}
+
+當 k8s 事件或指標觸發時，k8sGPT 可以自動查詢內部文件、Runbook 或架構設計文件，並根據檢索到的內容生成修復建議。
+
+- [KubeCon Europe 2025](https://www.youtube.com/watch?v=EXtCejkOJB0)
+  - Superpowers for Humans of Kubernetes: How [K8sGPT](https://k8sgpt.ai/) Is Transforming Enterprise Ops - Alex Jones, AWS & Anais Urlichs, JP Morgan Chase
+
+{{% /section %}}
+
+---
+
+### 如何開始？
+
+1. 學習如何使用 RAG 與 LLM Agent（ex. 參加我的工作坊）
+2. 挑選一個簡單卻耗時的日常任務
+3. 將任務所有已知的知識存入向量數據庫
+4. 使用 RAG Agent 來回答問題
+5. 結合通訊軟體（如 Slack）來提供即時回答
+6. 根據使用者反饋不斷優化知識庫與回答方式
+
+---
+
+### 如何改進？
+
+1. 設定量化目標
+2. Evaluation：量化 RAG Agent 性能
+3. 根據 Evaluation 結果調整RAG，追求特定 Metrics（如回答準確率）提升
+4. 持續迭代：根據使用者反饋與新知識更新向量數據庫
+
+- [https://chechia.net/slides/2025-06-05-devops-rag-internal-ai/#/32](https://chechia.net/slides/2025-06-05-devops-rag-internal-ai/#/32)
+- [https://github.com/chechiachang/rag-workshop/blob/main/notebook/5_Evaluation.ipynb](https://github.com/chechiachang/rag-workshop/blob/main/notebook/5_Evaluation.ipynb)
 
 ---
 
 ### 總結
 
+1. 什麼是 RAG
 1. 為什麼需要 RAG
-1. Embedding 與向量數據庫
-1. Embedding Search
-1. DIY
-1. Evaluation
-1. k8s RAG QA
+1. 為何需要內部知識庫
+1. RAG Agent 的優勢
+1. RAG Agent 的應用場景
+1. 如何開始/如何進步
 
 ---
 
-##### 由衷地感謝為 workshop 提供協助的夥伴!
+### Q & A
 
-[Mia // Huai-Wen Chang](https://github.com/pymia)
-
-[hunkue](https://github.com/hunkue)
+沒時間的話可以待會來找我聊天
+🔽
 
 ---
 
@@ -500,9 +526,3 @@ LLM（大型語言模型）本身並不具備事實知識，而是依賴訓練�
 - [Senior Backend Engineer](https://www.linkedin.com/jobs/view/4236558714)
 - [Micro Service Software Engineer](https://www.linkedin.com/jobs/view/4236523560/)
 - [Cyber Security Engineer](https://www.linkedin.com/jobs/view/4236559632)
-
----
-
-### DIY + Q&A + 建議
-
-1. 下次會改用 Colab
