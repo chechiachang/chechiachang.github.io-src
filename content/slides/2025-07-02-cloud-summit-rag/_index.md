@@ -417,7 +417,7 @@ graph LR
 {{< /mermaid >}}
 {{% /note %}}
 
-新人在入職時需要了解公司的內部流程、架構設計和運維知識。傳統的 onboarding 過程往往依賴資深工程師手動指導和文檔查閱，效率低下。透過 RAG Agent，可以提供互動式的 onboarding 體驗，並且可以不斷溫習和更新知識。
+傳統的 onboarding 過程往往依賴資深工程師手動指導和文檔查閱，效率低下。透過 RAG Agent，可以提供互動式的 onboarding 體驗，並且可以不斷溫習和更新知識。
 
 ---
 
@@ -559,6 +559,8 @@ graph LR
 
 ---
 
+{{% section %}}
+
 ### Q & A
 
 沒時間的話可以待會來找我聊天
@@ -575,3 +577,5 @@ graph LR
 - [Senior Backend Engineer](https://www.linkedin.com/jobs/view/4236558714)
 - [Micro Service Software Engineer](https://www.linkedin.com/jobs/view/4236523560/)
 - [Cyber Security Engineer](https://www.linkedin.com/jobs/view/4236559632)
+
+{{% /section %}}
