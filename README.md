@@ -50,3 +50,10 @@ googleAnalytics = ""
   - Authorized by google analysis with google email account
 - Submit https://chechia.net/sitemap.xml to console
 - Wait for data processing
+
+### Generate Mermaid Image
+
+```
+npm install @mermaid-js/mermaid-cli
+node node_modules/@mermaid-js/mermaid-cli/src/cli.js -i mermaid.md
+```
