@@ -73,6 +73,9 @@ reveal_hugo:
 
 ---
 
+![](mermaid/generative-ai.svg)
+
+{{% note %}}
 {{< mermaid >}}
 graph LR
     subgraph "Generative AI"
@@ -84,11 +87,14 @@ graph LR
         A1 --User Input--> B1
         B1 --Chat Completion--> C1
     end
-
 {{< /mermaid >}}
+{{% /note %}}
 
 ---
 
+![](mermaid/rag-embedding.svg)
+
+{{% note %}}
 {{< mermaid >}}
 graph LR
     subgraph "RAG"
@@ -114,8 +120,8 @@ graph LR
         A3 --Store--> D3
         C3 --Store--> D3
     end
-
 {{< /mermaid >}}
+{{% /note %}}
 
 ---
 
@@ -132,7 +138,7 @@ graph LR
 
 ##### LLM 不具備專業知識。缺乏內容根據時，容易產生幻覺(hallucination)
 
-![](llm-hallucination.png)
+![](images/llm-hallucination.png)
 
 {{% note %}}
 LLM（大型語言模型）本身並不具備事實知識，而是依賴訓練時的語料與提示輸入來生成回答。當缺乏明確上下文或內容根據時，LLM 容易出現「幻覺」現象，即生成看似合理但實際不正確的資訊。專業領域問題若未提供準確資料支撐，也容易導致錯誤回答。
@@ -352,6 +358,9 @@ COVID 的全名是「Coronavirus Disease 2019」，簡稱 COVID-19。
 
 ##### RAG Agent + MCP Server
 
+![](mermaid/mcp-server.svg)
+
+{{% note %}}
 {{< mermaid >}}
 graph LR
     subgraph " "
@@ -376,8 +385,8 @@ graph LR
         E1 --> E2
         D2 <--問答--> F1
     end
-
 {{< /mermaid >}}
+{{% /note %}}
 
 透過 [MCP Protocol](https://modelcontextprotocol.io/introduction#general-architecture)，可以將不同的資料來源（如 Confluence、Github、Slack 等）整合到 RAG Agent 中。這樣，RAG Agent 可以在不同的上下文中提供一致的回答。不需要寫額外的程式碼，或只需要 LLM generate 一些簡單的程式碼。
 
@@ -385,6 +394,9 @@ graph LR
 
 ##### RAG 自動化: 新人 onboarding
 
+![](mermaid/rag-agent-onboarding.svg)
+
+{{% note %}}
 {{< mermaid >}}
 graph LR
     subgraph " "
@@ -402,8 +414,8 @@ graph LR
         B1 --互動式 Onboarding--> E1
         E1 --提出問題--> B1
     end
-
 {{< /mermaid >}}
+{{% /note %}}
 
 新人在入職時需要了解公司的內部流程、架構設計和運維知識。傳統的 onboarding 過程往往依賴資深工程師手動指導和文檔查閱，效率低下。透過 RAG Agent，可以提供互動式的 onboarding 體驗，並且可以不斷溫習和更新知識。
 
@@ -411,6 +423,9 @@ graph LR
 
 ##### RAG 自動化: 第一時間Alert處理
 
+![](mermaid/rag-agent-alert.svg)
+
+{{% note %}}
 {{< mermaid >}}
 graph LR
     subgraph " "
@@ -430,8 +445,8 @@ graph LR
         D1 --> E1
         E1 --> F1
     end
-
 {{< /mermaid >}}
+{{% /note %}}
 
 工程師處理 alert 時，通常需要查閱內部文件、Runbook 或架構設計文件。這些文件往往分散在不同的系統中，導致查找過程耗時。
 
@@ -448,6 +463,9 @@ graph LR
 
 ##### 修復完全自動化 k8sGPT
 
+![](mermaid/k8sgpt.svg)
+
+{{% note %}}
 {{< mermaid >}}
 graph LR
     subgraph " "
@@ -464,8 +482,8 @@ graph LR
         C1 --> E1
         D1 --> E1
     end
-
 {{< /mermaid >}}
+{{% /note %}}
 
 當 k8s 事件或指標觸發時，k8sGPT 可以自動查詢內部文件、Runbook 或架構設計文件，並根據檢索到的內容生成修復建議。
 
@@ -476,7 +494,9 @@ graph LR
 
 ---
 
-### 如何開始？
+{{% section %}}
+
+##### 如何開始？
 
 1. 學習如何使用 RAG 與 LLM Agent（ex. 參加我的工作坊）
 2. 挑選一個簡單卻耗時的日常任務
@@ -485,17 +505,46 @@ graph LR
 5. 結合通訊軟體（如 Slack）來提供即時回答
 6. 根據使用者反饋不斷優化知識庫與回答方式
 
+🔽
+
 ---
 
-### 如何改進？
+##### 如何改進？
 
 1. 設定量化目標
-2. Evaluation：量化 RAG Agent 性能
+2. Evaluation 量化 RAG Agent 性能
 3. 根據 Evaluation 結果調整RAG，追求特定 Metrics（如回答準確率）提升
 4. 持續迭代：根據使用者反饋與新知識更新向量數據庫
 
-- [https://chechia.net/slides/2025-06-05-devops-rag-internal-ai/#/32](https://chechia.net/slides/2025-06-05-devops-rag-internal-ai/#/32)
-- [https://github.com/chechiachang/rag-workshop/blob/main/notebook/5_Evaluation.ipynb](https://github.com/chechiachang/rag-workshop/blob/main/notebook/5_Evaluation.ipynb)
+[https://chechia.net/slides/2025-06-05-devops-rag-internal-ai/#/32](https://chechia.net/slides/2025-06-05-devops-rag-internal-ai/#/32) /
+[https://github.com/chechiachang/rag-workshop/blob/main/notebook/5_Evaluation.ipynb](https://github.com/chechiachang/rag-workshop/blob/main/notebook/5_Evaluation.ipynb)
+
+---
+
+##### 持續迭代
+
+RAG Agent + Slack Bot 整合就可以完成第一個迭代版本
+
+{{< mermaid >}}
+graph LR
+    subgraph " "
+        direction LR
+        A1(("RAG Agent"))
+        B1("Slack")
+        C1("Daily Jobs")
+        A1 --實際使用--> B1
+        B1 --更新知識--> A1
+        B1 --Agent支援--> C1
+        C1 --使用回饋--> B1
+    end
+{{< /mermaid >}}
+
+---
+
+> 從改善工程團隊品質出發，推廣到跨部門使用。
+> 基於Evaluation與使用者體驗持續改進。
+
+{{% /section %}}
 
 ---
 

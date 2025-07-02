@@ -139,7 +139,7 @@ markup:
   highlight:
     noClasses: false
     anchorLineNos: true
-    codeFences: false # for reveal.js slides
+    codeFences: false # for reveal.js slides code-block=false mermaid=true
     guessSyntax: true
     lineNos: true
     style: monokai

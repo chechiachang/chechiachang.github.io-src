@@ -39,7 +39,7 @@ disableShare: false
 ### 📅 活動時間: 2025-07-03T12:45:00Z
 ### 🔗 [活動連結](https://cloudsummit.ithome.com.tw/2025/session-page/3668)
 ### 📘 聯繫我 [Facebook](https://www.facebook.com/engineer.from.scratch)
-### 📑 [投影片 WIP](../../slides/2025-07-02-cloud-summit-rag/)
+### 📑 [投影片](../../slides/2025-07-02-cloud-summit-rag/)
 
 ---
 
