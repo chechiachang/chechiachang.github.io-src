@@ -26,14 +26,7 @@ reveal_hugo:
 
 ---
 
-### 關於我
-
-- Che Chia Chang
-- SRE @ [Maicoin](https://www.cake.me/companies/maicoin/jobs)
-- [Microsoft MVP](https://mvp.microsoft.com/zh-TW/MVP/profile/e407d0b9-5c01-eb11-a815-000d3a8ccaf5)
-- 投影片與講稿都在 [chechia.net](https://chechia.net/) 
-- [Etcd Workshop](https://chechia.net/zh-hant/talk/kubernetes-summit-get-started-with-etcd-kubernetes/)
-- 鐵人賽 (Terraform / Vault 手把手入門)
+{{< slide content="slides.about-me" >}}
 
 ---
 

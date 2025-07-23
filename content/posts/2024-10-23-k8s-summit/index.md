@@ -35,8 +35,8 @@ disableShare: false
 #    hidden: false # only hide on current single page
 ---
 
-- 活動時間: 2023-10-25T13:20:00Z
-- [活動連結](https://k8s.ithome.com.tw/2023/session-page/2331)
+- 活動時間: 2024-10-24T16:20:00Z
+- [活動連結](https://k8s.ithome.com.tw/2024/session-page/3266)
 - [Facebook](https://www.facebook.com/engineer.from.scratch)
 - [Twitter](https://twitter.com/chechiachang)
 - [投影片](../../slides/2024-10-23-upgrade-k8s-cluster)
