@@ -39,7 +39,7 @@ disableShare: false
 ### 📅 活動時間：2025-08-09T12:45:00Z
 ### 🔗 [活動連結](https://coscup.org/2025/)
 ### 📘 聯繫我 [Facebook](https://www.facebook.com/engineer.from.scratch)
-### 📑 投影片WIP
+### 📑 [投影片](../../slides/2025-08-09-coscup-mcp-agent/)
 
 ---
 
