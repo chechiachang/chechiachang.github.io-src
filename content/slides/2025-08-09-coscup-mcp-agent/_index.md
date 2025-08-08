@@ -65,7 +65,7 @@ reveal_hugo:
 ### Source Code
 
 - [https://github.com/chechiachang/mcp-playground](https://github.com/chechiachang/mcp-playground)🔗
-- [https://github.com/agentika/agentize](https://github.com/agentika/agentize/blob/main/examples/mcp_chatbot.py)
+- [https://github.com/narumiruna/ly-mcp](https://github.com/narumiruna/ly-mcp)
 
 ---
 
