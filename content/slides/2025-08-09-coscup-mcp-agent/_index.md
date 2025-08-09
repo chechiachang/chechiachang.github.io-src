@@ -52,7 +52,7 @@ reveal_hugo:
 - 我寫了 main.py (~100Lines) [L26-L42](https://github.com/chechiachang/mcp-playground/blob/main/main.py#L26-L42)🔗接上 3 個 mcp-server
   - [yfinance-mcp](https://github.com/narumiruna/yfinance-mcp)
   - [firecrawl official mcp](https://github.com/mendableai/firecrawl-mcp-server)
-  - [lymcp](https://github.com/narumiruna/ly-mcp) 立法院開放 api 2.0
+  - [lymcp](https://github.com/narumiruna/ly-mcp) Open Fun LYAPI 立法院開放 api 2.0
 - [FastMCP](https://github.com/jlowin/fastmcp/tree/main) framework 實做 MCP
   - 使用 decorator (@mcp.tool) 定義工具
   - FastMCP 會自動生成[符合 MCP 規格的 Tool](https://github.com/jlowin/fastmcp/blob/main/src/fastmcp/tools/tool.py#L133-L155)🔗
