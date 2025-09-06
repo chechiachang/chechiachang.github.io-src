@@ -167,6 +167,8 @@ services:
     disableInlineCSS: true
   x:
     disableInlineCSS: true
+  googleAnalytics:
+    id: G-QYR8JCDGM9
 
 # Search
 # https://github.com/adityatelange/hugo-PaperMod/wiki/Features#search-page
