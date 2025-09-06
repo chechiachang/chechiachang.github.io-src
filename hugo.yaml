@@ -84,9 +84,13 @@ params:
   homeInfoParams:
     Title: "I’m Che-Chia Chang \U0001F44B"
     Content: >
-      - • Site Reliability Engineer specializing in DevOps, AIOps, and K8s
+      - • Site Reliability Engineer specializing in DevOps, AIOps, and Kubernetes
 
       - • Microsoft Most Valuable Professional (MVP) since 2020
+
+      - • Active speaker at CNTUG, DevOps Taipei, GDG Taipei, and Golang Taipei
+
+      - • Passionate about Cloud, AI, and promoting DevOps/SRE best practices
 
   socialIcons:
     - name: github
