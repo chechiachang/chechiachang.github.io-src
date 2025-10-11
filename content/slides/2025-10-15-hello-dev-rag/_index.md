@@ -3,7 +3,7 @@ title: "Workshop: RAG 打造企業知識庫入門，從Embeddings到Evaluation"
 description: "學員將學會如何利用 RAG 技術，結合 OpenAI、LangChain、Qdrant 向量數據庫，構建企業內部文檔的智能知識庫，並能設計與實作一個基於自然語言處理（NLP）的查詢系統，來提升開發團隊的效率與知識管理能力。"
 tags: ["rag"]
 categories: ["rag"]
-date: '2025-10-15T00:00:00Z'
+date: '2025-10-01T00:00:00Z'
 outputs: ["Reveal"]
 reveal_hugo:
   custom_theme: "reveal-hugo/themes/robot-lung.css"

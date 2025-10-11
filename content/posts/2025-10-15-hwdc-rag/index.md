@@ -1,6 +1,6 @@
 ---
-title: "HWDC 2025: Workshop: RAG 打造企業知識庫入門，從 embeddings 到 evaluation"
-date: '2025-06-28T13:20:00Z'
+title: "Hello World Dev Conf 2025: Workshop: RAG 打造企業知識庫入門，從 embeddings 到 evaluation"
+date: '2025-10-01T13:20:00Z'
 # weight: 1
 # aliases: ["/test"]
 tags: ["openai", "generative", "ai", "kubernetes", "devops"]
@@ -12,7 +12,7 @@ showToc: true
 TocOpen: false
 #UseHugoToc: true
 
-draft: true
+draft: false
 
 hidemeta: false
 comments: true
@@ -36,10 +36,10 @@ disableShare: false
 #    hidden: false # only hide on current single page
 ---
 
-### 📅 活動時間：2025-10-14T (待定)
-### 🔗 [活動連結](https://k8s.ithome.com.tw/2024/workshop-page/3259)
+### 📅 活動時間：2025-10-15T09:00-10:30
+### 🔗 [活動連結](https://hwdc.ithome.com.tw/2025/lab-page/4003)
 ### 📘 聯繫我 [Facebook](https://www.facebook.com/engineer.from.scratch)
-### 📑 投影片
+### 📑 [投影片](https://chechia.net/slides/2025-10-15-hello-dev-rag/#/)
 
 ---
 
