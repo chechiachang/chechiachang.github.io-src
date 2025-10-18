@@ -1,6 +1,6 @@
 ---
 title: "Hello World Dev Conf 2025: Workshop: RAG 打造企業知識庫入門，從 embeddings 到 evaluation"
-date: '2025-10-01T13:20:00Z'
+date: '2025-09-01T13:20:00Z'
 # weight: 1
 # aliases: ["/test"]
 tags: ["openai", "generative", "ai", "kubernetes", "devops"]

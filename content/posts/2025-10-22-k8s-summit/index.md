@@ -1,6 +1,6 @@
 ---
 title: "K8s Summit 2025: Workshop: Get started with Etcd & Kubernetes"
-date: '2025-06-28T13:20:00Z'
+date: '2025-10-01T13:20:00Z'
 # weight: 1
 # aliases: ["/test"]
 tags: ["iac", "aws", "terraform", "kubernetes", "etcd"]
@@ -12,7 +12,7 @@ showToc: true
 TocOpen: false
 #UseHugoToc: true
 
-draft: true
+draft: false
 
 hidemeta: false
 comments: true
@@ -36,8 +36,9 @@ disableShare: false
 #    hidden: false # only hide on current single page
 ---
 
-### 📅 活動時間：2025-10-22T (待定)
-### 🔗 [活動連結](https://k8s.ithome.com.tw/2024/workshop-page/3259)
+### 📅 活動時間：2025-10-22T10:30-12:00 (603+604)
+### 📅 活動時間：2025-10-23T15:30-17:00 (603+604)
+### 🔗 [活動連結](https://k8s.ithome.com.tw/2025/workshop-page/4105)
 ### 📘 聯繫我 [Facebook](https://www.facebook.com/engineer.from.scratch)
 ### 📑 [投影片](../../slides/2025-10-22-etcd-workshop)
 
