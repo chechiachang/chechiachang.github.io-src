@@ -3,7 +3,7 @@ title: "K8s Summit 2025: RAG + k8sGPT 檢索增強生成與 K8sGPT"
 date: '2025-10-01T13:20:00Z'
 # weight: 1
 # aliases: ["/test"]
-tags: ["rag", "devops", "kubernetes", "aiops"]
+tags: ["kubernetes", "openai", "gemini", "rag", "aiops", "devops"]
 categories: ["kubernetes", "aiops"]
 description: "K8sGPT 是一套結合 AI 與最佳實踐的 Kubernetes 問題診斷與修復工具，能有效降低故障排除難度並自動化修復流程。RAG（Retrieval-Augmented Generation 檢索增強生成）結合檢索系統與生成式模型（如 GPT）的自然語言處理架構，在生成答案時引用外部知識，使模型回答更準確且具事實根據。本演講將介紹如何使用 RAG 技術來增強 Kubernetes 問題診斷與修復的能力，並展示 k8sGPT 的實際應用。"
 #canonicalURL: "https://canonical.url/to/page"
@@ -39,13 +39,9 @@ disableShare: false
 ### 📅 活動時間：2025-10-23T13:30-14:10 (ABC會議室)
 ### 🔗 [活動連結](https://k8s.ithome.com.tw/2025/session-page/4081)
 ### 📘 聯繫我 [Facebook](https://www.facebook.com/engineer.from.scratch)
-### 📑 [投影片](https://chechia.net/slides/2025-10-22-etcd-workshop)
+### 📑 [投影片](https://chechia.net/slides/2025-10-23-k8sgpt-rag)
 
 ---
-
-## Workshop
-
-Workshop: Get started with Etcd & Kubernetes / 手把手搭建 Etcd 與 K8s Components
 
 ### Outline
 
