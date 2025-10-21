@@ -39,7 +39,7 @@ disableShare: false
 ### 📅 活動時間：2025-10-23T13:30-14:10 (ABC會議室)
 ### 🔗 [活動連結](https://k8s.ithome.com.tw/2025/session-page/4081)
 ### 📘 聯繫我 [Facebook](https://www.facebook.com/engineer.from.scratch)
-### 📑 [投影片](../../slides/2025-10-22-etcd-workshop)
+### 📑 [投影片](https://chechia.net/slides/2025-10-22-etcd-workshop)
 
 ---
 

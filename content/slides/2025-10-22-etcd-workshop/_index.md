@@ -134,6 +134,17 @@ workshop 提供的機器，是 ubuntu 24.04 + docker 環境。安裝這些東西
 ### 確認大家都有操作環境
 ##### 等待的同時，說明何為 Etcd
 🔽
+- 使用自己的電腦
+    - 裝 [docker](https://docs.docker.com/get-started/get-docker/), [etcdctl](https://github.com/etcd-io/etcd/releases/), [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)
+    - git clone repository + docker compose up -d
+- 使用 VM
+    - [workshop.chechia.net](https://workshop.chechia.net)
+
+```
+git clone https://github.com/chechiachang/etcd-playground.git
+cd etcd-playground/00-prerequsites/
+docker compose up -d
+```
 
 ---
 
@@ -184,17 +195,17 @@ docker logs -f etcd-0
 
 {{< mermaid >}}
 graph TD
-    subgraph "Host (Ubuntu)"
+    subgraph "Remot Host (Ubuntu VM)"
         A("etcd-0 (driver: bridge)")
         B["terminal (kubectl, etcdctl)"]
     end
-    subgraph "Local Host(自己的電腦)"
+    subgraph "Local(自己的電腦)"
         C["Web Browser"]
     end
     B -- 控制 --> A
     C -- Azure ssh bastion --> B
 
-    subgraph "Host (自己的電腦)"
+    subgraph "Local Host (自己的電腦)"
         A1("etcd-0 (driver: bridge)")
         B1["terminal (kubectl, etcdctl)"]
     end

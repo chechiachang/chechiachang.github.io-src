@@ -40,7 +40,7 @@ disableShare: false
 ### 📅 活動時間：2025-10-23T15:30-17:00 (603+604)
 ### 🔗 [活動連結](https://k8s.ithome.com.tw/2025/workshop-page/4105)
 ### 📘 聯繫我 [Facebook](https://www.facebook.com/engineer.from.scratch)
-### 📑 [投影片](../../slides/2025-10-22-etcd-workshop)
+### 📑 [投影片](https://chechia.net/slides/2025-10-22-etcd-workshop)
 
 ---
 
