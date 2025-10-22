@@ -49,9 +49,33 @@ https://github.com/chechiachang/k8sgpt-playground
 
 ---
 
-https://github.com/chechiachang/k8sgpt-playground
+https://github.com/chechiachang/k8sgpt-playground/tree/main/k8s
 
 ```
+minikube config set driver docker
+minikube start --kubernetes-version=v1.34.0
+
+helm repo add k8sgpt https://charts.k8sgpt.ai
+helm repo update
+helm install k8sgpt-operator k8sgpt/k8sgpt-operator --values k8sgpt-operator/values.yaml
+
+kubectl create secret generic azureopenai --from-literal=azure-api-key=your-api-key
+# create crd k8sgpt
+kubectl create -f config/azureopenai.yaml
+
+kubectl get pods
+```
+
+---
+
+```
+kubectl logs azureopenai # 確認 LLM backend 連線正常
+kubectl get results # results.core.k8sgpt.ai
+
+kubectl apply -f cases/01-missing-image
+kubectl get pods -w
+kubectl get results -w
+kubectl get mutations -w # mutations.core.k8sgpt.ai
 ```
 
 ---
@@ -63,10 +87,10 @@ https://github.com/chechiachang/k8sgpt-playground
 
 ### 大綱
 
-- 不管怎樣先 Live demo
+- 不管怎樣先 Live demo :rocket:
 - 什麼是 k8sGPT
 - 什麼是 RAG
-- Live demo 2
+- Live demo 2 :rocket:
 - 目前能/不能做什麼
 - 如何 get started
 - 未來展望
@@ -122,6 +146,18 @@ kubectx minikube
 
 k8sgpt auth add --backend azureopenai
 k8sgpt analyze --backend azureopenai --explain --filter Pod,Service,Ingress
+
+ 100% |█████████████████████████████████████████████████████████| (2/2, 15 it/min)
+AI Provider: azureopenai
+0: Deployment default/missing-image-deployment()
+- Error: Deployment default/missing-image-deployment has 1 replicas but 0 are available with status running
+Error: The deployment "missing-image-deployment" in the default namespace has 1 replica defined, but none are currently available or running.
+
+Solution:
+1. Check the deployment status: `kubectl describe deployment missing-image-deployment`
+2. Look for events indicating issues (e.g., image pull errors).
+3. If an image is missing, update the deployment with a valid image: `kubectl set image deployment/missing-image-deployment <container-name>=<new-image>`
+4. Redeploy: `kubectl rollout restart deployment/missing-image-deployment`
 ```
 
 ---
@@ -132,15 +168,62 @@ https://docs.k8sgpt.ai/reference/operator/overview/
 
 ---
 
+##### k8sgpt-operator
+
+1. watch k8s resource
+1. analyze: resource + error message 送到 LLM backend (OpenAI, Gemini, ...)
+1. calculate remediation: 根據 LLM 回傳的修正建議，產生 k8s 修正後的 yaml
+1. 自動化修復 (auto-remediation) apply 修正後的 yaml
+
+---
+
+{{< mermaid >}}
+graph TD
+    subgraph "k8sgpt-operator controller"
+        A["CRD: k8sgpt"]
+        B["k8sgpt-controller"]
+        C["deployment/k8sgpt"]
+        D["mutation-controller"]
+        H["k8s resources(Deployment)"]
+        I["CRD: Results(error message)"]
+        J["CRD: Mutations"]
+        K["new k8s resources(Deployment)"]
+    end
+    B --watches--> A
+    B --creates--> C
+    C --analyze--> H
+    C --creates--> I
+    C --calculate remediation--> I
+    D --compute similarity score--> J
+    D --applys--> K
+{{< /mermaid >}}
+
+---
+
 ##### k8sgpt-operator 
 
-- controller pattern: reconcile loop 持續監測 resources
-- error 送到 LLM backend (OpenAI, Gemini, ...) analyze
-- 自動化修復 (auto-remediation)
+1. k8sgpt-controller
+    1. watches k8sgpt CRD -> create deployment/k8sgpt
+    1. analyze
+        1. loop fetch resource and error message
+        1. send to LLM backend -> get analyzed response
+        1. create Result CRD
+    1. calculate remediation: compute remediation -> create Mutation CRD
+1.  mutation controler
+    1. compute similarity score: 計算 config vs targetConfig 差異
+    1. ResourceToExecution: execute (apply) resource
+
+---
+
+##### k8sgpt 能做到跟不能做到的事
+
 - 常見問題都是秒解
   - ex. resources issues, typos, misconfigurations, scaling
+  - 一個 kubectl apply yaml 就能解決的問題，k8sgpt 都能解決
 
-> 那不常見/複雜的問題呢？
+- 那不常見/複雜的問題呢？
+  - domain knowledge
+  - multi-step task
 
 ---
 
@@ -215,13 +298,35 @@ LLM
 ---
 
 ```
+cd RAG
+cat data/qa.csv
+
+# embedding + save to qdrankjt
+kubectl -n qdrant port-forward svc/qdrant 6334:6334 6333:6333
+uv run 01_embedding.py
+uv run 02_save_to_qdrant.py
+
+# start custom backend RAG server
 uv run fastapi dev rag-custom-backend.py
 
 k8sgpt auth add --backend customrest \
     --baseurl http://localhost:8000/completions \
     --model gpt-4o-mini
 
-k8sgpt analyze --backend customrest --explain --filter Pod,Service
+k8sgpt analyze --backend customrest --explain --filter Deployment
+```
+
+---
+
+```
+cat deploy/k8sgpt.yaml
+kubectl delete -f ../k8s/config/azureopenai.yaml
+kubectl apply -f deploy/k8sgpt.yaml
+
+kubectl apply -f ../k8s/cases/02-dont-do-anything
+kubectl get pods -w
+kubectl get results -w
+kubectl get mutations -w # mutations.core.k8sgpt.ai
 ```
 
 ---
@@ -238,7 +343,7 @@ k8sgpt analyze --backend customrest --explain --filter Pod,Service
 1. 補齊必要知識 domain knowledge
   1. k8s 官方文件
   1. 公司內部知識庫 (wiki, runbook, SOP, etc.)
-1. 提供 tools 使用能力 (上網, github, jira-mcp, etc.)
+1. 提供 tools 使用能力 (上網google, github-mcp, jira-mcp, etc.)
 1. 通往 Evaluation 的橋樑
 
 ---
@@ -246,6 +351,7 @@ k8sgpt analyze --backend customrest --explain --filter Pod,Service
 ##### RAG: Retrieval-Augmented Generation
 
 - [2025/10/15 Hello World Dev Workshop](https://chechia.net/posts/2025-10-15-hwdc-rag/)
+- embedding, vector database, retriever, evaluation
 
 ---
 
