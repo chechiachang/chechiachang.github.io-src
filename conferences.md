@@ -1,7 +1,10 @@
 # Conferences
 
-- 2025 Ithome Cloud Summit
+- 2025 Hello World Dev Conf
+- 2025 Ithome Kubernetes Summit
 - 2025 DevOpsDay
+- 2025 COSCUP
+- 2025 Ithome Cloud Summit
 - 2024 Ithome Kubernetes Summit
 - 2024 Ithome Cloud Summit
 - 2023 DevOpsDay

@@ -1,5 +1,5 @@
 ---
-title: "O11y day 2026: Observe and evaluate LLM applications with Langfuse"
+title: "Observe and evaluate LLM applications with Langfuse"
 date: '2026-04-23T13:20:00Z'
 # weight: 1
 # aliases: ["/test"]
@@ -36,7 +36,7 @@ disableShare: false
 #    hidden: false # only hide on current single page
 ---
 
-### 📅 活動時間：2026-04-23 21:20
+### 📅 活動時間：2026-07-01 21:20
 ### 🔗 [活動連結](https://k8s.ithome.com.tw/2025/session-page/4081)
 ### 📘 聯繫我 [Facebook](https://www.facebook.com/engineer.from.scratch)
 ### 📑 [投影片](https://chechia.net/slides/2025-10-23-k8sgpt-rag)
@@ -45,20 +45,36 @@ disableShare: false
 
 ### Outline
 
-Langfuse 是一個專為 LLM（大型語言模型）應用設計的觀察性平台，提供了全面的監控、日誌分析和性能評估功能，幫助團隊更好地理解和優化他們的 LLM 應用。在本次演講中，我們將深入探討 Langfuse 的功能和優勢，以及如何利用它來提升 LLM 應用的可觀察性和性能。
+這場分享改成「LLM/Agent 觀測資料管線實戰」：
 
-Langfuse 的核心功能包括：
-1. **全面監控**：提供對 LLM 應用的實時監控，捕捉關鍵性能指標（KPIs）和行為模式。
-2. **日誌分析**：收集和分析 LLM 應用的日誌數據，幫助團隊識別問題和優化性能。
-3. **性能評估**：提供詳細的性能評估報告，幫助團隊了解 LLM 應用的運行狀況和潛在瓶頸。
-4. **可視化工具**：提供直觀的可視化工具，幫助團隊更好地理解和分析 LLM 應用的數據。
-5. **自定義警報**：允許團隊設置自定義警報，及時通知他們有關 LLM 應用的異常行為或性能問題。
+1. 問題定義：為什麼傳統 APM 看不到 Agent 真正做了什麼
+2. 架構藍圖：`LLM/Agent -> Bifrost -> OpenTelemetry -> Langfuse`
+3. Bifrost 的角色：統一攔截多種 Agent/CLI 事件，標準化成 OTel Logs/Traces
+4. Langfuse 的角色：把 prompt、trace、latency、cost 串起來做分析與評估
+5. 為什麼不直接「LLM -> Langfuse」？
+6. 實際踩坑：Codex CLI OTel 在不同模式下的可觀測性落差
+7. 實作範例：從 CLI 事件到 Langfuse Trace 的映射方式
+8. 企業落地：隱私遮罩、資料保留、告警與 SLO 設計
+9. Q&A：如何從今天開始先上線最小可行觀測
 
-本次演講將通過實際案例展示如何使用 Langfuse 來提升 LLM 應用的可觀察性和性能，並討論在實際應用中遇到的挑戰和解決方案。更好地管理和優化他們的 LLM 應用。
+### 為什麼不直接 LLM 到 Langfuse？
+
+核心原因是很多 Agent CLI 對 OTel 的語意與完整性支援不一，直接對接 Langfuse 往往會遇到「資料不完整、語意不一致、難以跨工具關聯」。
+
+- 例 1：社群已提出「希望 Codex CLI 直接整合 Langfuse tracing（含 input/output/timestamp）」需求，顯示目前不是開箱即用。
+  - 參考：[openai/codex#1721 Add Langfuse Tracing Integration in Codex CLI](https://github.com/openai/codex/issues/1721)
+- 例 2：`codex exec` / `codex mcp-server` 與互動模式在 OTel 支援程度曾出現落差，代表直接吃單一來源資料風險高。
+  - 參考：[openai/codex#12913 codex exec emits no OTel metrics; codex mcp-server emits no OTel telemetry at all](https://github.com/openai/codex/issues/12913)
+- 例 3：OTel 預設可能攜帶過多工具輸入輸出細節（如 patch body），隱私與治理要額外處理。
+  - 參考：[openai/codex#17909 OTEL codex.tool_result logs full tool payloads by default](https://github.com/openai/codex/issues/17909)
+
+因此實務上會用 Bifrost 先做一層標準化與治理，再送到 Langfuse，讓資料品質、隱私與可維運性可控。
 
 ### 主要收穫
 
-了解哪些 Langfuse 信號與提示品質、延遲與成本相關，讓你能優先進行觀察性儀表板的部署。將 prompt、embeddings 與 metrics 導入 Langfuse
+- 了解如何用 Bifrost 把多來源 Agent/LLM 事件統一成 OTel，再送入 Langfuse。
+- 知道直接整合單一 CLI 的風險，以及如何用中介層補齊資料語意與治理能力。
+- 帶走一套可落地的最小觀測清單：prompt/response、latency、token、cost、error、tool call。
 
 ### 為什麼這場演講重要
 
