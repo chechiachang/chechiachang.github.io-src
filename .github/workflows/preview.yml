@@ -11,6 +11,9 @@ on:
 # Cancel in-progress preview deployments for the same PR when new commits arrive.
 concurrency: preview-${{ github.ref }}
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   deploy-preview:
     runs-on: ubuntu-latest
