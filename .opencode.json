@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "write": {
+      "allow": [
+        "./**"
+      ]
+    }
+  }
+}
