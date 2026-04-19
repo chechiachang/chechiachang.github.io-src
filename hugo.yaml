@@ -1,5 +1,6 @@
 baseURL: "https://chechia.net/"
 title: Che-Chia Chang
+publishDir: docs
 theme: ["PaperMod", "github.com/joshed-io/reveal-hugo"]
 
 enableInlineShortcodes: true
