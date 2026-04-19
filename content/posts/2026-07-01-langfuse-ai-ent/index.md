@@ -39,51 +39,34 @@ disableShare: false
 ### 📅 活動時間：2026-07-01 21:20
 ### 🔗 [活動連結](https://k8s.ithome.com.tw/2025/session-page/4081)
 ### 📘 聯繫我 [Facebook](https://www.facebook.com/engineer.from.scratch)
-### 📑 [投影片](https://chechia.net/slides/2025-10-23-k8sgpt-rag)
+### 📑 [投影片](https://chechia.net/slides/2026-07-01-langfuse-ai-ent/)
 
 ---
 
-### Outline
+## Title
 
-這場分享改成「LLM/Agent 觀測資料管線實戰」：
+LLM O11y：從 Observability 到 Decision System
 
-1. 問題定義：為什麼傳統 APM 看不到 Agent 真正做了什麼
-2. 架構藍圖：`LLM/Agent -> Bifrost -> OpenTelemetry -> Langfuse`
-3. Bifrost 的角色：統一攔截多種 Agent/CLI 事件，標準化成 OTel Logs/Traces
-4. Langfuse 的角色：把 prompt、trace、latency、cost 串起來做分析與評估
-5. 為什麼不直接「LLM -> Langfuse」？
-6. 實際踩坑：Codex CLI OTel 在不同模式下的可觀測性落差
-7. 實作範例：從 CLI 事件到 Langfuse Trace 的映射方式
-8. 企業落地：隱私遮罩、資料保留、告警與 SLO 設計
-9. Q&A：如何從今天開始先上線最小可行觀測
+## Outline
 
-### 為什麼不直接 LLM 到 Langfuse？
+1. 為什麼 observability 還不夠：Observability != Decision System
+2. 常見誤區：用 impression 做 model/framework 選擇決策
+3. LLM-as-a-judge 的價值與限制
+4. 從 observability 到 closed-loop feedback system
+5. evaluation / dataset / regression / decision gate 的實作框架
+6. LLM SLO 與 failure taxonomy 的工程化方法
+7. llm-o11y PoC：decision layer 最小可行實作
+8. 總結：把 LLM 升級從 gambling 變成可驗證決策
 
-核心原因是很多 Agent CLI 對 OTel 的語意與完整性支援不一，直接對接 Langfuse 往往會遇到「資料不完整、語意不一致、難以跨工具關聯」。
+## Target group
 
-- 例 1：社群已提出「希望 Codex CLI 直接整合 Langfuse tracing（含 input/output/timestamp）」需求，顯示目前不是開箱即用。
-  - 參考：[openai/codex#1721 Add Langfuse Tracing Integration in Codex CLI](https://github.com/openai/codex/issues/1721)
-- 例 2：`codex exec` / `codex mcp-server` 與互動模式在 OTel 支援程度曾出現落差，代表直接吃單一來源資料風險高。
-  - 參考：[openai/codex#12913 codex exec emits no OTel metrics; codex mcp-server emits no OTel telemetry at all](https://github.com/openai/codex/issues/12913)
-- 例 3：OTel 預設可能攜帶過多工具輸入輸出細節（如 patch body），隱私與治理要額外處理。
-  - 參考：[openai/codex#17909 OTEL codex.tool_result logs full tool payloads by default](https://github.com/openai/codex/issues/17909)
+- 正在導入或維運 LLM / Agent 系統的工程團隊
+- 關心品質、延遲、成本與上線風險的 Tech Lead / SRE / Platform Team
+- 已有 tracing / logging / Langfuse，但缺乏 regression 與 deploy gate 的團隊
 
-因此實務上會用 Bifrost 先做一層標準化與治理，再送到 Langfuse，讓資料品質、隱私與可維運性可控。
+## Slides
 
-### 主要收穫
-
-- 了解如何用 Bifrost 把多來源 Agent/LLM 事件統一成 OTel，再送入 Langfuse。
-- 知道直接整合單一 CLI 的風險，以及如何用中介層補齊資料語意與治理能力。
-- 帶走一套可落地的最小觀測清單：prompt/response、latency、token、cost、error、tool call。
-
-### 為什麼這場演講重要
-
-- 我有在大規模 Kubernetes 與 LLM 工作負載環境中運營的經驗，曾推動將 Langfuse 作為生產 AI 服務的觀察性管線，降低延遲波動並挖掘出隱藏的失敗模式。
-- Langfuse 能將提示、嵌入向量與系統指標關聯起來，補足傳統監控的盲點，這種視角與會議「現代 AI 的可觀察性」主題高度契合。
-- 與會者將帶走一份清單，明確指出應追蹤哪些指標、如何呈現在儀表板上，以及在部署下個 LLM 特性前該寫哪些防護腳本。
-
-參考資料
-- [Langfuse 官方網站](https://www.langfuse.com/)
+- [完整投影片與講稿](https://chechia.net/slides/2026-07-01-langfuse-ai-ent/)
 
 ## Author
 
