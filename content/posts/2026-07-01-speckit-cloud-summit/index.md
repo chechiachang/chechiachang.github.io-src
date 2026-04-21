@@ -1,11 +1,11 @@
 ---
-title: "AI 強化的規格驅動開發：自動化所有 SOP 與 Runbook"
+title: "When Not to Vibe：從 Vibe Coding 到 Spec-driven AI Engineering 的轉折點"
 date: '2026-07-01T13:20:00Z'
 # weight: 1
 # aliases: ["/test"]
-tags: ["openai", "generative", "ai", "kubernetes", "devops"]
+tags: ["openai", "generative", "ai", "speckit", "devops"]
 categories: ["generative", "ai"]
-description: Spec-driven development (SDD) is a software development approach that emphasizes the use of specifications to drive the development process. In this workshop, we will explore how to implement SDD using Spec-kit, a powerful tool for creating and managing specifications. We will cover the basics of SDD, how to create effective specifications, and how to use Spec-kit to automate the development process. By the end of this workshop, you will have a solid understanding of SDD and how to apply it in your projects using Spec-kit.
+description: 這場分享從 vibe coding 的失焦問題出發，拆解 LLM 在長時間任務中的限制，並說明 SpecKit 在 spec-driven AI engineering 中的角色、代價與適用場景，以及從 spec-driven 走向 agent-driven 的演進方向。
 #canonicalURL: "https://canonical.url/to/page"
 
 showToc: true
@@ -36,48 +36,67 @@ disableShare: false
 #    hidden: false # only hide on current single page
 ---
 
-### 📅 活動時間：2026-07-01T09:00-10:30
-### 🔗 [活動連結](https://hwdc.ithome.com.tw/2025/lab-page/4003)
-### 📘 聯繫我 [Facebook](https://www.facebook.com/engineer.from.scratch)
-### 📑 [投影片](https://chechia.net/slides/2025-10-15-hello-dev-rag/#/)
+### 活動時間：2026-07-01T09:00-10:30
+### [活動連結](https://hwdc.ithome.com.tw/2025/lab-page/4003)
+### 聯繫我 [Facebook](https://www.facebook.com/engineer.from.scratch)
+### [投影片](https://chechia.net/slides/2026-07-01-speckit-cloud-summit/)
 
 ---
 
 ### Title
 
-AI 強化的規格驅動開發：自動化所有 SOP 與 Runbook
+When Not to Vibe  
+從 Vibe Coding 到 Spec-driven AI Engineering
 
 ### Outline
 
-規格驅動開發 Spec-driven development（SDD）主張以規格驅動開發流程，透過明確的規格定義來降低開發迭代中的不確定性。
+AI 讓「寫 code」變得容易，但實際在開發上，常見現象是一開始很順、越做越亂，LLM 逐步偏離設計，context 越長結果反而越不準。這不是 prompt 不夠強或模型不夠大，而是 LLM 本質上不擅長長時間、持續演進的任務。vibe coding 適合快速探索小範圍任務與短期 context，但長任務會走向失焦（loss of alignment）；context window 也不是越大越好，資訊堆疊會造成 attention 稀釋，且 LLM 沒有真正長期記憶。
 
-日常工作中存在適合導入「規格驅動開發（SDD）」的場景：例如需求明確、重複性高且風險較低的 SOP 與 Runbook。透過 AI powered 工具執行 SDD，我們可以將這些任務轉化為「可執行的規格」，並結合 AI 技術實現自動化，這不僅能大幅提升效率，更能有效避免人為操作的失誤。藉由規格精準設定「完成（Done）」的標準，讓團隊從例行作業中解放。
+這場分享現實：AI 讓寫 code 變快，卻不保證長時間任務不失焦；為何 vibe coding 會在 context 拉長後 drift。並以 SpecKit 補上的結構化上下文價值、並了解其代價，以及從 spec-driven 走向 agent-driven 的實務經驗。
 
-本次演講將分享實務經驗，如何挑選適合導入 AI SDD 的場景，並展示 AI Agenet 高速交付的實際案例，提供具體的實施步驟與實踐參考。
+1. 從 Vibe 出發：為何 LLM 在長時間任務中逐漸失焦
+2. LLM 原理：Context 不斷堆疊，為何反而降低準確性
+3. SpecKit 的價值：從 Prompt Chaos 到 Structured Spec 作為 Source of Truth
+4. 現實限制：Spec Tax、Drift，以及無法解決的痛點
+5. SDD（Spec-driven Development）適用場景：PoC、Greenfield 等
+6. 從 Spec-driven 到 Agent-driven：Speckit 作為過渡形態
 
+你將能清楚辨識 vibe coding 的有效範圍與失效訊號、理解 LLM 在長上下文下準確率下降的原因、評估 SpecKit 在實務上的收益與成本，並帶走一套可用於 PoC、Greenfield 與複雜系統規劃的導入與決策視角。
 
-### 為何非聽不可
+### Target group
 
-MaiCoin 已導入 AI SDD 來自動化 SOP 與 Runbook，實現了高效且可靠的開發流程，並實際應用在生產環境中。
-透過 AI SDD，我們能夠快速生成並執行規格，以幾乎是 100% AI 實作內容，交付大量次要任務，讓團隊專注在高優限度任務，顯著提升了團隊的生產力和運維效率。
-我們整理適合的場景，並整理出條件，幫助團隊快速評估是否適合導入 AI SDD。
-本次演講將分享實際案例，提供具體的實施步驟與實踐參考，讓聽眾能夠在自己的工作中應用 AI SDD。
+- 正在使用 AI 開發、但感受到流程越來越混亂的工程師
+- 想把 AI 導入團隊 workflow 的技術主管與架構師
+- 關注 AI-native engineering 與開發流程演進的實務工作者
 
 ### 主要收穫
 
+你將能清楚辨識 vibe coding 的有效範圍與失效訊號、理解 LLM 在長上下文下準確率下降的原因、評估 SpecKit 在實務上的收益與成本，並帶走一套可用於 PoC、Greenfield 與複雜系統規劃的導入與決策視角。
+
+### Description
+
+SpecKit 的核心價值在於把短期對話轉換為可持續、可引用的結構化上下文（Prompt -> Spec），但它並非銀彈，仍有 Spec Tax、Spec Drift、Cognitive Overload 等成本，且無法徹底解決失焦問題。實務上，Spec-driven Development 較適合 PoC、Greenfield 與複雜系統設計，不適合小功能、快速迭代或重度 legacy；長期來看，SpecKit 更像是從 prompt-driven 走向 agent-driven systems 的過渡形態。
 
 ### References
 
+- SpecKit Official Repository  
+  https://github.com/spec-kit/spec-kit
+- Prompt Engineering for Spec-driven Development  
+  https://techcommunity.microsoft.com/
+- Community Discussions on Spec-driven Development  
+  https://www.reddit.com/r/SpecDrivenDevelopment/
+- GitHub Copilot Community Insights  
+  https://www.reddit.com/r/GithubCopilot/
+
 ## Author
 
-Che-Chia Chang 是一名專注於後端開發、開發維運、容器化應用及 Kubernetes 開發與管理的技術專家，同時也是 Microsoft 最有價值專業人士（MVP）。
+Chechia Chang
 
-活躍於台灣技術社群，經常在 CNTUG、DevOps Taipei、GDG Taipei、Golang Taipei Meetup 等社群分享 DevOps、SRE、Kubernetes 及雲端運算相關技術。致力於推動開發與維運的最佳實踐，並熱衷於研究與應用最新的雲端與 AI 技術。
+- Organizer of Golang Taipei
+- DevOps / SRE / Cloud / AI Speaker
+- Focus on Kubernetes, Cloud Infrastructure, and AI Engineering
 
-個人部落格：https://chechia.net
+---
 
-Che-Chia Chang is a technology expert specializing in backend development, DevOps, site reliability engineering (SRE), containerized applications, and Kubernetes development and management. He is also recognized as a Microsoft Most Valuable Professional (MVP).
-
-Actively engaged in the Taiwanese tech community, he frequently shares insights on DevOps, SRE, Kubernetes, and cloud computing at CNTUG, DevOps Taipei, GDG Taipei, and Golang Taipei Meetup. Passionate about promoting best practices in development and operations, he continuously explores and applies the latest advancements in cloud and AI technologies.
-
-https://chechia.net
+> When vibe coding stops working,  
+> it's time to design how AI remembers.
