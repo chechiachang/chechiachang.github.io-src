@@ -48,18 +48,16 @@ jobs:
           echo "pages.chechia.net" > /tmp/site/CNAME
           touch /tmp/site/.nojekyll
 
-      - name: Update gh-pages root (preserve PR previews)
+      - name: Update gh-pages docs (preserve PR previews)
         run: |
           git fetch origin gh-pages || true
           git checkout gh-pages 2>/dev/null || git checkout --orphan gh-pages
 
-          # Keep existing PR previews and replace root site content.
-          find . -mindepth 1 -maxdepth 1 \
-            ! -name .git \
-            ! -name pr-preview \
-            -exec rm -rf {} +
+          # Keep existing PR previews and replace docs site content.
+          mkdir -p docs
+          find docs -mindepth 1 -maxdepth 1 -exec rm -rf {} +
 
-          cp -a /tmp/site/. .
+          cp -a /tmp/site/. docs/
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
