@@ -2,7 +2,7 @@ name: Deploy Pages Site
 
 on:
   push:
-    branches: ["main"]
+    branches: ["master"]
   workflow_dispatch:
 
 concurrency:
@@ -47,11 +47,11 @@ jobs:
 
       - name: Prepare site artifacts
         run: |
-          rm -rf /tmp/site
-          mkdir -p /tmp/site
-          cp -a docs/. /tmp/site/
-          echo "pages.chechia.net" > /tmp/site/CNAME
-          touch /tmp/site/.nojekyll
+          rm -rf ./tmp/site
+          mkdir -p ./tmp/site
+          cp -a docs/. ./tmp/site/
+          echo "pages.chechia.net" > ./tmp/site/CNAME
+          touch ./tmp/site/.nojekyll
 
       - name: Update gh-pages docs (preserve PR previews)
         run: |
@@ -62,7 +62,7 @@ jobs:
           mkdir -p docs
           find docs -mindepth 1 -maxdepth 1 -exec rm -rf {} +
 
-          cp -a /tmp/site/. docs/
+          cp -a ./tmp/site/. docs/
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
