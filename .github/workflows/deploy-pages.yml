@@ -1,0 +1,74 @@
+name: Deploy Pages Site
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+concurrency:
+  group: pages-main-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  deploy-main-site:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.146.0'
+          extended: true
+
+      - name: Build
+        env:
+          HUGO_ENVIRONMENT: production
+          HUGO_ENV: production
+        run: |
+          hugo \
+            --gc \
+            --minify \
+            --destination ./docs
+
+      - name: Prepare site artifacts
+        run: |
+          rm -rf /tmp/site
+          mkdir -p /tmp/site
+          cp -a docs/. /tmp/site/
+          echo "pages.chechia.net" > /tmp/site/CNAME
+          touch /tmp/site/.nojekyll
+
+      - name: Update gh-pages root (preserve PR previews)
+        run: |
+          git fetch origin gh-pages || true
+          git checkout gh-pages 2>/dev/null || git checkout --orphan gh-pages
+
+          # Keep existing PR previews and replace root site content.
+          find . -mindepth 1 -maxdepth 1 \
+            ! -name .git \
+            ! -name pr-preview \
+            -exec rm -rf {} +
+
+          cp -a /tmp/site/. .
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "deploy: update main site"
+          git push origin gh-pages

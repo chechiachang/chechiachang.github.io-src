@@ -1,0 +1,54 @@
+name: Deploy PR Preview
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+
+# Cancel in-progress preview deployments for the same PR when new commits arrive.
+concurrency: preview-${{ github.ref }}
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        if: github.event.action != 'closed'
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.146.0'
+          extended: true
+
+      - name: Build (PR preview)
+        if: github.event.action != 'closed'
+        env:
+          HUGO_ENVIRONMENT: development
+        run: |
+          hugo \
+            --gc \
+            --minify \
+            --baseURL "https://pages.chechia.net/pr-preview/pr-${{ github.event.number }}/" \
+            --destination ./docs
+
+      - name: Deploy PR preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: ./docs/
+          preview-branch: gh-pages
+          pages-base-url: pages.chechia.net
+          qr-code: true

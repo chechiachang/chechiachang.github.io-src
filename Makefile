@@ -31,10 +31,10 @@ hugo:
 	hugo
 
 clean:
-	rm -rf public/*
+	rm -rf docs/*
 
 cname:
-	echo "chechia.net" > public/CNAME
+	echo "chechia.net" > docs/CNAME
 
 publish: clean cname hugo
-	cd public; git add . && git commit -m "Generate from src" && git push origin master
+	cd docs; git add . && git commit -m "Generate from src" && git push origin master
