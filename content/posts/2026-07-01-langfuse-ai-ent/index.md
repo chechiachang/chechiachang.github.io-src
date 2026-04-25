@@ -49,14 +49,24 @@ LLM O11y：從 Observability 到 Decision System
 
 ## Outline
 
-1. 為什麼 observability 還不夠：Observability != Decision System
-2. 常見誤區：用 impression 做 model/framework 選擇決策
-3. LLM-as-a-judge 的價值與限制
-4. 從 observability 到 closed-loop feedback system
-5. evaluation / dataset / regression / decision gate 的實作框架
-6. LLM SLO 與 failure taxonomy 的工程化方法
-7. llm-o11y PoC：decision layer 最小可行實作
-8. 總結：把 LLM 升級從 gambling 變成可驗證決策
+在導入 LLM 與 Agent 開發流程時，團隊常面臨規格難以驗證、品質無法量化、以及回歸測試成本高等痛點。本分享將介紹如何在 AI Agent Coding 流程中結合 Langfuse 與 LLM-as-a-judge，將自然語言規格轉化為可執行的 evaluation，建立自動化的驗證與 feedback loop。你將學到如何使用 llm ai gateway、langfuse tracing、實作 evaluation & judge 流程、抽取 dataset，打造第一個可觀測、可量化的 AI 開發工作流，讓 Agent 系統開發更穩定、更可預測。
+
+1. 用 impression 做 model/framework 選擇決策。使用新 model framework 可能增加 latency 與降低可用度
+1. 從 observability 開始: bifrost + langfuse
+1. observability 還不夠：Observability != Decision System
+1. LLM-as-a-judge 的價值與限制
+1. 從 observability 到 closed-loop feedback system
+1. evaluation / dataset / regression / decision gate
+1. llm-o11y PoC：decision layer 最小可行實作
+1. 把 LLM framework 選擇，從 gambling 變成可驗證決策
+
+## Demo & POC
+
+https://github.com/chechiachang/llm-o11y
+1. Trace and observe local llm coding agent
+2. Use LLM-as-a-judge 產生 Evaluation (to coding agent)
+3. 從實務工作產生資料集：daily coding agent observations 抽取 dataset
+4. 針對不同 llm 與 framework，做 regression test，預估效益與風險
 
 ## Target group
 

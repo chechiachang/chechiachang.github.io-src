@@ -22,6 +22,8 @@ Event post must contain:
 - `Title`
 - `Outline`
 - `Target group`
+- `Takeaways`
+- `References`
 - `Author`
 
 Event post must link to its slide URL.
