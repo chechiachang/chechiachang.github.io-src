@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Cost on Che-Chia Chang</title>
+    <link>https://chechia.net/tags/cost/</link>
+    <description>Recent content in Cost on Che-Chia Chang</description>
+    <image>
+      <title>Che-Chia Chang</title>
+      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.7</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 03 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://chechia.net/tags/cost/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloud Summit: Cloud Infrastructure Saving Engineering  雲端省錢工程</title>
+      <link>https://chechia.net/posts/2024-07-03-cloud-summit/</link>
+      <pubDate>Wed, 03 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://chechia.net/posts/2024-07-03-cloud-summit/</guid>
+      <description>使用 AWS 與 Kubernetes，如何省錢？本次演講以實務的範例，分享幾個節省雲端開銷的方法，包含：導入 spot instance，成本計算與預測工具，動態資源調整 HPA 與 VPA，saving plan...，&amp;gt;並分享如何改變文化，提高團隊的成本意識，實際的降低開銷。</description>
+    </item>
+    <item>
+      <title>SRE Conference: Cloud Infrastructure Saving Engineering  雲端省錢工程</title>
+      <link>https://chechia.net/posts/2024-04-26-sre-conference/</link>
+      <pubDate>Fri, 26 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>https://chechia.net/posts/2024-04-26-sre-conference/</guid>
+      <description>使用 AWS 與 Kubernetes，如何省錢？本次演講以實務的範例，分享幾個節省雲端開銷的方法，包含：導入 spot instance，成本計算與預測工具，動態資源調整HPA與VPA，saving plan...，並分享如何改變文化，提高團隊的成本意識，實際的降低開銷</description>
+    </item>
+  </channel>
+</rss>

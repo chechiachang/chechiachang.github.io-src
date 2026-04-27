@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Certificate on Che-Chia Chang</title>
+    <link>https://chechia.net/categories/certificate/</link>
+    <description>Recent content in Certificate on Che-Chia Chang</description>
+    <image>
+      <title>Che-Chia Chang</title>
+      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.7</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 17 Sep 2019 10:15:36 +0800</lastBuildDate>
+    <atom:link href="https://chechia.net/categories/certificate/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>X.509 certificate</title>
+      <link>https://chechia.net/posts/2020-09-17-x.509-certificate/</link>
+      <pubDate>Tue, 17 Sep 2019 10:15:36 +0800</pubDate>
+      <guid>https://chechia.net/posts/2020-09-17-x.509-certificate/</guid>
+      <description>&lt;h1 id=&#34;簡單講一下-certificate&#34;&gt;簡單講一下 certificate&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;X.509 是公鑰憑證(public key certificate) 的一套標準，用在很多網路通訊協定 (包含 TLS/SSL)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;certificate 包含公鑰及識別資訊(hostname, organization, &amp;hellip;等資訊)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;certificate 是由 certificate authority(CA) 簽署，或是自簽(Self-signed)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用 browser 連入 https server時，會檢查 server 的 certificate 是否有效，確定這個 server 真的是合法的 site&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在 elastic stack 上，如果有多個 elasticsearch server node 彼此連線，由於 node 彼此是 client 也是 server&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用 self-signed CA 產出來的 certificate，連入時會檢查使用的 certificate 是否由同一組 CA 簽署&lt;/li&gt;
+&lt;li&gt;server 使用 certificate，確定連入 server 的 client 都帶有正確的私鑰與 public certificate，是 authenticated user&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;附帶說明，X.509 有多種檔案格式&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;.pem&lt;/li&gt;
+&lt;li&gt;.cer, .crt, .der&lt;/li&gt;
+&lt;li&gt;.p12&lt;/li&gt;
+&lt;li&gt;.p7b, .p7c&lt;/li&gt;
+&lt;li&gt;&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;另外檔案格式可以有其他用途，也就是說裡面裝的不一定是 X.509 憑證&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

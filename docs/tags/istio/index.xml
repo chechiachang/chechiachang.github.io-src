@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Istio on Che-Chia Chang</title>
+    <link>https://chechia.net/tags/istio/</link>
+    <description>Recent content in Istio on Che-Chia Chang</description>
+    <image>
+      <title>Che-Chia Chang</title>
+      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.7</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 06 May 2019 18:12:15 +0800</lastBuildDate>
+    <atom:link href="https://chechia.net/tags/istio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Istio 三分鐘就入坑 佈署篇</title>
+      <link>https://chechia.net/posts/2019-05-06-service-mesh-for-microservice-on-kubernetes/</link>
+      <pubDate>Mon, 06 May 2019 18:12:15 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-05-06-service-mesh-for-microservice-on-kubernetes/</guid>
+      <description>基於 Kubernetes 平台上的 Istio ，實際部署，並一步一步操作Istio 的功能。</description>
+    </item>
+  </channel>
+</rss>

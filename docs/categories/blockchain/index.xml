@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Blockchain on Che-Chia Chang</title>
+    <link>https://chechia.net/categories/blockchain/</link>
+    <description>Recent content in Blockchain on Che-Chia Chang</description>
+    <image>
+      <title>Che-Chia Chang</title>
+      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.7</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 08 Nov 2019 08:03:30 +0800</lastBuildDate>
+    <atom:link href="https://chechia.net/categories/blockchain/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ablockchain Atomic Swap</title>
+      <link>https://chechia.net/posts/2019-11-08-blockchain-atomic-swap/</link>
+      <pubDate>Fri, 08 Nov 2019 08:03:30 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-11-08-blockchain-atomic-swap/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://en.bitcoin.it/wiki/Atomic_swap&#34;&gt;https://en.bitcoin.it/wiki/Atomic_swap&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;algorithm&#34;&gt;Algorithm&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;2 pay txs and 2 claim tx&lt;/li&gt;
+&lt;li&gt;claim txs are singed at first, locked with time&lt;/li&gt;
+&lt;li&gt;2 pay txs are encrypted by x, affects only when x is reveal on the network&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;0&#34;&gt;
+&lt;li&gt;Initialization&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;A: random number x&lt;/p&gt;
+&lt;p&gt;tx1: A pay B
+A Pay BTC to B&amp;rsquo;s public key
+if x known &amp;amp; singed by B
+or Signed by A &amp;amp; B&lt;/p&gt;
+&lt;p&gt;tx2: A claim
+tx1 pay BTC to A&amp;rsquo;s public key
+locked 48 hours
+signed by A&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Blockchain Bep3 Atomic Swap</title>
+      <link>https://chechia.net/posts/2019-10-22-blockchain-bep3-atomic-swap/</link>
+      <pubDate>Tue, 22 Oct 2019 10:35:20 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-10-22-blockchain-bep3-atomic-swap/</guid>
+      <description>&lt;h1 id=&#34;bep3-atomic-swap&#34;&gt;BEP3 Atomic Swap&lt;/h1&gt;
+&lt;p&gt;Binance 在 &lt;a href=&#34;https://github.com/binance-chain/BEPs/blob/master/BEP3.md&#34;&gt;BEP3: HTLC and Atomic Peg&lt;/a&gt; 提到，BEP 即將在 binance chain 上支援原生的 Hash Timer Locked Transfer (HTLT) ，這使跨鏈的原子性交換 (atomic swap) 變得可行，透過 HTLC 在兩邊的鏈上鎖住 (peg) tokens，然後只有在執行交換的時候，透過 hash 交換，一次執行雙邊的交易。&lt;/p&gt;
+&lt;p&gt;關於 Atomic Swap 網路有非常多的訊息，有興趣的話可以看&lt;a href=&#34;https://en.bitcoin.it/wiki/Atomic_swap&#34;&gt;這篇&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;交易只有在雙邊完成後才完成，完成之前不能動用交換的資產&lt;/li&gt;
+&lt;li&gt;在任何階段失效都可以完全 fallback，並進行 refund&lt;/li&gt;
+&lt;li&gt;交易的認證是去中心化的
+&lt;ul&gt;
+&lt;li&gt;這邊有個但書，Ethereum 上是透過 smart contract 實現，但 Binance chain 上還是靠 Binance 認證 XD&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Binance 在 BEP3 中支援 HTLC，我們這邊主要的資訊來源是 binance.org 的&lt;a href=&#34;https://docs.binance.org/atomic-swap.html&#34;&gt;官方說明文件&lt;/a&gt;，這邊針對文章進行驗證，並且補足文件缺漏的部分，提醒過程中可能會踩到的雷。&lt;/p&gt;
+&lt;h3 id=&#34;跨鍊cross-chain-交易&#34;&gt;跨鍊(Cross Chain) 交易&lt;/h3&gt;
+&lt;p&gt;在部署 asset / token 的時候，我們會選擇合適的鏈作為發布資產並運行 block chain app。常用的應用鏈如 ethereum 與 binance chain 等等。不同的主鏈上有各自的優缺點，例如使用 ethereum ，可以與許多 token 與應用互動，也是最多人使用的應用主鏈。而在 binance 鏈上執行，則能夠快速的發生 transactions，並且可以與 binance 上的資產與交易所互動。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

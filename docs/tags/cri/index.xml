@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Cri on Che-Chia Chang</title>
+    <link>https://chechia.net/tags/cri/</link>
+    <description>Recent content in Cri on Che-Chia Chang</description>
+    <image>
+      <title>Che-Chia Chang</title>
+      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.7</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 06 Oct 2018 12:07:00 +0800</lastBuildDate>
+    <atom:link href="https://chechia.net/tags/cri/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kubernetes Container Runtime Interface</title>
+      <link>https://chechia.net/posts/2018-10-06-kubernetes-container-runtime-interface/</link>
+      <pubDate>Sat, 06 Oct 2018 12:07:00 +0800</pubDate>
+      <guid>https://chechia.net/posts/2018-10-06-kubernetes-container-runtime-interface/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,146 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><title>Hashicorp: managed database credentials with Hashicorp Vault</title><meta name=description content="分享如何使用 Hashicorp Vault 管理資料庫的帳號密碼，並透過 AWS IAM Role 與 Kubernetes Service Account 進行驗證，以及如何連線到資料庫，監控與審查。"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="black-translucent"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><link rel=stylesheet href=/reveal-js/dist/reset.css><link rel=stylesheet href=/reveal-js/dist/reveal.css><link rel=stylesheet href=/reveal-hugo/themes/robot-lung.css id=theme><link rel=stylesheet href=/highlight-js/color-brewer.min.css></head><body><div class=reveal><div class=slides><section><h3 id=vault-managed-database-credentials>Vault: Managed Database Credentials</h3><p>with Hashicorp Vault</p><p><a href=https://chechia.net/>Che Chia Chang</a></p><aside class=notes><p>投影片跟講稿我都放在我的網站上，如果有興趣可以參考</p></aside></section><section><p>About Me</p><ul><li>Che Chia Chang</li><li>SRE @ <a href=https://www.linkedin.com/company/maicoin/jobs/>Maicoin</a></li><li><a href=https://mvp.microsoft.com/zh-TW/MVP/profile/e407d0b9-5c01-eb11-a815-000d3a8ccaf5>Microsoft MVP</a></li><li><a href=https://chechia.net/>chechia.net</a></li></ul></section><section><p>相關資源</p><ul><li><a href=https://github.com/chechiachang/vault-playground>Demo 範例程式碼 https://github.com/chechiachang/vault-playground</a> <strong>Demo 用途，請充分理解後再使用</strong></li><li><a href=https://chechia.net/zh-hant/talk/hashicorp-managed-database-credentials-with-hashicorp-vault/>今日投影片與講稿與其他資源 chechia.net</a></li><li><a href=https://chechia.net/zh-hant/talk/hashicorp-vault-on-aws-k8s-%E9%9B%B2%E7%AB%AF%E5%9C%B0%E7%AB%AF%E9%80%9A%E5%90%83%E7%9A%84%E7%A7%81%E9%91%B0%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0/>2023 Vault 雲端的端通吃的私鑰管理平台</a></li><li><a href=https://ithelp.ithome.com.tw/users/20120327/ironman/4057>從零開始學Terraform手把手入門</a></li></ul></section><section><p>大綱</p><ul><li>DB 帳號密碼管理的難題</li><li>Vault DB <strong>secret engine</strong></li><li>Demo 1 需要時自動產生資料庫帳號密碼</li><li>Vault <strong>auth method</strong> 第三方認證身份</li><li>Demo 2 github login and auth</li><li>程式化權限管理與稽查</li><li>Demo 3 <strong>terraform</strong> 設定 vault 與 DB secret engine</li><li>(看時間) monitoring / audit</li></ul><aside class=notes></aside></section><section><p>DB 帳號密碼管理的難題</p><ul><li>認證(Authentication)<ul><li>密碼保管與暴露</li></ul></li><li>授權(Authorization)</li><li>密碼更新</li></ul><aside class=notes><p>認證可以更好
+授權可以更彈性方便
+密碼更新可以更頻繁
+密碼暴露風險可以被動控制</p><p>重要程度第一考量是資訊安全
+第二是管理方便度，有沒有 utility 可以幫我們管理</p><p>底下透過一個 user story 來說明這些難題</p></aside></section><section><p><strong>Authentication 認證</strong></p><blockquote><p>you are who you say you are</p></blockquote><p><strong>Authorization 授權</strong></p><blockquote><p>you are allowed to do what you are trying to do</p></blockquote><aside class=notes><p>名詞解釋</p></aside></section><section><p>User Story</p><ul><li>一個app，為app設定了一個資料庫</li><li>資料庫存放app資料，只有app能存取資料</li><li>使用<strong>帳號密碼</strong>認證，app可以存取資料庫</li></ul><p><strong>app(username=app, password) > DB</strong></p><p><strong>DB > hi, app!</strong></p><aside class=notes><p>市面上有很多資料庫，都是使用帳號密碼來認證app的身份
+產生第一個難題，就是帳號密碼的存放與管理</p></aside></section><section><p>難題/認證</p><p>對於資料庫來說，<strong>username=app</strong>的人，就是app</p><ol><li>有帳號密碼是否就相信他是app？</li><li>有沒有賬號密碼以外的方式確認app的身份？</li></ol><aside class=notes><p>然而這跟我們的 user story 還是有落差
+其中也隱藏資安風險
+我們很習慣使用帳號密碼來認證身份，但是隨著時代演進，駭客有更多方法取得帳號密碼</p></aside></section><section><p>難題/認證/密碼保管與暴露</p><ul><li>dba 需要開發db，手上有admin帳號密碼</li><li>資安風險<ul><li>開發機器安裝惡意軟體/側錄密碼</li><li>帳號密碼被竊取</li><li>員工分開私人與公司電腦</li></ul></li></ul><aside class=notes><p>駭客將開源的工具修改，增加後門，然後 release 給 admin
+夠過社交工程，讓 admin 不知不覺安裝了惡意軟體
+很開心拿來用，但是這個工具側錄了 admin 的帳號密碼</p></aside></section><section><p>難題/認證/密碼暴露</p><ul><li>更嚴謹的身份確認，更難被破解<ul><li>ex Client Certificate Authentication</li></ul></li><li>安全的存放密碼，避免密碼暴露</li><li>更好的做法<ul><li><strong>不要存放密碼，卻能使用密碼??</strong></li><li>放在 Vault 裡面</li></ul></li></ul><aside class=notes><p>以往我們沒有更好的方式來確認app的身份，所以只能使用帳號密碼
+針對密碼強度，現在有更好的方式來確認app的身份，例如 Client Certificate Authentication
+提供更嚴謹的身份確認，現在許多資料庫都支援 tls，可以透過tls來確認app的身份
+完整的認證，公正的 ca 簽發，certs 很難被暴力破解</p><p>我們要面對的是另外一層的風險，就是密碼暴露
+就算你手上是有一個很強的密碼，但是你的開發機器被駭，密碼就被竊取了
+dba 手上有存 admin 帳號密碼的
+有用密碼管理器 1password ，有比較好，因為他幫你做加密與儲存，但也不能期待 1password 永不被駭
+如果你手上的密碼重要程度非常高，高過密碼工具可以承擔的風險，那你就要考慮使用更安全的方式來管理密碼</p><p>有沒有可能 dba/sre 手上不要有帳號密碼，而是由內網的 vault 來管理帳號密碼</p></aside></section><section><p><a href=https://developer.hashicorp.com/vault/docs/secrets/databases>Vault DB secret engine</a></p><p><img loading=lazy src=vault/secret-database-flow.png></p></section><section><p><a href=https://developer.hashicorp.com/vault/docs/secrets/databases>Vault DB secret engine</a></p><p><img loading=lazy src=https://www.datocms-assets.com/2885/1576778435-vault-db.png></p></section><section><p><a href=https://developer.hashicorp.com/vault/docs/secrets/databases>Vault DB secret engine</a></p><ul><li>需要時自動產生DB使用者密碼</li><li>短效期使用者與密碼 ex 1hr</li><li>不延展自動到期，刪除使用者</li><li>未完成工作可以自動延展</li><li>app可以一直取得新使用者與密碼</li></ul></section><section><p>User Story (v2)</p><ul><li>只有 vault 有 admin 密碼</li><li>user 需要時，vault 動態產生<strong>短效期使用者與密碼</strong><ul><li>效期到自動刪除</li></ul></li><li>使用 vault library 程式化連線 db<ul><li>不在開發機器上存密碼</li><li>不手動輸入密碼</li></ul></li></ul><aside class=notes></aside></section><section><p>Vault DB secret engine 支援，沒支援可以自己寫 plugin</p><p><img loading=lazy src=vault/vault-secrets-databases.png></p></section><section><p>Demo 1: Vault DB secret engine</p><p>Setup</p><pre><code>git clone git@github.com:chechiachang/vault-playground.git
+cd vault-playground/deploy/04-docker-and-db/
+docker-compose up -d
+
+docker ps
+
+docker exec -it 04-docker-and-db-mariadb_1-1 bash
+
+docker exec -it 04-docker-and-db-vault_1-1 sh
+apk update &amp;&amp; apk add mysql-client
+mysql -h mariadb_1 -u root -p
+</code></pre></section><section><p>Demo 1: Vault DB secret engine</p><pre><code>// Connect to docker vault
+export VAULT_ADDR=http://127.0.0.1:8200
+vault status
+vault login
+
+vault secrets list
+
+// Configure secret engine database (terraform)
+vault secrets list
+vault policy list
+
+cd usage/03-terraform-lives
+terragrunt init
+terragrunt apply
+</code></pre></section><section><p>Demo 1: Vault DB secret engine</p><p>Use database secret engine</p><pre><code>// root configure (already done by terraform)
+vault secrets list
+vault list localhost_mariadb/config
+vault read localhost_mariadb/config/localhost_mariadb 
+
+vault list localhost_mariadb/roles
+vault read localhost_mariadb/roles/database_admin
+
+vault policy list
+vault policy read dba
+
+// create token for dba (will automatically done in Demo 2)
+vault token create -policy=dba -display-name=dba \
+  -ttl=1h -use-limit=5
+</code></pre></section><section><p>Demo 1: Vault DB secret engine</p><pre><code>// auth as dba
+vault login
+vault policy list
+vault read localhost_mariadb/creds/database_admin
+mysql --sql -h localhost -u &lt;username&gt; -p
+
+// do dba things
+show databases;
+select user from mysql.user;
+...
+exit
+</code></pre></section><section><p>解決存放與取用，回到難題/認證</p><p>對於資料庫來說，<strong>username=app</strong>的人，就是app</p><ol><li>有帳號密碼是否就相信他是app？</li><li>有沒有賬號密碼以外的方式確認app的身份？</li></ol><aside class=notes></aside></section><section><p>Vault 的解決方案</p><p><img loading=lazy src=vault/vault-identity-based-security.png></p><aside class=notes></aside></section><section><p>難題/認證/Vault <strong>Auth method</strong></p><p>Vault 仰賴外部可信第三方(trusted authority)</p><ul><li>user/app 透過第三方動態取得合法的身份</li><li>aws / azure / gcp iam role / github / saml / LDAP &mldr;</li></ul><p>開發機器上沒有密碼，就不會因為機器被駭/側錄，造成密碼洩漏</p><aside class=notes><p>Vault 仰賴外部可信第三方(trusted authority)
+把local開發機器被駭的風險，轉移到其他更安全的地方
+aws / azure / gcp iam role / github / saml
+內網的Vault
+LDAP</p></aside></section><section><p>難題/認證/Vault Auth method/AWS</p><ul><li>IAM auth method</li><li>EC2 auth method<ul><li>透過 AWS API 去確認身份</li><li>登入的 aws user / 合法的 iam role</li><li>vault 透過 aws api 去核對身份</li><li>核對正確，vault 提供短期 database credential 給 user / app</li></ul></li></ul></section><section><p><a href=https://developer.hashicorp.com/vault/docs/auth/aws>app 跑在 Ec2 上，使用 Ec2 做認證</a></p><p><img loading=lazy src=/slides/2024-08-28-hashicorp-vault-database/aws-auth-method.png></p><aside class=notes><p>EC2 auth method
+如果你有使用 aws ec2，可以透過 aws api 來取得 iam role / ec2 metadata</p><p>由於 database 本身的認證機制有限，我們可以透過 vault 來管理帳號密碼
+將登入的資安管理交給更嚴謹的第三方</p><p>aws login 比單純 mysql login 安全，因為多了更多認證檢查
+access key / password / MFA
+ip 來源檢查
+ratelimit
+DDOS protection
+有問題時會有 audit log</p><p>auth method 混搭
+可以面對不同的資安風險</p></aside></section><section><p><a href=https://www.hashicorp.com/blog/dynamic-database-credentials-with-vault-and-kubernetes>app 跑在 Kubernetes 上，使用 Service Account 做認證</a></p><p><img loading=lazy src="https://www.datocms-assets.com/2885/1578078487-screen-shot-2020-01-03-at-19-07-14.png?fit=max&q=80&w=2000"></p><aside class=notes></aside></section><section><blockquote><p>使用 Vault auth method，信任第三方取得身份
+從雙方查核，變成三方查核</p></blockquote></section><section><p><a href=https://developer.hashicorp.com/vault/docs/auth>有支援的 auth method，可以自己搭配</a></p><p><img loading=lazy src=/slides/2024-08-28-hashicorp-vault-database/auth-methods.png></p><aside class=notes><ul><li>user auth method<ul><li>aws/gcp/azure iam role, github, saml, LDAP</li><li>Login MFA</li></ul></li><li>app使用auth method認證<ul><li>aws/gcp/azure iam role (ec2 role)</li><li>kubernetes api server (pod service account)</li></ul></li></ul></aside></section><section><p>User Story (v3)</p><ul><li>只做一次：Vault 設定 DB secret engine</li><li>user 本機不存放 DB 帳號密碼</li><li>user/app 透過 Vault auth method<ul><li>user aws iam role</li><li>app k8s service account</li></ul></li><li>user/app可以存取vault中的db帳號密碼</li></ul><p><strong>app > trusted authority</strong></p><p><strong>app &lt; (identity) &lt; trusted authority</strong></p><p><strong>app > (identity) > vault > trusted authority</strong></p><p><strong>app &lt; (DB credential) &lt; vault</strong>></p><aside class=notes></aside></section><section><p>Demo 2: Auth method</p><p><a href=https://developer.hashicorp.com/vault/docs/auth/github>https://developer.hashicorp.com/vault/docs/auth/github</a></p><pre><code>// root 
+vault policy list
+vault policy read sre
+
+vault list auth/github-chechia-net/map/users
+vault read auth/github-chechia-net/map/users/chechiachang
+vault list auth/github-chechia-net/map/teams
+vault read auth/github-chechia-net/map/teams/sre
+vault auth help github-chechia-net
+
+// user (github login)
+vault login -method=github -path=github-chechia-net token=$TOKEN
+vault read localhost_mariadb/creds/database_admin
+</code></pre></section><section><p>Demo 2: Auth method</p><p><a href=https://developer.hashicorp.com/vault/docs/auth/aws>https://developer.hashicorp.com/vault/docs/auth/aws</a></p><pre><code>// User login Public Cloud
+aws-vault exec dev -- vault login -method=aws -path=aws=sre
+gcloud ... vault login -method=gcp -path=gcp=sre
+az login ... vault login -method=azure -path=azure=sre
+
+// app login k8s
+</code></pre></section><section><p><a href=https://developer.hashicorp.com/vault/docs/auth/kubernetes>難題/認證/Vault Auth method/Kubernetes</a></p><p><strong>app > sa -> k8s api server -> vault -> DB</strong></p><ul><li>使用 <a href=https://developer.hashicorp.com/vault/docs/platform/k8s/injector>k8s vault injector</a></li><li>app 跑在 Pod，Pod 取得 k8s service account 短期 jwt token</li><li>app 透過 jwt token 給 vault 聲稱自己是 app<ul><li>vault 使用 jwt token 與 k8s api server 核對 pod service account</li><li>k8s 核對成功，vault 認為 app 是 k8s 中的 app</li><li>vault 提供短期 database credential 給 app</li></ul></li><li>app 使用短期 database credential 存取資料庫</li></ul><aside class=notes></aside></section><section><p>難題/認證/Vault Auth method/小結</p><ul><li>本地存放 password 的風險</li><li>如果有公有雲，存放雲端服務<ul><li>通過檢驗且合規的安全系統</li></ul></li><li>如果是地端，使用 vault 來管理帳號密碼<ul><li>存放 admin</li><li>動態產生 db user</li></ul></li></ul><aside class=notes><p>最容易被駭的，不是地端網路被打穿，而是 admin 的開發機器存放帳號密碼，被釣魚被側錄被竊取
+用了很好的防火牆，但是 admin 的開發機器存放帳號密碼，或是 1password</p></aside></section><section><p>User Story (v?)</p><p>需求會一直改變</p><ol><li>app 存取資料，變成</li><li>app + admin + metabase 不同權限</li></ol><aside class=notes><p>需求會一直改變，目前管理方式有足夠的彈性去面對需求的改變嗎？</p></aside></section><section><p>難題/授權</p><p>MySQL 為例，使用 sql 管理授權</p><p>user based access control</p><pre><code class=language-sql>grant write on mydb.* to app@'%'
+grant all on mydb.* to admin@'%'
+grant read on mydb.* to metabase@'%'
+</code></pre><p>role based access control</p><pre><code class=language-sql>create role myrole;
+grant all on mydb.* to myrole;
+grant myrole to app@'%';
+</code></pre></section><section><p>難題/授權/Scale up</p><ul><li>Scale up，100 個 user x 100 個 database</li><li>權限變更難 review</li><li>變更授權的admin user權力很大，如何存放管理</li></ul><aside class=notes><p>100 個 user，就要下 100 次 sql grant role
+100 個 database，就要下 x100 次 sql grant role
+有人離職再進來下 sql</p></aside></section><section><p>難題/授權/Scale up</p><pre><code class=language-hcl>resource &quot;mysql_role&quot; &quot;myrole&quot; {
+  for_each = var.roles
+
+  name     = each.key
+}
+
+resource &quot;mysql_grant&quot; &quot;developer&quot; {
+  for_each   = var.roles
+
+  role       = each.key
+  database   = each.value.database
+  privileges = each.value.privilleges // [&quot;SELECT&quot;, &quot;UPDATE&quot;]
+}
+</code></pre><aside class=notes><p>SQL 也可以寫 loop，也可以寫 unit test</p></aside></section><section><p>難題/授權/PR Review</p><ul><li>Terraform 管理 MySQL 授權</li><li>Terraform 有比較好嗎？<ul><li>程式化設定</li><li>Reviewable / Testable code</li></ul></li><li>請見<a href=https://ithelp.ithome.com.tw/users/20120327/ironman/4057>從零開始學Terraform手把手入門</a></li></ul><aside class=notes><p>透過 terraform 來管理資料庫的授權，可以讓我們更方便的管理授權</p><p>把 mysql admin username/password 放在雲端 ex. aws secret manager，透過 terraform 來取得帳號密碼</p></aside></section><section><p>難題/授權/Automation</p><p>Vault 管理授權</p><ul><li>Or Vault + Terraform？</li></ul><pre><code>vault policy list
+
+database_admin
+database_readonly
+database_write
+
+vault policy read database_write
+path &quot;chechia-net-myapp/database/database&quot; {
+  capabilities = [&quot;create&quot;, &quot;read&quot;, &quot;update&quot;, &quot;patch&quot;, &quot;delete&quot;, &quot;list&quot;]
+}
+</code></pre><aside class=notes><p>很重要所以再說一次
+如果你有用雲端服務，可以考慮使用雲端服務來管理帳號密碼
+如果你是地端，可以考慮使用 vault 來管理帳號密碼</p></aside></section><section><p>Demo 3: Terraform 設定 Vault 與 DB secret engine</p><pre><code>// destroy
+cd vault-playground/usage/03-terraform-lives
+terragrunt destroy
+
+cd vault-playground/deploy/04-docker-and-db/
+docker-compose down
+
+// create new
+docker-compose up -d
+docker ps
+
+cd vault-playground/usage/03-terraform-lives
+terragrunt apply
+</code></pre></section><section><p>Demo 3: Terraform 設定 Vault 與 DB secret engine</p><ul><li>程式化權限控管<ul><li>一鍵設定環境<ul><li>CI/CD 測試<ul><li>fmt, lint, unit test</li></ul></li></ul></li><li>PR Review</li></ul></li><li>Automation plan，apply<ul><li>避免人工操作的失誤與風險</li><li>DBA 不用密碼或 login，因為根本不連 prod DB</li><li>incident 一鍵 roll back</li></ul></li></ul><aside class=notes><p>sql 也都能做，也都有工具在做，只是語言的性質導致這件事好不好做</p></aside></section><section><p>總結</p><ul><li>Vault DB secret engine<ul><li>管理資料庫帳號密碼</li><li>動態產生 db user</li></ul></li><li>Vault auth method<ul><li>第三方認證身份</li><li>Github / AWS IAM Role / Kubernetes Service Account</li></ul></li><li>Vault + Terraform<ul><li>程式化權限控管</li><li>PR Review</li><li>Automation plan，apply</li></ul></li></ul><aside class=notes></aside></section><section><h3 id=qa>Q&amp;A</h3></section></div></div><script type=text/javascript src=/reveal-hugo/object-assign.js></script><script src=/reveal-js/dist/reveal.js></script><script type=text/javascript src=/reveal-js/plugin/markdown/markdown.js></script><script type=text/javascript src=/reveal-js/plugin/highlight/highlight.js></script><script type=text/javascript src=/reveal-js/plugin/zoom/zoom.js></script><script type=text/javascript src=/reveal-js/plugin/notes/notes.js></script><script type=text/javascript>function camelize(e){return e&&Object.keys(e).forEach(function(t){newK=t.replace(/(_\w)/g,function(e){return e[1].toUpperCase()}),newK!=t&&(e[newK]=e[t],delete e[t])}),e}var revealHugoDefaults={center:!0,controls:!0,history:!0,progress:!0,transition:"slide"},revealHugoSiteParams={},revealHugoPageParams={custom_theme:"reveal-hugo/themes/robot-lung.css",highlight_theme:"color-brewer",margin:.2,templates:{hotpink:{background:"#FF4081",class:"hotpink"}},transition:"slide",transition_speed:"fast"},revealHugoPlugins={plugins:[RevealMarkdown,RevealHighlight,RevealZoom,RevealNotes]},options=Object.assign({},camelize(revealHugoDefaults),camelize(revealHugoSiteParams),camelize(revealHugoPageParams),camelize(revealHugoPlugins));Reveal.initialize(options)</script></body></html>

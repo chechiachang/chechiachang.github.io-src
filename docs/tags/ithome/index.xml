@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ithome on Che-Chia Chang</title>
+    <link>https://chechia.net/tags/ithome/</link>
+    <description>Recent content in Ithome on Che-Chia Chang</description>
+    <image>
+      <title>Che-Chia Chang</title>
+      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.7</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 07 Oct 2019 08:12:10 +0800</lastBuildDate>
+    <atom:link href="https://chechia.net/tags/ithome/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Prometheus &amp; Kubernetes State Metrics Exporter</title>
+      <link>https://chechia.net/posts/2019-10-07-prometheus-kube-state-metrics-exporter/</link>
+      <pubDate>Mon, 07 Oct 2019 08:12:10 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-10-07-prometheus-kube-state-metrics-exporter/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Prometheus / Grafana (5)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-deployment-on-kubernetes/&#34;&gt;GKE 上自架 Prometheus&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-deploy-grafana/&#34;&gt;GKE 上自架 Grafana&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-scrape/&#34;&gt;scrape config &amp;amp; exporter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-06-prometheus-exporter-library-redis-exporter/&#34;&gt;Dive into Redis Exporter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-07-prometheus-kube-state-metrics-exporter/&#34;&gt;輸出 kube-state 的監測數據&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
+&lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;如果要透過 prometheus 來監控集群的運行狀況，有兩個 exporter 是必裝的，一個是把 node 狀態 export 出來的 node exporter，一個是把 kubernetes 集群狀態 export 出來的 kube state metrics exporter。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Node Exporter 簡介&lt;/li&gt;
+&lt;li&gt;kube metrics exporter 安裝與設定&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;node-exporter&#34;&gt;Node Exporter&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/prometheus/node_exporter&#34;&gt;Node Exporter&lt;/a&gt; 是 prometheus 官方維護的一個子項目，主要在把類 unix 硬體 kernel 的 metrics 送出來。官方也支援 windows node 與 nvidia gpu metrics，可以說是功能強大。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Prometheus Exporter Library &amp; Redis Exporter</title>
+      <link>https://chechia.net/posts/2019-10-06-prometheus-exporter-library-redis-exporter/</link>
+      <pubDate>Sun, 06 Oct 2019 08:12:10 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-10-06-prometheus-exporter-library-redis-exporter/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Prometheus / Grafana (5)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-deployment-on-kubernetes/&#34;&gt;GKE 上自架 Prometheus&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-deploy-grafana/&#34;&gt;GKE 上自架 Grafana&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-scrape/&#34;&gt;scrape config &amp;amp; exporter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-06-prometheus-exporter-library-redis-exporter/&#34;&gt;Dive into Redis Exporter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-07-prometheus-kube-state-metrics-exporter/&#34;&gt;輸出 kube-state 的監測數據&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
+&lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Exporter 工作原理簡介&lt;/li&gt;
+&lt;li&gt;Prometheus exporter library&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;exporter-workflow&#34;&gt;Exporter workflow&lt;/h1&gt;
+&lt;p&gt;上次講到 exporter 可以從服務端把運行資料抽出來，並開成 http endpoint，讓 prometheus 來 scrape metrics。那 exporter 本身是如何取得服務內部的 metrics 呢? 我們今天就稍微看一下。&lt;/p&gt;
+&lt;h1 id=&#34;redis-exporter&#34;&gt;Redis Exporter&lt;/h1&gt;
+&lt;p&gt;我們今天以 &lt;a href=&#34;https://github.com/oliver006/redis_exporter&#34;&gt;Redis Exporter&lt;/a&gt; 為例，研究一下外部的 exporter 是如何取得 redis 內部的 metrcs。&lt;/p&gt;
+&lt;p&gt;Redis exporter 是用 golang 寫的一個小程式，總共算算才 1000 行，而且很多都是對 redis 內部 metrics 的清單，以及轉化成 prometheus metrics 的 tool functions，主要的邏輯非常簡單。我們簡單看一下源碼。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Prometheus Deployment on Kubernetes</title>
+      <link>https://chechia.net/posts/2019-10-04-prometheus-deployment-on-kubernetes/</link>
+      <pubDate>Fri, 04 Oct 2019 16:12:10 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-10-04-prometheus-deployment-on-kubernetes/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Prometheus / Grafana (5)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-deployment-on-kubernetes/&#34;&gt;GKE 上自架 Prometheus&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-deploy-grafana/&#34;&gt;GKE 上自架 Grafana&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-scrape/&#34;&gt;scrape config &amp;amp; exporter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-06-prometheus-exporter-library-redis-exporter/&#34;&gt;Dive into Redis Exporter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-07-prometheus-kube-state-metrics-exporter/&#34;&gt;輸出 kube-state 的監測數據&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
+&lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Prometheus Introduction&lt;/li&gt;
+&lt;li&gt;Deploy Prometheus&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;prometheus-introduction&#34;&gt;Prometheus Introduction&lt;/h1&gt;
+&lt;p&gt;生產環境與非生產環境，其中的一指標就是有沒有足夠完整的服務監測系統，這句話可以看出服務監測對於產品化是多麼重要。而監控資料 (metrics) 的收集與可視化工具其實非常多，例如上周介紹的 ELK Stack，這次我們要來介紹另外一個很多人使用的 prometheus。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://prometheus.io/&#34;&gt;Promethues 在官網上提到&lt;/a&gt; 是一個 Monitoring system and time series database&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;可以收集高維度的資料&lt;/li&gt;
+&lt;li&gt;使用自己的 PromQL 做有效且精簡的資料查詢&lt;/li&gt;
+&lt;li&gt;內建資料瀏覽器，並且與 Grafana 高度整合&lt;/li&gt;
+&lt;li&gt;支援 sharding 與 federation，來達到水平擴展&lt;/li&gt;
+&lt;li&gt;有許多隨插即用的整合 exporter，例如 redis-exporter, kafka-exporter，kubernetes-exporter ，都可以直接取得資料&lt;/li&gt;
+&lt;li&gt;支援 alert，使用 PromQL 以及多功能的告警，可以設定精準的告警條件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;與-elk-做比較&#34;&gt;與 ELK 做比較&lt;/h1&gt;
+&lt;p&gt;基本上 Prometheus 跟 ELK 比，其實是很奇怪的一件事，但這也是最常被問的一個問題。兩者在本質上是完全不同的系統。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Prometheus Deploy Grafana</title>
+      <link>https://chechia.net/posts/2019-10-04-prometheus-deploy-grafana/</link>
+      <pubDate>Fri, 04 Oct 2019 08:12:10 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-10-04-prometheus-deploy-grafana/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Prometheus / Grafana (5)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-deployment-on-kubernetes/&#34;&gt;GKE 上自架 Prometheus&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-deploy-grafana/&#34;&gt;GKE 上自架 Grafana&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-scrape/&#34;&gt;scrape config &amp;amp; exporter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-06-prometheus-exporter-library-redis-exporter/&#34;&gt;Dive into Redis Exporter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-07-prometheus-kube-state-metrics-exporter/&#34;&gt;輸出 kube-state 的監測數據&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
+&lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Grafana Introduction&lt;/li&gt;
+&lt;li&gt;Deploy Grafana&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;grafana-introduction&#34;&gt;Grafana Introduction&lt;/h1&gt;
+&lt;p&gt;上偏我們簡單介紹了 Prometheus，prometheus 的 Web Portol 已經附上簡單的 Query 與 Graph 工具，但一般我們在使用時，還是會搭配 Grafana 來使用。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://grafana.com/grafana/&#34;&gt;Grafana 在官網上提到&lt;/a&gt; 是一個 Analytics system，可以協助了解運行資料，建立完整的 dashboard。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;支援許多圖表，直線圖，長條圖，區域分析，基本上需要的都有&lt;/li&gt;
+&lt;li&gt;在圖表上定義 alter，並且主動告警，整合其他通訊軟體&lt;/li&gt;
+&lt;li&gt;對後端 data source 的整合，可以同時使用 ELK, prometheus, influxdb 等 30 多種的資料來源&lt;/li&gt;
+&lt;li&gt;有許多公開的 plugin 與 dashboard 可以匯入使用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;總之功能強大，至於用起來的感覺，個人是非常推薦。如果有大得想要試玩看看，可以直接到 &lt;a href=&#34;https://play.grafana.org/d/000000029/prometheus-demo-dashboard?orgId=1&amp;amp;refresh=5m&#34;&gt;Grafana Live Demo&lt;/a&gt; 上面試玩&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Prometheus Scrape</title>
+      <link>https://chechia.net/posts/2019-10-04-prometheus-scrape/</link>
+      <pubDate>Fri, 04 Oct 2019 08:12:10 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-10-04-prometheus-scrape/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Prometheus / Grafana (5)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-deployment-on-kubernetes/&#34;&gt;GKE 上自架 Prometheus&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-deploy-grafana/&#34;&gt;GKE 上自架 Grafana&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-scrape/&#34;&gt;scrape config &amp;amp; exporter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-06-prometheus-exporter-library-redis-exporter/&#34;&gt;Dive into Redis Exporter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-07-prometheus-kube-state-metrics-exporter/&#34;&gt;輸出 kube-state 的監測數據&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
+&lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Prometheus scrape&lt;/li&gt;
+&lt;li&gt;scrape_configs&lt;/li&gt;
+&lt;li&gt;Node exporter&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;scrape&#34;&gt;Scrape&lt;/h1&gt;
+&lt;p&gt;Prometheus 收集 metrics 的方式，是從被監測的目標的 http endpoints 收集 (scrape) metrics，目標服務有提供 export metrics 的 endpoint 的話，稱作 exporter。例如 kafka-exporter 就會收集 kafka 運行的 metrics，變成 http endpoint instance，prometheus 從 instance 上面收集資料。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Redis Ha Failure Recovery</title>
+      <link>https://chechia.net/posts/2019-10-03-redis-ha-failure-recovery/</link>
+      <pubDate>Thu, 03 Oct 2019 16:12:10 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-10-03-redis-ha-failure-recovery/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在 GKE 上部署 Redis HA (5)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-28-redis-ha-deployment/&#34;&gt;使用 helm 部署 redis-ha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-29-redis-ha-sentinel/&#34;&gt;Redis HA with sentinel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-30-redis-ha-topology/&#34;&gt;Redis sentinel topology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-02-redis-ha-on-haproxy/&#34;&gt;Redis HA with HAproxy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-03-redis-ha-failure-recovery/&#34;&gt;Redis HA Failure Recovery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Prometheus Metrics Exporter&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
+&lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Failure Case&lt;/li&gt;
+&lt;li&gt;Recovery&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;topology&#34;&gt;Topology&lt;/h1&gt;
+&lt;p&gt;上篇的例子完成應該是這樣&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+   +-------+   +--------+    +------------+    +---------+
+   |Clients|---|HAProxys|----|redis master|----|sentinels|
+   +-------+   +--------+    +------------+    +---------+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;HAproxy 作為後端 redis 的 gateway&lt;/li&gt;
+&lt;li&gt;Client 透過 HAproxy 連入 redis master&lt;/li&gt;
+&lt;li&gt;sentinel 負責監測 redis 狀態與 failover，只是 client 不再透過 sentinel 去取得 master，而是透過 HAProxy。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;那現在就來聊聊這些服務可能怎麼死的，回復的機制又是如何&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Redis Ha HAProxy</title>
+      <link>https://chechia.net/posts/2019-10-02-redis-ha-on-haproxy/</link>
+      <pubDate>Wed, 02 Oct 2019 16:12:10 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-10-02-redis-ha-on-haproxy/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在 GKE 上部署 Redis HA (5)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-28-redis-ha-deployment/&#34;&gt;使用 helm 部署 redis-ha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-29-redis-ha-sentinel/&#34;&gt;Redis HA with sentinel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-30-redis-ha-topology/&#34;&gt;Redis sentinel topology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-02-redis-ha-on-haproxy/&#34;&gt;Redis HA with HAproxy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-03-redis-ha-failure-recovery/&#34;&gt;Redis HA Failure Recovery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Prometheus Metrics Exporter&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
+&lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;HAProxy Introduction&lt;/li&gt;
+&lt;li&gt;Redis Sentinel with HAProxy&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;haproxy-intro&#34;&gt;HAProxy Intro&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.haproxy.org/#docs&#34;&gt;HAproxy&lt;/a&gt; 全名是 High Availability Proxy，是一款開源 TCP/HTTP load balancer，他可以&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;聽 tcp socket，連 server，然後把 socket 接在一起讓雙向流通&lt;/li&gt;
+&lt;li&gt;可做 Http reverse-proxy (Http gateway)，自己作為代理 server，把接受到的 connection 傳到後端的 server。&lt;/li&gt;
+&lt;li&gt;SSL 終端，可支援 client-side 與 server-side 的 ssl/tls&lt;/li&gt;
+&lt;li&gt;當 tcp/http normalizer&lt;/li&gt;
+&lt;li&gt;更改 http 的 request 與 response&lt;/li&gt;
+&lt;li&gt;當 switch，決定 request 後送的目標&lt;/li&gt;
+&lt;li&gt;做 load balancer，為後端 server 做負載均衡&lt;/li&gt;
+&lt;li&gt;調節流量，設定 rate limit，或是根據內容調整流量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;HAProxy 還有其他非常多的功能，想了解細節可以來看&lt;a href=&#34;http://cbonte.github.io/haproxy-dconv/1.9/intro.html#3&#34;&gt;原理解說文件&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Redis Ha Topology</title>
+      <link>https://chechia.net/posts/2019-09-30-redis-ha-topology/</link>
+      <pubDate>Mon, 30 Sep 2019 16:12:10 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-09-30-redis-ha-topology/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在 GKE 上部署 Redis HA (5)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-28-redis-ha-deployment/&#34;&gt;使用 helm 部署 redis-ha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-29-redis-ha-sentinel/&#34;&gt;Redis HA with sentinel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-30-redis-ha-topology/&#34;&gt;Redis sentinel topology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-02-redis-ha-on-haproxy/&#34;&gt;Redis HA with HAproxy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-03-redis-ha-failure-recovery/&#34;&gt;Redis HA Failure Recovery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Prometheus Metrics Exporter&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
+&lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Redis Sentinel Topology&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;topology&#34;&gt;Topology&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Masters: M1, M2, M3, &amp;hellip;, Mn.&lt;/li&gt;
+&lt;li&gt;Slaves: R1, R2, R3, &amp;hellip;, Rn (R stands for replica).&lt;/li&gt;
+&lt;li&gt;Sentinels: S1, S2, S3, &amp;hellip;, Sn.&lt;/li&gt;
+&lt;li&gt;Clients: C1, C2, C3, &amp;hellip;, Cn.&lt;/li&gt;
+&lt;li&gt;每個方格代表一台機器或是 VM&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-sentinels&#34;&gt;2 Sentinels&lt;/h3&gt;
+&lt;p&gt;DON&amp;rsquo;T DO THIS&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Redis Ha Sentinel</title>
+      <link>https://chechia.net/posts/2019-09-29-redis-ha-sentinel/</link>
+      <pubDate>Sun, 29 Sep 2019 17:14:38 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-09-29-redis-ha-sentinel/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在 GKE 上部署 Redis HA (5)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-28-redis-ha-deployment/&#34;&gt;使用 helm 部署 redis-ha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-29-redis-ha-sentinel/&#34;&gt;Redis HA with sentinel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-30-redis-ha-topology/&#34;&gt;Redis sentinel topology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-02-redis-ha-on-haproxy/&#34;&gt;Redis HA with HAproxy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-03-redis-ha-failure-recovery/&#34;&gt;Redis HA Failure Recovery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Prometheus Metrics Exporter&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
+&lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;redis-sentinel&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;redis sentinel 與 redis 使用相容的 api，直接使用 redis-cli 透過 26479 port 連入，可以連到 sentinel，透過 sentinel 可以取得 redis master 的狀態與連線設定。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;redis-cli -h redis-redis-ha -p 26479
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;上篇我們的 redis-ha 安裝完變這樣&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Redis Ha Deployment</title>
+      <link>https://chechia.net/posts/2019-09-28-redis-ha-deployment/</link>
+      <pubDate>Sat, 28 Sep 2019 15:14:23 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-09-28-redis-ha-deployment/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在 GKE 上部署 Redis HA (5)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-28-redis-ha-deployment/&#34;&gt;使用 helm 部署 redis-ha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-29-redis-ha-sentinel/&#34;&gt;Redis HA with sentinel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-30-redis-ha-topology/&#34;&gt;Redis sentinel topology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-02-redis-ha-on-haproxy/&#34;&gt;Redis HA with HAproxy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-03-redis-ha-failure-recovery/&#34;&gt;Redis HA Failure Recovery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Prometheus Metrics Exporter&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
+&lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;今天的文會比較短，因為我早上在綠島已經水肺潛水潛了三趟，有點累哈哈&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;redis-introduction&#34;&gt;Redis introduction&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://redis.io/&#34;&gt;Redis&lt;/a&gt; 是常用的 in-memory 的資料儲存庫，可作為資料庫，快取，message broker 使用，都非常好用。Redis 官方支援 high availability，使用的是 &lt;a href=&#34;https://redis.io/topics/sentinel&#34;&gt;redis-sentinel&lt;/a&gt;
+，今天我們就來部署一個有完整 sentinel 的 redis-ha。&lt;/p&gt;
+&lt;p&gt;Redis 另外提供了一個 solution &lt;a href=&#34;https://redis.io/topics/cluster-tutorial&#34;&gt;Redis cluster (multiple writer solution)&lt;/a&gt;，作為增加資料輸出帶寬，與增加資料耐用度的分散式解決方案，與 redis sentinel  所處理的 ha 問題是不相同的。有機會我們也來談。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Kafka HA Continued</title>
+      <link>https://chechia.net/posts/2019-09-26-kafka-ha-continued/</link>
+      <pubDate>Thu, 26 Sep 2019 22:50:32 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-09-26-kafka-ha-continued/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ELK Stack
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Elasticsearch 日常維護：數據清理，效能調校，永久儲存&lt;/li&gt;
+&lt;li&gt;Debug ELK stack on GCP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Kafka HA on Kubernetes(6)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-22-kafka-deployment-on-kubernetes/&#34;&gt;Deploy kafka-ha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-23-kafka-introduction/&#34;&gt;Kafka Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-24-kafka-basic-usage/&#34;&gt;kafka 基本使用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-25-kafka-operation-scripts/&#34;&gt;kafka operation scripts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-25-kafka-ha-topology/&#34;&gt;集群內部的 HA topology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-26-kafka-ha-continued/&#34;&gt;集群內部的 HA 細節&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Prometheus Metrics Exporter 很重要&lt;/li&gt;
+&lt;li&gt;效能調校&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
+&lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Kafka Operation Scripts</title>
+      <link>https://chechia.net/posts/2019-09-25-kafka-operation-scripts/</link>
+      <pubDate>Wed, 25 Sep 2019 22:50:32 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-09-25-kafka-operation-scripts/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ELK Stack
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Elasticsearch 日常維護：數據清理，效能調校，永久儲存&lt;/li&gt;
+&lt;li&gt;Debug ELK stack on GCP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Kafka HA on Kubernetes(6)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-22-kafka-deployment-on-kubernetes/&#34;&gt;Deploy kafka-ha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-23-kafka-introduction/&#34;&gt;Kafka Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-24-kafka-basic-usage/&#34;&gt;kafka 基本使用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-25-kafka-operation-scripts/&#34;&gt;kafka operation scripts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-25-kafka-ha-topology/&#34;&gt;集群內部的 HA topology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-26-kafka-ha-continued/&#34;&gt;集群內部的 HA 細節&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Prometheus Metrics Exporter 很重要&lt;/li&gt;
+&lt;li&gt;效能調校&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
+&lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Kafka-basic-usage</title>
+      <link>https://chechia.net/posts/2019-09-24-kafka-basic-usage/</link>
+      <pubDate>Tue, 24 Sep 2019 21:59:49 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-09-24-kafka-basic-usage/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ELK Stack
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Elasticsearch 日常維護：數據清理，效能調校，永久儲存&lt;/li&gt;
+&lt;li&gt;Debug ELK stack on GCP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Kafka HA on Kubernetes(6)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-22-kafka-deployment-on-kubernetes/&#34;&gt;Deploy kafka-ha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-23-kafka-introduction/&#34;&gt;Kafka Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-24-kafka-basic-usage/&#34;&gt;kafka 基本使用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-25-kafka-operation-scripts/&#34;&gt;kafka operation scripts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-25-kafka-ha-topology/&#34;&gt;集群內部的 HA topology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-26-kafka-ha-continued/&#34;&gt;集群內部的 HA 細節&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Prometheus Metrics Exporter 很重要&lt;/li&gt;
+&lt;li&gt;效能調校&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
+&lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Kafka-introduction</title>
+      <link>https://chechia.net/posts/2019-09-23-kafka-introduction/</link>
+      <pubDate>Mon, 23 Sep 2019 21:59:49 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-09-23-kafka-introduction/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ELK Stack
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Elasticsearch 日常維護：數據清理，效能調校，永久儲存&lt;/li&gt;
+&lt;li&gt;Debug ELK stack on GCP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Kafka HA on Kubernetes(6)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-22-kafka-deployment-on-kubernetes/&#34;&gt;Deploy kafka-ha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-23-kafka-introduction/&#34;&gt;Kafka Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-24-kafka-basic-usage/&#34;&gt;kafka 基本使用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-25-kafka-operation-scripts/&#34;&gt;kafka operation scripts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-25-kafka-ha-topology/&#34;&gt;集群內部的 HA topology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-26-kafka-ha-continued/&#34;&gt;集群內部的 HA 細節&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Prometheus Metrics Exporter 很重要&lt;/li&gt;
+&lt;li&gt;效能調校&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
+&lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Kafka Helm Configuration</title>
+      <link>https://chechia.net/posts/2019-09-23-kafka-helm-configuration/</link>
+      <pubDate>Mon, 23 Sep 2019 21:55:29 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-09-23-kafka-helm-configuration/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ELK Stack
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Elasticsearch 日常維護：數據清理，效能調校，永久儲存&lt;/li&gt;
+&lt;li&gt;Debug ELK stack on GCP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Kafka HA on Kubernetes(6)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-22-kafka-deployment-on-kubernetes/&#34;&gt;Deploy kafka-ha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-23-kafka-introduction/&#34;&gt;Kafka Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-24-kafka-basic-usage/&#34;&gt;kafka 基本使用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-25-kafka-operation-scripts/&#34;&gt;kafka operation scripts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-25-kafka-ha-topology/&#34;&gt;集群內部的 HA topology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-26-kafka-ha-continued/&#34;&gt;集群內部的 HA 細節&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Prometheus Metrics Exporter 很重要&lt;/li&gt;
+&lt;li&gt;效能調校&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Kafka Deployment on Kubernetes</title>
+      <link>https://chechia.net/posts/2019-09-22-kafka-deployment-on-kubernetes/</link>
+      <pubDate>Sun, 22 Sep 2019 09:58:41 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-09-22-kafka-deployment-on-kubernetes/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ELK Stack
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Elasticsearch 日常維護：數據清理，效能調校，永久儲存&lt;/li&gt;
+&lt;li&gt;Debug ELK stack on GCP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Kafka HA on Kubernetes(6)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-22-kafka-deployment-on-kubernetes/&#34;&gt;Deploy kafka-ha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-23-kafka-introduction/&#34;&gt;Kafka Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-24-kafka-basic-usage/&#34;&gt;kafka 基本使用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-25-kafka-operation-scripts/&#34;&gt;kafka operation scripts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-25-kafka-ha-topology/&#34;&gt;集群內部的 HA topology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-26-kafka-ha-continued/&#34;&gt;集群內部的 HA 細節&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Prometheus Metrics Exporter 很重要&lt;/li&gt;
+&lt;li&gt;效能調校&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;碎念&#34;&gt;碎念&lt;/h1&gt;
+&lt;p&gt;30 天每天一文真的蠻逼人的，每一篇都是新寫，還要盡可能顧及文章品質，下班趕文章，各位大德寫看看就知道&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Monitoring GKE With Elk</title>
+      <link>https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/</link>
+      <pubDate>Thu, 19 Sep 2019 17:06:29 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Elasticsearch 日常維護：數據清理，效能調校，永久儲存&lt;/li&gt;
+&lt;li&gt;Debug ELK stack on GCP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;作為範例的 ELK 的版本是當前的 stable release 7.3.1。&lt;/p&gt;
+&lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;這篇來要 Kubernetes 環境(GKE)裡面的 log 抓出來，送到 ELK 上。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.elastic.co/guide/en/beats/filebeat/7.3/running-on-kubernetes.html&#34;&gt;官方文件&lt;/a&gt; ，寫得很簡易，如果已經很熟 kubernetes 的人可以直接腦補其他的部屬設定。&lt;/p&gt;
+&lt;p&gt;這邊有幾個做法，依照 filebeat 部署的位置與收集目標簡單分為：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;node: 處理每一台 node 的 log ，包含 system log 與 node 監測資料(metrics)&lt;/li&gt;
+&lt;li&gt;cluster: 處理 cluster 等級的 log,  event 或是 metrics&lt;/li&gt;
+&lt;li&gt;pod: 針對特定 pod 直接去掛一個 sidecar&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;上面的方法是可以混搭的，kubernetes 個個層級有&lt;a href=&#34;https://kubernetes.io/docs/concepts/cluster-administration/logging/&#34;&gt;log 處理流程&lt;/a&gt;，我們這邊把 log 送往第三方平台，也是需要依照原本的 log 流程，去收取我們想收集的 log。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Monitoring GCE With ELK</title>
+      <link>https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/</link>
+      <pubDate>Wed, 18 Sep 2019 19:10:50 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Elasticsearch 日常維護：數據清理，效能調校，永久儲存&lt;/li&gt;
+&lt;li&gt;Debug ELK stack on GCP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;作為範例的 ELK 的版本是當前的 stable release 7.3.1。&lt;/p&gt;
+&lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;ELK 的 beats 是輕量級的系統監測收集器，beats 收集到的 data 經過 mapping 可以送到 Elasticsearch 後，進行彈性的搜尋比對。&lt;/p&gt;
+&lt;p&gt;beat 有許多種類，依據收集的 data 區別：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Auditbeat: Audit data&lt;/li&gt;
+&lt;li&gt;Filebeat: Log files&lt;/li&gt;
+&lt;li&gt;Functionbeat: Cloud data&lt;/li&gt;
+&lt;li&gt;Heartbeat: Availability&lt;/li&gt;
+&lt;li&gt;Journalbeat: Systemd journals&lt;/li&gt;
+&lt;li&gt;Metricbeat: Metrics&lt;/li&gt;
+&lt;li&gt;Packetbeat: Network traffic&lt;/li&gt;
+&lt;li&gt;Winlogbeat: Windows event logs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;這邊先以 filebeat 為例，在 GCE 上收集圓端服務節點上的服務日誌與系統日誌，並在 ELK 中呈現。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

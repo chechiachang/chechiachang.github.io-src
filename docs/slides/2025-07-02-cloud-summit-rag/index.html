@@ -1,0 +1,242 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><title>Cloud Summit 2025: 用 RAG 打造企業可對話 AI 知識庫《有問題問過 AI 後再來問我》</title><meta name=description content="透過 RAG（檢索增強生成）技術，將企業內部文件轉為智能知識庫，提升資訊檢索與決策效率。本演講將探討 RAG 應用、技術架構與落地實踐，幫助開發團隊與企業更高效利用內部知識。企業內部文件往往分散於 Confluence、Google Drive、Notion 等平台，傳統關鍵字搜尋難以快速獲取準確資訊，導致溝通成本高、開發流程受阻。本演講將介紹如何運用 RAG（Retrieval-Augmented Generation）技術，結合 OpenAI 及向量數據庫，將企業內部文檔轉為智能知識庫。我們將探討文件解析、嵌入索引、AI 問答系統的技術架構與實作，幫助開發團隊構建高效 AI 助手，節省溝通成本，加速開發流程，提升決策與問題解決能力"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="black-translucent"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><link rel=stylesheet href=/reveal-js/dist/reset.css><link rel=stylesheet href=/reveal-js/dist/reveal.css><link rel=stylesheet href=/reveal-hugo/themes/robot-lung.css id=theme><link rel=stylesheet href=/highlight-js/color-brewer.min.css></head><body><div class=reveal><div class=slides><section><h4 id=cloud-summit-2025>Cloud Summit 2025</h4><h2 id=用-rag-打造可對話-ai-知識庫>用 RAG 打造可對話 AI 知識庫</h2><h5 id=有問題問過-ai-後再來問我>《有問題問過 AI 後再來問我》</h5><h5 id=-che-chia-chang--chechianet->~ Che Chia Chang @ <a href=https://chechia.net>chechia.net</a> ~</h5></section><section data-shortcode-section><section data-noprocess data-shortcode-slide><h3 id=關於我>關於我</h3><ul><li>Che Chia Chang</li><li>SRE @ <a href=https://www.cake.me/companies/maicoin/jobs>Maicoin</a></li><li><a href=https://mvp.microsoft.com/zh-TW/MVP/profile/e407d0b9-5c01-eb11-a815-000d3a8ccaf5>Microsoft MVP</a></li><li>投影片與講稿都在 <a href=https://chechia.net/>chechia.net</a></li><li><a href=/slides/2024-10-24-etcd-workshop/>K8s Summit 2024: Etcd Workshop</a></li><li><a href=/slides/2025-06-05-devops-rag-internal-ai/>DevOpsDay 2025: RAG Workshop</a></li><li>鐵人賽 (Terraform / Vault 手把手入門)</li></ul><p>🔽</p></section><section><h3 id=devopsday-2025-rag-workshop><a href=/slides/2025-06-05-devops-rag-internal-ai/>DevOpsDay 2025: RAG Workshop</a></h3></section><section><p><img loading=lazy src=/images/2025-devopsday-rag-workshop.jpg></p></section></section><section><h3 id=大綱>大綱</h3><ol><li>什麼是 RAG</li><li>為什麼需要 RAG</li><li>為何需要內部知識庫</li><li>RAG Agent 的優勢</li><li>RAG Agent 的應用場景</li><li>如何開始/如何進步</li><li>QA</li></ol></section><section><section data-shortcode-section><h3 id=什麼是-rag>什麼是 RAG</h3><ul><li>RAG（Retrieval-Augmented Generation 檢索增強生成）</li><li>結合檢索系統與生成式模型（如 GPT）的自然語言處理架構</li><li>在生成答案時引用外部知識，增加上下文內容，提供給 LLM（大型語言模型）</li><li>使模型回答更準確且具事實根據</li></ul><p>🔽</p></section><section><h3 id=什麼是-rag-1>什麼是 RAG</h3><ol><li><strong>Retrieval（檢索）：</strong> 從一個外部知識庫（如文件、向量資料庫等）中找到與問題相關的資訊。通常會用文字嵌入向量（embeddings）做相似度搜尋。</li><li><strong>Generation（生成）：</strong> 把檢索到的內容與使用者問題一起丟給 LLM（如 GPT、Claude 等）去生成答案。生成的內容會更具事實根據，並能引用具體資料。</li></ol></section><section><p><img loading=lazy src=/mermaid/generative-ai.svg></p><aside class=notes><div class=mermaid>graph LR
+subgraph "Generative AI"
+direction LR
+A1(("Query"))
+B1("LLM
+(gpt-4.2)")
+C1("文字接龍產生回答 Response")
+A1 --User Input--> B1
+B1 --Chat Completion--> C1
+end</div></aside></section><section><p><img loading=lazy src=/mermaid/rag-embedding.svg></p><aside class=notes><div class=mermaid>graph LR
+subgraph "RAG"
+direction LR
+A2(("Query"))
+B2("LLM
+(gpt-4.2)")
+C2("Response")
+D2("Vector DB")
+A2 --User Input--> B2
+A2 --Embedding Search--> D2
+D2 --Context--> B2
+B2 --Chat Completion--> C2
+end
+subgraph "Embedding"
+direction LR
+A3(("Document"))
+B3("Embedding Model")
+C3("Embedding Vector")
+D3("Vector DB")
+A3 ----> B3
+B3 --Embedding--> C3
+A3 --Store--> D3
+C3 --Store--> D3
+end</div></aside></section><section><h3 id=為什麼使用-rag>為什麼使用 RAG？</h3><ul><li>希望 LLM 根據知識庫產生回答</li><li>而不是只根據 Model 訓練資料，進行生成式回答。</li><li>這樣做可以達到以下目的：<ul><li>✅ 減少模型幻覺（hallucination）</li><li>✅ 為使用者提供即時且相關的資訊</li><li>✅ 利用你自己的內容與知識庫</li></ul></li></ul></section><section><h5 id=llm-不具備專業知識缺乏內容根據時容易產生幻覺hallucination>LLM 不具備專業知識。缺乏內容根據時，容易產生幻覺(hallucination)</h5><p><img loading=lazy src=/images/llm-hallucination.png></p><aside class=notes><p>LLM（大型語言模型）本身並不具備事實知識，而是依賴訓練時的語料與提示輸入來生成回答。當缺乏明確上下文或內容根據時，LLM 容易出現「幻覺」現象，即生成看似合理但實際不正確的資訊。專業領域問題若未提供準確資料支撐，也容易導致錯誤回答。</p></aside></section><section><p><img loading=lazy src=/images/k8s-hallucination.jpg></p></section></section><section><section data-shortcode-section><h3 id=簡單的rag範例>簡單的RAG範例</h3><p><a href=https://github.com/chechiachang/rag-workshop/blob/main/notebook/3_RAG_with_OpenAI.ipynb>https://github.com/chechiachang/rag-workshop/blob/main/notebook/3_RAG_with_OpenAI.ipynb</a></p><pre><code>┌──────────────┐       ┌─────────────────────┐
+│ User Input   │       │ Embedding Model     │
+│ (e.g., Query)├──────▶│ (OpenAI Embeddings) │
+└──────────────┘       └────────────┬────────┘
+                                    │
+                                    ▼
+                            ┌───────────────┐
+                            │ Vector Query  │
+                            │ to Qdrant DB  │
+                            └──────┬────────┘
+                                   ▼
+                        ┌────────────────────┐
+                        │ Retrieved Contexts │
+                        └────────┬───────────┘
+                                 ▼
+                   ┌────────────────────────────┐
+                   │ Prompt Construction Module │
+                   │ (Query + Top-K Contexts)   │
+                   └────────┬───────────────────┘
+                            ▼
+                    ┌────────────────────┐
+                    │ OpenAI Chat Model  │
+                    │ (GPT-4.1 / GPT-4)  │
+                    └────────┬───────────┘
+                             ▼
+                    ┌────────────────────┐
+                    │ Final Answer       │
+                    └────────────────────┘
+</code></pre><p>🔽</p></section><section><pre><code class=language-python>import qdrant_client
+
+# 使用 Qdrant 作為向量數據庫
+client = qdrant_client.QdrantClient(
+    host=&quot;localhost&quot;,
+    prefer_grpc=True,
+)
+
+'''
+query_docs 函數用於查詢相關文檔
+查詢指定的 collection_name
+使用指定的模型model進行嵌入查詢
+返回最相關的文檔
+'''
+def query_docs(query, collection_name=&quot;covid-qa-3-large&quot;, model=&quot;text-embedding-3-large&quot; , top_k=5):
+
+    '''
+    query_embeddings 函數用於獲取查詢的語意嵌入向量
+    換句話說，把查詢的問題轉換為向量表示
+    example: &quot;What is COVID-19?&quot; -&gt; [0.1, 0.2, 0.3, ...] 一個固定長度的向量
+    '''
+    query_embeddings = get_embedding(query, model)
+
+    '''
+    使用 Qdrant 客戶端 query_points 函數查詢相關文檔
+    返回指定 collection_name 中與 query_embeddings 最相似的前 top_k 個點
+    '''
+    results = client.query_points(
+        cㄨollection_name=collection_name, // 查詢的 collection 名稱
+        query=query_embeddings, // 輸入查詢的語意嵌入向量
+        limit=5, // 返回前 5 個最相關的點
+        with_payload=True,
+        using=&quot;title&quot; // 使用指定的索引字段進行查詢
+    )
+
+    # 提取查詢結果中的 payload（即答案）
+    payloads = [point.payload[&quot;answer&quot;] for point in results.points]
+    return payloads
+
+'''
+使用 OpenAI 的 GPT 模型生成回答
+docs 是從向量數據庫中查詢到的相關文檔
+將 context 與原始問題組合成 prompt 將 query + context 組合起來，如：
+
+根據以下資料回答問題：
+===
+[段落1]
+[段落2]
+===
+問題：COVID 的全名是什麼？
+'''
+def generate_answer(query, docs, model=&quot;gpt-4o-mini&quot;):
+    context = &quot;\n\n&quot;.join(docs)
+    prompt = f&quot;&quot;&quot;根據以下內容回答問題：
+    1. 請用繁體中文回答
+    2. 依照內容產生回答
+    3. 附上內容原文作為依據，原文保留內容的原始語言
+    4. 如果內容不包含就回答我不知道
+    
+    內容：
+    {context}
+    
+    問題：
+    {query}
+    &quot;&quot;&quot;
+
+    res = openai_client.chat.completions.create(
+        model=model, # 使用指定的 OpenAI 模型
+        messages=[
+            {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;你是一個 helpful AI 助理&quot;},
+            {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: prompt}
+        ],
+        temperature=0.2
+    )
+    return res.choices[0].message.content.strip()
+
+# 使用範例
+query = &quot;COVID 的全名是什麼&quot;
+
+# 根據 query 查詢相關文檔 docs
+docs = query_docs(
+    query=query,
+    collection_name=&quot;covid-qa-3-large&quot;,
+    model=&quot;text-embedding-3-large&quot;)
+
+# 將查詢結果 docs 與 query 一起生成回答
+answer = generate_answer(
+    query=query, 
+    docs=docs, 
+    model=&quot;gpt-4o-mini&quot;)
+
+print(&quot;\n🧠 回答：&quot;)
+print(answer)
+
+🧠 回答：
+COVID 的全名是「Coronavirus Disease 2019」，簡稱 COVID-19。
+
+依據原文：
+&quot;WHO announced “COVID-19” as the name of this new disease on 11 February 2020, following guidelines previously developed with the World Organisation for Animal Health (OIE) and the Food and Agriculture Organization of the United Nations (FAO).&quot;
+</code></pre></section><section><h4 id=可以增強-gpt-4o-的冷笑話知識>可以增強 gpt-4o 的冷笑話知識</h4><p><img loading=lazy src=/images/rag-cold-joke.jpg></p></section><section><h4 id=或是把-k8s-官方文件全部塞進-vector-db>或是把 K8s 官方文件全部塞進 vector DB</h4><p><a href=https://github.com/chechiachang/rag-workshop/blob/main/notebook/6_k8s_RAG_QA.ipynb>https://github.com/chechiachang/rag-workshop/blob/main/notebook/6_k8s_RAG_QA.ipynb</a></p><ul><li>透過 prompt 嚴格限制 LLM 根據上下文提供的文件回答，而不要依賴 LLM 的訓練資料</li><li>LLM 只提供語言邏輯</li><li>這樣可以減少 LLM 的幻覺（hallucination），並提高回答的準確性</li><li>增加可觀測性，每個回答都可以追溯到具體的上下文文件</li></ul></section></section><section><section data-shortcode-section><h5 id=我知道-rag-是什麼了但為何要打造內部知識庫>我知道 RAG 是什麼了，但為何要打造內部知識庫？</h5><p>🔽</p></section><section><h5 id=我知道-rag-是什麼了但為何要打造內部知識庫-1>我知道 RAG 是什麼了，但為何要打造內部知識庫？</h5><ul><li>企業內部文件往往分散於 Slack、Confluence、Google Drive、Notion 等平台</li><li>傳統關鍵字搜尋難以快速獲取準確資訊</li><li>特定職位的工程師會變成回答問題的「門神」</li><li>相同的問題被問了無數次</li><li>新人需要花費大量時間去搜尋、理解與學習</li><li>導致溝通成本高、開發流程受阻</li></ul><p>需要一個統一的知識庫，能夠快速檢索、理解並回答問題</p></section><section><h5 id=使用-rag-agent-增強內部知識傳遞>使用 RAG Agent 增強內部知識傳遞</h5><ul><li>入門的的問題與重複的問題，不需要人類回答</li><li>LLM 的語言修飾能力優於平均工程師（表達的更通順）</li><li>LLM 可以根據使用者的問題，提供多元的回答方式（舉例說明，換句話說）</li><li><strong>Agent</strong> 結合 <a href=https://openai.github.io/openai-agents-python/tools/>function tools</a> / mcp server 可以整合更多資料來源</li><li>RAG Agent 24/7 可用不需休息，也不會失去耐心</li></ul></section><section><h5 id=rag-agent-的優勢>RAG Agent 的優勢</h5><ul><li>入門的的問題與重複的問題 &mdash;> 基礎問題的正確率高</li><li>LLM 的語言修飾能力優於平均人類 &mdash;> 表達的更通順</li><li>LLM 根據使用者的問題調整回答方式 &mdash;> 互動問答，舉例說明，換句話說</li><li>RAG Agent 不需休息，不會失去耐心 &mdash;> 比我本人還高可用</li><li>自動化 &mdash;> 結合監測系統，主動推送需要的訊息</li><li>標準化回答</li></ul></section><section><h5 id=rag-agent--mcp-server>RAG Agent + MCP Server</h5><p><img loading=lazy src=/mermaid/mcp-server.svg></p><aside class=notes><div class=mermaid>graph LR
+subgraph " "
+direction LR
+A1("RAG Agent / MCP Client")
+B1("Confluence MCP Server")
+B2("Confluence")
+C1("Github MCP Server")
+C2("Github")
+D1("Slack MCP Server")
+D2("Slack Bot")
+E1("MySQL MCP Server")
+E2("MySQL")
+F1("工程師")
+A1 --> B1
+B1 --> B2
+A1 --> C1
+C1 --> C2
+A1 --> D1
+D1 --> D2
+A1 --> E1
+E1 --> E2
+D2 <--問答--> F1
+end</div></aside><p>透過 <a href=https://modelcontextprotocol.io/introduction#general-architecture>MCP Protocol</a>，可以將不同的資料來源（如 Confluence、Github、Slack 等）整合到 RAG Agent 中。這樣，RAG Agent 可以在不同的上下文中提供一致的回答。不需要寫額外的程式碼，或只需要 LLM generate 一些簡單的程式碼。</p></section><section><h5 id=rag-自動化-新人-onboarding>RAG 自動化: 新人 onboarding</h5><p><img loading=lazy src=/mermaid/rag-agent-onboarding.svg></p><aside class=notes><div class=mermaid>graph LR
+subgraph " "
+direction LR
+A1("Onboarding Tasks")
+B1("RAG Agent")
+C1("架構設計文件/SOP/Runbook")
+D1("階段性測驗")
+F1("庶務/交接")
+E1("新人工程師")
+A1 --> B1
+C1 --> B1
+D1 --> B1
+F1 --> B1
+B1 --互動式 Onboarding--> E1
+E1 --提出問題--> B1
+end</div></aside><p>傳統的 onboarding 過程往往依賴資深工程師手動指導和文檔查閱，效率低下。透過 RAG Agent，可以提供互動式的 onboarding 體驗，並且可以不斷溫習和更新知識。</p></section><section><h5 id=rag-自動化-第一時間alert處理>RAG 自動化: 第一時間Alert處理</h5><p><img loading=lazy src=/mermaid/rag-agent-alert.svg></p><aside class=notes><div class=mermaid>graph LR
+subgraph " "
+direction LR
+A1(("Alert/Metrics"))
+B1("內部文件 RAG")
+C1("內部Runbook")
+D1("架構設計文件")
+E1("Slack")
+F1("Alert/文件/處理步驟
+交給on-duty工程師")
+A1 --> B1
+B1 --> C1
+B1 --> D1
+A1 --> E1
+C1 --> E1
+D1 --> E1
+E1 --> F1
+end</div></aside><p>工程師處理 alert 時，通常需要查閱內部文件、Runbook 或架構設計文件。這些文件往往分散在不同的系統中，導致查找過程耗時。</p></section><section><blockquote><p>AI Copilot 不應該像圖書館守門員等人來借書，
+而應該像導航系統，在你開車時主動告訴你：前方有彎道。</p></blockquote><aside class=notes><p>基本上我們期待的解決方案是這樣</p></aside></section><section><h5 id=修復完全自動化-k8sgpt>修復完全自動化 k8sGPT</h5><p><img loading=lazy src=/mermaid/k8sgpt.svg></p><aside class=notes><div class=mermaid>graph LR
+subgraph " "
+direction LR
+A1(("K8s Events/Metrics"))
+B1("內部文件 RAG")
+C1("錯誤處理Runbook")
+D1("架構設計文件")
+E1("k8sGPT Apply")
+A1 --> B1
+B1 --> C1
+B1 --> D1
+A1 --> E1
+C1 --> E1
+D1 --> E1
+end</div></aside><p>當 k8s 事件或指標觸發時，k8sGPT 可以自動查詢內部文件、Runbook 或架構設計文件，並根據檢索到的內容生成修復建議。</p><ul><li><a href="https://www.youtube.com/watch?v=EXtCejkOJB0">KubeCon Europe 2025</a><ul><li>Superpowers for Humans of Kubernetes: How <a href=https://k8sgpt.ai/>K8sGPT</a> Is Transforming Enterprise Ops - Alex Jones, AWS & Anais Urlichs, JP Morgan Chase</li></ul></li></ul></section></section><section><section data-shortcode-section><h5 id=如何開始>如何開始？</h5><ol><li>學習如何使用 RAG 與 LLM Agent（ex. 參加我的工作坊）</li><li>挑選一個簡單卻耗時的日常任務</li><li>將任務所有已知的知識存入向量數據庫</li><li>使用 RAG Agent 來回答問題</li><li>結合通訊軟體（如 Slack）來提供即時回答</li><li>根據使用者反饋不斷優化知識庫與回答方式</li></ol><p>🔽</p></section><section><h5 id=如何改進>如何改進？</h5><ol><li>設定量化目標</li><li>Evaluation 量化 RAG Agent 性能</li><li>根據 Evaluation 結果調整RAG，追求特定 Metrics（如回答準確率）提升</li><li>持續迭代：根據使用者反饋與新知識更新向量數據庫</li></ol><p><a href=https://chechia.net/slides/2025-06-05-devops-rag-internal-ai/#/32>https://chechia.net/slides/2025-06-05-devops-rag-internal-ai/#/32</a> /
+<a href=https://github.com/chechiachang/rag-workshop/blob/main/notebook/5_Evaluation.ipynb>https://github.com/chechiachang/rag-workshop/blob/main/notebook/5_Evaluation.ipynb</a></p></section><section><h5 id=持續迭代>持續迭代</h5><p>RAG Agent + Slack Bot 整合就可以完成第一個迭代版本</p><div class=mermaid>graph LR
+subgraph " "
+direction LR
+A1(("RAG Agent"))
+B1("Slack")
+C1("Daily Jobs")
+A1 --實際使用--> B1
+B1 --更新知識--> A1
+B1 --Agent支援--> C1
+C1 --使用回饋--> B1
+end</div></section><section><blockquote><p>從改善工程團隊品質出發，推廣到跨部門使用。
+基於Evaluation與使用者體驗持續改進。</p></blockquote></section></section><section><h3 id=總結>總結</h3><ol><li>什麼是 RAG</li><li>為什麼需要 RAG</li><li>為何需要內部知識庫</li><li>RAG Agent 的優勢</li><li>RAG Agent 的應用場景</li><li>如何開始/如何進步</li></ol></section><section><section data-shortcode-section><h3 id=q--a>Q & A</h3><p>沒時間的話可以待會來找我聊天
+🔽</p></section><section><h3 id=maicoin-we-are-hiring>MaiCoin: We are Hiring!!</h3><ul><li><a href=https://www.linkedin.com/jobs/view/4236558674/>Senior Site Reliability Engineer</a></li><li><a href=https://www.linkedin.com/jobs/view/4236555801>Senior Data Engineer</a></li><li><a href=https://www.linkedin.com/jobs/view/4236555811>Senior IT Engineer</a></li><li><a href=https://www.linkedin.com/jobs/view/4236556713>Blockchain Engineer (Wallet Team)</a></li><li><a href=https://www.linkedin.com/jobs/view/4236558714>Senior Backend Engineer</a></li><li><a href=https://www.linkedin.com/jobs/view/4236523560/>Micro Service Software Engineer</a></li><li><a href=https://www.linkedin.com/jobs/view/4236559632>Cyber Security Engineer</a></li></ul></section></section></div></div><script type=text/javascript src=/reveal-hugo/object-assign.js></script><script src=/reveal-js/dist/reveal.js></script><script type=text/javascript src=/reveal-js/plugin/markdown/markdown.js></script><script type=text/javascript src=/reveal-js/plugin/highlight/highlight.js></script><script type=text/javascript src=/reveal-js/plugin/zoom/zoom.js></script><script type=text/javascript src=/reveal-js/plugin/notes/notes.js></script><script type=text/javascript>function camelize(e){return e&&Object.keys(e).forEach(function(t){newK=t.replace(/(_\w)/g,function(e){return e[1].toUpperCase()}),newK!=t&&(e[newK]=e[t],delete e[t])}),e}var revealHugoDefaults={center:!0,controls:!0,history:!0,progress:!0,transition:"slide"},revealHugoSiteParams={},revealHugoPageParams={custom_theme:"reveal-hugo/themes/robot-lung.css",highlight_theme:"color-brewer",margin:.2,templates:{hotpink:{background:"#FF4081",class:"hotpink"}},transition:"slide",transition_speed:"fast"},revealHugoPlugins={plugins:[RevealMarkdown,RevealHighlight,RevealZoom,RevealNotes]},options=Object.assign({},camelize(revealHugoDefaults),camelize(revealHugoSiteParams),camelize(revealHugoPageParams),camelize(revealHugoPlugins));Reveal.initialize(options)</script><script type=text/javascript src=/mermaid.min_16862243754454536095.js></script><script type=text/javascript>mermaid.initialize({startOnLoad:!1});let render=e=>{let t=e.currentSlide.querySelectorAll(".mermaid");if(!t.length)return;t.forEach(e=>{let t=e.getAttribute("data-processed");t||mermaid.init(0[0],e)})};render({currentSlide:Reveal.getCurrentSlide()}),Reveal.on("slidechanged",render),Reveal.on("ready",render)</script></body></html>

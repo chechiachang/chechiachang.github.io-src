@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Elasticsearch on Che-Chia Chang</title>
+    <link>https://chechia.net/categories/elasticsearch/</link>
+    <description>Recent content in Elasticsearch on Che-Chia Chang</description>
+    <image>
+      <title>Che-Chia Chang</title>
+      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.7</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 21 Sep 2019 15:22:23 +0800</lastBuildDate>
+    <atom:link href="https://chechia.net/categories/elasticsearch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Logstash on GKE</title>
+      <link>https://chechia.net/posts/2019-09-21-logstash-on-gke/</link>
+      <pubDate>Sat, 21 Sep 2019 15:22:23 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-09-21-logstash-on-gke/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Elasticsearch 日常維護：數據清理，效能調校，永久儲存&lt;/li&gt;
+&lt;li&gt;Debug ELK stack on GCP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;作為範例的 ELK 的版本是當前的 stable release 7.3.1。&lt;/p&gt;
+&lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;簡介 logstash&lt;/li&gt;
+&lt;li&gt;將 logstash 部屬到 kubernetes 上&lt;/li&gt;
+&lt;li&gt;設定 logstash pipeline 處理 nginx access log&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;介紹-logstash&#34;&gt;介紹 Logstash&lt;/h1&gt;
+&lt;p&gt;Logstash 是開元的資料處理引擎，可以動態的將輸入的資料做大量的處裡。原先的目的是處理 log ，但目前以不限於處理 log ，各種 ELK beat 或是其他來源的不同監測數據，都能處理。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ELK or Not ELK</title>
+      <link>https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/</link>
+      <pubDate>Wed, 18 Sep 2019 18:51:40 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Elasticsearch 日常維護：數據清理，效能調校，永久儲存&lt;/li&gt;
+&lt;li&gt;Debug ELK stack on GCP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;有板友問到，要如何選擇要不要用 ELK，其實也這是整篇 ELK 的初衷。這邊分享一下 ELK 與其他選擇，以及選擇解決方案應該考慮的事情。&lt;/p&gt;
+&lt;h1 id=&#34;其他常用的服務&#34;&gt;其他常用的服務&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://prometheus.io/&#34;&gt;Prometheus&lt;/a&gt;: 開源的 time series metrics 收集系統&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://cloud.google.com/stackdriver/?hl=zh-tw&#34;&gt;Stackdriver&lt;/a&gt;: GCP 的 log 與 metrics 平台&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.elastic.co/cloud/&#34;&gt;Elastic Cloud&lt;/a&gt;: ELK 的 Sass&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://chechia.net/posts/self-host-elk-stack-on-gcp/&#34;&gt;Self-hosted ELK&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;或是依照需求混搭，各個服務使用的各層套件是可以相容，例如&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;在 GKE 上不用 beat 可以用 fluentd&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Secure Elk Stack</title>
+      <link>https://chechia.net/posts/2019-09-15-secure-elk-stack/</link>
+      <pubDate>Sun, 15 Sep 2019 23:00:33 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-09-15-secure-elk-stack/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Elasticsearch 日常維護：數據清理，效能調校，永久儲存&lt;/li&gt;
+&lt;li&gt;Debug ELK stack on GCP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;&amp;ndash;&lt;/p&gt;
+&lt;p&gt;上篇&lt;a href=&#34;https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt; 介紹了，elk stack 基本的安裝，安裝完獲得一個只支援 http (裸奔)的 elk stack，沒有 https 在公開網路上使用是非常危險的。這篇要來介紹如何做安全性設定。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.elastic.co/guide/en/elastic-stack-overview/7.3/elasticsearch-security.html&#34;&gt;官方的文件在這裡&lt;/a&gt;，碎念一下，除非對 ELK 的功能有一定了解，不然這份真的不是很友善。建議從官方文件底下的&lt;a href=&#34;https://www.elastic.co/guide/en/elastic-stack-overview/7.3/security-getting-started.html&#34;&gt;Tutorial: Getting started with security&lt;/a&gt; 開始，過程比較不會這麼血尿。&lt;/p&gt;
+&lt;p&gt;總之為了啟用 authentication &amp;amp; https，這篇要做的事情：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;enable x-pack &amp;amp; activate basic license&lt;/li&gt;
+&lt;li&gt;Generate self-signed ca, server certificate, client certificate&lt;/li&gt;
+&lt;li&gt;Configure Elasticsearch, Kibana, &amp;amp; other components to
+&lt;ul&gt;
+&lt;li&gt;use server certificate when act as server&lt;/li&gt;
+&lt;li&gt;use client certificate when connect to an ELK server&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;啟用-x-pack&#34;&gt;啟用 X-pack&lt;/h1&gt;
+&lt;p&gt;Elasticsearch 的安全性模組由 x-pack extension 提供，在 &lt;a href=&#34;https://www.elastic.co/what-is/open-x-pack&#34;&gt;6.3.0 之後的版本&lt;/a&gt;，安裝 elasticsearch 的過程中就預設安裝 x-pack。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Self-host ELK stack - Installation</title>
+      <link>https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/</link>
+      <pubDate>Sun, 15 Sep 2019 11:43:03 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Elasticsearch 日常維護：數據清理，效能調校，永久儲存&lt;/li&gt;
+&lt;li&gt;Debug ELK stack on GCP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;作為範例的 ELK 的版本是當前的 stable release 7.3.1。&lt;/p&gt;
+&lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;&amp;ndash;&lt;/p&gt;
+&lt;h1 id=&#34;簡介-elk-stack&#34;&gt;簡介 ELK stack&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.elastic.co/guide/index.html&#34;&gt;官方說明文件&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;elk-的元件&#34;&gt;ELK 的元件&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Elasticsearch: 基於 Lucene 的分散式全文搜索引擎&lt;/li&gt;
+&lt;li&gt;Logstash: 數據處理 pipeline&lt;/li&gt;
+&lt;li&gt;Kibana: ELK stack 的管理後台與數據視覺化工具&lt;/li&gt;
+&lt;li&gt;Beats: 輕量級的應用端數據收集器，會從被監控端收集 log 與監控數據(metrics)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;elk-的工作流程&#34;&gt;ELK 的工作流程&lt;/h3&gt;
+&lt;p&gt;beats -&amp;gt; (logstash) -&amp;gt; elasticsearch -&amp;gt; kibana&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

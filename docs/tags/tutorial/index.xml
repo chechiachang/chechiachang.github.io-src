@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tutorial on Che-Chia Chang</title>
+    <link>https://chechia.net/tags/tutorial/</link>
+    <description>Recent content in Tutorial on Che-Chia Chang</description>
+    <image>
+      <title>Che-Chia Chang</title>
+      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.7</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 02 Jun 2019 10:21:37 +0800</lastBuildDate>
+    <atom:link href="https://chechia.net/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Journey to Quantum Computing</title>
+      <link>https://chechia.net/posts/2019-06-02-journey-to-quantum-computing/</link>
+      <pubDate>Sun, 02 Jun 2019 10:21:37 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-06-02-journey-to-quantum-computing/</guid>
+      <description>&lt;p&gt;This post is about my learning steps for quantum-computing.&lt;/p&gt;
+&lt;p&gt;For a quick-start tutorial, check my workshop project throught the project link above.&lt;/p&gt;
+&lt;h1 id=&#34;resources&#34;&gt;Resources&lt;/h1&gt;
+&lt;p&gt;Courses&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.coursera.org/learn/quantum-computing-algorithms&#34;&gt;Coursera&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://mitxpro.mit.edu/courses/course-v1:MITxPRO&amp;#43;QCx0&amp;#43;1T2019/about&#34;&gt;on MIT x pro&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://pages.cs.wisc.edu/~dieter/Courses/2010f-CS880/lectures.html&#34;&gt;Quantum Information Processing from UW Madison&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.theory.caltech.edu/people/preskill/ph229/&#34;&gt;Quantum Computation by John Preskill&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://quantum-computing.ibm.com&#34;&gt;IBM Q Experience&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/Qiskit/openqasm&#34;&gt;https://github.com/Qiskit/openqasm&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/Qiskit/qiskit-tutorials&#34;&gt;https://github.com/Qiskit/qiskit-tutorials&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;ibm-q-experience&#34;&gt;IBM Q Experience&lt;/h1&gt;
+&lt;h3 id=&#34;day-1&#34;&gt;Day 1&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://quantum-computing.ibm.com/support/guides/getting-started-with-circuit-composer&#34;&gt;Getting Started with Circuit Composer&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Hello Quantum World circuit transformed two qubits, from $ \vert0\rangle $ to $ \frac{\vert00\rangle + \vert11\rangle}{\sqrt{2}} $&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

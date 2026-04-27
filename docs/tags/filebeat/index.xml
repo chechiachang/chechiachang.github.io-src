@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Filebeat on Che-Chia Chang</title>
+    <link>https://chechia.net/tags/filebeat/</link>
+    <description>Recent content in Filebeat on Che-Chia Chang</description>
+    <image>
+      <title>Che-Chia Chang</title>
+      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.7</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 19 Sep 2019 17:06:29 +0800</lastBuildDate>
+    <atom:link href="https://chechia.net/tags/filebeat/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Monitoring GKE With Elk</title>
+      <link>https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/</link>
+      <pubDate>Thu, 19 Sep 2019 17:06:29 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Elasticsearch 日常維護：數據清理，效能調校，永久儲存&lt;/li&gt;
+&lt;li&gt;Debug ELK stack on GCP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;作為範例的 ELK 的版本是當前的 stable release 7.3.1。&lt;/p&gt;
+&lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;這篇來要 Kubernetes 環境(GKE)裡面的 log 抓出來，送到 ELK 上。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.elastic.co/guide/en/beats/filebeat/7.3/running-on-kubernetes.html&#34;&gt;官方文件&lt;/a&gt; ，寫得很簡易，如果已經很熟 kubernetes 的人可以直接腦補其他的部屬設定。&lt;/p&gt;
+&lt;p&gt;這邊有幾個做法，依照 filebeat 部署的位置與收集目標簡單分為：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;node: 處理每一台 node 的 log ，包含 system log 與 node 監測資料(metrics)&lt;/li&gt;
+&lt;li&gt;cluster: 處理 cluster 等級的 log,  event 或是 metrics&lt;/li&gt;
+&lt;li&gt;pod: 針對特定 pod 直接去掛一個 sidecar&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;上面的方法是可以混搭的，kubernetes 個個層級有&lt;a href=&#34;https://kubernetes.io/docs/concepts/cluster-administration/logging/&#34;&gt;log 處理流程&lt;/a&gt;，我們這邊把 log 送往第三方平台，也是需要依照原本的 log 流程，去收取我們想收集的 log。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

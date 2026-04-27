@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Pac on Che-Chia Chang</title>
+    <link>https://chechia.net/tags/pac/</link>
+    <description>Recent content in Pac on Che-Chia Chang</description>
+    <image>
+      <title>Che-Chia Chang</title>
+      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.7</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 09 Jun 2022 01:04:12 +0800</lastBuildDate>
+    <atom:link href="https://chechia.net/tags/pac/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>IThome 2022 DevOpsDay Introducing policy as code for terraform</title>
+      <link>https://chechia.net/posts/2022-06-09-ithome-devopsday-2022-proposal-introduce-policy-as-code-for-terraform-/</link>
+      <pubDate>Thu, 09 Jun 2022 01:04:12 +0800</pubDate>
+      <guid>https://chechia.net/posts/2022-06-09-ithome-devopsday-2022-proposal-introduce-policy-as-code-for-terraform-/</guid>
+      <description>&lt;h3 id=&#34;titleq&#34;&gt;Titleq&lt;/h3&gt;
+&lt;p&gt;從零導入 Policy as Code 到 terraform 甘苦談 - Introducing policy as code for terraform&lt;/p&gt;
+&lt;h3 id=&#34;presentation&#34;&gt;Presentation&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.google.com/presentation/d/1yawazO1B_sP5Yiav-XLGJXW3ZS2JTV0wGuJwhrUKQ3A/edit?usp=sharing&#34;&gt;Google Slides&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
+&lt;p&gt;Terraform 是一個很棒的 Infrastructure as Code 的工具，能夠以現代的軟體工程流程來穩定的建構 infrastructure，並隨著需求變更自動化迭代，將新的 feature 安全地更新到既有的 infrastructure 上。只要是 Infrastructure 有關的問題，我一律推薦 Terraform。&lt;/p&gt;
+&lt;p&gt;這也意味 Terraform 的品質就等於 infrastructure 的品質，好的 terraform 帶你上天堂，不好的 terraform 全 team 火葬場。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Infrastructure 有太多資安的考量，新的風險不斷被檢查出來，連帶要不斷的 patch terraform code 來避免潛在的資安風險&lt;/li&gt;
+&lt;li&gt;Infrastructure 會不斷地更新，例如公有雲的 api 不斷更新，去年的 code 已經跟不上今年的最佳實踐了&lt;/li&gt;
+&lt;li&gt;好的工程師寫出的 terraform code 屌打菜鳥工程師，要如何讓團隊依循更好的實踐，避免寫出爛 code
+維護 code 有 clean code / best practice，Terraform 也有 clean code 與 best practice，工程師要如何工具來輔助，是 Policy as Code 的一大課題。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本演講聚焦於實際經驗，從一大堆 terraform modules 開始，沒有 Policy as Code，到一步步評估、導入、實作、改進與迭代，逐漸的提升團隊 Terraform code 品質，提升 infrastructure 交付品質，並避免到未來潛在的風險。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

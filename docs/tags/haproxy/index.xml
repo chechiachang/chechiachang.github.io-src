@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Haproxy on Che-Chia Chang</title>
+    <link>https://chechia.net/tags/haproxy/</link>
+    <description>Recent content in Haproxy on Che-Chia Chang</description>
+    <image>
+      <title>Che-Chia Chang</title>
+      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.7</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 02 Oct 2019 16:12:10 +0800</lastBuildDate>
+    <atom:link href="https://chechia.net/tags/haproxy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Redis Ha HAProxy</title>
+      <link>https://chechia.net/posts/2019-10-02-redis-ha-on-haproxy/</link>
+      <pubDate>Wed, 02 Oct 2019 16:12:10 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-10-02-redis-ha-on-haproxy/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在 GKE 上部署 Redis HA (5)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-28-redis-ha-deployment/&#34;&gt;使用 helm 部署 redis-ha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-29-redis-ha-sentinel/&#34;&gt;Redis HA with sentinel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-30-redis-ha-topology/&#34;&gt;Redis sentinel topology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-02-redis-ha-on-haproxy/&#34;&gt;Redis HA with HAproxy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-03-redis-ha-failure-recovery/&#34;&gt;Redis HA Failure Recovery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Prometheus Metrics Exporter&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
+&lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;HAProxy Introduction&lt;/li&gt;
+&lt;li&gt;Redis Sentinel with HAProxy&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;haproxy-intro&#34;&gt;HAProxy Intro&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.haproxy.org/#docs&#34;&gt;HAproxy&lt;/a&gt; 全名是 High Availability Proxy，是一款開源 TCP/HTTP load balancer，他可以&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;聽 tcp socket，連 server，然後把 socket 接在一起讓雙向流通&lt;/li&gt;
+&lt;li&gt;可做 Http reverse-proxy (Http gateway)，自己作為代理 server，把接受到的 connection 傳到後端的 server。&lt;/li&gt;
+&lt;li&gt;SSL 終端，可支援 client-side 與 server-side 的 ssl/tls&lt;/li&gt;
+&lt;li&gt;當 tcp/http normalizer&lt;/li&gt;
+&lt;li&gt;更改 http 的 request 與 response&lt;/li&gt;
+&lt;li&gt;當 switch，決定 request 後送的目標&lt;/li&gt;
+&lt;li&gt;做 load balancer，為後端 server 做負載均衡&lt;/li&gt;
+&lt;li&gt;調節流量，設定 rate limit，或是根據內容調整流量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;HAProxy 還有其他非常多的功能，想了解細節可以來看&lt;a href=&#34;http://cbonte.github.io/haproxy-dconv/1.9/intro.html#3&#34;&gt;原理解說文件&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Redis Ha Topology</title>
+      <link>https://chechia.net/posts/2019-09-30-redis-ha-topology/</link>
+      <pubDate>Mon, 30 Sep 2019 16:12:10 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-09-30-redis-ha-topology/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在 GKE 上部署 Redis HA (5)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-28-redis-ha-deployment/&#34;&gt;使用 helm 部署 redis-ha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-29-redis-ha-sentinel/&#34;&gt;Redis HA with sentinel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-30-redis-ha-topology/&#34;&gt;Redis sentinel topology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-02-redis-ha-on-haproxy/&#34;&gt;Redis HA with HAproxy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-03-redis-ha-failure-recovery/&#34;&gt;Redis HA Failure Recovery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Prometheus Metrics Exporter&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
+&lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Redis Sentinel Topology&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;topology&#34;&gt;Topology&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Masters: M1, M2, M3, &amp;hellip;, Mn.&lt;/li&gt;
+&lt;li&gt;Slaves: R1, R2, R3, &amp;hellip;, Rn (R stands for replica).&lt;/li&gt;
+&lt;li&gt;Sentinels: S1, S2, S3, &amp;hellip;, Sn.&lt;/li&gt;
+&lt;li&gt;Clients: C1, C2, C3, &amp;hellip;, Cn.&lt;/li&gt;
+&lt;li&gt;每個方格代表一台機器或是 VM&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-sentinels&#34;&gt;2 Sentinels&lt;/h3&gt;
+&lt;p&gt;DON&amp;rsquo;T DO THIS&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Redis Ha Sentinel</title>
+      <link>https://chechia.net/posts/2019-09-29-redis-ha-sentinel/</link>
+      <pubDate>Sun, 29 Sep 2019 17:14:38 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-09-29-redis-ha-sentinel/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在 GKE 上部署 Redis HA (5)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-28-redis-ha-deployment/&#34;&gt;使用 helm 部署 redis-ha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-29-redis-ha-sentinel/&#34;&gt;Redis HA with sentinel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-30-redis-ha-topology/&#34;&gt;Redis sentinel topology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-02-redis-ha-on-haproxy/&#34;&gt;Redis HA with HAproxy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-03-redis-ha-failure-recovery/&#34;&gt;Redis HA Failure Recovery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Prometheus Metrics Exporter&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
+&lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;redis-sentinel&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;redis sentinel 與 redis 使用相容的 api，直接使用 redis-cli 透過 26479 port 連入，可以連到 sentinel，透過 sentinel 可以取得 redis master 的狀態與連線設定。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;redis-cli -h redis-redis-ha -p 26479
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;上篇我們的 redis-ha 安裝完變這樣&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Gcp on Che-Chia Chang</title>
+    <link>https://chechia.net/tags/gcp/</link>
+    <description>Recent content in Gcp on Che-Chia Chang</description>
+    <image>
+      <title>Che-Chia Chang</title>
+      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.7</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 26 Sep 2020 17:24:20 +0800</lastBuildDate>
+    <atom:link href="https://chechia.net/tags/gcp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gcp Preemptible Instance Kubernetes</title>
+      <link>https://chechia.net/posts/2020-09-26-gcp-preemptible-instance-kubernetes/</link>
+      <pubDate>Sat, 26 Sep 2020 17:24:20 +0800</pubDate>
+      <guid>https://chechia.net/posts/2020-09-26-gcp-preemptible-instance-kubernetes/</guid>
+      <description>&lt;h3 id=&#34;先占虛擬機與-kubernetes&#34;&gt;先占虛擬機與 Kubernetes&lt;/h3&gt;
+&lt;p&gt;在 GCP 使用先占虛擬機，會需要面對先占虛擬機的額外限制&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;資料中心會 (可預期或不可預期地) 終止先占虛擬機&lt;/li&gt;
+&lt;li&gt;先占虛擬機不能自動重啟，而是會被資料中心終止後回收&lt;/li&gt;
+&lt;li&gt;GCP 不保證有足夠的先占虛擬機&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;節點的終止會造成額外的維運成本，例如&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;管理多個節點，容忍先占虛擬機的移除，自動補充新的先占虛擬機&lt;/li&gt;
+&lt;li&gt;管理多個應用複本，節點終止時，維護整體應用的可用性&lt;/li&gt;
+&lt;li&gt;將移除節點上的應用，重新排程到其他可用節點&lt;/li&gt;
+&lt;li&gt;動態維護應用複本的服務發現 (Service Discovery) 與服務端點 (Endpoints)
+&lt;ul&gt;
+&lt;li&gt;意思是應用關閉重啟後，換了一個新 IP，還要能持續存取應用。舊的 IP 要主動失效&lt;/li&gt;
+&lt;li&gt;配合應用的健康檢查 (Health Check) 與可用檢查 (Readiness Check)，再分配網路流量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;這些需求，必須要有自動化的管理工具，是不可能人工管理的，想像你手上使用 100 個先占節點，平均每天會有 10% - 15% 的先占節點被資料中心回收，維運需要&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;補足被移除的 15 個節點&lt;/li&gt;
+&lt;li&gt;計算被移除的應用，補足移除的應用數量&lt;/li&gt;
+&lt;li&gt;移除失效的應用端點，補上新的應用端點&lt;/li&gt;
+&lt;li&gt;持續監控應用狀態&lt;/li&gt;
+&lt;li&gt;&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;沒有自動化管理工具，看了心已累 (貓爪掩面)&lt;/p&gt;
+&lt;p&gt;我們使用 Kubernetes 協助維運自動化，在 GCP 上我們使用 GKE，除了上述提到的容器應用管理自動化外，GKE 還額外整合先占虛擬機的使用&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;啟用先占虛擬機的節點池 (node-pool)，設定節點池的自動拓展，自動補足先占節點的數量&lt;/li&gt;
+&lt;li&gt;GKE 自動維護先占虛擬機的 labels&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;關於 GKE 的先占虛擬機的完整細節，請見&lt;a href=&#34;https://cloud.google.com/kubernetes-engine/docs/how-to/preemptible-vms&#34;&gt;GCP 官方文件&lt;/a&gt;。這份文件底下也提供了 GCP 官方建議的先占虛擬機最佳實踐&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;架構設計需要假設，部分或是全部的先占虛擬機都不可用的情形&lt;/li&gt;
+&lt;li&gt;Pod 不一定有時間能優雅終止 (graceful shutdown)&lt;/li&gt;
+&lt;li&gt;同時使用隨選虛擬機與先占虛擬機，以維持先占虛擬機不可用時，服務依然可用&lt;/li&gt;
+&lt;li&gt;注意節點替換時的 IP 變更&lt;/li&gt;
+&lt;li&gt;避免使用有狀態的 Pod 在先占虛擬機上 (這點稍後的文章，我們會試圖超越)&lt;/li&gt;
+&lt;li&gt;使用 node taint 來協助排程到先占虛擬機，與非先占虛擬機&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;總之，由於有容器自動化管理，我們才能輕易的使用先占虛擬機。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Gcp Preemptible Instance Introduction</title>
+      <link>https://chechia.net/posts/2020-09-26-gcp-preemptible-instance-introduction/</link>
+      <pubDate>Sat, 26 Sep 2020 11:03:40 +0800</pubDate>
+      <guid>https://chechia.net/posts/2020-09-26-gcp-preemptible-instance-introduction/</guid>
+      <description>&lt;h1 id=&#34;先占虛擬機技術文件二三事&#34;&gt;先占虛擬機，技術文件二三事&lt;/h1&gt;
+&lt;p&gt;第一篇的內容大部份還是翻譯跟講解官方文件。後面幾篇才會有實際的需求與解決方案分析。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://cloud.google.com/compute/docs/instances/preemptible&#34;&gt;Google 先占虛擬機官方文件&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;使用不熟悉的產品前一定要好好看文件，才不會踩到雷的時候，發現人家就是這樣設計的，而且文件上寫得清清楚楚。以為是 bug 結果真的是 feature，雷到自己。先占虛擬機是用起來跟普通虛擬機沒什麼兩樣，但實際上超級多細節要注意，毛很多的產品，請務必要小心使用。&lt;/p&gt;
+&lt;p&gt;以下文章是筆者工作經驗，覺得好用、確實有幫助公司，來跟大家分享。礙於篇幅，這裡只能非常粗略地描述我們團隊思考過的問題，實際上的問題會複雜非常多。文章只是作個發想，並不足以支撐實際的業務，所以如果要考慮導入，還是要&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;多作功課，仔細查閱官方文件，理解服務的規格&lt;/li&gt;
+&lt;li&gt;深入分析自身的需求&lt;/li&gt;
+&lt;li&gt;基於上面兩者，量化分析&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;什麼是先占虛擬機器preemptible-instance&#34;&gt;什麼是先占虛擬機器(Preemptible Instance)&lt;/h1&gt;
+&lt;p&gt;先占虛擬機器，是資料中心的多餘算力，讀者可以想像是目前賣剩的機器，會依據資料中心的需求動態調整，例如&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;目前資料中心的算力需求低，可使用的先占虛擬機釋出量多，可能可以用更便宜的價格使用&lt;/li&gt;
+&lt;li&gt;目前資料中心算力需求高，資料中心會收回部分先占虛擬機的額度，轉化成隨選付費的虛擬機 (pay-as-you-go)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由於先占虛擬機會不定時（但可預期）地被資料中心收回，因此上頭執行的應用，需要可以承受機器的終止，適合有容錯機制 (fault-tolerant) 的應用，或是批次執行的工作也很適合。&lt;/p&gt;
+&lt;h1 id=&#34;先占機器的優缺點&#34;&gt;先占機器的優缺點&lt;/h1&gt;
+&lt;p&gt;除了有一般隨選虛擬機的特性，先占虛擬機還有以下特點&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;比一般的虛擬機器便宜非常多，這也是我們選用先占虛擬機優於一般虛擬機的唯一理由&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;先占虛擬機有以下限制，以維運的角度，這些都是需要考量的點。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;GCP 不保證會有足夠的先占虛擬機&lt;/li&gt;
+&lt;li&gt;先占虛擬機不能直接轉換成普通虛擬機&lt;/li&gt;
+&lt;li&gt;資料中心觸發維護事件時(ex. 回收先占虛擬機)，先占虛擬機不能設定自動重啟，而是會直接關閉&lt;/li&gt;
+&lt;li&gt;先占機器排除在 &lt;a href=&#34;https://cloud.google.com/compute/sla&#34;&gt;GCP 的服務等級協議 (SLA)&lt;/a&gt;之外&lt;/li&gt;
+&lt;li&gt;先占虛擬機不適用&lt;a href=&#34;https://cloud.google.com/free&#34;&gt;GCP 免費額度&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;費用粗估試算&#34;&gt;費用粗估試算&lt;/h1&gt;
+&lt;p&gt;至於便宜是多便宜呢？這邊先開幾個例子給各位一些概念。&lt;/p&gt;
+&lt;p&gt;以常用的 N1 standard 虛擬機：https://cloud.google.com/compute/vm-instance-pricing#n1_standard_machine_types&lt;/p&gt;
+&lt;p&gt;Hourly
+Machine type	CPUs	Memory	Price (USD)	Preemptible price (USD)
+n1-standard-1	1	3.75GB	$0.0550		$0.0110
+n1-standard-2	2	7.5GB	$0.1100		$0.0220
+n1-standard-4	4	15GB	$0.2200		$0.0440
+n1-standard-8	8	30GB	$0.4400		$0.0880
+n1-standard-16	16	60GB	$0.8800		$0.1760
+n1-standard-32	32	120GB	$1.7600		$0.3520
+n1-standard-64	64	240GB	$3.5200		$0.7040&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Gcp Preemptible Instance Resource Calculation</title>
+      <link>https://chechia.net/posts/2020-09-25-gcp-preemptible-instance-resource-calculation/</link>
+      <pubDate>Fri, 25 Sep 2020 12:22:02 +0800</pubDate>
+      <guid>https://chechia.net/posts/2020-09-25-gcp-preemptible-instance-resource-calculation/</guid>
+      <description>&lt;h3 id=&#34;關於資源評估&#34;&gt;關於資源評估&lt;/h3&gt;
+&lt;p&gt;架構團隊提供虛擬機給應用，有個問題時常出現：應該分配多少資源給應用？例如：後端準備一個 API server，SRE 這邊要準備多少什麼規格的機器？&lt;/p&gt;
+&lt;p&gt;以往使用虛擬機直接部署應用時，會需要明確規劃各群虛擬機，各自需要執行的應用，如果沒有做資源的事前評估，有可能放上機器運行後就發生資源不足。&lt;/p&gt;
+&lt;p&gt;導入 Kubernetes 後，透過節點池 (Node Pool) 形成一個大型資源池，設定部署的政策後，讓 Kubernetes 自動調度應用：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;每一個節點的資源夠大，使得應用虛擬機器上所佔的比例相對較小，也就是單一應用的調度不會影響節點的整體負載
+&lt;ul&gt;
+&lt;li&gt;如果節點太小，調度應用就會有些侷促，例如：一個 API server 均載時消耗 1 cpu 滿載時消耗 2 cpu。準備 3 cpu 的虛擬機，調度應用時幾乎是遷移整台虛擬機的負載&lt;/li&gt;
+&lt;li&gt;此外還有機會因為&lt;a href=&#34;&#34;&gt;上篇&lt;/a&gt;提到的資源保留，造成調度失敗。如果準備 24 cpu 的機器，調度起來彈性就很大，對節點的性能衝擊也比較低&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;只需要估計整體的資源消耗率計算需求，配合自動擴展，動態器補足不足的資源
+&lt;ul&gt;
+&lt;li&gt;例如：估計總共需要 32 cpu ，準備 36 cpu 的虛擬機，當滿載時依據 cpu 壓力自動擴容到 48 cpu&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;希望整體資源的使用率夠高，當然預留太多的資源會造成浪費&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;要控管 Kubernetes 的資源使用量也可設定&lt;a href=&#34;https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace/&#34;&gt;資源需求與資源限制&lt;/a&gt;，延伸閱讀。&lt;/p&gt;
+&lt;p&gt;估計得越準確，當然實際部署的資源掌握度就越高，然而筆者過去的經驗，團隊在交付源碼時未必就能夠做出有效的資源消耗評估，那有沒有什麼辦法可以幫助我們？&lt;/p&gt;
+&lt;h3 id=&#34;資源需求估估看&#34;&gt;資源需求估估看&lt;/h3&gt;
+&lt;p&gt;如果應用開發團隊，有先作應用的 profiling，然後 release candidate 版本有在 staging 上作壓力測試的話，維運團隊這邊應該就取得的數據，做部署前的資源評估。&lt;/p&gt;
+&lt;p&gt;應用在不同狀態或是工作階段，會消耗不同的資源&lt;/p&gt;
+&lt;p&gt;例如：運算密集的 batch job 可能會有&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;控制節點 (master node) 啟動後會佔有一定的資源，一般來說不會消耗太多，只是需要為控制節點優先保留資源&lt;/li&gt;
+&lt;li&gt;工作節點 (worker node) 啟動時會需要預留足夠的資源，接收工作後會逐漸增加資源使用，拉到滿載&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;例如：面向用戶的服務，可能會有&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Gcp Preemptible Instance Requirement</title>
+      <link>https://chechia.net/posts/2020-09-24-gcp-preemptible-instance-requirement/</link>
+      <pubDate>Thu, 24 Sep 2020 13:39:12 +0800</pubDate>
+      <guid>https://chechia.net/posts/2020-09-24-gcp-preemptible-instance-requirement/</guid>
+      <description>&lt;h1 id=&#34;需求規劃&#34;&gt;需求規劃&lt;/h1&gt;
+&lt;p&gt;使用先占節點比起使用一般隨選虛擬機，會多出許多技術困難需要克服，只有節省下的成本大於整體技術成本時，我們才會選用先占節點。因此這邊要進行成本精算，重新調整的架構下，實際到底能省多少錢。務必使用 &lt;a href=&#34;https://cloud.google.com/products/calculator?hl=zh-tw&#34;&gt;Google Cloud Pricing Calculator&lt;/a&gt; 精算成本。&lt;/p&gt;
+&lt;p&gt;另外，雖然先占虛擬機會有很多額外的限制與技術困難，但實務上還是要對比實際的需求，有些限制與需求是衝突的，有些限制則完全不會影響我們的需求。前者當然會帶給我們較高的導入難度，後者可能會非常輕鬆。&lt;/p&gt;
+&lt;p&gt;這邊想給大家的概念是，務必先明確需求，再討論技術。這點很重要，技術的適用與否，不是由個人的喜好決定，唯一的判斷標準，是能不能有效率的滿足需求。&lt;/p&gt;
+&lt;p&gt;所以這邊先定義我們以下幾個需求：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;執行短期的 batch job&lt;/li&gt;
+&lt;li&gt;執行長期的 user-facing API server&lt;/li&gt;
+&lt;li&gt;執行長期的 stateful 資料庫、儲存庫&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;batch-job&#34;&gt;Batch Job&lt;/h3&gt;
+&lt;p&gt;常見的範例，例如&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用網路爬蟲 (crawler) 去抓取許多網站的所有內容&lt;/li&gt;
+&lt;li&gt;使用 GPU 進行機器學習的 Model Training&lt;/li&gt;
+&lt;li&gt;大數據計算&lt;/li&gt;
+&lt;li&gt;MapReduce&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;這些任務的核心需求，很簡單直接&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;盡快完成整體工作&lt;/li&gt;
+&lt;li&gt;盡可能節省大量算力成本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;例如：我手上的機器學習 Model 粗略估計 10000 小時*GPU 的算力需求，才能產出一個有效的Model。由於大量的算力需求，一般來說都會選擇分散式的運算框架 (ex. MapReduce) ，將真正消耗算力的工作，使用分而化之 (divide and conquer) 的架構設計，將分配任務的控制節點 (master)，與實際進行運算的工作節點(worker) 拆分。基於原本的分散式架構，幾乎可以無痛地將工作節點轉移到先占虛擬機上。&lt;/p&gt;
+&lt;p&gt;根據上述的需求，這類的工作特性可能有&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CPU / GPU 算力需求高的運算節點 (Worker)&lt;/li&gt;
+&lt;li&gt;Worker 本身是無狀態的 Stateless&lt;/li&gt;
+&lt;li&gt;可控的即時負載&lt;/li&gt;
+&lt;li&gt;將整體工作切分成任務單元 (task)，分配給工作節點&lt;/li&gt;
+&lt;li&gt;任務單元的狀態外部保留，工作節點可容錯 (fault-tolerent)，任務單元可復原&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由於先占虛擬機可能是浮動價格，這類工作可以根據優先程度，調整合適的工作時間，例如在資料中心算力需求低，先占虛擬機的費用低廉時，啟用較多的工作節點加快運算，如果費用高時，可以降低先占虛擬機的使用，延後工作，甚至是調用不同區域，費用低的工作節點，來降低整體的成本。&lt;/p&gt;
+&lt;p&gt;執得注意的是，這類任務的控制節點 (master)，也許是集中式的，也許是分散式的，需要根據性質考量，是否適合放在先占虛擬機上。有些架構控制節點可以容錯，然而錯誤發生後會需要復原狀態，這時會消耗額外的算力，可能會拖緩整體進度，造成算力的消耗。也許就可以考量使用隨選虛擬機配合使用。&lt;/p&gt;
+&lt;h3 id=&#34;user-facing-services&#34;&gt;User-facing services&lt;/h3&gt;
+&lt;p&gt;常見的範例，例如&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Gcp Preemptible Instance Speficication</title>
+      <link>https://chechia.net/posts/2020-09-23-gcp-preemptible-instance-speficication/</link>
+      <pubDate>Wed, 23 Sep 2020 16:23:14 +0800</pubDate>
+      <guid>https://chechia.net/posts/2020-09-23-gcp-preemptible-instance-speficication/</guid>
+      <description>&lt;h1 id=&#34;先占虛擬機終止流程-preemption-process&#34;&gt;先占虛擬機終止流程 (Preemption process)&lt;/h1&gt;
+&lt;p&gt;子曰：未知生焉知死。但做工程師要反過來，考量最差情形，也就是要知道應用可能如何死去。不知道應用可能怎麼死，別說你知道應用活得好好的，大概想表達這麼意思。&lt;/p&gt;
+&lt;p&gt;這對先占虛擬機來說特別重要，一般應用面對的機器故障或是機器終止，在使用先占西你幾的狀況下，變成每日的必然，因此，需要對應用的終止情境，與終止流程有更精細的掌控。如同前幾篇所說的，先占虛擬機會被公有雲收回，但收回的時候不會突然機器就 ben 不見，會有一個固定的流程。&lt;/p&gt;
+&lt;p&gt;如果你的應用已經帶有可容錯的機制，能夠承受機器突然變不見，服務還好好的，仍然要花時間理解這邊的流程，藉此精算每天虛擬機的終止與替換：應用會有什麼反應，會產生多少衝擊，稍後可以量化服務的影響。例如&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;應用重啟初始化時 cpu memory 突然拉高&lt;/li&gt;
+&lt;li&gt;承受節點錯誤後的復原流程，需要消耗額外算力。例如需要從上個 checkpoint 接續做，需要去讀取資料造成 IO，或是資料需要做 rebalance &amp;hellip;等等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果你的應用需要有 graceful shutdown 的機制，那你務必要細心理解這邊的步驟。並仔細安排安全下樁的步驟。又或是無法保證在先占虛擬機回收的作業時限內，完成優雅終止，需要考慮其他可能的實作解法。&lt;/p&gt;
+&lt;p&gt;這邊有幾個面向要注意&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;GCP 如何終止先占節點&lt;/li&gt;
+&lt;li&gt;GCP 移除節點對 GKE 、以及執行中應用的影響&lt;/li&gt;
+&lt;li&gt;GKE 集群如何應對的節點失效&lt;/li&gt;
+&lt;li&gt;GCP 自動調度補足新的先占節點&lt;/li&gt;
+&lt;li&gt;GKE 集群如何應對節點補足&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;三個重點&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;先占虛擬機終止對集群的影響&lt;/li&gt;
+&lt;li&gt;Pod 隨之終止對應用的影響，是否能夠優雅終止&lt;/li&gt;
+&lt;li&gt;有沒有方法可以避免上面兩者的影響&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;劇透一下：有的，有一些招式可以處理。讓我們繼續看下去。&lt;/p&gt;
+&lt;h3 id=&#34;gcp-如何終止虛擬機&#34;&gt;GCP 如何終止虛擬機&lt;/h3&gt;
+&lt;p&gt;先占虛擬機的硬體終止步驟與一般隨選虛擬機相同，所以我們要先理解&lt;a href=&#34;https://cloud.google.com/compute/docs/instances/stop-start-instance&#34;&gt;虛擬機的停止流程&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;這裡指的終止 (Stop) 是&lt;a href=&#34;https://cloud.google.com/compute/docs/instances/instance-life-cycle&#34;&gt;虛擬機生命週期&lt;/a&gt; 的 RUNNING -&amp;gt; instances.stop() -&amp;gt; STOPPING -&amp;gt; TERMINATED 的步驟。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;instances.stop()&lt;/li&gt;
+&lt;li&gt;ACPI shutdown&lt;/li&gt;
+&lt;li&gt;OS 會進行 shutdown 流程，並嘗試執行各個服務的終止流程，以安全的終止服務。如果虛擬機有設定&lt;a href=&#34;https://cloud.google.com/compute/docs/shutdownscript&#34;&gt;Shtudown Script&lt;/a&gt; 會在這步驟處理&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://cloud.google.com/compute/docs/instances/deleting-instance&#34;&gt;等待至少 90 秒&lt;/a&gt;，讓 OS 完成終止的流程
+&lt;ul&gt;
+&lt;li&gt;逾時的終止流程，GCP 會直接強制終止，就算 shutdown script 還沒跑完&lt;/li&gt;
+&lt;li&gt;GCP 不保證終止時限的時間，官方建議不要寫重要的依賴腳本在終止時限內&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;虛擬機變成 TERMINATED 狀態&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;gcp-如何終止先占虛擬機&#34;&gt;GCP 如何終止先占虛擬機&lt;/h3&gt;
+&lt;p&gt;與隨選虛擬機不同&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Gcp Preemptible Instance Requirement Distributed</title>
+      <link>https://chechia.net/posts/2020-09-22-gcp-preemptible-instance-requirement-distributed/</link>
+      <pubDate>Tue, 22 Sep 2020 14:39:00 +0800</pubDate>
+      <guid>https://chechia.net/posts/2020-09-22-gcp-preemptible-instance-requirement-distributed/</guid>
+      <description>&lt;p&gt;我們以下幾個需求：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;執行短期的 batch job&lt;/li&gt;
+&lt;li&gt;執行長期的 user-facing API server&lt;/li&gt;
+&lt;li&gt;執行長期的 stateful 資料庫、儲存庫&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;該不該在 Kubernetes 上面跑 database？&lt;/p&gt;
+&lt;p&gt;TL;DR ，如果你剛開始考慮這件事，通常的答案都是否定的&lt;/p&gt;
+&lt;p&gt;等等，我們這邊不是討論該不該上 Kuberentes ，而是該不該使用先占虛擬機吧。然而由於先占虛擬機節點的諸多限制，光憑先占虛擬機並不適合跑任何持久性的儲存庫。我們這邊仰賴 Kubernetes 的網路功能 (e.g. 服務發現)，與自動管理 (e.g. health check，HPA，auto-scaler)，基於先占虛擬機，建構高可用性的服務架構，來支撐高可用，且有狀態的的儲存庫。&lt;/p&gt;
+&lt;p&gt;應用是否適合部署到 Kubernetes 上，可以看這篇 &lt;a href=&#34;https://cloud.google.com/blog/products/databases/to-run-or-not-to-run-a-database-on-kubernetes-what-to-consider&#34;&gt;Google Blog: To run or not to run a database on Kubernetes: What to consider&lt;/a&gt;，如果大家有興趣，再留言告訴我，我再進行中文翻譯。&lt;/p&gt;
+&lt;p&gt;文中針對三個可能的方案做分析，以 MySQL 為例：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sass，GCP 的 Cloud SQL
+&lt;ul&gt;
+&lt;li&gt;最低的管理維運成本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;自架 MySQL 在 GCP 的 VM 上，自行管理
+&lt;ul&gt;
+&lt;li&gt;自負完全的管理責任，包含可用性，備份 (backup)，以及容錯移轉 (failover)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;自架 MySQL 在 Kubernetes 上
+&lt;ul&gt;
+&lt;li&gt;自負完全的管理責任&lt;/li&gt;
+&lt;li&gt;Kubernetes 的複雜抽象層，會加重維運工作的複雜程度&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;然而 RDBMS 的提供商，自家也提供 Operator&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Gcp Preemptible Instance</title>
+      <link>https://chechia.net/posts/2020-09-21-gcp-preemptible-instance/</link>
+      <pubDate>Mon, 21 Sep 2020 09:22:17 +0800</pubDate>
+      <guid>https://chechia.net/posts/2020-09-21-gcp-preemptible-instance/</guid>
+      <description>&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
+&lt;p&gt;鐵人賽的第二部分，要帶來公有雲省錢系列文章。&lt;/p&gt;
+&lt;p&gt;架構的成本，很多時候會影響架構的設計與需求。公司的營運都需要在成本與需求之前平衡，成本其實是影響公司決策的重要因素。身為架構管理員，應該要試著量化並且進行成本管理，提出解決方案時，也需要思考如何幫公司開源節流。&lt;/p&gt;
+&lt;p&gt;一昧消減架構的成本也未必是最佳方案，帳面上消減的成本有時也會反映在其他地方，例如：使用比較便宜的解決方案，或是較低的算力，但卻造成維運需要花更多時間維護，造成隱性的人力成本消耗。用什麼替代方案 (trade-off) 省了這些錢。&lt;/p&gt;
+&lt;p&gt;Kubernetes 是一個很好的例子：例如：有人說「Kubernetes 可以省錢」，但也有人說「Kubernetes 產生的 Overhead 太重會虧錢」。&lt;/p&gt;
+&lt;p&gt;「要不要導入 Kubernetes 是一個好問題」。應該回歸基本的需求，了解需求是什麼。例如：Google 當初開發容器管理平台，是面對什麼樣的使用需求，最終開發出 Kubernetes，各位可以回顧前篇文章「Borg Omega and Kubernete，Kubernetes 的前日今生，與 Google 十餘年的容器化技術」，從 Google 的角度理解容器管理平台，反思自身團隊的實際需求。&lt;/p&gt;
+&lt;p&gt;這套解決方案是否真的適合團隊，解決方案帶來的效果到底是怎樣呢？希望看完這系列文章後，能幫助各位，從成本面思考這些重要的問題。&lt;/p&gt;
+&lt;p&gt;這篇使用 GCP 的原因，除了是我最熟悉的公有雲外，也是因為 GCP 提供的免費額度，讓我可以很輕鬆地作為社群文章的 Demo，如果有別家雲平台有提供相同方案，請留言告訴我，我可能就會多開幾家不同的範例。&lt;/p&gt;
+&lt;h1 id=&#34;先占虛擬機-tldr&#34;&gt;先占虛擬機 TL;DR&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;先占虛擬機為隨選虛擬機定價的 2-3 折，使用先占虛擬機可能可以節省 7 成的雲平台支出&lt;/li&gt;
+&lt;li&gt;先占虛擬機比起隨選虛擬機，外加有諸多限制，e.g. 最長壽命 24 hr、雲平台會主動終止先占虛擬機&amp;hellip;等&lt;/li&gt;
+&lt;li&gt;配合使用自動水平擴展 (auto-scaler)，讓舊的先占虛擬機回收的同時，去購買新的先占虛擬機&lt;/li&gt;
+&lt;li&gt;配合可容錯 (fault-tolerent) 的分散式應用，讓應用可以無痛在虛擬機切換轉移，不影響服務&lt;/li&gt;
+&lt;li&gt;要讓應用可以容錯，需要做非常多事情&lt;/li&gt;
+&lt;li&gt;搭配 kubernetes ，自動化管理來簡化工作&lt;/li&gt;
+&lt;li&gt;配合正確的設定，可以穩定的執行有狀態的分散式資料庫或儲存庫&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;或是看 Google 官方 Blog：&lt;a href=&#34;https://cloud.google.com/blog/products/containers-kubernetes/cutting-costs-with-google-kubernetes-engine-using-the-cluster-autoscaler-and-preemptible-vms&#34;&gt;Cutting costs with Google Kubernetes Engine: using the cluster autoscaler and Preemptible VMs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;預計內容&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Kubernetes Custom Resource Deployment</title>
+      <link>https://chechia.net/posts/2019-10-13-kubernetes-custom-resource-deployment/</link>
+      <pubDate>Sun, 13 Oct 2019 22:03:08 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-10-13-kubernetes-custom-resource-deployment/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;p&gt;這邊改了一些大綱，原本的內容還有一些 kubernetes 的設定，以及 GCP 相關服務的介紹。但既然我們的主題是把東西搬上 k8s 的踩雷旅程，那我們就繼續搬，繼續踩。剩下的時間大概會有四個題目。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Nginx Ingress (3)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-08-kubernetes-nginx-ingress-controller/&#34;&gt;Deploy Nginx Ingress Controller&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-08-kubernetes-nginx-ingress-config/&#34;&gt;Configure Nginx Ingress&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Cert-manager (3)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-10-cert-manager-deployment/&#34;&gt;Deploy cert-manager&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-11-cert-manager-how-it-work/&#34;&gt;How cert-manager work&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-12-cert-manager-complete-workflow/&#34;&gt;Cert-manager complete workflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Kubernetes CRD &amp;amp; Operator-sdk (3)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Introduction about custom resource&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-15-kubernetes-custom-resource-with-operator-sdk/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
+&lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;CRD 內容&lt;/li&gt;
+&lt;li&gt;Deploy CRD&lt;/li&gt;
+&lt;li&gt;Use custom resource&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;recap&#34;&gt;Recap&lt;/h1&gt;
+&lt;p&gt;在上次的 cert-manager 內容中我們走過 cert-manager 的安裝步驟，其中有一個步驟是 apply cert-manager 的 manigests 檔案 &lt;code&gt;*.yaml&lt;/code&gt;)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Kubernetes Custom Resources Basic</title>
+      <link>https://chechia.net/posts/2019-10-13-kubernetes-custom-resources-basic/</link>
+      <pubDate>Sun, 13 Oct 2019 17:28:12 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-10-13-kubernetes-custom-resources-basic/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;p&gt;這邊改了一些大綱，原本的內容還有一些 kubernetes 的設定，以及 GCP 相關服務的介紹。但既然我們的主題是把東西搬上 k8s 的踩雷旅程，那我們就繼續搬，繼續踩。剩下的時間大概會有四個題目。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Nginx Ingress (3)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-08-kubernetes-nginx-ingress-controller/&#34;&gt;Deploy Nginx Ingress Controller&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-08-kubernetes-nginx-ingress-config/&#34;&gt;Configure Nginx Ingress&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Cert-manager (3)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-10-cert-manager-deployment/&#34;&gt;Deploy cert-manager&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-11-cert-manager-how-it-work/&#34;&gt;How cert-manager work&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-12-cert-manager-complete-workflow/&#34;&gt;Cert-manager complete workflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Kubernetes CRD &amp;amp; Operator-sdk (3)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Introduction about custom resource&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-15-kubernetes-custom-resource-with-operator-sdk/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
+&lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;custom resources&lt;/li&gt;
+&lt;li&gt;custom controllers&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;簡介-custom-resources&#34;&gt;簡介 custom resources&lt;/h1&gt;
+&lt;p&gt;Kubernetes 預先定義許多 resource ，這些 resource 是 &lt;a href=&#34;https://kubernetes.io/docs/reference/using-api/api-overview/&#34;&gt;kubernetes API&lt;/a&gt; 預先設置的 &lt;a href=&#34;https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/&#34;&gt;API objects&lt;/a&gt;，例如 kubernetes pods resource 包含許多 pods 物件。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Self-host ELK stack - Installation</title>
+      <link>https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/</link>
+      <pubDate>Sun, 15 Sep 2019 11:43:03 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Elasticsearch 日常維護：數據清理，效能調校，永久儲存&lt;/li&gt;
+&lt;li&gt;Debug ELK stack on GCP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;作為範例的 ELK 的版本是當前的 stable release 7.3.1。&lt;/p&gt;
+&lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;&amp;ndash;&lt;/p&gt;
+&lt;h1 id=&#34;簡介-elk-stack&#34;&gt;簡介 ELK stack&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.elastic.co/guide/index.html&#34;&gt;官方說明文件&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;elk-的元件&#34;&gt;ELK 的元件&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Elasticsearch: 基於 Lucene 的分散式全文搜索引擎&lt;/li&gt;
+&lt;li&gt;Logstash: 數據處理 pipeline&lt;/li&gt;
+&lt;li&gt;Kibana: ELK stack 的管理後台與數據視覺化工具&lt;/li&gt;
+&lt;li&gt;Beats: 輕量級的應用端數據收集器，會從被監控端收集 log 與監控數據(metrics)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;elk-的工作流程&#34;&gt;ELK 的工作流程&lt;/h3&gt;
+&lt;p&gt;beats -&amp;gt; (logstash) -&amp;gt; elasticsearch -&amp;gt; kibana&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

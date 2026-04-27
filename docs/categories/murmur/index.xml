@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Murmur on Che-Chia Chang</title>
+    <link>https://chechia.net/categories/murmur/</link>
+    <description>Recent content in Murmur on Che-Chia Chang</description>
+    <image>
+      <title>Che-Chia Chang</title>
+      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.7</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 19 Aug 2020 10:01:31 +0800</lastBuildDate>
+    <atom:link href="https://chechia.net/categories/murmur/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2020 08 Season Review</title>
+      <link>https://chechia.net/posts/2020-08-19-season-review/</link>
+      <pubDate>Wed, 19 Aug 2020 10:01:31 +0800</pubDate>
+      <guid>https://chechia.net/posts/2020-08-19-season-review/</guid>
+      <description>&lt;p&gt;季中回顧&lt;/p&gt;
+&lt;p&gt;這一季開了很多新坑，卻來不及寫文章填上&lt;/p&gt;
+&lt;p&gt;完成的有 Terraform 的基礎與實務導入經驗&lt;/p&gt;
+&lt;p&gt;正在趕工的有 hashicorp vault，Gitops，與 tls。&lt;/p&gt;
+&lt;p&gt;其中 GitOps 已經有強者我朋友 Hwchiu 巨巨填坑了，我這邊就會偷懶跳過。&lt;a href=&#34;https://hwchiu.com/&#34;&gt;友情連結&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;剩下的希望本季結束前能填完(掩面)&lt;/p&gt;
+&lt;h1 id=&#34;已填坑&#34;&gt;已填坑&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.facebook.com/engineer.from.scratch/posts/185733642920123&#34;&gt;從零開始導入 Terraform&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;DevOps Taiwan Meetup&lt;/li&gt;
+&lt;li&gt;iThome Cloud Summit&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;新坑碼農正在耕田挖坑自己跳&#34;&gt;新坑，碼農正在耕田，挖坑自己跳&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;hashicorp vault
+&lt;ul&gt;
+&lt;li&gt;install&lt;/li&gt;
+&lt;li&gt;basic operation&lt;/li&gt;
+&lt;li&gt;Sign &amp;amp; manage x509 certificate with pki secret engine&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;填坑中文章尚未完成&#34;&gt;填坑中，文章尚未完成&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;aws&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;post/play-aws-eks-with-low-cost: 精算小神童，如何用最少的 credits 玩 aws eks 服務&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;tls&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;post/openssl-self-sign-tls-with-own-ca&lt;/li&gt;
+&lt;li&gt;post/k8s-manage-tls-certificate&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;gitOps&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;post/gitops-with-argo-cd&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;terraform&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;post/terraform-infrastructure-as-code-module&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;kubernetes&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;borg, omega, and kubernetes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;作者外出取材中&#34;&gt;作者外出取材中&amp;hellip;&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;MIT 6.824 Distributed System Learning Note&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Say Goodbye 2019</title>
+      <link>https://chechia.net/posts/2019-12-31-say-goodbye-2019/</link>
+      <pubDate>Tue, 31 Dec 2019 18:38:51 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-12-31-say-goodbye-2019/</guid>
+      <description>2019 年度回顧</description>
+    </item>
+  </channel>
+</rss>

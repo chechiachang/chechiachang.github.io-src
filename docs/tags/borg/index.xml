@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Borg on Che-Chia Chang</title>
+    <link>https://chechia.net/tags/borg/</link>
+    <description>Recent content in Borg on Che-Chia Chang</description>
+    <image>
+      <title>Che-Chia Chang</title>
+      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.7</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 12 Sep 2020 13:50:52 +0800</lastBuildDate>
+    <atom:link href="https://chechia.net/tags/borg/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Borg Omega and Kubernetes Translation 全文翻譯</title>
+      <link>https://chechia.net/posts/2020-09-12-borg-omega-and-kubernetes/</link>
+      <pubDate>Sat, 12 Sep 2020 13:50:52 +0800</pubDate>
+      <guid>https://chechia.net/posts/2020-09-12-borg-omega-and-kubernetes/</guid>
+      <description>&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
+&lt;p&gt;這是原文完整版本。太長不讀 (TL;DR) 請見&lt;a href=&#34;https://chechia.net/posts/2020-08-26-borg-omega-and-kubernetes-tldr/&#34;&gt;Borg Omega and Kubernetes 前世今生摘要&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;原文：https://storage.googleapis.com/pub-tools-public-publication-data/pdf/44843.pdf&lt;/p&gt;
+&lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
+&lt;p&gt;在 container 技術夯起來前，Google 已經做了 container 十幾年，過程中發展出需三套容器管理系統。雖然每一代系統的開發需求不同，但每一代都深受上一代影響。這篇文章描述 Google 開發這些系統時，學到的經驗。&lt;/p&gt;
+&lt;p&gt;第一套 container management 系統是 Borg，為了管理 1. 長期執行的服務 2. 批次的短期工作 (batch job)，原本分別是由 Babysitter 與 Global Work Queue 兩套系統分開管理。後者的架構深刻影響 Borg，但 Global Work Queue 專注於 batch job。兩套系統都在 Linux control groups 之前。Borg 將上述兩種應用放在共享的機器上，來增加資源的使用率，以節省成本。這種共享基於支援 container 的 Linux Kernel (Google 也貢獻許多 Linux kernel container 程式碼)，提供更好的隔離 (isolation) 給延遲敏感的使用者服務 (latency-sentitive user-facing services)，以及消耗大量 cpu 的 batch 程式。&lt;/p&gt;
+&lt;p&gt;越來越多應用都在 Borg 上開發執行， Google 的應用與 infratructure 團隊開發許多工具與服務，形成 Borg 生態系。這些系統提供設定 (configure) 與更新 (update) 工作、預測資源需求、動態推送設定到執行中的工作、服務發現 (service discovery) 與負載均衡 (Load balancing)，等等功能。這些生態系的開發基於 Google 不同團隊的需求，產生一個不同起源 (heterogeneous)、只針對各別需求的 (ad-hoc) 一個堆不同系統，Borg 的使用者需要使用不同的程式語言與程序，來與這些系統互動。Borg 仍然是 Google 主要的容器管理系統，因為他規模 (scale) 巨大，功能多樣，而且極度堅固 (robustness)。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Borg Omega and Kubernetes TLDR 摘要翻譯</title>
+      <link>https://chechia.net/posts/2020-08-26-borg-omega-and-kubernetes-tldr/</link>
+      <pubDate>Wed, 26 Aug 2020 13:50:52 +0800</pubDate>
+      <guid>https://chechia.net/posts/2020-08-26-borg-omega-and-kubernetes-tldr/</guid>
+      <description>&lt;p&gt;這是原文翻譯的太長不讀 (TL;DR) 版本。完整翻譯請見&lt;a href=&#34;https://chechia.net/posts/2020-09-12-borg-omega-and-kubernetes/&#34;&gt;Borg Omega and Kubernetes 前世今生浩文完整翻譯&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;原文：https://storage.googleapis.com/pub-tools-public-publication-data/pdf/44843.pdf&lt;/p&gt;
+&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Borg 以前就有應用管理系統，那時還沒有 Linux control group&lt;/li&gt;
+&lt;li&gt;Borg
+&lt;ul&gt;
+&lt;li&gt;是第一套統一的 container-management system&lt;/li&gt;
+&lt;li&gt;Borg 仍被大規模的使用，有許多功能而且非常堅固&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Omega
+&lt;ul&gt;
+&lt;li&gt;繼承 Borg 上成功的設計，並希望改進 Borg 的生態系&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Kubernetes
+&lt;ul&gt;
+&lt;li&gt;開源&lt;/li&gt;
+&lt;li&gt;透過 REST API 溝通 client&lt;/li&gt;
+&lt;li&gt;應用開發導向，著重於開發者的需求，希望能簡單的部署複雜的系統&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;container&#34;&gt;Container&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Google 使用 Container 來提昇 utilization
+&lt;ul&gt;
+&lt;li&gt;把 batch jobs 跟預留資源的服務 (user-facing app) 放在一起，使用閒置時的資源跑 batch job&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;現代 container 的定義是 runtime-isolation 與 image&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;application-oriented-infrastructure&#34;&gt;Application-oriented infrastructure&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;container 使用久了，不只滿足 utilization 的需求
+&lt;ul&gt;
+&lt;li&gt;資料中心從機器導向變成應用導向&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Container 封裝環境，把機器與 OS 的依賴抽象化
+&lt;ul&gt;
+&lt;li&gt;應用不依賴
+&lt;ul&gt;
+&lt;li&gt;部署流程&lt;/li&gt;
+&lt;li&gt;runtime infrastrcture&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Container scope 在應用上，專注在應用管理而不是機器管理&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;application-environment&#34;&gt;Application environment&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;cgroup, chroot, namespace 原本的目的是為了保護應用，不被其他應用影響
+&lt;ul&gt;
+&lt;li&gt;混合使用可以在應用與 OS 間產生抽象層，解耦 app 與 OS
+&lt;ul&gt;
+&lt;li&gt;提供完全相同的部署環境，避免切換環境(ex. dev, prod)時造成環境差異&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;進一步把 app 的依賴程式也打包 image
+&lt;ul&gt;
+&lt;li&gt;container 對 OS 唯一的依賴只剩 Linux kernel system-call interface
+&lt;ul&gt;
+&lt;li&gt;大幅增加 app 調度的彈性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;然而有些 interface 仍附著 OS 上，ex socket, /prod, ioctl calls
+&lt;ul&gt;
+&lt;li&gt;希望透過 Open Container Initiative，清楚定義 interface 與抽象&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;直接的好處，少數幾種 OS 與 OS Version 就可以跑所有應用，新版本也不影響&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;container-as-the-unit-of-management&#34;&gt;Container as the unit of management&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;資料中心的重心，從管理機器變成管理應用
+&lt;ul&gt;
+&lt;li&gt;提供彈性給 infrastructure team
+&lt;ul&gt;
+&lt;li&gt;提供統一的架構&lt;/li&gt;
+&lt;li&gt;收集統一的 metrics&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Container 統一的介面，讓 management system (ex. k8s) 可以提供 generic APIs
+&lt;ul&gt;
+&lt;li&gt;REST API, HTTP, /healthz, exec&amp;hellip;&lt;/li&gt;
+&lt;li&gt;統一的 health check 介面，更方便的終止與重啟&lt;/li&gt;
+&lt;li&gt;一致性
+&lt;ul&gt;
+&lt;li&gt;容器提供統一的資訊，ex. status, text message, &amp;hellip;&lt;/li&gt;
+&lt;li&gt;管理平台提供統一設定 (ex. resource limits) ，並進行 logging 與 monitoring
+&lt;ul&gt;
+&lt;li&gt;提供更精細的功能 ex. graceful-termination&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;cgroups 提供 app 的資源使用資訊，而不需要知道 app spec，因為 contaier 本身即是 app
+&lt;ul&gt;
+&lt;li&gt;提供更簡單，卻更精細且堅固的 logging 與 monitoring&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;應用導向的 monitoring ，而不是機器導向的 monitoring
+&lt;ul&gt;
+&lt;li&gt;可以收集跨 OS 的 app 狀態，進行整合分析，而不會有 OS 不同造成的雜訊&lt;/li&gt;
+&lt;li&gt;更容易對應用除錯&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;nested contaiers
+&lt;ul&gt;
+&lt;li&gt;resource allocation (aka. alloc in Borg, Pod in Kubernetes)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;orchestration-is-the-beginning-not-the-end&#34;&gt;Orchestration is the beginning, not the end&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;原本 Borg 只是要把 workload 分配到共用的機器上，來改善 utilization
+&lt;ul&gt;
+&lt;li&gt;結果發現可以做更多事情，來幫助開發與部署
+&lt;ul&gt;
+&lt;li&gt;Naming, service discovery&lt;/li&gt;
+&lt;li&gt;Application-aware load balancing&lt;/li&gt;
+&lt;li&gt;Rollout tool&lt;/li&gt;
+&lt;li&gt;Workflow tool&lt;/li&gt;
+&lt;li&gt;Monitoring tool&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;成功的工具被留下
+&lt;ul&gt;
+&lt;li&gt;然而工具都需要各自的 API，副作用是增加部署的複雜度到 Borg 的生態系&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Kubernetese 試圖降低複雜度
+&lt;ul&gt;
+&lt;li&gt;提供一致的 API
+&lt;ul&gt;
+&lt;li&gt;ex. ObjectMetadata, Specification, Status&lt;/li&gt;
+&lt;li&gt;Object metadata 是全域共通的&lt;/li&gt;
+&lt;li&gt;Spec 與 Status 根據 Object 有所不同，但是概念是一致的
+&lt;ul&gt;
+&lt;li&gt;Spec 描述 desired state of object&lt;/li&gt;
+&lt;li&gt;Status 提供 read-only 的 current state of object&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Uniform API 有許多好處
+&lt;ul&gt;
+&lt;li&gt;降低學習成本&lt;/li&gt;
+&lt;li&gt;可以使用 generic 的工具讓所有 workflow 使用&lt;/li&gt;
+&lt;li&gt;統一使用者的開發流程與開發經驗&lt;/li&gt;
+&lt;li&gt;Kubernetes 本身模組化，可以使用延伸模組
+&lt;ul&gt;
+&lt;li&gt;ex. pod API 讓使用者使用，kubernetes 內部使用，外部自動化工具也使用&lt;/li&gt;
+&lt;li&gt;使用者可以自己增加 customized API&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;如何達到 Uniform API
+&lt;ul&gt;
+&lt;li&gt;decoupling API
+&lt;ul&gt;
+&lt;li&gt;切分 API 關注的面向，變成不同 components API. ex.
+&lt;ul&gt;
+&lt;li&gt;replication controller 確保 desired 數量的 Pod 存在&lt;/li&gt;
+&lt;li&gt;autoscaler 關注在需求與使用的預測，然後控制 replication controller API&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;higher-level 服務都共用相同的 basic API&lt;/li&gt;
+&lt;li&gt;切分 API 而外的好處
+&lt;ul&gt;
+&lt;li&gt;有關聯但是用途不同的 API 的內容與使用方式十分相似. ex.
+&lt;ul&gt;
+&lt;li&gt;ReplicationController: 控制長時間運行的 containers 與其複本&lt;/li&gt;
+&lt;li&gt;DeamonSet: 每個機器上都跑一個 container&lt;/li&gt;
+&lt;li&gt;Job: 一次性執行完畢的 container&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Common design patterns
+&lt;ul&gt;
+&lt;li&gt;ex. reconciliation controller loop 在 Borg, Omega, Kubernetes 中大量使用
+&lt;ul&gt;
+&lt;li&gt;需求(desired state)&lt;/li&gt;
+&lt;li&gt;觀察現況(current state)&lt;/li&gt;
+&lt;li&gt;執行動作，收斂需求與現況(reconcile)&lt;/li&gt;
+&lt;li&gt;loop&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;由於狀態是基於實際觀測產生，reconciliation loop 非常堅固，可以承受相當的 failure&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Kubernetes 設計為一連串的為服務系統，以及許多小型的 control loop
+&lt;ul&gt;
+&lt;li&gt;對比大型的 centralized orchestration system&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;things-to-avoid&#34;&gt;Things to avoid&lt;/h1&gt;
+&lt;p&gt;Google 開發過程中，也發現許多不該做的事情&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2020 IT邦幫忙鐵人賽</title>
+      <link>https://chechia.net/posts/2020-09-09-ithome-ironman-challenge/</link>
+      <pubDate>Mon, 09 Sep 2019 16:56:03 +0800</pubDate>
+      <guid>https://chechia.net/posts/2020-09-09-ithome-ironman-challenge/</guid>
+      <description>2020 IT邦幫忙鐵人賽</description>
+    </item>
+  </channel>
+</rss>

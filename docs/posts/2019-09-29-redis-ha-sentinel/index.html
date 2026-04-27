@@ -1,0 +1,208 @@
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Redis Ha Sentinel | Che-Chia Chang</title><meta name=keywords content="鐵人賽2019,kubernetes,redis,ithome,haproxy"><meta name=description content="2020 It邦幫忙鐵人賽 系列文章
+
+在 GKE 上部署 Redis HA (5)
+
+使用 helm 部署 redis-ha
+Redis HA with sentinel
+Redis sentinel topology
+Redis HA with HAproxy
+Redis HA Failure Recovery
+Prometheus Metrics Exporter
+
+
+
+由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。
+寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。
+對我的文章有興趣，歡迎到我的網站上 https://chechia.net 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。
+
+
+摘要
+
+redis-sentinel
+
+redis sentinel 與 redis 使用相容的 api，直接使用 redis-cli 透過 26479 port 連入，可以連到 sentinel，透過 sentinel 可以取得 redis master 的狀態與連線設定。
+redis-cli -h redis-redis-ha -p 26479
+
+上篇我們的 redis-ha 安裝完變這樣"><meta name=author content="chechiachang"><link rel=canonical href=https://chechia.net/posts/2019-09-29-redis-ha-sentinel/><meta name=google-site-verification content="G-QYR8JCDGM9"><link crossorigin=anonymous href=/assets/css/stylesheet.8fe10233a706bc87f2e08b3cf97b8bd4c0a80f10675a143675d59212121037c0.css integrity="sha256-j+ECM6cGvIfy4Is8+XuL1MCoDxBnWhQ2ddWSEhIQN8A=" rel="preload stylesheet" as=style><link rel=icon href=https://chechia.net/favicon/favicon.png><link rel=icon type=image/png sizes=16x16 href=https://chechia.net/favicon/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://chechia.net/favicon/favicon-32x32.png><link rel=apple-touch-icon href=https://chechia.net/favicon/favicon-32x32.png><link rel=mask-icon href=https://chechia.net/favicon/favicon-32x32.png><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://chechia.net/posts/2019-09-29-redis-ha-sentinel/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script async src="https://www.googletagmanager.com/gtag/js?id=G-QYR8JCDGM9"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-QYR8JCDGM9")}</script><meta property="og:url" content="https://chechia.net/posts/2019-09-29-redis-ha-sentinel/"><meta property="og:site_name" content="Che-Chia Chang"><meta property="og:title" content="Redis Ha Sentinel"><meta property="og:description" content="2020 It邦幫忙鐵人賽 系列文章
+在 GKE 上部署 Redis HA (5) 使用 helm 部署 redis-ha Redis HA with sentinel Redis sentinel topology Redis HA with HAproxy Redis HA Failure Recovery Prometheus Metrics Exporter 由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。
+寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。
+對我的文章有興趣，歡迎到我的網站上 https://chechia.net 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。
+摘要 redis-sentinel redis sentinel 與 redis 使用相容的 api，直接使用 redis-cli 透過 26479 port 連入，可以連到 sentinel，透過 sentinel 可以取得 redis master 的狀態與連線設定。
+redis-cli -h redis-redis-ha -p 26479 上篇我們的 redis-ha 安裝完變這樣"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2019-09-29T17:14:38+08:00"><meta property="article:modified_time" content="2019-09-29T17:14:38+08:00"><meta property="article:tag" content="鐵人賽2019"><meta property="article:tag" content="Kubernetes"><meta property="article:tag" content="Redis"><meta property="article:tag" content="Ithome"><meta property="article:tag" content="Haproxy"><meta property="og:image" content="https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta name=twitter:title content="Redis Ha Sentinel"><meta name=twitter:description content="2020 It邦幫忙鐵人賽 系列文章
+
+在 GKE 上部署 Redis HA (5)
+
+使用 helm 部署 redis-ha
+Redis HA with sentinel
+Redis sentinel topology
+Redis HA with HAproxy
+Redis HA Failure Recovery
+Prometheus Metrics Exporter
+
+
+
+由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。
+寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。
+對我的文章有興趣，歡迎到我的網站上 https://chechia.net 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。
+
+
+摘要
+
+redis-sentinel
+
+redis sentinel 與 redis 使用相容的 api，直接使用 redis-cli 透過 26479 port 連入，可以連到 sentinel，透過 sentinel 可以取得 redis master 的狀態與連線設定。
+redis-cli -h redis-redis-ha -p 26479
+
+上篇我們的 redis-ha 安裝完變這樣"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://chechia.net/posts/"},{"@type":"ListItem","position":2,"name":"Redis Ha Sentinel","item":"https://chechia.net/posts/2019-09-29-redis-ha-sentinel/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Redis Ha Sentinel","name":"Redis Ha Sentinel","description":"2020 It邦幫忙鐵人賽 系列文章\n在 GKE 上部署 Redis HA (5) 使用 helm 部署 redis-ha Redis HA with sentinel Redis sentinel topology Redis HA with HAproxy Redis HA Failure Recovery Prometheus Metrics Exporter 由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。\n寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。\n對我的文章有興趣，歡迎到我的網站上 https://chechia.net 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。\n摘要 redis-sentinel redis sentinel 與 redis 使用相容的 api，直接使用 redis-cli 透過 26479 port 連入，可以連到 sentinel，透過 sentinel 可以取得 redis master 的狀態與連線設定。\nredis-cli -h redis-redis-ha -p 26479 上篇我們的 redis-ha 安裝完變這樣\n","keywords":["鐵人賽2019","kubernetes","redis","ithome","haproxy"],"articleBody":"2020 It邦幫忙鐵人賽 系列文章\n在 GKE 上部署 Redis HA (5) 使用 helm 部署 redis-ha Redis HA with sentinel Redis sentinel topology Redis HA with HAproxy Redis HA Failure Recovery Prometheus Metrics Exporter 由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。\n寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。\n對我的文章有興趣，歡迎到我的網站上 https://chechia.net 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。\n摘要 redis-sentinel redis sentinel 與 redis 使用相容的 api，直接使用 redis-cli 透過 26479 port 連入，可以連到 sentinel，透過 sentinel 可以取得 redis master 的狀態與連線設定。\nredis-cli -h redis-redis-ha -p 26479 上篇我們的 redis-ha 安裝完變這樣\n$ kubectl get po | grep redis NAME READY STATUS RESTARTS AGE redis-1-redis-ha-server-0 3/3 Running 0 3d4h redis-1-redis-ha-server-1 3/3 Running 0 3d5h redis-1-redis-ha-server-2 3/3 Running 0 3d4h 有三個 Pod，裡面都是一個 redis, sentinel, 跟 exporter，這篇文章會專注講 sentinel 的功能與機制\nRedis Sentinel redis-sentinel 為 Redis 提供高可用服務，實務上可以透過 sentinel 在錯誤發生時，自動進行 failover。除此之外 sentinel 也提供監測，通知，與 redis 的設定。\nMonitoring: 持續檢測 master 與 slave instances 的狀態 Notification: 有事件發生可以發出通知 Automatic failover: 如果 master 失效自動啟動 failover 程序，將一個 slave 指排為 master，並設定其他 slave 使用新的 master Configuration provider: 為客戶端提供 service discovery，客戶可以通過 sentinel 取得 master 的連線資料。 Distributed Sentinel 本身是一個分散式系統，如我們的範例所示，三個 Pod 立面個含有一個 sentinel，組成 3 個 instace 的 sentinel cluster。\n錯誤檢測是由多個 sentinel 判定，要有多個 sentinel 都接收 master 已失效的訊息，才會判定成失效。這樣可以降低 false positive 的機率。 分散讓 sentinel 本身也具備高可用性，可以承受一定程度的錯誤。用來 fail over 的系統，不能因為自身的單點錯誤(single point failure) 而倒是整個 redis 失效。 Fundamental 一個耐用的 sentinel 需要至少三個 instance 最好把 instance 分散在多個獨立的隔離區域，意思是說，三個不會放在同一台機器上，或是放在同一個區域內，因為一個區域網路故障就全死。 app 使用 sentinel 的話，客戶端要支援 有時常測試的 HA 環境，才是有效的 HA Configuration Sentinel specific configuration options 在上篇我們跳過 sentinel 的設定，這邊說明一下\nsentinel: port: 26379 quorum: 2 config: ## Additional sentinel conf options can be added below. Only options that ## are expressed in the format simialar to 'sentinel xxx mymaster xxx' will ## be properly templated. ## For available options see http://download.redis.io/redis-stable/sentinel.conf down-after-milliseconds: 10000 ## Failover timeout value in milliseconds failover-timeout: 180000 parallel-syncs: 5 ## Custom sentinel.conf files used to override default settings. If this file is ## specified then the sentinel.config above will be ignored. # customConfig: |- # Define configuration here resources: {} # requests: # memory: 200Mi # cpu: 100m # limits: # memory: 200Mi Quorum quorum 是每次確定 master 失效時，需要達成共識的 sentinel 數量。 Quorum 使用在錯誤檢測，確定錯誤真的發生後，sentinel 會以多數決(majority) 的方式選出 sentinel leader，讓 leader 處理 failover。 以我們的例子為例，總共三個，確認 master 死掉只要兩個 sentinel 達成共識即可啟動 failover 程序。可以直接測試一下。\nkubectl logs -f redis-1-redis-ha-server-0 kubectl delete po redis-1-redis-ha-server-1 log 一個 Pod ，然後直接把另一個 Pod 幹掉 這樣會有 1/3 的機率砍到 master，砍中的話可以看到 redis failover ，選出新的 master 的過程。\n這邊要注意，由於我們的 sentinel 與 redis 是放在同樣一個 Pod，幹掉的同時也殺了一個 sentinel，只剩 2 個，剛好達成共識。如果 quorum 是三，就要等第三個 sentinel 回來才能取得 quorum。\nsentinel 與 redis 的配置位置，之後的 topology 會討論。\nConfigurations down-after-milliseconds: 超過多少時間沒回應 ping 或正確回應，才覺得 master 壞了 parallel-syncs: failover 時，要重新與新 master sync 的 slave 數量。數量越多 sync 時間就越久，數量少就有較多 slave 沒 sync 資料，可能會讓 client read 到舊的資料 雖然 sync 是 non-blocking ，但在 sync 大筆資料時，slave 可能會沒有回應。設定為 1 的話，最多只會有一個 slave 下線 sync。 這些參數也可以透過 redis-cli 直接連入更改，但我們是在 kubernetes 上跑，臨時的更改不易保存，所以盡可能把這些configurations 放在 configmap 裡面。\nSentinel command 6379 port 連入 redis，26379 連入 redis sentinel。都是使用 redis-cli，兩者兼容的 protocol。\n# 使用 kubectl 連入，多個 container 要明確指出連入的 container kubectl exec -it redis-1-redis-ha-server-0 --container redis sh redis-cli -h redis-redis-ha -p 26479 # 近來先 ping 一下 $ ping PONG # 列出所有 master 的資訊，以及設定資訊 sentinel master redis-2-redis-ha:26379\u003e sentinel masters 1) 1) \"name\" 2) \"mymaster\" 3) \"ip\" 4) \"10.15.242.245\" 5) \"port\" 6) \"6379\" 7) \"runid\" 8) \"63a97460b7c3745577931dad406df9609c4e2464\" 9) \"flags\" 10) \"master\" 11) \"link-pending-commands\" 12) \"0\" 13) \"link-refcount\" 14) \"1\" 15) \"last-ping-sent\" 16) \"0\" 17) \"last-ok-ping-reply\" 18) \"479\" 19) \"last-ping-reply\" 20) \"479\" 21) \"down-after-milliseconds\" 22) \"5000\" 23) \"info-refresh\" 24) \"5756\" 25) \"role-reported\" 26) \"master\" 27) \"role-reported-time\" 28) \"348144787\" 29) \"config-epoch\" 30) \"13\" 31) \"num-slaves\" 32) \"2\" 33) \"num-other-sentinels\" 34) \"2\" 35) \"quorum\" 36) \"2\" 37) \"failover-timeout\" 38) \"180000\" 39) \"parallel-syncs\" 40) \"5\" # 取得集群中的 master 訊息，目前有一個 master $ sentinel master mymaster # 取得集群中的 slaves 訊息，目前有兩個 slave $ sentinel slaves mymaster # 取得集群中的 master 訊息 $ sentinel sentinels mymaster # 檢查 sentinel 的 quorum $ sentinel ckquorum mymaster OK 3 usable Sentinels. Quorum and failover authorization can be reached # 強迫觸發一次 failover sentinel failover mymaster Sentinel Connection 有支援的客戶端設定，以Golang FZambia/sentinel 為例，透過 sentinel 取得 redis-pool。\n# 使用獨立的 pod service 連入 sentinel，協助彼此識別 sntnl := \u0026sentinel.Sentinel{ Addrs: []string{\"redis-2-redis-ha-announce-0:26379\", \"redis-2-redis-ha-announce-0:26379\", \"redis-2-redis-ha-announce-0:26379\"}, MasterName: \"mymaster\", Dial: func(addr string) (redis.Conn, error) { timeout := 500 * time.Millisecond c, err := redis.DialTimeout(\"tcp\", addr, timeout, timeout, timeout) if err != nil { return nil, err } return c, nil }, } # 產生 connection pool return \u0026redis.Pool{ MaxIdle: 3, MaxActive: 64, Wait: true, IdleTimeout: 240 * time.Second, Dial: func() (redis.Conn, error) { # 透過 sentinel 取得 master address，如果 master 死了，再執行可以拿到新的 master masterAddr, err := sntnl.MasterAddr() if err != nil { return nil, err } c, err := redis.Dial(\"tcp\", masterAddr) if err != nil { return nil, err } return c, nil }, TestOnBorrow: func(c redis.Conn, t time.Time) error { if !sentinel.TestRole(c, \"master\") { return errors.New(\"Role check failed\") } else { return nil } }, } 這邊要注意，客戶端 (golang) 處理 connection 的 exception，要記得重新執行 sntnl.MasterAddr() 來取得 failover 後新指派的 master。\nClient 測試 寫一個 golang redis 的 client 跑起來。這個部分我們在 kafka的章節做過類似的事情，可以簡單湊一個玩玩。\n延伸問題 使用上面的 golang 範例，確實是能透過 sentinel 取得 master，再向 master 取得連線。但這邊有兩個問題\n客戶端需要支援 sentinel 客戶端要感知 sentinel 的位址連線，才能知道所有 sentinel 的位置，設定又產生耦合 不能彈性的調度 sentinel，如果需要增加或是減少 sentinel，客戶端需要重新設定 雖然 sentinel 有 HA，可是客戶端對 sentinel 的設定沒有 HA，萬一已知的所有 sentinel 掛了就全掛 有沒有更優雅的方式使用 sentinel，我們下篇會討論使用 HAProxy 來完成\n","wordCount":"784","inLanguage":"en","image":"https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E","datePublished":"2019-09-29T17:14:38+08:00","dateModified":"2019-09-29T17:14:38+08:00","author":{"@type":"Person","name":"chechiachang"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://chechia.net/posts/2019-09-29-redis-ha-sentinel/"},"publisher":{"@type":"Organization","name":"Che-Chia Chang","logo":{"@type":"ImageObject","url":"https://chechia.net/favicon/favicon.png"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://chechia.net/ accesskey=h title="Home (Alt + H)"><img src=https://chechia.net/favicon/favicon-32x32.png alt aria-label=logo height=35>Home</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://chechia.net/#posts title=Posts><span>Posts</span></a></li><li><a href=https://mvp.microsoft.com/zh-TW/mvp/profile/e407d0b9-5c01-eb11-a815-000d3a8ccaf5 title=MVP><span>MVP</span>&nbsp;
+<svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></a></li><li><a href=https://chechia.net/categories/ title=Categories><span>Categories</span></a></li><li><a href=https://chechia.net/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://chechia.net/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://chechia.net/>Home</a>&nbsp;»&nbsp;<a href=https://chechia.net/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">Redis Ha Sentinel</h1><div class=post-meta><span title='2019-09-29 17:14:38 +0800 CST'>September 29, 2019</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;784 words&nbsp;·&nbsp;chechiachang&nbsp;|&nbsp;<a href=https://github.com/chechiachang.github.io-src/content/posts/2019-09-29-redis-ha-sentinel.md rel="noopener noreferrer edit" target=_blank>Suggest Changes</a></div></header><div class=toc><details><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><nav id=TableOfContents><ul><li><a href=#sentinel-specific-configuration-options>Sentinel specific configuration options</a><ul><li><a href=#quorum>Quorum</a></li><li><a href=#configurations>Configurations</a></li></ul></li></ul></nav></div></details></div><div class=post-content><p><a href=https://ithelp.ithome.com.tw/2020ironman>2020 It邦幫忙鐵人賽</a> 系列文章</p><ul><li>在 GKE 上部署 Redis HA (5)<ul><li><a href=https://chechia.net/posts/2019-09-28-redis-ha-deployment/>使用 helm 部署 redis-ha</a></li><li><a href=https://chechia.net/posts/2019-09-29-redis-ha-sentinel/>Redis HA with sentinel</a></li><li><a href=https://chechia.net/posts/2019-09-30-redis-ha-topology/>Redis sentinel topology</a></li><li><a href=https://chechia.net/posts/2019-10-02-redis-ha-on-haproxy/>Redis HA with HAproxy</a></li><li><a href=https://chechia.net/posts/2019-10-03-redis-ha-failure-recovery/>Redis HA Failure Recovery</a></li><li>Prometheus Metrics Exporter</li></ul></li></ul><p>由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。</p><p>寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。</p><p>對我的文章有興趣，歡迎到我的網站上 <a href=https://chechia.net>https://chechia.net</a> 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。</p><p><img alt="Exausted Cat Face" loading=lazy src=https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg></p><hr><h1 id=摘要>摘要<a hidden class=anchor aria-hidden=true href=#摘要>#</a></h1><ul><li>redis-sentinel</li></ul><p>redis sentinel 與 redis 使用相容的 api，直接使用 redis-cli 透過 26479 port 連入，可以連到 sentinel，透過 sentinel 可以取得 redis master 的狀態與連線設定。</p><pre><code>redis-cli -h redis-redis-ha -p 26479
+</code></pre><p>上篇我們的 redis-ha 安裝完變這樣</p><pre><code>$ kubectl get po | grep redis
+
+NAME                                                     READY   STATUS      RESTARTS   AGE
+redis-1-redis-ha-server-0                                3/3     Running     0          3d4h
+redis-1-redis-ha-server-1                                3/3     Running     0          3d5h
+redis-1-redis-ha-server-2                                3/3     Running     0          3d4h
+</code></pre><p>有三個 Pod，裡面都是一個 redis, sentinel, 跟 exporter，這篇文章會專注講 sentinel 的功能與機制</p><h1 id=redis-sentinel>Redis Sentinel<a hidden class=anchor aria-hidden=true href=#redis-sentinel>#</a></h1><p><a href=https://redis.io/topics/sentinel>redis-sentinel</a> 為 Redis 提供高可用服務，實務上可以透過 sentinel 在錯誤發生時，自動進行 failover。除此之外 sentinel 也提供監測，通知，與 redis 的設定。</p><ul><li>Monitoring: 持續檢測 master 與 slave instances 的狀態</li><li>Notification: 有事件發生可以發出通知</li><li>Automatic failover: 如果 master 失效自動啟動 failover 程序，將一個 slave 指排為 master，並設定其他 slave 使用新的 master</li><li>Configuration provider: 為客戶端提供 service discovery，客戶可以通過 sentinel 取得 master 的連線資料。</li></ul><h1 id=distributed>Distributed<a hidden class=anchor aria-hidden=true href=#distributed>#</a></h1><p>Sentinel 本身是一個分散式系統，如我們的範例所示，三個 Pod 立面個含有一個 sentinel，組成 3 個 instace 的 sentinel cluster。</p><ul><li>錯誤檢測是由多個 sentinel 判定，要有多個 sentinel 都接收 master 已失效的訊息，才會判定成失效。這樣可以降低 false positive 的機率。</li><li>分散讓 sentinel 本身也具備高可用性，可以承受一定程度的錯誤。用來 fail over 的系統，不能因為自身的單點錯誤(single point failure) 而倒是整個 redis 失效。</li></ul><h1 id=fundamental>Fundamental<a hidden class=anchor aria-hidden=true href=#fundamental>#</a></h1><ul><li>一個耐用的 sentinel 需要至少三個 instance</li><li>最好把 instance 分散在多個獨立的隔離區域，意思是說，三個不會放在同一台機器上，或是放在同一個區域內，因為一個區域網路故障就全死。</li><li>app 使用 sentinel 的話，客戶端要支援</li><li>有時常測試的 HA 環境，才是有效的 HA</li></ul><h1 id=configuration>Configuration<a hidden class=anchor aria-hidden=true href=#configuration>#</a></h1><h2 id=sentinel-specific-configuration-options>Sentinel specific configuration options<a hidden class=anchor aria-hidden=true href=#sentinel-specific-configuration-options>#</a></h2><p>在上篇我們跳過 sentinel 的設定，這邊說明一下</p><pre><code>sentinel:
+  port: 26379
+  quorum: 2
+  config:
+    ## Additional sentinel conf options can be added below. Only options that
+    ## are expressed in the format simialar to 'sentinel xxx mymaster xxx' will
+    ## be properly templated.
+    ## For available options see http://download.redis.io/redis-stable/sentinel.conf
+    down-after-milliseconds: 10000
+    ## Failover timeout value in milliseconds
+    failover-timeout: 180000
+    parallel-syncs: 5
+
+  ## Custom sentinel.conf files used to override default settings. If this file is
+  ## specified then the sentinel.config above will be ignored.
+  # customConfig: |-
+      # Define configuration here
+
+  resources: {}
+  #  requests:
+  #    memory: 200Mi
+  #    cpu: 100m
+  #  limits:
+  #    memory: 200Mi
+</code></pre><h3 id=quorum>Quorum<a hidden class=anchor aria-hidden=true href=#quorum>#</a></h3><ul><li>quorum 是每次確定 master 失效時，需要達成共識的 sentinel 數量。</li><li>Quorum 使用在錯誤檢測，確定錯誤真的發生後，sentinel 會以多數決(majority) 的方式選出 sentinel leader，讓 leader 處理 failover。</li></ul><p>以我們的例子為例，總共三個，確認 master 死掉只要兩個 sentinel 達成共識即可啟動 failover 程序。可以直接測試一下。</p><pre><code>kubectl logs -f redis-1-redis-ha-server-0
+
+kubectl delete po redis-1-redis-ha-server-1
+</code></pre><p>log 一個 Pod ，然後直接把另一個 Pod 幹掉 這樣會有 1/3 的機率砍到 master，砍中的話可以看到 redis failover ，選出新的 master 的過程。</p><p>這邊要注意，由於我們的 sentinel 與 redis 是放在同樣一個 Pod，幹掉的同時也殺了一個 sentinel，只剩 2 個，剛好達成共識。如果 quorum 是三，就要等第三個 sentinel 回來才能取得 quorum。</p><p>sentinel 與 redis 的配置位置，之後的 topology 會討論。</p><h3 id=configurations>Configurations<a hidden class=anchor aria-hidden=true href=#configurations>#</a></h3><ul><li>down-after-milliseconds: 超過多少時間沒回應 ping 或正確回應，才覺得 master 壞了</li><li>parallel-syncs: failover 時，要重新與新 master sync 的 slave 數量。數量越多 sync 時間就越久，數量少就有較多 slave 沒 sync 資料，可能會讓 client read 到舊的資料<ul><li>雖然 sync 是 non-blocking ，但在 sync 大筆資料時，slave 可能會沒有回應。設定為 1 的話，最多只會有一個 slave 下線 sync。</li></ul></li></ul><p>這些參數也可以透過 redis-cli 直接連入更改，但我們是在 kubernetes 上跑，臨時的更改不易保存，所以盡可能把這些configurations 放在 configmap 裡面。</p><h1 id=sentinel-command>Sentinel command<a hidden class=anchor aria-hidden=true href=#sentinel-command>#</a></h1><p>6379 port 連入 redis，26379 連入 redis sentinel。都是使用 redis-cli，兩者兼容的 protocol。</p><pre><code># 使用 kubectl 連入，多個 container 要明確指出連入的 container
+kubectl exec -it redis-1-redis-ha-server-0 --container redis sh
+
+redis-cli -h redis-redis-ha -p 26479
+
+# 近來先 ping 一下
+$ ping
+PONG
+
+# 列出所有 master 的資訊，以及設定資訊
+sentinel master
+redis-2-redis-ha:26379&gt; sentinel masters
+1)  1) &quot;name&quot;
+    2) &quot;mymaster&quot;
+    3) &quot;ip&quot;
+    4) &quot;10.15.242.245&quot;
+    5) &quot;port&quot;
+    6) &quot;6379&quot;
+    7) &quot;runid&quot;
+    8) &quot;63a97460b7c3745577931dad406df9609c4e2464&quot;
+    9) &quot;flags&quot;
+   10) &quot;master&quot;
+   11) &quot;link-pending-commands&quot;
+   12) &quot;0&quot;
+   13) &quot;link-refcount&quot;
+   14) &quot;1&quot;
+   15) &quot;last-ping-sent&quot;
+   16) &quot;0&quot;
+   17) &quot;last-ok-ping-reply&quot;
+   18) &quot;479&quot;
+   19) &quot;last-ping-reply&quot;
+   20) &quot;479&quot;
+   21) &quot;down-after-milliseconds&quot;
+   22) &quot;5000&quot;
+   23) &quot;info-refresh&quot;
+   24) &quot;5756&quot;
+   25) &quot;role-reported&quot;
+   26) &quot;master&quot;
+   27) &quot;role-reported-time&quot;
+   28) &quot;348144787&quot;
+   29) &quot;config-epoch&quot;
+   30) &quot;13&quot;
+   31) &quot;num-slaves&quot;
+   32) &quot;2&quot;
+   33) &quot;num-other-sentinels&quot;
+   34) &quot;2&quot;
+   35) &quot;quorum&quot;
+   36) &quot;2&quot;
+   37) &quot;failover-timeout&quot;
+   38) &quot;180000&quot;
+   39) &quot;parallel-syncs&quot;
+   40) &quot;5&quot;
+
+# 取得集群中的 master 訊息，目前有一個 master
+$ sentinel master mymaster
+
+# 取得集群中的 slaves 訊息，目前有兩個 slave
+$ sentinel slaves mymaster
+
+# 取得集群中的 master 訊息
+$ sentinel sentinels mymaster
+
+# 檢查 sentinel 的 quorum
+$ sentinel ckquorum mymaster
+
+OK 3 usable Sentinels. Quorum and failover authorization can be reached
+
+# 強迫觸發一次 failover
+sentinel failover mymaster
+</code></pre><h1 id=sentinel-connection>Sentinel Connection<a hidden class=anchor aria-hidden=true href=#sentinel-connection>#</a></h1><p>有支援的客戶端設定，以<a href=https://github.com/FZambia/sentinel/blob/master/sentinel.go>Golang FZambia/sentinel</a> 為例，透過 sentinel 取得 redis-pool。</p><pre><code># 使用獨立的 pod service 連入 sentinel，協助彼此識別
+sntnl := &amp;sentinel.Sentinel{
+	Addrs:      []string{&quot;redis-2-redis-ha-announce-0:26379&quot;, &quot;redis-2-redis-ha-announce-0:26379&quot;, &quot;redis-2-redis-ha-announce-0:26379&quot;},
+	MasterName: &quot;mymaster&quot;,
+	Dial: func(addr string) (redis.Conn, error) {
+		timeout := 500 * time.Millisecond
+		c, err := redis.DialTimeout(&quot;tcp&quot;, addr, timeout, timeout, timeout)
+		if err != nil {
+			return nil, err
+		}
+		return c, nil
+	},
+}
+
+# 產生 connection pool
+return &amp;redis.Pool{
+	MaxIdle:     3,
+	MaxActive:   64,
+	Wait:        true,
+	IdleTimeout: 240 * time.Second,
+	Dial: func() (redis.Conn, error) {
+
+    # 透過 sentinel 取得 master address，如果 master 死了，再執行可以拿到新的 master
+		masterAddr, err := sntnl.MasterAddr()
+		if err != nil {
+			return nil, err
+		}
+		c, err := redis.Dial(&quot;tcp&quot;, masterAddr)
+		if err != nil {
+			return nil, err
+		}
+		return c, nil
+	},
+	TestOnBorrow: func(c redis.Conn, t time.Time) error {
+		if !sentinel.TestRole(c, &quot;master&quot;) {
+			return errors.New(&quot;Role check failed&quot;)
+		} else {
+			return nil
+		}
+	},
+}
+</code></pre><p>這邊要注意，客戶端 (golang) 處理 connection 的 exception，要記得重新執行 sntnl.MasterAddr() 來取得 failover 後新指派的 master。</p><h1 id=client-測試>Client 測試<a hidden class=anchor aria-hidden=true href=#client-測試>#</a></h1><p>寫一個 golang redis 的 client 跑起來。這個部分我們在 <a href=https://chechia.net/posts/2019-09-24-kafka-basic-usage/>kafka的章節</a>做過類似的事情，可以簡單湊一個玩玩。</p><h1 id=延伸問題>延伸問題<a hidden class=anchor aria-hidden=true href=#延伸問題>#</a></h1><p>使用上面的 golang 範例，確實是能透過 sentinel 取得 master，再向 master 取得連線。但這邊有兩個問題</p><ul><li>客戶端需要支援 sentinel</li><li>客戶端要感知 sentinel 的位址連線，才能知道所有 sentinel 的位置，設定又產生耦合<ul><li>不能彈性的調度 sentinel，如果需要增加或是減少 sentinel，客戶端需要重新設定</li><li>雖然 sentinel 有 HA，可是客戶端對 sentinel 的設定沒有 HA，萬一已知的所有 sentinel 掛了就全掛</li></ul></li></ul><p>有沒有更優雅的方式使用 sentinel，我們下篇會討論使用 HAProxy 來完成</p></div><footer class=post-footer><ul class=post-tags><li><a href=https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2019/>鐵人賽2019</a></li><li><a href=https://chechia.net/tags/kubernetes/>Kubernetes</a></li><li><a href=https://chechia.net/tags/redis/>Redis</a></li><li><a href=https://chechia.net/tags/ithome/>Ithome</a></li><li><a href=https://chechia.net/tags/haproxy/>Haproxy</a></li></ul><nav class=paginav><a class=prev href=https://chechia.net/posts/2019-09-30-redis-ha-topology/><span class=title>« Prev</span><br><span>Redis Ha Topology</span>
+</a><a class=next href=https://chechia.net/posts/2019-09-28-redis-ha-deployment/><span class=title>Next »</span><br><span>Redis Ha Deployment</span></a></nav><ul class=share-buttons><li><a target=_blank rel="noopener noreferrer" aria-label="share Redis Ha Sentinel on x" href="https://x.com/intent/tweet/?text=Redis%20Ha%20Sentinel&amp;url=https%3a%2f%2fchechia.net%2fposts%2f2019-09-29-redis-ha-sentinel%2f&amp;hashtags=%e9%90%b5%e4%ba%ba%e8%b3%bd2019%2ckubernetes%2credis%2cithome%2chaproxy"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentColor"><path d="M512 62.554V449.446C512 483.97 483.97 512 449.446 512H62.554C28.03 512 0 483.97.0 449.446V62.554C0 28.03 28.029.0 62.554.0H449.446C483.971.0 512 28.03 512 62.554zM269.951 190.75 182.567 75.216H56L207.216 272.95 63.9 436.783h61.366L235.9 310.383l96.667 126.4H456L298.367 228.367l134-153.151H371.033zM127.633 110h36.468l219.38 290.065H349.5z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share Redis Ha Sentinel on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fchechia.net%2fposts%2f2019-09-29-redis-ha-sentinel%2f&amp;title=Redis%20Ha%20Sentinel&amp;summary=Redis%20Ha%20Sentinel&amp;source=https%3a%2f%2fchechia.net%2fposts%2f2019-09-29-redis-ha-sentinel%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentColor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share Redis Ha Sentinel on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fchechia.net%2fposts%2f2019-09-29-redis-ha-sentinel%2f&title=Redis%20Ha%20Sentinel"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentColor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share Redis Ha Sentinel on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fchechia.net%2fposts%2f2019-09-29-redis-ha-sentinel%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentColor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share Redis Ha Sentinel on whatsapp" href="https://api.whatsapp.com/send?text=Redis%20Ha%20Sentinel%20-%20https%3a%2f%2fchechia.net%2fposts%2f2019-09-29-redis-ha-sentinel%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentColor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share Redis Ha Sentinel on telegram" href="https://telegram.me/share/url?text=Redis%20Ha%20Sentinel&amp;url=https%3a%2f%2fchechia.net%2fposts%2f2019-09-29-redis-ha-sentinel%2f"><svg viewBox="2 2 28 28" height="30" width="30" fill="currentColor"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share Redis Ha Sentinel on ycombinator" href="https://news.ycombinator.com/submitlink?t=Redis%20Ha%20Sentinel&u=https%3a%2f%2fchechia.net%2fposts%2f2019-09-29-redis-ha-sentinel%2f"><svg width="30" height="30" viewBox="0 0 512 512" fill="currentColor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554V449.446C512 483.97 483.97 512 449.446 512H62.554C28.03 512 0 483.97.0 449.446V62.554C0 28.03 28.029.0 62.554.0H449.446zM183.8767 87.9921h-62.034L230.6673 292.4508V424.0079h50.6655V292.4508L390.1575 87.9921H328.1233L256 238.2489z"/></svg></a></li></ul></footer></article></main><footer class=footer><span>&copy; 2026 <a href=https://chechia.net/>Che-Chia Chang</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>

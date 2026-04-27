@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>鐵人賽2022 on Che-Chia Chang</title>
+    <link>https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2022/</link>
+    <description>Recent content in 鐵人賽2022 on Che-Chia Chang</description>
+    <image>
+      <title>Che-Chia Chang</title>
+      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.7</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 25 Sep 2022 20:39:03 +0800</lastBuildDate>
+    <atom:link href="https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2022/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Terraform Github Action CI/CD</title>
+      <link>https://chechia.net/posts/2022-09-25-14th-ithome-ironman-iac-aws-workshop-11-aws-github-action-ci-cd/</link>
+      <pubDate>Sun, 25 Sep 2022 20:39:03 +0800</pubDate>
+      <guid>https://chechia.net/posts/2022-09-25-14th-ithome-ironman-iac-aws-workshop-11-aws-github-action-ci-cd/</guid>
+      <description>Article description.</description>
+    </item>
+    <item>
+      <title>Aws Cross Account Delegation &amp; pre-commit hook</title>
+      <link>https://chechia.net/posts/2022-09-21-14th-ithome-ironman-iac-aws-workshop-10-aws-cross-account-delegation-and-pre-commit-hook/</link>
+      <pubDate>Wed, 21 Sep 2022 22:55:41 +0800</pubDate>
+      <guid>https://chechia.net/posts/2022-09-21-14th-ithome-ironman-iac-aws-workshop-10-aws-cross-account-delegation-and-pre-commit-hook/</guid>
+      <description>Article description.</description>
+    </item>
+    <item>
+      <title>Modules and password security</title>
+      <link>https://chechia.net/posts/2022-09-20-14th-ithome-ironman-iac-aws-workshop-09-terraform-module-and-password-security/</link>
+      <pubDate>Wed, 21 Sep 2022 00:01:14 +0800</pubDate>
+      <guid>https://chechia.net/posts/2022-09-20-14th-ithome-ironman-iac-aws-workshop-09-terraform-module-and-password-security/</guid>
+      <description>Article description.</description>
+    </item>
+    <item>
+      <title>Reset Iam User Administrator</title>
+      <link>https://chechia.net/posts/2022-09-19-14th-ithome-ironman-iac-aws-workshop-08-reset-iam-user-administrator/</link>
+      <pubDate>Tue, 20 Sep 2022 23:56:47 +0800</pubDate>
+      <guid>https://chechia.net/posts/2022-09-19-14th-ithome-ironman-iac-aws-workshop-08-reset-iam-user-administrator/</guid>
+      <description>Article description.</description>
+    </item>
+    <item>
+      <title>Reset Iam User</title>
+      <link>https://chechia.net/posts/2022-09-18-14th-ithome-ironman-iac-aws-workshop-07-reset-iam-user/</link>
+      <pubDate>Tue, 20 Sep 2022 18:30:06 +0800</pubDate>
+      <guid>https://chechia.net/posts/2022-09-18-14th-ithome-ironman-iac-aws-workshop-07-reset-iam-user/</guid>
+      <description>Article description.</description>
+    </item>
+    <item>
+      <title>Provision Iam Group Policy</title>
+      <link>https://chechia.net/posts/2022-09-17-14th-ithome-ironman-iac-aws-workshop-06-provision-iam-group-policy/</link>
+      <pubDate>Tue, 20 Sep 2022 10:39:37 +0800</pubDate>
+      <guid>https://chechia.net/posts/2022-09-17-14th-ithome-ironman-iac-aws-workshop-06-provision-iam-group-policy/</guid>
+      <description>Article description.</description>
+    </item>
+    <item>
+      <title>Provision Iam User</title>
+      <link>https://chechia.net/posts/2022-09-16-14th-ithome-ironman-iac-aws-workshop-05-provision-iam-user/</link>
+      <pubDate>Mon, 19 Sep 2022 11:59:27 +0800</pubDate>
+      <guid>https://chechia.net/posts/2022-09-16-14th-ithome-ironman-iac-aws-workshop-05-provision-iam-user/</guid>
+      <description>Article description.</description>
+    </item>
+    <item>
+      <title>AWS Multi-Accounts Structure</title>
+      <link>https://chechia.net/posts/2022-09-15-14th-ithome-ironman-iac-aws-workshop-04-aws-multi-account-structure/</link>
+      <pubDate>Sun, 18 Sep 2022 09:35:25 +0800</pubDate>
+      <guid>https://chechia.net/posts/2022-09-15-14th-ithome-ironman-iac-aws-workshop-04-aws-multi-account-structure/</guid>
+      <description>Article description.</description>
+    </item>
+    <item>
+      <title>Provision Child AWS Accounts</title>
+      <link>https://chechia.net/posts/2022-09-14-14th-ithome-ironman-iac-aws-workshop-03-provision-aws-account/</link>
+      <pubDate>Fri, 16 Sep 2022 17:16:21 +0800</pubDate>
+      <guid>https://chechia.net/posts/2022-09-14-14th-ithome-ironman-iac-aws-workshop-03-provision-aws-account/</guid>
+      <description>Article description.</description>
+    </item>
+    <item>
+      <title>AWS Account Struture</title>
+      <link>https://chechia.net/posts/2022-09-13-14th-ithome-ironman-iac-aws-workshop-02-aws-account-structure/</link>
+      <pubDate>Thu, 15 Sep 2022 17:16:21 +0800</pubDate>
+      <guid>https://chechia.net/posts/2022-09-13-14th-ithome-ironman-iac-aws-workshop-02-aws-account-structure/</guid>
+      <description>Article description.</description>
+    </item>
+    <item>
+      <title>IaC best practice workshop on aws</title>
+      <link>https://chechia.net/posts/2022-09-12-14th-ithome-ironman-iac-aws-workshop-01-introduction/</link>
+      <pubDate>Mon, 12 Sep 2022 14:31:48 +0800</pubDate>
+      <guid>https://chechia.net/posts/2022-09-12-14th-ithome-ironman-iac-aws-workshop-01-introduction/</guid>
+      <description>Article description.</description>
+    </item>
+  </channel>
+</rss>

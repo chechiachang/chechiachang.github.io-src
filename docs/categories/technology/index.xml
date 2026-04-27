@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Technology on Che-Chia Chang</title>
+    <link>https://chechia.net/categories/technology/</link>
+    <description>Recent content in Technology on Che-Chia Chang</description>
+    <image>
+      <title>Che-Chia Chang</title>
+      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.7</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 09 Jun 2022 01:04:12 +0800</lastBuildDate>
+    <atom:link href="https://chechia.net/categories/technology/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>IThome 2022 DevOpsDay Introducing policy as code for terraform</title>
+      <link>https://chechia.net/posts/2022-06-09-ithome-devopsday-2022-proposal-introduce-policy-as-code-for-terraform-/</link>
+      <pubDate>Thu, 09 Jun 2022 01:04:12 +0800</pubDate>
+      <guid>https://chechia.net/posts/2022-06-09-ithome-devopsday-2022-proposal-introduce-policy-as-code-for-terraform-/</guid>
+      <description>&lt;h3 id=&#34;titleq&#34;&gt;Titleq&lt;/h3&gt;
+&lt;p&gt;從零導入 Policy as Code 到 terraform 甘苦談 - Introducing policy as code for terraform&lt;/p&gt;
+&lt;h3 id=&#34;presentation&#34;&gt;Presentation&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.google.com/presentation/d/1yawazO1B_sP5Yiav-XLGJXW3ZS2JTV0wGuJwhrUKQ3A/edit?usp=sharing&#34;&gt;Google Slides&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
+&lt;p&gt;Terraform 是一個很棒的 Infrastructure as Code 的工具，能夠以現代的軟體工程流程來穩定的建構 infrastructure，並隨著需求變更自動化迭代，將新的 feature 安全地更新到既有的 infrastructure 上。只要是 Infrastructure 有關的問題，我一律推薦 Terraform。&lt;/p&gt;
+&lt;p&gt;這也意味 Terraform 的品質就等於 infrastructure 的品質，好的 terraform 帶你上天堂，不好的 terraform 全 team 火葬場。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Infrastructure 有太多資安的考量，新的風險不斷被檢查出來，連帶要不斷的 patch terraform code 來避免潛在的資安風險&lt;/li&gt;
+&lt;li&gt;Infrastructure 會不斷地更新，例如公有雲的 api 不斷更新，去年的 code 已經跟不上今年的最佳實踐了&lt;/li&gt;
+&lt;li&gt;好的工程師寫出的 terraform code 屌打菜鳥工程師，要如何讓團隊依循更好的實踐，避免寫出爛 code
+維護 code 有 clean code / best practice，Terraform 也有 clean code 與 best practice，工程師要如何工具來輔助，是 Policy as Code 的一大課題。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本演講聚焦於實際經驗，從一大堆 terraform modules 開始，沒有 Policy as Code，到一步步評估、導入、實作、改進與迭代，逐漸的提升團隊 Terraform code 品質，提升 infrastructure 交付品質，並避免到未來潛在的風險。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2022 05 21 COSCUP Operating Time Series Database in K8s</title>
+      <link>https://chechia.net/posts/2022-05-21-coscup-proposal-operating-time-series-database-in-k8s/</link>
+      <pubDate>Sat, 21 May 2022 01:04:12 +0800</pubDate>
+      <guid>https://chechia.net/posts/2022-05-21-coscup-proposal-operating-time-series-database-in-k8s/</guid>
+      <description>&lt;h3 id=&#34;titleq&#34;&gt;Titleq&lt;/h3&gt;
+&lt;p&gt;在 k8s 上跑 time series database 甘苦談 - Operating Time Series Database in K8s&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.google.com/presentation/d/1PZryGImYRALMJfbEMuf_jPd2P-qzIwDmVd5DgXSuqq0/edit&#34;&gt;Google Slides&lt;/a&gt;
+Youtube live record: &lt;a href=&#34;https://youtu.be/YexUnVOZC8M?t=9421&#34;&gt;https://youtu.be/YexUnVOZC8M?t=9421&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
+&lt;p&gt;Influxdb 為市占最高的 time series DBMS 之一，使用上與 RDBMS 有不同優劣勢。&lt;/p&gt;
+&lt;p&gt;在維運方面，database 有許多相似需求：穩定性、高可用性、備份、還原、資源管理、調度、災難復原&amp;hellip;等。社群常聽到有人問：可不可以在 K8s 上跑 database。&lt;/p&gt;
+&lt;p&gt;本演講會分享在 k8s 中維運，實務上所遇到的問題，提供一些思考方向。&lt;/p&gt;
+&lt;p&gt;本次演講的 influxdb 版本為 Influxdb OSS / enterprise 1.9+&lt;/p&gt;
+&lt;p&gt;InfluxDB is one the the most popular time series database management system (DBMS) and is a powerful platform when dealing with time series data.&lt;/p&gt;
+&lt;p&gt;DBMSs, including RDBMS, have many similar requirements on aspect of infrastructure operation. They all require stability, high availability, backup and restore utilities, cpu / memory resource management, disaster recovery&amp;hellip;etc. People often ask about that whether is it ok to run DBMS in kubernetes cluster or not. This lecture try to provide some points from our experiences dealing with real-world issues.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2021 11 16 Ithome Cloud Summit Vault</title>
+      <link>https://chechia.net/posts/2021-11-16-ithome-cloud-summit-vault/</link>
+      <pubDate>Tue, 16 Nov 2021 01:04:12 +0800</pubDate>
+      <guid>https://chechia.net/posts/2021-11-16-ithome-cloud-summit-vault/</guid>
+      <description>&lt;p&gt;各位好&lt;/p&gt;
+&lt;p&gt;關於這個 QRcode&lt;/p&gt;
+&lt;p&gt;每次上台前，我都會想要帶什麼樣的內容給觀眾，讓觀眾值得花 30 分鐘在底下聽。後來就習慣先發表一篇文章，把對觀眾有幫助的資源包成一包：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首先是完整投影片：https://slides.com/chechiac&amp;hellip;/terraform-introduction-a56697&lt;/li&gt;
+&lt;li&gt;逐字講稿：(最後校稿中）&lt;/li&gt;
+&lt;li&gt;然而只有本次演講內容，回去可能還是不太容易操作。所以這次附上使用 Terraform 一鍵部署 vault 的 Github Repository：https://github.com/&amp;hellip;/southe&amp;hellip;/chechia_net/vault/singleton&lt;/li&gt;
+&lt;li&gt;如果不熟 Terraform，再附上 30 天手把手 Terraform 教學文章，只要願意花時間，全篇中文一個月帶你上手 Terraform。
+&lt;ul&gt;
+&lt;li&gt;IThome 鐵人賽好讀版：https://ithelp.ithome.com.tw/users/20120327/ironman/4057&lt;/li&gt;
+&lt;li&gt;Github Repository 完整版：https://github.com/&amp;hellip;/terraform-30&amp;hellip;/tree/main/lecture/zh&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;如果遇到問題還是需要找人發問，所以再推薦兩個社群，可以來這邊發問，要找我本人也找得到。甚至只是加入潛水不講話，都可以被動吸收許多新知。
+&lt;ul&gt;
+&lt;li&gt;Cloud Native Taiwan User Group
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://t.me/cntug&#34;&gt;https://t.me/cntug&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://fb.cloudnative.tw&#34;&gt;https://fb.cloudnative.tw&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;DevOps Taiwan Meetup Group
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://t.me/devopstw&#34;&gt;https://t.me/devopstw&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;大家可以手機拍完這個就出去吃午餐了。
+或是拍回家，然後傳給一個同事叫他花 30 天把 Terraform 跟 Vault 這些都學會。&lt;/p&gt;
+&lt;p&gt;總之希望對各位有幫助，讓國內技術力能持續進步成長。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;回到本次演講。&lt;/p&gt;
+&lt;p&gt;本次演講有三個關鍵字&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Kubernetes&lt;/li&gt;
+&lt;li&gt;Vault&lt;/li&gt;
+&lt;li&gt;Terraform 這個是隱藏的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;請問平時工作會用到這三個技術之一的朋友，請舉個手，好讓我知道一下觀眾的分布，等等分享的內容會照比例做一些調整。&lt;/p&gt;
+&lt;p&gt;我們今天不會講太多 Kubernetes 的內容，重點放在 Vault，以及如何設定 Vault，所以 Terraform Infrastructure as Code 或是 configuration as Code 會在這邊跑出來。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

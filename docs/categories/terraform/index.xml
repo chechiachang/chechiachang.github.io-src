@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Terraform on Che-Chia Chang</title>
+    <link>https://chechia.net/categories/terraform/</link>
+    <description>Recent content in Terraform on Che-Chia Chang</description>
+    <image>
+      <title>Che-Chia Chang</title>
+      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.7</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 25 Sep 2022 20:39:03 +0800</lastBuildDate>
+    <atom:link href="https://chechia.net/categories/terraform/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Terraform Github Action CI/CD</title>
+      <link>https://chechia.net/posts/2022-09-25-14th-ithome-ironman-iac-aws-workshop-11-aws-github-action-ci-cd/</link>
+      <pubDate>Sun, 25 Sep 2022 20:39:03 +0800</pubDate>
+      <guid>https://chechia.net/posts/2022-09-25-14th-ithome-ironman-iac-aws-workshop-11-aws-github-action-ci-cd/</guid>
+      <description>Article description.</description>
+    </item>
+    <item>
+      <title>Aws Cross Account Delegation &amp; pre-commit hook</title>
+      <link>https://chechia.net/posts/2022-09-21-14th-ithome-ironman-iac-aws-workshop-10-aws-cross-account-delegation-and-pre-commit-hook/</link>
+      <pubDate>Wed, 21 Sep 2022 22:55:41 +0800</pubDate>
+      <guid>https://chechia.net/posts/2022-09-21-14th-ithome-ironman-iac-aws-workshop-10-aws-cross-account-delegation-and-pre-commit-hook/</guid>
+      <description>Article description.</description>
+    </item>
+    <item>
+      <title>Modules and password security</title>
+      <link>https://chechia.net/posts/2022-09-20-14th-ithome-ironman-iac-aws-workshop-09-terraform-module-and-password-security/</link>
+      <pubDate>Wed, 21 Sep 2022 00:01:14 +0800</pubDate>
+      <guid>https://chechia.net/posts/2022-09-20-14th-ithome-ironman-iac-aws-workshop-09-terraform-module-and-password-security/</guid>
+      <description>Article description.</description>
+    </item>
+    <item>
+      <title>Reset Iam User Administrator</title>
+      <link>https://chechia.net/posts/2022-09-19-14th-ithome-ironman-iac-aws-workshop-08-reset-iam-user-administrator/</link>
+      <pubDate>Tue, 20 Sep 2022 23:56:47 +0800</pubDate>
+      <guid>https://chechia.net/posts/2022-09-19-14th-ithome-ironman-iac-aws-workshop-08-reset-iam-user-administrator/</guid>
+      <description>Article description.</description>
+    </item>
+    <item>
+      <title>Reset Iam User</title>
+      <link>https://chechia.net/posts/2022-09-18-14th-ithome-ironman-iac-aws-workshop-07-reset-iam-user/</link>
+      <pubDate>Tue, 20 Sep 2022 18:30:06 +0800</pubDate>
+      <guid>https://chechia.net/posts/2022-09-18-14th-ithome-ironman-iac-aws-workshop-07-reset-iam-user/</guid>
+      <description>Article description.</description>
+    </item>
+    <item>
+      <title>Provision Iam Group Policy</title>
+      <link>https://chechia.net/posts/2022-09-17-14th-ithome-ironman-iac-aws-workshop-06-provision-iam-group-policy/</link>
+      <pubDate>Tue, 20 Sep 2022 10:39:37 +0800</pubDate>
+      <guid>https://chechia.net/posts/2022-09-17-14th-ithome-ironman-iac-aws-workshop-06-provision-iam-group-policy/</guid>
+      <description>Article description.</description>
+    </item>
+    <item>
+      <title>Provision Iam User</title>
+      <link>https://chechia.net/posts/2022-09-16-14th-ithome-ironman-iac-aws-workshop-05-provision-iam-user/</link>
+      <pubDate>Mon, 19 Sep 2022 11:59:27 +0800</pubDate>
+      <guid>https://chechia.net/posts/2022-09-16-14th-ithome-ironman-iac-aws-workshop-05-provision-iam-user/</guid>
+      <description>Article description.</description>
+    </item>
+    <item>
+      <title>AWS Multi-Accounts Structure</title>
+      <link>https://chechia.net/posts/2022-09-15-14th-ithome-ironman-iac-aws-workshop-04-aws-multi-account-structure/</link>
+      <pubDate>Sun, 18 Sep 2022 09:35:25 +0800</pubDate>
+      <guid>https://chechia.net/posts/2022-09-15-14th-ithome-ironman-iac-aws-workshop-04-aws-multi-account-structure/</guid>
+      <description>Article description.</description>
+    </item>
+    <item>
+      <title>Provision Child AWS Accounts</title>
+      <link>https://chechia.net/posts/2022-09-14-14th-ithome-ironman-iac-aws-workshop-03-provision-aws-account/</link>
+      <pubDate>Fri, 16 Sep 2022 17:16:21 +0800</pubDate>
+      <guid>https://chechia.net/posts/2022-09-14-14th-ithome-ironman-iac-aws-workshop-03-provision-aws-account/</guid>
+      <description>Article description.</description>
+    </item>
+    <item>
+      <title>AWS Account Struture</title>
+      <link>https://chechia.net/posts/2022-09-13-14th-ithome-ironman-iac-aws-workshop-02-aws-account-structure/</link>
+      <pubDate>Thu, 15 Sep 2022 17:16:21 +0800</pubDate>
+      <guid>https://chechia.net/posts/2022-09-13-14th-ithome-ironman-iac-aws-workshop-02-aws-account-structure/</guid>
+      <description>Article description.</description>
+    </item>
+    <item>
+      <title>IaC best practice workshop on aws</title>
+      <link>https://chechia.net/posts/2022-09-12-14th-ithome-ironman-iac-aws-workshop-01-introduction/</link>
+      <pubDate>Mon, 12 Sep 2022 14:31:48 +0800</pubDate>
+      <guid>https://chechia.net/posts/2022-09-12-14th-ithome-ironman-iac-aws-workshop-01-introduction/</guid>
+      <description>Article description.</description>
+    </item>
+    <item>
+      <title>2021 09 01 Ithome Ironman Go</title>
+      <link>https://chechia.net/posts/2021-09-01-ithome-ironman-go/</link>
+      <pubDate>Wed, 01 Sep 2021 12:25:06 +0800</pubDate>
+      <guid>https://chechia.net/posts/2021-09-01-ithome-ironman-go/</guid>
+      <description>&lt;p&gt;2021 ithome 鐵人賽開跑了～&lt;/p&gt;
+&lt;p&gt;今年的題目是「Terraform Workshop - Infrastructure as Code for Public Cloud 疫情警戒陪你度過 30 天」，是一個長達 30 天的 terraform workshop，對 terraform 有興趣的朋友歡迎追縱&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10258904&#34;&gt;Day 01 - 引言：Terraform 是個好東西。&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/chechiachang/terraform-30-days&#34;&gt;課程內容與代碼會放在 Github 上: https://github.com/chechiachang/terraform-30-days&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://chechia.net/&#34;&gt;賽後文章會整理放到個人的部落格上 http://chechia.net/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.facebook.com/engineer.from.scratch&#34;&gt;追蹤粉專可以收到文章的主動推播&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;https://ithelp.ithome.com.tw/upload/images/20210901/20120327NvpHVr2QC0.jpg&#34; loading=&#34;lazy&#34; src=&#34;https://ithelp.ithome.com.tw/upload/images/20210901/20120327NvpHVr2QC0.jpg&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Terraform Infrastructure as Code: Atlantis</title>
+      <link>https://chechia.net/posts/2020-10-07-terraform-infrastructure-as-code-atlantis/</link>
+      <pubDate>Wed, 07 Oct 2020 11:15:48 +0800</pubDate>
+      <guid>https://chechia.net/posts/2020-10-07-terraform-infrastructure-as-code-atlantis/</guid>
+      <description>&lt;p&gt;This article is part of &lt;a href=&#34;https://chechia.net/posts/2020-06-14-terraform-infrastructure-as-code/&#34;&gt;從零開始的 Infrastructu as Code: Terraform&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/chechiachang/terraform-playground&#34;&gt;Get-started examples / SOP on Github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2020-06-15-terraform-infrastructure-as-code-transcript/&#34;&gt;Introducation to Terraform Iac: Speaker transcript&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://slides.com/chechiachang/terraform-introduction/edit&#34;&gt;Presentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Check my website &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; for other blog. &lt;a href=&#34;https://www.facebook.com/engineer.from.scratch&#34;&gt;Follow my page to get notification&lt;/a&gt;. Like my page if you really like it :)&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;需求與問題&#34;&gt;需求與問題&lt;/h1&gt;
+&lt;p&gt;隨著 terraform 在團隊內的規模持續成長，團隊需要讓工作流程更加順暢，來面對大量的 tf 變更查核與變更請求。想像幾十個工程師同時在修改幾十個不同的 terraform projects / modules，這時可能會有幾個問題&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;需要一個穩定乾淨的環境執行 terraform
+&lt;ul&gt;
+&lt;li&gt;工程師的開發本機不是個好選擇&lt;/li&gt;
+&lt;li&gt;需要 24/7 的 terraform 執行中心
+&lt;ul&gt;
+&lt;li&gt;執行中心會有各個環境 (dev / stage / prod) 的存取權限，希望設置在內部&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;下列兩個工作會切換工作平台，例如 Github
+&lt;ul&gt;
+&lt;li&gt;review，檢視 difference，與討論&lt;/li&gt;
+&lt;li&gt;PR&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;review 完有時會忘記 merge，merge 完有時會忘記 apply
+&lt;ul&gt;
+&lt;li&gt;repository 越多，忘得越多&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;團隊已經導入 Git-flow，希望把工作流程做得更完整自動化更加便利&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Terraform Infrastructure as Code: Terragrunt</title>
+      <link>https://chechia.net/posts/2020-10-06-terraform-infrastructure-as-code-terragrunt/</link>
+      <pubDate>Tue, 06 Oct 2020 11:15:48 +0800</pubDate>
+      <guid>https://chechia.net/posts/2020-10-06-terraform-infrastructure-as-code-terragrunt/</guid>
+      <description>&lt;p&gt;This article is part of &lt;a href=&#34;https://chechia.net/posts/2020-06-14-terraform-infrastructure-as-code/&#34;&gt;從零開始的 Infrastructu as Code: Terraform&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/chechiachang/terraform-playground&#34;&gt;Get-started examples / SOP on Github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2020-06-15-terraform-infrastructure-as-code-transcript/&#34;&gt;Introducation to Terraform Iac: Speaker transcript&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://slides.com/chechiachang/terraform-introduction/edit&#34;&gt;Presentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Check my website &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; for other blog. &lt;a href=&#34;https://www.facebook.com/engineer.from.scratch&#34;&gt;Follow my page to get notification&lt;/a&gt;. Like my page if you really like it :)&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;上面講解 Terraform 的基本操作流程，提供範本原始碼，以及一步一步導入的詳細步驟。各位應該都可以依照上面幾篇的說明，開始快樂的使用 Terraform 了。&lt;/p&gt;
+&lt;p&gt;而當使用 Terraform 的規模越來越大，管理的資料越來越多時，開始會出現一些問題，例如重複的 terraform code 越來越多，協同工作 review 不太容易，state 的內容管理與鎖管理，等等。這些問題可以透過一些工作流程的改進，或是導入新的小工具，來改善工作效率。&lt;/p&gt;
+&lt;p&gt;接下來筆者推薦幾個心得與工具，希望能提升使用 Terraform 的效率與產值&lt;/p&gt;
+&lt;p&gt;以下幾篇文章，適合已經使用過 terraform 一點時間，有經驗的團隊，並打算更大規模導入 terraform，正在尋求改善的方向。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;心得
+&lt;ul&gt;
+&lt;li&gt;CI/CD 全自動化&lt;/li&gt;
+&lt;li&gt;State backend 選擇&lt;/li&gt;
+&lt;li&gt;最佳實踐 &lt;a href=&#34;https://www.terraform.io/docs/cloud/guides/recommended-practices/index.html&#34;&gt;https://www.terraform.io/docs/cloud/guides/recommended-practices/index.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;工具
+&lt;ul&gt;
+&lt;li&gt;Terraform Atlantis&lt;/li&gt;
+&lt;li&gt;Terragrunt&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;問題與需求&#34;&gt;問題與需求&lt;/h1&gt;
+&lt;p&gt;當團隊已經開始大規模使用 terraform，tf 檔案越來越多。我們為了增加程式碼的重複利用性，會使用 terraform module 將常用的 tf 檔案封裝。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Terraform Infrastructure as Code: Recommended Practices</title>
+      <link>https://chechia.net/posts/2020-10-05-terraform-infrastructure-as-code-recommended-practices/</link>
+      <pubDate>Mon, 05 Oct 2020 11:15:48 +0800</pubDate>
+      <guid>https://chechia.net/posts/2020-10-05-terraform-infrastructure-as-code-recommended-practices/</guid>
+      <description>&lt;p&gt;This article is part of &lt;a href=&#34;https://chechia.net/posts/2020-06-14-terraform-infrastructure-as-code/&#34;&gt;從零開始的 Infrastructu as Code: Terraform&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/chechiachang/terraform-playground&#34;&gt;Get-started examples / SOP on Github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2020-06-15-terraform-infrastructure-as-code-transcript/&#34;&gt;Introducation to Terraform Iac: Speaker transcript&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://slides.com/chechiachang/terraform-introduction/edit&#34;&gt;Presentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Check my website &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; for other blog. &lt;a href=&#34;https://www.facebook.com/engineer.from.scratch&#34;&gt;Follow my page to get notification&lt;/a&gt;. Like my page if you really like it :)&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;上面講解 Terraform 的基本操作流程，提供範本原始碼，以及一步一步導入的詳細步驟。各位應該都可以依照上面幾篇的說明，開始快樂的使用 Terraform 了。&lt;/p&gt;
+&lt;p&gt;以下幾篇文章，適合已經使用過 terraform 一點時間，有經驗的團隊，並打算更大規模導入 terraform，正在尋求改善的方向。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;心得
+&lt;ul&gt;
+&lt;li&gt;CI/CD 全自動化&lt;/li&gt;
+&lt;li&gt;State backend 選擇&lt;/li&gt;
+&lt;li&gt;最佳實踐&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;工具
+&lt;ul&gt;
+&lt;li&gt;Terraform Atlantis&lt;/li&gt;
+&lt;li&gt;Terragrunt&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;工具與文化&#34;&gt;工具與文化&lt;/h1&gt;
+&lt;p&gt;新工具提供解決方案，然而單純導入工具後不是就一勞永逸，許多實務上的問題，還是要依賴改善工作流程，並且避免整體運作的錯誤。&lt;/p&gt;
+&lt;p&gt;其次，不同團隊已有既有的團隊文化，整合新的工具後還是需要磨合，不一定要照單全收。換句話說，工作流程的不斷改進也是解決方案的一環。&lt;/p&gt;
+&lt;h1 id=&#34;建議實踐-recommended-practices&#34;&gt;建議實踐 Recommended Practices&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.terraform.io/docs/cloud/guides/recommended-practices/index.html&#34;&gt;Terraform 官網有許多建議的實作與導入流程&lt;/a&gt;，其中大部分的建議我們都已經在前面的幾篇文章中提到，這邊要來說明一下，並補充其他官方推薦的實踐。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Terraform Infrastructure as Code: Backends</title>
+      <link>https://chechia.net/posts/2020-10-04-terraform-infrastructure-as-code-backend/</link>
+      <pubDate>Sun, 04 Oct 2020 11:15:48 +0800</pubDate>
+      <guid>https://chechia.net/posts/2020-10-04-terraform-infrastructure-as-code-backend/</guid>
+      <description>&lt;p&gt;This article is part of &lt;a href=&#34;https://chechia.net/posts/2020-06-14-terraform-infrastructure-as-code/&#34;&gt;從零開始的 Infrastructu as Code: Terraform&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/chechiachang/terraform-playground&#34;&gt;Get-started examples / SOP on Github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2020-06-15-terraform-infrastructure-as-code-transcript/&#34;&gt;Introducation to Terraform Iac: Speaker transcript&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://slides.com/chechiachang/terraform-introduction/edit&#34;&gt;Presentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Check my website &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; for other blog. &lt;a href=&#34;https://www.facebook.com/engineer.from.scratch&#34;&gt;Follow my page to get notification&lt;/a&gt;. Like my page if you really like it :)&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;上面講解 Terraform 的基本操作流程，提供範本原始碼，以及一步一步導入的詳細步驟。各位應該都可以依照上面幾篇的說明，開始快樂的使用 Terraform 了。&lt;/p&gt;
+&lt;p&gt;而當使用 Terraform 的規模越來越大，管理的資料越來越多時，開始會出現一些問題，例如重複的 terraform code 越來越多，協同工作 review 不太容易，state 的內容管理與鎖管理，等等。這些問題可以透過一些工作流程的改進，或是導入新的小工具，來改善工作效率。&lt;/p&gt;
+&lt;p&gt;接下來筆者推薦幾個心得與工具，希望能提升使用 Terraform 的效率與產值&lt;/p&gt;
+&lt;p&gt;以下幾篇文章，適合已經使用過 terraform 一點時間，有經驗的團隊，並打算更大規模導入 terraform，正在尋求改善的方向。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;心得
+&lt;ul&gt;
+&lt;li&gt;CI/CD 全自動化&lt;/li&gt;
+&lt;li&gt;State backend 選擇&lt;/li&gt;
+&lt;li&gt;最佳實踐 &lt;a href=&#34;https://www.terraform.io/docs/cloud/guides/recommended-practices/index.html&#34;&gt;https://www.terraform.io/docs/cloud/guides/recommended-practices/index.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;工具
+&lt;ul&gt;
+&lt;li&gt;Terraform Atlantis&lt;/li&gt;
+&lt;li&gt;Terragrunt&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;terraform-backend&#34;&gt;Terraform Backend&lt;/h1&gt;
+&lt;p&gt;剛開始使用 terraform 的時候，大家的第一個範例應該都是 local backend 吧，就是直接在本地 terraform apply，在目前的工作目錄下產生 state 檔案。這個 state 檔案直接 cat 打開來看後，可以發現裡面一切都是明碼的。初學時筆者感覺所謂的 Terraform backend 只是一個存放中繼的 state 資料的 workspace，後來發現完全不是這麼回事，便立刻棄用了 local backend。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Terraform Infrastructure as Code: CI/CD automation</title>
+      <link>https://chechia.net/posts/2020-10-03-terraform-infrastructure-as-code-automation/</link>
+      <pubDate>Sat, 03 Oct 2020 11:15:48 +0800</pubDate>
+      <guid>https://chechia.net/posts/2020-10-03-terraform-infrastructure-as-code-automation/</guid>
+      <description>&lt;p&gt;This article is part of &lt;a href=&#34;https://chechia.net/posts/2020-06-14-terraform-infrastructure-as-code/&#34;&gt;從零開始的 Infrastructu as Code: Terraform&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/chechiachang/terraform-playground&#34;&gt;Get-started examples / SOP on Github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2020-06-15-terraform-infrastructure-as-code-transcript/&#34;&gt;Introducation to Terraform Iac: Speaker transcript&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://slides.com/chechiachang/terraform-introduction/edit&#34;&gt;Presentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Check my website &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; for other blog. &lt;a href=&#34;https://www.facebook.com/engineer.from.scratch&#34;&gt;Follow my page to get notification&lt;/a&gt;. Like my page if you really like it :)&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;上面講解 Terraform 的基本操作流程，提供範本原始碼，以及一步一步導入的詳細步驟。各位應該都可以依照上面幾篇的說明，開始快樂的使用 Terraform 了。&lt;/p&gt;
+&lt;p&gt;而當使用 Terraform 的規模越來越大，管理的資料越來越多時，開始會出現一些問題，例如重複的 terraform code 越來越多，協同工作 review 不太容易，state 的內容管理與鎖管理，等等。這些問題可以透過一些工作流程的改進，或是導入新的小工具，來改善工作效率。&lt;/p&gt;
+&lt;p&gt;接下來筆者推薦幾個心得與工具，希望能提升使用 Terraform 的效率與產值&lt;/p&gt;
+&lt;p&gt;以下幾篇文章，適合已經使用過 terraform 一點時間，有經驗的團隊，並打算更大規模導入 terraform，正在尋求改善的方向。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;心得
+&lt;ul&gt;
+&lt;li&gt;CI/CD 全自動化&lt;/li&gt;
+&lt;li&gt;State backend 選擇&lt;/li&gt;
+&lt;li&gt;最佳實踐 &lt;a href=&#34;https://www.terraform.io/docs/cloud/guides/recommended-practices/index.html&#34;&gt;https://www.terraform.io/docs/cloud/guides/recommended-practices/index.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;工具
+&lt;ul&gt;
+&lt;li&gt;Terraform Atlantis&lt;/li&gt;
+&lt;li&gt;Terragrunt&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;cicd-全自動化&#34;&gt;CI/CD 全自動化&lt;/h1&gt;
+&lt;p&gt;當公司成功導入 terraform ，並且整合 Git-flow 的工作流程後，應該可以很明顯的感受到，整體的 infrastructure 產出穩定度有大幅提升，畢竟軟體工程中 code review 是穩定度的核心關鍵之一，而導入 terraform 與 infrastructure as code 讓 infrastructure 也能在合理的工作流程中被層層 review。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Terraform Infrastructure as Code: Example repository</title>
+      <link>https://chechia.net/posts/2020-10-02-terraform-infrastructure-as-code-repository-example/</link>
+      <pubDate>Fri, 02 Oct 2020 11:15:48 +0800</pubDate>
+      <guid>https://chechia.net/posts/2020-10-02-terraform-infrastructure-as-code-repository-example/</guid>
+      <description>&lt;p&gt;This article is part of &lt;a href=&#34;https://chechia.net/posts/2020-06-14-terraform-infrastructure-as-code/&#34;&gt;從零開始的 Infrastructu as Code: Terraform&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/chechiachang/terraform-playground&#34;&gt;Get-started examples / SOP on Github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2020-06-15-terraform-infrastructure-as-code-transcript/&#34;&gt;Introducation to Terraform Iac: Speaker transcript&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://slides.com/chechiachang/terraform-introduction/edit&#34;&gt;Presentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Check my website &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; for other blog. &lt;a href=&#34;https://www.facebook.com/engineer.from.scratch&#34;&gt;Follow my page to get notification&lt;/a&gt;. Like my page if you really like it :)&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;上面講了很多 terraform 的操作範例，應該看到這裡，對於 terraform 基本上是什麼東西，應該有些概念了。然而這樣還不能算是學會 terraform，這種工具的東西一定要有實際操作過的經驗才算是學會。&lt;/p&gt;
+&lt;p&gt;可以直接參考 Terraform 官方的 Get-started 文件來操作學習，我這邊也提供一個 Git repository 讓大家上手，當作初次操作的框架。&lt;/p&gt;
+&lt;h3 id=&#34;提供做為範例的原始碼&#34;&gt;提供做為範例的原始碼&lt;/h3&gt;
+&lt;p&gt;這個 Github Repository 是我給社群演講所使用的範例，第一次使用的可以參考&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/chechiachang/terraform-playground&#34;&gt;https://github.com/chechiachang/terraform-playground&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;tree
+├── README.md
+├── SOP.md
+├── aws/
+├── azure/
+└── gcp/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;tldr&#34;&gt;TL;DR&lt;/h3&gt;
+&lt;p&gt;選擇使用的雲平台，這邊提供三家範例，例如我這邊使用 gcp，當然你就要準備 GCP 的帳號，並且下載有執行權限的用戶 credential json key 等等。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Terraform Infrastructure as Code Transcript</title>
+      <link>https://chechia.net/posts/2020-06-15-terraform-infrastructure-as-code-transcript/</link>
+      <pubDate>Mon, 15 Jun 2020 10:58:56 +0800</pubDate>
+      <guid>https://chechia.net/posts/2020-06-15-terraform-infrastructure-as-code-transcript/</guid>
+      <description>&lt;p&gt;This article is part of &lt;a href=&#34;https://chechia.net/posts/2020-06-14-terraform-infrastructure-as-code/&#34;&gt;從零開始的 Infrastructu as Code: Terraform&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/chechiachang/terraform-playground&#34;&gt;Get-started examples / SOP on Github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2020-06-15-terraform-infrastructure-as-code-transcript/&#34;&gt;Introducation to Terraform Iac: Speaker transcript&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://slides.com/chechiachang/terraform-introduction/edit&#34;&gt;Presentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Check my website &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; for other blog. &lt;a href=&#34;https://www.facebook.com/engineer.from.scratch&#34;&gt;Follow my page to get notification&lt;/a&gt;. Like my page if you really like it :)&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;各位好&lt;/p&gt;
+&lt;h1 id=&#34;about-this-presentation&#34;&gt;About this presentation&lt;/h1&gt;
+&lt;p&gt;開始之前，先分享一些資源&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://slides.com/chechiachang/terraform-introduction/edit&#34;&gt;投影片&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2020-06-15-terraform-infrastructure-as-code-transcript/&#34;&gt;講稿&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/chechiachang/terraform-playground&#34;&gt;程式碼&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/chechiachang/terraform-playground/blob/master/SOP.md&#34;&gt;SOP 範本&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.facebook.com/engineer.from.scratch/&#34;&gt;Facebook 粉專&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;都放在這裡，因為有附逐字稿，所以如果很忙的朋友，掃了 QR code 就可以回家自己看了，不用客氣。&lt;/p&gt;
+&lt;p&gt;然後有興趣在追這系列文章的，可以幫我 facebook 粉專按個讚跟追蹤，每周新文章出來，會推播通知。&lt;/p&gt;
+&lt;p&gt;文章在 chechia.net 上，新文章通知靠 facebook 粉專這樣。也可以只追蹤不按讚。我自己看別人技術 blog 也很常這樣(XD&lt;/p&gt;
+&lt;h2 id=&#34;需求&#34;&gt;需求&lt;/h2&gt;
+&lt;p&gt;好，今天來講得這個 Terraform&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>從零開始的 Infrastructure as Code: Terraform - 01</title>
+      <link>https://chechia.net/posts/2020-06-14-terraform-infrastructure-as-code/</link>
+      <pubDate>Sun, 14 Jun 2020 16:46:09 +0800</pubDate>
+      <guid>https://chechia.net/posts/2020-06-14-terraform-infrastructure-as-code/</guid>
+      <description>&lt;p&gt;This article is part of &lt;a href=&#34;https://chechia.net/posts/2020-06-14-terraform-infrastructure-as-code/&#34;&gt;從零開始的 Infrastructu as Code: Terraform&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/chechiachang/terraform-playground&#34;&gt;Get-started examples / SOP on Github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2020-06-15-terraform-infrastructure-as-code-transcript/&#34;&gt;Introducation to Terraform Iac: Speaker transcript&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://slides.com/chechiachang/terraform-introduction/edit&#34;&gt;Presentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Check my website &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; for other blog. &lt;a href=&#34;https://www.facebook.com/engineer.from.scratch&#34;&gt;Follow my page to get notification&lt;/a&gt;. Like my page if you really like it :)&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;outlline&#34;&gt;Outlline&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;our story: issues, steps, &amp;amp; results&lt;/li&gt;
+&lt;li&gt;basics IaC, terraform&lt;/li&gt;
+&lt;li&gt;benefits&lt;/li&gt;
+&lt;li&gt;risks and 坑&lt;/li&gt;
+&lt;li&gt;to be or not to be&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;experience oriented&lt;/p&gt;
+&lt;h1 id=&#34;our-stories&#34;&gt;Our stories&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;100+ devs, many teams&lt;/li&gt;
+&lt;li&gt;25+ projects&lt;/li&gt;
+&lt;li&gt;50+ GKEs&lt;/li&gt;
+&lt;li&gt;80+ SQLs&lt;/li&gt;
+&lt;li&gt;IAMs, redis, VPCs, load-balancers, &amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;issues&#34;&gt;Issues&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Ops manually create resources through GUI by SOP.&lt;/li&gt;
+&lt;li&gt;We have many isolated, separeated resources, VPCs. It&amp;rsquo;s our culture, and we (devops) want to change.&lt;/li&gt;
+&lt;li&gt;Some projects have short life-cycle. Rapid resources created &amp;amp; destroy.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;our-user-story&#34;&gt;Our user story&lt;/h1&gt;
+&lt;p&gt;As a devops,
+I would like to introduce terraform (IaC)
+so that I can&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

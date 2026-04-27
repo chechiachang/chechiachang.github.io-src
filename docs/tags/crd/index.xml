@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Crd on Che-Chia Chang</title>
+    <link>https://chechia.net/tags/crd/</link>
+    <description>Recent content in Crd on Che-Chia Chang</description>
+    <image>
+      <title>Che-Chia Chang</title>
+      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.7</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 13 Oct 2019 22:03:08 +0800</lastBuildDate>
+    <atom:link href="https://chechia.net/tags/crd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kubernetes Custom Resource Deployment</title>
+      <link>https://chechia.net/posts/2019-10-13-kubernetes-custom-resource-deployment/</link>
+      <pubDate>Sun, 13 Oct 2019 22:03:08 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-10-13-kubernetes-custom-resource-deployment/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;p&gt;這邊改了一些大綱，原本的內容還有一些 kubernetes 的設定，以及 GCP 相關服務的介紹。但既然我們的主題是把東西搬上 k8s 的踩雷旅程，那我們就繼續搬，繼續踩。剩下的時間大概會有四個題目。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Nginx Ingress (3)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-08-kubernetes-nginx-ingress-controller/&#34;&gt;Deploy Nginx Ingress Controller&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-08-kubernetes-nginx-ingress-config/&#34;&gt;Configure Nginx Ingress&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Cert-manager (3)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-10-cert-manager-deployment/&#34;&gt;Deploy cert-manager&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-11-cert-manager-how-it-work/&#34;&gt;How cert-manager work&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-12-cert-manager-complete-workflow/&#34;&gt;Cert-manager complete workflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Kubernetes CRD &amp;amp; Operator-sdk (3)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Introduction about custom resource&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-15-kubernetes-custom-resource-with-operator-sdk/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
+&lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;CRD 內容&lt;/li&gt;
+&lt;li&gt;Deploy CRD&lt;/li&gt;
+&lt;li&gt;Use custom resource&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;recap&#34;&gt;Recap&lt;/h1&gt;
+&lt;p&gt;在上次的 cert-manager 內容中我們走過 cert-manager 的安裝步驟，其中有一個步驟是 apply cert-manager 的 manigests 檔案 &lt;code&gt;*.yaml&lt;/code&gt;)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Kubernetes Custom Resources Basic</title>
+      <link>https://chechia.net/posts/2019-10-13-kubernetes-custom-resources-basic/</link>
+      <pubDate>Sun, 13 Oct 2019 17:28:12 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-10-13-kubernetes-custom-resources-basic/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
+&lt;p&gt;這邊改了一些大綱，原本的內容還有一些 kubernetes 的設定，以及 GCP 相關服務的介紹。但既然我們的主題是把東西搬上 k8s 的踩雷旅程，那我們就繼續搬，繼續踩。剩下的時間大概會有四個題目。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Nginx Ingress (3)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-08-kubernetes-nginx-ingress-controller/&#34;&gt;Deploy Nginx Ingress Controller&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-08-kubernetes-nginx-ingress-config/&#34;&gt;Configure Nginx Ingress&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Cert-manager (3)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-10-cert-manager-deployment/&#34;&gt;Deploy cert-manager&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-11-cert-manager-how-it-work/&#34;&gt;How cert-manager work&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-12-cert-manager-complete-workflow/&#34;&gt;Cert-manager complete workflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Kubernetes CRD &amp;amp; Operator-sdk (3)
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Introduction about custom resource&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-15-kubernetes-custom-resource-with-operator-sdk/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
+&lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;custom resources&lt;/li&gt;
+&lt;li&gt;custom controllers&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;簡介-custom-resources&#34;&gt;簡介 custom resources&lt;/h1&gt;
+&lt;p&gt;Kubernetes 預先定義許多 resource ，這些 resource 是 &lt;a href=&#34;https://kubernetes.io/docs/reference/using-api/api-overview/&#34;&gt;kubernetes API&lt;/a&gt; 預先設置的 &lt;a href=&#34;https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/&#34;&gt;API objects&lt;/a&gt;，例如 kubernetes pods resource 包含許多 pods 物件。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2019 IT邦幫忙鐵人賽</title>
+      <link>https://chechia.net/posts/2019-09-09-ithome-ironman-challenge/</link>
+      <pubDate>Mon, 09 Sep 2019 16:56:03 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-09-09-ithome-ironman-challenge/</guid>
+      <description>2019 IT邦幫忙鐵人賽</description>
+    </item>
+  </channel>
+</rss>

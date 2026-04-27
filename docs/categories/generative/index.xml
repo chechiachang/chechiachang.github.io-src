@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Generative on Che-Chia Chang</title>
+    <link>https://chechia.net/categories/generative/</link>
+    <description>Recent content in Generative on Che-Chia Chang</description>
+    <image>
+      <title>Che-Chia Chang</title>
+      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.7</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 01 Sep 2025 13:20:00 +0000</lastBuildDate>
+    <atom:link href="https://chechia.net/categories/generative/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello World Dev Conf 2025: Workshop: RAG 打造企業知識庫入門，從 embeddings 到 evaluation</title>
+      <link>https://chechia.net/posts/2025-10-15-hwdc-rag/</link>
+      <pubDate>Mon, 01 Sep 2025 13:20:00 +0000</pubDate>
+      <guid>https://chechia.net/posts/2025-10-15-hwdc-rag/</guid>
+      <description>學員將學會如何利用 RAG 技術，結合 OpenAI、LangChain、Qdrant 向量數據庫，構建企業內部文檔的智能知識庫，並能設計與實作一個基於自然語言處理（NLP）的查詢系統，來提升開發團隊的效率與知識管理能力。</description>
+    </item>
+    <item>
+      <title>COSCUP: 從 Model Context Protocol 初探 AI Agent Protocol：快速打造多工 Agent Server</title>
+      <link>https://chechia.net/posts/2025-08-09-coscup/</link>
+      <pubDate>Tue, 24 Jun 2025 12:45:00 +0000</pubDate>
+      <guid>https://chechia.net/posts/2025-08-09-coscup/</guid>
+      <description>深入探索 Model Context Protocol（MCP），學習如何透過標準化協議打造支援多 Agent 協作與工具調用的進階 AI Agent Server。AI Agent 系統的發展正逐步邁向模組化與多 Agent 協作的新階段，而 Model Context Protocol（MCP） 正是促進模型、工具與本地資源之間有效協作的關鍵協議。透過 MCP，開發者可用統一且安全的方式讓 LLM 與本地/遠端服務互動，實現更穩定、可追蹤、可擴充的多工 Agent 架構。本場演講將深入解析 MCP 的架構、設計原則與實作範例，並展示如何使用開源 mcp-server 快速打造一套具備上下文共享、工具調用與多模型協作能力的 Agent Server。最後將透過實機 Demo 展現 MCP 在真實 AI Workflow 中的應用潛力。</description>
+    </item>
+    <item>
+      <title>Cloud Summit 2025: 用 RAG 打造企業可對話 AI 知識庫《有問題問過 AI 後再來問我》</title>
+      <link>https://chechia.net/posts/2025-07-02-cloud-summit/</link>
+      <pubDate>Mon, 09 Jun 2025 12:45:00 +0000</pubDate>
+      <guid>https://chechia.net/posts/2025-07-02-cloud-summit/</guid>
+      <description>透過 RAG（檢索增強生成）技術，將企業內部文件轉為智能知識庫，提升資訊檢索與決策效率。本演講將探討 RAG 應用、技術架構與落地實踐，幫助開發團隊與企業更高效利用內部知識。企業內部文件往往分散於 Confluence、Google Drive、Notion 等平台，傳統關鍵字搜尋難以快速獲取準確資訊，導致溝通成本高、開發流程受阻。本演講將介紹如何運用 RAG（Retrieval-Augmented Generation）技術，結合 OpenAI 及向量數據庫，將企業內部文檔轉為智能知識庫。我們將探討文件解析、嵌入索引、AI 問答系統的技術架構與實作，幫助開發團隊構建高效 AI 助手，節省溝通成本，加速開發流程，提升決策與問題解決能力</description>
+    </item>
+    <item>
+      <title>Workshop: DevOpsDay 2025: RAG打造企業AI知識庫：把一甲子功力傳給新人</title>
+      <link>https://chechia.net/posts/2025-06-06-devops-rag-internal-ai/</link>
+      <pubDate>Thu, 05 Jun 2025 12:45:00 +0000</pubDate>
+      <guid>https://chechia.net/posts/2025-06-06-devops-rag-internal-ai/</guid>
+      <description>學員將學會如何利用 RAG 技術，結合 OpenAI、LangChain、Qdrant 向量數據庫，構建企業內部文檔的智能知識庫，並能設計與實作一個基於自然語言處理（NLP）的查詢系統，來提升開發團隊的效率與知識管理能力。</description>
+    </item>
+  </channel>
+</rss>

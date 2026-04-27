@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>鐵人賽2021 on Che-Chia Chang</title>
+    <link>https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2021/</link>
+    <description>Recent content in 鐵人賽2021 on Che-Chia Chang</description>
+    <image>
+      <title>Che-Chia Chang</title>
+      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.7</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 01 Sep 2021 12:25:06 +0800</lastBuildDate>
+    <atom:link href="https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2021/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2021 09 01 Ithome Ironman Go</title>
+      <link>https://chechia.net/posts/2021-09-01-ithome-ironman-go/</link>
+      <pubDate>Wed, 01 Sep 2021 12:25:06 +0800</pubDate>
+      <guid>https://chechia.net/posts/2021-09-01-ithome-ironman-go/</guid>
+      <description>&lt;p&gt;2021 ithome 鐵人賽開跑了～&lt;/p&gt;
+&lt;p&gt;今年的題目是「Terraform Workshop - Infrastructure as Code for Public Cloud 疫情警戒陪你度過 30 天」，是一個長達 30 天的 terraform workshop，對 terraform 有興趣的朋友歡迎追縱&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10258904&#34;&gt;Day 01 - 引言：Terraform 是個好東西。&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/chechiachang/terraform-30-days&#34;&gt;課程內容與代碼會放在 Github 上: https://github.com/chechiachang/terraform-30-days&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://chechia.net/&#34;&gt;賽後文章會整理放到個人的部落格上 http://chechia.net/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.facebook.com/engineer.from.scratch&#34;&gt;追蹤粉專可以收到文章的主動推播&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;https://ithelp.ithome.com.tw/upload/images/20210901/20120327NvpHVr2QC0.jpg&#34; loading=&#34;lazy&#34; src=&#34;https://ithelp.ithome.com.tw/upload/images/20210901/20120327NvpHVr2QC0.jpg&#34;&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

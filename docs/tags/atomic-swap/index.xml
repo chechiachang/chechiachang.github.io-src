@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Atomic-Swap on Che-Chia Chang</title>
+    <link>https://chechia.net/tags/atomic-swap/</link>
+    <description>Recent content in Atomic-Swap on Che-Chia Chang</description>
+    <image>
+      <title>Che-Chia Chang</title>
+      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.7</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 08 Nov 2019 08:03:30 +0800</lastBuildDate>
+    <atom:link href="https://chechia.net/tags/atomic-swap/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ablockchain Atomic Swap</title>
+      <link>https://chechia.net/posts/2019-11-08-blockchain-atomic-swap/</link>
+      <pubDate>Fri, 08 Nov 2019 08:03:30 +0800</pubDate>
+      <guid>https://chechia.net/posts/2019-11-08-blockchain-atomic-swap/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://en.bitcoin.it/wiki/Atomic_swap&#34;&gt;https://en.bitcoin.it/wiki/Atomic_swap&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;algorithm&#34;&gt;Algorithm&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;2 pay txs and 2 claim tx&lt;/li&gt;
+&lt;li&gt;claim txs are singed at first, locked with time&lt;/li&gt;
+&lt;li&gt;2 pay txs are encrypted by x, affects only when x is reveal on the network&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;0&#34;&gt;
+&lt;li&gt;Initialization&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;A: random number x&lt;/p&gt;
+&lt;p&gt;tx1: A pay B
+A Pay BTC to B&amp;rsquo;s public key
+if x known &amp;amp; singed by B
+or Signed by A &amp;amp; B&lt;/p&gt;
+&lt;p&gt;tx2: A claim
+tx1 pay BTC to A&amp;rsquo;s public key
+locked 48 hours
+signed by A&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
