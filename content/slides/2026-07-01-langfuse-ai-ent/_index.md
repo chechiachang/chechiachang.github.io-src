@@ -32,6 +32,15 @@ reveal_hugo:
 
 ---
 
+## Goals
+
+- control llm -> do exactly what we want
+- control cost -> avoid unexpected cost increase
+
+
+
+---
+
 ## 現況問題：我們其實在用「感覺」做決策
 
 常見現象：
