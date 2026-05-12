@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on Che-Chia Chang</title>
+    <link>https://chechia.net/tags/</link>
+    <description>Recent content in Tags on Che-Chia Chang</description>
+    <image>
+      <title>Che-Chia Chang</title>
+      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.146.5</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 23 Apr 2026 13:20:00 +0000</lastBuildDate>
+    <atom:link href="https://chechia.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aiops</title>
+      <link>https://chechia.net/tags/aiops/</link>
+      <pubDate>Thu, 23 Apr 2026 13:20:00 +0000</pubDate>
+      <guid>https://chechia.net/tags/aiops/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Devops</title>
+      <link>https://chechia.net/tags/devops/</link>
+      <pubDate>Thu, 23 Apr 2026 13:20:00 +0000</pubDate>
+      <guid>https://chechia.net/tags/devops/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kubernetes</title>
+      <link>https://chechia.net/tags/kubernetes/</link>
+      <pubDate>Thu, 23 Apr 2026 13:20:00 +0000</pubDate>
+      <guid>https://chechia.net/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Langfuse</title>
+      <link>https://chechia.net/tags/langfuse/</link>
+      <pubDate>Thu, 23 Apr 2026 13:20:00 +0000</pubDate>
+      <guid>https://chechia.net/tags/langfuse/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Observability</title>
+      <link>https://chechia.net/tags/observability/</link>
+      <pubDate>Thu, 23 Apr 2026 13:20:00 +0000</pubDate>
+      <guid>https://chechia.net/tags/observability/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Openai</title>
+      <link>https://chechia.net/tags/openai/</link>
+      <pubDate>Thu, 23 Apr 2026 13:20:00 +0000</pubDate>
+      <guid>https://chechia.net/tags/openai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Workshop</title>
+      <link>https://chechia.net/tags/workshop/</link>
+      <pubDate>Tue, 21 Apr 2026 13:20:00 +0000</pubDate>
+      <guid>https://chechia.net/tags/workshop/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Aws</title>
+      <link>https://chechia.net/tags/aws/</link>
+      <pubDate>Wed, 01 Oct 2025 13:20:00 +0000</pubDate>
+      <guid>https://chechia.net/tags/aws/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Etcd</title>
+      <link>https://chechia.net/tags/etcd/</link>
+      <pubDate>Wed, 01 Oct 2025 13:20:00 +0000</pubDate>
+      <guid>https://chechia.net/tags/etcd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gemini</title>
+      <link>https://chechia.net/tags/gemini/</link>
+      <pubDate>Wed, 01 Oct 2025 13:20:00 +0000</pubDate>
+      <guid>https://chechia.net/tags/gemini/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Iac</title>
+      <link>https://chechia.net/tags/iac/</link>
+      <pubDate>Wed, 01 Oct 2025 13:20:00 +0000</pubDate>
+      <guid>https://chechia.net/tags/iac/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rag</title>
+      <link>https://chechia.net/tags/rag/</link>
+      <pubDate>Wed, 01 Oct 2025 13:20:00 +0000</pubDate>
+      <guid>https://chechia.net/tags/rag/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Terraform</title>
+      <link>https://chechia.net/tags/terraform/</link>
+      <pubDate>Wed, 01 Oct 2025 13:20:00 +0000</pubDate>
+      <guid>https://chechia.net/tags/terraform/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ai</title>
+      <link>https://chechia.net/tags/ai/</link>
+      <pubDate>Mon, 01 Sep 2025 13:20:00 +0000</pubDate>
+      <guid>https://chechia.net/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Generative</title>
+      <link>https://chechia.net/tags/generative/</link>
+      <pubDate>Mon, 01 Sep 2025 13:20:00 +0000</pubDate>
+      <guid>https://chechia.net/tags/generative/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vault</title>
+      <link>https://chechia.net/tags/vault/</link>
+      <pubDate>Wed, 23 Oct 2024 13:20:00 +0000</pubDate>
+      <guid>https://chechia.net/tags/vault/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cost</title>
+      <link>https://chechia.net/tags/cost/</link>
+      <pubDate>Wed, 03 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://chechia.net/tags/cost/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kafka</title>
+      <link>https://chechia.net/tags/kafka/</link>
+      <pubDate>Mon, 01 Jul 2024 12:45:00 +0000</pubDate>
+      <guid>https://chechia.net/tags/kafka/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Chatgpt</title>
+      <link>https://chechia.net/tags/chatgpt/</link>
+      <pubDate>Tue, 10 Oct 2023 04:42:26 +0800</pubDate>
+      <guid>https://chechia.net/tags/chatgpt/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>https://chechia.net/tags/docker/</link>
+      <pubDate>Tue, 10 Oct 2023 04:42:26 +0800</pubDate>
+      <guid>https://chechia.net/tags/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>鐵人賽2023</title>
+      <link>https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/</link>
+      <pubDate>Tue, 10 Oct 2023 04:42:26 +0800</pubDate>
+      <guid>https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>鐵人賽2022</title>
+      <link>https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2022/</link>
+      <pubDate>Sun, 25 Sep 2022 20:39:03 +0800</pubDate>
+      <guid>https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2022/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pac</title>
+      <link>https://chechia.net/tags/pac/</link>
+      <pubDate>Thu, 09 Jun 2022 01:04:12 +0800</pubDate>
+      <guid>https://chechia.net/tags/pac/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>鐵人賽2021</title>
+      <link>https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2021/</link>
+      <pubDate>Wed, 01 Sep 2021 12:25:06 +0800</pubDate>
+      <guid>https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2021/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>鐵人賽2020</title>
+      <link>https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2020/</link>
+      <pubDate>Wed, 07 Oct 2020 11:15:48 +0800</pubDate>
+      <guid>https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2020/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gcp</title>
+      <link>https://chechia.net/tags/gcp/</link>
+      <pubDate>Sat, 26 Sep 2020 17:24:20 +0800</pubDate>
+      <guid>https://chechia.net/tags/gcp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Preemptible</title>
+      <link>https://chechia.net/tags/preemptible/</link>
+      <pubDate>Sat, 26 Sep 2020 17:24:20 +0800</pubDate>
+      <guid>https://chechia.net/tags/preemptible/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Spot-Instance</title>
+      <link>https://chechia.net/tags/spot-instance/</link>
+      <pubDate>Sat, 26 Sep 2020 17:24:20 +0800</pubDate>
+      <guid>https://chechia.net/tags/spot-instance/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Borg</title>
+      <link>https://chechia.net/tags/borg/</link>
+      <pubDate>Sat, 12 Sep 2020 13:50:52 +0800</pubDate>
+      <guid>https://chechia.net/tags/borg/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Google</title>
+      <link>https://chechia.net/tags/google/</link>
+      <pubDate>Wed, 26 Aug 2020 13:50:52 +0800</pubDate>
+      <guid>https://chechia.net/tags/google/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Distributed-System</title>
+      <link>https://chechia.net/tags/distributed-system/</link>
+      <pubDate>Mon, 16 Dec 2019 23:46:46 +0800</pubDate>
+      <guid>https://chechia.net/tags/distributed-system/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Golang</title>
+      <link>https://chechia.net/tags/golang/</link>
+      <pubDate>Mon, 16 Dec 2019 23:46:46 +0800</pubDate>
+      <guid>https://chechia.net/tags/golang/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Lecture</title>
+      <link>https://chechia.net/tags/lecture/</link>
+      <pubDate>Mon, 16 Dec 2019 23:46:46 +0800</pubDate>
+      <guid>https://chechia.net/tags/lecture/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mit</title>
+      <link>https://chechia.net/tags/mit/</link>
+      <pubDate>Mon, 16 Dec 2019 23:46:46 +0800</pubDate>
+      <guid>https://chechia.net/tags/mit/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Atomic-Swap</title>
+      <link>https://chechia.net/tags/atomic-swap/</link>
+      <pubDate>Fri, 08 Nov 2019 08:03:30 +0800</pubDate>
+      <guid>https://chechia.net/tags/atomic-swap/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Blockchain</title>
+      <link>https://chechia.net/tags/blockchain/</link>
+      <pubDate>Fri, 08 Nov 2019 08:03:30 +0800</pubDate>
+      <guid>https://chechia.net/tags/blockchain/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bep3</title>
+      <link>https://chechia.net/tags/bep3/</link>
+      <pubDate>Tue, 22 Oct 2019 10:35:20 +0800</pubDate>
+      <guid>https://chechia.net/tags/bep3/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Binance</title>
+      <link>https://chechia.net/tags/binance/</link>
+      <pubDate>Tue, 22 Oct 2019 10:35:20 +0800</pubDate>
+      <guid>https://chechia.net/tags/binance/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Erc-20</title>
+      <link>https://chechia.net/tags/erc-20/</link>
+      <pubDate>Tue, 22 Oct 2019 10:35:20 +0800</pubDate>
+      <guid>https://chechia.net/tags/erc-20/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ethereum</title>
+      <link>https://chechia.net/tags/ethereum/</link>
+      <pubDate>Tue, 22 Oct 2019 10:35:20 +0800</pubDate>
+      <guid>https://chechia.net/tags/ethereum/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Crd</title>
+      <link>https://chechia.net/tags/crd/</link>
+      <pubDate>Sun, 13 Oct 2019 22:03:08 +0800</pubDate>
+      <guid>https://chechia.net/tags/crd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>鐵人賽2019</title>
+      <link>https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2019/</link>
+      <pubDate>Sun, 13 Oct 2019 22:03:08 +0800</pubDate>
+      <guid>https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2019/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cert-Manager</title>
+      <link>https://chechia.net/tags/cert-manager/</link>
+      <pubDate>Sat, 12 Oct 2019 17:41:25 +0800</pubDate>
+      <guid>https://chechia.net/tags/cert-manager/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ingress</title>
+      <link>https://chechia.net/tags/ingress/</link>
+      <pubDate>Tue, 08 Oct 2019 08:12:10 +0800</pubDate>
+      <guid>https://chechia.net/tags/ingress/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Nginx</title>
+      <link>https://chechia.net/tags/nginx/</link>
+      <pubDate>Tue, 08 Oct 2019 08:12:10 +0800</pubDate>
+      <guid>https://chechia.net/tags/nginx/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ithome</title>
+      <link>https://chechia.net/tags/ithome/</link>
+      <pubDate>Mon, 07 Oct 2019 08:12:10 +0800</pubDate>
+      <guid>https://chechia.net/tags/ithome/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Prometheus</title>
+      <link>https://chechia.net/tags/prometheus/</link>
+      <pubDate>Mon, 07 Oct 2019 08:12:10 +0800</pubDate>
+      <guid>https://chechia.net/tags/prometheus/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Redis</title>
+      <link>https://chechia.net/tags/redis/</link>
+      <pubDate>Thu, 03 Oct 2019 16:12:10 +0800</pubDate>
+      <guid>https://chechia.net/tags/redis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Haproxy</title>
+      <link>https://chechia.net/tags/haproxy/</link>
+      <pubDate>Wed, 02 Oct 2019 16:12:10 +0800</pubDate>
+      <guid>https://chechia.net/tags/haproxy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Elasticsearch</title>
+      <link>https://chechia.net/tags/elasticsearch/</link>
+      <pubDate>Sat, 21 Sep 2019 15:22:23 +0800</pubDate>
+      <guid>https://chechia.net/tags/elasticsearch/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Logstash</title>
+      <link>https://chechia.net/tags/logstash/</link>
+      <pubDate>Sat, 21 Sep 2019 15:22:23 +0800</pubDate>
+      <guid>https://chechia.net/tags/logstash/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Filebeat</title>
+      <link>https://chechia.net/tags/filebeat/</link>
+      <pubDate>Thu, 19 Sep 2019 17:06:29 +0800</pubDate>
+      <guid>https://chechia.net/tags/filebeat/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fluentd</title>
+      <link>https://chechia.net/tags/fluentd/</link>
+      <pubDate>Thu, 19 Sep 2019 17:06:29 +0800</pubDate>
+      <guid>https://chechia.net/tags/fluentd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Certificate</title>
+      <link>https://chechia.net/tags/certificate/</link>
+      <pubDate>Tue, 17 Sep 2019 10:15:36 +0800</pubDate>
+      <guid>https://chechia.net/tags/certificate/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tls</title>
+      <link>https://chechia.net/tags/tls/</link>
+      <pubDate>Tue, 17 Sep 2019 10:15:36 +0800</pubDate>
+      <guid>https://chechia.net/tags/tls/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Elk</title>
+      <link>https://chechia.net/tags/elk/</link>
+      <pubDate>Mon, 09 Sep 2019 16:56:03 +0800</pubDate>
+      <guid>https://chechia.net/tags/elk/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>鐵人2019</title>
+      <link>https://chechia.net/tags/%E9%90%B5%E4%BA%BA2019/</link>
+      <pubDate>Mon, 09 Sep 2019 16:56:03 +0800</pubDate>
+      <guid>https://chechia.net/tags/%E9%90%B5%E4%BA%BA2019/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ibm-Q-Experience</title>
+      <link>https://chechia.net/tags/ibm-q-experience/</link>
+      <pubDate>Sun, 02 Jun 2019 10:21:37 +0800</pubDate>
+      <guid>https://chechia.net/tags/ibm-q-experience/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Quantum-Computing</title>
+      <link>https://chechia.net/tags/quantum-computing/</link>
+      <pubDate>Sun, 02 Jun 2019 10:21:37 +0800</pubDate>
+      <guid>https://chechia.net/tags/quantum-computing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tutorial</title>
+      <link>https://chechia.net/tags/tutorial/</link>
+      <pubDate>Sun, 02 Jun 2019 10:21:37 +0800</pubDate>
+      <guid>https://chechia.net/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Istio</title>
+      <link>https://chechia.net/tags/istio/</link>
+      <pubDate>Mon, 06 May 2019 18:12:15 +0800</pubDate>
+      <guid>https://chechia.net/tags/istio/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cd</title>
+      <link>https://chechia.net/tags/cd/</link>
+      <pubDate>Fri, 19 Apr 2019 12:15:41 +0800</pubDate>
+      <guid>https://chechia.net/tags/cd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ci</title>
+      <link>https://chechia.net/tags/ci/</link>
+      <pubDate>Fri, 19 Apr 2019 12:15:41 +0800</pubDate>
+      <guid>https://chechia.net/tags/ci/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Jenkins</title>
+      <link>https://chechia.net/tags/jenkins/</link>
+      <pubDate>Fri, 19 Apr 2019 12:15:41 +0800</pubDate>
+      <guid>https://chechia.net/tags/jenkins/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Container</title>
+      <link>https://chechia.net/tags/container/</link>
+      <pubDate>Sat, 06 Oct 2018 12:07:00 +0800</pubDate>
+      <guid>https://chechia.net/tags/container/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cri</title>
+      <link>https://chechia.net/tags/cri/</link>
+      <pubDate>Sat, 06 Oct 2018 12:07:00 +0800</pubDate>
+      <guid>https://chechia.net/tags/cri/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
