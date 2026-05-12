@@ -55,6 +55,11 @@ jobs:
 
       - name: Update gh-pages docs (preserve PR previews)
         run: |
+          # We already copied the built site to ./tmp/site; clear docs in current
+          # branch so switching to gh-pages cannot be blocked by local changes.
+          git restore --source=HEAD --staged --worktree -- docs 2>/dev/null || true
+          git clean -fd docs 2>/dev/null || true
+
           git fetch origin gh-pages || true
           if git show-ref --verify --quiet refs/remotes/origin/gh-pages; then
             git checkout -B gh-pages origin/gh-pages
