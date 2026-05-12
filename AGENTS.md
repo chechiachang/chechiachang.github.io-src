@@ -10,4 +10,4 @@ All instructions and skills must be compact and extremely minimal.
 - Use repo-local `./tmp` for temporary files; do not use OS-wide temp directories.
 
 ## Index
-- `skills/presentation.md`: Skills for creating presentations.
+- `skills/presentation.md`: Skills for managing ./content/posts and ./content/slides.

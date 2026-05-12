@@ -17,6 +17,12 @@ If a post includes all three:
 
 then it is an event post.
 
+Date rule for confirmed sessions:
+
+- If `活動連結` exists (session confirmed):
+- Keep post directory date (`content/posts/<date>-<slug>/`) as `活動時間` date.
+- Set `date` in index.md` frontmatter (visible date) to 2 months before `活動時間`.
+
 Event post must contain:
 
 - `Title`
@@ -90,6 +96,7 @@ Observed slide pattern:
 4. Add `投影片` link in post to `https://chechia.net/slides/<date>-<slug>/`.
 5. Ensure event post includes `Title`, `Outline`, `Target group`, `Author`.
 6. Keep frontmatter date/title/tags coherent across post and slides.
+7. If session is confirmed with `活動連結`, keep post dir date as `活動時間` and set frontmatter `date` to 2 months before `活動時間`.
 
 ## Writing Style
 
