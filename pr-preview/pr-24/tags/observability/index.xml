@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Observability on Che-Chia Chang</title>
+    <link>https://pages.chechia.net/pr-preview/pr-24/tags/observability/</link>
+    <description>Recent content in Observability on Che-Chia Chang</description>
+    <image>
+      <title>Che-Chia Chang</title>
+      <url>https://pages.chechia.net/pr-preview/pr-24/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://pages.chechia.net/pr-preview/pr-24/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.146.5</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 02 May 2026 13:20:00 +0000</lastBuildDate>
+    <atom:link href="https://pages.chechia.net/pr-preview/pr-24/tags/observability/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LLM O11y：從 Observability 到 Decision System</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/posts/2026-07-01-langfuse-ai-ent/</link>
+      <pubDate>Sat, 02 May 2026 13:20:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/posts/2026-07-01-langfuse-ai-ent/</guid>
+      <description>LLM（大型語言模型）應用的興起帶來了新的挑戰，尤其是在觀察性（observability）方面。傳統的監控工具無法有效捕捉和分析 LLM 的行為和性能指標，這使得開發者和運維團隊難以評估 LLM 應用的健康狀況和性能表現。Langfuse 是一個專為 LLM 應用設計的觀察性平台，提供了全面的監控、日誌分析和性能評估功能，幫助團隊更好地理解和優化他們的 LLM 應用。在本次演講中，我們將深入探討 Langfuse 的功能和優勢，以及如何利用它來提升 LLM 應用的可觀察性和性能。</description>
+    </item>
+    <item>
+      <title>Workshop: LLM O11y 從 Observability 到 Decision System</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/posts/2026-07-01-ws-langfuse-ai-ent/</link>
+      <pubDate>Sat, 02 May 2026 13:20:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/posts/2026-07-01-ws-langfuse-ai-ent/</guid>
+      <description>本工作坊將實作 llm-o11y：在 localhost 以 Docker Compose 啟動 Bifrost 與 Langfuse，串接 LLM AI Gateway 與 tracing，建立 evaluation 與 LLM-as-a-judge，抽取 dataset，並組成可重現的 AI 開發 workflow。</description>
+    </item>
+  </channel>
+</rss>

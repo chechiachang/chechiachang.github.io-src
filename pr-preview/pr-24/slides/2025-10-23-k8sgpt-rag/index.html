@@ -1,0 +1,140 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><title>K8s Summit 2025: RAG + k8sGPT 檢索增強生成與 K8sGPT</title>
+<meta name=description content="K8sGPT 是一套結合 AI 與最佳實踐的 Kubernetes 問題診斷與修復工具，能有效降低故障排除難度並自動化修復流程。RAG（Retrieval-Augmented Generation 檢索增強生成）結合檢索系統與生成式模型（如 GPT）的自然語言處理架構，在生成答案時引用外部知識，使模型回答更準確且具事實根據。本演講將介紹如何使用 RAG 技術來增強 Kubernetes 問題診斷與修復的能力，並展示 k8sGPT 的實際應用。"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="black-translucent"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><link rel=stylesheet href=/pr-preview/pr-24/reveal-js/dist/reset.css><link rel=stylesheet href=/pr-preview/pr-24/reveal-js/dist/reveal.css><link rel=stylesheet href=/pr-preview/pr-24/reveal-hugo/themes/robot-lung.css id=theme><link rel=stylesheet href=/pr-preview/pr-24/highlight-js/color-brewer.min.css></head><body><div class=reveal><div class=slides><section><h4 id=kubernetes-summit-2025>Kubernetes Summit 2025</h4><h2 id=k8sgpt--rag-檢索增強生成>k8sGPT + RAG 檢索增強生成</h2><h5 id=用-llm-自動修復-k8s>用 LLM 自動修復 k8s</h5><h5 id=-che-chia-chang--chechianet->~ Che Chia Chang @ <a href=https://chechia.net>chechia.net</a> ~</h5></section><section data-shortcode-section><section data-noprocess data-shortcode-slide><h3 id=關於我>關於我</h3><ul><li>Che Chia Chang</li><li>SRE @ <a href=https://www.cake.me/companies/maicoin/jobs>Maicoin</a></li><li><a href=https://mvp.microsoft.com/zh-TW/MVP/profile/e407d0b9-5c01-eb11-a815-000d3a8ccaf5>Microsoft MVP</a></li><li>投影片與講稿都在 <a href=https://chechia.net/>chechia.net</a></li><li><a href=/pr-preview/pr-24/slides/2024-10-24-etcd-workshop/>K8s Summit 2024: Etcd Workshop</a></li><li><a href=/pr-preview/pr-24/slides/2025-06-05-devops-rag-internal-ai/>DevOpsDay 2025: RAG Workshop</a></li><li>鐵人賽 (Terraform / Vault 手把手入門)</li></ul><p>🔽</p></section><section><h3 id=were-hiring>We&rsquo;re hiring!</h3><p><a href=https://www.cake.me/companies/maicoin/jobs>https://www.cake.me/companies/maicoin/jobs</a></p><p><img loading=lazy src=/pr-preview/pr-24/slides/2025-10-23-k8sgpt-rag/we-re-hiring.png></p></section></section><section><h3 id=live-demo>Live demo</h3><h5 id=不管怎樣先-live-demo-rocket>不管怎樣先 Live demo &#x1f680;</h5><p><a href=https://github.com/chechiachang/k8sgpt-playground>https://github.com/chechiachang/k8sgpt-playground</a></p></section><section><p><a href=https://github.com/chechiachang/k8sgpt-playground/tree/main/k8s>https://github.com/chechiachang/k8sgpt-playground/tree/main/k8s</a></p><pre><code>minikube config set driver docker
+minikube start --kubernetes-version=v1.34.0
+
+helm repo add k8sgpt https://charts.k8sgpt.ai
+helm repo update
+helm install k8sgpt-operator k8sgpt/k8sgpt-operator --values k8sgpt-operator/values.yaml
+
+kubectl create secret generic azureopenai --from-literal=azure-api-key=your-api-key
+# create crd k8sgpt
+kubectl create -f config/azureopenai.yaml
+
+kubectl get pods
+</code></pre></section><section><pre><code>kubectl logs azureopenai # 確認 LLM backend 連線正常
+kubectl get results # results.core.k8sgpt.ai
+
+kubectl apply -f cases/01-missing-image
+kubectl get pods -w
+kubectl get results -w
+kubectl get mutations -w # mutations.core.k8sgpt.ai
+</code></pre></section><section><h3 id=live-demo-1>Live demo 1</h3><h5 id=所以在座的各位要被取代了嗎>所以在座的各位要被取代了嗎？</h5></section><section><h3 id=大綱>大綱</h3><ul><li>不管怎樣先 Live demo &#x1f680;</li><li>什麼是 k8sGPT</li><li>什麼是 RAG</li><li>Live demo 2 &#x1f680;</li><li>目前能/不能做什麼</li><li>如何 get started</li><li>未來展望</li></ul></section><section><h3 id=what-is-k8sgpt>What is K8sGpt</h3><ul><li><a href=https://k8sgpt.ai/>https://k8sgpt.ai/</a></li><li><a href=https://docs.k8sgpt.ai/>文件要看這裡 https://docs.k8sgpt.ai/</a></li><li><a href=https://www.cncf.io/projects/k8sgpt/>cncf sandbox project</a></li></ul></section><section><h3 id=k8sgpt>K8sGpt</h3><p>主要有兩個工具</p><ul><li><a href=https://github.com/k8sgpt-ai/k8sgpt>k8sgpt-cli: command line interface</a></li><li><a href=https://github.com/k8sgpt-ai/k8sgpt-operator>k8sgpt-operator</a></li></ul></section><section><h5 id=k8sgpt-cli>K8sGpt cli</h5><div class=mermaid>graph TD
+B[k8sgpt-cli]
+subgraph "kubernetes"
+C[API Server]
+end
+subgraph "LLM AI Backends"
+D["OpenAI API
+gpt-4"]
+E["Google GenAI API
+Gemini Pro"]
+end
+subgraph "Custom Backend"
+F[其他的 API Backend]
+end
+B --fetch resources, error--> C
+B --prompt + errorMessage--> D
+D --analyzed response--> B
+B --> F
+F --> B</div></section><section><h5 id=k8sgpt-cli-1>K8sGpt cli</h5><pre><code>kubectx minikube
+
+k8sgpt auth add --backend azureopenai
+k8sgpt analyze --backend azureopenai --explain --filter Pod,Service,Ingress
+
+ 100% |█████████████████████████████████████████████████████████| (2/2, 15 it/min)
+AI Provider: azureopenai
+0: Deployment default/missing-image-deployment()
+- Error: Deployment default/missing-image-deployment has 1 replicas but 0 are available with status running
+Error: The deployment &quot;missing-image-deployment&quot; in the default namespace has 1 replica defined, but none are currently available or running.
+
+Solution:
+1. Check the deployment status: `kubectl describe deployment missing-image-deployment`
+2. Look for events indicating issues (e.g., image pull errors).
+3. If an image is missing, update the deployment with a valid image: `kubectl set image deployment/missing-image-deployment &lt;container-name&gt;=&lt;new-image&gt;`
+4. Redeploy: `kubectl rollout restart deployment/missing-image-deployment`
+</code></pre></section><section><p><img loading=lazy src=https://docs.k8sgpt.ai/imgs/operator.png></p><p><a href=https://docs.k8sgpt.ai/reference/operator/overview/>https://docs.k8sgpt.ai/reference/operator/overview/</a></p></section><section><h5 id=k8sgpt-operator>k8sgpt-operator</h5><ol><li>watch k8s resource</li><li>analyze: resource + error message 送到 LLM backend (OpenAI, Gemini, &mldr;)</li><li>calculate remediation: 根據 LLM 回傳的修正建議，產生 k8s 修正後的 yaml</li><li>自動化修復 (auto-remediation) apply 修正後的 yaml</li></ol></section><section><div class=mermaid>graph TD
+subgraph "k8sgpt-operator controller"
+A["CRD: k8sgpt"]
+B["k8sgpt-controller"]
+C["deployment/k8sgpt"]
+D["mutation-controller"]
+H["k8s resources(Deployment)"]
+I["CRD: Results(error message)"]
+J["CRD: Mutations"]
+K["new k8s resources(Deployment)"]
+end
+B --watches--> A
+B --creates--> C
+C --analyze--> H
+C --creates--> I
+C --calculate remediation--> I
+D --compute similarity score--> J
+D --applys--> K</div></section><section><h5 id=k8sgpt-operator-1>k8sgpt-operator</h5><ol><li>k8sgpt-controller<ol><li>watches k8sgpt CRD -> create deployment/k8sgpt</li><li>analyze<ol><li>loop fetch resource and error message</li><li>send to LLM backend -> get analyzed response</li><li>create Result CRD</li></ol></li><li>calculate remediation: compute remediation -> create Mutation CRD</li></ol></li><li>mutation controler<ol><li>compute similarity score: 計算 config vs targetConfig 差異</li><li>ResourceToExecution: execute (apply) resource</li></ol></li></ol></section><section><h5 id=k8sgpt-能做到跟不能做到的事>k8sgpt 能做到跟不能做到的事</h5><ul><li><p>常見問題都是秒解</p><ul><li>ex. resources issues, typos, misconfigurations, scaling</li><li>一個 kubectl apply yaml 就能解決的問題，k8sgpt 都能解決</li></ul></li><li><p>那不常見/複雜的問題呢？</p><ul><li>domain knowledge</li><li>multi-step task</li></ul></li></ul></section><section><h5 id=問題-llm-直接回答-k8s-問題的挑戰>問題: LLM 直接回答 k8s 問題的挑戰</h5><ul><li>LLM 可能會「幻覺」(hallucination)</li><li>就算答對，沒有幻覺，也無從解釋 LLM 答案的根據</li><li>domain knowledge 不足（公司內部知識庫, runbook, SOP)</li><li>沒有 tool (上網查k8s 官方文件）</li><li>其他因素（成本、隱私政策、安全性等）</li><li>特別需求 ex「沒壞不要動」</li><li>Evaluation</li></ul></section><section><p>RAG: Retrieval-Augmented Generation</p><div class=mermaid>graph TD
+B[k8sgpt-cli]
+subgraph "k8s"
+C[API Server]
+end
+subgraph "Custom Backend"
+H["RAG Retriever
+ex. Python FastAPI"]
+I["LLM Model
+OpenAI gpt-4
+Gemini Pro"]
+K{Knowledge Base}
+L[Official Docs]
+M[Internal Wiki]
+N[SOPs]
+end
+B --> C
+B --> H
+H --query--> K
+K --docs--> H
+H --"promp+query+docs"--> I
+I --response--> H
+K --> L
+K --> M
+K --> N</div></section><section><p>RAG prompt</p><pre><code>1. 你是一位 Kubernetes 專家。根據以下知識庫文件，分析所提供的錯誤訊息
+   並提出可能的原因和解決方案。
+2. 如果知識庫中沒有相關資訊，請誠實地說「我不知道」。
+
+知識庫文件:
+{檢索到的文件內容}
+
+錯誤訊息:
+{錯誤訊息}
+</code></pre><p>LLM</p><pre><code>根據知識庫文件，錯誤訊息顯示 Pod 無法啟動，可能是因為映像檔不存在或無法存取。
+請確認映像檔名稱和標籤是否正確，並檢查映像檔倉庫的存取權限。
+</code></pre></section><section><h3 id=live-demo-2-rag-rocket>Live demo 2 RAG &#x1f680;</h3></section><section><pre><code>cd RAG
+cat data/qa.csv
+
+# embedding + save to qdrankjt
+kubectl -n qdrant port-forward svc/qdrant 6334:6334 6333:6333
+uv run 01_embedding.py
+uv run 02_save_to_qdrant.py
+
+# start custom backend RAG server
+uv run fastapi dev rag-custom-backend.py
+
+k8sgpt auth add --backend customrest \
+    --baseurl http://localhost:8000/completions \
+    --model gpt-4o-mini
+
+k8sgpt analyze --backend customrest --explain --filter Deployment
+</code></pre></section><section><pre><code>cat deploy/k8sgpt.yaml
+kubectl delete -f ../k8s/config/azureopenai.yaml
+kubectl apply -f deploy/k8sgpt.yaml
+
+kubectl apply -f ../k8s/cases/02-dont-do-anything
+kubectl get pods -w
+kubectl get results -w
+kubectl get mutations -w # mutations.core.k8sgpt.ai
+</code></pre></section><section><h3 id=live-demo-2-rag>Live demo 2 RAG</h3><h5 id=所以在座的各位要被取代了嗎-1>所以在座的各位要被取代了嗎？</h5></section><section><h5 id=rag-retrieval-augmented-generation>RAG: Retrieval-Augmented Generation</h5><ol><li>讓 LLM 基於外部知識庫來生成答案</li><li>除錯與改進 context engineering</li><li>補齊必要知識 domain knowledge</li><li>k8s 官方文件</li><li>公司內部知識庫 (wiki, runbook, SOP, etc.)</li><li>提供 tools 使用能力 (上網google, github-mcp, jira-mcp, etc.)</li><li>通往 Evaluation 的橋樑</li></ol></section><section><h5 id=rag-retrieval-augmented-generation-1>RAG: Retrieval-Augmented Generation</h5><ul><li><a href=https://chechia.net/posts/2025-10-15-hwdc-rag/>2025/10/15 Hello World Dev Workshop</a></li><li>embedding, vector database, retriever, evaluation</li></ul></section><section><h3 id=k8sgpt-getting-started>k8sgpt: Getting Started</h3><p>所以我要如何開始我的 k8sgpt + RAG 之旅呢？</p></section><section><h3 id=k8sgpt-getting-started-1>k8sgpt: Getting Started</h3><ul><li><a href=https://killercoda.com/matthisholleville/scenario/k8sgpt-cli>Playground on Killercoda</a></li><li><a href=https://docs.k8sgpt.ai/getting-started/installation/>Install k8sgpt-cli</a></li><li><a href=https://k8sgpt.ai/docs/explanation/integration>CI/CD cronjob example</a></li><li>Deploy to k8s</li></ul></section><section><h5 id=deploy-to-k8s>Deploy to k8s</h5><ul><li>Model hyperparameter to reduce randomness (ex. temperature: 0.0) 🌡️</li><li>Rbac RoleBinding + Role for k8sgpt-operator</li><li>Multi-agent &#x1f916;</li><li>Custom Backend + RAG</li><li>Evaluation</li><li>Go production &#x1f680;</li></ul></section><section><h3 id=k8s-rbac-rolebinding--role>k8s: rbac RoleBinding + Role</h3><ol><li>最小權限原則 (least privilege)</li><li>解決最大的恐懼：k8sgpt 把我 k8s cluster 弄壞了怎麼辦？</li></ol><pre><code>apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: pod-reader
+rules:
+- apiGroups: [&quot;&quot;]
+  resources: [&quot;pods&quot;]
+  verbs: [&quot;get&quot;, &quot;watch&quot;, &quot;list&quot;]
+</code></pre></section><section><h3 id=k8s-multi-agent>k8s: multi-agent</h3><ul><li>1 個 llm agent 管理整個 cluster</li><li>vs 多個 llm agent 各司其職<ul><li>ns-reader, ns-writer, resource-scaler, cmd-fixer, &mldr;</li></ul></li><li>context 更好管理，權限管理精細</li><li>除錯</li><li>Easier to context engineering</li><li>Evaluation</li></ul></section><section><h3 id=未來展望>未來展望</h3><p>Evaluation + Go to production</p><blockquote><p>沒有 Evaluation 就沒有 Production</p></blockquote></section><section><h3 id=所以-sre-要被取代了嗎>所以 SRE 要被取代了嗎？</h3></section><section><h3 id=k8sgpt-能做什麼>k8sGPT 能做什麼？</h3><p>k8sGPT 做得好的事情</p><ul><li>文字處理：yaml 除錯, typo, 基礎修復</li><li>24/7 online，秒級修復</li><li>找出初階錯誤的效率優於人類</li><li>加上 RAG 可執行有明確 SOP 的事務</li><li>加上 Tool 可上網查文件 + mcp/jira/github</li></ul></section><section><h3 id=未來-sre-要做的事>未來 SRE 要做的事</h3><ul><li>複雜/超出 scope 的任務還是需要人類 SRE 來處理<ul><li>ex. <a href=https://kubernetes.io/docs/tasks/debug/debug-application/debug-service/>https://kubernetes.io/docs/tasks/debug/debug-application/debug-service/</a></li></ul></li><li>多步驟決策</li><li>從處理問題，變成維護 k8sGPT + RAG 系統 + Tools</li><li>文件 pipeline -> Knowledge Base -> RAG -> Evaluation</li></ul></section><section><h3 id=qa>Q&amp;A</h3></section></div></div><script type=text/javascript src=/pr-preview/pr-24/reveal-hugo/object-assign.js></script><script src=/pr-preview/pr-24/reveal-js/dist/reveal.js></script><script type=text/javascript src=/pr-preview/pr-24/reveal-js/plugin/markdown/markdown.js></script><script type=text/javascript src=/pr-preview/pr-24/reveal-js/plugin/highlight/highlight.js></script><script type=text/javascript src=/pr-preview/pr-24/reveal-js/plugin/zoom/zoom.js></script><script type=text/javascript src=/pr-preview/pr-24/reveal-js/plugin/notes/notes.js></script><script type=text/javascript>function camelize(e){return e&&Object.keys(e).forEach(function(t){newK=t.replace(/(_\w)/g,function(e){return e[1].toUpperCase()}),newK!=t&&(e[newK]=e[t],delete e[t])}),e}var revealHugoDefaults={center:!0,controls:!0,history:!0,progress:!0,transition:"slide"},revealHugoSiteParams={},revealHugoPageParams={custom_theme:"reveal-hugo/themes/robot-lung.css",highlight_theme:"color-brewer",margin:.2,templates:{hotpink:{background:"#FF4081",class:"hotpink"}},transition:"slide",transition_speed:"fast"},revealHugoPlugins={plugins:[RevealMarkdown,RevealHighlight,RevealZoom,RevealNotes]},options=Object.assign({},camelize(revealHugoDefaults),camelize(revealHugoSiteParams),camelize(revealHugoPageParams),camelize(revealHugoPlugins));Reveal.initialize(options)</script><script type=text/javascript src=/pr-preview/pr-24/mermaid.min_16862243754454536095.js></script><script type=text/javascript>mermaid.initialize({startOnLoad:!1});let render=e=>{let t=e.currentSlide.querySelectorAll(".mermaid");if(!t.length)return;t.forEach(e=>{let t=e.getAttribute("data-processed");t||mermaid.init(void 0,e)})};render({currentSlide:Reveal.getCurrentSlide()}),Reveal.on("slidechanged",render),Reveal.on("ready",render)</script></body></html>

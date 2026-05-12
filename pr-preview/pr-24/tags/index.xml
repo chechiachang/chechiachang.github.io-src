@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on Che-Chia Chang</title>
+    <link>https://pages.chechia.net/pr-preview/pr-24/tags/</link>
+    <description>Recent content in Tags on Che-Chia Chang</description>
+    <image>
+      <title>Che-Chia Chang</title>
+      <url>https://pages.chechia.net/pr-preview/pr-24/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://pages.chechia.net/pr-preview/pr-24/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.146.5</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 02 May 2026 13:20:00 +0000</lastBuildDate>
+    <atom:link href="https://pages.chechia.net/pr-preview/pr-24/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ai</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/ai/</link>
+      <pubDate>Sat, 02 May 2026 13:20:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Aiops</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/aiops/</link>
+      <pubDate>Sat, 02 May 2026 13:20:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/aiops/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Devops</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/devops/</link>
+      <pubDate>Sat, 02 May 2026 13:20:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/devops/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Generative</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/generative/</link>
+      <pubDate>Sat, 02 May 2026 13:20:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/generative/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kubernetes</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/kubernetes/</link>
+      <pubDate>Sat, 02 May 2026 13:20:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Langfuse</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/langfuse/</link>
+      <pubDate>Sat, 02 May 2026 13:20:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/langfuse/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Observability</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/observability/</link>
+      <pubDate>Sat, 02 May 2026 13:20:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/observability/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Openai</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/openai/</link>
+      <pubDate>Sat, 02 May 2026 13:20:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/openai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Workshop</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/workshop/</link>
+      <pubDate>Sat, 02 May 2026 13:20:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/workshop/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Speckit</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/speckit/</link>
+      <pubDate>Fri, 01 May 2026 13:20:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/speckit/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Aws</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/aws/</link>
+      <pubDate>Wed, 01 Oct 2025 13:20:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/aws/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Etcd</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/etcd/</link>
+      <pubDate>Wed, 01 Oct 2025 13:20:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/etcd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gemini</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/gemini/</link>
+      <pubDate>Wed, 01 Oct 2025 13:20:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/gemini/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Iac</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/iac/</link>
+      <pubDate>Wed, 01 Oct 2025 13:20:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/iac/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rag</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/rag/</link>
+      <pubDate>Wed, 01 Oct 2025 13:20:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/rag/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Terraform</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/terraform/</link>
+      <pubDate>Wed, 01 Oct 2025 13:20:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/terraform/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vault</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/vault/</link>
+      <pubDate>Wed, 23 Oct 2024 13:20:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/vault/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cost</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/cost/</link>
+      <pubDate>Wed, 03 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/cost/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kafka</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/kafka/</link>
+      <pubDate>Mon, 01 Jul 2024 12:45:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/kafka/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Chatgpt</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/chatgpt/</link>
+      <pubDate>Tue, 10 Oct 2023 04:42:26 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/chatgpt/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/docker/</link>
+      <pubDate>Tue, 10 Oct 2023 04:42:26 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>鐵人賽2023</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/</link>
+      <pubDate>Tue, 10 Oct 2023 04:42:26 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>鐵人賽2022</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2022/</link>
+      <pubDate>Sun, 25 Sep 2022 20:39:03 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2022/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pac</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/pac/</link>
+      <pubDate>Thu, 09 Jun 2022 01:04:12 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/pac/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>鐵人賽2021</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2021/</link>
+      <pubDate>Wed, 01 Sep 2021 12:25:06 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2021/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>鐵人賽2020</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2020/</link>
+      <pubDate>Wed, 07 Oct 2020 11:15:48 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2020/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gcp</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/gcp/</link>
+      <pubDate>Sat, 26 Sep 2020 17:24:20 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/gcp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Preemptible</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/preemptible/</link>
+      <pubDate>Sat, 26 Sep 2020 17:24:20 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/preemptible/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Spot-Instance</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/spot-instance/</link>
+      <pubDate>Sat, 26 Sep 2020 17:24:20 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/spot-instance/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Borg</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/borg/</link>
+      <pubDate>Sat, 12 Sep 2020 13:50:52 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/borg/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Google</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/google/</link>
+      <pubDate>Wed, 26 Aug 2020 13:50:52 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/google/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Distributed-System</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/distributed-system/</link>
+      <pubDate>Mon, 16 Dec 2019 23:46:46 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/distributed-system/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Golang</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/golang/</link>
+      <pubDate>Mon, 16 Dec 2019 23:46:46 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/golang/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Lecture</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/lecture/</link>
+      <pubDate>Mon, 16 Dec 2019 23:46:46 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/lecture/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mit</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/mit/</link>
+      <pubDate>Mon, 16 Dec 2019 23:46:46 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/mit/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Atomic-Swap</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/atomic-swap/</link>
+      <pubDate>Fri, 08 Nov 2019 08:03:30 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/atomic-swap/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Blockchain</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/blockchain/</link>
+      <pubDate>Fri, 08 Nov 2019 08:03:30 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/blockchain/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bep3</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/bep3/</link>
+      <pubDate>Tue, 22 Oct 2019 10:35:20 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/bep3/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Binance</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/binance/</link>
+      <pubDate>Tue, 22 Oct 2019 10:35:20 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/binance/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Erc-20</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/erc-20/</link>
+      <pubDate>Tue, 22 Oct 2019 10:35:20 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/erc-20/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ethereum</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/ethereum/</link>
+      <pubDate>Tue, 22 Oct 2019 10:35:20 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/ethereum/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Crd</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/crd/</link>
+      <pubDate>Sun, 13 Oct 2019 22:03:08 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/crd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>鐵人賽2019</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2019/</link>
+      <pubDate>Sun, 13 Oct 2019 22:03:08 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2019/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cert-Manager</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/cert-manager/</link>
+      <pubDate>Sat, 12 Oct 2019 17:41:25 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/cert-manager/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ingress</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/ingress/</link>
+      <pubDate>Tue, 08 Oct 2019 08:12:10 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/ingress/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Nginx</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/nginx/</link>
+      <pubDate>Tue, 08 Oct 2019 08:12:10 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/nginx/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ithome</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/ithome/</link>
+      <pubDate>Mon, 07 Oct 2019 08:12:10 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/ithome/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Prometheus</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/prometheus/</link>
+      <pubDate>Mon, 07 Oct 2019 08:12:10 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/prometheus/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Redis</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/redis/</link>
+      <pubDate>Thu, 03 Oct 2019 16:12:10 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/redis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Haproxy</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/haproxy/</link>
+      <pubDate>Wed, 02 Oct 2019 16:12:10 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/haproxy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Elasticsearch</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/elasticsearch/</link>
+      <pubDate>Sat, 21 Sep 2019 15:22:23 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/elasticsearch/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Logstash</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/logstash/</link>
+      <pubDate>Sat, 21 Sep 2019 15:22:23 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/logstash/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Filebeat</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/filebeat/</link>
+      <pubDate>Thu, 19 Sep 2019 17:06:29 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/filebeat/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fluentd</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/fluentd/</link>
+      <pubDate>Thu, 19 Sep 2019 17:06:29 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/fluentd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Certificate</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/certificate/</link>
+      <pubDate>Tue, 17 Sep 2019 10:15:36 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/certificate/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tls</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/tls/</link>
+      <pubDate>Tue, 17 Sep 2019 10:15:36 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/tls/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Elk</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/elk/</link>
+      <pubDate>Mon, 09 Sep 2019 16:56:03 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/elk/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>鐵人2019</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/%E9%90%B5%E4%BA%BA2019/</link>
+      <pubDate>Mon, 09 Sep 2019 16:56:03 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/%E9%90%B5%E4%BA%BA2019/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ibm-Q-Experience</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/ibm-q-experience/</link>
+      <pubDate>Sun, 02 Jun 2019 10:21:37 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/ibm-q-experience/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Quantum-Computing</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/quantum-computing/</link>
+      <pubDate>Sun, 02 Jun 2019 10:21:37 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/quantum-computing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tutorial</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/tutorial/</link>
+      <pubDate>Sun, 02 Jun 2019 10:21:37 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Istio</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/istio/</link>
+      <pubDate>Mon, 06 May 2019 18:12:15 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/istio/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cd</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/cd/</link>
+      <pubDate>Fri, 19 Apr 2019 12:15:41 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/cd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ci</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/ci/</link>
+      <pubDate>Fri, 19 Apr 2019 12:15:41 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/ci/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Jenkins</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/jenkins/</link>
+      <pubDate>Fri, 19 Apr 2019 12:15:41 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/jenkins/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Container</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/container/</link>
+      <pubDate>Sat, 06 Oct 2018 12:07:00 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/container/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cri</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/tags/cri/</link>
+      <pubDate>Sat, 06 Oct 2018 12:07:00 +0800</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/tags/cri/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

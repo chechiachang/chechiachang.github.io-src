@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Etcd on Che-Chia Chang</title>
+    <link>https://pages.chechia.net/pr-preview/pr-24/tags/etcd/</link>
+    <description>Recent content in Etcd on Che-Chia Chang</description>
+    <image>
+      <title>Che-Chia Chang</title>
+      <url>https://pages.chechia.net/pr-preview/pr-24/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://pages.chechia.net/pr-preview/pr-24/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.146.5</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 01 Oct 2025 13:20:00 +0000</lastBuildDate>
+    <atom:link href="https://pages.chechia.net/pr-preview/pr-24/tags/etcd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>K8s Summit 2025: Workshop: Get started with Etcd &amp; Kubernetes</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/posts/2025-10-22-k8s-summit/</link>
+      <pubDate>Wed, 01 Oct 2025 13:20:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/posts/2025-10-22-k8s-summit/</guid>
+      <description>Etcd 是 Kubernetes 的重要元件之一，本次工作坊將帶領觀眾初探 Etcd，包含安裝，設定，以及操作。並藉由本地的 Etcd 來架設一個最簡單的 Kubernetes Cluster。工作坊內容請見投影片</description>
+    </item>
+    <item>
+      <title>Workshop: Kubernetes Summit: Get started with Etcd &amp; Kubernetes</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/posts/2024-10-24-k8s-summit/</link>
+      <pubDate>Wed, 23 Oct 2024 13:20:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/posts/2024-10-24-k8s-summit/</guid>
+      <description>Etcd 是 Kubernetes 的重要元件之一，本次工作坊將帶領觀眾初探 Etcd，包含安裝，設定，以及操作。並藉由本地的 Etcd 來架設一個最簡單的 Kubernetes Cluster。工作坊內容請見投影片</description>
+    </item>
+  </channel>
+</rss>

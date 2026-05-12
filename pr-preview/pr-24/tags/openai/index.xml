@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Openai on Che-Chia Chang</title>
+    <link>https://pages.chechia.net/pr-preview/pr-24/tags/openai/</link>
+    <description>Recent content in Openai on Che-Chia Chang</description>
+    <image>
+      <title>Che-Chia Chang</title>
+      <url>https://pages.chechia.net/pr-preview/pr-24/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://pages.chechia.net/pr-preview/pr-24/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.146.5</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 02 May 2026 13:20:00 +0000</lastBuildDate>
+    <atom:link href="https://pages.chechia.net/pr-preview/pr-24/tags/openai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloud Summit Workshop: Spec-driven development with Spec-kit</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/posts/2026-07-01-ws-speckit-cloud-summit/</link>
+      <pubDate>Sat, 02 May 2026 13:20:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/posts/2026-07-01-ws-speckit-cloud-summit/</guid>
+      <description>Spec-driven development (SDD) is a software development approach that emphasizes the use of specifications to drive the development process. In this workshop, we will explore how to implement SDD using Spec-kit, a powerful tool for creating and managing specifications. We will cover the basics of SDD, how to create effective specifications, and how to use Spec-kit to automate the development process. By the end of this workshop, you will have a solid understanding of SDD and how to apply it in your projects using Spec-kit.</description>
+    </item>
+    <item>
+      <title>LLM O11y：從 Observability 到 Decision System</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/posts/2026-07-01-langfuse-ai-ent/</link>
+      <pubDate>Sat, 02 May 2026 13:20:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/posts/2026-07-01-langfuse-ai-ent/</guid>
+      <description>LLM（大型語言模型）應用的興起帶來了新的挑戰，尤其是在觀察性（observability）方面。傳統的監控工具無法有效捕捉和分析 LLM 的行為和性能指標，這使得開發者和運維團隊難以評估 LLM 應用的健康狀況和性能表現。Langfuse 是一個專為 LLM 應用設計的觀察性平台，提供了全面的監控、日誌分析和性能評估功能，幫助團隊更好地理解和優化他們的 LLM 應用。在本次演講中，我們將深入探討 Langfuse 的功能和優勢，以及如何利用它來提升 LLM 應用的可觀察性和性能。</description>
+    </item>
+    <item>
+      <title>Workshop: LLM O11y 從 Observability 到 Decision System</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/posts/2026-07-01-ws-langfuse-ai-ent/</link>
+      <pubDate>Sat, 02 May 2026 13:20:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/posts/2026-07-01-ws-langfuse-ai-ent/</guid>
+      <description>本工作坊將實作 llm-o11y：在 localhost 以 Docker Compose 啟動 Bifrost 與 Langfuse，串接 LLM AI Gateway 與 tracing，建立 evaluation 與 LLM-as-a-judge，抽取 dataset，並組成可重現的 AI 開發 workflow。</description>
+    </item>
+    <item>
+      <title>DevOpsDay: 規格驅動的 AI 強化 DevOps</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/posts/2026-06-25-speckit-devops/</link>
+      <pubDate>Fri, 01 May 2026 13:20:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/posts/2026-06-25-speckit-devops/</guid>
+      <description>Spec-driven development (SDD) is a software development approach that emphasizes the use of specifications to drive the development process. In this workshop, we will explore how to implement SDD using Spec-kit, a powerful tool for creating and managing specifications. We will cover the basics of SDD, how to create effective specifications, and how to use Spec-kit to automate the development process. By the end of this workshop, you will have a solid understanding of SDD and how to apply it in your projects using Spec-kit.</description>
+    </item>
+    <item>
+      <title>When Not to Vibe：從 Vibe Coding 到 Spec-driven AI Engineering 的轉折點</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/posts/2026-07-01-speckit-cloud-summit/</link>
+      <pubDate>Fri, 01 May 2026 13:20:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/posts/2026-07-01-speckit-cloud-summit/</guid>
+      <description>這場分享從 vibe coding 的失焦問題出發，拆解 LLM 在長時間任務中的限制，並說明 SpecKit 在 spec-driven AI engineering 中的角色、代價與適用場景，以及從 spec-driven 走向 agent-driven 的演進方向。</description>
+    </item>
+    <item>
+      <title>K8s Summit 2025: RAG &#43; k8sGPT 檢索增強生成與 K8sGPT</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/posts/2025-10-23-k8s-summit/</link>
+      <pubDate>Wed, 01 Oct 2025 13:20:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/posts/2025-10-23-k8s-summit/</guid>
+      <description>K8sGPT 是一套結合 AI 與最佳實踐的 Kubernetes 問題診斷與修復工具，能有效降低故障排除難度並自動化修復流程。RAG（Retrieval-Augmented Generation 檢索增強生成）結合檢索系統與生成式模型（如 GPT）的自然語言處理架構，在生成答案時引用外部知識，使模型回答更準確且具事實根據。本演講將介紹如何使用 RAG 技術來增強 Kubernetes 問題診斷與修復的能力，並展示 k8sGPT 的實際應用。</description>
+    </item>
+    <item>
+      <title>Hello World Dev Conf 2025: Workshop: RAG 打造企業知識庫入門，從 embeddings 到 evaluation</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/posts/2025-10-15-hwdc-rag/</link>
+      <pubDate>Mon, 01 Sep 2025 13:20:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/posts/2025-10-15-hwdc-rag/</guid>
+      <description>學員將學會如何利用 RAG 技術，結合 OpenAI、LangChain、Qdrant 向量數據庫，構建企業內部文檔的智能知識庫，並能設計與實作一個基於自然語言處理（NLP）的查詢系統，來提升開發團隊的效率與知識管理能力。</description>
+    </item>
+    <item>
+      <title>COSCUP: 從 Model Context Protocol 初探 AI Agent Protocol：快速打造多工 Agent Server</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/posts/2025-08-09-coscup/</link>
+      <pubDate>Tue, 24 Jun 2025 12:45:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/posts/2025-08-09-coscup/</guid>
+      <description>深入探索 Model Context Protocol（MCP），學習如何透過標準化協議打造支援多 Agent 協作與工具調用的進階 AI Agent Server。AI Agent 系統的發展正逐步邁向模組化與多 Agent 協作的新階段，而 Model Context Protocol（MCP） 正是促進模型、工具與本地資源之間有效協作的關鍵協議。透過 MCP，開發者可用統一且安全的方式讓 LLM 與本地/遠端服務互動，實現更穩定、可追蹤、可擴充的多工 Agent 架構。本場演講將深入解析 MCP 的架構、設計原則與實作範例，並展示如何使用開源 mcp-server 快速打造一套具備上下文共享、工具調用與多模型協作能力的 Agent Server。最後將透過實機 Demo 展現 MCP 在真實 AI Workflow 中的應用潛力。</description>
+    </item>
+    <item>
+      <title>Cloud Summit 2025: 用 RAG 打造企業可對話 AI 知識庫《有問題問過 AI 後再來問我》</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/posts/2025-07-02-cloud-summit/</link>
+      <pubDate>Mon, 09 Jun 2025 12:45:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/posts/2025-07-02-cloud-summit/</guid>
+      <description>透過 RAG（檢索增強生成）技術，將企業內部文件轉為智能知識庫，提升資訊檢索與決策效率。本演講將探討 RAG 應用、技術架構與落地實踐，幫助開發團隊與企業更高效利用內部知識。企業內部文件往往分散於 Confluence、Google Drive、Notion 等平台，傳統關鍵字搜尋難以快速獲取準確資訊，導致溝通成本高、開發流程受阻。本演講將介紹如何運用 RAG（Retrieval-Augmented Generation）技術，結合 OpenAI 及向量數據庫，將企業內部文檔轉為智能知識庫。我們將探討文件解析、嵌入索引、AI 問答系統的技術架構與實作，幫助開發團隊構建高效 AI 助手，節省溝通成本，加速開發流程，提升決策與問題解決能力</description>
+    </item>
+    <item>
+      <title>Workshop: DevOpsDay 2025: RAG打造企業AI知識庫：把一甲子功力傳給新人</title>
+      <link>https://pages.chechia.net/pr-preview/pr-24/posts/2025-06-06-devops-rag-internal-ai/</link>
+      <pubDate>Thu, 05 Jun 2025 12:45:00 +0000</pubDate>
+      <guid>https://pages.chechia.net/pr-preview/pr-24/posts/2025-06-06-devops-rag-internal-ai/</guid>
+      <description>學員將學會如何利用 RAG 技術，結合 OpenAI、LangChain、Qdrant 向量數據庫，構建企業內部文檔的智能知識庫，並能設計與實作一個基於自然語言處理（NLP）的查詢系統，來提升開發團隊的效率與知識管理能力。</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,447 @@
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Borg Omega and Kubernetes TLDR 摘要翻譯 | Che-Chia Chang</title>
+<meta name=keywords content="kubernetes,google,borg"><meta name=description content="這是原文翻譯的太長不讀 (TL;DR) 版本。完整翻譯請見Borg Omega and Kubernetes 前世今生浩文完整翻譯
+原文：https://storage.googleapis.com/pub-tools-public-publication-data/pdf/44843.pdf
+前言
+
+Borg 以前就有應用管理系統，那時還沒有 Linux control group
+Borg
+
+是第一套統一的 container-management system
+Borg 仍被大規模的使用，有許多功能而且非常堅固
+
+
+Omega
+
+繼承 Borg 上成功的設計，並希望改進 Borg 的生態系
+
+
+Kubernetes
+
+開源
+透過 REST API 溝通 client
+應用開發導向，著重於開發者的需求，希望能簡單的部署複雜的系統
+
+
+
+Container
+
+Google 使用 Container 來提昇 utilization
+
+把 batch jobs 跟預留資源的服務 (user-facing app) 放在一起，使用閒置時的資源跑 batch job
+
+
+現代 container 的定義是 runtime-isolation 與 image
+
+Application-oriented infrastructure
+
+container 使用久了，不只滿足 utilization 的需求
+
+資料中心從機器導向變成應用導向
+
+
+Container 封裝環境，把機器與 OS 的依賴抽象化
+
+應用不依賴
+
+部署流程
+runtime infrastrcture
+
+
+
+
+Container scope 在應用上，專注在應用管理而不是機器管理
+
+Application environment
+
+cgroup, chroot, namespace 原本的目的是為了保護應用，不被其他應用影響
+
+混合使用可以在應用與 OS 間產生抽象層，解耦 app 與 OS
+
+提供完全相同的部署環境，避免切換環境(ex. dev, prod)時造成環境差異
+
+
+進一步把 app 的依賴程式也打包 image
+
+container 對 OS 唯一的依賴只剩 Linux kernel system-call interface
+
+大幅增加 app 調度的彈性
+
+
+
+
+然而有些 interface 仍附著 OS 上，ex socket, /prod, ioctl calls
+
+希望透過 Open Container Initiative，清楚定義 interface 與抽象
+
+
+
+
+直接的好處，少數幾種 OS 與 OS Version 就可以跑所有應用，新版本也不影響
+
+Container as the unit of management
+
+資料中心的重心，從管理機器變成管理應用
+
+提供彈性給 infrastructure team
+
+提供統一的架構
+收集統一的 metrics
+
+
+
+
+Container 統一的介面，讓 management system (ex. k8s) 可以提供 generic APIs
+
+REST API, HTTP, /healthz, exec&mldr;
+統一的 health check 介面，更方便的終止與重啟
+一致性
+
+容器提供統一的資訊，ex. status, text message, &mldr;
+管理平台提供統一設定 (ex. resource limits) ，並進行 logging 與 monitoring
+
+提供更精細的功能 ex. graceful-termination
+
+
+
+
+
+
+cgroups 提供 app 的資源使用資訊，而不需要知道 app spec，因為 contaier 本身即是 app
+
+提供更簡單，卻更精細且堅固的 logging 與 monitoring
+
+
+應用導向的 monitoring ，而不是機器導向的 monitoring
+
+可以收集跨 OS 的 app 狀態，進行整合分析，而不會有 OS 不同造成的雜訊
+更容易對應用除錯
+
+
+nested contaiers
+
+resource allocation (aka. alloc in Borg, Pod in Kubernetes)
+
+
+
+Orchestration is the beginning, not the end
+
+原本 Borg 只是要把 workload 分配到共用的機器上，來改善 utilization
+
+結果發現可以做更多事情，來幫助開發與部署
+
+Naming, service discovery
+Application-aware load balancing
+Rollout tool
+Workflow tool
+Monitoring tool
+
+
+成功的工具被留下
+
+然而工具都需要各自的 API，副作用是增加部署的複雜度到 Borg 的生態系
+
+
+
+
+Kubernetese 試圖降低複雜度
+
+提供一致的 API
+
+ex. ObjectMetadata, Specification, Status
+Object metadata 是全域共通的
+Spec 與 Status 根據 Object 有所不同，但是概念是一致的
+
+Spec 描述 desired state of object
+Status 提供 read-only 的 current state of object
+
+
+
+
+
+
+Uniform API 有許多好處
+
+降低學習成本
+可以使用 generic 的工具讓所有 workflow 使用
+統一使用者的開發流程與開發經驗
+Kubernetes 本身模組化，可以使用延伸模組
+
+ex. pod API 讓使用者使用，kubernetes 內部使用，外部自動化工具也使用
+使用者可以自己增加 customized API
+
+
+
+
+如何達到 Uniform API
+
+decoupling API
+
+切分 API 關注的面向，變成不同 components API. ex.
+
+replication controller 確保 desired 數量的 Pod 存在
+autoscaler 關注在需求與使用的預測，然後控制 replication controller API
+
+
+higher-level 服務都共用相同的 basic API
+切分 API 而外的好處
+
+有關聯但是用途不同的 API 的內容與使用方式十分相似. ex.
+
+ReplicationController: 控制長時間運行的 containers 與其複本
+DeamonSet: 每個機器上都跑一個 container
+Job: 一次性執行完畢的 container
+
+
+
+
+
+
+Common design patterns
+
+ex. reconciliation controller loop 在 Borg, Omega, Kubernetes 中大量使用
+
+需求(desired state)
+觀察現況(current state)
+執行動作，收斂需求與現況(reconcile)
+loop
+
+
+由於狀態是基於實際觀測產生，reconciliation loop 非常堅固，可以承受相當的 failure
+
+
+
+
+Kubernetes 設計為一連串的為服務系統，以及許多小型的 control loop
+
+對比大型的 centralized orchestration system
+
+
+
+Things to avoid
+Google 開發過程中，也發現許多不該做的事情"><meta name=author content="chechiachang"><link rel=canonical href=https://pages.chechia.net/pr-preview/pr-24/posts/2020-08-26-borg-omega-and-kubernetes-tldr/><meta name=google-site-verification content="G-QYR8JCDGM9"><link crossorigin=anonymous href=/pr-preview/pr-24/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css integrity="sha256-IhHKMWS+eDACT2qtKzouUghDpk+PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as=style><link rel=icon href=https://pages.chechia.net/pr-preview/pr-24/favicon/favicon.png><link rel=icon type=image/png sizes=16x16 href=https://pages.chechia.net/pr-preview/pr-24/favicon/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://pages.chechia.net/pr-preview/pr-24/favicon/favicon-32x32.png><link rel=apple-touch-icon href=https://pages.chechia.net/pr-preview/pr-24/favicon/favicon-32x32.png><link rel=mask-icon href=https://pages.chechia.net/pr-preview/pr-24/favicon/favicon-32x32.png><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://pages.chechia.net/pr-preview/pr-24/posts/2020-08-26-borg-omega-and-kubernetes-tldr/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script async src="https://www.googletagmanager.com/gtag/js?id=G-QYR8JCDGM9"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-QYR8JCDGM9")}</script><meta property="og:url" content="https://pages.chechia.net/pr-preview/pr-24/posts/2020-08-26-borg-omega-and-kubernetes-tldr/"><meta property="og:site_name" content="Che-Chia Chang"><meta property="og:title" content="Borg Omega and Kubernetes TLDR 摘要翻譯"><meta property="og:description" content="這是原文翻譯的太長不讀 (TL;DR) 版本。完整翻譯請見Borg Omega and Kubernetes 前世今生浩文完整翻譯
+原文：https://storage.googleapis.com/pub-tools-public-publication-data/pdf/44843.pdf
+前言 Borg 以前就有應用管理系統，那時還沒有 Linux control group Borg 是第一套統一的 container-management system Borg 仍被大規模的使用，有許多功能而且非常堅固 Omega 繼承 Borg 上成功的設計，並希望改進 Borg 的生態系 Kubernetes 開源 透過 REST API 溝通 client 應用開發導向，著重於開發者的需求，希望能簡單的部署複雜的系統 Container Google 使用 Container 來提昇 utilization 把 batch jobs 跟預留資源的服務 (user-facing app) 放在一起，使用閒置時的資源跑 batch job 現代 container 的定義是 runtime-isolation 與 image Application-oriented infrastructure container 使用久了，不只滿足 utilization 的需求 資料中心從機器導向變成應用導向 Container 封裝環境，把機器與 OS 的依賴抽象化 應用不依賴 部署流程 runtime infrastrcture Container scope 在應用上，專注在應用管理而不是機器管理 Application environment cgroup, chroot, namespace 原本的目的是為了保護應用，不被其他應用影響 混合使用可以在應用與 OS 間產生抽象層，解耦 app 與 OS 提供完全相同的部署環境，避免切換環境(ex. dev, prod)時造成環境差異 進一步把 app 的依賴程式也打包 image container 對 OS 唯一的依賴只剩 Linux kernel system-call interface 大幅增加 app 調度的彈性 然而有些 interface 仍附著 OS 上，ex socket, /prod, ioctl calls 希望透過 Open Container Initiative，清楚定義 interface 與抽象 直接的好處，少數幾種 OS 與 OS Version 就可以跑所有應用，新版本也不影響 Container as the unit of management 資料中心的重心，從管理機器變成管理應用 提供彈性給 infrastructure team 提供統一的架構 收集統一的 metrics Container 統一的介面，讓 management system (ex. k8s) 可以提供 generic APIs REST API, HTTP, /healthz, exec… 統一的 health check 介面，更方便的終止與重啟 一致性 容器提供統一的資訊，ex. status, text message, … 管理平台提供統一設定 (ex. resource limits) ，並進行 logging 與 monitoring 提供更精細的功能 ex. graceful-termination cgroups 提供 app 的資源使用資訊，而不需要知道 app spec，因為 contaier 本身即是 app 提供更簡單，卻更精細且堅固的 logging 與 monitoring 應用導向的 monitoring ，而不是機器導向的 monitoring 可以收集跨 OS 的 app 狀態，進行整合分析，而不會有 OS 不同造成的雜訊 更容易對應用除錯 nested contaiers resource allocation (aka. alloc in Borg, Pod in Kubernetes) Orchestration is the beginning, not the end 原本 Borg 只是要把 workload 分配到共用的機器上，來改善 utilization 結果發現可以做更多事情，來幫助開發與部署 Naming, service discovery Application-aware load balancing Rollout tool Workflow tool Monitoring tool 成功的工具被留下 然而工具都需要各自的 API，副作用是增加部署的複雜度到 Borg 的生態系 Kubernetese 試圖降低複雜度 提供一致的 API ex. ObjectMetadata, Specification, Status Object metadata 是全域共通的 Spec 與 Status 根據 Object 有所不同，但是概念是一致的 Spec 描述 desired state of object Status 提供 read-only 的 current state of object Uniform API 有許多好處 降低學習成本 可以使用 generic 的工具讓所有 workflow 使用 統一使用者的開發流程與開發經驗 Kubernetes 本身模組化，可以使用延伸模組 ex. pod API 讓使用者使用，kubernetes 內部使用，外部自動化工具也使用 使用者可以自己增加 customized API 如何達到 Uniform API decoupling API 切分 API 關注的面向，變成不同 components API. ex. replication controller 確保 desired 數量的 Pod 存在 autoscaler 關注在需求與使用的預測，然後控制 replication controller API higher-level 服務都共用相同的 basic API 切分 API 而外的好處 有關聯但是用途不同的 API 的內容與使用方式十分相似. ex. ReplicationController: 控制長時間運行的 containers 與其複本 DeamonSet: 每個機器上都跑一個 container Job: 一次性執行完畢的 container Common design patterns ex. reconciliation controller loop 在 Borg, Omega, Kubernetes 中大量使用 需求(desired state) 觀察現況(current state) 執行動作，收斂需求與現況(reconcile) loop 由於狀態是基於實際觀測產生，reconciliation loop 非常堅固，可以承受相當的 failure Kubernetes 設計為一連串的為服務系統，以及許多小型的 control loop 對比大型的 centralized orchestration system Things to avoid Google 開發過程中，也發現許多不該做的事情"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2020-08-26T13:50:52+08:00"><meta property="article:modified_time" content="2020-08-26T13:50:52+08:00"><meta property="article:tag" content="Kubernetes"><meta property="article:tag" content="Google"><meta property="article:tag" content="Borg"><meta property="og:image" content="https://pages.chechia.net/pr-preview/pr-24/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://pages.chechia.net/pr-preview/pr-24/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta name=twitter:title content="Borg Omega and Kubernetes TLDR 摘要翻譯"><meta name=twitter:description content="這是原文翻譯的太長不讀 (TL;DR) 版本。完整翻譯請見Borg Omega and Kubernetes 前世今生浩文完整翻譯
+原文：https://storage.googleapis.com/pub-tools-public-publication-data/pdf/44843.pdf
+前言
+
+Borg 以前就有應用管理系統，那時還沒有 Linux control group
+Borg
+
+是第一套統一的 container-management system
+Borg 仍被大規模的使用，有許多功能而且非常堅固
+
+
+Omega
+
+繼承 Borg 上成功的設計，並希望改進 Borg 的生態系
+
+
+Kubernetes
+
+開源
+透過 REST API 溝通 client
+應用開發導向，著重於開發者的需求，希望能簡單的部署複雜的系統
+
+
+
+Container
+
+Google 使用 Container 來提昇 utilization
+
+把 batch jobs 跟預留資源的服務 (user-facing app) 放在一起，使用閒置時的資源跑 batch job
+
+
+現代 container 的定義是 runtime-isolation 與 image
+
+Application-oriented infrastructure
+
+container 使用久了，不只滿足 utilization 的需求
+
+資料中心從機器導向變成應用導向
+
+
+Container 封裝環境，把機器與 OS 的依賴抽象化
+
+應用不依賴
+
+部署流程
+runtime infrastrcture
+
+
+
+
+Container scope 在應用上，專注在應用管理而不是機器管理
+
+Application environment
+
+cgroup, chroot, namespace 原本的目的是為了保護應用，不被其他應用影響
+
+混合使用可以在應用與 OS 間產生抽象層，解耦 app 與 OS
+
+提供完全相同的部署環境，避免切換環境(ex. dev, prod)時造成環境差異
+
+
+進一步把 app 的依賴程式也打包 image
+
+container 對 OS 唯一的依賴只剩 Linux kernel system-call interface
+
+大幅增加 app 調度的彈性
+
+
+
+
+然而有些 interface 仍附著 OS 上，ex socket, /prod, ioctl calls
+
+希望透過 Open Container Initiative，清楚定義 interface 與抽象
+
+
+
+
+直接的好處，少數幾種 OS 與 OS Version 就可以跑所有應用，新版本也不影響
+
+Container as the unit of management
+
+資料中心的重心，從管理機器變成管理應用
+
+提供彈性給 infrastructure team
+
+提供統一的架構
+收集統一的 metrics
+
+
+
+
+Container 統一的介面，讓 management system (ex. k8s) 可以提供 generic APIs
+
+REST API, HTTP, /healthz, exec&mldr;
+統一的 health check 介面，更方便的終止與重啟
+一致性
+
+容器提供統一的資訊，ex. status, text message, &mldr;
+管理平台提供統一設定 (ex. resource limits) ，並進行 logging 與 monitoring
+
+提供更精細的功能 ex. graceful-termination
+
+
+
+
+
+
+cgroups 提供 app 的資源使用資訊，而不需要知道 app spec，因為 contaier 本身即是 app
+
+提供更簡單，卻更精細且堅固的 logging 與 monitoring
+
+
+應用導向的 monitoring ，而不是機器導向的 monitoring
+
+可以收集跨 OS 的 app 狀態，進行整合分析，而不會有 OS 不同造成的雜訊
+更容易對應用除錯
+
+
+nested contaiers
+
+resource allocation (aka. alloc in Borg, Pod in Kubernetes)
+
+
+
+Orchestration is the beginning, not the end
+
+原本 Borg 只是要把 workload 分配到共用的機器上，來改善 utilization
+
+結果發現可以做更多事情，來幫助開發與部署
+
+Naming, service discovery
+Application-aware load balancing
+Rollout tool
+Workflow tool
+Monitoring tool
+
+
+成功的工具被留下
+
+然而工具都需要各自的 API，副作用是增加部署的複雜度到 Borg 的生態系
+
+
+
+
+Kubernetese 試圖降低複雜度
+
+提供一致的 API
+
+ex. ObjectMetadata, Specification, Status
+Object metadata 是全域共通的
+Spec 與 Status 根據 Object 有所不同，但是概念是一致的
+
+Spec 描述 desired state of object
+Status 提供 read-only 的 current state of object
+
+
+
+
+
+
+Uniform API 有許多好處
+
+降低學習成本
+可以使用 generic 的工具讓所有 workflow 使用
+統一使用者的開發流程與開發經驗
+Kubernetes 本身模組化，可以使用延伸模組
+
+ex. pod API 讓使用者使用，kubernetes 內部使用，外部自動化工具也使用
+使用者可以自己增加 customized API
+
+
+
+
+如何達到 Uniform API
+
+decoupling API
+
+切分 API 關注的面向，變成不同 components API. ex.
+
+replication controller 確保 desired 數量的 Pod 存在
+autoscaler 關注在需求與使用的預測，然後控制 replication controller API
+
+
+higher-level 服務都共用相同的 basic API
+切分 API 而外的好處
+
+有關聯但是用途不同的 API 的內容與使用方式十分相似. ex.
+
+ReplicationController: 控制長時間運行的 containers 與其複本
+DeamonSet: 每個機器上都跑一個 container
+Job: 一次性執行完畢的 container
+
+
+
+
+
+
+Common design patterns
+
+ex. reconciliation controller loop 在 Borg, Omega, Kubernetes 中大量使用
+
+需求(desired state)
+觀察現況(current state)
+執行動作，收斂需求與現況(reconcile)
+loop
+
+
+由於狀態是基於實際觀測產生，reconciliation loop 非常堅固，可以承受相當的 failure
+
+
+
+
+Kubernetes 設計為一連串的為服務系統，以及許多小型的 control loop
+
+對比大型的 centralized orchestration system
+
+
+
+Things to avoid
+Google 開發過程中，也發現許多不該做的事情"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://pages.chechia.net/pr-preview/pr-24/posts/"},{"@type":"ListItem","position":2,"name":"Borg Omega and Kubernetes TLDR 摘要翻譯","item":"https://pages.chechia.net/pr-preview/pr-24/posts/2020-08-26-borg-omega-and-kubernetes-tldr/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Borg Omega and Kubernetes TLDR 摘要翻譯","name":"Borg Omega and Kubernetes TLDR 摘要翻譯","description":"這是原文翻譯的太長不讀 (TL;DR) 版本。完整翻譯請見Borg Omega and Kubernetes 前世今生浩文完整翻譯\n原文：https://storage.googleapis.com/pub-tools-public-publication-data/pdf/44843.pdf\n前言 Borg 以前就有應用管理系統，那時還沒有 Linux control group Borg 是第一套統一的 container-management system Borg 仍被大規模的使用，有許多功能而且非常堅固 Omega 繼承 Borg 上成功的設計，並希望改進 Borg 的生態系 Kubernetes 開源 透過 REST API 溝通 client 應用開發導向，著重於開發者的需求，希望能簡單的部署複雜的系統 Container Google 使用 Container 來提昇 utilization 把 batch jobs 跟預留資源的服務 (user-facing app) 放在一起，使用閒置時的資源跑 batch job 現代 container 的定義是 runtime-isolation 與 image Application-oriented infrastructure container 使用久了，不只滿足 utilization 的需求 資料中心從機器導向變成應用導向 Container 封裝環境，把機器與 OS 的依賴抽象化 應用不依賴 部署流程 runtime infrastrcture Container scope 在應用上，專注在應用管理而不是機器管理 Application environment cgroup, chroot, namespace 原本的目的是為了保護應用，不被其他應用影響 混合使用可以在應用與 OS 間產生抽象層，解耦 app 與 OS 提供完全相同的部署環境，避免切換環境(ex. dev, prod)時造成環境差異 進一步把 app 的依賴程式也打包 image container 對 OS 唯一的依賴只剩 Linux kernel system-call interface 大幅增加 app 調度的彈性 然而有些 interface 仍附著 OS 上，ex socket, /prod, ioctl calls 希望透過 Open Container Initiative，清楚定義 interface 與抽象 直接的好處，少數幾種 OS 與 OS Version 就可以跑所有應用，新版本也不影響 Container as the unit of management 資料中心的重心，從管理機器變成管理應用 提供彈性給 infrastructure team 提供統一的架構 收集統一的 metrics Container 統一的介面，讓 management system (ex. k8s) 可以提供 generic APIs REST API, HTTP, /healthz, exec\u0026hellip; 統一的 health check 介面，更方便的終止與重啟 一致性 容器提供統一的資訊，ex. status, text message, \u0026hellip; 管理平台提供統一設定 (ex. resource limits) ，並進行 logging 與 monitoring 提供更精細的功能 ex. graceful-termination cgroups 提供 app 的資源使用資訊，而不需要知道 app spec，因為 contaier 本身即是 app 提供更簡單，卻更精細且堅固的 logging 與 monitoring 應用導向的 monitoring ，而不是機器導向的 monitoring 可以收集跨 OS 的 app 狀態，進行整合分析，而不會有 OS 不同造成的雜訊 更容易對應用除錯 nested contaiers resource allocation (aka. alloc in Borg, Pod in Kubernetes) Orchestration is the beginning, not the end 原本 Borg 只是要把 workload 分配到共用的機器上，來改善 utilization 結果發現可以做更多事情，來幫助開發與部署 Naming, service discovery Application-aware load balancing Rollout tool Workflow tool Monitoring tool 成功的工具被留下 然而工具都需要各自的 API，副作用是增加部署的複雜度到 Borg 的生態系 Kubernetese 試圖降低複雜度 提供一致的 API ex. ObjectMetadata, Specification, Status Object metadata 是全域共通的 Spec 與 Status 根據 Object 有所不同，但是概念是一致的 Spec 描述 desired state of object Status 提供 read-only 的 current state of object Uniform API 有許多好處 降低學習成本 可以使用 generic 的工具讓所有 workflow 使用 統一使用者的開發流程與開發經驗 Kubernetes 本身模組化，可以使用延伸模組 ex. pod API 讓使用者使用，kubernetes 內部使用，外部自動化工具也使用 使用者可以自己增加 customized API 如何達到 Uniform API decoupling API 切分 API 關注的面向，變成不同 components API. ex. replication controller 確保 desired 數量的 Pod 存在 autoscaler 關注在需求與使用的預測，然後控制 replication controller API higher-level 服務都共用相同的 basic API 切分 API 而外的好處 有關聯但是用途不同的 API 的內容與使用方式十分相似. ex. ReplicationController: 控制長時間運行的 containers 與其複本 DeamonSet: 每個機器上都跑一個 container Job: 一次性執行完畢的 container Common design patterns ex. reconciliation controller loop 在 Borg, Omega, Kubernetes 中大量使用 需求(desired state) 觀察現況(current state) 執行動作，收斂需求與現況(reconcile) loop 由於狀態是基於實際觀測產生，reconciliation loop 非常堅固，可以承受相當的 failure Kubernetes 設計為一連串的為服務系統，以及許多小型的 control loop 對比大型的 centralized orchestration system Things to avoid Google 開發過程中，也發現許多不該做的事情\n","keywords":["kubernetes","google","borg"],"articleBody":"這是原文翻譯的太長不讀 (TL;DR) 版本。完整翻譯請見Borg Omega and Kubernetes 前世今生浩文完整翻譯\n原文：https://storage.googleapis.com/pub-tools-public-publication-data/pdf/44843.pdf\n前言 Borg 以前就有應用管理系統，那時還沒有 Linux control group Borg 是第一套統一的 container-management system Borg 仍被大規模的使用，有許多功能而且非常堅固 Omega 繼承 Borg 上成功的設計，並希望改進 Borg 的生態系 Kubernetes 開源 透過 REST API 溝通 client 應用開發導向，著重於開發者的需求，希望能簡單的部署複雜的系統 Container Google 使用 Container 來提昇 utilization 把 batch jobs 跟預留資源的服務 (user-facing app) 放在一起，使用閒置時的資源跑 batch job 現代 container 的定義是 runtime-isolation 與 image Application-oriented infrastructure container 使用久了，不只滿足 utilization 的需求 資料中心從機器導向變成應用導向 Container 封裝環境，把機器與 OS 的依賴抽象化 應用不依賴 部署流程 runtime infrastrcture Container scope 在應用上，專注在應用管理而不是機器管理 Application environment cgroup, chroot, namespace 原本的目的是為了保護應用，不被其他應用影響 混合使用可以在應用與 OS 間產生抽象層，解耦 app 與 OS 提供完全相同的部署環境，避免切換環境(ex. dev, prod)時造成環境差異 進一步把 app 的依賴程式也打包 image container 對 OS 唯一的依賴只剩 Linux kernel system-call interface 大幅增加 app 調度的彈性 然而有些 interface 仍附著 OS 上，ex socket, /prod, ioctl calls 希望透過 Open Container Initiative，清楚定義 interface 與抽象 直接的好處，少數幾種 OS 與 OS Version 就可以跑所有應用，新版本也不影響 Container as the unit of management 資料中心的重心，從管理機器變成管理應用 提供彈性給 infrastructure team 提供統一的架構 收集統一的 metrics Container 統一的介面，讓 management system (ex. k8s) 可以提供 generic APIs REST API, HTTP, /healthz, exec… 統一的 health check 介面，更方便的終止與重啟 一致性 容器提供統一的資訊，ex. status, text message, … 管理平台提供統一設定 (ex. resource limits) ，並進行 logging 與 monitoring 提供更精細的功能 ex. graceful-termination cgroups 提供 app 的資源使用資訊，而不需要知道 app spec，因為 contaier 本身即是 app 提供更簡單，卻更精細且堅固的 logging 與 monitoring 應用導向的 monitoring ，而不是機器導向的 monitoring 可以收集跨 OS 的 app 狀態，進行整合分析，而不會有 OS 不同造成的雜訊 更容易對應用除錯 nested contaiers resource allocation (aka. alloc in Borg, Pod in Kubernetes) Orchestration is the beginning, not the end 原本 Borg 只是要把 workload 分配到共用的機器上，來改善 utilization 結果發現可以做更多事情，來幫助開發與部署 Naming, service discovery Application-aware load balancing Rollout tool Workflow tool Monitoring tool 成功的工具被留下 然而工具都需要各自的 API，副作用是增加部署的複雜度到 Borg 的生態系 Kubernetese 試圖降低複雜度 提供一致的 API ex. ObjectMetadata, Specification, Status Object metadata 是全域共通的 Spec 與 Status 根據 Object 有所不同，但是概念是一致的 Spec 描述 desired state of object Status 提供 read-only 的 current state of object Uniform API 有許多好處 降低學習成本 可以使用 generic 的工具讓所有 workflow 使用 統一使用者的開發流程與開發經驗 Kubernetes 本身模組化，可以使用延伸模組 ex. pod API 讓使用者使用，kubernetes 內部使用，外部自動化工具也使用 使用者可以自己增加 customized API 如何達到 Uniform API decoupling API 切分 API 關注的面向，變成不同 components API. ex. replication controller 確保 desired 數量的 Pod 存在 autoscaler 關注在需求與使用的預測，然後控制 replication controller API higher-level 服務都共用相同的 basic API 切分 API 而外的好處 有關聯但是用途不同的 API 的內容與使用方式十分相似. ex. ReplicationController: 控制長時間運行的 containers 與其複本 DeamonSet: 每個機器上都跑一個 container Job: 一次性執行完畢的 container Common design patterns ex. reconciliation controller loop 在 Borg, Omega, Kubernetes 中大量使用 需求(desired state) 觀察現況(current state) 執行動作，收斂需求與現況(reconcile) loop 由於狀態是基於實際觀測產生，reconciliation loop 非常堅固，可以承受相當的 failure Kubernetes 設計為一連串的為服務系統，以及許多小型的 control loop 對比大型的 centralized orchestration system Things to avoid Google 開發過程中，也發現許多不該做的事情\n不要使用 conainer system 來管理 port numbers Borg 會指定 unique port number 給每個 container 必須用其他方法取代 DNS port 也不易嵌入 URL 中，要另外處理轉址 需要而外的系統處理 ip:port Kubernetes 選擇指派 IP 給 Pod 可以直接使用常用 port (ex. 80,443) 可以使用內部 DNS，使用一般常用的工具 大部分公有雲都提供 networking underlays，達成 Ip-per-pod 可以使用 DNS overlay 或是 L3 routing，來控制一台機器上的多個 IPs 不要幫 container 編號，使用 label 來管理大量的 container Borg 會幫 job 從 0 開始編號 很直覺很直接，但稍後就後悔了 如果 job 死了，重啟新的 job 在機器上後，還需要去找上個死掉的 job task 中間會有很多洞 (死掉的 job) 更新版本，要更新 jobs 時會依序重啟 jobs 資料如果也是根據 index 做 sharding，重啟時要復原 index，不然會有資料遺失 Kubernetes 使用 label 可以透過 label 管理一組 container 一個 container 可使用多個 labels，更方便的調度 需要的資訊打在 label 上 (ex. role assignments, work-partitioning, sharding…)，更容易管理 注意所有權 Borg 上，tasks 都綁定在 job 上，產生 job 也產生 tasks 很直覺方便 只剩下一種 group 控制機制 Kubernetes 的 pod-lifecycle management (ex. replication controller) 使用 label selector 來控制 pod 可以彈性控制大量 pod 可能有多個上層 controller 控制同一個 pod，要盡量避免這種情況 好處是保留彈性的同時，可以很清楚界定管理的 pod，不會有 orphan / adapt pod 透過 label 進行 service load balance 如果 pod 有問題，可以變更 label，讓流量不要進來，但又保留 Pod debug 不要暴露 raw state Borgmaster 是 monolithic，可見所有的 API Operation Omega 不是 centralized，只保留被動的資訊，使用 optimistic concurrent control state 存到 client store，並基於 state 進行 operation 所有 client 需要使用一樣的 client store library Kubernetes 走中間 所有 state 存取需要透過 centralized API server client components 可以獨立運作 Some open, hard problems configuration dependency management ","wordCount":"557","inLanguage":"en","image":"https://pages.chechia.net/pr-preview/pr-24/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E","datePublished":"2020-08-26T13:50:52+08:00","dateModified":"2020-08-26T13:50:52+08:00","author":{"@type":"Person","name":"chechiachang"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://pages.chechia.net/pr-preview/pr-24/posts/2020-08-26-borg-omega-and-kubernetes-tldr/"},"publisher":{"@type":"Organization","name":"Che-Chia Chang","logo":{"@type":"ImageObject","url":"https://pages.chechia.net/pr-preview/pr-24/favicon/favicon.png"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://pages.chechia.net/pr-preview/pr-24/ accesskey=h title="Home (Alt + H)"><img src=https://pages.chechia.net/pr-preview/pr-24/favicon/favicon-32x32.png alt aria-label=logo height=35>Home</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://pages.chechia.net/pr-preview/pr-24#posts title=Posts><span>Posts</span></a></li><li><a href=https://mvp.microsoft.com/zh-TW/mvp/profile/e407d0b9-5c01-eb11-a815-000d3a8ccaf5 title=MVP><span>MVP</span>&nbsp;<svg fill="none" shape-rendering="geometricPrecision" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></a></li><li><a href=https://pages.chechia.net/pr-preview/pr-24/categories/ title=Categories><span>Categories</span></a></li><li><a href=https://pages.chechia.net/pr-preview/pr-24/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://pages.chechia.net/pr-preview/pr-24/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://pages.chechia.net/pr-preview/pr-24/>Home</a>&nbsp;»&nbsp;<a href=https://pages.chechia.net/pr-preview/pr-24/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">Borg Omega and Kubernetes TLDR 摘要翻譯</h1><div class=post-meta><span title='2020-08-26 13:50:52 +0800 +0800'>August 26, 2020</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;557 words&nbsp;·&nbsp;chechiachang&nbsp;|&nbsp;<a href=https://github.com/chechiachang.github.io-src/content/posts/2020-08-26-borg-omega-and-kubernetes-tldr.md rel="noopener noreferrer edit" target=_blank>Suggest Changes</a></div></header><div class=toc><details><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><nav id=TableOfContents></nav></div></details></div><div class=post-content><p>這是原文翻譯的太長不讀 (TL;DR) 版本。完整翻譯請見<a href=https://pages.chechia.net/pr-preview/pr-24/posts/2020-09-12-borg-omega-and-kubernetes/>Borg Omega and Kubernetes 前世今生浩文完整翻譯</a></p><p>原文：https://storage.googleapis.com/pub-tools-public-publication-data/pdf/44843.pdf</p><h1 id=前言>前言<a hidden class=anchor aria-hidden=true href=#前言>#</a></h1><ul><li>Borg 以前就有應用管理系統，那時還沒有 Linux control group</li><li>Borg<ul><li>是第一套統一的 container-management system</li><li>Borg 仍被大規模的使用，有許多功能而且非常堅固</li></ul></li><li>Omega<ul><li>繼承 Borg 上成功的設計，並希望改進 Borg 的生態系</li></ul></li><li>Kubernetes<ul><li>開源</li><li>透過 REST API 溝通 client</li><li>應用開發導向，著重於開發者的需求，希望能簡單的部署複雜的系統</li></ul></li></ul><h1 id=container>Container<a hidden class=anchor aria-hidden=true href=#container>#</a></h1><ul><li>Google 使用 Container 來提昇 utilization<ul><li>把 batch jobs 跟預留資源的服務 (user-facing app) 放在一起，使用閒置時的資源跑 batch job</li></ul></li><li>現代 container 的定義是 runtime-isolation 與 image</li></ul><h1 id=application-oriented-infrastructure>Application-oriented infrastructure<a hidden class=anchor aria-hidden=true href=#application-oriented-infrastructure>#</a></h1><ul><li>container 使用久了，不只滿足 utilization 的需求<ul><li>資料中心從機器導向變成應用導向</li></ul></li><li>Container 封裝環境，把機器與 OS 的依賴抽象化<ul><li>應用不依賴<ul><li>部署流程</li><li>runtime infrastrcture</li></ul></li></ul></li><li>Container scope 在應用上，專注在應用管理而不是機器管理</li></ul><h1 id=application-environment>Application environment<a hidden class=anchor aria-hidden=true href=#application-environment>#</a></h1><ul><li>cgroup, chroot, namespace 原本的目的是為了保護應用，不被其他應用影響<ul><li>混合使用可以在應用與 OS 間產生抽象層，解耦 app 與 OS<ul><li>提供完全相同的部署環境，避免切換環境(ex. dev, prod)時造成環境差異</li></ul></li><li>進一步把 app 的依賴程式也打包 image<ul><li>container 對 OS 唯一的依賴只剩 Linux kernel system-call interface<ul><li>大幅增加 app 調度的彈性</li></ul></li></ul></li><li>然而有些 interface 仍附著 OS 上，ex socket, /prod, ioctl calls<ul><li>希望透過 Open Container Initiative，清楚定義 interface 與抽象</li></ul></li></ul></li><li>直接的好處，少數幾種 OS 與 OS Version 就可以跑所有應用，新版本也不影響</li></ul><h1 id=container-as-the-unit-of-management>Container as the unit of management<a hidden class=anchor aria-hidden=true href=#container-as-the-unit-of-management>#</a></h1><ul><li>資料中心的重心，從管理機器變成管理應用<ul><li>提供彈性給 infrastructure team<ul><li>提供統一的架構</li><li>收集統一的 metrics</li></ul></li></ul></li><li>Container 統一的介面，讓 management system (ex. k8s) 可以提供 generic APIs<ul><li>REST API, HTTP, /healthz, exec&mldr;</li><li>統一的 health check 介面，更方便的終止與重啟</li><li>一致性<ul><li>容器提供統一的資訊，ex. status, text message, &mldr;</li><li>管理平台提供統一設定 (ex. resource limits) ，並進行 logging 與 monitoring<ul><li>提供更精細的功能 ex. graceful-termination</li></ul></li></ul></li></ul></li><li>cgroups 提供 app 的資源使用資訊，而不需要知道 app spec，因為 contaier 本身即是 app<ul><li>提供更簡單，卻更精細且堅固的 logging 與 monitoring</li></ul></li><li>應用導向的 monitoring ，而不是機器導向的 monitoring<ul><li>可以收集跨 OS 的 app 狀態，進行整合分析，而不會有 OS 不同造成的雜訊</li><li>更容易對應用除錯</li></ul></li><li>nested contaiers<ul><li>resource allocation (aka. alloc in Borg, Pod in Kubernetes)</li></ul></li></ul><h1 id=orchestration-is-the-beginning-not-the-end>Orchestration is the beginning, not the end<a hidden class=anchor aria-hidden=true href=#orchestration-is-the-beginning-not-the-end>#</a></h1><ul><li>原本 Borg 只是要把 workload 分配到共用的機器上，來改善 utilization<ul><li>結果發現可以做更多事情，來幫助開發與部署<ul><li>Naming, service discovery</li><li>Application-aware load balancing</li><li>Rollout tool</li><li>Workflow tool</li><li>Monitoring tool</li></ul></li><li>成功的工具被留下<ul><li>然而工具都需要各自的 API，副作用是增加部署的複雜度到 Borg 的生態系</li></ul></li></ul></li><li>Kubernetese 試圖降低複雜度<ul><li>提供一致的 API<ul><li>ex. ObjectMetadata, Specification, Status</li><li>Object metadata 是全域共通的</li><li>Spec 與 Status 根據 Object 有所不同，但是概念是一致的<ul><li>Spec 描述 desired state of object</li><li>Status 提供 read-only 的 current state of object</li></ul></li></ul></li></ul></li><li>Uniform API 有許多好處<ul><li>降低學習成本</li><li>可以使用 generic 的工具讓所有 workflow 使用</li><li>統一使用者的開發流程與開發經驗</li><li>Kubernetes 本身模組化，可以使用延伸模組<ul><li>ex. pod API 讓使用者使用，kubernetes 內部使用，外部自動化工具也使用</li><li>使用者可以自己增加 customized API</li></ul></li></ul></li><li>如何達到 Uniform API<ul><li>decoupling API<ul><li>切分 API 關注的面向，變成不同 components API. ex.<ul><li>replication controller 確保 desired 數量的 Pod 存在</li><li>autoscaler 關注在需求與使用的預測，然後控制 replication controller API</li></ul></li><li>higher-level 服務都共用相同的 basic API</li><li>切分 API 而外的好處<ul><li>有關聯但是用途不同的 API 的內容與使用方式十分相似. ex.<ul><li>ReplicationController: 控制長時間運行的 containers 與其複本</li><li>DeamonSet: 每個機器上都跑一個 container</li><li>Job: 一次性執行完畢的 container</li></ul></li></ul></li></ul></li><li>Common design patterns<ul><li>ex. reconciliation controller loop 在 Borg, Omega, Kubernetes 中大量使用<ul><li>需求(desired state)</li><li>觀察現況(current state)</li><li>執行動作，收斂需求與現況(reconcile)</li><li>loop</li></ul></li><li>由於狀態是基於實際觀測產生，reconciliation loop 非常堅固，可以承受相當的 failure</li></ul></li></ul></li><li>Kubernetes 設計為一連串的為服務系統，以及許多小型的 control loop<ul><li>對比大型的 centralized orchestration system</li></ul></li></ul><h1 id=things-to-avoid>Things to avoid<a hidden class=anchor aria-hidden=true href=#things-to-avoid>#</a></h1><p>Google 開發過程中，也發現許多不該做的事情</p><ul><li>不要使用 conainer system 來管理 port numbers<ul><li>Borg 會指定 unique port number 給每個 container<ul><li>必須用其他方法取代 DNS</li><li>port 也不易嵌入 URL 中，要另外處理轉址</li><li>需要而外的系統處理 ip:port</li></ul></li><li>Kubernetes 選擇指派 IP 給 Pod<ul><li>可以直接使用常用 port (ex. 80,443)</li><li>可以使用內部 DNS，使用一般常用的工具</li><li>大部分公有雲都提供 networking underlays，達成 Ip-per-pod</li><li>可以使用 DNS overlay 或是 L3 routing，來控制一台機器上的多個 IPs</li></ul></li></ul></li><li>不要幫 container 編號，使用 label 來管理大量的 container<ul><li>Borg 會幫 job 從 0 開始編號<ul><li>很直覺很直接，但稍後就後悔了<ul><li>如果 job 死了，重啟新的 job 在機器上後，還需要去找上個死掉的 job</li><li>task 中間會有很多洞 (死掉的 job)</li><li>更新版本，要更新 jobs 時會依序重啟 jobs</li><li>資料如果也是根據 index 做 sharding，重啟時要復原 index，不然會有資料遺失</li></ul></li></ul></li><li>Kubernetes 使用 label<ul><li>可以透過 label 管理一組 container</li><li>一個 container 可使用多個 labels，更方便的調度</li><li>需要的資訊打在 label 上 (ex. role assignments, work-partitioning, sharding&mldr;)，更容易管理</li></ul></li></ul></li><li>注意所有權<ul><li>Borg 上，tasks 都綁定在 job 上，產生 job 也產生 tasks<ul><li>很直覺方便</li><li>只剩下一種 group 控制機制</li></ul></li><li>Kubernetes 的 pod-lifecycle management (ex. replication controller) 使用 label selector 來控制 pod<ul><li>可以彈性控制大量 pod</li><li>可能有多個上層 controller 控制同一個 pod，要盡量避免這種情況</li><li>好處是保留彈性的同時，可以很清楚界定管理的 pod，不會有 orphan / adapt pod</li><li>透過 label 進行 service load balance<ul><li>如果 pod 有問題，可以變更 label，讓流量不要進來，但又保留 Pod debug</li></ul></li></ul></li></ul></li><li>不要暴露 raw state<ul><li>Borgmaster 是 monolithic，可見所有的 API Operation</li><li>Omega 不是 centralized，只保留被動的資訊，使用 optimistic concurrent control<ul><li>state 存到 client store，並基於 state 進行 operation</li><li>所有 client 需要使用一樣的 client store library</li></ul></li><li>Kubernetes 走中間<ul><li>所有 state 存取需要透過 centralized API server</li><li>client components 可以獨立運作</li></ul></li></ul></li></ul><h1 id=some-open-hard-problems>Some open, hard problems<a hidden class=anchor aria-hidden=true href=#some-open-hard-problems>#</a></h1><ul><li>configuration</li><li>dependency management</li></ul></div><footer class=post-footer><ul class=post-tags><li><a href=https://pages.chechia.net/pr-preview/pr-24/tags/kubernetes/>Kubernetes</a></li><li><a href=https://pages.chechia.net/pr-preview/pr-24/tags/google/>Google</a></li><li><a href=https://pages.chechia.net/pr-preview/pr-24/tags/borg/>Borg</a></li></ul><nav class=paginav><a class=prev href=https://pages.chechia.net/pr-preview/pr-24/posts/2020-09-12-borg-omega-and-kubernetes/><span class=title>« Prev</span><br><span>Borg Omega and Kubernetes Translation 全文翻譯</span>
+</a><a class=next href=https://pages.chechia.net/pr-preview/pr-24/posts/2020-08-19-season-review/><span class=title>Next »</span><br><span>2020 08 Season Review</span></a></nav><ul class=share-buttons><li><a target=_blank rel="noopener noreferrer" aria-label="share Borg Omega and Kubernetes TLDR 摘要翻譯 on x" href="https://x.com/intent/tweet/?text=Borg%20Omega%20and%20Kubernetes%20TLDR%20%e6%91%98%e8%a6%81%e7%bf%bb%e8%ad%af&amp;url=https%3a%2f%2fpages.chechia.net%2fpr-preview%2fpr-24%2fposts%2f2020-08-26-borg-omega-and-kubernetes-tldr%2f&amp;hashtags=kubernetes%2cgoogle%2cborg"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M512 62.554V449.446C512 483.97 483.97 512 449.446 512H62.554C28.03 512 0 483.97.0 449.446V62.554C0 28.03 28.029.0 62.554.0H449.446C483.971.0 512 28.03 512 62.554zM269.951 190.75 182.567 75.216H56L207.216 272.95 63.9 436.783h61.366L235.9 310.383l96.667 126.4H456L298.367 228.367l134-153.151H371.033zM127.633 110h36.468l219.38 290.065H349.5z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share Borg Omega and Kubernetes TLDR 摘要翻譯 on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fpages.chechia.net%2fpr-preview%2fpr-24%2fposts%2f2020-08-26-borg-omega-and-kubernetes-tldr%2f&amp;title=Borg%20Omega%20and%20Kubernetes%20TLDR%20%e6%91%98%e8%a6%81%e7%bf%bb%e8%ad%af&amp;summary=Borg%20Omega%20and%20Kubernetes%20TLDR%20%e6%91%98%e8%a6%81%e7%bf%bb%e8%ad%af&amp;source=https%3a%2f%2fpages.chechia.net%2fpr-preview%2fpr-24%2fposts%2f2020-08-26-borg-omega-and-kubernetes-tldr%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share Borg Omega and Kubernetes TLDR 摘要翻譯 on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fpages.chechia.net%2fpr-preview%2fpr-24%2fposts%2f2020-08-26-borg-omega-and-kubernetes-tldr%2f&title=Borg%20Omega%20and%20Kubernetes%20TLDR%20%e6%91%98%e8%a6%81%e7%bf%bb%e8%ad%af"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share Borg Omega and Kubernetes TLDR 摘要翻譯 on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fpages.chechia.net%2fpr-preview%2fpr-24%2fposts%2f2020-08-26-borg-omega-and-kubernetes-tldr%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share Borg Omega and Kubernetes TLDR 摘要翻譯 on whatsapp" href="https://api.whatsapp.com/send?text=Borg%20Omega%20and%20Kubernetes%20TLDR%20%e6%91%98%e8%a6%81%e7%bf%bb%e8%ad%af%20-%20https%3a%2f%2fpages.chechia.net%2fpr-preview%2fpr-24%2fposts%2f2020-08-26-borg-omega-and-kubernetes-tldr%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share Borg Omega and Kubernetes TLDR 摘要翻譯 on telegram" href="https://telegram.me/share/url?text=Borg%20Omega%20and%20Kubernetes%20TLDR%20%e6%91%98%e8%a6%81%e7%bf%bb%e8%ad%af&amp;url=https%3a%2f%2fpages.chechia.net%2fpr-preview%2fpr-24%2fposts%2f2020-08-26-borg-omega-and-kubernetes-tldr%2f"><svg viewBox="2 2 28 28" height="30" width="30" fill="currentcolor"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share Borg Omega and Kubernetes TLDR 摘要翻譯 on ycombinator" href="https://news.ycombinator.com/submitlink?t=Borg%20Omega%20and%20Kubernetes%20TLDR%20%e6%91%98%e8%a6%81%e7%bf%bb%e8%ad%af&u=https%3a%2f%2fpages.chechia.net%2fpr-preview%2fpr-24%2fposts%2f2020-08-26-borg-omega-and-kubernetes-tldr%2f"><svg width="30" height="30" viewBox="0 0 512 512" fill="currentcolor" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"><path d="M449.446.0C483.971.0 512 28.03 512 62.554V449.446C512 483.97 483.97 512 449.446 512H62.554C28.03 512 0 483.97.0 449.446V62.554C0 28.03 28.029.0 62.554.0H449.446zM183.8767 87.9921h-62.034L230.6673 292.4508V424.0079h50.6655V292.4508L390.1575 87.9921H328.1233L256 238.2489z"/></svg></a></li></ul></footer></article></main><footer class=footer><span>&copy; 2026 <a href=https://pages.chechia.net/pr-preview/pr-24/>Che-Chia Chang</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>
