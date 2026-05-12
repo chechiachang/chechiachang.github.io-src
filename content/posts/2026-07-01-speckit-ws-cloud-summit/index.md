@@ -36,10 +36,10 @@ disableShare: false
 #    hidden: false # only hide on current single page
 ---
 
-### 📅 活動時間：2026-07-01T09:00-10:30
-### 🔗 [活動連結](https://hwdc.ithome.com.tw/2025/lab-page/4003)
+### 📅 活動時間：2026-07-02 09:00-10:30
+### 🔗 [活動連結](https://aienterprise.ithome.com.tw/2026/session/4788)
 ### 📘 聯繫我 [Facebook](https://www.facebook.com/engineer.from.scratch)
-### 📑 [投影片](https://chechia.net/slides/2025-10-15-hello-dev-rag/#/)
+### 📑 [投影片](https://chechia.net/slides/2026-07-01-speckit-ws-cloud-summit/)
 
 ---
 

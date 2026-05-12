@@ -3,7 +3,7 @@ title: "AI 強化的規格驅動開發：自動化所有 SOP 與 Runbook"
 description: "以 Spec-driven development（SDD）結合 AI Agent，把 SOP 與 Runbook 轉為可執行規格，建立可驗證、可回歸、可持續交付的自動化流程。"
 tags: ["ai", "sdd", "spec", "agent", "devops", "runbook", "sop"]
 categories: ["ai", "devops"]
-date: '2026-07-01T09:00:00Z'
+date: '2026-07-01T12:00:00Z'
 outputs: ["Reveal"]
 reveal_hugo:
   custom_theme: "reveal-hugo/themes/robot-lung.css"

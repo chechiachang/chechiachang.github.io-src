@@ -3,7 +3,7 @@ title: "LLM O11y：從 Observability 到 Decision System"
 description: "從 Langfuse observability 出發，補上 evaluation、dataset、regression 與 decision gate，建立可落地的 LLM Decision System。"
 tags: ["llm", "agent", "observability", "langfuse", "evaluation", "aiops"]
 categories: ["aiops", "observability"]
-date: '2026-07-01T12:00:00Z'
+date: '2026-07-02T15:30:00Z'
 outputs: ["Reveal"]
 reveal_hugo:
   custom_theme: "reveal-hugo/themes/robot-lung.css"
