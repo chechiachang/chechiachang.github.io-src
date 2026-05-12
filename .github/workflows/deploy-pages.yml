@@ -56,7 +56,11 @@ jobs:
       - name: Update gh-pages docs (preserve PR previews)
         run: |
           git fetch origin gh-pages || true
-          git checkout gh-pages 2>/dev/null || git checkout --orphan gh-pages
+          if git show-ref --verify --quiet refs/remotes/origin/gh-pages; then
+            git checkout -B gh-pages origin/gh-pages
+          else
+            git checkout --orphan gh-pages
+          fi
 
           # Keep existing PR previews and replace docs site content.
           mkdir -p docs
@@ -75,4 +79,16 @@ jobs:
           fi
 
           git commit -m "deploy: update main site"
-          git push origin gh-pages
+          max_retries=5
+          attempt=1
+          while ! git push origin gh-pages; do
+            if [ "$attempt" -ge "$max_retries" ]; then
+              echo "Push failed after ${max_retries} attempts."
+              exit 1
+            fi
+
+            attempt=$((attempt + 1))
+            echo "Push rejected; rebasing on latest origin/gh-pages (attempt ${attempt}/${max_retries})..."
+            git fetch origin gh-pages
+            git rebase origin/gh-pages
+          done

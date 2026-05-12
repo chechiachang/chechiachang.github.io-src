@@ -1,5 +1,5 @@
 ---
-title: "DevOpsDay: 以規格為核心的 AI 強化 DevOps 平台工程"
+title: "DevOpsDay: 規格驅動的 AI 強化 DevOps"
 date: '2026-06-25T13:20:00Z'
 # weight: 1
 # aliases: ["/test"]

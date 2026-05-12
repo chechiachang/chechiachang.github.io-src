@@ -1,5 +1,5 @@
 ---
-title: "Workshop: LLM O11y with Langfuse and llm-o11y"
+title: "Workshop: LLM O11y 從 Observability 到 Decision System"
 description: "Hands-on workshop from observability to evaluation workflow using Langfuse and llm-o11y."
 tags: ["llm", "langfuse", "observability", "evaluation", "workshop", "aiops"]
 categories: ["aiops", "workshop"]

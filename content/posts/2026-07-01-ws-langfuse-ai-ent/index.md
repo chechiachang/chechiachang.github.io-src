@@ -1,5 +1,5 @@
 ---
-title: "Workshop: LLM O11y with Langfuse and llm-o11y"
+title: "Workshop: LLM O11y 從 Observability 到 Decision System"
 date: '2026-04-21T13:20:00Z'
 tags: ["kubernetes", "openai", "aiops", "devops", "observability", "langfuse", "workshop"]
 categories: ["kubernetes", "aiops", "observability", "workshop"]

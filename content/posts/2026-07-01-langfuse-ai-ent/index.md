@@ -1,5 +1,5 @@
 ---
-title: "Observe and evaluate LLM applications with Langfuse"
+title: "LLM O11y：從 Observability 到 Decision System"
 date: '2026-04-23T13:20:00Z'
 # weight: 1
 # aliases: ["/test"]
