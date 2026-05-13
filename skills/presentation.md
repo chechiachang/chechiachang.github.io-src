@@ -105,3 +105,22 @@ Observed slide pattern:
 - Keep target group specific (role + context).
 - Keep slide bullets short; one idea per bullet.
 - Prefer practical flow: problem -> approach -> demo -> limits -> next steps.
+
+## Slides Language and Tone
+
+- Use Traditional Chinese as primary language, keep key technical terms in English (`RAG`, `MCP`, `evaluation`, `runbook`, `SOP`).
+- Use direct, spoken phrasing with occasional rhetorical questions to drive flow (`為什麼需要...？`, `能做到跟不能做到的事`).
+- Keep sentence length short-to-medium; prioritize fast scan over formal prose.
+- Prefer concrete scenario wording (`情境：新人...`, `情境：Senior...`) before solution slides.
+- Prefer workshop/task voice for actionable sections: step-by-step numbered lists and command-first bullets.
+- Be explicit about constraints and limits (`不適合`, `不能做到`, `風險`, `注意事項`), not only benefits.
+- Use pragmatic audience-facing tone: demo-first, outcome-first, then principles/details.
+- Keep mixed-language headings acceptable when common in existing decks (`Live demo`, `What is ...`, `大綱`).
+
+## Slide Features
+
+- Use `{{% section %}} ... {{% /section %}}` to group related slides into vertical stacks.
+- Prefer section wrapper for blocks like intro/about, concept breakdown, or demo sequence.
+- Reuse about-me slide with `{{< slide content="slides.about-me" >}}` near the opening section.
+- Use `{{< mermaid >}} ... {{< /mermaid >}}` for flow/architecture/process charts.
+- Prefer `flowchart TD` style for pipeline/process explanation, keep node labels short.
