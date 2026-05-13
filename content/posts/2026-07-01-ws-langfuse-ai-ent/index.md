@@ -1,6 +1,6 @@
 ---
 title: "Workshop: LLM O11y 從 Observability 到 Decision System"
-date: '2026-04-21T13:20:00Z'
+date: '2026-05-02T13:20:00Z'
 tags: ["kubernetes", "openai", "aiops", "devops", "observability", "langfuse", "workshop"]
 categories: ["kubernetes", "aiops", "observability", "workshop"]
 description: "本工作坊將實作 llm-o11y：在 localhost 以 Docker Compose 啟動 Bifrost 與 Langfuse，串接 LLM AI Gateway 與 tracing，建立 evaluation 與 LLM-as-a-judge，抽取 dataset，並組成可重現的 AI 開發 workflow。"

@@ -56,5 +56,8 @@ jobs:
         with:
           source-dir: ./docs/
           preview-branch: gh-pages
+          umbrella-dir: docs/pr-preview
+          pages-base-path: docs
           pages-base-url: pages.chechia.net
+          wait-for-pages-deployment: true
           qr-code: true

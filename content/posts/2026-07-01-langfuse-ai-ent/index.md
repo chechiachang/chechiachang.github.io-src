@@ -1,6 +1,6 @@
 ---
 title: "LLM O11y：從 Observability 到 Decision System"
-date: '2026-04-23T13:20:00Z'
+date: '2026-05-02T13:20:00Z'
 # weight: 1
 # aliases: ["/test"]
 tags: ["kubernetes", "openai", "aiops", "devops", "observability", "langfuse"]

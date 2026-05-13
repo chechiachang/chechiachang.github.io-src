@@ -1,6 +1,6 @@
 ---
 title: "When Not to Vibe：從 Vibe Coding 到 Spec-driven AI Engineering 的轉折點"
-date: '2026-07-01T13:20:00Z'
+date: '2026-05-01T13:20:00Z'
 # weight: 1
 # aliases: ["/test"]
 tags: ["openai", "generative", "ai", "speckit", "devops"]

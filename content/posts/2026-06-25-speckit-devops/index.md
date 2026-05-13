@@ -1,6 +1,6 @@
 ---
 title: "DevOpsDay: 規格驅動的 AI 強化 DevOps"
-date: '2026-06-25T13:20:00Z'
+date: '2026-05-01T13:20:00Z'
 # weight: 1
 # aliases: ["/test"]
 tags: ["openai", "generative", "ai", "kubernetes", "devops"]

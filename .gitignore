@@ -15,6 +15,7 @@ resources/
 # Hugo
 resources/
 public/
+tmp/
 jsconfig.json
 node_modules/
 go.sum

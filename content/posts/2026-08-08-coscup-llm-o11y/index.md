@@ -1,6 +1,6 @@
 ---
 title: "Observe and evaluate LLM Coding Agents"
-date: '2026-08-08T00:00:00Z'
+date: '2026-06-08T00:00:00Z'
 # weight: 1
 # aliases: ["/test"]
 tags: ["openai", "aiops", "devops", "observability", "langfuse", "agent"]
