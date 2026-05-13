@@ -45,7 +45,7 @@ jobs:
         run: |
           base_sha="${{ github.event.pull_request.base.sha }}"
           head_sha="${{ github.sha }}"
-          changed_files="$(git diff --name-only "$base_sha" "$head_sha" | rg '^content/slides/.+/_index\.md$' || true)"
+          changed_files="$(git diff --name-only "$base_sha" "$head_sha" | grep -E '^content/slides/.+/_index\.md$' || true)"
           if [ -z "$changed_files" ]; then
             echo "has_changes=false" >> "$GITHUB_OUTPUT"
             exit 0
@@ -63,7 +63,7 @@ jobs:
           bad_files=()
           while IFS= read -r file; do
             [ -z "$file" ] && continue
-            if ! rg -q 'outputs:\s*\["Reveal"\]' "$file"; then
+            if ! grep -Eq 'outputs:[[:space:]]*\["Reveal"\]' "$file"; then
               bad_files+=("$file")
             fi
           done <<< "${{ steps.changed.outputs.files }}"
@@ -80,10 +80,10 @@ jobs:
           bad_files=()
           while IFS= read -r file; do
             [ -z "$file" ] && continue
-            section_open="$(rg -c '\{\{% section %\}\}' "$file" || true)"
-            section_close="$(rg -c '\{\{% /section %\}\}' "$file" || true)"
-            mermaid_open="$(rg -c '\{\{< mermaid >\}\}' "$file" || true)"
-            mermaid_close="$(rg -c '\{\{< /mermaid >\}\}' "$file" || true)"
+            section_open="$(grep -Ec '\{\{% section %\}\}' "$file" || true)"
+            section_close="$(grep -Ec '\{\{% /section %\}\}' "$file" || true)"
+            mermaid_open="$(grep -Ec '\{\{< mermaid >\}\}' "$file" || true)"
+            mermaid_close="$(grep -Ec '\{\{< /mermaid >\}\}' "$file" || true)"
             if [ "$section_open" != "$section_close" ] || [ "$mermaid_open" != "$mermaid_close" ]; then
               bad_files+=("$file")
             fi
@@ -120,10 +120,10 @@ jobs:
         run: |
           bad_files=()
           while IFS= read -r file; do
-            if ! rg -q 'outputs:\s*\["Reveal"\]' "$file"; then
+            if ! grep -Eq 'outputs:[[:space:]]*\["Reveal"\]' "$file"; then
               bad_files+=("$file")
             fi
-          done < <(rg --files content/slides | rg '/_index\.md$')
+          done < <(find content/slides -type f -name '_index.md' | sort)
 
           if [ "${#bad_files[@]}" -gt 0 ]; then
             echo "These slide files are missing outputs: [\"Reveal\"]:"
