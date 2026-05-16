@@ -15,6 +15,8 @@ IMAGE_RE = re.compile(r"!\[[^\]]*\]\(([^)]+)\)")
 SHORTCODE_RE = re.compile(r"\{\{[%<].*?[>%]\}\}")
 CODE_FENCE_RE = re.compile(r"```")
 BULLET_UNICODE = "\u2022"
+SENTENCE_END_PUNCTUATION = "。！？!?."
+SENTENCE_STRIP_CHARS = f" -{BULLET_UNICODE}\t\r\n"
 
 PURPOSE_RULES = [
     (
@@ -112,10 +114,10 @@ def split_sentences(text: str) -> list[str]:
         return []
 
     # Simple regex splitter for mixed Traditional Chinese and English slide text.
-    chunks = re.split(r"(?<=[。！？!?\.])\s+|\s*[\n\r]+\s*", normalized)
+    chunks = re.split(rf"(?<=[{SENTENCE_END_PUNCTUATION}])\s+|\s*[\n\r]+\s*", normalized)
     out = []
     for chunk in chunks:
-        sentence = chunk.strip(f" -{BULLET_UNICODE}\t\r\n")
+        sentence = chunk.strip(SENTENCE_STRIP_CHARS)
         if len(sentence) >= 2:
             out.append(sentence)
     return out
@@ -142,13 +144,15 @@ def first_heading_or_line(slide: str) -> str:
 
 
 def slide_stats(slide: str) -> dict[str, int]:
+    code_fence_markers = len(CODE_FENCE_RE.findall(slide))
     return {
         "headings": len(HEADING_RE.findall(slide)),
         "bullets": len(BULLET_RE.findall(slide)),
         "links": len(LINK_RE.findall(slide)),
         "images": len(IMAGE_RE.findall(slide)),
         "shortcodes": len(SHORTCODE_RE.findall(slide)),
-        "code_fences": len(CODE_FENCE_RE.findall(slide)) // 2,
+        "code_fences": code_fence_markers // 2,
+        "unbalanced_code_fences": code_fence_markers % 2,
     }
 
 
@@ -189,7 +193,7 @@ def write_deck_outputs(source_file: Path, out_root: Path) -> dict[str, str]:
         outline_lines.append(f"## Slide {idx}: {title}")
         outline_lines.append(f"- purpose: {purpose}")
         outline_lines.append(
-            f"- elements: headings={stats['headings']}, bullets={stats['bullets']}, links={stats['links']}, images={stats['images']}, shortcodes={stats['shortcodes']}, code_blocks={stats['code_fences']}"
+            f"- elements: headings={stats['headings']}, bullets={stats['bullets']}, links={stats['links']}, images={stats['images']}, shortcodes={stats['shortcodes']}, code_blocks={stats['code_fences']}, unbalanced_code_fences={stats['unbalanced_code_fences']}"
         )
         outline_lines.append("")
 
@@ -205,6 +209,7 @@ def write_deck_outputs(source_file: Path, out_root: Path) -> dict[str, str]:
                 f"- images: {stats['images']}",
                 f"- shortcodes: {stats['shortcodes']}",
                 f"- code blocks: {stats['code_fences']}",
+                f"- unbalanced code fences: {stats['unbalanced_code_fences']}",
                 "",
                 "### Slide content",
                 slide,
