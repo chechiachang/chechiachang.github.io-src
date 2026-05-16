@@ -1,0 +1,145 @@
+name: Test Slides
+
+on:
+  pull_request:
+    paths:
+      - "content/slides/**"
+      - "layouts/**"
+      - "themes/**"
+      - "hugo.yaml"
+      - "go.mod"
+      - "go.sum"
+      - ".github/workflows/test-slides.yml"
+  push:
+    branches: ["master"]
+    paths:
+      - "content/slides/**"
+      - "layouts/**"
+      - "themes/**"
+      - "hugo.yaml"
+      - "go.mod"
+      - "go.sum"
+      - ".github/workflows/test-slides.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: slides-test-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  test-changed-slides:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Detect changed slide files
+        id: changed
+        run: |
+          base_sha="${{ github.event.pull_request.base.sha }}"
+          head_sha="${{ github.sha }}"
+          changed_files="$(git diff --name-only "$base_sha" "$head_sha" | grep -E '^content/slides/.+/_index\.md$' || true)"
+          if [ -z "$changed_files" ]; then
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          {
+            echo "files<<EOF"
+            echo "$changed_files"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Validate Reveal frontmatter on changed slides
+        if: steps.changed.outputs.has_changes == 'true'
+        run: |
+          bad_files=()
+          while IFS= read -r file; do
+            [ -z "$file" ] && continue
+            if ! grep -Eq 'outputs:[[:space:]]*\["Reveal"\]' "$file"; then
+              bad_files+=("$file")
+            fi
+          done <<< "${{ steps.changed.outputs.files }}"
+
+          if [ "${#bad_files[@]}" -gt 0 ]; then
+            echo "Changed slide files missing outputs: [\"Reveal\"]:"
+            printf '%s\n' "${bad_files[@]}"
+            exit 1
+          fi
+
+      - name: Validate shortcode pairing on changed slides
+        if: steps.changed.outputs.has_changes == 'true'
+        run: |
+          bad_files=()
+          while IFS= read -r file; do
+            [ -z "$file" ] && continue
+            section_open="$(grep -Ec '\{\{% section %\}\}' "$file" || true)"
+            section_close="$(grep -Ec '\{\{% /section %\}\}' "$file" || true)"
+            mermaid_open="$(grep -Ec '\{\{< mermaid >\}\}' "$file" || true)"
+            mermaid_close="$(grep -Ec '\{\{< /mermaid >\}\}' "$file" || true)"
+            if [ "$section_open" != "$section_close" ] || [ "$mermaid_open" != "$mermaid_close" ]; then
+              bad_files+=("$file")
+            fi
+          done <<< "${{ steps.changed.outputs.files }}"
+
+          if [ "${#bad_files[@]}" -gt 0 ]; then
+            echo "Changed slide files have unbalanced shortcodes (section/mermaid):"
+            printf '%s\n' "${bad_files[@]}"
+            exit 1
+          fi
+
+  test-slides:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24.1.0"
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "0.146.5"
+          extended: true
+
+      - name: Validate Reveal frontmatter
+        run: |
+          bad_files=()
+          while IFS= read -r file; do
+            if ! grep -Eq 'outputs:[[:space:]]*\["Reveal"\]' "$file"; then
+              bad_files+=("$file")
+            fi
+          done < <(find content/slides -type f -name '_index.md' | sort)
+
+          if [ "${#bad_files[@]}" -gt 0 ]; then
+            echo "These slide files are missing outputs: [\"Reveal\"]:"
+            printf '%s\n' "${bad_files[@]}"
+            exit 1
+          fi
+
+      - name: Build site (fail on warnings)
+        env:
+          HUGO_ENVIRONMENT: production
+          HUGO_ENV: production
+        run: |
+          rm -rf ./tmp/slides-test
+          mkdir -p ./tmp/slides-test
+          hugo \
+            --gc \
+            --minify \
+            --panicOnWarning \
+            --destination ./tmp/slides-test

@@ -17,6 +17,12 @@ Che-Chia Chang
 
 ---
 
+{{% section %}}
+
+{{< slide content="slides.about-me" >}}
+
+---
+
 ## Outline
 
 1. DevOps 為何適合 Spec-driven Development
@@ -24,6 +30,8 @@ Che-Chia Chang
 3. 如何串接 AI、CI/CD、監控形成閉環
 4. 什麼情境適合導入，什麼情境先不要
 5. 實務踩雷與可落地的導入路徑
+
+{{% /section %}}
 
 ---
 
@@ -78,6 +86,53 @@ Che-Chia Chang
 1. 選題：找出最耗時且可量測的 DevOps 任務
 2. 規格化：用 Spec-kit 範本定義需求、限制、驗收條件
 3. 落地：接上 CI/CD 與監控，持續驗證與迭代
+
+---
+
+## spec-driven.md：核心觀念（精簡版）
+
+- Power inversion：從「Code 是真相」轉為「Spec 是真相」
+- 規格不是文件附件，而是可持續演進的主資產
+- Code 是規格的實作輸出，不是需求討論的起點
+- 維護重點從「改一堆程式」轉成「先更新規格再生」
+
+---
+
+## spec-driven.md：SDD 連續循環
+
+- Idea / SOP -> 規格（PRD + 驗收條件）
+- 規格 -> 實作計畫（架構、資料模型、介面契約）
+- 計畫 -> 任務 -> 程式碼與測試
+- Production 回饋（incident / metrics）再回寫規格
+
+> 不是一次性 SDLC，而是持續 refinement 的閉環
+
+---
+
+## spec-driven.md：Spec-kit 指令落地
+
+```text
+/speckit.specify -> /speckit.plan -> /speckit.tasks
+```
+
+- `specify`：從需求產生結構化 spec（含分支/目錄規範）
+- `plan`：把需求映射成技術決策、資料模型、契約與驗證情境
+- `tasks`：把 plan 轉成可執行且可平行化的 task list
+- DevOps 價值：降低交接成本，讓 SOP -> Pipeline 更可追溯
+
+---
+
+## Spec-kit 工作流（Flow）
+
+{{< mermaid >}}
+flowchart TD
+  A[需求 / SOP] --> B[/speckit.specify<br/>spec.md]
+  B --> C[/speckit.plan<br/>plan.md + contracts]
+  C --> D[/speckit.tasks<br/>tasks.md]
+  D --> E[Implement + CI/CD]
+  E --> F[Metrics / Incident]
+  F --> B
+{{< /mermaid >}}
 
 ---
 
