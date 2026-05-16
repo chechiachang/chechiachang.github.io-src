@@ -111,10 +111,10 @@ def split_sentences(text: str) -> list[str]:
         return []
 
     # Simple regex splitter for mixed Traditional Chinese and English slide text.
-    chunks = re.split(r"(?<=[。！？!?\.])\s+|\s*[\n\r]+\s*", normalized)
+    chunks = re.split(r"(?<=[。！？!?\x2e])\s+|\s*[\n\r]+\s*", normalized)
     out = []
     for chunk in chunks:
-        sentence = chunk.strip(" -•\t\r\n")
+        sentence = chunk.strip(" -\u2022\t\r\n")
         if len(sentence) >= 2:
             out.append(sentence)
     return out
