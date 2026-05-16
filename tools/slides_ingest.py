@@ -18,7 +18,7 @@ CODE_FENCE_RE = re.compile(r"```")
 PURPOSE_RULES = [
     (
         "cover/title",
-        ["coscup", "devops", "workshop", "title", "@", "che chia", "活動", "演講", "投影片"],
+        ["coscup", "devops", "workshop", "title", "@", "活動", "演講", "投影片"],
     ),
     ("agenda/outline", ["大綱", "outline", "今天要聊", "goals", "agenda", "目標"]),
     ("concept/explanation", ["什麼是", "why", "為何", "architecture", "原理", "概念", "mcp", "llm"]),
@@ -110,6 +110,7 @@ def split_sentences(text: str) -> list[str]:
     if not normalized:
         return []
 
+    # Simple regex splitter for mixed Traditional Chinese and English slide text.
     chunks = re.split(r"(?<=[。！？!?\.])\s+|\s*[\n\r]+\s*", normalized)
     out = []
     for chunk in chunks:

@@ -7,9 +7,9 @@ Ingest `content/slides/**/_index.md` one-by-one and export analysis to:
 ## Run
 
 ```bash
-python3 /home/runner/work/chechiachang.github.io-src/chechiachang.github.io-src/tools/slides_ingest.py \
-  --input /home/runner/work/chechiachang.github.io-src/chechiachang.github.io-src/content/slides \
-  --output /home/runner/work/chechiachang.github.io-src/chechiachang.github.io-src/tmp/slides-ingest-export
+python3 tools/slides_ingest.py \
+  --input content/slides \
+  --output tmp/slides-ingest-export
 ```
 
 ## Exported Artifacts
@@ -24,3 +24,7 @@ Global export:
 
 - `syntax-by-purpose.md`: markdown/Hugo/reveal-hugo syntax grouped by purpose.
 - `manifest.md`: list of ingested files and output locations.
+
+## Notes
+
+- Sentence segmentation is regex-based and optimized for mixed Traditional Chinese + English slide text.
