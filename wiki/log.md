@@ -1,0 +1,26 @@
+# Wiki Log
+
+- 2026-05-16: Ingested `content/slides/2019-10-18-kafka-on-k8s/_index.md` -> `wiki/slides/2019-10-18-kafka-on-k8s.md` (recompiled with page summaries and time mappings)
+- 2026-05-15: Ingested `content/slides/2019-10-18-kafka-on-k8s/_index.md` -> `wiki/slides/2019-10-18-kafka-on-k8s.md`
+- 2026-05-15: Ingested `content/slides/2023-09-26-devopsday-2023-vault/_index.md` -> `wiki/slides/2023-09-26-devopsday-2023-vault.md`
+- 2026-05-15: Ingested `content/slides/2023-10-25-k8s-resource-as-code/_index.md` -> `wiki/slides/2023-10-25-k8s-resource-as-code.md`
+- 2026-05-15: Ingested `content/slides/2024-04-26-saving-money-on-cloud-k8s/_index.md` -> `wiki/slides/2024-04-26-saving-money-on-cloud-k8s.md`
+- 2026-05-15: Ingested `content/slides/2024-07-03-saving-money-on-cloud-k8s/_index.md` -> `wiki/slides/2024-07-03-saving-money-on-cloud-k8s.md`
+- 2026-05-15: Ingested `content/slides/2024-08-28-hashicorp-vault-database/_index.md` -> `wiki/slides/2024-08-28-hashicorp-vault-database.md`
+- 2026-05-15: Ingested `content/slides/2024-10-23-upgrade-k8s-cluster/_index.md` -> `wiki/slides/2024-10-23-upgrade-k8s-cluster.md`
+- 2026-05-15: Ingested `content/slides/2024-10-24-etcd-workshop/_index.md` -> `wiki/slides/2024-10-24-etcd-workshop.md`
+- 2026-05-15: Ingested `content/slides/2025-06-05-devops-rag-internal-ai/_index.md` -> `wiki/slides/2025-06-05-devops-rag-internal-ai.md`
+- 2026-05-15: Ingested `content/slides/2025-07-02-cloud-summit-rag/_index.md` -> `wiki/slides/2025-07-02-cloud-summit-rag.md`
+- 2026-05-15: Ingested `content/slides/2025-08-09-coscup-mcp-agent/_index.md` -> `wiki/slides/2025-08-09-coscup-mcp-agent.md`
+- 2026-05-15: Ingested `content/slides/2025-10-15-hello-dev-rag/_index.md` -> `wiki/slides/2025-10-15-hello-dev-rag.md`
+- 2026-05-15: Ingested `content/slides/2025-10-22-etcd-workshop/_index.md` -> `wiki/slides/2025-10-22-etcd-workshop.md`
+- 2026-05-15: Ingested `content/slides/2025-10-23-k8sgpt-rag/_index.md` -> `wiki/slides/2025-10-23-k8sgpt-rag.md`
+- 2026-05-15: Ingested `content/slides/2026-06-25-speckit-devops/_index.md` -> `wiki/slides/2026-06-25-speckit-devops.md`
+- 2026-05-15: Ingested `content/slides/2026-07-01-langfuse-ai-ent/_index.md` -> `wiki/slides/2026-07-01-langfuse-ai-ent.md`
+- 2026-05-15: Ingested `content/slides/2026-07-01-speckit-cloud-summit/_index.md` -> `wiki/slides/2026-07-01-speckit-cloud-summit.md`
+- 2026-05-15: Ingested `content/slides/2026-07-01-ws-langfuse-ai-ent/_index.md` -> `wiki/slides/2026-07-01-ws-langfuse-ai-ent.md`
+- 2026-05-15: Ingested `content/slides/2026-07-01-ws-speckit-cloud-summit/_index.md` -> `wiki/slides/2026-07-01-ws-speckit-cloud-summit.md`
+- 2026-05-15: Ingested `content/slides/2026-08-08-coscup-llm-o11y/_index.md` -> `wiki/slides/2026-08-08-coscup-llm-o11y.md`
+- 2026-05-15: Ingested `content/slides/*` -> no wiki content changes; index and slide notes already up to date.
+- 2026-05-15: Ingested `content/slides/*/_index.md` -> no wiki content changes; all compiled slide notes up to date.
+- 2026-05-16: Ingested `content/slides/*/_index.md` one-by-one -> recompiled `wiki/slides/*.md` with page summaries and time mappings.
