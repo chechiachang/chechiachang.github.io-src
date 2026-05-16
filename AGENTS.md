@@ -11,3 +11,4 @@ All instructions and skills must be compact and extremely minimal.
 
 ## Index
 - `skills/presentation.md`: Skills for managing ./content/posts and ./content/slides.
+- `skills/slides-ingest.md`: Skill for ingesting slides markdown and exporting analyzed slide structures.
