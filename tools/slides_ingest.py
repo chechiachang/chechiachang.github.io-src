@@ -14,6 +14,7 @@ LINK_RE = re.compile(r"(?<!\!)\[[^\]]+\]\(([^)]+)\)")
 IMAGE_RE = re.compile(r"!\[[^\]]*\]\(([^)]+)\)")
 SHORTCODE_RE = re.compile(r"\{\{[%<].*?[>%]\}\}")
 CODE_FENCE_RE = re.compile(r"```")
+BULLET_UNICODE = "\u2022"
 
 PURPOSE_RULES = [
     (
@@ -111,10 +112,10 @@ def split_sentences(text: str) -> list[str]:
         return []
 
     # Simple regex splitter for mixed Traditional Chinese and English slide text.
-    chunks = re.split(r"(?<=[。！？!?\x2e])\s+|\s*[\n\r]+\s*", normalized)
+    chunks = re.split(r"(?<=[。！？!?\.])\s+|\s*[\n\r]+\s*", normalized)
     out = []
     for chunk in chunks:
-        sentence = chunk.strip(" -\u2022\t\r\n")
+        sentence = chunk.strip(f" -{BULLET_UNICODE}\t\r\n")
         if len(sentence) >= 2:
             out.append(sentence)
     return out
