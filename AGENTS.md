@@ -51,6 +51,11 @@ For each slide, output:
 
 ## output-agent Instructions
 
+##### markdown-slides
+
+1. use ./markdown-slides for generating markdown slides.
+1. use ./draft for generated contents.
+
 ##### Type of Presentation
 
 1. Standard: A typical presentation with a Slide Deck. Time: 30-40 minutes. Slides about 20 pages. Focus on delivering key insights or explaining a specific topic.
