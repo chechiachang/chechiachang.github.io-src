@@ -16,13 +16,13 @@ reveal_hugo:
 
 ### Workshop 行前準備
 
-1. 攜帶筆電，可上網
-1. 安裝好操作環境
-    1. [VS Code](https://code.visualstudio.com/) + [Codex Extension](https://developers.openai.com/codex/ide#extension-setup)
-    1. [Spec-kit CLI](https://github.com/github/spec-kit#1-install-specify-cli)
-1. 下載 [workshop 範例程式碼](https://github.com/chechiachang/speckit-playground)
-1. 講師會提供 Azure OpenAI API Key，也可帶自己習慣的 llm
-1. 已經會用 VS Code + Codex，用自己的方式參加即可
+- 攜帶筆電，可上網
+- 安裝好操作環境
+  - [VS Code](https://code.visualstudio.com/) + [Codex Extension](https://developers.openai.com/codex/ide#extension-setup)
+  - [Spec-kit CLI](https://github.com/github/spec-kit#1-install-specify-cli)
+- 下載 [workshop 範例程式碼](https://github.com/chechiachang/speckit-playground)
+- 講師會提供 Azure OpenAI API Key，也可帶自己習慣的 llm
+- 已經會用 VS Code + Codex，用自己的方式參加即可
 
 🔽
 
@@ -32,17 +32,16 @@ reveal_hugo:
 
 - 安裝 VS Code：[https://code.visualstudio.com/](https://code.visualstudio.com/)
   - Terminal 或命令提示字元開啟 VS Code
-- VS Code 中
-  - git clone 程式碼 `speckit-playground`
-  - 開啟資料夾
 
 ```
-code .
-
 git clone https://github.com/chechiachang/speckit-playground.git
 
-# File > Open Folder > 選擇 clone 的 speckit-playground
+code .
 ```
+
+- VS Code 中 Terminal
+  - git clone 程式碼 `speckit-playground`
+  - File > Open Folder > 選擇 clone 的 speckit-playground
 
 ---
 
@@ -52,15 +51,11 @@ git clone https://github.com/chechiachang/speckit-playground.git
 
 ### VS Code Extension
 
-1. 安裝 Codex Extension
-  1. https://developers.openai.com/codex/ide#extension-setup
-  1. cmd + shift + x，搜尋 Codex，安裝
-1. 在 VS Code 右側 Secondary Sidebar 找到 Codex
-  1. 跟 Codex say hi，使用免費額度，或登入個人的 OpenAI 帳號
-
-- 認明官方網址，其他來源的 extension 可能不安全
-- Codex – OpenAI’s coding agent
-- OpenAI 打勾勾 openai.com 下載 8,885,127 評價(377)
+- 安裝 [Codex Extension](https://developers.openai.com/codex/ide#extension-setup)
+  - cmd + shift + x，搜尋 Codex，安裝
+  - 認明官方網址，其他來源的 extension 可能不安全
+- 在 VS Code 右側 Secondary Sidebar 找到 Codex
+  - 跟 Codex say hi，使用免費額度，或登入個人的 OpenAI 帳號
 
 ---
 
@@ -70,15 +65,15 @@ git clone https://github.com/chechiachang/speckit-playground.git
 
 ### 安裝 Spec-kit CLI
 
-1. 打開 VScode 下方的 Terminal
-1. 確認 uv 可用，沒有的話[先裝 uv](https://github.github.com/spec-kit/install/uv.html)
-1. 安裝 [Spec-kit CLI](https://github.github.com/spec-kit/installation.html#installation)
+- 打開 VScode 下方的 Terminal
+- 確認 uv 可用，沒有的話[先裝 uv](https://github.github.com/spec-kit/install/uv.html)
+- 安裝 [Spec-kit CLI](https://github.github.com/spec-kit/installation.html#installation)
 
 ```
 # 確認 uv 可用
 uv --version
 
-# 安裝指定穩定版（建議：把 vX.Y.Z 換成最新 release tag）
+# 安裝指定穩定版
 uv tool install specify-cli --from git+https://github.com/github/spec-kit.git@v0.8.9
 ```
 
@@ -88,17 +83,12 @@ uv tool install specify-cli --from git+https://github.com/github/spec-kit.git@v0
 
 ---
 
-### Workshop 行前完成
-{{% /section %}}
-
----
-
-{{% section %}}
-
 ### API Key 設定
 
-1. 備份原本的 config.toml，以免覆蓋到自己的設定
-1. codex-config.toml 複製到 codex 的 config.toml
+- 備份原本的 config.toml，以免覆蓋到自己的設定
+- codex-config.toml 複製到 codex 的 config.toml
+- 如果你本來就有在用 codex
+  - 也可自行複製，編輯成喜歡的樣子
 
 ```
 cp ~/.codex/config.toml ~/.codex/config.toml.bak
@@ -108,16 +98,14 @@ cp codex-config.toml ~/.codex/config.toml
 
 {{% note %}}
 
-1. 打開檔案 `speckit-playground/codex-config.toml`
-1. 全選複製
-1. VS Code Extension 右上角齒輪 > Codex settings
-1. Configuration > Open config.toml
-1. 貼上複製的內容，存檔
-1. 如果已經有自己的 config.toml，請把內容貼在檔案的上面
+- 打開檔案 `speckit-playground/codex-config.toml`
+- 全選複製
+- VS Code Extension 右上角齒輪 > Codex settings
+- Configuration > Open config.toml
+- 貼上複製的內容，存檔
+- 如果已經有自己的 config.toml，請把內容貼在檔案的上面
 
 {{% /note %}}
-
-🔽
 
 ---
 
@@ -137,7 +125,7 @@ code .
 
 ### VS Code Extension: Linux/MacOS
 
-1. cmd + space，輸入 Terminal，開啟終端機
+- cmd + space，輸入 Terminal，開啟終端機
 
 ```
 export AZURE_OPENAI_API_KEY="講師提供的 api key"
@@ -150,14 +138,35 @@ code .
 
 ---
 
+### 如果 Terminal 沒有出現 code 指令
+
+- 打開 VS Code
+- cmd + shift + p，輸入 shell command，選擇 Install 'code' command in PATH
+- 關掉 VS Code，重新用 Terminal 開啟，讓環境變數生效
+
+---
+
+{{< slide background-image="install-code-command.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+
+---
+
 ### VS Code Extension: Windows
 
-1. Win + R，輸入 cmd，開啟命令提示字元
+- Win + R，輸入 cmd，開啟命令提示字元
 
 ```
 set AZURE_OPENAI_API_KEY="講師提供的 api key"
 code .
 ```
+
+---
+
+### 行前準備完成
+
+- 修改完成後，由於缺乏環境變數，Codex 可能會跳出錯誤
+  `Missing environment variable: AZURE_OPENAI_API_KEY`
+- 活動當天取得 API Key 後，設定好環境變數就可以使用
+- 如果要使用 Codex，可以暫時移除 ~/.codex/config.toml，使用預設設定
 
 {{% /section %}}
 
@@ -178,13 +187,24 @@ code .
 
 本次 workshop 以 hands-on 為主，講解為輔。
 
-1. 講解：什麼是Spec-kit
 1. LAB：第一個 Spec-kit 專案
+1. 講解：什麼是Spec-kit
 1. 講解：為什麼不 Vibe Coding
 1. LAB：YouBike 2.0 需求到實作
 1. 講解：Spec-kit 經驗分享，適合與不適合的 use case
 1. LAB：YouBike 2.0 需求到實作
 1. 驗收、回顧、Q&A
+
+---
+
+### LAB：第一個 Spec-kit 專案
+
+還沒講什麼是 Spec-kit 之前，先讓大家實際體驗一次
+
+- 打開 VS Code，使用
+
+
+---
 
 ---
 
