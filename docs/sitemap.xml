@@ -8,9 +8,6 @@
     <loc>http://localhost:1313/slides/</loc>
     <lastmod>2036-05-02T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2026-06-08T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/categories/ai/</loc>
     <lastmod>2026-05-02T13:20:00+00:00</lastmod>
   </url><url>
@@ -57,6 +54,9 @@
     <lastmod>2026-05-02T13:20:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/openai/</loc>
+    <lastmod>2026-05-02T13:20:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
     <lastmod>2026-05-02T13:20:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
@@ -746,10 +746,18 @@
     <loc>http://localhost:1313/posts/2018-10-06-kubernetes-container-runtime-interface/</loc>
     <lastmod>2018-10-06T12:07:00+08:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/transcripts/2026-07-01-ws-speckit-ai-ent/</loc>
+  </url><url>
     <loc>http://localhost:1313/archives/</loc>
   </url><url>
     <loc>http://localhost:1313/search/</loc>
   </url><url>
     <loc>http://localhost:1313/series/</loc>
+  </url><url>
+    <loc>http://localhost:1313/categories/transcript/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/transcript/</loc>
+  </url><url>
+    <loc>http://localhost:1313/transcripts/</loc>
   </url>
 </urlset>

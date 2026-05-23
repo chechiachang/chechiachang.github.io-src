@@ -72,7 +72,13 @@ If conten/posts or slides path contains `workshop` or `ws`, the output-agent sho
 - `skills/generate-slide-md.md`: Skill for generating `content/slides/*/_index.md`; must read `wiki/slide-pages-pattern.md` before drafting outline.
 - `skills/chechia-content.md`: Skills for generating text and sentence content with chechia's unique style and voice.
 
-## output-agent Instructions
+##### Generate Transcript in `./content/transcripts`
+- read markdown slide by slide. Slides are split by `---`.
+- generate transcript for each slide in `./content/slides/*/_index.md` that the presenter would say during the presentation
+- Overall format should be a article or blog post. Each page's transcript should be a complete paragraph that cover all content on that page as if the presenter is explaining it to the audience. 
+- transcript should include greetings, introductions, transitions, and conclusions as if the presenter is delivering the presentation in person.
+
+## review-agent Instructions
 
 ##### Review Overview
 

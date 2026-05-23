@@ -3254,5 +3254,22 @@ signed by A&lt;/p&gt;</description>
       <guid>http://localhost:1313/posts/2018-10-06-kubernetes-container-runtime-interface/</guid>
       <description></description>
     </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/transcripts/2026-07-01-ws-speckit-ai-ent/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/transcripts/2026-07-01-ws-speckit-ai-ent/</guid>
+      <description>&lt;h1 id=&#34;2026-07-01-workshop-transcript-spec-kit-ai-enterprise&#34;&gt;2026-07-01 Workshop Transcript: Spec-kit AI Enterprise&lt;/h1&gt;
+&lt;h2 id=&#34;slide-1&#34;&gt;Slide 1&lt;/h2&gt;
+&lt;p&gt;各位早安，歡迎來到今天 90 分鐘的 Spec-kit 工作坊，先從行前準備開始：請確認你有筆電、網路、VS Code、Spec-kit CLI，以及 workshop 的範例程式碼，模型部分今天會提供 Azure OpenAI Key，也可以用你自己習慣的模型；這堂課最重要的是動手做與保持懷疑，遇到標記了問號的地方，先想再問，目標是練習怎麼判斷 AI 回答是否可靠。&lt;/p&gt;
+&lt;h2 id=&#34;slide-2&#34;&gt;Slide 2&lt;/h2&gt;
+&lt;p&gt;這一頁我帶大家完成 VS Code 起手式：先安裝或打開 VS Code，開底下 Terminal，把 &lt;code&gt;speckit-playground&lt;/code&gt; clone 下來，再用 File &amp;gt; Open Folder 開啟該目錄，等一下所有操作都會在這個 workspace 裡進行。&lt;/p&gt;
+&lt;h2 id=&#34;slide-3&#34;&gt;Slide 3&lt;/h2&gt;
+&lt;p&gt;這張畫面就是 &lt;code&gt;git clone&lt;/code&gt; 的示意，我想強調的是大家先不要急著跑指令以外的步驟，先確認你已經成功 clone、資料夾也真的在 VS Code 裡打開，這會讓後面指令跟代理流程順很多。&lt;/p&gt;
+&lt;h2 id=&#34;slide-4&#34;&gt;Slide 4&lt;/h2&gt;
+&lt;p&gt;接著安裝 Spec-kit CLI：先在終端機確認 &lt;code&gt;uv --version&lt;/code&gt;，如果沒有就先安裝 uv，之後用指定版本安裝 &lt;code&gt;specify-cli&lt;/code&gt;，我建議 workshop 先固定版本，避免每個人看到的行為不同而增加排錯成本。&lt;/p&gt;
+&lt;h2 id=&#34;slide-5&#34;&gt;Slide 5&lt;/h2&gt;
+&lt;p&gt;這張圖是安裝 Spec-kit CLI 成功後的畫面，請對照一下你的終端輸出，確認沒有權限或 PATH 問題，因為後面 &lt;code&gt;/speckit.*&lt;/code&gt; 流程會直接依賴這一步。&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>
