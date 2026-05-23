@@ -75,7 +75,7 @@ uv tool install specify-cli --from git+https://github.com/github/spec-kit.git@v0
 - Model 右上角齒輪圖示，點一下選擇 Manage Model Settings
   - Add Models > Azure OpenAI
   - Group Name: Azure
-  - Azure API Key 填入講師提供的 Key (當天提供可以先留白）
+  - Azure API Key 填入講師提供的 Key (當天會提供，可以先填123）
   - 跳出 chatLanguageModels.json 編輯
 
 ---
@@ -94,6 +94,7 @@ uv tool install specify-cli --from git+https://github.com/github/spec-kit.git@v0
 - cmd + s 儲存
 - 回到 Model 列表，選擇剛剛新增的 Azure GPT-5.4 Nano
   - 跟 Azure say hi，確認可用
+  - ❓什麼是 maxInputTokens 與 maxOutputTokens❓
 
 ```
 [
@@ -126,9 +127,21 @@ uv tool install specify-cli --from git+https://github.com/github/spec-kit.git@v0
 
 ---
 
-### 行前準備結束
+### Note
 
 - Model 列表，選回去選擇其他 Model，可以先用免費版
+
+---
+
+### 最重要的行前準備: Mindset
+
+- 講師不會總是對的，鼓勵懷疑簡報的內容
+- 標記❓的地方，請練習懷疑/思考為什麼會有這個問題
+- 先自己思考，再問 chatGPT
+- 大部分時候chatGPT是對的，且性能優於講師
+- 要知道怎麼確定 chatGPT 是對或錯的
+
+> workshop 重點在累積動手的經驗
 
 {{% /section %}}
 
@@ -164,8 +177,11 @@ uv tool install specify-cli --from git+https://github.com/github/spec-kit.git@v0
 
 還沒講什麼是 Spec-kit 之前，先讓大家實際體驗一次
 - 先當 Spec-kit 是一個與 llm 對話的工具，目標是產生程式碼
+- 我們的目的：讓 Spec-kit 產生程式碼效果比 Vibe Coding 好
 - 打開瀏覽器到 https://github.com/github/spec-kit#-get-started
 - 打開 VS Code 與 Spec-kit playground 的範例程式碼
+
+🔽
 
 ---
 
@@ -194,7 +210,7 @@ specify check
 - 建立 .specify/ 資料夾，裡面有 specify agent 會用到的檔案
 - .vscode/settings.json
   - 改成支援 Copilot Chat 的 prompt
-  - 偷塞 chat.tools.terminal.autoApprove 給 .specify/scripts/bash/
+  - ❓偷塞 chat.tools.terminal.autoApprove 給 .specify/scripts/bash/
 - 🛠️ 打開 ./specify/templates 資料夾，看一下裡面的內容
 - 🛠️ 在 Chat 中輸入 /spec 看看會發生什麼事
 
@@ -263,6 +279,7 @@ specify check
 - (optional) context management:
   - `/clear` 清除之前的對話紀錄，讓 agent 從一個乾淨的狀態開始讀取 plan.md & tasks.md
   - `/compact` 當前 session 會把之前的對話紀錄壓縮成一個 summary，讓 agent 可以讀取到之前的內容，但不會有太多 token 費用
+  - ❓為何要管理 context❓
 
 ```
 /clear
@@ -274,9 +291,8 @@ specify check
 /clear
 
 /speckit.implement
+# implement 完成部分 task 後也可以 /clear
 ```
-
-{{% /section %}}
 
 ---
 
@@ -310,7 +326,8 @@ Please create or switch to a feature branch for 001-youbike-station-search using
 - write 只允許特定工具，arguments 也要限制
 - 🛠️ 檢視目前的 setting，放在 .vscode/settings.json
   - Allow running command `xxx` in this workspace 會修改 settings.json
-- ❗Allow all commands in this workspace 是相對危險的，也會提高費用
+- Allow all commands in this workspace 是相對危險的，也會提高費用
+- ❓根據 agent 控制力，以及失控的損害程度，決定 auto-approve
 
 ---
 
@@ -318,21 +335,62 @@ Please create or switch to a feature branch for 001-youbike-station-search using
 
 ---
 
-### LAB1: Implementation
+### LAB1: 驗收執行
 
-Implementation 需要時間，大家可以邊觀察邊做其他事情，等 agent 實作完再回來驗收
-我會利用這段時間講解 Spec-kit 的概念，以及為什麼會有幫助，適合什麼 use case，等等
+- agent implement 時產生程式碼，會一邊把 tasks 標記完成
+- 當完成所有 tasks 後，就可以開始驗收了
+- 這次 LAB1 我們先手動驗收
+- 執行是否成功？有無 error？功能是否符合 spec？
+- 實務上會把驗收標準，測試覆蓋率，lint，style，都寫進 Spec
+  - 讓 agent 產生測試程式碼，來自動驗收
 
 ---
 
+{{< slide background-image="manual-test.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+
+---
+
+### LAB1: 錯誤處理
+
+Spec-kit 的流程中，agent 會遇到各種錯誤，例如程式碼錯誤、測試失敗、驗收不過等等
+
+- 如果錯誤是 Spec，請回到 /speckit.spec 修改 Spec
+- 如果錯誤無關 Spec，例如程式碼錯誤，請讓 agent 修正程式碼
+  - 提供錯誤訊息給 agent，讓 agent 可以根據錯誤訊息來修正程式碼
+  - 提供驗證方法給 agent，讓 agent 可以自己驗證是否修正成功
+  - ❓是否驗證方法或是測試覆蓋率，就需要寫在 Spec 中
+
+---
+
+{{< slide background-image="error-handling.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+
+---
+
+### LAB1: Implementation
+
+- Implementation 需要時間，大家可以邊觀察邊做其他事情
+- agent 實作完（app 可以執行了）再回來驗收
+- 我會利用這段時間講解
+  - Spec-kit 的概念
+  - 為什麼會比 Vibe Coding 有幫助
+  - 適合什麼 use case
+
+{{% /section %}}
+
+---
+
+{{% section %}}
+
 ### Spec-kit 是什麼
 
-- 一套 Spec-driven Development toolkit
+- Spec-driven Development toolkit
 - 定義 script, template, checklist 等等，讓 agent 可預測地產生Spec
 - 把 workflow 拆解成 `/specify` `/plan` `/tasks` `/implement`
 - 讓 agent 依標準流程工作，先完成 spec，再 plan，再 tasks，最後 implement
 - 每流程都有需要完成的 checkpoint，才會進入下一步
-- 支援長任務、多輪迭代
+- 支援長任務、多輪對話 session
+
+🔽
 
 ---
 
@@ -342,264 +400,130 @@ Implementation 需要時間，大家可以邊觀察邊做其他事情，等 agen
 /specify -> /plan -> /tasks -> /implement
 ```
 
-- 每一步都可回頭調整
+- SDD：先把需求寫成 Spec，Spec 是唯一 source of truth
+- speckit：把 SDD 變成可執行流程（spec -> plan -> tasks -> implement），降低 drift 與返工成本
 - 改需求先改 spec，不先改 code
-
-> 為何會有幫助？
+- ❓為何先改需求，就會有幫助
 
 ---
 
-### 為何會有幫助: 避免 Spec drift
+### 為何有幫助
 
+避免 Context rot，drift，Spec drift
+
+- 對話 Vibe Coding 常見問題：一直持續聊到後面，agent 好像開始混亂了，聽不懂需求，一直來回做錯
+  - context rot: llm 會忘記之前的對話內容，或是把之前的對話內容搞混，導致理解錯誤
+  - context compact 後，agent 會「照比較新的對話」做事
+
+{{% note %}}
 「跟 llm 來回對話，一直補充資訊」，Spec 可能會越聊越清楚，也可能會越聊越模糊，到最後 llm 理解錯誤的需求，導致實作出來的東西不符合預期
 
 「先產生 Spec」產生唯一的 source of truth，並持續修改，讓 agent 可以根據 Spec 來產生 Plan、Tasks、Implement，確保實作的東西是符合 Spec 的
 
 「根據 Spec，有流程的產生程式」，透過分段實作或是拆分 task 來降低每次改動的成本，讓 agent 可以專注在當前的任務，而不是同時處理大量需求，帶來的額外複雜度
+{{% /note %}}
 
 ---
 
 ### 為何會有幫助: Context management
 
 - Vibe Chat 如果描述複雜的需求，容易產生 long context
+- 但每個 llm 的 context window 都是有限的
 - long context 可能造成 llm performance 下降
 - long context 會需要 compact 來壓縮，可能會有資訊遺失。
 - [VSCode Official Doc: Context Compaction](https://code.visualstudio.com/docs/copilot/chat/copilot-chat-context#_context-compaction)
-  - 不一定 compact 就會遺失，但會因為 compact 導致 context 不可控，llm 效能可能更好也可能更差
-
-> 忽好忽壞的不可控，會增加未來改善措施的難度
+  - ❓可能的不可控，會增加未來改善措施的難度（SOP 中要不要 compact 還是 clear）❓
 
 ---
 
-### 為何會有幫助: Involve human in the loop
+### 為何會有幫助: 平行分工
 
-- Vibe Coding 沒有一個明確的 checkpoint，不容易多人協作
-- 複雜需求的 Vibe Coding 流程拉長，更不容易 review
+- 複雜需求中，Vibe Coding 沒有一個明確的 checkpoint
+  - 不易 review，Involve Human in the loop
+  - 不易多人協作，或是拆分成多個任務
 - 使用中間產物 Spec 檔案作為 source of truth
-  - 可以讓其他 teammember 來 review，確保需求的正確性
-  - 最終產物是 Spec + Code。Spec 作為未來改動的基準，確保 Spec 跟著需求改動
+  - 讓其他 teammember 來 review
+  - 根據 Spec 來產生 Plan、Tasks，進行平行分工
+  - 最終產物是 Spec + Code。Spec 作為未來改動的基準
+- 只有 Code 往往不足表達當初的需求細節
 
-> 只有 Code 往往不足表達當初的需求細節
 > 「誒我去年為何會這樣寫啊（問旁邊」
 
 ---
 
-### Vibe Coding 常見狀況
+### Code 不是更精準的 Spec 展現嗎
 
-Vibe 是聊天，Spec 是工程
+- 過去 Code 為王，Coding 壁壘
+  - Code 是最精確的需求表達，Spec 是服務 Code 的文件
+- ai 時代 gen code 的速度，實現 Spec 的速度太快，成本太低
+  - Spec 變成 executable spec
+- Idea -> 產生 Spec -> 實作 Spec -> Spec 驗收交付 -> 上線
+  - 整合服務根據 Spec 對接，而不是根據 Code 細節
+  - 某個範圍內，相對不在乎 Code 是怎麼寫的
 
-- 同一需求每次改法不同
-- QA 才發現需求漏掉
-- 上線後才補規格
-
----
-
-### SDD 適合 agent?
-
-為何又紅起來
-
-- 把需求變成可檢查文件
-- 把實作順序固定下來
-- 把驗收條件前移
-- 把 agent 行為限制在 spec 內
+> 過去領先的 Code base，現在對手幾分鐘就 gen 出來。反而是 Spec 的優劣決定競爭力
 
 ---
 
-### Why use nano (or mini) for Spec-kit?
+### Code 逆向產生 Spec？
 
-- https://developers.openai.com/api/docs/pricing
+那我直接逆向工程產生 Spec 那不就可以繼續 SDD了嗎
+
+- 實務上 code base 總量 token 會比 Spec 多
+  - Spec -> Code 在 context window 內，Code -> Spec 就會超出 context window
+  - 用相同等級的 model ，無法 Code to Spec
+- Code 比較多行，不一定能讀到正確的資料夾，檔案，行數
+- 失真：agent read 時會用 grep 跳著讀，有可能跳掉關鍵的邏輯
+
+---
+
+### SDD & Spec-kit
+
+- Chat 是聊天，產出 Spec 是工程
+- SDD 是方法
+- speckit 是把方法落地，可重複執行 workflow 的工具
+
+> Vibe Coding 就是療癒
+
+---
+
+### 為何用 nano or mini
 
 ```
-  ┌──────────────┬──────────┬───────────┬────────────┬───────────┬───────────┬────────────┐
-  │ Model        │    Short │     Short │      Short │      Long │      Long │       Long │
-  │              │    Input │    Cached │     Output │     Input │    Cached │     Output │
-  │              │          │     Input │            │           │     Input │            │
-  ├──────────────┼──────────┼───────────┼────────────┼───────────┼───────────┼────────────┤
-  │ gpt-5.4-pro  │   $30.00 │         - │    $180.00 │    $60.00 │         - │    $270.00 │
-  │ gpt-5.4      │    $2.50 │     $0.25 │     $15.00 │     $5.00 │     $0.50 │     $22.50 │
-  │ gpt-5.4-mini │    $0.75 │    $0.075 │      $4.50 │         - │         - │          - │
-  │ gpt-5.4-nano │    $0.20 │     $0.02 │      $1.25 │         - │         - │          - │
-  └──────────────┴──────────┴───────────┴────────────┴───────────┴───────────┴────────────┘
+# Prices per 1M tokens.
+  ┌──────────────┬────────┬────────┬─────────┬────────┬────────┬─────────┐
+  │ Model        │  Short │  Short │   Short │   Long │   Long │    Long │
+  │              │  Input │ Cached │  Output │  Input │ Cached │  Output │
+  │              │        │  Input │         │        │  Input │         │
+  ├──────────────┼────────┼────────┼─────────┼────────┼────────┼─────────┤
+  │ gpt-5.4      │  $2.50 │  $0.25 │  $15.00 │  $5.00 │  $0.50 │  $22.50 │
+  │ gpt-5.4-mini │  $0.75 │ $0.075 │   $4.50 │      - │      - │       - │
+  │ gpt-5.4-nano │  $0.20 │  $0.02 │   $1.25 │      - │      - │       - │
+  │ gpt-5.4-pro  │ $30.00 │      - │ $180.00 │ $60.00 │      - │ $270.00 │
+  └──────────────┴────────┴────────┴─────────┴────────┴────────┴─────────┘
+# 只有 gpt-5.4 時，Spec-kit 請用 mini 或 nano
+# Spec-kit 的核心流程（specify, plan, tasks）對於模型的能力要求不高
+# 使用 mini 或 nano 就能達到 90% 的效果，但成本只有 10-20%，非常划算
 ```
+
+https://developers.openai.com/api/docs/pricing
 
 ---
 
-### Why use nano (or mini) for Spec-kit?
+### 為何用 nano or mini
 
-- https://openai.com/index/introducing-gpt-5-4-mini-and-nano/
-- gpt-5.4-nano 有 gpt-5.4 `90%` 的 Coding, Tool-calling, Intelligence
-- 但如果是 Long context 或 MM / Vision / CUA 效能只剩 `50%`
-
-- Spec-kit Tax: 比起 Vibe Coding 的即時回饋，SDD 的流程會有額外的成本（Spec 產生、Plan 產生、Task 產生、Implement 產生）
+- nano 有 gpt-5.4 `90%+` 的 Coding/Tool-calling/Intelligence
+  - Long context/MM/Vision/CUA 效能剩 `50%`
+- Spec-kit Tax: 比起 Vibe Coding，Spec-Kit 流程有額外成本（Spec、Plan、Task、Implement 產生）
 - 使用 nano 費用 10% 或 mini 費用 16.7%
   - Tradeoff: 不適合 Long Context (>272K tokens) 的任務
-  - 但是如果使用 gpt-5.4 來跑 long context 的任務，成本會變兩倍，變成 nano 的 18-36 倍
-  - 要盡力把 context 壓縮不要變成 long context
-- 可以用 5.4 來做 Spec，然後用 5.4-nano 來做 implement，這樣就能兼顧品質與成本
+- 使用 gpt-5.4 來跑 long context，成本變兩倍，變成 nano 的 18-36 倍
+  - 實務上應盡力控制 context
+  - 用 5.4 來做 Spec，用 5.4-mini 來做 implement，兼顧品質與成本
 
----
+https://openai.com/index/introducing-gpt-5-4-mini-and-nano/
 
-### LAB2
-
-- 卡住很正常，先記錄問題
-- 我們先求跑通，再求漂亮
-
-```
-/speckit.specify
-/speckit.clarify
-/speckit.plan
-/speckit.analyze
-/speckit.tasks
-/speckit.implement
-```
-
-
----
-
-### Clarify
-
----
-
-### 驗收（Analyze）
-
-`/speckit.analyze`
-
-- 看與 spec 的差距
-- 看風險與遺漏
-- 看是否需要回到 plan/tasks
-
----
-
-### 今天的 LAB 題目
-
-## 台北市 YouBike 2.0 即時站點查詢器
-
-- 單頁靜態網頁
-- 政府公開資料 API
-- 要有搜尋與過濾
-
----
-
-### LAB 目標
-
-1. 可抓取站點資料
-1. 可依站名或地址搜尋
-1. 顯示可借車輛、可還空位
-1. 可用低庫存警示（< 3）
-
----
-
-### 資料來源
-
-- API Endpoint  
-`https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json`
-
----
-
-### 安裝卡住怎麼辦
-
-- 先確認 `uv` 可用
-- 再確認 `specify version`
-- 再跑一次 `specify check`
-- 真的不行就切講師提供環境
-
----
-
-### API Key 設定
-
-- 選項 1：使用自己的 Azure OpenAI Key
-- 選項 2：使用講師提供 Key
-- 重點是先讓 agent 可用
-
----
-
-### Workshop 規則
-
-- 先做出可驗收版本
-- 不要跳步驟
-- 變更需求先改 spec
-- 每階段都做 checkpoint
-
----
-
-### Step 1: `/speckit.specify`
-
-目標：把需求寫清楚，含 user stories 與驗收條件
-
-```text
-建立一個單頁 Web 應用：台北市 YouBike 2.0 即時站點查詢器。
-需求：抓取 API、名稱/地址搜尋、列表顯示站點資訊、低庫存警示。
-```
-
----
-
-### Step 1 檢查點
-
-- `spec.md` 是否可讀
-- user stories 是否完整
-- 模糊詞是否被移除
-- 驗收標準是否可測
-
----
-
-### Step 2: `/speckit.plan`
-
-目標：固定技術棧與實作策略
-
-```text
-技術要求：index.html + main.js，Tailwind CDN，
-用 Fetch API，不用 React/Vue，資料處理與 DOM 分離。
-```
-
----
-
-### Step 2 檢查點
-
-- `plan.md` 有明確架構
-- 模組邊界清楚
-- 錯誤處理策略清楚
-- RWD 與可維護性有被提到
-
----
-
-### Step 3: `/speckit.tasks`
-
-目標：拆成可執行任務
-
-1. HTML 結構與 Tailwind 初始化
-1. API fetch 與 error handling
-1. Search filter
-1. 列表渲染
-1. 最後 UI/RWD 調整
-
----
-
-### Step 3 檢查點
-
-- 任務可獨立完成
-- 任務順序合理
-- 每個任務可驗證
-- 無超大顆任務
-
----
-
-### Step 4: `/speckit.implement`
-
-目標：照 `tasks.md` 順序實作
-
-```text
-請依 tasks.md 順序實作。
-先做 API 抓取邏輯，完成後提醒我手動測試。
-```
-
----
-
-### Step 4 檢查點
-
-- 是否真的按 tasks 順序
-- 是否偷改未定義需求
-- 是否有最小可運行版本
-- 每次改動是否可回推到 spec
+{{% /section %}}
 
 ---
 
@@ -609,24 +533,6 @@ Vibe 是聊天，Spec 是工程
 1. 規格改了但 tasks 沒更新
 1. 規格太模糊，agent 自由發揮
 1. 驗收放最後，回頭成本很高
-
----
-
-### 修正策略
-
-- 發現偏移先回 `spec.md`
-- `plan.md` 改完再重生 tasks
-- 小步快跑，每步都驗
-- 不要硬救一個壞的 task tree
-
----
-
-### Live Demo Flow
-
-1. 用 4 步驟 prompt 走完一輪
-1. 故意改需求一次
-1. 展示如何只改 spec 再重跑
-1. 驗收後收斂成可交付版本
 
 ---
 
@@ -647,14 +553,28 @@ Vibe 是聊天，Spec 是工程
 
 ---
 
-## LAB 時間
+### 回到 LAB
 
 - 大家可以繼續做自己的專案
-- 閱讀 [Spec-kit 的概念文件](https://github.com/github/spec-kit/blob/main/spec-driven.md)
+- 卡住很正常，先問 agent 為什麼卡住了
 - 或閱讀今天有提到的論文
 - 模型語言偏見
   - [Do Multilingual LLMs Think In English](https://www.alphaxiv.org/abs/2502.15603)
   - [Better To Ask in English?](https://www.alphaxiv.org/abs/2504.20022)
+- [Spec-kit 的概念文件](https://github.com/github/spec-kit/blob/main/spec-driven.md)
+
+---
+
+### LAB 到最後 5 分鐘
+
+```
+/speckit.specify
+/speckit.clarify # 問 agent 這是什麼
+/speckit.plan
+/speckit.analyze # 問 agent 這是什麼
+/speckit.tasks
+/speckit.implement
+```
 
 ---
 
@@ -676,6 +596,8 @@ Vibe 是聊天，Spec 是工程
 ---
 
 ## Thank you
+
+[TODO] add link to 下午的 session https://aienterprise.ithome.com.tw/2026/lab/4790 與投影片永久網址
 
 喜歡這種內容歡迎來找我聊天
 
