@@ -37,7 +37,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
         with:
-          submodules: recursive
           fetch-depth: 0
 
       - name: Detect changed slide files
@@ -104,8 +103,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
         with:
-          submodules: recursive
           fetch-depth: 0
+
+      - name: Init required submodules
+        run: |
+          git submodule sync -- themes/PaperMod
+          git submodule update --init --depth=1 themes/PaperMod
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
