@@ -3,7 +3,7 @@ title: "Cloud Summit Workshop: Spec-driven development with Spec-kit"
 description: "90 分鐘 hands-on workshop，從 Vibe Coding 走向 Spec-driven Development（SDD），用 Spec-kit 完成從規格到實作的完整流程。"
 tags: ["ai", "sdd", "spec-kit", "workshop", "devops", "agent"]
 categories: ["ai", "workshop"]
-date: '2026-05-02T09:00:00Z'
+date: '2036-05-02T09:00:00Z'
 outputs: ["Reveal"]
 reveal_hugo:
   custom_theme: "reveal-hugo/themes/robot-lung.css"

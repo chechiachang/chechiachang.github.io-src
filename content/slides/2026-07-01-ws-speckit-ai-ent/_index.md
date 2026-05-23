@@ -288,6 +288,9 @@ specify check
 /speckit.tasks
 /clear
 
+# 建立 branch，根據 plan.md 來命名，讓 agent 可以在正確的 branch 上實作
+/speckit.git.feature
+
 /speckit.implement
 # implement 完成部分 task 後也可以 /clear
 ```
@@ -318,7 +321,7 @@ Please create or switch to a feature branch for 001-youbike-station-search using
 
 ---
 
-### LAB1: Auto-approve
+### LAB1: Auto-approve or Autopilot?
 
 避免人類變成瓶頸，auto-approve 是需要的，但請注意安全性❗
 
@@ -575,6 +578,7 @@ https://openai.com/index/introducing-gpt-5-4-mini-and-nano/
 /speckit.plan
 /speckit.analyze # 問 agent 這是什麼
 /speckit.tasks
+/speckit.git.feature
 /speckit.implement
 ```
 
