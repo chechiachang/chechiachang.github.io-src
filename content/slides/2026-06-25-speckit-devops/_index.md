@@ -29,44 +29,17 @@ Che-Chia Chang
 
 ## 大綱
 
-1. DevOps 現在的痛點
-1. 為什麼要用 Spec-driven development
-1. Spec-kit 怎麼落地到 SOP / Runbook
-1. 怎麼接上 CI/CD 與監控形成閉環
+1. 什麼是 Spec-driven development
+1. SDD 能解的 DevOps 的痛點
+1. Spec-kit 怎麼落地到 SOP / Runbook / Platform automation
+1. Spec-kit 經驗分享
 1. 什麼情境先導入，什麼情境先不要
 
 {{% /section %}}
 
 ---
 
-## DevOps 的日常，不是只有部署
-
-- 開發、測試、部署、維運、安全、合規全部都要顧
-- 任務高頻、跨角色、低容錯
-- 工具愈來愈多，但上下文愈來愈碎
-- 太晚發現才是問題
-
----
-
-## 常見卡點
-
-- SOP 有寫，但每個人做法不同
-- Runbook 在文件裡，incident 當下找不到
-- 交接靠口頭，知識容易斷層
-- 例行工作反覆做，人力被鎖在低價值任務
-
----
-
-## 這題為什麼 AI 以前做不好
-
-- Prompt 是聊天，不是工程契約
-- LLM 會補 pattern，但不會讀你的腦
-- 看起來對，不一定真的能在流程裡穩定運行
-- 缺少可驗證邊界，就很難持續改善
-
----
-
-## 解法：Spec-driven development
+## What is Spec-driven development
 
 - Spec 是 source of truth
 - 先定義目標、限制、驗收條件，再寫實作
@@ -75,12 +48,75 @@ Che-Chia Chang
 
 ---
 
-## DevOps 與 SDD 的契合點
+## Why SDD 適合 DevOps
 
-- DevOps 重視可重複與可觀測
-- SDD 重視可定義與可驗證
-- 兩者結合後，自動化流程可以被 review、測試、回歸
-- 規格成為跨團隊共同語言
+SDD 需要明確的規格
+- 輸入，產出，驗收條件
+
+許多 DevOps 任務有明確的輸入與產出
+- 部署：程式碼 -> 服務狀態 -> health check
+- 監測：指標數據 -> 警報
+- 事故處理：事件 -> 解決方案
+- 例行維護：狀態 -> 更新狀態
+- 可重複與可觀測 -> 隱含明確的規格
+
+---
+
+## Why SDD 適合 DevOps：對比 Dev 實作
+
+Dev 實作功能，規格的邊界更廣
+1. 滿足規格後，追求效能
+1. 架構設計
+1. 未來擴展性
+1. 程式碼 pkg 依賴引用
+
+> Dev 是申論題，追求產出的品質，哲學與美感
+> Quality 是不完全可直接量化的問題
+
+---
+
+## Why SDD 適合 DevOps：對比 Dev 實作
+
+DevOps 實作流程
+1. SOP/Runbook 完成步驟 -> 有/無完成
+1. Platform Engineering 工具串起來 -> 有通/沒通
+1. 自動化 -> 自動化程度 number
+
+> DevOps 有很多產出選擇題跟是非題，追求達成
+
+---
+
+## LLM genernation：產出的差異
+
+現在不論 Dev 還是 DevOps 都可以用 AI 產出
+
+DevOps
+- SOP/Runbook 產出：完成與否 boolean
+- Platform Engineering 產出：工具串接成功與否 boolean
+- Finops 產出：成本 number
+
+---
+
+WIP
+
+## 適合與不適合
+
+CI/CD
+- CI 達成與否
+- CI 速度 -> 目標明確，手段不明確
+
+> SDD 不適合所有 DevOps 任務
+> 但非常適合有明確輸入輸出、可量化驗收條件的任務
+
+---
+
+## What is Spec-kit
+
+---
+
+## SDD 與 context management
+
+- Prompt 是聊天，規格是工程
 
 ---
 

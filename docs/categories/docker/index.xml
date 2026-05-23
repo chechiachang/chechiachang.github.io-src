@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Docker on Che-Chia Chang</title>
-    <link>https://chechia.net/categories/docker/</link>
+    <link>http://localhost:1313/categories/docker/</link>
     <description>Recent content in Docker on Che-Chia Chang</description>
     <image>
       <title>Che-Chia Chang</title>
-      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.147.7</generator>
     <language>en</language>
     <lastBuildDate>Tue, 10 Oct 2023 04:42:26 +0800</lastBuildDate>
-    <atom:link href="https://chechia.net/categories/docker/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Vault Workshop ??: Integrated Storage</title>
-      <link>https://chechia.net/posts/2023-10-10-vault-workshop-integrated-storage/</link>
+      <link>http://localhost:1313/posts/2023-10-10-vault-workshop-integrated-storage/</link>
       <pubDate>Tue, 10 Oct 2023 04:42:26 +0800</pubDate>
-      <guid>https://chechia.net/posts/2023-10-10-vault-workshop-integrated-storage/</guid>
+      <guid>http://localhost:1313/posts/2023-10-10-vault-workshop-integrated-storage/</guid>
       <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
 &lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
@@ -40,9 +40,9 @@
     </item>
     <item>
       <title>Vault Workshop 10: Deploy with Docker</title>
-      <link>https://chechia.net/posts/2023-09-21-vault-workshop-deploy-on-kubernetes/</link>
+      <link>http://localhost:1313/posts/2023-09-21-vault-workshop-deploy-on-kubernetes/</link>
       <pubDate>Thu, 14 Sep 2023 06:42:26 +0800</pubDate>
-      <guid>https://chechia.net/posts/2023-09-21-vault-workshop-deploy-on-kubernetes/</guid>
+      <guid>http://localhost:1313/posts/2023-09-21-vault-workshop-deploy-on-kubernetes/</guid>
       <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
 &lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
@@ -72,9 +72,9 @@ sudo install minikube-darwin-arm64 /usr/local/bin/minikube
     </item>
     <item>
       <title>Vault Workshop 09: Vault HA</title>
-      <link>https://chechia.net/posts/2023-09-20-vault-workshop-ha-docker/</link>
+      <link>http://localhost:1313/posts/2023-09-20-vault-workshop-ha-docker/</link>
       <pubDate>Thu, 14 Sep 2023 05:42:26 +0800</pubDate>
-      <guid>https://chechia.net/posts/2023-09-20-vault-workshop-ha-docker/</guid>
+      <guid>http://localhost:1313/posts/2023-09-20-vault-workshop-ha-docker/</guid>
       <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
 &lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
@@ -98,9 +98,9 @@ sudo install minikube-darwin-arm64 /usr/local/bin/minikube
     </item>
     <item>
       <title>Vault Workshop 08: Vault in Docker and Initialization</title>
-      <link>https://chechia.net/posts/2023-09-19-vault-workshop-docker-and-initialization/</link>
+      <link>http://localhost:1313/posts/2023-09-19-vault-workshop-docker-and-initialization/</link>
       <pubDate>Thu, 14 Sep 2023 04:42:26 +0800</pubDate>
-      <guid>https://chechia.net/posts/2023-09-19-vault-workshop-docker-and-initialization/</guid>
+      <guid>http://localhost:1313/posts/2023-09-19-vault-workshop-docker-and-initialization/</guid>
       <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
 &lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
