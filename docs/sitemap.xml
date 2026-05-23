@@ -23,7 +23,7 @@
     <loc>http://localhost:1313/categories/</loc>
     <lastmod>2026-05-02T13:20:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/2026-07-01-ws-speckit-cloud-summit/</loc>
+    <loc>http://localhost:1313/posts/2026-07-01-ws-speckit-ai-ent/</loc>
     <lastmod>2026-05-02T13:20:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/devops/</loc>
@@ -74,10 +74,10 @@
     <loc>http://localhost:1313/tags/agent/</loc>
     <lastmod>2026-05-02T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/slides/2026-07-01-ws-speckit-cloud-summit-codex/</loc>
+    <loc>http://localhost:1313/slides/2026-07-01-ws-speckit-ai-ent/</loc>
     <lastmod>2026-05-02T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/slides/2026-07-01-ws-speckit-cloud-summit/</loc>
+    <loc>http://localhost:1313/slides/2026-07-01-ws-speckit-ai-ent-codex/</loc>
     <lastmod>2026-05-02T09:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/sdd/</loc>

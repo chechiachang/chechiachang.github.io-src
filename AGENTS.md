@@ -12,6 +12,7 @@ All instructions and skills must be compact and extremely minimal.
 ## Agents
 - `ingest-agent`: Ingest `./content/*`.
 - `output-agent`: Generate content.
+- `review-agent`: Review content.
 
 ### ingest-agent Instructions
 
@@ -70,3 +71,16 @@ If conten/posts or slides path contains `workshop` or `ws`, the output-agent sho
 - fetch slide content of last year from `./content/slides/*/_index.md` as reference for structure, style, and voice.
 - `skills/generate-slide-md.md`: Skill for generating `content/slides/*/_index.md`; must read `wiki/slide-pages-pattern.md` before drafting outline.
 - `skills/chechia-content.md`: Skills for generating text and sentence content with chechia's unique style and voice.
+
+## output-agent Instructions
+
+##### Review Overview
+
+1. read `content/slides/*/_index.md`
+1. review content for accuracy, clarity, and consistency with chechia's style and voice.
+
+##### Review Slide Content in `./content/slides`
+
+1. read markdown slide by slide. Slides are split by `---`.
+1. output result slide by slide, in format `Slide N: [OK/Needs Work] - Reason (if Needs Work)`.
+1. first Empty Slide (no text) is meta-data

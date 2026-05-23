@@ -15,9 +15,9 @@
     <atom:link href="http://localhost:1313/tags/openai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cloud Summit Workshop: Spec-driven development with Spec-kit</title>
-      <link>http://localhost:1313/posts/2026-07-01-ws-speckit-cloud-summit/</link>
+      <link>http://localhost:1313/posts/2026-07-01-ws-speckit-ai-ent/</link>
       <pubDate>Sat, 02 May 2026 13:20:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/2026-07-01-ws-speckit-cloud-summit/</guid>
+      <guid>http://localhost:1313/posts/2026-07-01-ws-speckit-ai-ent/</guid>
       <description>Spec-driven development (SDD) is a software development approach that emphasizes the use of specifications to drive the development process. In this workshop, we will explore how to implement SDD using Spec-kit, a powerful tool for creating and managing specifications. We will cover the basics of SDD, how to create effective specifications, and how to use Spec-kit to automate the development process. By the end of this workshop, you will have a solid understanding of SDD and how to apply it in your projects using Spec-kit.</description>
     </item>
     <item>
