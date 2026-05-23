@@ -63,6 +63,7 @@ jobs:
           bad_files=()
           while IFS= read -r file; do
             [ -z "$file" ] && continue
+            [ ! -f "$file" ] && continue
             if ! grep -Eq 'outputs:[[:space:]]*\["Reveal"\]' "$file"; then
               bad_files+=("$file")
             fi
@@ -80,6 +81,7 @@ jobs:
           bad_files=()
           while IFS= read -r file; do
             [ -z "$file" ] && continue
+            [ ! -f "$file" ] && continue
             section_open="$(grep -Ec '\{\{% section %\}\}' "$file" || true)"
             section_close="$(grep -Ec '\{\{% /section %\}\}' "$file" || true)"
             mermaid_open="$(grep -Ec '\{\{< mermaid >\}\}' "$file" || true)"
