@@ -52,6 +52,8 @@ For each slide, output:
 
 ## output-agent Instructions
 
+1. Try fetch existing content with the same title from draft/<category>/ content/transcripts, content/slides, and content/posts. Use them as reference for style, voice, and structure.
+
 ##### markdown-slides
 
 1. use ./markdown-slides for generating markdown slides.
