@@ -23,16 +23,16 @@ Che-Chia Chang
 
 {{% section %}}
 
-公司有做/想做 DevOps Platform Engineering 的請舉手
+公司有在做或想做 DevOps Platform Engineering 的，歡迎舉手
 
 ---
 
-阿不舉手的是不想做 Platform Engineering ？
+如果還沒舉手，通常是兩種情況
 
-還是說覺得很難做
+- 目前優先度還不高
+- 或覺得落地門檻很高
 
 {{% note %}}
-演講恐怖份子
 {{% /note %}}
 
 ---
@@ -44,18 +44,18 @@ Che-Chia Chang
 1. 自建平台需要開發，但許多 DevOps 職缺並不要求 Coding skill
 
 > 不會 leet code，可以寫 code 自建平台嗎？
+> -> 可以 
 
 ---
 
-### 可以 
+### 本議程會告訴你
 
----
+- 如何篩選對的需求
+- 如何用 SDD 把需求規格化
+- Spec-Kit 落地平台工程
+- Spec 實現可驗證交付
 
-本議程會告訴你
-- 篩選對的需求
-- 用 SDD 
-- 不會 leet code 也能寫出的平台工程
-- 可驗證
+> Prompt 是聊天，Spec 是工程
 
 {{% /section %}}
 
@@ -69,12 +69,12 @@ Che-Chia Chang
 
 ### 大綱
 
-1. DevOps 與平台工程的現實
+1. 平台工程的現實
 1. 什麼是 Spec-driven development（SDD）
-1. Spec-kit 如何落地 SOP / Runbook / Platform automation
-1. 什麼情境先導入，什麼情境先不要
-1. 常見踩雷與可落地做法
-1. AI 時代下的 DevOps 優勢與前景
+1. Spec-kit 如何落地
+1. 適合導入的情境
+1. 常見踩雷
+1. DevOps 優勢
 
 {{% /section %}}
 
@@ -82,10 +82,12 @@ Che-Chia Chang
 
 ### What is Spec-driven development
 
-- Spec 是 source of truth
-- 先定義目標、限制、驗收條件，再寫實作
-- 把模糊需求轉成可執行規格
-- 讓 AI 在明確邊界內產生可用輸出
+- Spec - source of truth
+- Spec -> Implement 
+- -> Feedback -> Spec
+- 模糊需求 -> 可執行規格
+
+> 用 Spec 讓 AI 產生有效的輸出
 
 ---
 
@@ -100,7 +102,7 @@ Che-Chia Chang
 
 ### SDD vs Vibe Coding
 
-- 以使有 agent 為前提，要如何將需求送給 agent
+- 以「已經有 agent」為前提，要如何把需求正確送給 agent
 - Vibe coding 是 prompt 技巧，讓 agent 產生輸出
   - Prompt 下的好壞決定了輸出品質，但不保證可驗證
 - SDD 是工程流程，讓任何人都能在同一套規格協作
@@ -115,23 +117,24 @@ Che-Chia Chang
 #### DevOps 有許多適合 SDD 的任務
 
 驗收標準明確
-- SOP/Runbook 完成步驟 -> 有/無完成
-- CI/CD Pipeline / 工具串接 -> 有通/沒通
-- CI/CD 耗時/速度 -> number
-- 成本
-- SLO -> number
+- SOP/Runbook 步驟完成率 -> %
+- CI/CD Pipeline / 工具串接成功率 -> %
+- CI/CD Lead Time -> 分鐘
+- Infra / Cloud 成本 -> 每月金額
+- SLO 達成率 -> %
 
 ---
 
-驗收標準明確 + 流程已知，其實就可以自動化或 Platform 化
-- SOP/Runbook
-- CI/CD Pipeline
-- 工具串接/整合
+### 先用這題判斷：流程是否已知？
 
-vs 驗收標準明確 + 但還沒有改善方法，流程未知
-- 降低耗時，加速
-- 降低成本
-- 達成/提高 SLO
+| 驗收明確 + 流程已知 | 驗收明確 + 流程未知 |
+| 導入 SDD | 先釐清 Spec |
+| --- | --- |
+| SOP / Runbook 自動化 | 如何降低耗時、提升速度 |
+| CI/CD Pipeline 標準化 | 如何降低成本 |
+| 工具串接 / 整合 | 如何達成或提高 SLO |
+
+> 需要釐清可行方法，才能定義規格
 
 ---
 
@@ -142,14 +145,16 @@ vs 驗收標準明確 + 但還沒有改善方法，流程未知
 
 那麼先導入 SDD 可能不適合
 
+> CI platform，使用者時常換，library 被其他 team 引用
+
 ---
 
-### LLM 產出差異：先選可量測任務
+### 找到第一個適合的任務
 
-- DevOps 任務常能用 Boolean / Number 驗收
-- 更適合先導入 AI + SDD
-- 先選低風險、高頻、可量測題目
-- 先求可控與可驗證，再求覆蓋範圍
+- 人工例行事務/手動除錯
+- 固定流程/SOP/Runbook
+- 低風險
+- 沒有被其他服務依賴
 
 ---
 
@@ -227,11 +232,11 @@ flowchart TD
 
 ### Demo 題目（示意）
 
-YouBike 2.0 站點查詢器
-- 自動抓政府開放資料 API
-- 可用站名 / 地址搜尋
-- 顯示可借車輛與可停車位
-- 低庫存門檻告警（可量測）
+Kubernetes Incident Runbook 自動化
+- 監控告警觸發後，自動收斂診斷資訊
+- 依規格執行標準化排障步驟
+- 輸出處置紀錄與回滾建議
+- MTTR / 回滾成功率（可量測）
 
 ---
 
@@ -290,8 +295,10 @@ YouBike 2.0 站點查詢器
 
 ### References
 
+- https://github.com/github/spec-kit
 - https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/
 - https://github.com/github/spec-kit/blob/main/spec-driven.md
+- https://github.com/github/spec-kit#-get-started
 
 ---
 
