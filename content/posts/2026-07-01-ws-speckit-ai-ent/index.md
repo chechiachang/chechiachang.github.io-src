@@ -39,7 +39,7 @@ disableShare: false
 ### 📅 活動時間：2026-07-02 09:00-10:30
 ### 🔗 [活動連結](https://aienterprise.ithome.com.tw/2026/session/4788)
 ### 📘 聯繫我 [Facebook](https://www.facebook.com/engineer.from.scratch)
-### 📑 [投影片](https://chechia.net/slides/2026-07-01-ws-speckit-cloud-summit/)
+### 📑 [投影片](https://chechia.net/slides/2026-07-01-ws-speckit-ai-ent/)
 
 ---
 
