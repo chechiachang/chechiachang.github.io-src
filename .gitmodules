@@ -1,6 +1,0 @@
-[submodule "themes/PaperMod"]
-	path = themes/PaperMod
-	url = https://github.com/adityatelange/hugo-PaperMod.git
-[submodule "markdown-slides"]
-	path = markdown-slides
-	url = https://github.com/chechiachang/markdown-slides.git
