@@ -53,16 +53,16 @@ jobs:
           hugo \
             --gc \
             --minify \
-            --baseURL "https://pages.chechia.net/pr-preview/pr-${{ github.event.number }}/" \
+            --baseURL "https://chechia.net/pr-preview/pr-${{ github.event.number }}/" \
             --destination ./docs
 
       - name: Deploy PR preview
         uses: rossjrw/pr-preview-action@ffa7509e91a3ec8dfc2e5536c4d5c1acdf7a6de9
         with:
           source-dir: ./docs/
-          preview-branch: gh-pages
+          preview-branch: master
           umbrella-dir: docs/pr-preview
           pages-base-path: docs
-          pages-base-url: pages.chechia.net
+          pages-base-url: chechia.net
           wait-for-pages-deployment: true
           qr-code: true

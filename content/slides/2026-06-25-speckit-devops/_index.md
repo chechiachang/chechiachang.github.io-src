@@ -229,4 +229,8 @@ Spec-driven development
 
 ### Q&A
 
+下週 Cloud Summit 會有一場 Workshop，會帶大家實際操作 Spec-kit，歡迎來玩！
+- Workshop [Spec-driven development with Spec-kit](https://chechia.net/posts/2026-07-01-ws-speckit-ai-ent/)
+- Session [從 Vibe Coding 到 Spec-driven AI Engineering](https://chechia.net/posts/2026-07-01-speckit-cloud-summit/)
+
 Thank you.
