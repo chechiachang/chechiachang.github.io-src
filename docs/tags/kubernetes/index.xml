@@ -14,13 +14,6 @@
     <lastBuildDate>Sat, 02 May 2026 13:20:00 +0000</lastBuildDate>
     <atom:link href="https://chechia.net/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Cloud Summit Workshop: Spec-driven development with Spec-kit</title>
-      <link>https://chechia.net/posts/2026-07-01-ws-speckit-ai-ent/</link>
-      <pubDate>Sat, 02 May 2026 13:20:00 +0000</pubDate>
-      <guid>https://chechia.net/posts/2026-07-01-ws-speckit-ai-ent/</guid>
-      <description>Spec-driven development (SDD) is a software development approach that emphasizes the use of specifications to drive the development process. In this workshop, we will explore how to implement SDD using Spec-kit, a powerful tool for creating and managing specifications. We will cover the basics of SDD, how to create effective specifications, and how to use Spec-kit to automate the development process. By the end of this workshop, you will have a solid understanding of SDD and how to apply it in your projects using Spec-kit.</description>
-    </item>
-    <item>
       <title>LLM O11y：從 Observability 到 Decision System</title>
       <link>https://chechia.net/posts/2026-07-01-langfuse-ai-ent/</link>
       <pubDate>Sat, 02 May 2026 13:20:00 +0000</pubDate>
@@ -35,9 +28,16 @@
       <description>本工作坊將實作 llm-o11y：在 localhost 以 Docker Compose 啟動 Bifrost 與 Langfuse，串接 LLM AI Gateway 與 tracing，建立 evaluation 與 LLM-as-a-judge，抽取 dataset，並組成可重現的 AI 開發 workflow。</description>
     </item>
     <item>
+      <title>Workshop: Spec-driven development with Spec-kit</title>
+      <link>https://chechia.net/posts/2026-07-01-ws-speckit-ai-ent/</link>
+      <pubDate>Fri, 01 May 2026 13:20:00 +0000</pubDate>
+      <guid>https://chechia.net/posts/2026-07-01-ws-speckit-ai-ent/</guid>
+      <description>Spec-driven development (SDD) is a software development approach that emphasizes the use of specifications to drive the development process. In this workshop, we will explore how to implement SDD using Spec-kit, a powerful tool for creating and managing specifications. We will cover the basics of SDD, how to create effective specifications, and how to use Spec-kit to automate the development process. By the end of this workshop, you will have a solid understanding of SDD and how to apply it in your projects using Spec-kit.</description>
+    </item>
+    <item>
       <title>DevOpsDay: 規格驅動的 AI 強化 DevOps</title>
       <link>https://chechia.net/posts/2026-06-25-speckit-devops/</link>
-      <pubDate>Fri, 01 May 2026 13:20:00 +0000</pubDate>
+      <pubDate>Sat, 25 Apr 2026 13:20:00 +0000</pubDate>
       <guid>https://chechia.net/posts/2026-06-25-speckit-devops/</guid>
       <description>Spec-driven development (SDD) is a software development approach that emphasizes the use of specifications to drive the development process. In this workshop, we will explore how to implement SDD using Spec-kit, a powerful tool for creating and managing specifications. We will cover the basics of SDD, how to create effective specifications, and how to use Spec-kit to automate the development process. By the end of this workshop, you will have a solid understanding of SDD and how to apply it in your projects using Spec-kit.</description>
     </item>

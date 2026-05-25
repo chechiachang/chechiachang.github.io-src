@@ -11,55 +11,62 @@
     </image>
     <generator>Hugo -- 0.147.7</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 20 May 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 24 May 2026 12:00:00 +0000</lastBuildDate>
     <atom:link href="https://chechia.net/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ai</title>
       <link>https://chechia.net/tags/ai/</link>
-      <pubDate>Wed, 20 May 2026 09:00:00 +0000</pubDate>
+      <pubDate>Sun, 24 May 2026 12:00:00 +0000</pubDate>
       <guid>https://chechia.net/tags/ai/</guid>
       <description></description>
     </item>
     <item>
       <title>Devops</title>
       <link>https://chechia.net/tags/devops/</link>
-      <pubDate>Wed, 20 May 2026 09:00:00 +0000</pubDate>
+      <pubDate>Sun, 24 May 2026 12:00:00 +0000</pubDate>
       <guid>https://chechia.net/tags/devops/</guid>
       <description></description>
     </item>
     <item>
       <title>Generative</title>
       <link>https://chechia.net/tags/generative/</link>
-      <pubDate>Wed, 20 May 2026 09:00:00 +0000</pubDate>
+      <pubDate>Sun, 24 May 2026 12:00:00 +0000</pubDate>
       <guid>https://chechia.net/tags/generative/</guid>
       <description></description>
     </item>
     <item>
       <title>Kubernetes</title>
       <link>https://chechia.net/tags/kubernetes/</link>
-      <pubDate>Wed, 20 May 2026 09:00:00 +0000</pubDate>
+      <pubDate>Sun, 24 May 2026 12:00:00 +0000</pubDate>
       <guid>https://chechia.net/tags/kubernetes/</guid>
       <description></description>
     </item>
     <item>
       <title>Openai</title>
       <link>https://chechia.net/tags/openai/</link>
-      <pubDate>Wed, 20 May 2026 09:00:00 +0000</pubDate>
+      <pubDate>Sun, 24 May 2026 12:00:00 +0000</pubDate>
       <guid>https://chechia.net/tags/openai/</guid>
       <description></description>
     </item>
     <item>
       <title>Sdd</title>
       <link>https://chechia.net/tags/sdd/</link>
-      <pubDate>Wed, 20 May 2026 09:00:00 +0000</pubDate>
+      <pubDate>Sun, 24 May 2026 12:00:00 +0000</pubDate>
       <guid>https://chechia.net/tags/sdd/</guid>
       <description></description>
     </item>
     <item>
       <title>Spec-Kit</title>
       <link>https://chechia.net/tags/spec-kit/</link>
-      <pubDate>Wed, 20 May 2026 09:00:00 +0000</pubDate>
+      <pubDate>Sun, 24 May 2026 12:00:00 +0000</pubDate>
       <guid>https://chechia.net/tags/spec-kit/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Speckit</title>
+      <link>https://chechia.net/tags/speckit/</link>
+      <pubDate>Sun, 03 May 2026 13:20:00 +0000</pubDate>
+      <guid>https://chechia.net/tags/speckit/</guid>
       <description></description>
     </item>
     <item>
@@ -95,13 +102,6 @@
       <link>https://chechia.net/tags/agent/</link>
       <pubDate>Sat, 02 May 2026 09:00:00 +0000</pubDate>
       <guid>https://chechia.net/tags/agent/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Speckit</title>
-      <link>https://chechia.net/tags/speckit/</link>
-      <pubDate>Fri, 01 May 2026 13:20:00 +0000</pubDate>
-      <guid>https://chechia.net/tags/speckit/</guid>
       <description></description>
     </item>
     <item>
