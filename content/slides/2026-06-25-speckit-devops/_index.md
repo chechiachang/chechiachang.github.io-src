@@ -32,81 +32,57 @@ Che-Chia Chang
 - 目前優先度還不高
 - 或覺得落地門檻很高
 
-{{% note %}}
-{{% /note %}}
-
 ---
 
 ### DevOps 
 
-1. 核心在於「自動化」與「維運」
-1. 既有工具無法滿足需求時，自然轉向自建平台工程
-1. 自建平台需要開發，但許多 DevOps 職缺並不要求 Coding skill
+Platform Engineering 需要開發，但許多 DevOps 職缺並不要求 Coding skill
 
-> 不會 leet code，可以寫 code 自建平台嗎？
-> -> 可以 
+{{% note %}}
+DevOps 核心在於「自動化」與「維運」
+既有工具無法滿足需求時，自然轉向自建平台工程
+{{% /note %}}
 
 ---
 
 ### 本議程會告訴你
 
-- 如何篩選對的需求
-- 如何用 SDD 把需求規格化
-- Spec-Kit 落地平台工程
-- Spec 實現可驗證交付
-
-> Prompt 是聊天，Spec 是工程
+1. 平台工程的現實
+1. 什麼是 SDD
+1. Spec-kit 如何落地
+1. 適合導入的情境
 
 {{% /section %}}
 
 ---
-
-{{% section %}}
 
 {{< slide content="slides.about-me" >}}
 
 ---
 
-### 大綱
+### What is SDD
 
-1. 平台工程的現實
-1. 什麼是 Spec-driven development（SDD）
-1. Spec-kit 如何落地
-1. 適合導入的情境
-1. 常見踩雷
-1. DevOps 優勢
+Spec-driven development
 
-{{% /section %}}
+- Spec > source of truth
+- Spec > Implementation
+- Feedback > Spec
+- 模糊需求 > 可執行規格
 
----
-
-### What is Spec-driven development
-
-- Spec - source of truth
-- Spec -> Implement 
-- -> Feedback -> Spec
-- 模糊需求 -> 可執行規格
-
-> 用 Spec 讓 AI 產生有效的輸出
-
----
-
-### What is Spec-kit
-
-- Spec-kit 是 GitHub 的 SDD toolkit
-- 是一個 SDD 流程框架
-- 不是 prompt 技巧，是可重複工程流程
-- 核心價值：把需求、驗收、交付串成同一條線
+> 可執行Spec 讓 agent 有效率的實作
 
 ---
 
 ### SDD vs Vibe Coding
 
-- 以「已經有 agent」為前提，要如何把需求正確送給 agent
-- Vibe coding 是 prompt 技巧，讓 agent 產生輸出
-  - Prompt 下的好壞決定了輸出品質，但不保證可驗證
-- SDD 是工程流程，讓任何人都能在同一套規格協作
-  - 規格定義了驗收條件，讓產出可驗證、可回饋、可改進
+「使用 coding agent」為前提，比較 Vibe coding
+
+- Vibe coding 是藝術
+  - Prompt 好壞決定輸出品質
+- SDD 是工程
+  - 標準流程
+  - 規格定義驗收條件
+  - 產出可驗證、可協作的流程
 
 {{% note %}}
 不討論手刻程式，手刻是一種浪漫
@@ -125,10 +101,9 @@ Che-Chia Chang
 
 ---
 
-### 先用這題判斷：流程是否已知？
+#### 先用這題判斷：流程是否已知？
 
-| 驗收明確 + 流程已知 | 驗收明確 + 流程未知 |
-| 導入 SDD | 先釐清 Spec |
+| Spec 明確 | 釐清 Spec |
 | --- | --- |
 | SOP / Runbook 自動化 | 如何降低耗時、提升速度 |
 | CI/CD Pipeline 標準化 | 如何降低成本 |
@@ -141,164 +116,114 @@ Che-Chia Chang
 如果你的 DevOps 任務
 - 需求變異很大
 - 驗收條件不明確
-- 多方依賴性
-
-那麼先導入 SDD 可能不適合
-
-> CI platform，使用者時常換，library 被其他 team 引用
+- 被其他服務依賴
+- 那麼先導入 SDD 可能不適合
 
 ---
 
 ### 找到第一個適合的任務
 
-- 人工例行事務/手動除錯
+- 人工例行事務
 - 固定流程/SOP/Runbook
 - 低風險
 - 沒有被其他服務依賴
 
 ---
 
-### Prompt vs Spec
+##### 情境分享：所有內部平台帳號定期稽核
 
-- Prompt 是聊天，解單次問題
-- Spec 是工程，管多輪改動一致性
+- 確保沒有過期或離職的帳號存在
+- 需求清楚：產生帳號列表，檢查條件，回報格式
+- 低風險，高人工，常常做
 
-> Vibe 是聊天，Spec 是工程
+{{% note %}}
+{{% /note %}}
+
+---
+
+### 實際導入流程
+
+- 挑題目：低風險，高人工，需求清楚
+- 規格化：Spec-kit 需求寫成 Spec，確定驗收標準
+- 拆任務：Spec-kit Spec -> Plan -> Task
+- 實作：Task 已定義驗收條件，agent 會努力達成
+
+---
+
+##### 情境分享：所有內部平台帳號定期稽核
+
+- ✅挑題目
+- 規格化
+  - aws, azure, gcp, github, jenkins...
+  - /user /permission api 規格
+- 驗收標準
+  - 測試：單元測試，模擬帳號整合測試
+  - 結果：帳號總數，帳號權限，違反條件的帳號數量
+  - 格式：符合稽核格式
+
+---
+
+### What is [Spec-kit](https://github.com/github/spec-kit)
+
+- Spec-kit 是 GitHub 的 SDD toolkit
+- 是一個 SDD 流程框架
+- 不是 prompt 技巧，是可重複工程流程
+- 核心價值：把需求、驗收、交付串成同一條線
 
 ---
 
 ### Spec-kit 核心流程
 
 ```text
-/speckit.specify -> /speckit.plan -> /speckit.tasks -> /speckit.implement -> /speckit.analyze -> /speckit.checklist
+/speckit.specify 列出所有內部平台帳號...
+/speckit.specify 根據條件檢查帳號狀態...權限...
+
+/speckit.clarify
+/speckit.plan
+/speckit.plan    修改先後順序...
+
+/speckit.tasks   拆成獨立子任務，可分配給 subagent...
+/speckit.analyze 檢查 Task 依賴性
+
+/speckit.implement
 ```
 
-- 需求改動時，先回 spec，再重跑後續步驟
-- 不直接在 code 上硬修需求
+---
+
+##### 情境分享：所有內部平台帳號定期稽核
+
+- ✅挑題目
+- ✅規格化
+- ✅驗收標準
+- 拆任務：agent 準備平台 task，檢查相依性與 checklist
+- 實作：發包 subagent 負責一個平台，平行實作
+- 成果：人類做到很痛苦 -> 變成全自動化
+
+{{% note %}}
+如果有適合的工具，那不用閉門造車
+但現在造車非常的快與便宜
+{{% /note %}}
 
 ---
 
-### Flow: 從 SOP 到可驗證交付
+### 其他情境分享
 
-{{< mermaid >}}
-flowchart TD
-  A[SOP / Runbook] --> B[specify]
-  B --> C[plan]
-  C --> D[tasks]
-  D --> E[implement]
-  E --> F[analyze + checklist]
-  F --> G[CI/CD + Metrics]
-  G --> B
-{{< /mermaid >}}
-
----
-
-### Step 1: 選題
-
-- 先挑低風險、高頻、可量測任務
-- 任務邊界要清楚，輸入輸出可定義
-- 先小範圍試點，不要一次全改
-- 指標先定義：Lead time、MTTR、錯誤率
-
----
-
-### Step 2: 規格化
-
-- 把流程拆成前置條件、步驟、輸出、驗收
-- 把 Done 寫成可測試條件
-- 明確列出失敗處理與回滾策略
-- 規格版本化，讓變更可追溯
-
----
-
-### Step 3: 接上執行
-
-- 在 CI/CD 中執行規格對應任務
-- plan 固定架構與邊界，tasks 拆可驗證任務
-- implement 階段按 tasks 順序落地
-- analyze/checklist 做交付品質保險絲
-
----
-
-### Demo 流程（示意）
-
-1. 以現有 Runbook 當輸入
-1. 用 `specify` 產生 spec draft
-1. 用 `plan` 補齊介面與驗收場景
-1. 用 `tasks` 生成執行任務與檢查點
-1. 用 `implement` 落地，`analyze/checklist` 驗收
-
----
-
-### Demo 題目（示意）
-
-Kubernetes Incident Runbook 自動化
-- 監控告警觸發後，自動收斂診斷資訊
-- 依規格執行標準化排障步驟
-- 輸出處置紀錄與回滾建議
-- MTTR / 回滾成功率（可量測）
-
----
-
-### Demo 時要看哪三件事
-
-- 規格是否完整覆蓋需求與限制
-- 任務是否對應驗收條件
-- 失敗時能否快速定位並回滾
-
----
-
-### 哪些情境適合先導入
-
-- SOP 與 Runbook 已存在
-- 任務重複高且錯誤成本高
-- 團隊願意用同一套規格語言協作
-- 可以在 sandbox 或 staging 先驗證
-
----
-
-### 哪些情境先不要
-
-- 需求仍高速變動，尚未定義驗收
-- 缺乏監控與回滾機制
-- 高風險變更沒有審核流程
-- 把 AI 當決策系統，而不是輔助系統
-
----
-
-### 常見踩雷
-
-- 規格太抽象，任務不可驗證
-- 指標選錯，流程變快但結果沒變好
-- 一次導入範圍過大，團隊吸收不了
-- 只看成功路徑，忽略例外流程
-
----
-
-### 實務建議
-
-- 先做一條可跑通的最小閉環
-- 每份規格都附驗收與回滾條件
-- 規格與程式一樣進 code review
-- 兩週一循環：回顧結果並更新規格
+- 除錯 Runbook：在多個內部維服務上來回收集資訊，分析問題
+- 服務的 sidecar：提供業務邏輯的 API，讓 ops 對服務進行操作，或提供額外功能
 
 ---
 
 ### 你可以帶走的重點
 
-- 選對題目：高頻、可量測、可回滾
-- 規格優先：需求改動先回 spec
-- 流程閉環：analyze/checklist 不可省
-- Prompt 是聊天，Spec 是工程
+- DevOps 任務，許多已有明確的 Spec
+- 選對題目：高人工、低風險，跨平台，被依賴性低
+- SpecKit 標準化流程，分工協作
+- 適合處理複雜流程，跨平台的任務
 
----
-
-### References
-
-- https://github.com/github/spec-kit
-- https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/
-- https://github.com/github/spec-kit/blob/main/spec-driven.md
-- https://github.com/github/spec-kit#-get-started
+{{% note %}}
+有工具就不用閉門造車
+- 但如果沒有，現在造車非常的快與便宜，而且有相當的品質
+{{% /note %}}
 
 ---
 
