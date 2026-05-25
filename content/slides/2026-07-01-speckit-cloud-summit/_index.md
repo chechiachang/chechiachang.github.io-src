@@ -1,5 +1,5 @@
 ---
-title: "When Not to Vibe 從 Vibe Coding 到 Spec-driven AI Engineering"
+title: "When Not to Vibe 從 Chat-driven coding 到 Spec-driven AI Engineering"
 description: "以 Spec-driven development（SDD）結合 AI 與 Spec-kit，判斷何時不該 Vibe Coding，並把需求轉成可驗證、可回饋的工程流程。"
 tags: ["openai", "generative", "ai", "kubernetes", "devops", "sdd", "spec-kit"]
 categories: ["generative", "ai", "devops"]
@@ -15,7 +15,7 @@ reveal_hugo:
 
 ### When Not to Vibe
 
-##### 從 Vibe Coding 到 Spec-driven AI Engineering
+##### 從 Chat-driven coding 到 Spec-driven AI Engineering
 
 Che-Chia Chang
 
@@ -24,7 +24,8 @@ Che-Chia Chang
 {{% section %}}
 
 寫扣使用 coding agent 有標準流程嗎？
-如何開發，驗證，協作
+
+可以多人開發，驗證，協作
 
 ---
 
@@ -36,16 +37,17 @@ Che-Chia Chang
 
 ---
 
-### 今天只講一件事
+##### 今天只講一件事
 
-如果 Vibe with agent 是團隊目前的方式，
-Try Spec-driven + agent 的標準化流程
+如果 Chat-driven coding 是團隊目前的方式
+
+Try Spec-driven coding 的標準化流程
 
 ---
 
-### 本議程會告訴你
+#### 本議程會告訴你
 
-1. Vibe Coding 的邊界
+1. Chat-driven coding 的邊界
 1. SDD 的核心概念
 1. Spec-kit 落地流程
 1. 何時切換與如何起步
@@ -58,15 +60,14 @@ Try Spec-driven + agent 的標準化流程
 
 ---
 
-### Vibe Coding 的價值
+Chat-driven coding 的價值
 
 - 快速探索，驗證想法，PoC
-
-> 在低風險、短週期任務，Vibe 很有價值
+- 在短週期任務，Chat-driven 很有價值
 
 ---
 
-### Vibe Coding 的挑戰
+Chat-driven Coding 的挑戰
 
 - 輸出不穩定
 - 團隊協作難追蹤
@@ -121,7 +122,7 @@ user: 剛剛沒想到，現在改成這樣...
 
 ---
 
-##### Vibe Coding 的挑戰總結
+##### Chat-driven Coding 的挑戰總結
 
 實務上應盡力控制 context
 - Spec-kit 流程（specify, plan, tasks）實際上是不斷整理 context 的過程
@@ -130,17 +131,17 @@ user: 剛剛沒想到，現在改成這樣...
 
 ---
 
-### Vibe Coding vs SDD
+### Chat-driven Coding vs SDD
 
 假設需求寫出來是十萬字
 
-- Vibe 是透過多輪對話，一萬字分散一段一段給模型
+- Chat-driven 是透過多輪對話，一萬字分散一段一段給模型
 - SDD 是 Plan 時把一萬字整理一個結構化的 Spec
   - 實作時讓模型一次讀進結構化的 Spec
 
 ---
 
-### When Not to Vibe
+### When Not to Chat-driven
 
 當任務符合以下條件
 
@@ -162,9 +163,9 @@ Spec-driven development
 
 ---
 
-### 從 Vibe 到工程化
+### 從 Chat-driven 到工程化
 
-- Vibe：Prompt 主導
+- Chat-driven：Prompt 主導
 - SDD：Spec 主導
 - Prompt 是畫一張水墨畫
   - Spec 是給你一張直角座標工程圖(template)，挖洞填坑
@@ -257,7 +258,7 @@ Spec-driven development
 
 ---
 
-### More than Vibe, More than Spec
+### More than Chat-driven, More than Spec
 
 你還需要三件事
 
@@ -302,15 +303,15 @@ fail -> fix -> rerun
 ### 完整心智模型
 
 ```text
-Vibe (探索) -> Spec (定義) -> Build (交付) -> Eval/Loop (收斂)
+Chat-driven (探索) -> Spec (定義) -> Build (交付) -> Eval/Loop (收斂)
 ```
 
 ---
 
 ### 你可以帶走的重點
 
-- Vibe 適合探索，不適合所有正式交付
-- When Not to Vibe：高風險、可驗收、多人協作場景
+- Chat-driven 適合探索，不適合所有正式交付
+- When Not to Chat-driven：高風險、可驗收、多人協作場景
 - SDD + Spec-kit 讓 AI 開發流程可工程化
 - 加上 Eval + Loop，才能穩定落地
 
