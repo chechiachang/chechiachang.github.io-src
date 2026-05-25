@@ -52,11 +52,11 @@ Try Spec-driven coding 的標準化流程
 1. Spec-kit 落地流程
 1. 何時切換與如何起步
 
-{{% /section %}}
-
 ---
 
 {{< slide content="slides.about-me" >}}
+
+{{% /section %}}
 
 ---
 
@@ -97,30 +97,6 @@ user: 剛剛沒想到，現在改成這樣...
 │ GPT-4 │       ~90%+ │        ~85%+ │          ~75% │            128K │
 └───────┴─────────────┴──────────────┴───────────────┴─────────────────┘
 ```
-
----
-
-##### long context 可能造成錢包縮水
-
-```
-# https://developers.openai.com/api/docs/pricing
-# Prices per 1M tokens.
-┌──────────────┬────────┬────────┬─────────┬────────┬────────┬─────────┐
-│ Model        │  Short │  Short │   Short │   Long │   Long │    Long │
-│              │  Input │ Cached │  Output │  Input │ Cached │  Output │
-│              │        │  Input │         │        │  Input │         │
-├──────────────┼────────┼────────┼─────────┼────────┼────────┼─────────┤
-│ gpt-5.4      │  $2.50 │  $0.25 │  $15.00 │  $5.00 │  $0.50 │  $22.50 │
-│ gpt-5.4-mini │  $0.75 │ $0.075 │   $4.50 │      - │      - │       - │
-│ gpt-5.4-nano │  $0.20 │  $0.02 │   $1.25 │      - │      - │       - │
-│ gpt-5.4-pro  │ $30.00 │      - │ $180.00 │ $60.00 │      - │ $270.00 │
-└──────────────┴────────┴────────┴─────────┴────────┴────────┴─────────┘
-# 使用 gpt-5.4 來跑 long context，成本變兩倍，變成 nano 的 18-36 倍
-# 用 5.4 來做 Spec，用 5.4-mini 來做 implement，兼顧品質與成本
-# 使用 mini 或 nano 就能達到 90% 的效果，但成本只有 10-20%，非常划算
-```
-
----
 
 ##### Chat-driven Coding 的挑戰總結
 
@@ -221,11 +197,16 @@ Spec-driven development
 ### Spec-kit 核心流程
 
 ```text
-/speckit.specify 列出需求、邊界、驗收條件...
-/speckit.clarify 釐清模糊點與衝突...
-/speckit.plan    設計實作策略與順序...
-/speckit.tasks   拆成可分配任務...
-/speckit.analyze 檢查任務依賴與一致性...
+/speckit.specify 列出所有內部平台帳號...
+/speckit.specify 根據條件檢查帳號狀態...權限...
+
+/speckit.clarify
+/speckit.plan
+/speckit.plan    修改先後順序...
+
+/speckit.tasks   拆成獨立子任務，可分配給 subagent...
+/speckit.analyze 檢查 Task 依賴性
+
 /speckit.implement
 ```
 
@@ -249,6 +230,8 @@ Spec-driven development
 
 答案：不一定
 
+如果 Spec 中包含 test, lint, review 等驗收標準，且實作時有遵守，那麼品質會比較穩定
+
 ---
 
 ### Spec-kit 解決了什麼，沒解決什麼
@@ -258,19 +241,7 @@ Spec-driven development
 
 ---
 
-### More than Chat-driven, More than Spec
-
-你還需要三件事
-
-```text
-1. Evaluation
-2. Iteration Loop
-3. Automation Pipeline
-```
-
----
-
-### 1) Evaluation
+### 外部 agent 做 PR Evaluation
 
 - 不只測試有沒有過
 - 還要看是否符合 Spec
@@ -278,17 +249,7 @@ Spec-driven development
 
 ---
 
-### 2) Iteration Loop
-
-```text
-fail -> fix -> rerun
-```
-
-> 讓流程可收斂，而不是每次重抽卡
-
----
-
-### 3) Automation Pipeline
+### Automation Pipeline
 
 把流程 script 化、pipeline 化
 
