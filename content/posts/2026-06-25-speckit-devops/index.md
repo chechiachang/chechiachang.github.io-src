@@ -36,8 +36,8 @@ disableShare: false
 #    hidden: false # only hide on current single page
 ---
 
-### 📅 活動時間：2026-07-01T09:00-10:30
-### 🔗 [活動連結](https://hwdc.ithome.com.tw/2025/lab-page/4003)
+### 📅 活動時間：2026-06-26T17:00-17:40
+### 🔗 [活動連結](https://devopsdays.tw/2026/session/4764)
 ### 📘 聯繫我 [Facebook](https://www.facebook.com/engineer.from.scratch)
 ### 📑 [投影片](https://chechia.net/slides/2026-06-25-speckit-devops/)
 
