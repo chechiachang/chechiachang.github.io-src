@@ -586,6 +586,7 @@ https://openai.com/index/introducing-gpt-5-4-mini-and-nano/
 
 ### 可以做的更好的地方
 
+- 儘早引入 test suite、lint、pre-commit hooks、diff review
 - o11y: 監測模型行為，找出失效跟錯誤的原因
   - 下午的 Lab 歡迎參考：LLM O11y：從 Observability 到 Decision System
   - [TODO] [專案連結與投影片我也放上來]()

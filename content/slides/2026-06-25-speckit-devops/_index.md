@@ -3,7 +3,7 @@ title: "DevOpsDay: 規格驅動的 AI 強化 DevOps"
 description: "以 Spec-driven development（SDD）結合 AI 與 Spec-kit，把 SOP 與 Runbook 轉成可執行規格，建立可驗證、可回饋的 DevOps 自動化流程。"
 tags: ["openai", "generative", "ai", "kubernetes", "devops", "sdd", "spec-kit"]
 categories: ["generative", "ai", "devops"]
-date: '2026-06-25T09:00:00Z'
+date: '2026-05-20T09:00:00Z'
 outputs: ["Reveal"]
 reveal_hugo:
   custom_theme: "reveal-hugo/themes/robot-lung.css"
@@ -13,11 +13,51 @@ reveal_hugo:
   transition_speed: "fast"
 ---
 
-# 規格驅動的 AI 強化 DevOps
+### 規格驅動的 AI 強化 DevOps
 
-AI-powered Spec-driven DevOps Platform Engineering
+##### 篩選適合的情境，SDD 成為你的平台開發神器
 
 Che-Chia Chang
+
+---
+
+{{% section %}}
+
+公司有在做或想做 DevOps Platform Engineering 的，歡迎舉手
+
+---
+
+如果還沒舉手，通常是兩種情況
+
+- 目前優先度還不高
+- 或覺得落地門檻很高
+
+{{% note %}}
+{{% /note %}}
+
+---
+
+### DevOps 
+
+1. 核心在於「自動化」與「維運」
+1. 既有工具無法滿足需求時，自然轉向自建平台工程
+1. 自建平台需要開發，但許多 DevOps 職缺並不要求 Coding skill
+
+> 不會 leet code，可以寫 code 自建平台嗎？
+> -> 可以 
+
+---
+
+### 本議程會告訴你
+
+- 如何篩選對的需求
+- 如何用 SDD 把需求規格化
+- Spec-Kit 落地平台工程
+- Spec 實現可驗證交付
+
+> Prompt 是聊天，Spec 是工程
+
+{{% /section %}}
 
 ---
 
@@ -27,126 +67,133 @@ Che-Chia Chang
 
 ---
 
-## 大綱
+### 大綱
 
-1. 什麼是 Spec-driven development
-1. SDD 能解的 DevOps 的痛點
-1. Spec-kit 怎麼落地到 SOP / Runbook / Platform automation
-1. Spec-kit 經驗分享
-1. 什麼情境先導入，什麼情境先不要
+1. 平台工程的現實
+1. 什麼是 Spec-driven development（SDD）
+1. Spec-kit 如何落地
+1. 適合導入的情境
+1. 常見踩雷
+1. DevOps 優勢
 
 {{% /section %}}
 
 ---
 
-## What is Spec-driven development
+### What is Spec-driven development
 
-- Spec 是 source of truth
-- 先定義目標、限制、驗收條件，再寫實作
-- 把模糊需求轉成可執行規格
-- 讓 AI 在明確邊界內產生可用輸出
+- Spec - source of truth
+- Spec -> Implement 
+- -> Feedback -> Spec
+- 模糊需求 -> 可執行規格
 
----
-
-## Why SDD 適合 DevOps
-
-SDD 需要明確的規格
-- 輸入，產出，驗收條件
-
-許多 DevOps 任務有明確的輸入與產出
-- 部署：程式碼 -> 服務狀態 -> health check
-- 監測：指標數據 -> 警報
-- 事故處理：事件 -> 解決方案
-- 例行維護：狀態 -> 更新狀態
-- 可重複與可觀測 -> 隱含明確的規格
+> 用 Spec 讓 AI 產生有效的輸出
 
 ---
 
-## Why SDD 適合 DevOps：對比 Dev 實作
+### What is Spec-kit
 
-Dev 實作功能，規格的邊界更廣
-1. 滿足規格後，追求效能
-1. 架構設計
-1. 未來擴展性
-1. 程式碼 pkg 依賴引用
-
-> Dev 是申論題，追求產出的品質，哲學與美感
-> Quality 是不完全可直接量化的問題
+- Spec-kit 是 GitHub 的 SDD toolkit
+- 是一個 SDD 流程框架
+- 不是 prompt 技巧，是可重複工程流程
+- 核心價值：把需求、驗收、交付串成同一條線
 
 ---
 
-## Why SDD 適合 DevOps：對比 Dev 實作
+### SDD vs Vibe Coding
 
-DevOps 實作流程
-1. SOP/Runbook 完成步驟 -> 有/無完成
-1. Platform Engineering 工具串起來 -> 有通/沒通
-1. 自動化 -> 自動化程度 number
+- 以「已經有 agent」為前提，要如何把需求正確送給 agent
+- Vibe coding 是 prompt 技巧，讓 agent 產生輸出
+  - Prompt 下的好壞決定了輸出品質，但不保證可驗證
+- SDD 是工程流程，讓任何人都能在同一套規格協作
+  - 規格定義了驗收條件，讓產出可驗證、可回饋、可改進
 
-> DevOps 有很多產出選擇題跟是非題，追求達成
-
----
-
-## LLM genernation：產出的差異
-
-現在不論 Dev 還是 DevOps 都可以用 AI 產出
-
-DevOps
-- SOP/Runbook 產出：完成與否 boolean
-- Platform Engineering 產出：工具串接成功與否 boolean
-- Finops 產出：成本 number
+{{% note %}}
+不討論手刻程式，手刻是一種浪漫
+{{% /note %}}
 
 ---
 
-WIP
+#### DevOps 有許多適合 SDD 的任務
 
-## 適合與不適合
-
-CI/CD
-- CI 達成與否
-- CI 速度 -> 目標明確，手段不明確
-
-> SDD 不適合所有 DevOps 任務
-> 但非常適合有明確輸入輸出、可量化驗收條件的任務
+驗收標準明確
+- SOP/Runbook 步驟完成率 -> %
+- CI/CD Pipeline / 工具串接成功率 -> %
+- CI/CD Lead Time -> 分鐘
+- Infra / Cloud 成本 -> 每月金額
+- SLO 達成率 -> %
 
 ---
 
-## What is Spec-kit
+### 先用這題判斷：流程是否已知？
+
+| 驗收明確 + 流程已知 | 驗收明確 + 流程未知 |
+| 導入 SDD | 先釐清 Spec |
+| --- | --- |
+| SOP / Runbook 自動化 | 如何降低耗時、提升速度 |
+| CI/CD Pipeline 標準化 | 如何降低成本 |
+| 工具串接 / 整合 | 如何達成或提高 SLO |
+
+> 需要釐清可行方法，才能定義規格
 
 ---
 
-## SDD 與 context management
+如果你的 DevOps 任務
+- 需求變異很大
+- 驗收條件不明確
+- 多方依賴性
 
-- Prompt 是聊天，規格是工程
+那麼先導入 SDD 可能不適合
+
+> CI platform，使用者時常換，library 被其他 team 引用
 
 ---
 
-## Spec-kit 核心流程
+### 找到第一個適合的任務
+
+- 人工例行事務/手動除錯
+- 固定流程/SOP/Runbook
+- 低風險
+- 沒有被其他服務依賴
+
+---
+
+### Prompt vs Spec
+
+- Prompt 是聊天，解單次問題
+- Spec 是工程，管多輪改動一致性
+
+> Vibe 是聊天，Spec 是工程
+
+---
+
+### Spec-kit 核心流程
 
 ```text
-/speckit.specify -> /speckit.plan -> /speckit.tasks -> implement
+/speckit.specify -> /speckit.plan -> /speckit.tasks -> /speckit.implement -> /speckit.analyze -> /speckit.checklist
 ```
 
-- `specify`: 把需求變成結構化規格
-- `plan`: 定義架構、資料模型、介面契約
-- `tasks`: 拆成可執行任務與驗證順序
+- 需求改動時，先回 spec，再重跑後續步驟
+- 不直接在 code 上硬修需求
 
 ---
 
-## Flow: 從 SOP 到可驗證交付
+### Flow: 從 SOP 到可驗證交付
 
 {{< mermaid >}}
 flowchart TD
   A[SOP / Runbook] --> B[specify]
   B --> C[plan]
   C --> D[tasks]
-  D --> E[Implement in CI/CD]
-  E --> F[Test + Metrics + Incident]
-  F --> B
+  D --> E[implement]
+  E --> F[analyze + checklist]
+  F --> G[CI/CD + Metrics]
+  G --> B
 {{< /mermaid >}}
 
 ---
 
-## Step 1: 選題
+### Step 1: 選題
 
 - 先挑低風險、高頻、可量測任務
 - 任務邊界要清楚，輸入輸出可定義
@@ -155,7 +202,7 @@ flowchart TD
 
 ---
 
-## Step 2: 規格化
+### Step 2: 規格化
 
 - 把流程拆成前置條件、步驟、輸出、驗收
 - 把 Done 寫成可測試條件
@@ -164,26 +211,36 @@ flowchart TD
 
 ---
 
-## Step 3: 接上執行
+### Step 3: 接上執行
 
 - 在 CI/CD 中執行規格對應任務
-- 自動回報測試結果與流程指標
-- Incident 回寫規格，避免同錯重演
-- 保留 Human-in-the-loop，尤其高風險變更
+- plan 固定架構與邊界，tasks 拆可驗證任務
+- implement 階段按 tasks 順序落地
+- analyze/checklist 做交付品質保險絲
 
 ---
 
-## Live Demo 流程（示意）
+### Demo 流程（示意）
 
-1. 以一份現有 Runbook 當輸入
+1. 以現有 Runbook 當輸入
 1. 用 `specify` 產生 spec draft
 1. 用 `plan` 補齊介面與驗收場景
 1. 用 `tasks` 生成執行任務與檢查點
-1. 在 pipeline 跑一次並看結果
+1. 用 `implement` 落地，`analyze/checklist` 驗收
 
 ---
 
-## Demo 時要看哪三件事
+### Demo 題目（示意）
+
+Kubernetes Incident Runbook 自動化
+- 監控告警觸發後，自動收斂診斷資訊
+- 依規格執行標準化排障步驟
+- 輸出處置紀錄與回滾建議
+- MTTR / 回滾成功率（可量測）
+
+---
+
+### Demo 時要看哪三件事
 
 - 規格是否完整覆蓋需求與限制
 - 任務是否對應驗收條件
@@ -191,7 +248,7 @@ flowchart TD
 
 ---
 
-## 哪些情境適合先導入
+### 哪些情境適合先導入
 
 - SOP 與 Runbook 已存在
 - 任務重複高且錯誤成本高
@@ -200,25 +257,25 @@ flowchart TD
 
 ---
 
-## 哪些情境先不要
+### 哪些情境先不要
 
-- 需求還在快速變動
+- 需求仍高速變動，尚未定義驗收
 - 缺乏監控與回滾機制
 - 高風險變更沒有審核流程
 - 把 AI 當決策系統，而不是輔助系統
 
 ---
 
-## 常見踩雷
+### 常見踩雷
 
-- 規格太抽象，導致任務不可驗證
-- 指標選錯，優化了流程但沒提升結果
+- 規格太抽象，任務不可驗證
+- 指標選錯，流程變快但結果沒變好
 - 一次導入範圍過大，團隊吸收不了
 - 只看成功路徑，忽略例外流程
 
 ---
 
-## 實務建議
+### 實務建議
 
 - 先做一條可跑通的最小閉環
 - 每份規格都附驗收與回滾條件
@@ -227,22 +284,24 @@ flowchart TD
 
 ---
 
-## 你可以帶走的重點
+### 你可以帶走的重點
 
+- 選對題目：高頻、可量測、可回滾
+- 規格優先：需求改動先回 spec
+- 流程閉環：analyze/checklist 不可省
 - Prompt 是聊天，Spec 是工程
-- SDD 適合 DevOps 的高頻可標準化工作
-- Spec-kit 讓 AI 自動化更可控、更可驗證
-- 成功關鍵是規格品質與回饋閉環
 
 ---
 
-## References
+### References
 
+- https://github.com/github/spec-kit
 - https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/
 - https://github.com/github/spec-kit/blob/main/spec-driven.md
+- https://github.com/github/spec-kit#-get-started
 
 ---
 
-## Q&A
+### Q&A
 
 Thank you.
