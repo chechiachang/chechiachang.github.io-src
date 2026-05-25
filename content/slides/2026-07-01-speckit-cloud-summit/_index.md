@@ -3,7 +3,7 @@ title: "When Not to Vibe 從 Vibe Coding 到 Spec-driven AI Engineering"
 description: "以 Spec-driven development（SDD）結合 AI 與 Spec-kit，判斷何時不該 Vibe Coding，並把需求轉成可驗證、可回饋的工程流程。"
 tags: ["openai", "generative", "ai", "kubernetes", "devops", "sdd", "spec-kit"]
 categories: ["generative", "ai", "devops"]
-date: '2026-05-24T12:00:00Z'
+date: '2026-05-02T12:00:00Z'
 outputs: ["Reveal"]
 reveal_hugo:
   custom_theme: "reveal-hugo/themes/robot-lung.css"

@@ -11,34 +11,41 @@
     </image>
     <generator>Hugo -- 0.147.7</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 24 May 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 03 May 2026 13:20:00 +0000</lastBuildDate>
     <atom:link href="https://chechia.net/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ai</title>
       <link>https://chechia.net/categories/ai/</link>
-      <pubDate>Sun, 24 May 2026 12:00:00 +0000</pubDate>
+      <pubDate>Sun, 03 May 2026 13:20:00 +0000</pubDate>
       <guid>https://chechia.net/categories/ai/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Devops</title>
-      <link>https://chechia.net/categories/devops/</link>
-      <pubDate>Sun, 24 May 2026 12:00:00 +0000</pubDate>
-      <guid>https://chechia.net/categories/devops/</guid>
       <description></description>
     </item>
     <item>
       <title>Generative</title>
       <link>https://chechia.net/categories/generative/</link>
-      <pubDate>Sun, 24 May 2026 12:00:00 +0000</pubDate>
+      <pubDate>Sun, 03 May 2026 13:20:00 +0000</pubDate>
       <guid>https://chechia.net/categories/generative/</guid>
       <description></description>
     </item>
     <item>
       <title>Aiops</title>
       <link>https://chechia.net/categories/aiops/</link>
-      <pubDate>Sat, 02 May 2026 13:20:00 +0000</pubDate>
+      <pubDate>Sat, 02 May 2026 15:30:00 +0000</pubDate>
       <guid>https://chechia.net/categories/aiops/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Observability</title>
+      <link>https://chechia.net/categories/observability/</link>
+      <pubDate>Sat, 02 May 2026 15:30:00 +0000</pubDate>
+      <guid>https://chechia.net/categories/observability/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Workshop</title>
+      <link>https://chechia.net/categories/workshop/</link>
+      <pubDate>Sat, 02 May 2026 13:30:00 +0000</pubDate>
+      <guid>https://chechia.net/categories/workshop/</guid>
       <description></description>
     </item>
     <item>
@@ -49,17 +56,10 @@
       <description></description>
     </item>
     <item>
-      <title>Observability</title>
-      <link>https://chechia.net/categories/observability/</link>
-      <pubDate>Sat, 02 May 2026 13:20:00 +0000</pubDate>
-      <guid>https://chechia.net/categories/observability/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Workshop</title>
-      <link>https://chechia.net/categories/workshop/</link>
-      <pubDate>Sat, 02 May 2026 13:20:00 +0000</pubDate>
-      <guid>https://chechia.net/categories/workshop/</guid>
+      <title>Devops</title>
+      <link>https://chechia.net/categories/devops/</link>
+      <pubDate>Sat, 02 May 2026 12:00:00 +0000</pubDate>
+      <guid>https://chechia.net/categories/devops/</guid>
       <description></description>
     </item>
     <item>

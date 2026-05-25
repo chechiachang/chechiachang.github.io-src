@@ -3,7 +3,7 @@ title: "DevOpsDay: 規格驅動的 AI 強化 DevOps"
 description: "以 Spec-driven development（SDD）結合 AI 與 Spec-kit，把 SOP 與 Runbook 轉成可執行規格，建立可驗證、可回饋的 DevOps 自動化流程。"
 tags: ["openai", "generative", "ai", "kubernetes", "devops", "sdd", "spec-kit"]
 categories: ["generative", "ai", "devops"]
-date: '2026-05-20T09:00:00Z'
+date: '2026-04-25T09:00:00Z'
 outputs: ["Reveal"]
 reveal_hugo:
   custom_theme: "reveal-hugo/themes/robot-lung.css"

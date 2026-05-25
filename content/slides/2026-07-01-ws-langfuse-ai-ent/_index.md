@@ -3,7 +3,7 @@ title: "Workshop: LLM O11y 從 Observability 到 Decision System"
 description: "Hands-on workshop from observability to evaluation workflow using Langfuse and llm-o11y."
 tags: ["llm", "langfuse", "observability", "evaluation", "workshop", "aiops"]
 categories: ["aiops", "workshop"]
-date: '2026-07-02T13:30:00Z'
+date: '2026-05-02T13:30:00Z'
 outputs: ["Reveal"]
 reveal_hugo:
   custom_theme: "reveal-hugo/themes/robot-lung.css"

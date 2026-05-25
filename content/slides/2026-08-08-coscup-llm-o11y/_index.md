@@ -3,7 +3,7 @@ title: "Observe and evaluate LLM Coding Agents"
 description: "從 LLM coding agent observability 出發，建立 evaluation、dataset、regression 與 decision gate，讓模型與框架升級可驗證。"
 tags: ["llm", "agent", "observability", "evaluation", "aiops", "devops"]
 categories: ["aiops", "observability"]
-date: '2026-08-08T00:00:00Z'
+date: '2026-06-08T00:00:00Z'
 outputs: ["Reveal"]
 reveal_hugo:
   custom_theme: "reveal-hugo/themes/robot-lung.css"
