@@ -2,22 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Vault on Che-Chia Chang</title>
-    <link>https://chechia.net/categories/vault/</link>
+    <link>http://localhost:1313/categories/vault/</link>
     <description>Recent content in Vault on Che-Chia Chang</description>
     <image>
       <title>Che-Chia Chang</title>
-      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.147.7</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 10 Oct 2023 04:42:26 +0800</lastBuildDate>
-    <atom:link href="https://chechia.net/categories/vault/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 25 Oct 2023 12:19:02 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/vault/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kubernetes Summit: Resource as Code for Kubernetes: Stop kubectl apply</title>
+      <link>http://localhost:1313/posts/2023-10-25-k8s-day-hashicorp-vault-the-perfect-beginner-guide/</link>
+      <pubDate>Wed, 25 Oct 2023 12:19:02 +0800</pubDate>
+      <guid>http://localhost:1313/posts/2023-10-25-k8s-day-hashicorp-vault-the-perfect-beginner-guide/</guid>
+      <description>Article description.</description>
+    </item>
     <item>
       <title>Vault Workshop ??: Integrated Storage</title>
-      <link>https://chechia.net/posts/2023-10-10-vault-workshop-integrated-storage/</link>
+      <link>http://localhost:1313/posts/2023-10-10-vault-workshop-integrated-storage/</link>
       <pubDate>Tue, 10 Oct 2023 04:42:26 +0800</pubDate>
-      <guid>https://chechia.net/posts/2023-10-10-vault-workshop-integrated-storage/</guid>
+      <guid>http://localhost:1313/posts/2023-10-10-vault-workshop-integrated-storage/</guid>
       <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
 &lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
@@ -39,10 +46,17 @@
 此方法允許在配置文件中設置一個或多個目標領導節點。當未初始化的 Vault 服務器啟動時，它將嘗試加入每個已定義的潛在領導者，直到成功。當指定的領導者之一變為活動狀態時，此節點將成功加入。當使用 Shamir 密封時，已加入的節點仍然需要手動解封。當使用自動解封時，節點將能夠自動加入並自動解封。&lt;/p&gt;</description>
     </item>
     <item>
+      <title>DevopsDay 2023 Hashicorp Vault perfect start for beginner</title>
+      <link>http://localhost:1313/posts/2023-09-25-devopsday-hashicorp-vault-the-perfect-beginner-guide/</link>
+      <pubDate>Mon, 25 Sep 2023 12:19:02 +0800</pubDate>
+      <guid>http://localhost:1313/posts/2023-09-25-devopsday-hashicorp-vault-the-perfect-beginner-guide/</guid>
+      <description>Article description.</description>
+    </item>
+    <item>
       <title>Vault Workshop 10: Deploy with Docker</title>
-      <link>https://chechia.net/posts/2023-09-21-vault-workshop-deploy-on-kubernetes/</link>
+      <link>http://localhost:1313/posts/2023-09-21-vault-workshop-deploy-on-kubernetes/</link>
       <pubDate>Thu, 14 Sep 2023 06:42:26 +0800</pubDate>
-      <guid>https://chechia.net/posts/2023-09-21-vault-workshop-deploy-on-kubernetes/</guid>
+      <guid>http://localhost:1313/posts/2023-09-21-vault-workshop-deploy-on-kubernetes/</guid>
       <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
 &lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
@@ -72,9 +86,9 @@ sudo install minikube-darwin-arm64 /usr/local/bin/minikube
     </item>
     <item>
       <title>Vault Workshop 09: Vault HA</title>
-      <link>https://chechia.net/posts/2023-09-20-vault-workshop-ha-docker/</link>
+      <link>http://localhost:1313/posts/2023-09-20-vault-workshop-ha-docker/</link>
       <pubDate>Thu, 14 Sep 2023 05:42:26 +0800</pubDate>
-      <guid>https://chechia.net/posts/2023-09-20-vault-workshop-ha-docker/</guid>
+      <guid>http://localhost:1313/posts/2023-09-20-vault-workshop-ha-docker/</guid>
       <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
 &lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
@@ -98,9 +112,9 @@ sudo install minikube-darwin-arm64 /usr/local/bin/minikube
     </item>
     <item>
       <title>Vault Workshop 08: Vault in Docker and Initialization</title>
-      <link>https://chechia.net/posts/2023-09-19-vault-workshop-docker-and-initialization/</link>
+      <link>http://localhost:1313/posts/2023-09-19-vault-workshop-docker-and-initialization/</link>
       <pubDate>Thu, 14 Sep 2023 04:42:26 +0800</pubDate>
-      <guid>https://chechia.net/posts/2023-09-19-vault-workshop-docker-and-initialization/</guid>
+      <guid>http://localhost:1313/posts/2023-09-19-vault-workshop-docker-and-initialization/</guid>
       <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
 &lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
@@ -137,9 +151,9 @@ cd deploy/00-docker-dev/
     </item>
     <item>
       <title>Vault Workshop 07: Policy &amp; approle</title>
-      <link>https://chechia.net/posts/2023-09-18-vault-workshop-policy-and-approle/</link>
+      <link>http://localhost:1313/posts/2023-09-18-vault-workshop-policy-and-approle/</link>
       <pubDate>Thu, 14 Sep 2023 03:42:26 +0800</pubDate>
-      <guid>https://chechia.net/posts/2023-09-18-vault-workshop-policy-and-approle/</guid>
+      <guid>http://localhost:1313/posts/2023-09-18-vault-workshop-policy-and-approle/</guid>
       <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
 &lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
@@ -166,9 +180,9 @@ path &amp;quot;secret/data/foo&amp;quot; {
     </item>
     <item>
       <title>Vault Workshop 06: Github Auth method</title>
-      <link>https://chechia.net/posts/2023-09-17-vault-workshop-authentication-github/</link>
+      <link>http://localhost:1313/posts/2023-09-17-vault-workshop-authentication-github/</link>
       <pubDate>Thu, 14 Sep 2023 02:42:26 +0800</pubDate>
-      <guid>https://chechia.net/posts/2023-09-17-vault-workshop-authentication-github/</guid>
+      <guid>http://localhost:1313/posts/2023-09-17-vault-workshop-authentication-github/</guid>
       <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
 &lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
@@ -183,9 +197,9 @@ path &amp;quot;secret/data/foo&amp;quot; {
     </item>
     <item>
       <title>Vault Workshop 05: Authentication</title>
-      <link>https://chechia.net/posts/2023-09-16-vault-workshop-authentication/</link>
+      <link>http://localhost:1313/posts/2023-09-16-vault-workshop-authentication/</link>
       <pubDate>Thu, 14 Sep 2023 01:42:26 +0800</pubDate>
-      <guid>https://chechia.net/posts/2023-09-16-vault-workshop-authentication/</guid>
+      <guid>http://localhost:1313/posts/2023-09-16-vault-workshop-authentication/</guid>
       <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
 &lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
@@ -226,9 +240,9 @@ You may need to set the following environment variables:
     </item>
     <item>
       <title>Vault Workshop 04: Secret Engine KV V2</title>
-      <link>https://chechia.net/posts/2023-09-15-vault-workshop-secret-engine-kv-v2/</link>
+      <link>http://localhost:1313/posts/2023-09-15-vault-workshop-secret-engine-kv-v2/</link>
       <pubDate>Thu, 14 Sep 2023 00:42:26 +0800</pubDate>
-      <guid>https://chechia.net/posts/2023-09-15-vault-workshop-secret-engine-kv-v2/</guid>
+      <guid>http://localhost:1313/posts/2023-09-15-vault-workshop-secret-engine-kv-v2/</guid>
       <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
 &lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
@@ -257,9 +271,9 @@ sys/          system       system_c063e514       system endpoints used for contr
     </item>
     <item>
       <title>Vault Workshop 03: Secret Engine</title>
-      <link>https://chechia.net/posts/2023-09-14-vault-workshop-secret-engine/</link>
+      <link>http://localhost:1313/posts/2023-09-14-vault-workshop-secret-engine/</link>
       <pubDate>Wed, 13 Sep 2023 22:42:26 +0800</pubDate>
-      <guid>https://chechia.net/posts/2023-09-14-vault-workshop-secret-engine/</guid>
+      <guid>http://localhost:1313/posts/2023-09-14-vault-workshop-secret-engine/</guid>
       <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
 &lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
@@ -287,9 +301,9 @@ Code: 403. Errors:
     </item>
     <item>
       <title>Vault Workshop 02: Get Started</title>
-      <link>https://chechia.net/posts/2023-09-13-vault-workshop-get-started/</link>
+      <link>http://localhost:1313/posts/2023-09-13-vault-workshop-get-started/</link>
       <pubDate>Wed, 13 Sep 2023 21:42:26 +0800</pubDate>
-      <guid>https://chechia.net/posts/2023-09-13-vault-workshop-get-started/</guid>
+      <guid>http://localhost:1313/posts/2023-09-13-vault-workshop-get-started/</guid>
       <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
 &lt;h1 id=&#34;day-02-準備執行一個本地開發用途的-vault&#34;&gt;Day 02 準備：執行一個本地開發用途的 Vault&lt;/h1&gt;
@@ -323,9 +337,9 @@ Vault v1.14.3 (56debfa71653e72433345f23cd26276bc90629ce), built 2023-09-11T21:23
     </item>
     <item>
       <title>Vault Workshop 01: Introduction</title>
-      <link>https://chechia.net/posts/2023-09-12-vault-workshop-introduction/</link>
+      <link>http://localhost:1313/posts/2023-09-12-vault-workshop-introduction/</link>
       <pubDate>Tue, 12 Sep 2023 20:35:19 +0800</pubDate>
-      <guid>https://chechia.net/posts/2023-09-12-vault-workshop-introduction/</guid>
+      <guid>http://localhost:1313/posts/2023-09-12-vault-workshop-introduction/</guid>
       <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
 &lt;h1 id=&#34;day-01-前言從零開始的-hashicorp-vault-workshop&#34;&gt;Day 01 前言：從零開始的 Hashicorp Vault Workshop&lt;/h1&gt;
@@ -351,10 +365,24 @@ Vault v1.14.3 (56debfa71653e72433345f23cd26276bc90629ce), built 2023-09-11T21:23
 &lt;p&gt;本 workshop 預計有底下內容&lt;/p&gt;</description>
     </item>
     <item>
+      <title>2023 09 08 15th Ithome Ironman Vault Submission</title>
+      <link>http://localhost:1313/posts/2023-09-08-15th-ithome-ironman-vault-submission/</link>
+      <pubDate>Fri, 08 Sep 2023 20:48:10 +0800</pubDate>
+      <guid>http://localhost:1313/posts/2023-09-08-15th-ithome-ironman-vault-submission/</guid>
+      <description>Article description.</description>
+    </item>
+    <item>
       <title>Hashicorp Comminity Presentation Vault Introduction</title>
-      <link>https://chechia.net/posts/2023-05-10-hashicorp-comminity-presentation-vault-introduction/</link>
+      <link>http://localhost:1313/posts/2023-05-10-hashicorp-comminity-presentation-vault-introduction/</link>
       <pubDate>Wed, 10 May 2023 12:19:02 +0800</pubDate>
-      <guid>https://chechia.net/posts/2023-05-10-hashicorp-comminity-presentation-vault-introduction/</guid>
+      <guid>http://localhost:1313/posts/2023-05-10-hashicorp-comminity-presentation-vault-introduction/</guid>
+      <description>Article description.</description>
+    </item>
+    <item>
+      <title>Hashicorp Comminity Presentation Vault Introduction</title>
+      <link>http://localhost:1313/posts/999-coscup-hashicorp-vault-the-perfect-beginner-guide/</link>
+      <pubDate>Wed, 10 May 2023 12:19:02 +0800</pubDate>
+      <guid>http://localhost:1313/posts/999-coscup-hashicorp-vault-the-perfect-beginner-guide/</guid>
       <description>Article description.</description>
     </item>
   </channel>

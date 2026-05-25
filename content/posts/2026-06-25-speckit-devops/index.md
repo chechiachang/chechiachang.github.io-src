@@ -39,7 +39,7 @@ disableShare: false
 ### 📅 活動時間：2026-07-01T09:00-10:30
 ### 🔗 [活動連結](https://hwdc.ithome.com.tw/2025/lab-page/4003)
 ### 📘 聯繫我 [Facebook](https://www.facebook.com/engineer.from.scratch)
-### 📑 [投影片](https://chechia.net/slides/2026-07-01-speckit-cloud-summit/)
+### 📑 [投影片](https://chechia.net/slides/2026-06-25-speckit-devops/)
 
 ---
 
