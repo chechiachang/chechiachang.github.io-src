@@ -234,38 +234,35 @@ Spec-driven development
 
 ---
 
+#### Spec-kit 帶來的痛點
+
+- 工作習慣改變
+  - 痛點左移，寫扣時的痛苦提前到寫需求時
+- Spec-kit tax：Spec-kit 產生 Spec，會消耗額外 token
+  - 用貴模型寫 Spec，便宜模型實作，降低成本
+- 不適合舊專案：Greenfield vs. Brownfield
+  - 無法從舊程式碼逆向產生 Spec
+  - 從頭寫 Spec，燒時間跟token
+
+---
+
+#### 改需求的成本變高
+
+- Spec 寫好 Code，結果改需求，改 Spec、Plan、Task，agent 也要重跑
+- 小改動可以像 git commit 一樣，疊上去 Spec
+- 大改動或需求矛盾，就要重寫 Spec
+  - Spec-kit 會幫你掃出 conflict，但不會幫你解決
+  - Code 都不能用，要重零開始
+- 需求變動頻繁的任務不適合 Spec-kit，反而會變得笨重
+
+---
+
 ### Spec-kit 解決了什麼，沒解決什麼
 
 - 解決：需求結構化、任務拆解、協作流程
-- 未完全解決：品質評估、回歸驗證、持續收斂
-
----
-
-### 外部 agent 做 PR Evaluation
-
-- 不只測試有沒有過
-- 還要看是否符合 Spec
-- 還要看可維護性與可讀性
-
----
-
-### Automation Pipeline
-
-把流程 script 化、pipeline 化
-
-- Spec
-- Plan
-- Tasks
-- Implement
-- Test + Eval + Loop
-
----
-
-### 完整心智模型
-
-```text
-Chat-driven (探索) -> Spec (定義) -> Build (交付) -> Eval/Loop (收斂)
-```
+- 無法解決
+  - 需求變動頻繁的任務
+  - 舊專案的 Spec 產生
 
 ---
 
