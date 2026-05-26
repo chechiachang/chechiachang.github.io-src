@@ -1,6 +1,8 @@
 # AGENTS
 
-Main instruction index for this repo.
+This repo contains content for https://chechia.net, including posts, slides, and transcripts.
+
+README.md main instruction index for this repo.
 All instructions and skills must be compact and extremely minimal.
 
 ## Hard Rules

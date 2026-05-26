@@ -602,7 +602,7 @@ https://openai.com/index/introducing-gpt-5-4-mini-and-nano/
 
 下午歡迎參考
 - Lab 13:30 - 15:00 [LLM O11y：從 Observability 到 Decision System](https://chechia.net/posts/2026-07-01-ws-langfuse-ai-ent/)
-- Session: 15:30 - 16:00 [LLM O11y：從 Observability 到 Decision System](http://localhost:1313/posts/2026-07-01-langfuse-ai-ent/)
+- Session: 15:30 - 16:00 [LLM O11y：從 Observability 到 Decision System](https://chechia.net/posts/2026-07-01-langfuse-ai-ent/)
 
 喜歡這種內容歡迎來找我聊天
 

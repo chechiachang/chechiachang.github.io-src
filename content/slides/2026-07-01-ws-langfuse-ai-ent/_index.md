@@ -309,6 +309,6 @@ Agent Runtime
 ## Thank you
 
 下午本堂 Session 歡迎參考
-- Session: 15:30 - 16:00 [LLM O11y：從 Observability 到 Decision System](http://localhost:1313/posts/2026-07-01-langfuse-ai-ent/)
+- Session: 15:30 - 16:00 [LLM O11y：從 Observability 到 Decision System](https://chechia.net/posts/2026-07-01-langfuse-ai-ent/)
 
 謝謝大家。
