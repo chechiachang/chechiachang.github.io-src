@@ -23,21 +23,13 @@ Che-Chia Chang
 
 {{% section %}}
 
-寫扣使用 coding agent 有標準流程嗎？
+公司使用 coding agent 有標準流程的舉個手
 
 可以多人開發，驗證，協作
 
----
-
-如果還沒有，通常是
-
-- 流程不固定
-- 產出品質不穩
-- 不知如何進行分工與驗證
+{{% fragment %}} 流程不固定，產出品質不穩，不知如何進行分工與驗證 {{% /fragment %}}
 
 ---
-
-##### 今天只講一件事
 
 如果 Chat-driven coding 是團隊目前的方式
 
@@ -72,6 +64,7 @@ Chat-driven Coding 的挑戰
 - 輸出不穩定
 - 團隊協作難追蹤
 - 複雜需求 + 多輪對話，容易產生 long context
+- 對話拉長，模型偏移，容易 context drift
 
 ```
 user: 幫我做一個功能，需求是...
@@ -84,13 +77,8 @@ user: 剛剛沒想到，現在改成這樣...
 
 ##### long context 可能造成 LLM 效能下降
 
-- 最前跟最後的 Input ，模型比較能使用
-  - ["Lost in the Middle" Effect](https://www.alphaxiv.org/abs/2307.03172v3) / [Positional Biases](https://www.alphaxiv.org/abs/2508.07479v1)
-- 模型號稱的 context window 是理論值，實際可用的 context 可能更短
-  - [Theoretical vs. Effective Context Window](https://www.alphaxiv.org/abs/2509.21361v2)
-
 ```
-# https://www.alphaxiv.org/abs/2404.06654v3
+# https://www.arxiv.org/abs/2404.06654v3
 ┌───────┬─────────────┬──────────────┬───────────────┬─────────────────┐
 │ Model │ 4K Accuracy │ 32K Accuracy │ 128K Accuracy │ Claimed Context │
 ├───────┼─────────────┼──────────────┼───────────────┼─────────────────┤
@@ -98,16 +86,31 @@ user: 剛剛沒想到，現在改成這樣...
 └───────┴─────────────┴──────────────┴───────────────┴─────────────────┘
 ```
 
-##### Chat-driven Coding 的挑戰總結
+{{% fragment %}}
+模型的 context window 理論值，實際可用的 context 更短
 
-實務上應盡力控制 context
-- Spec-kit 流程（specify, plan, tasks）實際上是不斷整理 context 的過程
-- 有完整 spec 實作時對於模型的能力要求不高
-- 用 mini 就能達到 90% 效果，因此成本也大幅降低
+[Theoretical vs. Effective Context Window](https://www.arxiv.org/abs/2509.21361v2)
+{{% /fragment %}}
+
+{{% fragment %}}
+最前跟最後的 Input ，模型比較能使用
+
+["Lost in the Middle" Effect](https://www.arxiv.org/abs/2307.03172v3) / [Positional Biases](https://www.arxiv.org/abs/2508.07479v1)
+{{% /fragment %}}
 
 ---
 
-### Chat-driven Coding vs SDD
+#### Chat-driven Coding 的挑戰總結
+
+- 不易控制 context
+- context 前後有出入，導致 context drift
+- 模型更記得最前面跟最後面的訊息
+
+> Spec-kit 流程實際是不斷整理 context
+
+---
+
+#### Chat-driven Coding vs SDD
 
 假設需求寫出來是十萬字
 
@@ -117,18 +120,7 @@ user: 剛剛沒想到，現在改成這樣...
 
 ---
 
-### When Not to Chat-driven
-
-當任務符合以下條件
-
-- 有明確規格或可定義規格
-- 需要可驗證交付品質
-- 需要多人分工與可追蹤
-- 需要持續迭代與維護
-
----
-
-### What is SDD
+#### What is SDD
 
 Spec-driven development
 
@@ -139,16 +131,7 @@ Spec-driven development
 
 ---
 
-### 從 Chat-driven 到工程化
-
-- Chat-driven：Prompt 主導
-- SDD：Spec 主導
-- Prompt 是畫一張水墨畫
-  - Spec 是給你一張直角座標工程圖(template)，挖洞填坑
-
----
-
-#### AI Engineering 需要可驗收任務
+#### Spec 需要可驗收任務
 
 驗收標準明確
 - SOP/Runbook 步驟完成率 -> %
@@ -159,7 +142,9 @@ Spec-driven development
 
 ---
 
-### 找第一個切換題目
+#### SDD 導入第一步
+
+找第一個切換題目
 
 - 高人工成本
 - 流程固定（SOP/Runbook）
@@ -198,10 +183,8 @@ Spec-driven development
 
 ```text
 /speckit.specify 列出所有內部平台帳號...
-/speckit.specify 根據條件檢查帳號狀態...權限...
+                 根據條件檢查帳號狀態...權限...
 
-/speckit.clarify
-/speckit.plan
 /speckit.plan    修改先後順序...
 
 /speckit.tasks   拆成獨立子任務，可分配給 subagent...
@@ -212,25 +195,33 @@ Spec-driven development
 
 ---
 
-### 情境落地：帳號稽核自動化
+{{< slide background-image="specify-plan.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+
+---
+
+{{< slide background-image="specify-tasks.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+
+---
+
+{{< slide background-image="specify-implement.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+
+---
+
+#### 細節請參考
+
+今天早上的 workshop
+
+- Lab 09:00 - 10:30 [Spec-driven development with Spec-kit](https://chechia.net/posts/2026-07-01-ws-speckit-ai-ent/)
+
+---
+
+#### 情境落地
 
 - ✅挑題目
 - ✅規格化
 - ✅驗收標準
-- 拆任務：每個平台一組 task，平行實作
+- ✅拆任務：每個平台一組 task，平行實作
 - 實作：subagent 分工，主流程整合
-
-> 人類手動很痛苦 -> 變成可持續自動化
-
----
-
-### 常見誤解
-
-用了 Spec-kit 就會自動得到高品質？
-
-答案：不一定
-
-如果 Spec 中包含 test, lint, review 等驗收標準，且實作時有遵守，那麼品質會比較穩定
 
 ---
 
@@ -257,7 +248,7 @@ Spec-driven development
 
 ---
 
-### Spec-kit 解決了什麼，沒解決什麼
+#### Spec-kit 解決了什麼，沒解決什麼
 
 - 解決：需求結構化、任務拆解、協作流程
 - 無法解決
@@ -266,7 +257,7 @@ Spec-driven development
 
 ---
 
-### 你可以帶走的重點
+#### 你可以帶走的重點
 
 - Chat-driven 適合探索，不適合所有正式交付
 - When Not to Chat-driven：高風險、可驗收、多人協作場景
@@ -275,6 +266,6 @@ Spec-driven development
 
 ---
 
-### Q&A
+#### Q&A
 
 Thank you.

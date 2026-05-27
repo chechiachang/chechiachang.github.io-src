@@ -561,8 +561,8 @@ https://openai.com/index/introducing-gpt-5-4-mini-and-nano/
 - 卡住很正常，先問 agent 為什麼卡住了
 - 或閱讀今天有提到的論文
 - 模型語言偏見
-  - [Do Multilingual LLMs Think In English](https://www.alphaxiv.org/abs/2502.15603)
-  - [Better To Ask in English?](https://www.alphaxiv.org/abs/2504.20022)
+  - [Do Multilingual LLMs Think In English](https://www.arxiv.org/abs/2502.15603)
+  - [Better To Ask in English?](https://www.arxiv.org/abs/2504.20022)
 - [Spec-kit 的概念文件](https://github.com/github/spec-kit/blob/main/spec-driven.md)
 
 ---
