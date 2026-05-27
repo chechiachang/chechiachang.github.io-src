@@ -17,34 +17,173 @@ reveal_hugo:
 
 ### Workshop 行前準備
 
-- 攜帶筆電，可上網
-- 安裝好 Docker Desktop
-- 安裝好 Git 與 VS Code
-- 下載 [workshop 範例程式碼](https://github.com/chechiachang/llm-o11y)
-- 講師會提供範例 `.env` 與測試資料
+Workshop 以 coding agent 為例
+
+串接 ai gateway 與 observability stack
 
 🔽
 
 ---
 
-### Workshop Repo
+### Workshop 行前準備
 
-- SSH: `git@github.com:chechiachang/llm-o11y.git`
-- HTTPS: `https://github.com/chechiachang/llm-o11y`
+- 攜帶筆電，可上網
+- 安裝好操作環境
+  - [VS Code](https://code.visualstudio.com/)
+- 下載 [workshop 範例程式碼](https://github.com/chechiachang/llm-o11y)
+- 講師會提供 Azure OpenAI API Key
+- 已經會用其他 agent CLI（如 codex CLI）用習慣的即可
 
-```bash
-git clone git@github.com:chechiachang/llm-o11y.git
+---
+
+### VS Code
+
+- 安裝 VS Code：[https://code.visualstudio.com/](https://code.visualstudio.com/)
+- 打開 VS Code，底下 Terminal
+  - git clone 程式碼 speckit-playground
+  - File > Open Folder > 選擇 clone 的 資料夾
+
+```
+git clone https://github.com/chechiachang/llm-o11y.git
+```
+---
+
+{{< slide background-image="git-clone.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+
+---
+
+### 打開 VS Code，底下 Terminal
+
+```
 cd llm-o11y
+docker compose config
+
+name: llm-o11y
+services:
+  bifrost:
+    environment:
+      AZURE_ENDPOINT: ""
+      AZURE_OPENAI_API_KEY: ""
+      LANGFUSE_OTEL_AUTH: Basic cGs6c2s= # fake key: pk:sk
+      LANGFUSE_OTEL_INGESTION_VERSION: "4"
+...
+
+docker compose pull
+[+] pull 23/23
+ ✔ Image docker.io/redis:7.4.8                            Pulled                                        6.4s
+ ✔ Image docker.io/clickhouse/clickhouse-server:26.2.15.4 Pulled                                        6.4s
+ ✔ Image minio/minio:RELEASE.2025-09-07T16-13-09Z         Pulled                                        5.4s
+ ✔ Image docker.io/postgres:17.9                          Pulled                                       26.8s
+ ✔ Image maximhq/bifrost:v1.5.3-arm64                     Pulled                                        6.4s
+ ✔ Image docker.io/langfuse/langfuse-worker:3.172.1       Pulled                                        5.4s
+ ✔ Image docker.io/langfuse/langfuse:3.172.1              Pulled                                        5.4s
 ```
 
 ---
 
-### Workshop 目標
+{{< slide background-image="docker-compose-config.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
 
-- 建立 local observability stack（Bifrost + Langfuse）
-- 讓 traces 進入 evaluation flow（含 LLM-as-a-judge）
-- 從 traces 產生 dataset，跑 regression 比較
-- 建立可執行的 decision gate（是否可 deploy）
+---
+
+{{< slide background-image="docker-compose-pull.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+
+---
+
+### 啟動服務
+
+```
+# VS Code Terminal
+docker compose up -d
+```
+
+- 透過 http://localhost:8080/ 存取 bifrost ai gateway
+- 透過 http://localhost:3000/ 存取 langfuse UI
+  - chechia@chechia.net / password
+- 透過 http://localhost:9001/ 存取 minio UI
+  - chechia / password
+
+---
+
+{{< slide background-image="docker-compose-config.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+
+---
+
+### 設定 Model 使用 bifrost gateway
+
+- 在 VS Code 右側 Secondary Sidebar 找到 Chat
+  - 底下 Model 點一下，會跳出可用 Model 的列表
+  - ex Auto, GPT-5, gpt-5.4 等等
+- Model 右上角齒輪圖示，點一下選擇 Manage Model Settings
+  - Add Models > Azure OpenAI
+  - Group Name: Bifrost (或其他你喜歡的名稱）
+  - Azure API Key 填入 123 或亂填，不能空白
+  - 跳出 chatLanguageModels.json 編輯
+
+---
+
+{{< slide background-image="manage-model-settings.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+
+---
+
+{{< slide background-image="chat-language-models-json.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+
+---
+
+### 設定 Model 使用 bifrost gateway
+
+- chatLanguageModels.json 填入: id, name, url
+- cmd + s 儲存
+- 回到 Model 列表，選擇剛剛新增的 Azure GPT-5.4 Nano
+  - 跟 Bifrost Azure say hi，預期 bifrost 沒填 api key 不可用
+  - 選回去選擇其他 Model，可以先用免費版
+
+```
+[
+  {
+    "name": "Bifrost",
+    "vendor": "azure",
+    "apiKey": "${input:chat.lm.secret.-3df80c78}",
+    "models": [
+      {
+      	"id": "azure/gpt-5.4-nano",
+      	"name": "azure/gpt-5.4-nano",
+      	"url": "http://localhost:8080/v1/responses",
+      	"toolCalling": true,
+      	"vision": true,
+      	"maxInputTokens": 272000,
+      	"maxOutputTokens": 128000
+      }
+    ]
+  }
+]
+```
+
+---
+
+{{< slide background-image="azure-openai-settings.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+
+---
+
+{{< slide background-image="select-azure-gpt54-nano.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+
+---
+
+### 最重要的行前準備: Mindset
+
+- 講師不會總是對的，鼓勵懷疑簡報的內容
+- 先自己思考，再問 chatGPT
+  - 大部分時候chatGPT是對的，且性能優於講師
+- 要知道怎麼確定 chatGPT 是對或錯的
+
+> workshop 重點在累積動手的經驗
+
+---
+
+### Workshop 行前準備結束
+
+- VSCode 已安裝
+- VSCode 設定 model
+- Docker Compose 已 pull 好 image
 
 {{% /section %}}
 
@@ -71,6 +210,46 @@ cd llm-o11y
 1. LAB3：從 traces 產生 dataset
 1. LAB4：跑 regression 與 decision gate
 1. 驗收、回顧、Q&A
+
+---
+
+### 檢查 trace 是否收集成功
+
+- 讀懂第一個 trace
+- token 花在哪？費用如何計算
+- agent cli 的低消 `gen_ai.request.tools`
+- cached vs non-cached 的差異
+
+---
+
+### bootstrap llm-as-a-judge workflow
+
+```
+export AZURE_ENDPOINT=https://chechia-ws.services.ai.azure.com/
+export AZURE_OPENAI_API_KEY=xxx
+./scripts/bootstrap-langfuse.sh
+
+verify llm-as-a-judge workflow
+base_url=http://localhost:3000
+config=data/langfuse/bootstrap.json
+langfuse.version=3.172.1
+auth=ok
+Upserting 1 LLM connection(s) to http://localhost:3000
+Upserted connection: provider=azure adapter=azure
+Done: success=1 skipped=0 total=1
+Updated score config: llm_judge_correctness (39a27360-ae53-448e-9a59-3f66b2535b21)
+unstable_evaluators_api=ok
+default_evaluator_model=missing
+Set default evaluator model in UI: http://localhost:3000/project/chechia-project/evals/new
+retry_create_evaluator=ok provider=azure model=gpt-5.4-nano
+warning: default_evaluator_model still missing (explicit model works)
+score_config=ok id=39a27360-ae53-448e-9a59-3f66b2535b21
+create_evaluator=ok name=ci-answer-correctness-1779889505_30996
+create_rule=ok id=cmpo49bb7000qoy08rw4zvxeg
+get_rule=ok
+delete_rule=ok
+PASS: llm-as-a-judge workflow verified
+```
 
 ---
 

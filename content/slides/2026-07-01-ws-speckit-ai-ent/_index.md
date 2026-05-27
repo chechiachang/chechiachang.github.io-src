@@ -16,6 +16,16 @@ reveal_hugo:
 
 ### Workshop 行前準備
 
+實際使用 Spec-kit 建立簡單的專案
+
+讓大家體驗 Spec-driven Development
+
+🔽
+
+---
+
+### Workshop 行前準備
+
 - 攜帶筆電，可上網
 - 安裝好操作環境
   - [VS Code](https://code.visualstudio.com/)
@@ -23,8 +33,6 @@ reveal_hugo:
 - 下載 [workshop 範例程式碼](https://github.com/chechiachang/speckit-playground)
 - 講師會提供 Azure OpenAI API Key，也可帶自己習慣的 llm
 - 已經會用 VS Code + GitHub Copilot Chat，用自己的方式參加即可
-
-🔽
 
 ---
 
@@ -93,7 +101,8 @@ uv tool install specify-cli --from git+https://github.com/github/spec-kit.git@v0
 - chatLanguageModels.json 填入: id, name, url
 - cmd + s 儲存
 - 回到 Model 列表，選擇剛剛新增的 Azure GPT-5.4 Nano
-  - 跟 Azure say hi，確認可用
+  - 跟 Azure say hi，預期沒填 api key 不可用
+  - 選回去選擇其他 Model，可以先用免費版
 
 ```
 [
@@ -126,12 +135,6 @@ uv tool install specify-cli --from git+https://github.com/github/spec-kit.git@v0
 
 ---
 
-### Note
-
-- Model 列表，選回去選擇其他 Model，可以先用免費版
-
----
-
 ### 最重要的行前準備: Mindset
 
 - 講師不會總是對的，鼓勵懷疑簡報的內容
@@ -140,6 +143,14 @@ uv tool install specify-cli --from git+https://github.com/github/spec-kit.git@v0
 - 要知道怎麼確定 chatGPT 是對或錯的
 
 > workshop 重點在累積動手的經驗
+
+---
+
+### Workshop 行前準備結束
+
+- VSCode 已安裝
+- Spec-kit CLI 已安裝
+- VSCode 設定 model
 
 {{% /section %}}
 
