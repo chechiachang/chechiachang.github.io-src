@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Career on Che-Chia Chang</title>
+    <link>http://localhost:1313/tags/career/</link>
+    <description>Recent content in Career on Che-Chia Chang</description>
+    <image>
+      <title>Che-Chia Chang</title>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.7</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 03 Oct 2020 15:03:19 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/career/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microsoft MVP Award 得獎感言，我是如何成為 MVP 的</title>
+      <link>http://localhost:1313/posts/2020-10-03-mvp-2021-from-scratch/</link>
+      <pubDate>Sat, 03 Oct 2020 15:03:19 +0800</pubDate>
+      <guid>http://localhost:1313/posts/2020-10-03-mvp-2021-from-scratch/</guid>
+      <description>&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
+&lt;p&gt;各位 iThome 的觀眾朋友們大家好，我是 Che-Chia。感謝大家點進來，閱讀這篇文章。&lt;/p&gt;
+&lt;p&gt;2021/10/01 我收到來自微軟的最有價值專家(Most Valuable Professional)獎勵項目，作為我個人軟體從業的一個里程碑。我用這篇文章回顧從 2011 年從業至今的所作所為，描述我做了哪些事，幫助我獲得 MVP 獎。&lt;/p&gt;
+&lt;p&gt;這篇文章不是標題殺人，寫這篇的目的，要告訴軟體業從業人員，我做了哪些事情，最後獲得 MVP (Most Valuable Professional) 獎項。&lt;/p&gt;
+&lt;p&gt;更精確地說，我想要描述一個努力的方向。如果你自認是個努力的人，想要為自己的未來多出一份心力與時間，這篇文章很適合你。這篇文章不是萬靈丹，未必會給你一個明確的作法，例如做了 A B C 最後一定會得獎 (人生沒那麼容易XD)，但的確會提供你一些思考的方向。我會清楚地描述我個人從離開學校、入社會、一次一次的轉職、如何提升自我、選擇職涯，最後回顧過程中完成哪些事情，終究獲得 MVP 獎項。&lt;/p&gt;
+&lt;p&gt;成為 MVP，可能不會因為獲得 MVP 從此人生一帆風順，也應該不會立刻大富大貴，甚至是照了步驟做了，最後也根本沒成為 MVP。然而依照這個方向努力，確實可以達成某種程度的成就，而且是對自身很有幫助的成就。&lt;/p&gt;
+&lt;p&gt;關於 MVP 獲獎的條件，需要完成的任務難度，這點也想先說明：真的沒有很難。不是指這件事很容易，而是說過程中執行事情都不是什麼高科技、或是需要高智商、或是需要家世背景。沒有，只要努力與堅持，你與我都很有機會。我可能不笨，但也不是什麼聰明人。絕大部分事情你我都做得到，成敗掌握在自身而不是天分、家世、或是其他無法改變的背景條件，只取決於願不願意付出時間與心力去執行。&lt;/p&gt;
+&lt;p&gt;文章實際的內容是&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;從踏入職場，到成為 MVP 職涯發展，我做過的選擇&lt;/li&gt;
+&lt;li&gt;做了哪事情幫助我成為 MVP&lt;/li&gt;
+&lt;li&gt;我的故事，你也絕對做得到&lt;/li&gt;
+&lt;li&gt;「你很有機會」的各種心靈雞湯 XD&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;我不是開玩笑的，你很有機會。可以讓你證明自己、從中獲益、並在過程中幫助到許多人，改善整個大環境。前者對個人發展很有幫助，後半則幫助了技術社群&amp;ndash;這是我想要透過這邊文章達到的。&lt;/p&gt;
+&lt;h1 id=&#34;動機&#34;&gt;動機&lt;/h1&gt;
+&lt;p&gt;所以這篇文章，不要讀者來粉專按讚或留言，獲取個人的利益。只要千百個讀者中，有一兩個人看了我的文章，願意試著往這個方向努力，最後獲得了屬於自己的成果，甚至讓世界多一個 MVP，在台灣社群發揮影響力，縱然我不認識，也沒有什麼直接利益關係，但卻增加技術社群的整體影響力，光是這樣就有說不盡的好處。&lt;/p&gt;
+&lt;h1 id=&#34;成為-mvp-的客觀條件&#34;&gt;成為 MVP 的客觀條件&lt;/h1&gt;
+&lt;p&gt;上面的簡介有幾個關鍵字&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;努力&lt;/li&gt;
+&lt;li&gt;方向&lt;/li&gt;
+&lt;li&gt;社群&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;讓我們看一下 MVP 項目官方文件描述的 &lt;a href=&#34;https://mvp.microsoft.com/en-US/pages/what-it-takes-to-be-an-mvp&#34;&gt;What it takes to be an MVP&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;這裡舉了幾個範例&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Contributing code to Projects: Daniel Marbach 貢獻超過 100 個開源專案&lt;/li&gt;
+&lt;li&gt;Helping Others: Vinicius Mozart 回答 MSDN/TechNet 上的問題，發過數千個回答，每年有 5 萬餘人看過他的發文&lt;/li&gt;
+&lt;li&gt;Creating Content: Takae Sakushima 技術作家與部落客每年有 2 百萬點閱。&lt;/li&gt;
+&lt;li&gt;Speaker: Heather Downing 知名講者，參加全球技術研討會，聽眾累積超過 10,000 人&lt;/li&gt;
+&lt;li&gt;Live Coder: Layla Porter 直播主，直播 live coding，累積破萬觀眾&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;以上都是各自領域的佼佼者，MVP 項目放在首頁上給大家作為模範。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
