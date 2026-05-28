@@ -516,7 +516,7 @@ graph LR
 3. 根據 Evaluation 結果調整RAG，追求特定 Metrics（如回答準確率）提升
 4. 持續迭代：根據使用者反饋與新知識更新向量數據庫
 
-[https://chechia.net/slides/2025-06-05-devops-rag-internal-ai/#/32](https://chechia.net/slides/2025-06-05-devops-rag-internal-ai/#/32) /
+[../../slides/2025-06-05-devops-rag-internal-ai/#/32](../../slides/2025-06-05-devops-rag-internal-ai/#/32) /
 [https://github.com/chechiachang/rag-workshop/blob/main/notebook/5_Evaluation.ipynb](https://github.com/chechiachang/rag-workshop/blob/main/notebook/5_Evaluation.ipynb)
 
 ---

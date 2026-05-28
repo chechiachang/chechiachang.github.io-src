@@ -28,7 +28,7 @@ Check my website [chechia.net](https://chechia.net) for other blog. [Follow my p
 
 開始之前，先分享一些資源
  - [投影片](https://slides.com/chechiachang/terraform-introduction/edit)
- - [講稿](https://chechia.net/posts/2020-06-15-terraform-infrastructure-as-code-transcript/)
+ - [講稿](../../posts/2020-06-15-terraform-infrastructure-as-code-transcript/)
  - [程式碼](https://github.com/chechiachang/terraform-playground)
  - [SOP 範本](https://github.com/chechiachang/terraform-playground/blob/master/SOP.md)
  - [Facebook 粉專](https://www.facebook.com/engineer.from.scratch/)

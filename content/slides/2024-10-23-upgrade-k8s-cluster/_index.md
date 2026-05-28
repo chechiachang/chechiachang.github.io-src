@@ -102,7 +102,7 @@ Self-hosted control plane
 ### Self-hosted control plane
 
 self-hosted control plane 其實不難，那時有很多成熟的解決方案
-- [k8s summit Etcd Workshop](https://chechia.net/zh-hant/talk/kubernetes-summit-get-started-with-etcd-kubernetes/)
+- [k8s summit Etcd Workshop](../../slides/2024-10-24-etcd-workshop)
 - 降低服務商依賴
 - 可以跨雲，跨地端，混合雲
 - 自訂化，換 VM disk image，CNI，CSI，Ingress Controller

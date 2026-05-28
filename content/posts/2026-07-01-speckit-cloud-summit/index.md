@@ -39,7 +39,7 @@ disableShare: false
 ### 活動時間：2026-07-01 12:00-12:30
 ### [活動連結](https://cloudsummit.ithome.com.tw/2026/session/4556)
 ### 聯繫我 [Facebook](https://www.facebook.com/engineer.from.scratch)
-### [投影片](https://chechia.net/slides/2026-07-01-speckit-cloud-summit/)
+### [投影片](../../slides/2026-07-01-speckit-cloud-summit/)
 
 ---
 

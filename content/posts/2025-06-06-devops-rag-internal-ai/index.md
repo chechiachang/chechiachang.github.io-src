@@ -99,7 +99,7 @@ docker exec -it notebook pip install pandas openai qdrant_client tqdm tenacity w
 
 ### 投影片與教材會放在網站上
 
-[https://chechia.net/zh-hant/slides/2025-06-05-devops-rag-internal-ai/](https://chechia.net/zh-hant/slides/2025-06-05-devops-rag-internal-ai/)
+[../../slides/2025-06-05-devops-rag-internal-ai/](../../slides/2025-06-05-devops-rag-internal-ai/)
 
 如何存取 VM 也會放在敨影片裡
 
@@ -153,5 +153,4 @@ Che-Chia Chang 是一名專注於後端開發、開發維運、容器化應用�
 Che-Chia Chang is a technology expert specializing in backend development, DevOps, site reliability engineering (SRE), containerized applications, and Kubernetes development and management. He is also recognized as a Microsoft Most Valuable Professional (MVP).
 
 Actively engaged in the Taiwanese tech community, he frequently shares insights on DevOps, SRE, Kubernetes, and cloud computing at CNTUG, DevOps Taipei, GDG Taipei, and Golang Taipei Meetup. Passionate about promoting best practices in development and operations, he continuously explores and applies the latest advancements in cloud and AI technologies.
-
 https://chechia.net

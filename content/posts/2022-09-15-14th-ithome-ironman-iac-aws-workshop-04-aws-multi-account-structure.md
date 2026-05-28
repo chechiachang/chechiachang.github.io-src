@@ -202,4 +202,3 @@ Cloudtrail
 - [ ] security 中設定 IAM Policy & Group
 - [ ] dev 中設定 IAM role
 - [ ] 允許 security assume dev IAM role
-

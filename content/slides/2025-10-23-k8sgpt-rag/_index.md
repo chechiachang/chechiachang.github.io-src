@@ -350,7 +350,7 @@ kubectl get mutations -w # mutations.core.k8sgpt.ai
 
 ##### RAG: Retrieval-Augmented Generation
 
-- [2025/10/15 Hello World Dev Workshop](https://chechia.net/posts/2025-10-15-hwdc-rag/)
+- [2025/10/15 Hello World Dev Workshop](../../posts/2025-10-15-hwdc-rag/)
 - embedding, vector database, retriever, evaluation
 
 ---

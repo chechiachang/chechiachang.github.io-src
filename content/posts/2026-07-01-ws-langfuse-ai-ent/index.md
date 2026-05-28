@@ -27,7 +27,7 @@ disableShare: false
 
 ### 📅 活動時間：2026-07-02 13:30-15:00
 ### 🔗 [活動連結](https://aienterprise.ithome.com.tw/2026/session/4790)
-### 📑 [投影片](https://chechia.net/slides/2026-07-01-ws-langfuse-ai-ent/)
+### 📑 [投影片](../../slides/2026-07-01-ws-langfuse-ai-ent/)
 
 ### 📘 Workshop Repo
 

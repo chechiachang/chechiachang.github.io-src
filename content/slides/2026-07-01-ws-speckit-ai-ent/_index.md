@@ -574,7 +574,7 @@ https://openai.com/index/introducing-gpt-5-4-mini-and-nano/
 
 - 儘早引入 test suite、lint、pre-commit hooks、diff review
 - o11y: 監測模型行為，找出失效跟錯誤的原因
-  - 下午 Lab 歡迎參考：[LLM O11y：從 Observability 到 Decision System](https://chechia.net/posts/2026-07-01-ws-langfuse-ai-ent/)
+  - 下午 Lab 歡迎參考：[LLM O11y：從 Observability 到 Decision System](../../posts/2026-07-01-ws-langfuse-ai-ent/)
 
 ---
 
@@ -590,8 +590,8 @@ https://openai.com/index/introducing-gpt-5-4-mini-and-nano/
 ## Thank you
 
 下午歡迎參考
-- Lab 13:30 - 15:00 [LLM O11y：從 Observability 到 Decision System](https://chechia.net/posts/2026-07-01-ws-langfuse-ai-ent/)
-- Session: 15:30 - 16:00 [LLM O11y：從 Observability 到 Decision System](https://chechia.net/posts/2026-07-01-langfuse-ai-ent/)
+- Lab 13:30 - 15:00 [LLM O11y：從 Observability 到 Decision System](../../posts/2026-07-01-ws-langfuse-ai-ent/)
+- Session: 15:30 - 16:00 [LLM O11y：從 Observability 到 Decision System](../../posts/2026-07-01-langfuse-ai-ent/)
 
 喜歡這種內容歡迎來找我聊天
 

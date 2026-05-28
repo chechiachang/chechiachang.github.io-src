@@ -21,6 +21,8 @@ Workshop 以 coding agent 為例
 
 串接 ai gateway 與 observability stack
 
+改善 token 花費與除錯
+
 🔽
 
 ---
@@ -98,13 +100,25 @@ docker compose up -d
 
 - 透過 http://localhost:8080/ 存取 bifrost ai gateway
 - 透過 http://localhost:3000/ 存取 langfuse UI
-  - chechia@chechia.net / password
+```
+chechia@chechia.net / password
+```
 - 透過 http://localhost:9001/ 存取 minio UI
-  - chechia / password
+```
+chechia / password
+```
 
 ---
 
-{{< slide background-image="docker-compose-config.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+{{< slide background-image="bifrost-gateway.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+
+---
+
+{{< slide background-image="langfuse-ui.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+
+---
+
+{{< slide background-image="minio-ui.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
 
 ---
 
@@ -115,8 +129,8 @@ docker compose up -d
   - ex Auto, GPT-5, gpt-5.4 等等
 - Model 右上角齒輪圖示，點一下選擇 Manage Model Settings
   - Add Models > Azure OpenAI
-  - Group Name: Bifrost (或其他你喜歡的名稱）
-  - Azure API Key 填入 123 或亂填，不能空白
+  - Group Name: Bifrost
+  - Azure API Key 填入 123，不能空白
   - 跳出 chatLanguageModels.json 編輯
 
 ---
@@ -189,8 +203,7 @@ docker compose up -d
 
 ---
 
-#### AI Enterprise Summit 2026
-## LLM O11y：從 Observability 到 Decision System
+##### LLM O11y：從 Observability 到 Decision System
 ##### 90 分鐘 workshop
 ##### ~ Che Chia Chang @ [chechia.net](https://chechia.net) ~
 
@@ -488,6 +501,6 @@ Agent Runtime
 ## Thank you
 
 下午本堂 Session 歡迎參考
-- Session: 15:30 - 16:00 [LLM O11y：從 Observability 到 Decision System](https://chechia.net/posts/2026-07-01-langfuse-ai-ent/)
+- Session: 15:30 - 16:00 [LLM O11y：從 Observability 到 Decision System](../../posts/2026-07-01-langfuse-ai-ent/)
 
 謝謝大家。
