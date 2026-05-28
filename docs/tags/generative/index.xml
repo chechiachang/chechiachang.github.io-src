@@ -21,6 +21,13 @@
       <description>這場分享從 vibe coding 的失焦問題出發，拆解 LLM 在長時間任務中的限制，並說明 SpecKit 在 spec-driven AI engineering 中的角色、代價與適用場景，以及從 spec-driven 走向 agent-driven 的演進方向。</description>
     </item>
     <item>
+      <title>When Not to Vibe 從 Chat-driven coding 到 Spec-driven AI Engineering</title>
+      <link>http://localhost:1313/slides/2026-07-01-speckit-cloud-summit/</link>
+      <pubDate>Sat, 02 May 2026 12:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/slides/2026-07-01-speckit-cloud-summit/</guid>
+      <description>以 Spec-driven development（SDD）結合 AI 與 Spec-kit，判斷何時不該 Vibe Coding，並把需求轉成可驗證、可回饋的工程流程。</description>
+    </item>
+    <item>
       <title>Workshop: Spec-driven development with Spec-kit</title>
       <link>http://localhost:1313/posts/2026-07-01-ws-speckit-ai-ent/</link>
       <pubDate>Fri, 01 May 2026 13:20:00 +0000</pubDate>
@@ -33,6 +40,13 @@
       <pubDate>Sat, 25 Apr 2026 13:20:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/2026-06-25-speckit-devops/</guid>
       <description>Spec-driven development (SDD) is a software development approach that emphasizes the use of specifications to drive the development process. In this workshop, we will explore how to implement SDD using Spec-kit, a powerful tool for creating and managing specifications. We will cover the basics of SDD, how to create effective specifications, and how to use Spec-kit to automate the development process. By the end of this workshop, you will have a solid understanding of SDD and how to apply it in your projects using Spec-kit.</description>
+    </item>
+    <item>
+      <title>DevOpsDay: 規格驅動的 AI 強化 DevOps</title>
+      <link>http://localhost:1313/slides/2026-06-25-speckit-devops/</link>
+      <pubDate>Sat, 25 Apr 2026 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/slides/2026-06-25-speckit-devops/</guid>
+      <description>以 Spec-driven development（SDD）結合 AI 與 Spec-kit，把 SOP 與 Runbook 轉成可執行規格，建立可驗證、可回饋的 DevOps 自動化流程。</description>
     </item>
     <item>
       <title>Hello World Dev Conf 2025: Workshop: RAG 打造企業知識庫入門，從 embeddings 到 evaluation</title>

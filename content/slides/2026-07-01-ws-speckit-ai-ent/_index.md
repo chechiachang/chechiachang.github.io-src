@@ -137,10 +137,9 @@ uv tool install specify-cli --from git+https://github.com/github/spec-kit.git@v0
 
 ### 最重要的行前準備: Mindset
 
-- 講師不會總是對的，鼓勵懷疑簡報的內容
 - 先自己思考，再問 chatGPT
-  - 大部分時候chatGPT是對的，且性能優於講師
-- 要知道怎麼確定 chatGPT 是對或錯的
+  - 大多時候chatGPT是對的，性能優於講師
+- 如何確定 chatGPT 是對或錯的
 
 > workshop 重點在累積動手的經驗
 
