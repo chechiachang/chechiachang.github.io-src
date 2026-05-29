@@ -21,13 +21,6 @@
       <description>Etcd 是 Kubernetes 的重要元件之一，本次工作坊將帶領觀眾初探 Etcd，包含安裝，設定，以及操作。並藉由本地的 Etcd 來架設一個最簡單的 Kubernetes Cluster。工作坊內容請見投影片</description>
     </item>
     <item>
-      <title>K8s Summit 2025: Workshop: Get started with Etcd &amp; Kubernetes</title>
-      <link>http://localhost:1313/slides/2025-10-22-etcd-workshop/</link>
-      <pubDate>Wed, 25 Jun 2025 00:45:00 +0000</pubDate>
-      <guid>http://localhost:1313/slides/2025-10-22-etcd-workshop/</guid>
-      <description>Etcd 是 Kubernetes 的重要元件之一，本次工作坊將帶領觀眾初探 Etcd，包含安裝，設定，以及操作。並藉由本地的 Etcd 來架設一個最簡單的 Kubernetes Cluster。工作坊內容請見投影片</description>
-    </item>
-    <item>
       <title>Kubernetes Summit: Upgrade A VM Based Cluster</title>
       <link>http://localhost:1313/posts/2024-10-23-k8s-summit/</link>
       <pubDate>Wed, 23 Oct 2024 13:20:00 +0000</pubDate>

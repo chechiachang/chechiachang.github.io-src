@@ -11,14 +11,7 @@
     </image>
     <generator>Hugo -- 0.147.7</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 01 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate></lastBuildDate>
     <atom:link href="http://localhost:1313/categories/rag/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Workshop: RAG 打造企業知識庫入門，從Embeddings到Evaluation</title>
-      <link>http://localhost:1313/slides/2025-10-15-hello-dev-rag/</link>
-      <pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/slides/2025-10-15-hello-dev-rag/</guid>
-      <description>學員將學會如何利用 RAG 技術，結合 OpenAI、LangChain、Qdrant 向量數據庫，構建企業內部文檔的智能知識庫，並能設計與實作一個基於自然語言處理（NLP）的查詢系統，來提升開發團隊的效率與知識管理能力。</description>
-    </item>
   </channel>
 </rss>

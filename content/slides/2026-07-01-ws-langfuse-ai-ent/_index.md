@@ -393,52 +393,153 @@ graph LR
 #### Tools
 
 - 同一 Session 重複相同 prompt，Cached token 降低成本
-- 然而很多工具是不會用到，浪費 token
-- 建議停用工具: Browser，VSCode extension，Notebooks，Github，Terminal 等
-- 不建議停用的：Agent，Read，Write
-- 看情況：Web search，Github search 建議可以拆成獨立 Plan Agent 使用
-- https://code.visualstudio.com/docs/copilot/agents/agent-tools
+- 然而很多工具是不會用到
+- VSCode 與 CLI 甚至 ai gateway 都會注入工具
+  - VSCode default 有 40+ tools
+  - 例如 bifrost 的 `session_store_sql`
 
-省 10000 token 沒多少錢，想像他是 gpt-5.4-pro （nano 的 x150 倍）
+- 建議拆分不同 agent 分配工具
+  - 規劃時使用 Plan agent (readonly)
+  - 實作時切換 Write Agent (read file, write file)
+- 停用: Browser，VSCode extension，Notebooks，Github，Terminal 等
+- 不建議全關，例如 Agent 與 search，Read File 等是 coding agent 的核心
 
 ---
 
-#### 有需要計較 token 的花費嗎
+#### Task 4: Instruction
 
+就算 VSCode Tools 全關，也大概剩下 2000+ token 的基礎花費
+
+- langfuse trace: type=GENERATION name=llm.call
+  - trace detail，找到 token 的來源
+- AGENTS.md
+  - 是否夠精簡? VScode 是否有讀取 AGENTS.md 內容?
+  - VSCode `cmd + ,` 開啟設定，chat.useAgentsMdFile=true
+- .github/copilot-instructions.md
+  - 是否夠精簡? 是否有讀取 copilot-instructions.md 內容?
+- role=system instruction 的來源是哪裡？
+
+---
+
+#### CLI debug 模式
+
+VSCode Chat 中，`/debug` 指令開啟 debug 模式
+- 點 title [tokens tks][latency ms][timestamp]
+  - 使用小模型為對話命名 ex. gpt-4o-mini
+- copilotLanguageModelWrapper 檢視內容
+  - Metadata
+  - System Instruction
+  - User 可能有多輪內容
+  - Assistant
+
+---
+
+{{< slide background-image="vscode-chat-debug.png" background-size="80%" background-color="#000000" background-opacity="1" >}}  
+
+---
+
+##### Note: 自動運行前，確定 Agent 設定符合需求
+
+- 手動運行浪費錢的話，自動運行時是花式燒錢
+- 建議至以 team 為單位 review agent config
+- 10000 token 好像不多，想像他是 gpt-5.4-pro （nano 的 x150 倍）
+- 人Token神話：給員工多少 Token 預算，就會用完多少 Token
+
+{{% note %}}
 人月神話/Parkinson's Law，「工作會自動膨脹，填滿可用的時間」
-
-人Token神話：給員工多少 Token 預算，就會用完多少 Token
-
 面對問題，有人在等更未來強大模型來解決，有人在試圖用更便宜的模型現在解決
+{{% /note %}}
 
 ---
 
-#### Task 4: Long-running Agent
+#### Task 5: 模擬長時間 agent 開發
 
-模擬真實 Code Agent 進行長時間任務
+重點在模擬開發，觀察 trace 與 token 花費
 
 - 參考上午 Lab [Spec-driven development with Spec-kit](../../posts/2026-07-01-ws-speckit-ai-ent/)
-- 不用跑完，重點在觀察 trace 與 token 花費
+- 現在可以跑 /speckit.specify，之後可以稍後再跑
 
 ```
+/clear # 清除 session，開始新的對話
 specify init --here --integration copilot
 /speckit.constitution 為專案建立一套憲法，重點在簡潔性和測試覆蓋率。
 /speckit.specify 建立一個 Terminal 應用：台北市 YouBike 2.0 即時站點查詢器。
 核心需求：
- 1. 自動從政府 API 抓取 JSON 站點資訊。
+ 1. 自動從官方 YouBike 2.0 API 抓取 JSON 站點資訊。
  2. Input：可依據「站點地址」或「名稱」過濾。
  3. 列表呈現：站點名稱、可用車輛、剩餘空位。
 /speckit.plan
 /speckit.tasks
 /speckit.implement
 ```
----
-
-#### Task 5: rtk
-
-https://github.com/rtk-ai/rtk
 
 ---
+
+#### LLM-as-a-Judge Evaluators
+
+Langfuse > Evaluation > LLM-as-a-Judge
+- Create Evaluator
+- 右邊 Set up
+- Add LLM connection
+
+```
+LLM adapter=azure
+Provider name=azure
+API Key=xxx
+API Base URL=https://chechia-ws.services.ai.azure.com/openai/deployments
+Custom models=gpt-5.4-nano
+```
+- Create Connection
+- 選擇 Azure / gpt-5.4-nano > Save
+
+
+---
+
+{{< slide background-image="create-llm-connection.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+
+---
+
+{{< slide background-image="default-model.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+
+---
+
+#### LLM-as-a-Judge Evaluators
+
+Helpfulness
+
+```
+Type any of GENERATION
+and Environment any of default
+and Name any of llm.call
+```
+
+最右下 Execute
+
+---
+
+#### LLM-as-a-Judge Evaluators
+
+回到 VSCode Chat，繼續 speckit
+- 觀察 Helpfulness 分數
+
+```
+/speckit.plan
+/speckit.tasks
+/speckit.implement
+```
+
+---
+
+#### deterministic code evaluators 
+
+---
+
+#### LLM-as-a-Judge Evaluators
+
+- 先用自己的標準猜一次這筆 trace 好不好
+- 再讓 judge 跑一次
+- 比較人類判斷和 judge 分數有沒有一致
+- 如果不一致，回頭修 rubric
 
 ### Task 4: 寫下你的評分規則
 
@@ -459,57 +560,13 @@ https://github.com/rtk-ai/rtk
 
 ---
 
-### 模擬 Code Agent 開發流程
-
-參考上午 Lab [Spec-driven development with Spec-kit](../../posts/2026-07-01-ws-speckit-ai-ent/)
-
-```
-specify init --here --integration copilot
-/speckit.specify 建立一個單頁 Web 應用：台北市 YouBike 2.0 即時站點查詢器。
-核心需求：
- 1. 自動從政府 API 抓取 JSON 站點資訊。
- 2. 搜尋框：可依據「站點地址」或「名稱」過濾。
- 3. 列表呈現：站點名稱、可用車輛、剩餘空位。
-/speckit.plan
-/speckit.tasks
-/speckit.implement
-```
+### Dataset
 
 ---
 
-### bootstrap llm-as-a-judge workflow
+### Data Preprocessing
 
-- 先用自己的標準猜一次這筆 trace 好不好
-- 再讓 judge 跑一次
-- 比較人類判斷和 judge 分數有沒有一致
-- 如果不一致，回頭修 rubric
-
-```
-export AZURE_ENDPOINT=https://chechia-ws.services.ai.azure.com/
-export AZURE_OPENAI_API_KEY=xxx
-./scripts/bootstrap-langfuse.sh
-
-verify llm-as-a-judge workflow
-base_url=http://localhost:3000
-config=data/langfuse/bootstrap.json
-langfuse.version=3.172.1
-auth=ok
-Upserting 1 LLM connection(s) to http://localhost:3000
-Upserted connection: provider=azure adapter=azure
-Done: success=1 skipped=0 total=1
-Updated score config: llm_judge_correctness (39a27360-ae53-448e-9a59-3f66b2535b21)
-unstable_evaluators_api=ok
-default_evaluator_model=missing
-Set default evaluator model in UI: http://localhost:3000/project/chechia-project/evals/new
-retry_create_evaluator=ok provider=azure model=gpt-5.4-nano
-warning: default_evaluator_model still missing (explicit model works)
-score_config=ok id=39a27360-ae53-448e-9a59-3f66b2535b21
-create_evaluator=ok name=ci-answer-correctness-1779889505_30996
-create_rule=ok id=cmpo49bb7000qoy08rw4zvxeg
-get_rule=ok
-delete_rule=ok
-PASS: llm-as-a-judge workflow verified
-```
+- Clean up traces
 
 ---
 
