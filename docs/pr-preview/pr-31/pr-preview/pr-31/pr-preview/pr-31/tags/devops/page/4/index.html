@@ -4,14 +4,14 @@
 這邊改了一些大綱，原本的內容還有一些 kubernetes 的設定，以及 GCP 相關服務的介紹。但既然我們的主題是把東西搬上 k8s 的踩雷旅程，那我們就繼續搬，繼續踩。剩下的時間大概會有四個題目。
 Nginx Ingress (3) Deploy Nginx Ingress Controller Configure Nginx Ingress Cert-manager (3) Deploy cert-manager How cert-manager work Cert-manager complete workflow Kubernetes CRD & Operator-sdk (3) Introduction about custom resource Deployment & Usage Deployment & Usage 由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。
 寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。
-對我的文章有興趣，歡迎到我的網站上 https://chechia.net 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。
+對我的文章有興趣，歡迎到我的網站上 chechia.net 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。
 今天我們來實際使用 cert-manager，為 nginx ingress controller 產生 certificates with ACME Issuer
 CA Terminology 先把實際執行 CA 簽發的名詞定義一下，以免跟 cert-manager 的資源搞混
 ...</p></div><footer class=entry-footer><span title='2019-10-11 11:24:34 +0800 +0800'>October 11, 2019</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;587 words&nbsp;·&nbsp;chechiachang</footer><a class=entry-link aria-label="post link to Cert Manager How It Work" href=https://chechia.net/pr-preview/pr-31/posts/2019-10-11-cert-manager-how-it-work/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>Cert Manager Deployment on Kubernetes</h2></header><div class=entry-content><p>2020 It邦幫忙鐵人賽 系列文章
 這邊改了一些大綱，原本的內容還有一些 kubernetes 的設定，以及 GCP 相關服務的介紹。但既然我們的主題是把東西搬上 k8s 的踩雷旅程，那我們就繼續搬，繼續踩。剩下的時間大概會有四個題目。
 Nginx Ingress (3) Deploy Nginx Ingress Controller Configure Nginx Ingress Cert-manager (3) Deploy cert-manager How cert-manager work Cert-manager complete workflow Kubernetes CRD & Operator-sdk (3) Introduction about custom resource Deployment & Usage Deployment & Usage 由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。
 寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。
-對我的文章有興趣，歡迎到我的網站上 https://chechia.net 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。
+對我的文章有興趣，歡迎到我的網站上 chechia.net 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。
 摘要 Cert-manager Introduction Deploy cert-manager 簡介 cert-manager TLS certificate 管理很重要，但在 kubernetes 上管理 TLS certificates 很麻煩。
 ...</p></div><footer class=entry-footer><span title='2019-10-10 16:12:10 +0800 +0800'>October 10, 2019</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;350 words&nbsp;·&nbsp;chechiachang</footer><a class=entry-link aria-label="post link to Cert Manager Deployment on Kubernetes" href=https://chechia.net/pr-preview/pr-31/posts/2019-10-10-cert-manager-deployment/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>Logstash on GKE</h2></header><div class=entry-content><p>2020 It邦幫忙鐵人賽 系列文章
 Self-host ELK stack on GCP Secure ELK Stask 監測 Google Compute Engine 上服務的各項數據 監測 Google Kubernetes Engine 的各項數據 是否選擇 ELK 作為解決方案 使用 logstash pipeline 做數據前處理 Elasticsearch 日常維護：數據清理，效能調校，永久儲存 Debug ELK stack on GCP 作為範例的 ELK 的版本是當前的 stable release 7.3.1。
@@ -24,7 +24,7 @@ ELK 的 beats 是輕量級的系統監測收集器，beats 收集到的 data 經
 beat 有許多種類，依據收集的 data 區別：
 Auditbeat: Audit data Filebeat: Log files Functionbeat: Cloud data Heartbeat: Availability Journalbeat: Systemd journals Metricbeat: Metrics Packetbeat: Network traffic Winlogbeat: Windows event logs 這邊先以 filebeat 為例，在 GCE 上收集圓端服務節點上的服務日誌與系統日誌，並在 ELK 中呈現。
 ...</p></div><footer class=entry-footer><span title='2019-09-18 19:10:50 +0800 +0800'>September 18, 2019</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;460 words&nbsp;·&nbsp;chechiachang</footer><a class=entry-link aria-label="post link to Monitoring GCE With ELK" href=https://chechia.net/pr-preview/pr-31/posts/2019-09-18-monitoring-gce-with-elk/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>ELK or Not ELK</h2></header><div class=entry-content><p>2020 It邦幫忙鐵人賽 系列文章
-Self-host ELK stack on GCP Secure ELK Stask 監測 Google Compute Engine 上服務的各項數據 監測 Google Kubernetes Engine 的各項數據 是否選擇 ELK 作為解決方案 使用 logstash pipeline 做數據前處理 Elasticsearch 日常維護：數據清理，效能調校，永久儲存 Debug ELK stack on GCP 對我的文章有興趣，歡迎到我的網站上 https://chechia.net 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。
+Self-host ELK stack on GCP Secure ELK Stask 監測 Google Compute Engine 上服務的各項數據 監測 Google Kubernetes Engine 的各項數據 是否選擇 ELK 作為解決方案 使用 logstash pipeline 做數據前處理 Elasticsearch 日常維護：數據清理，效能調校，永久儲存 Debug ELK stack on GCP 對我的文章有興趣，歡迎到我的網站上 chechia.net 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。
 有板友問到，要如何選擇要不要用 ELK，其實也這是整篇 ELK 的初衷。這邊分享一下 ELK 與其他選擇，以及選擇解決方案應該考慮的事情。
 其他常用的服務 Prometheus: 開源的 time series metrics 收集系統
 Stackdriver: GCP 的 log 與 metrics 平台
