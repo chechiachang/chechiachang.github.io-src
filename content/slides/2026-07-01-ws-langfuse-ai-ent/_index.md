@@ -16,12 +16,8 @@ reveal_hugo:
 {{% section %}}
 
 ### Workshop 行前準備
-
-Workshop 以 coding agent 為例
-
-串接 ai gateway 與 observability stack
-
-改善 token 花費與除錯
+##### LLM O11y：從 Observability 到 Decision System
+##### ~ Che Chia Chang @ [chechia.net](https://chechia.net) ~
 
 🔽
 
@@ -202,7 +198,7 @@ chechia / password
 ---
 
 ##### LLM O11y：從 Observability 到 Decision System
-##### 90 分鐘 workshop
+##### 量化並提升 Coding Agent 效率
 ##### ~ Che Chia Chang @ [chechia.net](https://chechia.net) ~
 
 ---
@@ -213,16 +209,16 @@ chechia / password
 
 ### 大綱
 
-1. ai gateway & o11y stack
-1. finops: token 算錢與省錢
-1. rtk
-1. 講解：Observability != Decision System
-1. LAB2：為 traces 加上 evaluation
-1. LAB3：從 traces 產生 dataset
-1. LAB4：跑 regression 與 decision gate
-1. 驗收、回顧、Q&A
+1. AI Gateway & Observability stack
+1. Tracing & token 花費，Agent 如何花 token
+1. Case 1: 導入 rtk 是否有助減少 token
+1. Llm-as-a-judge evaluator
+1. Dataset & Experiment based on past tracing
+1. Case 2: Evaluate multi-turn agent
 
 ---
+
+{{% section %}}
 
 ### 把 observability stack 跑起來
 
@@ -304,7 +300,7 @@ http://localhost:3000/ 到 langfuse UI
 ##### Bifrost 跟 Langfuse 的關係？
 
 - AI Gateway 提供團隊模型管理功能
-- Observability 提供團隊 trace 收集與分析功能
+- Observability 提供團隊 tracing 收集與分析功能
 
 o11y 的功能看起來一樣，為何不用 Bifrost 就好?
 - Bifrost 的進階 o11y 功能都需要 Enterprise
@@ -312,16 +308,16 @@ o11y 的功能看起來一樣，為何不用 Bifrost 就好?
 
 ---
 
-##### 根據不同 CLI 需求做 o11y 設定
+##### 不同 CLI 需求做 o11y 設定
 
-Coding Agent 可能內建 trace 功能，或需額外設定
+Coding Agent 可能內建 tracing 功能，或需額外設定
 - codex 支援 otel ，但功能不完整
 - Gemini CLI 支援 otel，但需要額外設定
-- 透過 AI Gateway 收集 trace 是最方便的方式
+- 透過 AI Gateway 收集 tracing 是最方便的方式
 
 LLM Application 需要自己串接 otel/langfuse SDK
 
-收集更細節的 trace 與 custom metric
+收集更細節的 tracing 與 custom metric
 
 ---
 
@@ -329,22 +325,15 @@ CLI - AI Gateway - Observability
 
 {{< mermaid >}}
 graph LR
-
-    A["VSCode Chat
-    Copilot"]
+    A["VSCode
+    Copilot "]
     B["Bifrost
-    AI Gateway
-    localhost:8080"]
-    C["(Open Telemetry)"]
-    D["Langfuse
-    localhost:3000"]
-    E["ClickHouse
-    MinIO"]
-    
+    AI Gateway "]
+    C["OTel "]
+    D["Langfuse "]
     A --> B
     B --> C
     C --> D
-    D --> E
 {{< /mermaid >}}
 
 ---
@@ -353,29 +342,34 @@ graph LR
 
 有空或無聊也可以去玩 Bifrost 的其他功能
 
+{{% /section %}}
+
 ---
 
-### Task 1: Session overhead
+### Task 1: Reduce Overhead
 
-- 請 VSCode Chat 說一個笑話，產生一筆 trace
-- 找到這筆 trace
+- 請 VSCode Chat 說一個笑話，產生一筆 tracing
+- Langfuse > Tracing > Observations
+- 找到這筆 observation
   - 總共花了多少 token？
   - 花在什麼東西上面？
   - 有沒有 cached token？
-- 打開 trace detail
+- 打開 observation detail
 - 對照 input / output / cached
 
 ---
 
-#### Task 2: Session & Cached token
+#### Task 2: Understand Cached token
 
 - 請 VSCode Chat 說第二個笑話，以及第三個笑話
-  - 第二筆與第三筆 trace 的 token 花費有什麼不同？
-- 打開 trace detail
+  - 第二筆與第三筆 observation 的 token 花費有什麼不同？
+- 打開 observation detail
 - 對照 input / output / cached
 - Use /compact 或 /clear 指令，第四個笑話的 token 花費有什麼不同？
 
 ---
+
+{{% section %}}
 
 #### Task 3: 調整 VSCode enabled tools
 
@@ -406,12 +400,12 @@ graph LR
 
 ---
 
-#### Task 4: Instruction
+#### Task 4: 調整 Instruction
 
 就算 VSCode Tools 全關，也大概剩下 2000+ token 的基礎花費
 
-- langfuse trace: type=GENERATION name=llm.call
-  - trace detail，找到 token 的來源
+- langfuse observation: type=GENERATION name=llm.call
+  - observation detail，找到 token 的來源
 - AGENTS.md
   - 是否夠精簡? VScode 是否有讀取 AGENTS.md 內容?
   - VSCode `cmd + ,` 開啟設定，chat.useAgentsMdFile=true
@@ -421,12 +415,22 @@ graph LR
 
 ---
 
+#### Agent Instruction
+
+- 許多 CLI system instruction 是固定的，無法修改
+  - 包含權限與安全性設定
+  - 例如資料夾權限，Sandbox 設定，工具使用權限等
+- 極簡或自由的 CLI 允許修改 system instruction
+  - 需要額外設定來保障安全
+
+---
+
 #### CLI debug 模式
 
 VSCode Chat 中，`/debug` 指令開啟 debug 模式
 - 點 title [tokens tks][latency ms][timestamp]
   - 使用小模型為對話命名 ex. gpt-4o-mini
-- copilotLanguageModelWrapper 檢視內容
+- copilotLanguageModelWrapper 檢視以下內容
   - Metadata
   - System Instruction
   - User 可能有多輪內容
@@ -436,13 +440,17 @@ VSCode Chat 中，`/debug` 指令開啟 debug 模式
 
 {{< slide background-image="vscode-chat-debug.png" background-size="80%" background-color="#000000" background-opacity="1" >}}  
 
+{{% /section %}}
+
 ---
 
-##### Note: 自動運行前，確定 Agent 設定符合需求
+##### 小結：Know Your Agent
 
-- 手動運行浪費錢的話，自動運行時是花式燒錢
-- 建議至以 team 為單位 review agent config
-- 10000 token 好像不多，想像他是 gpt-5.4-pro （nano 的 x150 倍）
+進入全自動 Agent 前，確定 Agent 設定符合需求
+
+- 手動運行浪費錢 -> 自動運行花式燒錢
+- 以 team 為單位 review agent 設定
+- 10000 token ，想像他是 gpt-5.4-pro （nano 的 x150 倍）
 - 人Token神話：給員工多少 Token 預算，就會用完多少 Token
 
 {{% note %}}
@@ -452,26 +460,28 @@ VSCode Chat 中，`/debug` 指令開啟 debug 模式
 
 ---
 
-#### Task 5: 模擬長時間 agent 開發
+#### Case 1: 導入 rtk 是否有幫助
 
-重點在模擬開發，觀察 trace 與 token 花費
+repo 1
+repo 2
 
-- 參考上午 Lab [Spec-driven development with Spec-kit](../../posts/2026-07-01-ws-speckit-ai-ent/)
-- 現在可以跑 /speckit.specify，之後可以稍後再跑
 
-```
-/clear # 清除 session，開始新的對話
-specify init --here --integration copilot
-/speckit.constitution 為專案建立一套憲法，重點在簡潔性和測試覆蓋率。
-/speckit.specify 建立一個 Terminal 應用：台北市 YouBike 2.0 即時站點查詢器。
-核心需求：
- 1. 自動從官方 YouBike 2.0 API 抓取 JSON 站點資訊。
- 2. Input：可依據「站點地址」或「名稱」過濾。
- 3. 列表呈現：站點名稱、可用車輛、剩餘空位。
-/speckit.plan
-/speckit.tasks
-/speckit.implement
-```
+---
+
+##### 目標：提升團隊 Coding Agent 效率
+
+但是 Coding Agent 效率到底是什麼？
+
+{{< math >}}
+\text{整體效率 Efficiency} = \frac{\text{產出數量} \times \text{產出品質}}{\text{Token Cost} \times \text{花費時間}}
+{{< /math >}}
+
+{{% fragment %}}
+- 團隊產出數量：完成的功能模組數、修復 Bug 數
+- 團隊產出品質：測試通過率、Linter 分數、Code Review 評分
+- 團隊 Token Cost
+- 團隊工作時間
+{{% /fragment %}}
 
 ---
 
@@ -492,7 +502,6 @@ Custom models=gpt-5.4-nano
 - Create Connection
 - 選擇 Azure / gpt-5.4-nano > Save
 
-
 ---
 
 {{< slide background-image="create-llm-connection.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
@@ -506,42 +515,77 @@ Custom models=gpt-5.4-nano
 #### LLM-as-a-Judge Evaluators
 
 Helpfulness
+- Run on Observations
 
 ```
 Type any of GENERATION
-and Environment any of default
-and Name any of llm.call
+And Environment any of default
+And Name any of llm.call
 ```
 
 最右下 Execute
 
 ---
 
-#### LLM-as-a-Judge Evaluators
+#### LLM-as-a-Judge Evaluators for tool
 
-回到 VSCode Chat，繼續 speckit
+Helpfulness
+
+```
+Type any of GENERATION
+And Environment any of default
+And Name any of llm.call
+And Called Tool Names fetch_webpage
+```
+
+最右下 Execute
+
+---
+
+#### 模擬實際的 Coding 任務
+
+輸入給 VSCode Chat，並觀察 llm-as-a-judge 評分
+
+```
+建立一個 Terminal 應用：台北市 YouBike 2.0 即時站點查詢器。
+核心需求：
+ 1. 自動從官方 YouBike 2.0 API 抓取 JSON 站點資訊。
+ 2. Input：可依據「站點地址」或「名稱」過濾。
+ 3. 列表呈現：站點名稱、可用車輛、剩餘空位。
+ 4. 使用 pytest 測試，mypy 類型檢查，ruff test lint
+
+...(後續開發過程中對答）
+```
+
+---
+
+#### Task : LLM-as-a-Judge Evaluators
+
 - 觀察 Helpfulness 分數
+- 觀察分數後 LLM 的評分理由
 
-```
-/speckit.plan
-/speckit.tasks
-/speckit.implement
-```
-
----
-
-#### deterministic code evaluators 
-
----
-
-#### LLM-as-a-Judge Evaluators
-
-- 先用自己的標準猜一次這筆 trace 好不好
-- 再讓 judge 跑一次
 - 比較人類判斷和 judge 分數有沒有一致
 - 如果不一致，回頭修 rubric
 
-### Task 4: 寫下你的評分規則
+---
+
+{{< slide background-image="judge-helpfulness.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+
+---
+
+#### LLM-as-a-Judge Evaluators
+
+llm-as-a-judge 只是開頭，重點是建立可持續修正的規則
+- rule-based checks（格式、schema、constraints）
+- task rubric（符合業務定義的好壞）
+
+對你的團隊，什麼樣的 output 是好答案
+
+---
+
+### Task 4: 建立自己的 Evaluation Rubric
+
+用文字表達出標準或是規則
 
 - 把「好答案」寫成 3 條可檢查規則
 - 每條規則都要能判斷 pass / fail
@@ -549,262 +593,204 @@ and Name any of llm.call
 
 ---
 
-### Task 5: 讓 judge 幫你打分
+##### Observability 到 Decision System
 
-- 先自己猜這筆 trace 會得幾分
-- 再跑一次 judge
-- 比較：
-  - 你的分數
-  - judge 的分數
-  - 哪一條規則最容易吵架
+LLM as a Judge Evaluator 的意義：以管窺天
+小 scope 內的量化分數
+- 侷限在 trace level，無法直接反映到 feature level 或 release level
+- 絕對值不重要，重點在相對變化趨勢
+
+人類的感覺是重要的評分
+- 提供 o11y 量化結果，團隊的感覺會做修正，標準會統一
+- 看過 o11y 後在進行團隊問券
+
+---
+
+##### 量化評分 + 主觀評分
+
+避免兩種錯誤：
+- 量化分數推翻人類的感覺
+- 人類只憑感覺忽略量化分數
+
+---
+
+{{% section %}}
+
+### Dataset 與 Regression
+
+收集 gpt-5.4 的 Input / Output / 分數作為回歸測試資料
+
+例如：相同的 Input，gpt-5.5 是否效能更好
+  - 整體費用是否維持或降低
+  - latency 維持或降低
+  - 整體 (gpt-5.4-nano) judge 分數更高
+  - 失敗率更低
 
 ---
 
 ### Dataset
 
----
+嘗試使用 coding agent tracing 產生資料集
 
-### Data Preprocessing
-
-- Clean up traces
-
----
-
-## 核心問題
-
-多數團隊已經有：
-
-- trace / logging
-- prompt 管理
-- agent framework（LangChain / AutoGen / others）
-- observability 工具（Langfuse）
-
-但仍無法回答：
-
-> 這次 model 或 framework 升級，該不該上 production？
-
----
-
-## 關鍵誤解
-
-### Observability != Decision System
-
-Observability 只能回答：
-
-> 發生了什麼？
-
-Decision System 需要回答：
-
-> 我應不應該改？  
-> 這次改動是不是變好？
-
----
-
-{{% section %}}
-
-### LAB1：啟動 LLM O11y Stack
-
-目標：把本地端觀測平台跑起來，先確保 trace 能收集。
-
-```bash
-cd llm-o11y
-cp .env.example .env
-docker compose up -d
+```
+./scripts/create-langfuse-dataset-from-observations.sh
+dataset=ok name=test id=cmprza7dv0067qi06zi7ccrc9
+done dataset=test added=50 skipped_existing=0 skipped_invalid=146
 ```
 
 ---
 
-### LAB1：確認服務健康
-
-請確認：
-
-- Langfuse UI 可開啟
-- Gateway / API 可回應
-- demo app 能發送一筆 trace
-
-```bash
-docker compose ps
-```
+{{< slide background-image="dataset-export.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
 
 ---
 
-### LAB1：做第一筆 trace
+##### Data preprocessing
+##### 清理格式
 
-```bash
-make demo-trace
+tracing 原始資料不適合直接使用
+
+用 script 只收集 input / Expected Output / metadata
+
+- 讀取既有資料集項目，收集它們的 sourceObservationId 用於去重。
+- 依 START_PAGE 開始逐頁抓取 observations：
+- 從 observation 解析並提取可用的 input 與 expectedOutput
+- 跳過缺失/重複/解析無效的資料
+- 將有效項目 POST 到 /api/public/dataset-items
+- 直到新增 LIMIT 筆為止。
+
+---
+
+{{< slide background-image="dataset-preprocessing.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+
+---
+
+##### script 只是示範實務的步驟
+
+實務資料整理相當複雜
+
+需要根據 use case 調整，才能整理出堪用的資料
+
+這裡僅僅簡單帶過
+
+資料集整理就是一門講不完的課
+
+---
+
+##### Data preprocessing
+##### 挑選內容
+
+現在的 dataset 是「日常工作的tracing」，但有包含有效跟無效的紀錄
+
+我們想要挑選高效的 tracing 來訓練模型，或是挑選失敗的 tracing 來修正模型
+
+可以進一步使用 llm-as-a-judge 評分篩選，挑選出可用的 input / expected output
+
+---
+
+##### 使用 dataset 進行 experiment
+
+先建立 Prompt，Prompts > 右上角 New Prompt
+
 ```
+Name: Coding agent vs LLM 
+prompt: Chat
+System: You are a coding agent.
+```
+點 +Message
+```
+User: {{input}}
+取消 Set the "production" label
+```
+Create Prompt
 
-觀察重點：
+---
 
-- prompt / response
-- token usage
-- latency
+##### 使用 dataset 進行 experiment
+
+測試不同 model / agent / tool 的表現
+
+Dataset > test > 右上角 Run Experiment
+- via User Interface > Configure
+```
+Prompt: Coding agent vs LLM
+Model
+Provider: azure
+Model name: gpt-5.4-nano # 或是測試新模型 gpt-5.5
+```
+- Next
+- Dataset: test
+- Valid configuration
+
+```
+Matches between dataset items and prompt variables/placeholders
+input: 100 / 100
+```
+---
+
+{{< slide background-image="experiment-valid-configuration.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+
+---
+
+##### 使用 dataset 進行 experiment
+
+- Next
+- Select Evaluators (Optional)
+  - Helpfulness
+- Next
+- Run Experiment
+- 可以到 Dataset > test > Experiments 看進度與結果
+
+---
+
+{{< slide background-image="experiment-run.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+
+---
+
+{{< slide background-image="experiment-details.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
 
 {{% /section %}}
 
 ---
 
-## Evaluation：把主觀變可比較
+##### Observability 到 Decision System
 
-建議組合：
-
-- LLM-as-a-judge（快速、可擴）
-- rule-based checks（格式、schema、constraints）
-- task rubric（符合業務定義的好壞）
-
----
-
-{{% section %}}
-
-### LAB2：加入 LLM-as-a-judge
-
-目標：針對既有 traces 自動評分。
-
-```bash
-make eval-run
-```
-
----
-
-### LAB2：加上 Rule-based Checks
-
-常見檢查：
-
-- JSON schema 是否合法
-- 必要欄位是否存在
-- 關鍵關鍵字是否命中
-
-```bash
-make eval-rules
-```
-
-{{% /section %}}
-
----
-
-## Dataset：從真實流量累積
-
-不是 benchmark 優先，而是 production-like data：
-
-- 真實 query
-- 真實 failure cases
-- 真實 edge cases
-
-流程：
-
-`trace -> triage -> label -> dataset`
-
----
-
-{{% section %}}
-
-### LAB3：從 traces 產生 dataset
-
-```bash
-make dataset-export
-```
-
-輸出目標：
-
-- baseline dataset
-- failure-focused dataset
-
----
-
-### LAB3：資料集分層
-
-最低限度建議分三層：
-
-- smoke（快速）
-- core（關鍵流程）
-- edge（高風險案例）
-
-{{% /section %}}
-
----
-
-## Regression：比較不能靠感覺
-
-固定同一份 dataset 比較不同：
-
-- model
-- prompt strategy
-- agent framework
-
-輸出指標：
-
-- quality delta
-- latency delta
-- cost delta
-
----
-
-{{% section %}}
-
-### LAB4：跑 regression
-
-```bash
-make regression-run
-```
-
----
-
-### LAB4：設定 Decision Gate
-
-只有同時滿足才允許 deploy：
-
-- quality >= baseline
-- no critical regression
-- latency within SLO
-- cost within budget
-
-```bash
-make decision-gate
-```
-
-{{% /section %}}
-
----
-
-## Failure Taxonomy
-
-先分類，再修復：
-
-- hallucination
-- tool misuse
-- reasoning error
-- format/schema break
-
----
-
-## 最小可行架構
-
-```text
-Agent Runtime
-  -> Tracing (Langfuse)
-  -> Evaluation
-  -> Dataset Store
-  -> Regression Runner
-  -> Decision Policy
-```
-
----
-
-## 核心訊息
-
-沒有 evaluation：
-
-**LLM upgrade = gambling**
-
-有 feedback loop：
-
-**Observe -> Evaluate -> Regress -> Decide**
+- LLM call metadata（token usage, latency）：客觀數據
+- LLM-as-a-Judge Evaluator：狹隘但便利的量化評分
+- Dataset Experiment：基於具體 Input / Expected Output 的比較
+- 最後加上人類意見，作為 Decision Gate
 
 ---
 
 ## Thank you
 
+沒有 evaluation，LLM upgrade = gambling or faith
+
+Observe -> Evaluate -> Regress -> Decide
+
 下午本堂 Session 歡迎參考
 - Session: 15:30 - 16:00 [LLM O11y：從 Observability 到 Decision System](../../posts/2026-07-01-langfuse-ai-ent/)
 
-謝謝大家。
+---
+
+#### Case 2: Monitoring & Evaluate long running agent
+
+Single Turn vs Multi Turn o11y
+
+重點在模擬開發，觀察 trace 與 token 花費
+
+- 參考上午 Lab [Spec-driven development with Spec-kit](../../posts/2026-07-01-ws-speckit-ai-ent/)
+- 現在可以跑 /speckit.specify，之後可以稍後再跑
+
+```
+/clear # 清除 session，開始新的對話
+specify init --here --integration copilot
+/speckit.constitution 為專案建立一套憲法，重點在簡潔性和測試覆蓋率。
+/speckit.specify 建立一個 Terminal 應用：台北市 YouBike 2.0 即時站點查詢器。
+核心需求：
+ 1. 自動從官方 YouBike 2.0 API 抓取 JSON 站點資訊。
+ 2. Input：可依據「站點地址」或「名稱」過濾。
+ 3. 列表呈現：站點名稱、可用車輛、剩餘空位。
+/speckit.plan
+/speckit.tasks
+/speckit.implement
+```

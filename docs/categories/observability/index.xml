@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- 0.147.7</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 02 May 2026 13:20:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 02 May 2026 15:30:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/observability/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LLM O11y：從 Observability 到 Decision System</title>
+      <link>http://localhost:1313/slides/2026-07-01-langfuse-ai-ent/</link>
+      <pubDate>Sat, 02 May 2026 15:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/slides/2026-07-01-langfuse-ai-ent/</guid>
+      <description>從 Langfuse observability 出發，補上 evaluation、dataset、regression 與 decision gate，建立可落地的 LLM Decision System。</description>
+    </item>
     <item>
       <title>LLM O11y：從 Observability 到 Decision System</title>
       <link>http://localhost:1313/posts/2026-07-01-langfuse-ai-ent/</link>
