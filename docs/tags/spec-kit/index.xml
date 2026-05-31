@@ -11,28 +11,7 @@
     </image>
     <generator>Hugo -- 0.147.7</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 02 May 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate></lastBuildDate>
     <atom:link href="http://localhost:1313/tags/spec-kit/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>When Not to Vibe 從 Chat-driven coding 到 Spec-driven AI Engineering</title>
-      <link>http://localhost:1313/slides/2026-07-01-speckit-cloud-summit/</link>
-      <pubDate>Sat, 02 May 2026 12:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/slides/2026-07-01-speckit-cloud-summit/</guid>
-      <description>以 Spec-driven development（SDD）結合 AI 與 Spec-kit，判斷何時不該 Vibe Coding，並把需求轉成可驗證、可回饋的工程流程。</description>
-    </item>
-    <item>
-      <title>AI Enterprise Workshop: Spec-driven development with Spec-kit</title>
-      <link>http://localhost:1313/slides/2026-07-01-ws-speckit-ai-ent/</link>
-      <pubDate>Sat, 02 May 2026 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/slides/2026-07-01-ws-speckit-ai-ent/</guid>
-      <description>90 分鐘 hands-on workshop，從 Vibe Coding 走向 Spec-driven Development（SDD），用 Spec-kit 完成從規格到實作的完整流程。</description>
-    </item>
-    <item>
-      <title>DevOpsDay: 規格驅動的 AI 強化 DevOps</title>
-      <link>http://localhost:1313/slides/2026-06-25-speckit-devops/</link>
-      <pubDate>Sat, 25 Apr 2026 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/slides/2026-06-25-speckit-devops/</guid>
-      <description>以 Spec-driven development（SDD）結合 AI 與 Spec-kit，把 SOP 與 Runbook 轉成可執行規格，建立可驗證、可回饋的 DevOps 自動化流程。</description>
-    </item>
   </channel>
 </rss>

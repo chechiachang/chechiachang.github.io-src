@@ -36,13 +36,14 @@ reveal_hugo:
 
 #### VS Code
 
-- 安裝 VS Code：[https://code.visualstudio.com/](https://code.visualstudio.com/)
-- 打開 VS Code，底下 Terminal
-  - git clone 程式碼 speckit-playground
-  - File > Open Folder > 選擇 clone 的 資料夾
-
+安裝 VS Code：[https://code.visualstudio.com/](https://code.visualstudio.com/)
 ```
+# 打開 VS Code，底下 Terminal
+
+# git clone 程式碼 speckit-playground
 git clone https://github.com/chechiachang/llm-o11y.git
+
+# File > Open Folder > 選擇 clone 的 資料夾
 ```
 ---
 
@@ -92,16 +93,13 @@ docker compose pull
 ```
 # VS Code Terminal
 docker compose up -d
-```
 
-- 透過 http://localhost:8080/ 存取 bifrost ai gateway
-- 透過 http://localhost:3000/ 存取 langfuse UI
-```
-chechia@chechia.net / password
-```
-- 透過 http://localhost:9001/ 存取 minio UI
-```
-chechia / password
+# 透過 http://localhost:8080/ 存取 bifrost ai gateway
+# 透過 http://localhost:3000/ 存取 langfuse UI
+#     chechia@chechia.net / password
+# 
+# 透過 http://localhost:9001/ 存取 minio UI
+#     chechia / password
 ```
 
 ---
@@ -120,13 +118,18 @@ chechia / password
 
 #### VSCode 使用 bifrost gateway
 
-- VS Code 右側 Secondary Sidebar > Chat
-  - 底下 Model (ex Auto, GPT-5.4) > 跳出可用 Model 列表
-- Model 右上角齒輪 > Manage Model Settings
-  - Add Models > Azure OpenAI
-  - Group Name: Bifrost
-  - Azure API Key 填入 123，不能空白
-  - 跳出 chatLanguageModels.json 編輯
+```
+VS Code 右側 Secondary Sidebar > Chat
+    底下 Model (ex Auto, GPT-5.4) > 跳出可用 Model 列表
+
+Model 右上角齒輪 > Manage Model Settings
+    Add Models > Azure OpenAI
+
+    Group Name: Bifrost
+    Azure API Key 填入 123，不能空白
+
+    跳出 chatLanguageModels.json 編輯
+```
 
 ---
 
@@ -140,13 +143,10 @@ chechia / password
 
 #### 設定 Model 使用 bifrost gateway
 
-- chatLanguageModels.json 填入: id, name, url
-- cmd + s 儲存
-- 回到 Model 列表，選擇剛剛新增的 Azure GPT-5.4 Nano
-  - 跟 Bifrost Azure say hi，預期 bifrost 沒填 api key 不可用
-  - 選回去選擇其他 Model，可以先用免費版
-
 ```
+
+# chatLanguageModels.json 填入: id, name, url
+# cmd + s 儲存
 [
   {
     "name": "Bifrost",
@@ -165,6 +165,11 @@ chechia / password
     ]
   }
 ]
+
+# 回到 Model 列表，選擇剛剛新增的 Azure GPT-5.4 Nano
+#   使用 VSCode Chat，跟 Bifrost Azure say hi
+#   預期 bifrost 沒填 api key 不可用
+#   Model 列表選擇其他 Model (ex auto)，可以先用免費版
 ```
 
 ---
@@ -174,16 +179,6 @@ chechia / password
 ---
 
 {{< slide background-image="select-azure-gpt54-nano.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
-
----
-
-#### 最重要的行前準備: Mindset
-
-- 先自己思考，再問 chatGPT
-  - 大多時候chatGPT是對的，性能優於講師
-- 如何確定 chatGPT 是對或錯的
-
-> workshop 重點在累積動手的經驗
 
 ---
 
@@ -218,11 +213,22 @@ chechia / password
 
 ---
 
+#### AI 時代的除錯
+
+- 先自己思考
+- 再問 chatGPT
+  - 大多時候chatGPT是對的，性能優於講師
+- 問題變成如何確定 chatGPT 是對的
+
+> 多嘗試多操作，workshop 重點在累積動手的經驗
+
+---
+
 {{% section %}}
 
 #### 把 observability stack 跑起來
 
-到 workshop.chechia.net 取得 Azure OpenAI API Key
+到 [workshop.chechia.net](https://workshop.chechia.net) 取得 Azure OpenAI API Key
 
 ```
 export AZURE_ENDPOINT=https://chechia-ws.services.ai.azure.com/
@@ -253,11 +259,15 @@ docker compose up -d
 
 http://localhost:8080/ 到 bifrost ai gateway
 
-- 左手工具列 Observability
-- Dashboard 觀察 Token Usage，包含 Input / Output token、Cached
-- LLM Logs 點一筆，看到 User Prompt、Model Response、Tools
-- 點 More details，看到時間，token 數、費用估算
-- [Complete Guide to O11y in Bifrost](https://www.getmaxim.ai/articles/complete-guide-to-llm-logging-otel-tracing-and-observability-in-bifrost/)
+```
+# 左手工具列 Observability
+# Dashboard 觀察 Token Usage
+#   包含 Input / Output token、Cached
+# LLM Logs 點一筆，看到 User Prompt、Model Response、Tools
+# 點 More details，看到時間、token 數、費用估算
+```
+
+[Complete Guide to O11y in Bifrost](https://www.getmaxim.ai/articles/complete-guide-to-llm-logging-otel-tracing-and-observability-in-bifrost/)
 
 ---
 
@@ -284,7 +294,7 @@ Bifrost AI Gateway 提供團隊或公司 LLM Proxy 服務
 
 ##### Langfuse 是什麼？
 
-http://localhost:3000/ 到 langfuse UI
+[http://localhost:3000/](http://localhost:3000/) 到 langfuse UI
 - Organizations > chachia > default project
 
 ---
@@ -302,9 +312,9 @@ http://localhost:3000/ 到 langfuse UI
 - AI Gateway 提供團隊模型管理功能
 - Observability 提供團隊 tracing 收集與分析功能
 
-o11y 的功能看起來一樣，為何不用 Bifrost 就好?
+##### o11y 的功能看起來一樣，為何不用 Bifrost 就好?
 - Bifrost 的進階 o11y 功能都需要 Enterprise
-- Langfuse 的 LLM-as-a-judge，Datasets，Evaluation 都是 OSS (MIT license))
+- Langfuse 的 LLM-as-a-judge，Datasets，Evaluation 都是 OSS (MIT license)
 
 ---
 
@@ -348,24 +358,28 @@ graph LR
 
 #### Task 1: Reduce Overhead
 
-- 請 VSCode Chat 說一個笑話，產生一筆 tracing
-- Langfuse > Tracing > Observations
-- 找到這筆 observation
-  - 總共花了多少 token？
-  - 花在什麼東西上面？
-  - 有沒有 cached token？
-- 打開 observation detail
-- 對照 input / output / cached
+```
+# 請 VSCode Chat 說一個笑話，產生一筆 tracing
+# Langfuse > Tracing > Observations
+# 找到這筆 observation
+#   總共花了多少 token？
+#   花在什麼東西上面？
+#   有沒有 cached token？
+# 打開 observation detail
+# 對照 input / output / cached
+```
 
 ---
 
 #### Task 2: Understand Cached token
 
-- 請 VSCode Chat 說第二個笑話，以及第三個笑話
-  - 第二筆與第三筆 observation 的 token 花費有什麼不同？
-- 打開 observation detail
-- 對照 input / output / cached
-- Use /compact 或 /clear 指令，第四個笑話的 token 花費有什麼不同？
+```
+# 請 VSCode Chat 說第二個笑話，以及第三個笑話
+#   第二筆與第三筆 observation 的 token 花費有什麼不同？
+# 打開 observation detail
+# 對照 input / output / cached
+# Use /compact 或 /clear 指令，第四個笑話的 token 花費有什麼不同？
+```
 
 ---
 
@@ -373,14 +387,16 @@ graph LR
 
 #### Task 3: 調整 VSCode enabled tools
 
-`gen_ai.request.tools` 是 agent cli 的低消，會保證每次呼叫至少花這麼多 token
+`gen_ai.request.tools` 每個 API call 都會帶上工具列表，讓模型決定要不要用工具，以及用哪個工具，是 agent cli 的低消
 
-- /clear 指令清除 session
-- 找到工具設定，試圖停用不必要的工具
-- 哪些工具是你不需要的？
-- 哪些工具是必要的？
-- 停用後新的 session
-- token 花費有沒有下降？
+```
+# /clear 指令清除 session
+# 找到工具設定，試圖停用不必要的工具
+# 哪些工具是你不需要的？
+# 哪些工具是必要的？
+# 停用後新的 session
+# token 花費有沒有下降？
+```
 
 ---
 
@@ -404,14 +420,18 @@ graph LR
 
 就算 VSCode Tools 全關，也大概剩下 2000+ token 的基礎花費
 
-- langfuse observation: type=GENERATION name=llm.call
-  - observation detail，找到 token 的來源
-- AGENTS.md
-  - 是否夠精簡? VScode 是否有讀取 AGENTS.md 內容?
-  - VSCode `cmd + ,` 開啟設定，chat.useAgentsMdFile=true
-- .github/copilot-instructions.md
-  - 是否夠精簡? 是否有讀取 copilot-instructions.md 內容?
-- role=system instruction 的來源是哪裡？
+```
+# langfuse observation: type=GENERATION name=llm.call
+#   observation detail，找到 token 的來源
+
+# AGENTS.md
+#   是否夠精簡? VScode 是否有讀取 AGENTS.md 內容?
+#   VSCode `cmd + ,` 開啟設定，chat.useAgentsMdFile=true
+
+# .github/copilot-instructions.md
+#   是否夠精簡? 是否有讀取 copilot-instructions.md 內容?
+# role=system instruction 的來源是哪裡？
+```
 
 ---
 
@@ -427,14 +447,17 @@ graph LR
 
 #### CLI debug 模式
 
-VSCode Chat 中，`/debug` 指令開啟 debug 模式
-- 點 title [tokens tks][latency ms][timestamp]
-  - 使用小模型為對話命名 ex. gpt-4o-mini
-- copilotLanguageModelWrapper 檢視以下內容
-  - Metadata
-  - System Instruction
-  - User 可能有多輪內容
-  - Assistant
+```
+# VSCode Chat 中，`/debug` 指令開啟 debug 模式
+# 點 title [tokens tks][latency ms][timestamp]
+#   使用小模型為對話命名 ex. gpt-4o-mini
+
+# copilotLanguageModelWrapper 檢視以下內容
+#   Metadata
+#   System Instruction
+#   User 可能有多輪內容
+#   Assistant
+```
 
 ---
 
@@ -487,20 +510,21 @@ repo 2
 
 #### LLM-as-a-Judge Evaluators
 
-Langfuse > Evaluation > LLM-as-a-Judge
-- Create Evaluator
-- 右邊 Set up
-- Add LLM connection
-
 ```
+# Langfuse > Evaluation > LLM-as-a-Judge
+# Create Evaluator
+# 右邊 Set up
+# Add LLM connection
+
 LLM adapter=azure
 Provider name=azure
 API Key=xxx
 API Base URL=https://chechia-ws.services.ai.azure.com/openai/deployments
 Custom models=gpt-5.4-nano
+
+# Create Connection
+# 選擇 Azure / gpt-5.4-nano > Save
 ```
-- Create Connection
-- 選擇 Azure / gpt-5.4-nano > Save
 
 ---
 
@@ -514,16 +538,16 @@ Custom models=gpt-5.4-nano
 
 #### LLM-as-a-Judge Evaluators
 
-Helpfulness
-- Run on Observations
-
 ```
+# Helpfulness
+# Run on Observations
+
 Type any of GENERATION
 And Environment any of default
 And Name any of llm.call
-```
 
-最右下 Execute
+# 最右下 Execute
+```
 
 ---
 
@@ -547,10 +571,12 @@ And Name any of llm.call
 
 #### Task 5: LLM-as-a-Judge Evaluators
 
-- 觀察 Helpfulness 分數
-- 人類判斷是否合理
-- 觀察分數後 LLM 的評分理由
-- Evaluator 是否有正確取得 Input / Output 的內容
+```
+# 觀察 Helpfulness 分數
+# 人類判斷是否合理
+# 觀察分數後 LLM 的評分理由
+# Evaluator 是否有正確取得 Input / Output 的內容
+```
 
 ---
 
@@ -560,12 +586,14 @@ And Name any of llm.call
 
 #### Task 5: LLM-as-a-Judge Evaluators
 
-Evaluators 除錯
-- 看起來評分不合理
-- Evaluator > Logs View，看看 LLM 的評分理由
-- Target Trace 是抽出 Input Output 的 Trace
-- 點 Execution Trace 檢查 LLM 的思考過程與評分依據
-- 發現 LLM reasoning 說「沒有看到 output」
+```
+# Evaluators 除錯
+#   看起來評分不合理
+#   Evaluator > Logs View，看看 LLM 的評分理由
+#   Target Trace 是抽出 Input Output 的 Trace
+#   點 Execution Trace 檢查 LLM 的思考過程與評分依據
+#   發現 LLM reasoning 說「沒有看到 output」
+```
 
 實際上有 output，但只有部分 Observation 有 output，其他 Observation 裡面的 output 是空的，導致評分不合理
 
@@ -579,9 +607,11 @@ Evaluators 除錯
 
 Coding Agent Session 包含多個步驟，每步有不同的 input / output / tools
 
-- 增加 filter，先以單一步驟 tool call 為單位建立 Evaluator
-- 觀察每個步驟的表現
-- 再逐步擴大到整個 Agent 的評分
+```
+# 增加 filter，先以單一步驟 tool call 為單位建立 Evaluator
+# 觀察每個步驟的表現
+# 再逐步擴大到整個 Agent 的評分
+```
 
 ---
 
@@ -592,12 +622,14 @@ Coding Agent Session 包含多個步驟，每步有不同的 input / output / to
 #### Task 6: 建立自己的 Evaluator
 
 
-Langfuse > Evaluation > LLM-as-a-Judge
-- 右邊 Set up Evaluator
-- Create Custom Evaluator
-- Name: Apply Patch Safely
-- Prompt:
 ```
+# Langfuse > Evaluation > LLM-as-a-Judge
+#   右邊 Set up Evaluator
+#   Create Custom Evaluator
+
+Name: Apply Patch Safely
+
+Prompt:
 Evaluate the safety of applying the following patch to the codebase. 
 
 Request Input:
@@ -614,11 +646,10 @@ Apply Patch Description:
 Where Type any of GENERATION
 And Environment any of default
 And Called Tool Names: apply_patch
-```
 
-Variable mapping
-- 邊修改，邊觀察 Prview 的變化
-```
+# Variable mapping
+#   邊修改，邊觀察 Preview 的變化
+
 {{input}}
     Object Field: input
 {{description}}
@@ -638,13 +669,15 @@ Variable mapping
 
 #### Task 6: 建立自己的 Evaluator
 
-回到 VSCode，觸發 Agent 執行 apply patch
+
 ```
+# 回到 VSCode，觸發 Agent 執行 apply patch，例如
 Review ./github/agents/caveman.agent.md, polish the wording, and keep it compact.
+
+# 開啟 /debug 模式，找到這筆 observation 有觸發 apply patch 工具
+# 回到 Langfuse Evaluation 觀察評分
+# 觀察 Evaluator Logs View，看看 LLM 的評分理由
 ```
-- 開啟 /debug 模式，找到這筆 observation 有觸發 apply patch 工具
-- 回到 Langfuse Evaluation 觀察評分
-- 觀察 Evaluator Logs View，看看 LLM 的評分理由
 
 ---
 
@@ -729,12 +762,11 @@ tracing 原始資料不適合直接使用
 
 用 script 只收集 input / Expected Output / metadata
 
-- 讀取既有資料集項目，收集它們的 sourceObservationId 用於去重。
-- 依 START_PAGE 開始逐頁抓取 observations：
-- 從 observation 解析並提取可用的 input 與 expectedOutput
-- 跳過缺失/重複/解析無效的資料
-- 將有效項目 POST 到 /api/public/dataset-items
-- 直到新增 LIMIT 筆為止。
+- 讀取既有資料集項目
+- 逐頁下載 observations
+- 從 observation 提取可用的 input 與 expectedOutput
+- 跳過解析無效的資料
+- 將有效 item POST 到 /api/public/dataset-items
 
 ---
 
@@ -773,13 +805,14 @@ tracing 原始資料不適合直接使用
 Name: Coding agent vs LLM 
 prompt: Chat
 System: You are a coding agent.
-```
-點 +Message
-```
+
+# 點 +Message
+
 User: {{input}}
 取消 Set the "production" label
+
+# Create Prompt
 ```
-Create Prompt
 
 ---
 
@@ -787,36 +820,33 @@ Create Prompt
 
 測試不同 model / agent / tool 的表現
 
-Dataset > test > 右上角 Run Experiment
-- via User Interface > Configure
 ```
+# Dataset > test > 右上角 Run Experiment
+#   via User Interface > Configure
+
 Prompt: Coding agent vs LLM
 Model
 Provider: azure
 Model name: gpt-5.4-nano # 或是測試新模型 gpt-5.5
-```
-- Next
-- Dataset: test
-- Valid configuration
 
-```
+#   Next
+#   Dataset: test
+#   Valid configuration
+
 Matches between dataset items and prompt variables/placeholders
 input: 100 / 100
+
+# Next
+# Select Evaluators (Optional)
+#   Helpfulness
+# Next
+# Run Experiment
+
+# 可以到 Dataset > test > Experiments 看進度與結果
 ```
 ---
 
 {{< slide background-image="experiment-valid-configuration.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
-
----
-
-##### 使用 dataset 進行 experiment
-
-- Next
-- Select Evaluators (Optional)
-  - Helpfulness
-- Next
-- Run Experiment
-- 可以到 Dataset > test > Experiments 看進度與結果
 
 ---
 
