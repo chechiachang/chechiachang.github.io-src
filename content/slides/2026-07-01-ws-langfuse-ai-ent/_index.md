@@ -15,7 +15,7 @@ reveal_hugo:
 
 {{% section %}}
 
-### Workshop 行前準備
+#### Workshop 行前準備
 ##### LLM O11y：從 Observability 到 Decision System
 ##### ~ Che Chia Chang @ [chechia.net](https://chechia.net) ~
 
@@ -23,7 +23,7 @@ reveal_hugo:
 
 ---
 
-### Workshop 行前準備
+#### Workshop 行前準備
 
 - 攜帶筆電，可上網
 - 安裝好操作環境
@@ -34,7 +34,7 @@ reveal_hugo:
 
 ---
 
-### VS Code
+#### VS Code
 
 - 安裝 VS Code：[https://code.visualstudio.com/](https://code.visualstudio.com/)
 - 打開 VS Code，底下 Terminal
@@ -50,7 +50,7 @@ git clone https://github.com/chechiachang/llm-o11y.git
 
 ---
 
-### 打開 VS Code，底下 Terminal
+#### 打開 VS Code，底下 Terminal
 
 ```
 cd llm-o11y
@@ -87,7 +87,7 @@ docker compose pull
 
 ---
 
-### 啟動服務
+#### 啟動服務
 
 ```
 # VS Code Terminal
@@ -118,7 +118,7 @@ chechia / password
 
 ---
 
-### VSCode 使用 bifrost gateway
+#### VSCode 使用 bifrost gateway
 
 - VS Code 右側 Secondary Sidebar > Chat
   - 底下 Model (ex Auto, GPT-5.4) > 跳出可用 Model 列表
@@ -138,7 +138,7 @@ chechia / password
 
 ---
 
-### 設定 Model 使用 bifrost gateway
+#### 設定 Model 使用 bifrost gateway
 
 - chatLanguageModels.json 填入: id, name, url
 - cmd + s 儲存
@@ -177,7 +177,7 @@ chechia / password
 
 ---
 
-### 最重要的行前準備: Mindset
+#### 最重要的行前準備: Mindset
 
 - 先自己思考，再問 chatGPT
   - 大多時候chatGPT是對的，性能優於講師
@@ -187,7 +187,7 @@ chechia / password
 
 ---
 
-### Workshop 行前準備結束
+#### Workshop 行前準備結束
 
 - VSCode 已安裝
 - VSCode 設定 model
@@ -207,7 +207,7 @@ chechia / password
 
 ---
 
-### 大綱
+#### 大綱
 
 1. AI Gateway & Observability stack
 1. Tracing & token 花費，Agent 如何花 token
@@ -220,7 +220,7 @@ chechia / password
 
 {{% section %}}
 
-### 把 observability stack 跑起來
+#### 把 observability stack 跑起來
 
 到 workshop.chechia.net 取得 Azure OpenAI API Key
 
@@ -338,7 +338,7 @@ graph LR
 
 ---
 
-### Workshop 以 Langfuse 為主
+#### Workshop 以 Langfuse 為主
 
 有空或無聊也可以去玩 Bifrost 的其他功能
 
@@ -346,7 +346,7 @@ graph LR
 
 ---
 
-### Task 1: Reduce Overhead
+#### Task 1: Reduce Overhead
 
 - 請 VSCode Chat 說一個笑話，產生一筆 tracing
 - Langfuse > Tracing > Observations
@@ -694,7 +694,7 @@ LLM as a Judge Evaluator 是顯微鏡：避免以管窺天
 
 {{% section %}}
 
-### Dataset 與 Regression
+#### Dataset 與 Regression
 
 收集 gpt-5.4 的 Input / Output / 分數作為回歸測試資料
 
@@ -706,7 +706,7 @@ LLM as a Judge Evaluator 是顯微鏡：避免以管窺天
 
 ---
 
-### Dataset
+#### Dataset
 
 嘗試使用 coding agent tracing 產生資料集
 
