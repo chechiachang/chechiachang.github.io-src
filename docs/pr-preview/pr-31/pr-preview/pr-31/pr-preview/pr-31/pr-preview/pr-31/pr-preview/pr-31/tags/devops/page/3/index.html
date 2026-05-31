@@ -29,7 +29,7 @@ Our stories 100+ devs, many teams 25+ projects 50+ GKEs 80+ SQLs IAMs, redis, VP
 這邊改了一些大綱，原本的內容還有一些 kubernetes 的設定，以及 GCP 相關服務的介紹。但既然我們的主題是把東西搬上 k8s 的踩雷旅程，那我們就繼續搬，繼續踩。剩下的時間大概會有四個題目。
 Nginx Ingress (3) Deploy Nginx Ingress Controller Configure Nginx Ingress Cert-manager (3) Deploy cert-manager How cert-manager work Cert-manager complete workflow Kubernetes CRD & Operator-sdk (3) Introduction about custom resource Deployment & Usage Deployment & Usage 由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。
 寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。
-對我的文章有興趣，歡迎到我的網站上 https://chechia.net 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。
+對我的文章有興趣，歡迎到我的網站上 chechia.net 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。
 Recap 昨天我們實際使用 cert-manager，為 nginx ingress controller 產生 certificates，過程中我們做了幾件事
 設置 Let’s Encript prod site 的 Issuer 設置 certificates.certmanager.k8s.io 資源來定義 certificate 的取得方式 或是在 ingress 中配置 tls，讓 cert-manager 自動透過 ingress-shim 產生 certifcates.cert-manager，並且產生 certificate 以上是使用 cert-manager 產生 certificate 的基本操作，剩下的是由 cert-manager 完成。實際上 cert-manager 在產生出 certificate 之前還做了很多事情，我們今天就詳細走過完整流程，藉此了解 cert-manager 配合 issuing certificate 的流程
 ...</p></div><footer class=entry-footer><span title='2019-10-12 17:41:25 +0800 +0800'>October 12, 2019</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;407 words&nbsp;·&nbsp;chechiachang</footer><a class=entry-link aria-label="post link to Cert Manager Complete Workflow" href=https://chechia.net/pr-preview/pr-31/posts/2019-10-12-cert-manager-complete-workflow/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://chechia.net/pr-preview/pr-31/tags/devops/page/2/>«&nbsp;Prev&nbsp;2/5

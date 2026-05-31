@@ -70,50 +70,30 @@ MinIO"]
 A --> B
 B --> C
 C --> D
-D --> E</div></section><section><h3 id=workshop-以-langfuse-為主>Workshop 以 Langfuse 為主</h3><p>有空或無聊也可以去玩 Bifrost 的其他功能</p></section><section><h3 id=task-1-session-overhead>Task 1: Session overhead</h3><ul><li>請 VSCode Chat 說一個笑話，產生一筆 trace</li><li>找到這筆 trace<ul><li>總共花了多少 token？</li><li>花在什麼東西上面？</li><li>有沒有 cached token？</li></ul></li><li>打開 trace detail</li><li>對照 input / output / cached</li></ul></section><section><h4 id=task-2-session--cached-token>Task 2: Session & Cached token</h4><ul><li>請 VSCode Chat 說第二個笑話，以及第三個笑話<ul><li>第二筆與第三筆 trace 的 token 花費有什麼不同？</li></ul></li><li>打開 trace detail</li><li>對照 input / output / cached</li><li>Use /compact 或 /clear 指令，第四個笑話的 token 花費有什麼不同？</li></ul></section><section><h4 id=task-3-調整-vscode-enabled-tools>Task 3: 調整 VSCode enabled tools</h4><p><code>gen_ai.request.tools</code> 是 agent cli 的低消，會保證每次呼叫至少花這麼多 token</p><ul><li>/clear 指令清除 session</li><li>找到工具設定，試圖停用不必要的工具</li><li>哪些工具是你不需要的？</li><li>哪些工具是必要的？</li><li>停用後新的 session</li><li>token 花費有沒有下降？</li></ul></section><section><h4 id=tools>Tools</h4><ul><li>同一 Session 重複相同 prompt，Cached token 降低成本</li><li>然而很多工具是不會用到，浪費 token</li><li>建議停用工具: Browser，VSCode extension，Notebooks，Github，Terminal 等</li><li>不建議停用的：Agent，Read，Write</li><li>看情況：Web search，Github search 建議可以拆成獨立 Plan Agent 使用</li><li><a href=https://code.visualstudio.com/docs/copilot/agents/agent-tools>https://code.visualstudio.com/docs/copilot/agents/agent-tools</a></li></ul><p>省 10000 token 沒多少錢，想像他是 gpt-5.4-pro （nano 的 x150 倍）</p></section><section><h4 id=有需要計較-token-的花費嗎>有需要計較 token 的花費嗎</h4><p>人月神話/Parkinson&rsquo;s Law，「工作會自動膨脹，填滿可用的時間」</p><p>人Token神話：給員工多少 Token 預算，就會用完多少 Token</p><p>面對問題，有人在等更未來強大模型來解決，有人在試圖用更便宜的模型現在解決</p></section><section><h4 id=task-4-long-running-agent>Task 4: Long-running Agent</h4><p>模擬真實 Code Agent 進行長時間任務</p><ul><li>參考上午 Lab <a href=/pr-preview/pr-31/posts/2026-07-01-ws-speckit-ai-ent/>Spec-driven development with Spec-kit</a></li><li>不用跑完，重點在觀察 trace 與 token 花費</li></ul><pre><code>specify init --here --integration copilot
+D --> E</div></section><section><h3 id=workshop-以-langfuse-為主>Workshop 以 Langfuse 為主</h3><p>有空或無聊也可以去玩 Bifrost 的其他功能</p></section><section><h3 id=task-1-session-overhead>Task 1: Session overhead</h3><ul><li>請 VSCode Chat 說一個笑話，產生一筆 trace</li><li>找到這筆 trace<ul><li>總共花了多少 token？</li><li>花在什麼東西上面？</li><li>有沒有 cached token？</li></ul></li><li>打開 trace detail</li><li>對照 input / output / cached</li></ul></section><section><h4 id=task-2-session--cached-token>Task 2: Session & Cached token</h4><ul><li>請 VSCode Chat 說第二個笑話，以及第三個笑話<ul><li>第二筆與第三筆 trace 的 token 花費有什麼不同？</li></ul></li><li>打開 trace detail</li><li>對照 input / output / cached</li><li>Use /compact 或 /clear 指令，第四個笑話的 token 花費有什麼不同？</li></ul></section><section><h4 id=task-3-調整-vscode-enabled-tools>Task 3: 調整 VSCode enabled tools</h4><p><code>gen_ai.request.tools</code> 是 agent cli 的低消，會保證每次呼叫至少花這麼多 token</p><ul><li>/clear 指令清除 session</li><li>找到工具設定，試圖停用不必要的工具</li><li>哪些工具是你不需要的？</li><li>哪些工具是必要的？</li><li>停用後新的 session</li><li>token 花費有沒有下降？</li></ul></section><section><h4 id=tools>Tools</h4><ul><li><p>同一 Session 重複相同 prompt，Cached token 降低成本</p></li><li><p>然而很多工具是不會用到</p></li><li><p>VSCode 與 CLI 甚至 ai gateway 都會注入工具</p><ul><li>VSCode default 有 40+ tools</li><li>例如 bifrost 的 <code>session_store_sql</code></li></ul></li><li><p>建議拆分不同 agent 分配工具</p><ul><li>規劃時使用 Plan agent (readonly)</li><li>實作時切換 Write Agent (read file, write file)</li></ul></li><li><p>停用: Browser，VSCode extension，Notebooks，Github，Terminal 等</p></li><li><p>不建議全關，例如 Agent 與 search，Read File 等是 coding agent 的核心</p></li></ul></section><section><h4 id=task-4-instruction>Task 4: Instruction</h4><p>就算 VSCode Tools 全關，也大概剩下 2000+ token 的基礎花費</p><ul><li>langfuse trace: type=GENERATION name=llm.call<ul><li>trace detail，找到 token 的來源</li></ul></li><li>AGENTS.md<ul><li>是否夠精簡? VScode 是否有讀取 AGENTS.md 內容?</li><li>VSCode <code>cmd + ,</code> 開啟設定，chat.useAgentsMdFile=true</li></ul></li><li>.github/copilot-instructions.md<ul><li>是否夠精簡? 是否有讀取 copilot-instructions.md 內容?</li></ul></li><li>role=system instruction 的來源是哪裡？</li></ul></section><section><h4 id=cli-debug-模式>CLI debug 模式</h4><p>VSCode Chat 中，<code>/debug</code> 指令開啟 debug 模式</p><ul><li>點 title [tokens tks][latency ms][timestamp]<ul><li>使用小模型為對話命名 ex. gpt-4o-mini</li></ul></li><li>copilotLanguageModelWrapper 檢視內容<ul><li>Metadata</li><li>System Instruction</li><li>User 可能有多輪內容</li><li>Assistant</li></ul></li></ul></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=vscode-chat-debug.png data-background-opacity=1 data-background-size=80%></section><section><h5 id=note-自動運行前確定-agent-設定符合需求>Note: 自動運行前，確定 Agent 設定符合需求</h5><ul><li>手動運行浪費錢的話，自動運行時是花式燒錢</li><li>建議至以 team 為單位 review agent config</li><li>10000 token 好像不多，想像他是 gpt-5.4-pro （nano 的 x150 倍）</li><li>人Token神話：給員工多少 Token 預算，就會用完多少 Token</li></ul><aside class=notes><p>人月神話/Parkinson&rsquo;s Law，「工作會自動膨脹，填滿可用的時間」
+面對問題，有人在等更未來強大模型來解決，有人在試圖用更便宜的模型現在解決</p></aside></section><section><h4 id=task-5-模擬長時間-agent-開發>Task 5: 模擬長時間 agent 開發</h4><p>重點在模擬開發，觀察 trace 與 token 花費</p><ul><li>參考上午 Lab <a href=/pr-preview/pr-31/posts/2026-07-01-ws-speckit-ai-ent/>Spec-driven development with Spec-kit</a></li><li>現在可以跑 /speckit.specify，之後可以稍後再跑</li></ul><pre><code>/clear # 清除 session，開始新的對話
+specify init --here --integration copilot
 /speckit.constitution 為專案建立一套憲法，重點在簡潔性和測試覆蓋率。
 /speckit.specify 建立一個 Terminal 應用：台北市 YouBike 2.0 即時站點查詢器。
 核心需求：
- 1. 自動從政府 API 抓取 JSON 站點資訊。
+ 1. 自動從官方 YouBike 2.0 API 抓取 JSON 站點資訊。
  2. Input：可依據「站點地址」或「名稱」過濾。
  3. 列表呈現：站點名稱、可用車輛、剩餘空位。
 /speckit.plan
 /speckit.tasks
 /speckit.implement
-</code></pre></section><section><h4 id=task-5-rtk>Task 5: rtk</h4><p><a href=https://github.com/rtk-ai/rtk>https://github.com/rtk-ai/rtk</a></p></section><section><h3 id=task-4-寫下你的評分規則>Task 4: 寫下你的評分規則</h3><ul><li>把「好答案」寫成 3 條可檢查規則</li><li>每條規則都要能判斷 pass / fail</li><li>用這份 rubric 評分剛剛那筆 trace</li></ul></section><section><h3 id=task-5-讓-judge-幫你打分>Task 5: 讓 judge 幫你打分</h3><ul><li>先自己猜這筆 trace 會得幾分</li><li>再跑一次 judge</li><li>比較：<ul><li>你的分數</li><li>judge 的分數</li><li>哪一條規則最容易吵架</li></ul></li></ul></section><section><h3 id=模擬-code-agent-開發流程>模擬 Code Agent 開發流程</h3><p>參考上午 Lab <a href=/pr-preview/pr-31/posts/2026-07-01-ws-speckit-ai-ent/>Spec-driven development with Spec-kit</a></p><pre><code>specify init --here --integration copilot
-/speckit.specify 建立一個單頁 Web 應用：台北市 YouBike 2.0 即時站點查詢器。
-核心需求：
- 1. 自動從政府 API 抓取 JSON 站點資訊。
- 2. 搜尋框：可依據「站點地址」或「名稱」過濾。
- 3. 列表呈現：站點名稱、可用車輛、剩餘空位。
-/speckit.plan
+</code></pre></section><section><h4 id=llm-as-a-judge-evaluators>LLM-as-a-Judge Evaluators</h4><p>Langfuse > Evaluation > LLM-as-a-Judge</p><ul><li>Create Evaluator</li><li>右邊 Set up</li><li>Add LLM connection</li></ul><pre><code>LLM adapter=azure
+Provider name=azure
+API Key=xxx
+API Base URL=https://chechia-ws.services.ai.azure.com/openai/deployments
+Custom models=gpt-5.4-nano
+</code></pre><ul><li>Create Connection</li><li>選擇 Azure / gpt-5.4-nano > Save</li></ul></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=create-llm-connection.png data-background-opacity=1 data-background-size=80%></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=default-model.png data-background-opacity=1 data-background-size=80%></section><section><h4 id=llm-as-a-judge-evaluators-1>LLM-as-a-Judge Evaluators</h4><p>Helpfulness</p><pre><code>Type any of GENERATION
+and Environment any of default
+and Name any of llm.call
+</code></pre><p>最右下 Execute</p></section><section><h4 id=llm-as-a-judge-evaluators-2>LLM-as-a-Judge Evaluators</h4><p>回到 VSCode Chat，繼續 speckit</p><ul><li>觀察 Helpfulness 分數</li></ul><pre><code>/speckit.plan
 /speckit.tasks
 /speckit.implement
-</code></pre></section><section><h3 id=bootstrap-llm-as-a-judge-workflow>bootstrap llm-as-a-judge workflow</h3><ul><li>先用自己的標準猜一次這筆 trace 好不好</li><li>再讓 judge 跑一次</li><li>比較人類判斷和 judge 分數有沒有一致</li><li>如果不一致，回頭修 rubric</li></ul><pre><code>export AZURE_ENDPOINT=https://chechia-ws.services.ai.azure.com/
-export AZURE_OPENAI_API_KEY=xxx
-./scripts/bootstrap-langfuse.sh
-
-verify llm-as-a-judge workflow
-base_url=http://localhost:3000
-config=data/langfuse/bootstrap.json
-langfuse.version=3.172.1
-auth=ok
-Upserting 1 LLM connection(s) to http://localhost:3000
-Upserted connection: provider=azure adapter=azure
-Done: success=1 skipped=0 total=1
-Updated score config: llm_judge_correctness (39a27360-ae53-448e-9a59-3f66b2535b21)
-unstable_evaluators_api=ok
-default_evaluator_model=missing
-Set default evaluator model in UI: http://localhost:3000/project/chechia-project/evals/new
-retry_create_evaluator=ok provider=azure model=gpt-5.4-nano
-warning: default_evaluator_model still missing (explicit model works)
-score_config=ok id=39a27360-ae53-448e-9a59-3f66b2535b21
-create_evaluator=ok name=ci-answer-correctness-1779889505_30996
-create_rule=ok id=cmpo49bb7000qoy08rw4zvxeg
-get_rule=ok
-delete_rule=ok
-PASS: llm-as-a-judge workflow verified
-</code></pre></section><section><h2 id=核心問題>核心問題</h2><p>多數團隊已經有：</p><ul><li>trace / logging</li><li>prompt 管理</li><li>agent framework（LangChain / AutoGen / others）</li><li>observability 工具（Langfuse）</li></ul><p>但仍無法回答：</p><blockquote><p>這次 model 或 framework 升級，該不該上 production？</p></blockquote></section><section><h2 id=關鍵誤解>關鍵誤解</h2><h3 id=observability--decision-system>Observability != Decision System</h3><p>Observability 只能回答：</p><blockquote><p>發生了什麼？</p></blockquote><p>Decision System 需要回答：</p><blockquote><p>我應不應該改？<br>這次改動是不是變好？</p></blockquote></section><section><section data-shortcode-section><h3 id=lab1啟動-llm-o11y-stack>LAB1：啟動 LLM O11y Stack</h3><p>目標：把本地端觀測平台跑起來，先確保 trace 能收集。</p><pre><code class=language-bash>cd llm-o11y
+</code></pre></section><section><h4 id=deterministic-code-evaluators>deterministic code evaluators</h4></section><section><h4 id=llm-as-a-judge-evaluators-3>LLM-as-a-Judge Evaluators</h4><ul><li>先用自己的標準猜一次這筆 trace 好不好</li><li>再讓 judge 跑一次</li><li>比較人類判斷和 judge 分數有沒有一致</li><li>如果不一致，回頭修 rubric</li></ul><h3 id=task-4-寫下你的評分規則>Task 4: 寫下你的評分規則</h3><ul><li>把「好答案」寫成 3 條可檢查規則</li><li>每條規則都要能判斷 pass / fail</li><li>用這份 rubric 評分剛剛那筆 trace</li></ul></section><section><h3 id=task-5-讓-judge-幫你打分>Task 5: 讓 judge 幫你打分</h3><ul><li>先自己猜這筆 trace 會得幾分</li><li>再跑一次 judge</li><li>比較：<ul><li>你的分數</li><li>judge 的分數</li><li>哪一條規則最容易吵架</li></ul></li></ul></section><section><h3 id=dataset>Dataset</h3></section><section><h3 id=data-preprocessing>Data Preprocessing</h3><ul><li>Clean up traces</li></ul></section><section><h2 id=核心問題>核心問題</h2><p>多數團隊已經有：</p><ul><li>trace / logging</li><li>prompt 管理</li><li>agent framework（LangChain / AutoGen / others）</li><li>observability 工具（Langfuse）</li></ul><p>但仍無法回答：</p><blockquote><p>這次 model 或 framework 升級，該不該上 production？</p></blockquote></section><section><h2 id=關鍵誤解>關鍵誤解</h2><h3 id=observability--decision-system>Observability != Decision System</h3><p>Observability 只能回答：</p><blockquote><p>發生了什麼？</p></blockquote><p>Decision System 需要回答：</p><blockquote><p>我應不應該改？<br>這次改動是不是變好？</p></blockquote></section><section><section data-shortcode-section><h3 id=lab1啟動-llm-o11y-stack>LAB1：啟動 LLM O11y Stack</h3><p>目標：把本地端觀測平台跑起來，先確保 trace 能收集。</p><pre><code class=language-bash>cd llm-o11y
 cp .env.example .env
 docker compose up -d
 </code></pre></section><section><h3 id=lab1確認服務健康>LAB1：確認服務健康</h3><p>請確認：</p><ul><li>Langfuse UI 可開啟</li><li>Gateway / API 可回應</li><li>demo app 能發送一筆 trace</li></ul><pre><code class=language-bash>docker compose ps
