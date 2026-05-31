@@ -11,8 +11,106 @@
     </image>
     <generator>Hugo -- 0.147.7</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 26 Sep 2019 22:50:32 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 01 Jul 2024 12:45:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/kafka/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloud Summit: Cloud Infrastructure Saving Engineering  雲端省錢工程</title>
+      <link>http://localhost:1313/slides/2024-07-03-saving-money-on-cloud-k8s/</link>
+      <pubDate>Mon, 01 Jul 2024 12:45:00 +0000</pubDate>
+      <guid>http://localhost:1313/slides/2024-07-03-saving-money-on-cloud-k8s/</guid>
+      <description>分享幾個節省雲端開銷的方法，包含：導入 spot instance，成本計算與預測工具，動態資源調整HPA與VPA，saving plan</description>
+    </item>
+    <item>
+      <title>SRE Conference: Cloud Infrastructure Saving Engineering  雲端省錢工程</title>
+      <link>http://localhost:1313/slides/2024-04-26-saving-money-on-cloud-k8s/</link>
+      <pubDate>Tue, 26 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/slides/2024-04-26-saving-money-on-cloud-k8s/</guid>
+      <description>分享幾個節省雲端開銷的方法，包含：導入 spot instance，成本計算與預測工具，動態資源調整HPA與VPA，saving plan</description>
+    </item>
+    <item>
+      <title>Kubernetes Summit: Resource as Code for Kubernetes: Stop kubectl apply</title>
+      <link>http://localhost:1313/slides/2023-10-25-k8s-resource-as-code/</link>
+      <pubDate>Mon, 23 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/slides/2023-10-25-k8s-resource-as-code/</guid>
+      <description>將 k8s resource 以 code 管理，推上 vcs，並使用 argoCD, secret operator 等工具進行管理，來讓避免低級的人工操作錯誤，降低團隊整體失誤率，並降低 k8s admin 管理的成本，提高管理效率</description>
+    </item>
+    <item>
+      <title>Deploy Kafka on Kubernetes</title>
+      <link>http://localhost:1313/slides/2019-10-18-kafka-on-k8s/</link>
+      <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/slides/2019-10-18-kafka-on-k8s/</guid>
+      <description>&lt;h3 id=&#34;deploy-kafka-on-kubernetes&#34;&gt;Deploy Kafka on Kubernetes&lt;/h3&gt;
+&lt;p&gt;Che-Chia Chang&lt;/p&gt;
+&lt;p&gt;QRCode&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;about-me&#34;&gt;About Me&lt;/h3&gt;
+&lt;p&gt;David (Che-Chia) Chang&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Backend / Devops @ &lt;a href=&#34;https://machix.com/&#34;&gt;MachiX&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.meetup.com/golang-taipei-meetup/&#34;&gt;Golang Taipei Meetup&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/users/20120327/ironman/2444&#34;&gt;2020 Ithelp Ironman Challenge&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t.me/chechiachang&#34;&gt;https://t.me/chechiachang&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;outline&#34;&gt;Outline&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Introduction to Kafka&lt;/li&gt;
+&lt;li&gt;Deploy Kafka with Helm&lt;/li&gt;
+&lt;li&gt;Kafka Topology&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10219040&#34;&gt;Ithelp Ironman 30 days Challenge (7th-12nd day)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
+&lt;figure&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;https://kafka.apache.org/images/logo.png&#34; width=&#34;70%&#34; height=&#34;70%&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://kafka.apache.org/&#34;&gt;https://kafka.apache.org/&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;distributed-streaming-platform&#34;&gt;Distributed streaming platform&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Publish &amp;amp; Subscribe: r/w data like messaging system&lt;/li&gt;
+&lt;li&gt;Store data in distributed, replicated, fault-tolerant cluster&lt;/li&gt;
+&lt;li&gt;Scalable&lt;/li&gt;
+&lt;li&gt;Realtime&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;concepts&#34;&gt;Concepts&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Kafka run as a cluster&lt;/li&gt;
+&lt;li&gt;Kafka cluster stores streams of &lt;strong&gt;records&lt;/strong&gt; in categories called &lt;strong&gt;topics&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;record = (key, value, timestamp)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;kafka-diagram&#34;&gt;Kafka Diagram&lt;/h3&gt;
+&lt;figure&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;https://kafka.apache.org/23/images/kafka-apis.png&#34; width=&#34;70%&#34; height=&#34;70%&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h3 id=&#34;topic-partitions&#34;&gt;Topic Partitions&lt;/h3&gt;
+&lt;figure&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;https://kafka.apache.org/23/images/log_anatomy.png&#34; width=&#34;70%&#34; height=&#34;70%&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h3 id=&#34;topic-partitions-1&#34;&gt;Topic Partitions&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Data categorized by topic&lt;/li&gt;
+&lt;li&gt;Data replicated in partitions&lt;/li&gt;
+&lt;li&gt;Durability
+&lt;ul&gt;
+&lt;li&gt;consumer able to r/w complete data from at least 1 partition&lt;/li&gt;
+&lt;li&gt;in order&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;distributed-data-streaming&#34;&gt;Distributed Data Streaming&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Scalible r/w bandwith&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Kafka HA Continued</title>
       <link>http://localhost:1313/posts/2019-09-26-kafka-ha-continued/</link>

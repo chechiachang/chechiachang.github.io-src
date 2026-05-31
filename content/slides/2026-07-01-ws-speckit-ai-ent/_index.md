@@ -174,7 +174,6 @@ uv tool install specify-cli --from git+https://github.com/github/spec-kit.git@v0
 1. 講解：什麼是Spec-kit
 1. 講解：什麼時候 SDD 會優於 Vibe Coding
 1. 講解：Spec-kit 經驗分享，適合與不適合的 use case
-1. LAB2：自己想做的專案
 1. 驗收、回顧、Q&A
 
 ---

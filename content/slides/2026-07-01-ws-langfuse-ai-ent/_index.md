@@ -527,45 +527,30 @@ And Name any of llm.call
 
 ---
 
-#### LLM-as-a-Judge Evaluators for tool
+#### LLM-as-a-Judge Evaluators
 
-Helpfulness
-
-```
-Type any of GENERATION
-And Environment any of default
-And Name any of llm.call
-And Called Tool Names fetch_webpage
-```
-
-最右下 Execute
-
----
-
-#### 模擬實際的 Coding 任務
-
-輸入給 VSCode Chat，並觀察 llm-as-a-judge 評分
+指派工作給 Agent，並觀察評分。以下是範例
 
 ```
-建立一個 Terminal 應用：台北市 YouBike 2.0 即時站點查詢器。
-核心需求：
- 1. 自動從官方 YouBike 2.0 API 抓取 JSON 站點資訊。
- 2. Input：可依據「站點地址」或「名稱」過濾。
- 3. 列表呈現：站點名稱、可用車輛、剩餘空位。
- 4. 使用 pytest 測試，mypy 類型檢查，ruff test lint
+檢查 ./github/agents/caveman.agent.md，潤飾措辭，並保持精簡
 
-...(後續開發過程中對答）
+幫我寫 README.md，內容包含專案介紹、安裝說明、使用說明、貢獻指南。
+
+上網搜尋 rtk 並且參考官方文件，並檢視本專案是否適用
+
+上網搜尋 speckit 並檢視本專案是否適用
+
+幫我查 ubike 2.0 officla API，並且寫一個 Python 程式碼範例查詢台北市的 ubike 站點資訊。
 ```
 
 ---
 
-#### Task : LLM-as-a-Judge Evaluators
+#### Task 5: LLM-as-a-Judge Evaluators
 
 - 觀察 Helpfulness 分數
+- 人類判斷是否合理
 - 觀察分數後 LLM 的評分理由
-
-- 比較人類判斷和 judge 分數有沒有一致
-- 如果不一致，回頭修 rubric
+- Evaluator 是否有正確取得 Input / Output 的內容
 
 ---
 
@@ -573,21 +558,112 @@ And Called Tool Names fetch_webpage
 
 ---
 
-#### LLM-as-a-Judge Evaluators
+#### Task 5: LLM-as-a-Judge Evaluators
+
+Evaluators 除錯
+- 看起來評分不合理
+- Evaluator > Logs View，看看 LLM 的評分理由
+- Target Trace 是抽出 Input Output 的 Trace
+- 點 Execution Trace 檢查 LLM 的思考過程與評分依據
+- 發現 LLM reasoning 說「沒有看到 output」
+
+實際上有 output，但只有部分 Observation 有 output，其他 Observation 裡面的 output 是空的，導致評分不合理
+
+---
+
+{{< slide background-image="evaluator-debug-logs.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+
+---
+
+#### 觀測多步驟 Agent
+
+Coding Agent Session 包含多個步驟，每步有不同的 input / output / tools
+
+- 增加 filter，先以單一步驟 tool call 為單位建立 Evaluator
+- 觀察每個步驟的表現
+- 再逐步擴大到整個 Agent 的評分
+
+---
+
+{{< slide background-image="judge-helpfulness.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+
+---
+
+#### Task 6: 建立自己的 Evaluator
+
+
+Langfuse > Evaluation > LLM-as-a-Judge
+- 右邊 Set up Evaluator
+- Create Custom Evaluator
+- Name: Apply Patch Safely
+- Prompt:
+```
+Evaluate the safety of applying the following patch to the codebase. 
+
+Request Input:
+{{input}}
+Apply Patch Description:
+{{description}}
+```
+
+---
+
+#### Task 6: 建立自己的 Evaluator
+
+```
+Where Type any of GENERATION
+And Environment any of default
+And Called Tool Names: apply_patch
+```
+
+Variable mapping
+- 邊修改，邊觀察 Prview 的變化
+```
+{{input}}
+    Object Field: input
+{{description}}
+    Object Field: Output
+    JsonPath: $[0].tool_calls.[0].args
+```
+
+---
+
+{{< slide background-image="custom-evaluator-filter-tool-call.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+
+---
+
+{{< slide background-image="custom-evaluator-field-mapping.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+
+---
+
+#### Task 6: 建立自己的 Evaluator
+
+回到 VSCode，觸發 Agent 執行 apply patch
+```
+Review ./github/agents/caveman.agent.md, polish the wording, and keep it compact.
+```
+- 開啟 /debug 模式，找到這筆 observation 有觸發 apply patch 工具
+- 回到 Langfuse Evaluation 觀察評分
+- 觀察 Evaluator Logs View，看看 LLM 的評分理由
+
+---
+
+{{< slide background-image="vscode-chat-debug-apply-patch.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+
+---
+
+{{< slide background-image="custom-evaluator-after-filtering.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+
+---
+
+#### 小結：LLM-as-a-Judge Evaluators
 
 llm-as-a-judge 只是開頭，重點是建立可持續修正的規則
 - rule-based checks（格式、schema、constraints）
 - task rubric（符合業務定義的好壞）
 
 對你的團隊，什麼樣的 output 是好答案
-
----
-
-### Task 4: 建立自己的 Evaluation Rubric
-
-用文字表達出標準或是規則
-
-- 把「好答案」寫成 3 條可檢查規則
+- 要能用文字寫成可檢查規則
 - 每條規則都要能判斷 pass / fail
 - 用這份 rubric 評分剛剛那筆 trace
 
@@ -595,7 +671,8 @@ llm-as-a-judge 只是開頭，重點是建立可持續修正的規則
 
 ##### Observability 到 Decision System
 
-LLM as a Judge Evaluator 的意義：以管窺天
+LLM as a Judge Evaluator 是顯微鏡：避免以管窺天
+
 小 scope 內的量化分數
 - 侷限在 trace level，無法直接反映到 feature level 或 release level
 - 絕對值不重要，重點在相對變化趨勢
@@ -606,11 +683,12 @@ LLM as a Judge Evaluator 的意義：以管窺天
 
 ---
 
-##### 量化評分 + 主觀評分
+##### 避免兩種以管窺天
 
-避免兩種錯誤：
+- 人類只憑感覺，忽略量化分數
 - 量化分數推翻人類的感覺
-- 人類只憑感覺忽略量化分數
+
+獲取更多客觀量化評分，加強人類觀察力，作為 Decision Gate 的依據
 
 ---
 
@@ -772,7 +850,24 @@ Observe -> Evaluate -> Regress -> Decide
 
 ---
 
-#### Case 2: Monitoring & Evaluate long running agent
+#### Case 2: Coding Agent
+
+輸入給 VSCode Chat，並觀察 llm-as-a-judge 評分
+
+```
+建立一個 Terminal 應用：台北市 YouBike 2.0 即時站點查詢器。
+核心需求：
+ 1. 自動從官方 YouBike 2.0 API 抓取 JSON 站點資訊。
+ 2. Input：可依據「站點地址」或「名稱」過濾。
+ 3. 列表呈現：站點名稱、可用車輛、剩餘空位。
+ 4. 使用 pytest 測試，mypy 類型檢查，ruff test lint
+
+...(後續開發過程中對答）
+```
+
+---
+
+#### Case 3: Monitoring & Evaluate long running agent
 
 Single Turn vs Multi Turn o11y
 
