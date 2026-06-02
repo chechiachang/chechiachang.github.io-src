@@ -1,0 +1,368 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><title>Workshop: LLM O11y 從 Observability 到 Decision System</title>
+<meta name=description content="90 分鐘 hands-on workshop，從 Langfuse observability 到 evaluation、dataset、regression 與 decision gate。"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="black-translucent"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><link rel=stylesheet href=/pr-preview/pr-31/reveal-js/dist/reset.css><link rel=stylesheet href=/pr-preview/pr-31/reveal-js/dist/reveal.css><link rel=stylesheet href=/pr-preview/pr-31/reveal-hugo/themes/robot-lung.css id=theme><link rel=stylesheet href=/pr-preview/pr-31/highlight-js/default.min.css></head><body><div class=reveal><div class=slides><section><section data-shortcode-section><h4 id=workshop-行前準備>Workshop 行前準備</h4><h5 id=llm-o11y從-observability-到-decision-system>LLM O11y：從 Observability 到 Decision System</h5><h5 id=-che-chia-chang--chechianet->~ Che Chia Chang @ <a href=https://chechia.net>chechia.net</a> ~</h5><p>🔽</p></section><section><h4 id=workshop-行前準備-1>Workshop 行前準備</h4><ul><li>攜帶筆電，可上網</li><li>安裝好操作環境<ul><li><a href=https://code.visualstudio.com/>VS Code</a></li></ul></li><li>下載 <a href=https://github.com/chechiachang/llm-o11y>workshop 範例程式碼</a></li><li>講師會提供 Azure OpenAI API Key</li><li>已經會用其他 agent CLI（如 codex CLI）用習慣的即可</li></ul></section><section><h4 id=vs-code>VS Code</h4><p>安裝 VS Code：<a href=https://code.visualstudio.com/>https://code.visualstudio.com/</a></p><pre><code class=language-text># 打開 VS Code，底下 Terminal
+
+# git clone 程式碼 speckit-playground
+git clone https://github.com/chechiachang/llm-o11y.git
+
+# File &gt; Open Folder &gt; 選擇 clone 的 資料夾
+</code></pre></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=git-clone.png data-background-opacity=1 data-background-size=80%></section><section><h4 id=打開-vs-code底下-terminal>打開 VS Code，底下 Terminal</h4><pre><code class=language-text>cd llm-o11y
+docker compose config
+
+#name: llm-o11y
+#services:
+#  bifrost:
+#    environment:
+#      AZURE_ENDPOINT: &quot;&quot;
+#      AZURE_OPENAI_API_KEY: &quot;&quot;
+#      LANGFUSE_OTEL_AUTH: Basic cGs6c2s= # fake key: pk:sk
+#      LANGFUSE_OTEL_INGESTION_VERSION: &quot;4&quot;
+#...
+
+docker compose pull
+
+#[+] pull 23/23
+# ✔ Image docker.io/redis:7.4.8                            Pulled                                        6.4s
+# ✔ Image docker.io/clickhouse/clickhouse-server:26.2.15.4 Pulled                                        6.4s
+# ✔ Image minio/minio:RELEASE.2025-09-07T16-13-09Z         Pulled                                        5.4s
+# ✔ Image docker.io/postgres:17.9                          Pulled                                       26.8s
+# ✔ Image maximhq/bifrost:v1.5.3-arm64                     Pulled                                        6.4s
+# ✔ Image docker.io/langfuse/langfuse-worker:3.172.1       Pulled                                        5.4s
+# ✔ Image docker.io/langfuse/langfuse:3.172.1              Pulled                                        5.4s
+</code></pre></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=docker-compose-config.png data-background-opacity=1 data-background-size=80%></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=docker-compose-pull.png data-background-opacity=1 data-background-size=80%></section><section><h4 id=啟動服務>啟動服務</h4><pre><code class=language-text># VS Code Terminal
+docker compose up -d
+
+# 透過 http://localhost:8080/ 存取 bifrost ai gateway
+# 透過 http://localhost:3000/ 存取 langfuse UI
+#     chechia@chechia.net / password
+#
+# 透過 http://localhost:9001/ 存取 minio UI
+#     chechia / password
+</code></pre></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=bifrost-gateway.png data-background-opacity=1 data-background-size=80%></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=langfuse-ui.png data-background-opacity=1 data-background-size=80%></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=minio-ui.png data-background-opacity=1 data-background-size=80%></section><section><h4 id=vscode-使用-bifrost-gateway>VSCode 使用 bifrost gateway</h4><pre><code class=language-text>VS Code 右側 Secondary Sidebar &gt; Chat
+    底下 Model (ex Auto, GPT-5.4) &gt; 跳出可用 Model 列表
+
+Model 右上角齒輪 &gt; Manage Model Settings
+    Add Models &gt; Azure OpenAI
+
+    Group Name: Bifrost
+    Azure API Key 填入 123，不能空白
+
+    跳出 chatLanguageModels.json 編輯
+</code></pre></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=manage-model-settings.png data-background-opacity=1 data-background-size=80%></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=chat-language-models-json.png data-background-opacity=1 data-background-size=80%></section><section><h4 id=設定-model-使用-bifrost-gateway>設定 Model 使用 bifrost gateway</h4><pre><code class=language-text># chatLanguageModels.json 填入: id, name, url
+# cmd + s 儲存
+[
+  {
+    &quot;name&quot;: &quot;Bifrost&quot;,
+    &quot;vendor&quot;: &quot;azure&quot;,
+    &quot;apiKey&quot;: &quot;${input:chat.lm.secret.-3df80c78}&quot;,
+    &quot;models&quot;: [
+      {
+      	&quot;id&quot;: &quot;azure/gpt-5.4-nano&quot;,
+      	&quot;name&quot;: &quot;azure/gpt-5.4-nano&quot;,
+      	&quot;url&quot;: &quot;http://localhost:8080/v1/responses&quot;,
+      	&quot;toolCalling&quot;: true,
+      	&quot;vision&quot;: true,
+      	&quot;maxInputTokens&quot;: 272000,
+      	&quot;maxOutputTokens&quot;: 128000
+      }
+    ]
+  }
+]
+
+# 回到 Model 列表，選擇剛剛新增的 Azure GPT-5.4 Nano
+#   使用 VSCode Chat，跟 Bifrost Azure say hi
+#       預期 bifrost 沒填 api key 不可用
+
+# Model 列表選擇其他 Model (ex auto)，可以先用免費版
+</code></pre></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=azure-openai-settings.png data-background-opacity=1 data-background-size=80%></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=select-azure-gpt54-nano.png data-background-opacity=1 data-background-size=80%></section><section><h4 id=workshop-行前準備結束>Workshop 行前準備結束</h4><ul><li>✅ VSCode 已安裝</li><li>✅ VSCode 設定 model</li><li>✅ Docker Compose 已 pull 好 image</li></ul></section></section><section><h5 id=llm-o11y從-observability-到-decision-system>LLM O11y：從 Observability 到 Decision System</h5><h5 id=量化並提升-coding-agent-效率>量化並提升 Coding Agent 效率</h5><h5 id=-che-chia-chang--chechianet->~ Che Chia Chang @ <a href=https://chechia.net>chechia.net</a> ~</h5></section><section data-noprocess data-shortcode-slide><h3 id=關於我>關於我</h3><ul><li>Che Chia Chang</li><li>SRE @ <a href=https://www.cake.me/companies/maicoin/jobs>Maicoin</a></li><li><a href=https://mvp.microsoft.com/zh-TW/MVP/profile/e407d0b9-5c01-eb11-a815-000d3a8ccaf5>Microsoft MVP</a></li><li>投影片與講稿都在 <a href=https://chechia.net/>chechia.net</a></li><li><a href=/pr-preview/pr-31/slides/2024-10-24-etcd-workshop/>K8s Summit 2024: Etcd Workshop</a></li><li><a href=/pr-preview/pr-31/slides/2025-06-05-devops-rag-internal-ai/>DevOpsDay 2025: RAG Workshop</a></li><li>鐵人賽 (Terraform / Vault 手把手入門)</li></ul></section><section><h4 id=大綱>大綱</h4><ul><li>AI Gateway & Observability stack</li><li>Tracing & token 花費，Agent 如何花 token</li><li>情境1 同事問 rtk 好像會省 Token，要不要導入</li><li>Llm-as-a-judge evaluator</li><li>Dataset & Experiment based on past tracing</li><li>情境2 Evaluate multi-turn agent</li></ul></section><section><h4 id=遇到問題>遇到問題</h4><ul><li>先問 chatGPT 再問講師<ul><li>大多時候chatGPT是對的，性能優於講師</li><li>問題變成如何確定 chatGPT 是對的</li></ul></li><li>講師會問你 chatGPT 怎麼說的，或是你怎麼想的</li><li>多嘗試多操作，workshop 重點在累積動手的經驗</li></ul></section><section><section data-shortcode-section><h4 id=把-observability-stack-跑起來>把 observability stack 跑起來</h4><p>到 <a href=https://workshop.chechia.net>workshop.chechia.net</a> 取得 Azure OpenAI API Key</p><pre><code class=language-text># export 環境變數，讓 docker compose 可以讀到
+export AZURE_ENDPOINT=https://chechia-ws.services.ai.azure.com/
+export AZURE_OPENAI_API_KEY=...
+
+docker compose up -d
+
+# [+] up 7/7
+#  ✔ Container llm-o11y-clickhouse-1      Healthy 1.4s
+#  ✔ Container llm-o11y-minio-1           Healthy 1.4s
+#  ✔ Container llm-o11y-redis-1           Healthy 1.4s
+#  ✔ Container llm-o11y-bifrost-1         Started 1.0s
+#  ✔ Container llm-o11y-postgres-1        Healthy 1.4s
+#  ✔ Container llm-o11y-langfuse-web-1    Running 0.0s
+#  ✔ Container llm-o11y-langfuse-worker-1 Running 0.0s
+</code></pre></section><section><h5 id=測試-bifrost-gateway-是否可用>測試 Bifrost gateway 是否可用</h5><ul><li>VSCode Chat 選擇 Azure GPT-5.4 Nano Model</li><li>使用 Bifrost 在 Chat 中 say hi</li><li>預期 bifrost 有回應</li></ul></section><section><h5 id=現況整理bifrost-是什麼>現況整理：Bifrost 是什麼？</h5><p>http://localhost:8080/ 到 Bifrost AI gateway</p><pre><code># 左手工具列 Observability
+# Dashboard 觀察 Token Usage
+#   包含 Input / Output token、Cached
+
+# LLM Logs 點一筆，看到 User Prompt、Model Response、Tools
+# 點 More details，看到時間、token 數、費用估算
+</code></pre><p><a href=https://www.getmaxim.ai/articles/complete-guide-to-llm-logging-otel-tracing-and-observability-in-bifrost/>Complete Guide to O11y in Bifrost</a></p></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=bitfrost-dashboard.png data-background-opacity=1 data-background-size=80%></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=bitfrost-trace.png data-background-opacity=1 data-background-size=80%></section><section><h5 id=現況整理bifrost-是什麼-1>現況整理：Bifrost 是什麼？</h5><ul><li><p>Models - Model Providers</p><ul><li>可見已經配置 Azure</li><li>OpenAI 則沒有配置 API key，所以不可用</li></ul></li><li><p>Bifrost AI Gateway 提供團隊或公司 LLM Proxy 服務</p><ul><li>支援多種模型，Routing，預算設定，並及時計價</li><li>人員與團隊管理，配發虛擬 api key，設定團隊預算</li><li>OTel tracing，串接 o11y 工具（如 Langfuse）</li></ul></li></ul></section><section><h5 id=現況整理langfuse-是什麼>現況整理：Langfuse 是什麼？</h5><p><a href=http://localhost:3000/>http://localhost:3000/</a> 到 langfuse UI</p><pre><code class=language-text># 進入Langfuse UI
+#     Organizations 選擇 chachia
+#     Project 選擇 default
+</code></pre></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=langfuse-dashboard.png data-background-opacity=1 data-background-size=80%></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=langfuse-trace.png data-background-opacity=1 data-background-size=80%></section><section><h5 id=bifrost-跟-langfuse-的關係>Bifrost 跟 Langfuse 的關係？</h5><ul><li>AI Gateway 提供團隊模型管理功能</li><li>Observability 提供團隊 tracing 收集與分析功能</li></ul><p><span class=fragment>o11y 功能一樣，為何不用 Bifrost 就好?</span></p><p><span class=fragment>Bifrost 的進階 o11y 功能都需要 Enterprise 💰</span></p><p><span class=fragment>Langfuse 的 LLM-as-a-judge，Datasets，Evaluation 都是 OSS (MIT license)</span></p></section><section><h5 id=不同-cli-需求做-o11y-設定>不同 CLI 需求做 o11y 設定</h5><p>Coding Agent 可能內建 tracing 功能，或需額外設定</p><ul><li>Codex 支援 otel ，但功能不完整</li><li>Gemini CLI 支援 otel，但需要額外設定</li><li>透過 AI Gateway 收集 tracing 是最方便的方式</li></ul><p>LLM Application 需要自己串接 otel/langfuse SDK</p><ul><li>收集更細節的 tracing 與 custom metric</li></ul></section><section><p>CLI - AI Gateway - Observability</p><div class=mermaid>graph LR
+A["VSCode
+Copilot "]
+B["Bifrost
+AI Gateway "]
+C["OTel "]
+D["Langfuse "]
+A --> B
+B --> C
+C --> D</div></section><section><h4 id=workshop-以-langfuse-為主>Workshop 以 Langfuse 為主</h4><p>有空或無聊也可以去玩 Bifrost 的其他功能</p></section></section><section><section data-shortcode-section><h4 id=task-1-reduce-overhead>Task 1: Reduce Overhead</h4><pre><code class=language-text># 請 VSCode Chat 說一個笑話，產生一筆 tracing
+#   為何講個笑話就花 10000+ token？💸
+
+# Langfuse &gt; Tracing &gt; Observations
+# 找到這筆 observation
+#   總共花了多少 token？
+#   花在什麼東西上面？
+#   有沒有 cached token？
+
+# 打開 observation detail
+# 對照 input / output / cached
+</code></pre></section><section><h4 id=task-2-understand-cached-token>Task 2: Understand Cached token</h4><pre><code class=language-text># 請 VSCode Chat 說第二個笑話，以及第三個笑話
+#   第二筆與第三筆 observation 的 token 花費有什麼不同？
+
+# 打開 observation detail
+#   對照 input / output / cached
+
+# Use /compact 或 /clear 指令後，請 VSCode Chat 說第四個笑話
+#   第四個笑話的 token 花費有什麼不同？
+</code></pre></section><section><h4 id=task-3-調整-vscode-enabled-tools>Task 3: 調整 VSCode enabled tools</h4><pre><code class=language-text># gen_ai.request.tools 每個 API call 都會帶上工具列表
+#   讓模型決定要不要用工具，以及用哪個工具，是 agent cli 的低消
+
+# 使用 /clear 指令清除 session
+
+# 找到工具設定，試圖停用不必要的工具
+#   哪些工具是你不需要的？
+#   哪些工具是必要的？
+
+# 停用後 /clear 開啟新 session
+#   token 花費有沒有下降？
+</code></pre></section><section><h4 id=tools>Tools</h4><pre><code class=language-text>同一 Session 重複相同 prompt，Cached token 降低成本
+    然而很多工具整個 Session 都不會用到💸
+
+VSCode 與 CLI 甚至 ai gateway 都會注入工具
+    VSCode default 有 40+ tools💸
+    bifrost 的 `session_store_sql`
+
+建議拆分不同 agent 分配工具
+    規劃時使用 Plan agent (readonly)
+    實作時切換 Write Agent (read file, write file)
+
+停用: Browser，VSCode extension，Notebooks，Github，Terminal 等
+
+不建議全關，例如 Agent 與 search，Read File 等是 coding agent 的核心
+</code></pre></section><section><h4 id=task-4-調整-instruction>Task 4: 調整 Instruction</h4><p>就算 VSCode Tools 全關，也大概剩下 2000+ token 的基礎花費</p><pre><code># langfuse observation: type=GENERATION name=llm.call
+#   observation detail，找到 token 的來源
+
+# AGENTS.md
+#   是否夠精簡? VScode 是否有讀取 AGENTS.md 內容?
+#   VSCode `cmd + ,` 開啟設定，chat.useAgentsMdFile=true
+
+# .github/copilot-instructions.md
+#   是否夠精簡? 是否有讀取 copilot-instructions.md 內容?
+# role=system instruction 的來源是哪裡？
+</code></pre></section><section><h4 id=agent-instruction>Agent Instruction</h4><ul><li>許多 CLI system instruction 是固定的，無法修改<ul><li>包含權限與安全性設定</li><li>例如資料夾權限，Sandbox 設定，工具使用權限等</li></ul></li><li>極簡或自由的 CLI 允許修改 system instruction<ul><li>需要額外設定來保障安全</li><li>錯誤設定導致安全問題，例如錯誤修改OS，建議進階使用者使用</li></ul></li></ul></section><section><h4 id=cli-debug-模式>CLI debug 模式</h4><pre><code># VSCode Chat 中，`/debug` 指令開啟 debug 模式
+#   點 title [tokens tks][latency ms][timestamp]
+#   發現 VSCode 使用小模型 (gpt-4o-mini) 額外為對話命名
+
+# copilotLanguageModelWrapper 檢視以下內容
+#   Metadata
+#   System Instruction
+#   User 可能有多輪內容
+#   Assistant
+</code></pre></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=vscode-chat-debug.png data-background-opacity=1 data-background-size=80%></section><section><h5 id=小結know-your-agent>小結：Know Your Agent</h5><p>進入全自動 Agent 前，確定 Agent 設定符合需求</p><ul><li>手動運行浪費錢 -> 自動運行花式燒錢💸</li><li>以 team 為單位 review agent 設定</li><li>10000 token ，想像他是 gpt-5.4-pro （nano 的 x150 倍）</li><li>人Token神話：給員工多少 Token 預算，就會用完多少 Token</li></ul><aside class=notes><p>人月神話/Parkinson&rsquo;s Law，「工作會自動膨脹，填滿可用的時間」
+面對問題，有人在等更未來強大模型來解決，有人在試圖用更便宜的模型現在解決</p></aside></section></section><section><section data-shortcode-section><h4 id=case-1-導入-rtk-是否有幫助>Case 1: 導入 rtk 是否有幫助</h4><p>情境：有同事來問 <a href=https://github.com/rtk-ai/rtk>https://github.com/rtk-ai/rtk</a> 好像會省 Token？適不適合我們專案？</p><pre><code class=language-text>理解工具 Know Your Stuff 
+    什麼是 rtk？有什麼功能？
+    支援哪些 cmd？
+
+理解用例 Know Your Case
+    https://github.com/chechiachang/llm-o11y 在做什麼？跑些什麼
+    從 langfuse 觀察目前的 token 花費在哪些地方？
+        主要花費在哪個部分？
+        最常跑的 cmd 是什麼？有無落在 rtk 支援的 cmd 上？
+
+導入實驗 Experiment
+    嘗試導入 rtk 到 llm-olly 專案內
+    觀察 token 花費的變化
+
+適不適合專案
+    導入 rtk 會在 llm-o11y 增加哪些 Token 花費？貴多少？
+    導入 rtk 會在 llm-o11y 節省哪些 Token？省多少？
+
+團隊溝通對齊
+    為何同事會覺得會省 Token？
+    結論
+</code></pre></section><section><h4 id=case-1-導入-rtk-是否有幫助-experiment>Case 1: 導入 rtk 是否有幫助: Experiment</h4><pre><code class=language-text># 安裝 rtk cli: https://github.com/rtk-ai/rtk/releases/tag/v0.42.0
+
+# 專案內啟用 rtk
+rtk init --copilot
+
+# 檢查 repo 內 instruction 是否有被 rtk 修改
+#     例如 copilot-instructions.md，AGENTS.md
+
+# 觸發 Agent 執行，觀察 token 花費
+
+# 移除 rtk
+rtk unpatch --global
+</code></pre></section><section><h4 id=case-1-導入-rtk-是否有幫助-團隊溝通對齊>Case 1: 導入 rtk 是否有幫助: 團隊溝通對齊</h4><p>為何同事會覺得會省 Token？</p><ul><li>rtk 的宣傳文案提到「節省 Token」，實際上專案吃不到「節省 Token 的 cmd」</li><li>同事可能看到別人導入 rtk 後 token 花費下降，就覺得導入 rtk 就會省 token</li></ul><p><span class=fragment>改善流程與文化：如何補齊團隊內的資訊，並建立評估的流程與心態</span></p><p><span class=fragment>AI 時代工具追不完，創新時要平衡研究新工具花費的時間成本</span></p></section></section><section><section data-shortcode-section><h5 id=目標提升團隊-coding-agent-效率>目標：提升團隊 Coding Agent 效率</h5><p>但是 Coding Agent 效率到底是什麼？</p><p>$$
+\text{整體效率 Efficiency} = \frac{\text{產出數量} \times \text{產出品質}}{\text{Token Cost} \times \text{花費時間}}
+$$</p><p><span class=fragment><ul></p><li>團隊 Token Cost</li><li>團隊產出數量：完成的功能模組數、修復 Bug 數</li><li>團隊產出品質：測試通過率、Linter 分數、Code Review 評分</li><li>團隊工作時間</li></ul></span><p><span class=fragment>Workshop 前半部只觀察 Token Cost</span></p></section><section><h4 id=llm-as-a-judge-evaluators>LLM-as-a-Judge Evaluators</h4><pre><code class=language-text># Langfuse &gt; Evaluation &gt; LLM-as-a-Judge
+#   Create Evaluator
+#   右邊 Set up
+#   Add LLM connection
+
+LLM adapter=azure
+Provider name=azure
+API Key=xxx
+API Base URL=https://chechia-ws.services.ai.azure.com/openai/deployments
+Custom models=gpt-5.4-nano
+
+# Create Connection
+#   選擇 Azure / gpt-5.4-nano &gt; Save
+</code></pre></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=create-llm-connection.png data-background-opacity=1 data-background-size=80%></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=default-model.png data-background-opacity=1 data-background-size=80%></section><section><h4 id=llm-as-a-judge-evaluators-1>LLM-as-a-Judge Evaluators</h4><pre><code class=language-text># Helpfulness
+#   Run on Observations
+
+Type any of GENERATION
+And Environment any of default
+And Name any of llm.call
+
+# 最右下 Execute 開始執行
+# 指派工作給 Agent，並觀察評分。以下是範例
+</code></pre></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=create-evaluator.png data-background-opacity=1 data-background-size=80%></section><section><h4 id=llm-as-a-judge-evaluators-2>LLM-as-a-Judge Evaluators</h4><p>指派工作給 Agent，並觀察評分。以下是範例</p><pre><code class=language-text>檢查 ./github/agents/caveman.agent.md，潤飾措辭，並保持精簡
+
+幫我寫 README.md，內容包含專案介紹、安裝說明、使用說明、貢獻指南。
+
+上網搜尋 rtk 並且參考官方文件，並檢視本專案是否適用
+
+上網搜尋 speckit 並檢視本專案是否適用
+
+幫我查 ubike 2.0 officla API，並且寫一個 Python 程式碼範例查詢台北市的 ubike 站點資訊
+</code></pre></section><section><h4 id=task-5-llm-as-a-judge-evaluators>Task 5: LLM-as-a-Judge Evaluators</h4><pre><code class=language-text># 觀察 Helpfulness 分數
+
+# 人類判斷是否合理
+
+# 觀察分數後 LLM 的評分理由
+
+# Evaluator 是否有正確取得 Input / Output 的內容
+</code></pre></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=judge-helpfulness.png data-background-opacity=1 data-background-size=80%></section><section><h4 id=task-5-llm-as-a-judge-evaluators-除錯>Task 5: LLM-as-a-Judge Evaluators 除錯</h4><pre><code class=language-text># 看起來評分合不合理
+
+# LLM-as-a-Judge Evaluators
+#   Logs View，看看 LLM 的評分理由
+
+# Target Trace 是抽出 Input Output 的 Trace
+#     點 Execution Trace 檢查 LLM 的思考過程與評分依據
+#     發現 LLM reasoning 說「沒有看到 output」
+
+# 實際上有 output，但只有部分 Observation 有 output
+#   其他 Observation 裡面的 output 是空的，導致評分不合理
+</code></pre></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=evaluator-logs.png data-background-opacity=1 data-background-size=80%></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=evaluator-debug-logs.png data-background-opacity=1 data-background-size=80%></section></section><section><section data-shortcode-section><h4 id=觀測多步驟-agent>觀測多步驟 Agent</h4><p>發現許多 Observation 沒有 output</p><pre><code class=language-text># Coding Agent Session 包含多個步驟
+#   每步有不同的 input / output / tools
+#   最後面才會產生 Output，導致 Helpfulness 拿不到 Output 導致評分不合理
+
+# 改進：修改 Evaluator
+#   增加 filter，先以單一步驟 tool call 為單位建立 Evaluator
+#   觀察每個步驟的表現
+
+# 穩定後再逐步擴大到整個 Agent 的評分
+</code></pre></section><section><h4 id=task-6-建立自己的-evaluator>Task 6: 建立自己的 Evaluator</h4><pre><code class=language-text># Langfuse &gt; Evaluation &gt; LLM-as-a-Judge
+#   右邊 Set up Evaluator
+#   Create Custom Evaluator
+
+Name: Apply Patch Safely
+
+Prompt:
+Evaluate the safety of applying the following patch to the codebase. 
+
+Request Input:
+{{input}}
+Apply Patch Description:
+{{description}}
+</code></pre></section><section><h4 id=task-6-建立自己的-evaluator-1>Task 6: 建立自己的 Evaluator</h4><p>透過條件下 Filter，只評分 apply patch 工具的呼叫</p><pre><code class=language-text>Where Type any of GENERATION
+And Environment any of default
+And Called Tool Names: apply_patch
+
+# Variable mapping
+#   邊修改，邊觀察 Preview 的變化
+
+{{input}}
+    Object Field: input
+{{description}}
+    Object Field: Output
+    JsonPath: $[0].tool_calls.[0].args
+</code></pre></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=custom-evaluator-filter-tool-call.png data-background-opacity=1 data-background-size=80%></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=custom-evaluator-field-mapping.png data-background-opacity=1 data-background-size=80%></section><section><h4 id=task-6-建立自己的-evaluator-2>Task 6: 建立自己的 Evaluator</h4><pre><code class=language-text># 回到 VSCode，觸發 Agent 執行 apply patch，例如
+Review ./github/agents/caveman.agent.md, polish the wording, and keep it compact.
+
+# 開啟 /debug 模式，找到這筆 observation 有觸發 apply patch 工具
+# 回到 Langfuse Evaluation 觀察評分
+# 觀察 Evaluator Logs View，看看 LLM 的評分理由
+</code></pre></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=vscode-chat-debug-apply-patch.png data-background-opacity=1 data-background-size=80%></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=custom-evaluator-after-filtering.png data-background-opacity=1 data-background-size=80%></section><section><h4 id=task-6-建立自己的-evaluator-3>Task 6: 建立自己的 Evaluator</h4><p>選擇另外一個 tool call，例如 search，建立另一個 Evaluator</p><pre><code class=language-text># 先到 Tracing Observations 找到有 tool call 的 observation
+#   觀察 Tool Names (Called)
+#   例如 run_in_terminal 可能會是一個 Coding Agent 能力的重要指標
+
+# 建立新的 Evaluator
+#   條件改成 Called Tool Names: run_in_terminal
+
+# Variable mapping
+#   修改 JsonPath，對應到 run_in_terminal 的 args
+
+# 嘗試執行
+</code></pre></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=custom-evaluator-search-tool-call.png data-background-opacity=1 data-background-size=80%></section><section><h4 id=小結llm-as-a-judge-evaluators>小結：LLM-as-a-Judge Evaluators</h4><p>llm-as-a-judge 只是開頭，重點是建立可持續修正的規則</p><ul><li>rule-based checks（格式、schema、constraints）</li><li>task rubric（符合業務定義的好壞）</li></ul><p>對你的團隊，什麼樣的 Coding Agent 才是好的</p><ul><li>要能用文字寫成可檢查規則</li><li>每條規則都要能判斷 pass / fail</li><li>用這份 rubric 評分剛剛那筆 trace</li></ul></section></section><section><section data-shortcode-section><h5 id=observability-到-decision-system>Observability 到 Decision System</h5><p>LLM as a Judge Evaluator 是顯微鏡：避免以管窺天</p><ul><li>小 scope 內的量化分數</li><li>侷限在 trace level，無法直接反映到 project level</li><li>絕對值次要，重點在相對變化趨勢</li><li>人類的感覺仍是重要的評分</li><li>提供 o11y 量化結果，團隊感覺會修正，標準會統一<ul><li>ex. 給團隊看過 o11y 結果後，再進行問券</li></ul></li></ul></section><section><h5 id=避免兩種以管窺天>避免兩種以管窺天</h5><ul><li><ol><li>人類只憑感覺，忽略量化分數</li></ol></li><li><ol start=2><li>量化分數推翻人類的感覺</li></ol></li><li>獲取更多客觀量化評分，加強人類觀察力，作為 Decision Gate 的依據</li></ul></section></section><section><section data-shortcode-section><h4 id=dataset-與-regression>Dataset 與 Regression</h4><p>收集 gpt-5.4 的 Input / Output / 分數作為回歸測試資料</p><ul><li>例如：相同的 Input，gpt-5.5 是否效能更好</li><li>整體費用是否維持或降低</li><li>latency 維持或降低</li><li>整體 (gpt-5.4-nano) judge 分數更高</li><li>失敗率更低</li></ul></section><section><h4 id=dataset>Dataset</h4><p>嘗試使用 coding agent tracing 產生資料集</p><pre><code>./scripts/create-langfuse-dataset-from-observations.sh
+
+# dataset=ok name=test id=cmprza7dv0067qi06zi7ccrc9
+# done dataset=test added=50 skipped_existing=0 skipped_invalid=146
+</code></pre></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=dataset-from-observations.png data-background-opacity=1 data-background-size=80%></section><section><h5 id=data-preprocessing清理格式>Data preprocessing：清理格式</h5><p>Tracing 原始資料太雜亂，不適合直接使用</p><p>用 script 過濾資料，只留下 Input / Expected Output / metadata</p><ul><li>讀取既有資料集項目</li><li>逐頁下載 observations</li><li>從 observation 提取可用的 input 與 expectedOutput</li><li>跳過解析無效的資料</li><li>將有效 item POST 到 /api/public/dataset-items</li></ul></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=dataset-preprocessing.png data-background-opacity=1 data-background-size=80%></section><section><h5 id=script-只是示範實務的步驟>script 只是示範實務的步驟</h5><p>實務資料整理相當複雜</p><ul><li>需要根據 use case 調整，才能整理出堪用的資料</li><li>這裡僅僅簡單帶過</li><li>資料集整理就是一門講不完的課</li></ul></section><section><h5 id=data-preprocessing挑選內容>Data preprocessing：挑選內容</h5><p>dataset 是「日常工作的tracing」，包含有效跟無效的紀錄</p><ul><li>想要挑選高效的 tracing 來訓練模型</li><li>或是挑選失敗的 tracing 來修正模型</li><li>進一步使用 llm-as-a-judge 評分篩選，例如 Helpfulness > 0.8 的 tracing<ul><li>挑選出可用的 input / expected output</li></ul></li></ul></section><section><h5 id=使用-dataset-進行-experiment>使用 dataset 進行 experiment</h5><ul><li>Dataset 是 gpt-5.4 做過的題目（跟答案）</li><li>Experiment 是測試 gpt-5.5 在同一題目上的表現<ul><li>Output 是否更好（ex. 5.4 Helpfulness 分數更高）</li></ul></li></ul><pre><code class=language-text># 建立 Prompt，Prompts &gt; 右上角 New Prompt
+
+Name: Coding agent vs LLM 
+prompt: Chat
+System: You are a coding agent.
+
+# 點 +Message
+
+User: {{input}}
+
+# 取消 Set the &quot;production&quot; label
+
+# Create Prompt
+</code></pre></section><section><h5 id=使用-dataset-進行-experiment-1>使用 dataset 進行 experiment</h5><p>測試不同 model / agent / tool 的表現</p><pre><code class=language-text># Dataset &gt; test &gt; 右上角 Run Experiment
+#   via User Interface &gt; Configure
+
+Prompt: Coding agent vs LLM
+Model
+Provider: azure
+Model name: gpt-5.4-nano # 或是測試新模型 gpt-5.5
+
+#   Next
+#   Dataset: test
+#   Valid configuration
+
+Matches between dataset items and prompt variables/placeholders
+input: 100 / 100
+
+# Next
+# Select Evaluators (Optional)
+#   Helpfulness
+# Next
+# Run Experiment
+
+# 可以到 Dataset &gt; test &gt; Experiments 看進度與結果
+</code></pre></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=experiment-valid-configuration.png data-background-opacity=1 data-background-size=80%></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=experiment-run.png data-background-opacity=1 data-background-size=80%></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=experiment-details.png data-background-opacity=1 data-background-size=80%></section><section><h5 id=情境-3同事來問有-gpt-55-為何不用-55-要用-54>情境 3：同事來問有 gpt-5.5 為何不用 5.5 要用 5.4</h5><p><a href=https://llmoverwatch.com/#historical-trends>https://llmoverwatch.com/#historical-trends</a></p><ul><li>gpt-5.4-mini Response Time 是 gpt-5.5 的 50%</li><li>成本</li><li>模型行為改變 Model Vesion Drift<ul><li><a href=https://www.newsbeast.gr/files/1/2023/07/2307.09009.pdf>ChatGPT’s Behavior Changing over Time</a></li></ul></li></ul></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=response-time-trends.png data-background-opacity=1 data-background-size=80%></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=reliability-trends.png data-background-opacity=1 data-background-size=80%></section><section><h5 id=情境-3同事來問有-gpt-55-為何不用-55-要用-54-1>情境 3：同事來問有 gpt-5.5 為何不用 5.5 要用 5.4</h5><p>搶著用新模型之餘，也要觀察新模型的表現，是否真的有提升</p><ul><li>不要只信官方 benchmark，或是上面的 llm overwatch</li><li>還要看自己專案的實際表現</li></ul><p>針對不同任務選不同模型!!!</p></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=reliability-trends.png data-background-opacity=1 data-background-size=80%></section></section><section><h5 id=總結observability-到-decision-system>總結：Observability 到 Decision System</h5><ul><li>LLM call metadata（token usage, latency）：客觀數據</li><li>LLM-as-a-Judge Evaluator：狹隘但便利的量化評分</li><li>Dataset Experiment：基於具體 Input / Expected Output 的比較</li><li>最後加上人類意見，作為 Decision Gate</li><li>沒有 evaluation，LLM upgrade = gambling or faith</li><li>Observe -> Evaluate -> Regress -> Decide</li></ul></section><section><h4 id=thank-you>Thank you</h4><p>下午本堂 Session 歡迎參考</p><ul><li>Session: 15:30 - 16:00<ul><li><a href=/pr-preview/pr-31/posts/2026-07-01-langfuse-ai-ent/>LLM O11y：從 Observability 到 Decision System</a></li></ul></li><li>下面留了很多沒時間做的情境，Have fun exploring!</li></ul></section><section><h5 id=情境-3-monitoring--evaluate-long-running-agent>情境 3: Monitoring & Evaluate long running agent</h5><p>Observability for Multi Turn Agent</p><pre><code># 模擬開發，觀察 trace 與 token 花費
+# 參考上午 Lab [Spec-driven development with Spec-kit](../../posts/2026-07-01-ws-speckit-ai-ent/)
+
+/clear # 清除 session，開始新的對話
+specify init --here --integration copilot
+/speckit.constitution 為專案建立一套憲法，重點在簡潔性和測試覆蓋率。
+/speckit.specify 建立一個 Terminal 應用：台北市 YouBike 2.0 即時站點查詢器。
+核心需求：
+ 1. 自動從官方 YouBike 2.0 API 抓取 JSON 站點資訊。
+ 2. Input：可依據「站點地址」或「名稱」過濾。
+ 3. 列表呈現：站點名稱、可用車輛、剩餘空位。
+/speckit.plan
+/speckit.tasks
+/speckit.implement
+</code></pre></section><section><h5 id=情境-4-coding-agent>情境 4: Coding Agent</h5><p>輸入給 VSCode Chat，並觀察 llm-as-a-judge 評分</p><pre><code>建立一個 Terminal 應用：台北市 YouBike 2.0 即時站點查詢器。
+核心需求：
+ 1. 自動從官方 YouBike 2.0 API 抓取 JSON 站點資訊。
+ 2. Input：可依據「站點地址」或「名稱」過濾。
+ 3. 列表呈現：站點名稱、可用車輛、剩餘空位。
+ 4. 使用 pytest 測試，mypy 類型檢查，ruff test lint
+
+...(後續開發過程中對答）
+</code></pre></section></div></div><script type=text/javascript src=/pr-preview/pr-31/reveal-hugo/object-assign.js></script><script src=/pr-preview/pr-31/reveal-js/dist/reveal.js></script><script type=text/javascript src=/pr-preview/pr-31/reveal-js/plugin/markdown/markdown.js></script><script type=text/javascript src=/pr-preview/pr-31/reveal-js/plugin/highlight/highlight.js></script><script type=text/javascript src=/pr-preview/pr-31/reveal-js/plugin/zoom/zoom.js></script><script type=text/javascript src=/pr-preview/pr-31/reveal-js/plugin/notes/notes.js></script><script type=text/javascript>function camelize(e){return e&&Object.keys(e).forEach(function(t){newK=t.replace(/(_\w)/g,function(e){return e[1].toUpperCase()}),newK!=t&&(e[newK]=e[t],delete e[t])}),e}var revealHugoDefaults={center:!0,controls:!0,history:!0,progress:!0,transition:"slide"},revealHugoSiteParams={},revealHugoPageParams={custom_theme:"reveal-hugo/themes/robot-lung.css",highlight_theme:"default",margin:0,transition:"slide",transition_speed:"fast"},revealHugoPlugins={plugins:[RevealMarkdown,RevealHighlight,RevealZoom,RevealNotes]},options=Object.assign({},camelize(revealHugoDefaults),camelize(revealHugoSiteParams),camelize(revealHugoPageParams),camelize(revealHugoPlugins));Reveal.initialize(options)</script><script type=text/javascript src=/pr-preview/pr-31/mermaid.min_16862243754454536095.js></script><script type=text/javascript>mermaid.initialize({startOnLoad:!1});let render=e=>{let t=e.currentSlide.querySelectorAll(".mermaid");if(!t.length)return;t.forEach(e=>{let t=e.getAttribute("data-processed");t||mermaid.init(void 0,e)})};render({currentSlide:Reveal.getCurrentSlide()}),Reveal.on("slidechanged",render),Reveal.on("ready",render)</script><script>MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]]},svg:{fontCache:"global"}}</script><script type=text/javascript id=MathJax-script async src=/pr-preview/pr-31/tex-svg_7522271970123696654.js></script></body></html>
