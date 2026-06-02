@@ -4,7 +4,7 @@ date: '2026-05-01T13:20:00Z'
 # weight: 1
 # aliases: ["/test"]
 tags: ["openai", "generative", "ai", "kubernetes", "devops"]
-categories: ["generative", "ai"]
+categories: ["generative", "ai", "workshop"]
 description: Spec-driven development (SDD) is a software development approach that emphasizes the use of specifications to drive the development process. In this workshop, we will explore how to implement SDD using Spec-kit, a powerful tool for creating and managing specifications. We will cover the basics of SDD, how to create effective specifications, and how to use Spec-kit to automate the development process. By the end of this workshop, you will have a solid understanding of SDD and how to apply it in your projects using Spec-kit.
 #canonicalURL: "https://canonical.url/to/page"
 

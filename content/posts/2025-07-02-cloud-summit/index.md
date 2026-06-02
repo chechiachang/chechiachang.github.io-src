@@ -4,7 +4,7 @@ date: '2025-06-09T12:45:00Z'
 # weight: 1
 # aliases: ["/test"]
 tags: ["openai", "generative", "ai", "kubernetes", "devops"]
-categories: ["generative", "ai"]
+categories: ["generative", "ai", "workshop"]
 description: 透過 RAG（檢索增強生成）技術，將企業內部文件轉為智能知識庫，提升資訊檢索與決策效率。本演講將探討 RAG 應用、技術架構與落地實踐，幫助開發團隊與企業更高效利用內部知識。企業內部文件往往分散於 Confluence、Google Drive、Notion 等平台，傳統關鍵字搜尋難以快速獲取準確資訊，導致溝通成本高、開發流程受阻。本演講將介紹如何運用 RAG（Retrieval-Augmented Generation）技術，結合 OpenAI 及向量數據庫，將企業內部文檔轉為智能知識庫。我們將探討文件解析、嵌入索引、AI 問答系統的技術架構與實作，幫助開發團隊構建高效 AI 助手，節省溝通成本，加速開發流程，提升決策與問題解決能力
 #canonicalURL: "https://canonical.url/to/page"
 

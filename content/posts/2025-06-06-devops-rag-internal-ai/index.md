@@ -4,7 +4,7 @@ date: '2025-06-05T12:45:00Z'
 # weight: 1
 # aliases: ["/test"]
 tags: ["openai", "generative", "ai", "kubernetes", "devops"]
-categories: ["generative", "ai"]
+categories: ["generative", "ai", "workshop"]
 description: 學員將學會如何利用 RAG 技術，結合 OpenAI、LangChain、Qdrant 向量數據庫，構建企業內部文檔的智能知識庫，並能設計與實作一個基於自然語言處理（NLP）的查詢系統，來提升開發團隊的效率與知識管理能力。
 #canonicalURL: "https://canonical.url/to/page"
 
