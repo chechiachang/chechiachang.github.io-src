@@ -198,9 +198,9 @@
       <link>https://chechia.net/pr-preview/pr-31/posts/2023-10-10-vault-workshop-integrated-storage/</link>
       <pubDate>Tue, 10 Oct 2023 04:42:26 +0800</pubDate>
       <guid>https://chechia.net/pr-preview/pr-31/posts/2023-10-10-vault-workshop-integrated-storage/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/pr-preview/pr-31/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;https://chechia.net/pr-preview/pr-31/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day--integrated-backend&#34;&gt;Day ??: Integrated Backend&lt;/h1&gt;
 &lt;p&gt;集成存儲&lt;/p&gt;
 &lt;p&gt;Vault 支援多種存儲選項，用於持久存儲 Vault 資訊。自 Vault 1.4 起，提供了整合式存儲選項。此存儲後端不依賴於任何第三方系統，實現高可用性語義，支援企業複製功能，並提供備份/還原工作流。&lt;/p&gt;
@@ -230,9 +230,9 @@
       <link>https://chechia.net/pr-preview/pr-31/posts/2023-09-21-vault-workshop-deploy-on-kubernetes/</link>
       <pubDate>Thu, 14 Sep 2023 06:42:26 +0800</pubDate>
       <guid>https://chechia.net/pr-preview/pr-31/posts/2023-09-21-vault-workshop-deploy-on-kubernetes/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/pr-preview/pr-31/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;https://chechia.net/pr-preview/pr-31/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day-09-deploy-with-docker&#34;&gt;Day 09: Deploy with Docker&lt;/h1&gt;
 &lt;h3 id=&#34;local-with-docker&#34;&gt;Local with Docker&lt;/h3&gt;
 &lt;h3 id=&#34;minikube&#34;&gt;minikube&lt;/h3&gt;
@@ -262,9 +262,9 @@ sudo install minikube-darwin-arm64 /usr/local/bin/minikube
       <link>https://chechia.net/pr-preview/pr-31/posts/2023-09-20-vault-workshop-ha-docker/</link>
       <pubDate>Thu, 14 Sep 2023 05:42:26 +0800</pubDate>
       <guid>https://chechia.net/pr-preview/pr-31/posts/2023-09-20-vault-workshop-ha-docker/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/pr-preview/pr-31/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;https://chechia.net/pr-preview/pr-31/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day-09-deploy-with-docker&#34;&gt;Day 09: Deploy with Docker&lt;/h1&gt;
 &lt;h3 id=&#34;vault-configuration&#34;&gt;Vault configuration&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;/code&gt;&lt;/pre&gt;
@@ -288,9 +288,9 @@ sudo install minikube-darwin-arm64 /usr/local/bin/minikube
       <link>https://chechia.net/pr-preview/pr-31/posts/2023-09-19-vault-workshop-docker-and-initialization/</link>
       <pubDate>Thu, 14 Sep 2023 04:42:26 +0800</pubDate>
       <guid>https://chechia.net/pr-preview/pr-31/posts/2023-09-19-vault-workshop-docker-and-initialization/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/pr-preview/pr-31/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;https://chechia.net/pr-preview/pr-31/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day-08-vault-in-docker-and-initialization&#34;&gt;Day 08: Vault in Docker and Initialization&lt;/h1&gt;
 &lt;h3 id=&#34;vault-in-container&#34;&gt;Vault in container&lt;/h3&gt;
 &lt;p&gt;前幾天我們使用 vault dev Server 來啟用測試用的 Vault server。&lt;/p&gt;
@@ -327,9 +327,9 @@ cd deploy/00-docker-dev/
       <link>https://chechia.net/pr-preview/pr-31/posts/2023-09-18-vault-workshop-policy-and-approle/</link>
       <pubDate>Thu, 14 Sep 2023 03:42:26 +0800</pubDate>
       <guid>https://chechia.net/pr-preview/pr-31/posts/2023-09-18-vault-workshop-policy-and-approle/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/pr-preview/pr-31/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;https://chechia.net/pr-preview/pr-31/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day-07-policy--approle&#34;&gt;Day 07: Policy &amp;amp; Approle&lt;/h1&gt;
 &lt;p&gt;在 Vault 中，策略（Policies）控制著使用者可以訪問的資源。在上一篇身份驗證中，你已經學到了身份驗證方法(authentication method)。而這一節是關於授權(Authorization)，也就是合法的用戶登入後，應該能夠取得怎樣的權限。&lt;/p&gt;
 &lt;p&gt;在身份驗證方面，Vault 提供了多種啟用和使用的選項或方法。Vault 在授權和 policy 方面也使用相同的設計。所有身份驗證方法都將登入者的身份 map 回與 Vault 配置的核心 policy。&lt;/p&gt;
@@ -356,9 +356,9 @@ path &amp;quot;secret/data/foo&amp;quot; {
       <link>https://chechia.net/pr-preview/pr-31/posts/2023-09-17-vault-workshop-authentication-github/</link>
       <pubDate>Thu, 14 Sep 2023 02:42:26 +0800</pubDate>
       <guid>https://chechia.net/pr-preview/pr-31/posts/2023-09-17-vault-workshop-authentication-github/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/pr-preview/pr-31/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;https://chechia.net/pr-preview/pr-31/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day-06github-auth-method&#34;&gt;Day 06：Github auth method&lt;/h1&gt;
 &lt;h3 id=&#34;不需要使用-root-token-的-auth-method-github&#34;&gt;不需要使用 root token 的 auth method: github&lt;/h3&gt;
 &lt;p&gt;Vault 支援用於人員使用者的身份驗證方法。GitHub 身份驗證，使用戶可以通過提供他們的 GitHub 憑證來驗證 Vault，並收到一個 Vault token。&lt;/p&gt;
@@ -373,9 +373,9 @@ path &amp;quot;secret/data/foo&amp;quot; {
       <link>https://chechia.net/pr-preview/pr-31/posts/2023-09-16-vault-workshop-authentication/</link>
       <pubDate>Thu, 14 Sep 2023 01:42:26 +0800</pubDate>
       <guid>https://chechia.net/pr-preview/pr-31/posts/2023-09-16-vault-workshop-authentication/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/pr-preview/pr-31/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;https://chechia.net/pr-preview/pr-31/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day-05authentication&#34;&gt;Day 05：Authentication&lt;/h1&gt;
 &lt;p&gt;在前面的文章中，你已經創建了第一個秘密，了解了秘密引擎，並在以開發模式啟動的 Vault 服務器中探索了動態秘密。&lt;/p&gt;
 &lt;p&gt;接下來的內容中，我們將深入研究使用 Vault token 和 GitHub 憑證進行身份驗證。&lt;/p&gt;
@@ -416,9 +416,9 @@ You may need to set the following environment variables:
       <link>https://chechia.net/pr-preview/pr-31/posts/2023-09-15-vault-workshop-secret-engine-kv-v2/</link>
       <pubDate>Thu, 14 Sep 2023 00:42:26 +0800</pubDate>
       <guid>https://chechia.net/pr-preview/pr-31/posts/2023-09-15-vault-workshop-secret-engine-kv-v2/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/pr-preview/pr-31/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;https://chechia.net/pr-preview/pr-31/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day-04secret-engine-kv-v2&#34;&gt;Day 04：Secret Engine KV V2&lt;/h1&gt;
 &lt;p&gt;KV秘密引擎，用於在Vault的已配置物理Storage中，存儲任意秘密。&lt;/p&gt;
 &lt;p&gt;key 名稱必須始終是字符串。如果你直接通過CLI編寫非字串 value，它們將被轉換為字串。但是，你可以通過從JSON文件中將key-value pair寫入Vault，或使用HTTP API來保留非字串 value。&lt;/p&gt;
@@ -447,9 +447,9 @@ sys/          system       system_c063e514       system endpoints used for contr
       <link>https://chechia.net/pr-preview/pr-31/posts/2023-09-14-vault-workshop-secret-engine/</link>
       <pubDate>Wed, 13 Sep 2023 22:42:26 +0800</pubDate>
       <guid>https://chechia.net/pr-preview/pr-31/posts/2023-09-14-vault-workshop-secret-engine/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/pr-preview/pr-31/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;https://chechia.net/pr-preview/pr-31/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day-03細探-secret-engine-秘密引擎&#34;&gt;Day 03：細探 Secret Engine 秘密引擎&lt;/h1&gt;
 &lt;h3 id=&#34;什麼是秘密引擎&#34;&gt;什麼是秘密引擎？&lt;/h3&gt;
 &lt;p&gt;秘密引擎是Vault的組件，用於存儲、生成或加密秘密。在前面的內容中，你使用了Key/Value v2 秘密引擎來存儲數據。一些秘密引擎，比如鍵/值秘密引擎，僅僅是用來存儲和讀取數據的。其他秘密引擎則連接到其他服務並根據需求生成動態憑證。還有一些秘密引擎提供加密作為服務。&lt;/p&gt;
@@ -477,10 +477,10 @@ Code: 403. Errors:
       <link>https://chechia.net/pr-preview/pr-31/posts/2023-09-13-vault-workshop-get-started/</link>
       <pubDate>Wed, 13 Sep 2023 21:42:26 +0800</pubDate>
       <guid>https://chechia.net/pr-preview/pr-31/posts/2023-09-13-vault-workshop-get-started/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/pr-preview/pr-31/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
 &lt;h1 id=&#34;day-02-準備執行一個本地開發用途的-vault&#34;&gt;Day 02 準備：執行一個本地開發用途的 Vault&lt;/h1&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;https://chechia.net/pr-preview/pr-31/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;準備工作&#34;&gt;準備工作&lt;/h3&gt;
 &lt;p&gt;在開始進行 Vault 30 天 workshop 之前，有一些準備工作需要完成：&lt;/p&gt;
 &lt;p&gt;步驟1：下載 Vault Binary&lt;/p&gt;
@@ -513,7 +513,7 @@ Vault v1.14.3 (56debfa71653e72433345f23cd26276bc90629ce), built 2023-09-11T21:23
       <link>https://chechia.net/pr-preview/pr-31/posts/2023-09-12-vault-workshop-introduction/</link>
       <pubDate>Tue, 12 Sep 2023 20:35:19 +0800</pubDate>
       <guid>https://chechia.net/pr-preview/pr-31/posts/2023-09-12-vault-workshop-introduction/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/pr-preview/pr-31/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
 &lt;h1 id=&#34;day-01-前言從零開始的-hashicorp-vault-workshop&#34;&gt;Day 01 前言：從零開始的 Hashicorp Vault Workshop&lt;/h1&gt;
 &lt;p&gt;從零開始 workshop 系列已經做了四年，內容包含 k8s, terraform, aws 等。&lt;/p&gt;
@@ -526,13 +526,13 @@ Vault v1.14.3 (56debfa71653e72433345f23cd26276bc90629ce), built 2023-09-11T21:23
 &lt;li&gt;官方最新文件繁中翻譯 (chatGPT based)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;建議讀者務必跟著操作，不要只是看過&lt;/p&gt;
-&lt;p&gt;其他文章 &lt;a href=&#34;https://chechia.net/&#34;&gt;https://chechia.net/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;其他文章 &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;過去的 Workshop&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2022/&#34;&gt;2022 鐵人賽: Terraform IaC Best Practice on AWS Cloud / 在 aws 公有雲上找 IaC 最佳實踐 (因故退賽)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/pr-preview/pr-31/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2022/&#34;&gt;2022 鐵人賽: Terraform IaC Best Practice on AWS Cloud / 在 aws 公有雲上找 IaC 最佳實踐 (因故退賽)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/users/20120327/ironman/4057&#34;&gt;2021 鐵人賽: Terraform Workshop - Infrastructure as Code for Public Cloud&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2020/&#34;&gt;2020 鐵人賽: Kubernetes X DevOps X 從零開始導入工具 X 需求分析&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2019/&#34;&gt;2019 鐵人賽: Kubernetes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/pr-preview/pr-31/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2020/&#34;&gt;2020 鐵人賽: Kubernetes X DevOps X 從零開始導入工具 X 需求分析&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/pr-preview/pr-31/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2019/&#34;&gt;2019 鐵人賽: Kubernetes&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;預定內容與許願清單&#34;&gt;預定內容與許願清單&lt;/h1&gt;
 &lt;p&gt;本 workshop 預計有底下內容&lt;/p&gt;</description>
@@ -1566,7 +1566,7 @@ n1-standard-64	64	240GB	$3.5200		$0.7040&lt;/p&gt;</description>
 &lt;p&gt;開始之前，先分享一些資源&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://slides.com/chechiachang/terraform-introduction/edit&#34;&gt;投影片&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2020-06-15-terraform-infrastructure-as-code-transcript/&#34;&gt;講稿&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/pr-preview/pr-31/posts/2020-06-15-terraform-infrastructure-as-code-transcript/&#34;&gt;講稿&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/chechiachang/terraform-playground&#34;&gt;程式碼&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/chechiachang/terraform-playground/blob/master/SOP.md&#34;&gt;SOP 範本&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.facebook.com/engineer.from.scratch/&#34;&gt;Facebook 粉專&lt;/a&gt;&lt;/li&gt;
@@ -1709,7 +1709,7 @@ signed by A&lt;/p&gt;</description>
 &lt;/ul&gt;
 &lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
 &lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
-&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
 &lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
@@ -1751,7 +1751,7 @@ signed by A&lt;/p&gt;</description>
 &lt;/ul&gt;
 &lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
 &lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
-&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
 &lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
@@ -1794,7 +1794,7 @@ signed by A&lt;/p&gt;</description>
 &lt;/ul&gt;
 &lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
 &lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
-&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
 &lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
@@ -1836,7 +1836,7 @@ signed by A&lt;/p&gt;</description>
 &lt;/ul&gt;
 &lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
 &lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
-&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
 &lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;recap&#34;&gt;Recap&lt;/h1&gt;
@@ -1879,7 +1879,7 @@ signed by A&lt;/p&gt;</description>
 &lt;/ul&gt;
 &lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
 &lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
-&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
 &lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;今天我們來實際使用 cert-manager，為 nginx ingress controller 產生 certificates with ACME Issuer&lt;/p&gt;
@@ -1917,7 +1917,7 @@ signed by A&lt;/p&gt;</description>
 &lt;/ul&gt;
 &lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
 &lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
-&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
 &lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
@@ -1959,7 +1959,7 @@ signed by A&lt;/p&gt;</description>
 &lt;/ul&gt;
 &lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
 &lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
-&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
 &lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;nginx-ingress-controller&#34;&gt;Nginx Ingress Controller&lt;/h1&gt;
@@ -2001,7 +2001,7 @@ signed by A&lt;/p&gt;</description>
 &lt;/ul&gt;
 &lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
 &lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
-&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
 &lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
@@ -2031,7 +2031,7 @@ signed by A&lt;/p&gt;</description>
 &lt;/ul&gt;
 &lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
 &lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
-&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
 &lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;如果要透過 prometheus 來監控集群的運行狀況，有兩個 exporter 是必裝的，一個是把 node 狀態 export 出來的 node exporter，一個是把 kubernetes 集群狀態 export 出來的 kube state metrics exporter。&lt;/p&gt;
@@ -2061,7 +2061,7 @@ signed by A&lt;/p&gt;</description>
 &lt;/ul&gt;
 &lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
 &lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
-&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
 &lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
@@ -2094,7 +2094,7 @@ signed by A&lt;/p&gt;</description>
 &lt;/ul&gt;
 &lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
 &lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
-&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
 &lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
@@ -2135,7 +2135,7 @@ signed by A&lt;/p&gt;</description>
 &lt;/ul&gt;
 &lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
 &lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
-&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
 &lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
@@ -2173,7 +2173,7 @@ signed by A&lt;/p&gt;</description>
 &lt;/ul&gt;
 &lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
 &lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
-&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
 &lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
@@ -2205,7 +2205,7 @@ signed by A&lt;/p&gt;</description>
 &lt;/ul&gt;
 &lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
 &lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
-&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
 &lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
@@ -2248,7 +2248,7 @@ signed by A&lt;/p&gt;</description>
 &lt;/ul&gt;
 &lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
 &lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
-&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
 &lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
@@ -2290,7 +2290,7 @@ signed by A&lt;/p&gt;</description>
 &lt;/ul&gt;
 &lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
 &lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
-&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
 &lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
@@ -2328,7 +2328,7 @@ signed by A&lt;/p&gt;</description>
 &lt;/ul&gt;
 &lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
 &lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
-&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
 &lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
@@ -2360,7 +2360,7 @@ signed by A&lt;/p&gt;</description>
 &lt;/ul&gt;
 &lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
 &lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
-&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
 &lt;p&gt;今天的文會比較短，因為我早上在綠島已經水肺潛水潛了三趟，有點累哈哈&lt;/p&gt;
 &lt;p&gt;&lt;img alt=&#34;Exausted Cat Face&#34; loading=&#34;lazy&#34; src=&#34;https://d32l83enj9u8rg.cloudfront.net/wp-content/uploads/iStock-966846550-cat-overheating-simonkr-1-940x470.jpg&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
@@ -2403,7 +2403,7 @@ signed by A&lt;/p&gt;</description>
 &lt;/ul&gt;
 &lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
 &lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
-&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;</description>
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Kafka HA Topology</title>
@@ -2439,7 +2439,7 @@ signed by A&lt;/p&gt;</description>
 &lt;/ul&gt;
 &lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
 &lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
-&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;</description>
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Kafka Operation Scripts</title>
@@ -2475,7 +2475,7 @@ signed by A&lt;/p&gt;</description>
 &lt;/ul&gt;
 &lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
 &lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
-&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;</description>
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Kafka-basic-usage</title>
@@ -2511,7 +2511,7 @@ signed by A&lt;/p&gt;</description>
 &lt;/ul&gt;
 &lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
 &lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
-&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;</description>
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Kafka-introduction</title>
@@ -2547,7 +2547,7 @@ signed by A&lt;/p&gt;</description>
 &lt;/ul&gt;
 &lt;p&gt;於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
 &lt;p&gt;寫文章真的是體力活，覺得我的文章還有參考價值，請左邊幫我點讚按個喜歡，右上角幫我按個追縱，底下歡迎留言討論。給我一點繼續走下去的動力。&lt;/p&gt;
-&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;</description>
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Kafka Helm Configuration</title>
@@ -2726,14 +2726,14 @@ signed by A&lt;/p&gt;</description>
 &lt;li&gt;Elasticsearch 日常維護：數據清理，效能調校，永久儲存&lt;/li&gt;
 &lt;li&gt;Debug ELK stack on GCP&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;有板友問到，要如何選擇要不要用 ELK，其實也這是整篇 ELK 的初衷。這邊分享一下 ELK 與其他選擇，以及選擇解決方案應該考慮的事情。&lt;/p&gt;
 &lt;h1 id=&#34;其他常用的服務&#34;&gt;其他常用的服務&lt;/h1&gt;
 &lt;p&gt;&lt;a href=&#34;https://prometheus.io/&#34;&gt;Prometheus&lt;/a&gt;: 開源的 time series metrics 收集系統&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://cloud.google.com/stackdriver/?hl=zh-tw&#34;&gt;Stackdriver&lt;/a&gt;: GCP 的 log 與 metrics 平台&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.elastic.co/cloud/&#34;&gt;Elastic Cloud&lt;/a&gt;: ELK 的 Sass&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://chechia.net/posts/self-host-elk-stack-on-gcp/&#34;&gt;Self-hosted ELK&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;../../posts/self-host-elk-stack-on-gcp/&#34;&gt;Self-hosted ELK&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;或是依照需求混搭，各個服務使用的各層套件是可以相容，例如&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -2792,7 +2792,7 @@ signed by A&lt;/p&gt;</description>
 &lt;li&gt;Elasticsearch 日常維護：數據清理，效能調校，永久儲存&lt;/li&gt;
 &lt;li&gt;Debug ELK stack on GCP&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
 &lt;p&gt;&amp;ndash;&lt;/p&gt;
 &lt;p&gt;上篇&lt;a href=&#34;https://chechia.net/pr-preview/pr-31/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt; 介紹了，elk stack 基本的安裝，安裝完獲得一個只支援 http (裸奔)的 elk stack，沒有 https 在公開網路上使用是非常危險的。這篇要來介紹如何做安全性設定。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.elastic.co/guide/en/elastic-stack-overview/7.3/elasticsearch-security.html&#34;&gt;官方的文件在這裡&lt;/a&gt;，碎念一下，除非對 ELK 的功能有一定了解，不然這份真的不是很友善。建議從官方文件底下的&lt;a href=&#34;https://www.elastic.co/guide/en/elastic-stack-overview/7.3/security-getting-started.html&#34;&gt;Tutorial: Getting started with security&lt;/a&gt; 開始，過程比較不會這麼血尿。&lt;/p&gt;
@@ -2829,7 +2829,7 @@ signed by A&lt;/p&gt;</description>
 &lt;/ul&gt;
 &lt;p&gt;作為範例的 ELK 的版本是當前的 stable release 7.3.1。&lt;/p&gt;
 &lt;p&gt;由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。&lt;/p&gt;
-&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;https://chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
+&lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
 &lt;p&gt;&amp;ndash;&lt;/p&gt;
 &lt;h1 id=&#34;簡介-elk-stack&#34;&gt;簡介 ELK stack&lt;/h1&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.elastic.co/guide/index.html&#34;&gt;官方說明文件&lt;/a&gt;&lt;/p&gt;

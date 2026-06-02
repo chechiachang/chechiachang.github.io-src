@@ -218,24 +218,6 @@
     <loc>https://chechia.net/pr-preview/pr-31/slides/2023-10-25-k8s-resource-as-code/</loc>
     <lastmod>2023-10-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://chechia.net/pr-preview/pr-31/tags/chatgpt/</loc>
-    <lastmod>2023-10-10T04:42:26+08:00</lastmod>
-  </url><url>
-    <loc>https://chechia.net/pr-preview/pr-31/categories/docker/</loc>
-    <lastmod>2023-10-10T04:42:26+08:00</lastmod>
-  </url><url>
-    <loc>https://chechia.net/pr-preview/pr-31/tags/docker/</loc>
-    <lastmod>2023-10-10T04:42:26+08:00</lastmod>
-  </url><url>
-    <loc>https://chechia.net/pr-preview/pr-31/categories/vault/</loc>
-    <lastmod>2023-10-10T04:42:26+08:00</lastmod>
-  </url><url>
-    <loc>https://chechia.net/pr-preview/pr-31/posts/2023-10-10-vault-workshop-integrated-storage/</loc>
-    <lastmod>2023-10-10T04:42:26+08:00</lastmod>
-  </url><url>
-    <loc>https://chechia.net/pr-preview/pr-31/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/</loc>
-    <lastmod>2023-10-10T04:42:26+08:00</lastmod>
-  </url><url>
     <loc>https://chechia.net/pr-preview/pr-31/posts/2023-09-26-devopsday/</loc>
     <lastmod>2023-09-26T13:20:00+00:00</lastmod>
   </url><url>
@@ -245,7 +227,22 @@
     <loc>https://chechia.net/pr-preview/pr-31/categories/terraform/</loc>
     <lastmod>2023-09-21T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://chechia.net/pr-preview/pr-31/categories/vault/</loc>
+    <lastmod>2023-09-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://chechia.net/pr-preview/pr-31/tags/chatgpt/</loc>
+    <lastmod>2023-09-14T06:42:26+08:00</lastmod>
+  </url><url>
+    <loc>https://chechia.net/pr-preview/pr-31/categories/docker/</loc>
+    <lastmod>2023-09-14T06:42:26+08:00</lastmod>
+  </url><url>
+    <loc>https://chechia.net/pr-preview/pr-31/tags/docker/</loc>
+    <lastmod>2023-09-14T06:42:26+08:00</lastmod>
+  </url><url>
     <loc>https://chechia.net/pr-preview/pr-31/posts/2023-09-21-vault-workshop-deploy-on-kubernetes/</loc>
+    <lastmod>2023-09-14T06:42:26+08:00</lastmod>
+  </url><url>
+    <loc>https://chechia.net/pr-preview/pr-31/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/</loc>
     <lastmod>2023-09-14T06:42:26+08:00</lastmod>
   </url><url>
     <loc>https://chechia.net/pr-preview/pr-31/posts/2023-09-20-vault-workshop-ha-docker/</loc>

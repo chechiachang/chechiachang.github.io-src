@@ -18,9 +18,9 @@
       <link>https://chechia.net/pr-preview/pr-31/posts/2023-10-10-vault-workshop-integrated-storage/</link>
       <pubDate>Tue, 10 Oct 2023 04:42:26 +0800</pubDate>
       <guid>https://chechia.net/pr-preview/pr-31/posts/2023-10-10-vault-workshop-integrated-storage/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/pr-preview/pr-31/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;https://chechia.net/pr-preview/pr-31/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day--integrated-backend&#34;&gt;Day ??: Integrated Backend&lt;/h1&gt;
 &lt;p&gt;集成存儲&lt;/p&gt;
 &lt;p&gt;Vault 支援多種存儲選項，用於持久存儲 Vault 資訊。自 Vault 1.4 起，提供了整合式存儲選項。此存儲後端不依賴於任何第三方系統，實現高可用性語義，支援企業複製功能，並提供備份/還原工作流。&lt;/p&gt;
@@ -43,9 +43,9 @@
       <link>https://chechia.net/pr-preview/pr-31/posts/2023-09-21-vault-workshop-deploy-on-kubernetes/</link>
       <pubDate>Thu, 14 Sep 2023 06:42:26 +0800</pubDate>
       <guid>https://chechia.net/pr-preview/pr-31/posts/2023-09-21-vault-workshop-deploy-on-kubernetes/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/pr-preview/pr-31/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;https://chechia.net/pr-preview/pr-31/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day-09-deploy-with-docker&#34;&gt;Day 09: Deploy with Docker&lt;/h1&gt;
 &lt;h3 id=&#34;local-with-docker&#34;&gt;Local with Docker&lt;/h3&gt;
 &lt;h3 id=&#34;minikube&#34;&gt;minikube&lt;/h3&gt;
@@ -75,9 +75,9 @@ sudo install minikube-darwin-arm64 /usr/local/bin/minikube
       <link>https://chechia.net/pr-preview/pr-31/posts/2023-09-20-vault-workshop-ha-docker/</link>
       <pubDate>Thu, 14 Sep 2023 05:42:26 +0800</pubDate>
       <guid>https://chechia.net/pr-preview/pr-31/posts/2023-09-20-vault-workshop-ha-docker/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/pr-preview/pr-31/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;https://chechia.net/pr-preview/pr-31/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day-09-deploy-with-docker&#34;&gt;Day 09: Deploy with Docker&lt;/h1&gt;
 &lt;h3 id=&#34;vault-configuration&#34;&gt;Vault configuration&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;/code&gt;&lt;/pre&gt;
@@ -101,9 +101,9 @@ sudo install minikube-darwin-arm64 /usr/local/bin/minikube
       <link>https://chechia.net/pr-preview/pr-31/posts/2023-09-19-vault-workshop-docker-and-initialization/</link>
       <pubDate>Thu, 14 Sep 2023 04:42:26 +0800</pubDate>
       <guid>https://chechia.net/pr-preview/pr-31/posts/2023-09-19-vault-workshop-docker-and-initialization/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/pr-preview/pr-31/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;https://chechia.net/pr-preview/pr-31/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day-08-vault-in-docker-and-initialization&#34;&gt;Day 08: Vault in Docker and Initialization&lt;/h1&gt;
 &lt;h3 id=&#34;vault-in-container&#34;&gt;Vault in container&lt;/h3&gt;
 &lt;p&gt;前幾天我們使用 vault dev Server 來啟用測試用的 Vault server。&lt;/p&gt;
