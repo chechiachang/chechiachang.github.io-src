@@ -2,30 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Agent on Che-Chia Chang</title>
-    <link>http://localhost:1313/tags/agent/</link>
+    <link>https://chechia.net/tags/agent/</link>
     <description>Recent content in Agent on Che-Chia Chang</description>
     <image>
       <title>Che-Chia Chang</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.147.7</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 02 May 2026 15:30:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/agent/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>LLM O11y：從 Observability 到 Decision System</title>
-      <link>http://localhost:1313/slides/2026-07-01-langfuse-ai-ent/</link>
-      <pubDate>Sat, 02 May 2026 15:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/slides/2026-07-01-langfuse-ai-ent/</guid>
-      <description>從 Langfuse observability 出發，補上 evaluation、dataset、regression 與 decision gate，建立可落地的 LLM Decision System。</description>
-    </item>
-    <item>
-      <title>AI Enterprise Workshop: Spec-driven development with Spec-kit</title>
-      <link>http://localhost:1313/slides/2026-07-01-ws-speckit-ai-ent/</link>
-      <pubDate>Sat, 02 May 2026 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/slides/2026-07-01-ws-speckit-ai-ent/</guid>
-      <description>90 分鐘 hands-on workshop，從 Vibe Coding 走向 Spec-driven Development（SDD），用 Spec-kit 完成從規格到實作的完整流程。</description>
-    </item>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="https://chechia.net/tags/agent/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

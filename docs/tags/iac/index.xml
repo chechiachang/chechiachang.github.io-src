@@ -2,127 +2,74 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Iac on Che-Chia Chang</title>
-    <link>http://localhost:1313/tags/iac/</link>
+    <link>https://chechia.net/tags/iac/</link>
     <description>Recent content in Iac on Che-Chia Chang</description>
     <image>
       <title>Che-Chia Chang</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.147.7</generator>
     <language>en</language>
     <lastBuildDate>Wed, 01 Oct 2025 13:20:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/iac/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://chechia.net/tags/iac/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>K8s Summit 2025: Workshop: Get started with Etcd &amp; Kubernetes</title>
-      <link>http://localhost:1313/posts/2025-10-22-k8s-summit/</link>
+      <link>https://chechia.net/posts/2025-10-22-k8s-summit/</link>
       <pubDate>Wed, 01 Oct 2025 13:20:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/2025-10-22-k8s-summit/</guid>
-      <description>Etcd 是 Kubernetes 的重要元件之一，本次工作坊將帶領觀眾初探 Etcd，包含安裝，設定，以及操作。並藉由本地的 Etcd 來架設一個最簡單的 Kubernetes Cluster。工作坊內容請見投影片</description>
-    </item>
-    <item>
-      <title>K8s Summit 2025: Workshop: Get started with Etcd &amp; Kubernetes</title>
-      <link>http://localhost:1313/slides/2025-10-22-etcd-workshop/</link>
-      <pubDate>Wed, 25 Jun 2025 00:45:00 +0000</pubDate>
-      <guid>http://localhost:1313/slides/2025-10-22-etcd-workshop/</guid>
+      <guid>https://chechia.net/posts/2025-10-22-k8s-summit/</guid>
       <description>Etcd 是 Kubernetes 的重要元件之一，本次工作坊將帶領觀眾初探 Etcd，包含安裝，設定，以及操作。並藉由本地的 Etcd 來架設一個最簡單的 Kubernetes Cluster。工作坊內容請見投影片</description>
     </item>
     <item>
       <title>Kubernetes Summit: Upgrade A VM Based Cluster</title>
-      <link>http://localhost:1313/posts/2024-10-23-k8s-summit/</link>
+      <link>https://chechia.net/posts/2024-10-23-k8s-summit/</link>
       <pubDate>Wed, 23 Oct 2024 13:20:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/2024-10-23-k8s-summit/</guid>
+      <guid>https://chechia.net/posts/2024-10-23-k8s-summit/</guid>
       <description>分享如何升級 VM-based Kubernetes Cluster 的版本，包含 etcd、control plane 與 node，從規劃到操作與檢查的完整流程。</description>
     </item>
     <item>
       <title>Workshop: Kubernetes Summit: Get started with Etcd &amp; Kubernetes</title>
-      <link>http://localhost:1313/posts/2024-10-24-k8s-summit/</link>
+      <link>https://chechia.net/posts/2024-10-24-k8s-summit/</link>
       <pubDate>Wed, 23 Oct 2024 13:20:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/2024-10-24-k8s-summit/</guid>
+      <guid>https://chechia.net/posts/2024-10-24-k8s-summit/</guid>
       <description>Etcd 是 Kubernetes 的重要元件之一，本次工作坊將帶領觀眾初探 Etcd，包含安裝，設定，以及操作。並藉由本地的 Etcd 來架設一個最簡單的 Kubernetes Cluster。工作坊內容請見投影片</description>
     </item>
     <item>
       <title>Hashicorp: managed database credentials with Hashicorp Vault</title>
-      <link>http://localhost:1313/posts/2024-08-28-hashicorp-vault-database/</link>
+      <link>https://chechia.net/posts/2024-08-28-hashicorp-vault-database/</link>
       <pubDate>Wed, 28 Aug 2024 11:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/2024-08-28-hashicorp-vault-database/</guid>
+      <guid>https://chechia.net/posts/2024-08-28-hashicorp-vault-database/</guid>
       <description>分享如何使用 Hashicorp Vault 管理資料庫帳號密碼，並透過 AWS IAM Role 與 Kubernetes Service Account 進行驗證與連線。</description>
     </item>
     <item>
       <title>Cloud Summit: Cloud Infrastructure Saving Engineering  雲端省錢工程</title>
-      <link>http://localhost:1313/posts/2024-07-03-cloud-summit/</link>
+      <link>https://chechia.net/posts/2024-07-03-cloud-summit/</link>
       <pubDate>Wed, 03 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/2024-07-03-cloud-summit/</guid>
+      <guid>https://chechia.net/posts/2024-07-03-cloud-summit/</guid>
       <description>使用 AWS 與 Kubernetes，如何省錢？本次演講以實務的範例，分享幾個節省雲端開銷的方法，包含：導入 spot instance，成本計算與預測工具，動態資源調整 HPA 與 VPA，saving plan...，&amp;gt;並分享如何改變文化，提高團隊的成本意識，實際的降低開銷。</description>
     </item>
     <item>
       <title>SRE Conference: Cloud Infrastructure Saving Engineering  雲端省錢工程</title>
-      <link>http://localhost:1313/posts/2024-04-26-sre-conference/</link>
+      <link>https://chechia.net/posts/2024-04-26-sre-conference/</link>
       <pubDate>Fri, 26 Apr 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/2024-04-26-sre-conference/</guid>
+      <guid>https://chechia.net/posts/2024-04-26-sre-conference/</guid>
       <description>使用 AWS 與 Kubernetes，如何省錢？本次演講以實務的範例，分享幾個節省雲端開銷的方法，包含：導入 spot instance，成本計算與預測工具，動態資源調整HPA與VPA，saving plan...，並分享如何改變文化，提高團隊的成本意識，實際的降低開銷</description>
     </item>
     <item>
       <title>Kubernetes Summit: Resource as Code for Kubernetes: Stop kubectl apply</title>
-      <link>http://localhost:1313/posts/2023-10-25-k8s-summit/</link>
+      <link>https://chechia.net/posts/2023-10-25-k8s-summit/</link>
       <pubDate>Wed, 25 Oct 2023 13:20:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/2023-10-25-k8s-summit/</guid>
+      <guid>https://chechia.net/posts/2023-10-25-k8s-summit/</guid>
       <description>將 k8s resource 以 code 管理，推上 VCS，並使用 ArgoCD、Secret Operator 等工具進行管理，以避免人工操作錯誤，降低團隊整體失誤率與管理成本，提升效率。</description>
     </item>
     <item>
-      <title>Kubernetes Summit: Resource as Code for Kubernetes: Stop kubectl apply</title>
-      <link>http://localhost:1313/posts/2023-10-25-k8s-day-hashicorp-vault-the-perfect-beginner-guide/</link>
-      <pubDate>Wed, 25 Oct 2023 12:19:02 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2023-10-25-k8s-day-hashicorp-vault-the-perfect-beginner-guide/</guid>
-      <description>Article description.</description>
-    </item>
-    <item>
-      <title>Vault Workshop ??: Integrated Storage</title>
-      <link>http://localhost:1313/posts/2023-10-10-vault-workshop-integrated-storage/</link>
-      <pubDate>Tue, 10 Oct 2023 04:42:26 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2023-10-10-vault-workshop-integrated-storage/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://localhost:1313/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&#34;day--integrated-backend&#34;&gt;Day ??: Integrated Backend&lt;/h1&gt;
-&lt;p&gt;集成存儲&lt;/p&gt;
-&lt;p&gt;Vault 支援多種存儲選項，用於持久存儲 Vault 資訊。自 Vault 1.4 起，提供了整合式存儲選項。此存儲後端不依賴於任何第三方系統，實現高可用性語義，支援企業複製功能，並提供備份/還原工作流。&lt;/p&gt;
-&lt;p&gt;該選項將 Vault 的數據存儲在服務器的文件系統上，並使用共識協議將數據複製到集群中的每個服務器。有關整合式存儲內部的更多信息，請參閱整合式存儲內部文檔。此外，配置文檔可以幫助配置 Vault 以使用整合式存儲。&lt;/p&gt;
-&lt;p&gt;以下各節將詳細介紹如何使用整合式存儲操作 Vault。&lt;/p&gt;
-&lt;p&gt;服務器間通信
-一旦節點加入到彼此，它們開始使用 Vault 的叢集端口進行 mTLS 通信。叢集端口的默認值為 8201。TLS 信息在加入時交換，並按一定的節奏進行輪換。&lt;/p&gt;
-&lt;p&gt;整合式存儲的要求之一是必須設置 cluster_addr 配置選項。這允許 Vault 在加入時為節點 ID 分配地址。&lt;/p&gt;
-&lt;p&gt;叢集成員資格
-本節將概述如何引導和管理運行整合式存儲的 Vault 節點集群。&lt;/p&gt;
-&lt;p&gt;整合式存儲在初始化過程中引導，並且結果是大小為 1 的集群。根據所需的部署大小，可以將節點加入到活動 Vault 節點中。&lt;/p&gt;
-&lt;p&gt;加入節點
-加入是將未初始化的 Vault 節點並使其成為現有集群成員的過程。為了將新節點驗證到集群，它必須使用相同的密封機制。如果使用自動解封，則必須配置新節點以使用與其嘗試加入的集群相同的 KMS 提供程序和密鑰。如果使用 Shamir 密封，則必須在加入過程完成之前為新節點提供解封密鑰。一旦節點成功加入，來自活動節點的數據就可以開始複制到它。一旦節點加入，則不能重新加入到不同的集群。&lt;/p&gt;
-&lt;p&gt;您可以通過配置文件自動加入節點，也可以通過 API 手動加入（下面描述了這兩種方法）。在加入節點時，必須使用領導節點的 API 地址。我們建議在所有節點上設置 api_addr 配置選項，以使加入過程更簡單。&lt;/p&gt;
-&lt;p&gt;retry_join 配置
-此方法允許在配置文件中設置一個或多個目標領導節點。當未初始化的 Vault 服務器啟動時，它將嘗試加入每個已定義的潛在領導者，直到成功。當指定的領導者之一變為活動狀態時，此節點將成功加入。當使用 Shamir 密封時，已加入的節點仍然需要手動解封。當使用自動解封時，節點將能夠自動加入並自動解封。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>DevopsDay 2023 Hashicorp Vault perfect start for beginner</title>
-      <link>http://localhost:1313/posts/2023-09-25-devopsday-hashicorp-vault-the-perfect-beginner-guide/</link>
-      <pubDate>Mon, 25 Sep 2023 12:19:02 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2023-09-25-devopsday-hashicorp-vault-the-perfect-beginner-guide/</guid>
-      <description>Article description.</description>
-    </item>
-    <item>
-      <title>DevOpsDay: HashiCorp Vault 自建金鑰管理最佳入坑姿勢</title>
-      <link>http://localhost:1313/slides/2023-09-26-devopsday-2023-vault/</link>
-      <pubDate>Thu, 21 Sep 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/slides/2023-09-26-devopsday-2023-vault/</guid>
-      <description>從導入 HashiCorp Vault 作為起點，直接提供實務上經驗，分享建議的入坑設定</description>
-    </item>
-    <item>
       <title>Vault Workshop 10: Deploy with Docker</title>
-      <link>http://localhost:1313/posts/2023-09-21-vault-workshop-deploy-on-kubernetes/</link>
+      <link>https://chechia.net/posts/2023-09-21-vault-workshop-deploy-on-kubernetes/</link>
       <pubDate>Thu, 14 Sep 2023 06:42:26 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2023-09-21-vault-workshop-deploy-on-kubernetes/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <guid>https://chechia.net/posts/2023-09-21-vault-workshop-deploy-on-kubernetes/</guid>
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://localhost:1313/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;https://chechia.net/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day-09-deploy-with-docker&#34;&gt;Day 09: Deploy with Docker&lt;/h1&gt;
 &lt;h3 id=&#34;local-with-docker&#34;&gt;Local with Docker&lt;/h3&gt;
 &lt;h3 id=&#34;minikube&#34;&gt;minikube&lt;/h3&gt;
@@ -149,12 +96,12 @@ sudo install minikube-darwin-arm64 /usr/local/bin/minikube
     </item>
     <item>
       <title>Vault Workshop 09: Vault HA</title>
-      <link>http://localhost:1313/posts/2023-09-20-vault-workshop-ha-docker/</link>
+      <link>https://chechia.net/posts/2023-09-20-vault-workshop-ha-docker/</link>
       <pubDate>Thu, 14 Sep 2023 05:42:26 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2023-09-20-vault-workshop-ha-docker/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <guid>https://chechia.net/posts/2023-09-20-vault-workshop-ha-docker/</guid>
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://localhost:1313/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;https://chechia.net/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day-09-deploy-with-docker&#34;&gt;Day 09: Deploy with Docker&lt;/h1&gt;
 &lt;h3 id=&#34;vault-configuration&#34;&gt;Vault configuration&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;/code&gt;&lt;/pre&gt;
@@ -175,12 +122,12 @@ sudo install minikube-darwin-arm64 /usr/local/bin/minikube
     </item>
     <item>
       <title>Vault Workshop 08: Vault in Docker and Initialization</title>
-      <link>http://localhost:1313/posts/2023-09-19-vault-workshop-docker-and-initialization/</link>
+      <link>https://chechia.net/posts/2023-09-19-vault-workshop-docker-and-initialization/</link>
       <pubDate>Thu, 14 Sep 2023 04:42:26 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2023-09-19-vault-workshop-docker-and-initialization/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <guid>https://chechia.net/posts/2023-09-19-vault-workshop-docker-and-initialization/</guid>
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://localhost:1313/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;https://chechia.net/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day-08-vault-in-docker-and-initialization&#34;&gt;Day 08: Vault in Docker and Initialization&lt;/h1&gt;
 &lt;h3 id=&#34;vault-in-container&#34;&gt;Vault in container&lt;/h3&gt;
 &lt;p&gt;前幾天我們使用 vault dev Server 來啟用測試用的 Vault server。&lt;/p&gt;
@@ -214,12 +161,12 @@ cd deploy/00-docker-dev/
     </item>
     <item>
       <title>Vault Workshop 07: Policy &amp; approle</title>
-      <link>http://localhost:1313/posts/2023-09-18-vault-workshop-policy-and-approle/</link>
+      <link>https://chechia.net/posts/2023-09-18-vault-workshop-policy-and-approle/</link>
       <pubDate>Thu, 14 Sep 2023 03:42:26 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2023-09-18-vault-workshop-policy-and-approle/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <guid>https://chechia.net/posts/2023-09-18-vault-workshop-policy-and-approle/</guid>
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://localhost:1313/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;https://chechia.net/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day-07-policy--approle&#34;&gt;Day 07: Policy &amp;amp; Approle&lt;/h1&gt;
 &lt;p&gt;在 Vault 中，策略（Policies）控制著使用者可以訪問的資源。在上一篇身份驗證中，你已經學到了身份驗證方法(authentication method)。而這一節是關於授權(Authorization)，也就是合法的用戶登入後，應該能夠取得怎樣的權限。&lt;/p&gt;
 &lt;p&gt;在身份驗證方面，Vault 提供了多種啟用和使用的選項或方法。Vault 在授權和 policy 方面也使用相同的設計。所有身份驗證方法都將登入者的身份 map 回與 Vault 配置的核心 policy。&lt;/p&gt;
@@ -243,12 +190,12 @@ path &amp;quot;secret/data/foo&amp;quot; {
     </item>
     <item>
       <title>Vault Workshop 06: Github Auth method</title>
-      <link>http://localhost:1313/posts/2023-09-17-vault-workshop-authentication-github/</link>
+      <link>https://chechia.net/posts/2023-09-17-vault-workshop-authentication-github/</link>
       <pubDate>Thu, 14 Sep 2023 02:42:26 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2023-09-17-vault-workshop-authentication-github/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <guid>https://chechia.net/posts/2023-09-17-vault-workshop-authentication-github/</guid>
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://localhost:1313/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;https://chechia.net/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day-06github-auth-method&#34;&gt;Day 06：Github auth method&lt;/h1&gt;
 &lt;h3 id=&#34;不需要使用-root-token-的-auth-method-github&#34;&gt;不需要使用 root token 的 auth method: github&lt;/h3&gt;
 &lt;p&gt;Vault 支援用於人員使用者的身份驗證方法。GitHub 身份驗證，使用戶可以通過提供他們的 GitHub 憑證來驗證 Vault，並收到一個 Vault token。&lt;/p&gt;
@@ -260,12 +207,12 @@ path &amp;quot;secret/data/foo&amp;quot; {
     </item>
     <item>
       <title>Vault Workshop 05: Authentication</title>
-      <link>http://localhost:1313/posts/2023-09-16-vault-workshop-authentication/</link>
+      <link>https://chechia.net/posts/2023-09-16-vault-workshop-authentication/</link>
       <pubDate>Thu, 14 Sep 2023 01:42:26 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2023-09-16-vault-workshop-authentication/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <guid>https://chechia.net/posts/2023-09-16-vault-workshop-authentication/</guid>
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://localhost:1313/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;https://chechia.net/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day-05authentication&#34;&gt;Day 05：Authentication&lt;/h1&gt;
 &lt;p&gt;在前面的文章中，你已經創建了第一個秘密，了解了秘密引擎，並在以開發模式啟動的 Vault 服務器中探索了動態秘密。&lt;/p&gt;
 &lt;p&gt;接下來的內容中，我們將深入研究使用 Vault token 和 GitHub 憑證進行身份驗證。&lt;/p&gt;
@@ -303,12 +250,12 @@ You may need to set the following environment variables:
     </item>
     <item>
       <title>Vault Workshop 04: Secret Engine KV V2</title>
-      <link>http://localhost:1313/posts/2023-09-15-vault-workshop-secret-engine-kv-v2/</link>
+      <link>https://chechia.net/posts/2023-09-15-vault-workshop-secret-engine-kv-v2/</link>
       <pubDate>Thu, 14 Sep 2023 00:42:26 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2023-09-15-vault-workshop-secret-engine-kv-v2/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <guid>https://chechia.net/posts/2023-09-15-vault-workshop-secret-engine-kv-v2/</guid>
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://localhost:1313/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;https://chechia.net/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day-04secret-engine-kv-v2&#34;&gt;Day 04：Secret Engine KV V2&lt;/h1&gt;
 &lt;p&gt;KV秘密引擎，用於在Vault的已配置物理Storage中，存儲任意秘密。&lt;/p&gt;
 &lt;p&gt;key 名稱必須始終是字符串。如果你直接通過CLI編寫非字串 value，它們將被轉換為字串。但是，你可以通過從JSON文件中將key-value pair寫入Vault，或使用HTTP API來保留非字串 value。&lt;/p&gt;
@@ -334,12 +281,12 @@ sys/          system       system_c063e514       system endpoints used for contr
     </item>
     <item>
       <title>Vault Workshop 03: Secret Engine</title>
-      <link>http://localhost:1313/posts/2023-09-14-vault-workshop-secret-engine/</link>
+      <link>https://chechia.net/posts/2023-09-14-vault-workshop-secret-engine/</link>
       <pubDate>Wed, 13 Sep 2023 22:42:26 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2023-09-14-vault-workshop-secret-engine/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <guid>https://chechia.net/posts/2023-09-14-vault-workshop-secret-engine/</guid>
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://localhost:1313/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;https://chechia.net/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day-03細探-secret-engine-秘密引擎&#34;&gt;Day 03：細探 Secret Engine 秘密引擎&lt;/h1&gt;
 &lt;h3 id=&#34;什麼是秘密引擎&#34;&gt;什麼是秘密引擎？&lt;/h3&gt;
 &lt;p&gt;秘密引擎是Vault的組件，用於存儲、生成或加密秘密。在前面的內容中，你使用了Key/Value v2 秘密引擎來存儲數據。一些秘密引擎，比如鍵/值秘密引擎，僅僅是用來存儲和讀取數據的。其他秘密引擎則連接到其他服務並根據需求生成動態憑證。還有一些秘密引擎提供加密作為服務。&lt;/p&gt;
@@ -364,13 +311,13 @@ Code: 403. Errors:
     </item>
     <item>
       <title>Vault Workshop 02: Get Started</title>
-      <link>http://localhost:1313/posts/2023-09-13-vault-workshop-get-started/</link>
+      <link>https://chechia.net/posts/2023-09-13-vault-workshop-get-started/</link>
       <pubDate>Wed, 13 Sep 2023 21:42:26 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2023-09-13-vault-workshop-get-started/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <guid>https://chechia.net/posts/2023-09-13-vault-workshop-get-started/</guid>
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
 &lt;h1 id=&#34;day-02-準備執行一個本地開發用途的-vault&#34;&gt;Day 02 準備：執行一個本地開發用途的 Vault&lt;/h1&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://localhost:1313/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;https://chechia.net/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;準備工作&#34;&gt;準備工作&lt;/h3&gt;
 &lt;p&gt;在開始進行 Vault 30 天 workshop 之前，有一些準備工作需要完成：&lt;/p&gt;
 &lt;p&gt;步驟1：下載 Vault Binary&lt;/p&gt;
@@ -400,10 +347,10 @@ Vault v1.14.3 (56debfa71653e72433345f23cd26276bc90629ce), built 2023-09-11T21:23
     </item>
     <item>
       <title>Vault Workshop 01: Introduction</title>
-      <link>http://localhost:1313/posts/2023-09-12-vault-workshop-introduction/</link>
+      <link>https://chechia.net/posts/2023-09-12-vault-workshop-introduction/</link>
       <pubDate>Tue, 12 Sep 2023 20:35:19 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2023-09-12-vault-workshop-introduction/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <guid>https://chechia.net/posts/2023-09-12-vault-workshop-introduction/</guid>
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
 &lt;h1 id=&#34;day-01-前言從零開始的-hashicorp-vault-workshop&#34;&gt;Day 01 前言：從零開始的 Hashicorp Vault Workshop&lt;/h1&gt;
 &lt;p&gt;從零開始 workshop 系列已經做了四年，內容包含 k8s, terraform, aws 等。&lt;/p&gt;
@@ -419,124 +366,110 @@ Vault v1.14.3 (56debfa71653e72433345f23cd26276bc90629ce), built 2023-09-11T21:23
 &lt;p&gt;其他文章 &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;過去的 Workshop&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2022/&#34;&gt;2022 鐵人賽: Terraform IaC Best Practice on AWS Cloud / 在 aws 公有雲上找 IaC 最佳實踐 (因故退賽)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2022/&#34;&gt;2022 鐵人賽: Terraform IaC Best Practice on AWS Cloud / 在 aws 公有雲上找 IaC 最佳實踐 (因故退賽)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/users/20120327/ironman/4057&#34;&gt;2021 鐵人賽: Terraform Workshop - Infrastructure as Code for Public Cloud&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2020/&#34;&gt;2020 鐵人賽: Kubernetes X DevOps X 從零開始導入工具 X 需求分析&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2019/&#34;&gt;2019 鐵人賽: Kubernetes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2020/&#34;&gt;2020 鐵人賽: Kubernetes X DevOps X 從零開始導入工具 X 需求分析&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2019/&#34;&gt;2019 鐵人賽: Kubernetes&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;預定內容與許願清單&#34;&gt;預定內容與許願清單&lt;/h1&gt;
 &lt;p&gt;本 workshop 預計有底下內容&lt;/p&gt;</description>
     </item>
     <item>
-      <title>2023 09 08 15th Ithome Ironman Vault Submission</title>
-      <link>http://localhost:1313/posts/2023-09-08-15th-ithome-ironman-vault-submission/</link>
-      <pubDate>Fri, 08 Sep 2023 20:48:10 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2023-09-08-15th-ithome-ironman-vault-submission/</guid>
-      <description>Article description.</description>
-    </item>
-    <item>
       <title>HashiCorp Vault on AWS &amp; K8s - 雲端地端通吃的私鑰管理平台</title>
-      <link>http://localhost:1313/posts/2023-05-10-hashicorp-vault-intro/</link>
+      <link>https://chechia.net/posts/2023-05-10-hashicorp-vault-intro/</link>
       <pubDate>Wed, 10 May 2023 11:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/2023-05-10-hashicorp-vault-intro/</guid>
+      <guid>https://chechia.net/posts/2023-05-10-hashicorp-vault-intro/</guid>
       <description>HashiCorp Vault 為一款開源的私密資料管理平台。本次活動將簡介 Hashicorp Vault，並以 AWS Cloud 與本地 Kubernetes 為例，提供幾個基本的操作範例，適合初次接觸 HashiCorp Vault 與尋找私鑰管理平台的團隊。</description>
     </item>
     <item>
       <title>Hashicorp Comminity Presentation Vault Introduction</title>
-      <link>http://localhost:1313/posts/2023-05-10-hashicorp-comminity-presentation-vault-introduction/</link>
+      <link>https://chechia.net/posts/2023-05-10-hashicorp-comminity-presentation-vault-introduction/</link>
       <pubDate>Wed, 10 May 2023 12:19:02 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2023-05-10-hashicorp-comminity-presentation-vault-introduction/</guid>
-      <description>Article description.</description>
-    </item>
-    <item>
-      <title>Hashicorp Comminity Presentation Vault Introduction</title>
-      <link>http://localhost:1313/posts/999-coscup-hashicorp-vault-the-perfect-beginner-guide/</link>
-      <pubDate>Wed, 10 May 2023 12:19:02 +0800</pubDate>
-      <guid>http://localhost:1313/posts/999-coscup-hashicorp-vault-the-perfect-beginner-guide/</guid>
+      <guid>https://chechia.net/posts/2023-05-10-hashicorp-comminity-presentation-vault-introduction/</guid>
       <description>Article description.</description>
     </item>
     <item>
       <title>Terraform Github Action CI/CD</title>
-      <link>http://localhost:1313/posts/2022-09-25-14th-ithome-ironman-iac-aws-workshop-11-aws-github-action-ci-cd/</link>
+      <link>https://chechia.net/posts/2022-09-25-14th-ithome-ironman-iac-aws-workshop-11-aws-github-action-ci-cd/</link>
       <pubDate>Sun, 25 Sep 2022 20:39:03 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2022-09-25-14th-ithome-ironman-iac-aws-workshop-11-aws-github-action-ci-cd/</guid>
+      <guid>https://chechia.net/posts/2022-09-25-14th-ithome-ironman-iac-aws-workshop-11-aws-github-action-ci-cd/</guid>
       <description>Article description.</description>
     </item>
     <item>
       <title>Aws Cross Account Delegation &amp; pre-commit hook</title>
-      <link>http://localhost:1313/posts/2022-09-21-14th-ithome-ironman-iac-aws-workshop-10-aws-cross-account-delegation-and-pre-commit-hook/</link>
+      <link>https://chechia.net/posts/2022-09-21-14th-ithome-ironman-iac-aws-workshop-10-aws-cross-account-delegation-and-pre-commit-hook/</link>
       <pubDate>Wed, 21 Sep 2022 22:55:41 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2022-09-21-14th-ithome-ironman-iac-aws-workshop-10-aws-cross-account-delegation-and-pre-commit-hook/</guid>
+      <guid>https://chechia.net/posts/2022-09-21-14th-ithome-ironman-iac-aws-workshop-10-aws-cross-account-delegation-and-pre-commit-hook/</guid>
       <description>Article description.</description>
     </item>
     <item>
       <title>Modules and password security</title>
-      <link>http://localhost:1313/posts/2022-09-20-14th-ithome-ironman-iac-aws-workshop-09-terraform-module-and-password-security/</link>
+      <link>https://chechia.net/posts/2022-09-20-14th-ithome-ironman-iac-aws-workshop-09-terraform-module-and-password-security/</link>
       <pubDate>Wed, 21 Sep 2022 00:01:14 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2022-09-20-14th-ithome-ironman-iac-aws-workshop-09-terraform-module-and-password-security/</guid>
+      <guid>https://chechia.net/posts/2022-09-20-14th-ithome-ironman-iac-aws-workshop-09-terraform-module-and-password-security/</guid>
       <description>Article description.</description>
     </item>
     <item>
       <title>Reset Iam User Administrator</title>
-      <link>http://localhost:1313/posts/2022-09-19-14th-ithome-ironman-iac-aws-workshop-08-reset-iam-user-administrator/</link>
+      <link>https://chechia.net/posts/2022-09-19-14th-ithome-ironman-iac-aws-workshop-08-reset-iam-user-administrator/</link>
       <pubDate>Tue, 20 Sep 2022 23:56:47 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2022-09-19-14th-ithome-ironman-iac-aws-workshop-08-reset-iam-user-administrator/</guid>
+      <guid>https://chechia.net/posts/2022-09-19-14th-ithome-ironman-iac-aws-workshop-08-reset-iam-user-administrator/</guid>
       <description>Article description.</description>
     </item>
     <item>
       <title>Reset Iam User</title>
-      <link>http://localhost:1313/posts/2022-09-18-14th-ithome-ironman-iac-aws-workshop-07-reset-iam-user/</link>
+      <link>https://chechia.net/posts/2022-09-18-14th-ithome-ironman-iac-aws-workshop-07-reset-iam-user/</link>
       <pubDate>Tue, 20 Sep 2022 18:30:06 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2022-09-18-14th-ithome-ironman-iac-aws-workshop-07-reset-iam-user/</guid>
+      <guid>https://chechia.net/posts/2022-09-18-14th-ithome-ironman-iac-aws-workshop-07-reset-iam-user/</guid>
       <description>Article description.</description>
     </item>
     <item>
       <title>Provision Iam Group Policy</title>
-      <link>http://localhost:1313/posts/2022-09-17-14th-ithome-ironman-iac-aws-workshop-06-provision-iam-group-policy/</link>
+      <link>https://chechia.net/posts/2022-09-17-14th-ithome-ironman-iac-aws-workshop-06-provision-iam-group-policy/</link>
       <pubDate>Tue, 20 Sep 2022 10:39:37 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2022-09-17-14th-ithome-ironman-iac-aws-workshop-06-provision-iam-group-policy/</guid>
+      <guid>https://chechia.net/posts/2022-09-17-14th-ithome-ironman-iac-aws-workshop-06-provision-iam-group-policy/</guid>
       <description>Article description.</description>
     </item>
     <item>
       <title>Provision Iam User</title>
-      <link>http://localhost:1313/posts/2022-09-16-14th-ithome-ironman-iac-aws-workshop-05-provision-iam-user/</link>
+      <link>https://chechia.net/posts/2022-09-16-14th-ithome-ironman-iac-aws-workshop-05-provision-iam-user/</link>
       <pubDate>Mon, 19 Sep 2022 11:59:27 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2022-09-16-14th-ithome-ironman-iac-aws-workshop-05-provision-iam-user/</guid>
+      <guid>https://chechia.net/posts/2022-09-16-14th-ithome-ironman-iac-aws-workshop-05-provision-iam-user/</guid>
       <description>Article description.</description>
     </item>
     <item>
       <title>AWS Multi-Accounts Structure</title>
-      <link>http://localhost:1313/posts/2022-09-15-14th-ithome-ironman-iac-aws-workshop-04-aws-multi-account-structure/</link>
+      <link>https://chechia.net/posts/2022-09-15-14th-ithome-ironman-iac-aws-workshop-04-aws-multi-account-structure/</link>
       <pubDate>Sun, 18 Sep 2022 09:35:25 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2022-09-15-14th-ithome-ironman-iac-aws-workshop-04-aws-multi-account-structure/</guid>
+      <guid>https://chechia.net/posts/2022-09-15-14th-ithome-ironman-iac-aws-workshop-04-aws-multi-account-structure/</guid>
       <description>Article description.</description>
     </item>
     <item>
       <title>Provision Child AWS Accounts</title>
-      <link>http://localhost:1313/posts/2022-09-14-14th-ithome-ironman-iac-aws-workshop-03-provision-aws-account/</link>
+      <link>https://chechia.net/posts/2022-09-14-14th-ithome-ironman-iac-aws-workshop-03-provision-aws-account/</link>
       <pubDate>Fri, 16 Sep 2022 17:16:21 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2022-09-14-14th-ithome-ironman-iac-aws-workshop-03-provision-aws-account/</guid>
+      <guid>https://chechia.net/posts/2022-09-14-14th-ithome-ironman-iac-aws-workshop-03-provision-aws-account/</guid>
       <description>Article description.</description>
     </item>
     <item>
       <title>AWS Account Struture</title>
-      <link>http://localhost:1313/posts/2022-09-13-14th-ithome-ironman-iac-aws-workshop-02-aws-account-structure/</link>
+      <link>https://chechia.net/posts/2022-09-13-14th-ithome-ironman-iac-aws-workshop-02-aws-account-structure/</link>
       <pubDate>Thu, 15 Sep 2022 17:16:21 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2022-09-13-14th-ithome-ironman-iac-aws-workshop-02-aws-account-structure/</guid>
+      <guid>https://chechia.net/posts/2022-09-13-14th-ithome-ironman-iac-aws-workshop-02-aws-account-structure/</guid>
       <description>Article description.</description>
     </item>
     <item>
       <title>IaC best practice workshop on aws</title>
-      <link>http://localhost:1313/posts/2022-09-12-14th-ithome-ironman-iac-aws-workshop-01-introduction/</link>
+      <link>https://chechia.net/posts/2022-09-12-14th-ithome-ironman-iac-aws-workshop-01-introduction/</link>
       <pubDate>Mon, 12 Sep 2022 14:31:48 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2022-09-12-14th-ithome-ironman-iac-aws-workshop-01-introduction/</guid>
+      <guid>https://chechia.net/posts/2022-09-12-14th-ithome-ironman-iac-aws-workshop-01-introduction/</guid>
       <description>Article description.</description>
     </item>
     <item>
       <title>2021 09 01 Ithome Ironman Go</title>
-      <link>http://localhost:1313/posts/2021-09-01-ithome-ironman-go/</link>
+      <link>https://chechia.net/posts/2021-09-01-ithome-ironman-go/</link>
       <pubDate>Wed, 01 Sep 2021 12:25:06 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2021-09-01-ithome-ironman-go/</guid>
+      <guid>https://chechia.net/posts/2021-09-01-ithome-ironman-go/</guid>
       <description>&lt;p&gt;2021 ithome 鐵人賽開跑了～&lt;/p&gt;
 &lt;p&gt;今年的題目是「Terraform Workshop - Infrastructure as Code for Public Cloud 疫情警戒陪你度過 30 天」，是一個長達 30 天的 terraform workshop，對 terraform 有興趣的朋友歡迎追縱&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10258904&#34;&gt;Day 01 - 引言：Terraform 是個好東西。&lt;/a&gt;&lt;/p&gt;
@@ -547,13 +480,13 @@ Vault v1.14.3 (56debfa71653e72433345f23cd26276bc90629ce), built 2023-09-11T21:23
     </item>
     <item>
       <title>Terraform Infrastructure as Code: Atlantis</title>
-      <link>http://localhost:1313/posts/2020-10-07-terraform-infrastructure-as-code-atlantis/</link>
+      <link>https://chechia.net/posts/2020-10-07-terraform-infrastructure-as-code-atlantis/</link>
       <pubDate>Wed, 07 Oct 2020 11:15:48 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2020-10-07-terraform-infrastructure-as-code-atlantis/</guid>
-      <description>&lt;p&gt;This article is part of &lt;a href=&#34;http://localhost:1313/posts/2020-06-14-terraform-infrastructure-as-code/&#34;&gt;從零開始的 Infrastructu as Code: Terraform&lt;/a&gt;&lt;/p&gt;
+      <guid>https://chechia.net/posts/2020-10-07-terraform-infrastructure-as-code-atlantis/</guid>
+      <description>&lt;p&gt;This article is part of &lt;a href=&#34;https://chechia.net/posts/2020-06-14-terraform-infrastructure-as-code/&#34;&gt;從零開始的 Infrastructu as Code: Terraform&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/chechiachang/terraform-playground&#34;&gt;Get-started examples / SOP on Github&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2020-06-15-terraform-infrastructure-as-code-transcript/&#34;&gt;Introducation to Terraform Iac: Speaker transcript&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2020-06-15-terraform-infrastructure-as-code-transcript/&#34;&gt;Introducation to Terraform Iac: Speaker transcript&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://slides.com/chechiachang/terraform-introduction/edit&#34;&gt;Presentation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Check my website &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; for other blog. &lt;a href=&#34;https://www.facebook.com/engineer.from.scratch&#34;&gt;Follow my page to get notification&lt;/a&gt;. Like my page if you really like it :)&lt;/p&gt;
@@ -587,13 +520,13 @@ Vault v1.14.3 (56debfa71653e72433345f23cd26276bc90629ce), built 2023-09-11T21:23
     </item>
     <item>
       <title>Terraform Infrastructure as Code: Terragrunt</title>
-      <link>http://localhost:1313/posts/2020-10-06-terraform-infrastructure-as-code-terragrunt/</link>
+      <link>https://chechia.net/posts/2020-10-06-terraform-infrastructure-as-code-terragrunt/</link>
       <pubDate>Tue, 06 Oct 2020 11:15:48 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2020-10-06-terraform-infrastructure-as-code-terragrunt/</guid>
-      <description>&lt;p&gt;This article is part of &lt;a href=&#34;http://localhost:1313/posts/2020-06-14-terraform-infrastructure-as-code/&#34;&gt;從零開始的 Infrastructu as Code: Terraform&lt;/a&gt;&lt;/p&gt;
+      <guid>https://chechia.net/posts/2020-10-06-terraform-infrastructure-as-code-terragrunt/</guid>
+      <description>&lt;p&gt;This article is part of &lt;a href=&#34;https://chechia.net/posts/2020-06-14-terraform-infrastructure-as-code/&#34;&gt;從零開始的 Infrastructu as Code: Terraform&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/chechiachang/terraform-playground&#34;&gt;Get-started examples / SOP on Github&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2020-06-15-terraform-infrastructure-as-code-transcript/&#34;&gt;Introducation to Terraform Iac: Speaker transcript&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2020-06-15-terraform-infrastructure-as-code-transcript/&#34;&gt;Introducation to Terraform Iac: Speaker transcript&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://slides.com/chechiachang/terraform-introduction/edit&#34;&gt;Presentation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Check my website &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; for other blog. &lt;a href=&#34;https://www.facebook.com/engineer.from.scratch&#34;&gt;Follow my page to get notification&lt;/a&gt;. Like my page if you really like it :)&lt;/p&gt;
@@ -622,13 +555,13 @@ Vault v1.14.3 (56debfa71653e72433345f23cd26276bc90629ce), built 2023-09-11T21:23
     </item>
     <item>
       <title>Terraform Infrastructure as Code: Recommended Practices</title>
-      <link>http://localhost:1313/posts/2020-10-05-terraform-infrastructure-as-code-recommended-practices/</link>
+      <link>https://chechia.net/posts/2020-10-05-terraform-infrastructure-as-code-recommended-practices/</link>
       <pubDate>Mon, 05 Oct 2020 11:15:48 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2020-10-05-terraform-infrastructure-as-code-recommended-practices/</guid>
-      <description>&lt;p&gt;This article is part of &lt;a href=&#34;http://localhost:1313/posts/2020-06-14-terraform-infrastructure-as-code/&#34;&gt;從零開始的 Infrastructu as Code: Terraform&lt;/a&gt;&lt;/p&gt;
+      <guid>https://chechia.net/posts/2020-10-05-terraform-infrastructure-as-code-recommended-practices/</guid>
+      <description>&lt;p&gt;This article is part of &lt;a href=&#34;https://chechia.net/posts/2020-06-14-terraform-infrastructure-as-code/&#34;&gt;從零開始的 Infrastructu as Code: Terraform&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/chechiachang/terraform-playground&#34;&gt;Get-started examples / SOP on Github&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2020-06-15-terraform-infrastructure-as-code-transcript/&#34;&gt;Introducation to Terraform Iac: Speaker transcript&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2020-06-15-terraform-infrastructure-as-code-transcript/&#34;&gt;Introducation to Terraform Iac: Speaker transcript&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://slides.com/chechiachang/terraform-introduction/edit&#34;&gt;Presentation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Check my website &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; for other blog. &lt;a href=&#34;https://www.facebook.com/engineer.from.scratch&#34;&gt;Follow my page to get notification&lt;/a&gt;. Like my page if you really like it :)&lt;/p&gt;
@@ -658,13 +591,13 @@ Vault v1.14.3 (56debfa71653e72433345f23cd26276bc90629ce), built 2023-09-11T21:23
     </item>
     <item>
       <title>Terraform Infrastructure as Code: Backends</title>
-      <link>http://localhost:1313/posts/2020-10-04-terraform-infrastructure-as-code-backend/</link>
+      <link>https://chechia.net/posts/2020-10-04-terraform-infrastructure-as-code-backend/</link>
       <pubDate>Sun, 04 Oct 2020 11:15:48 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2020-10-04-terraform-infrastructure-as-code-backend/</guid>
-      <description>&lt;p&gt;This article is part of &lt;a href=&#34;http://localhost:1313/posts/2020-06-14-terraform-infrastructure-as-code/&#34;&gt;從零開始的 Infrastructu as Code: Terraform&lt;/a&gt;&lt;/p&gt;
+      <guid>https://chechia.net/posts/2020-10-04-terraform-infrastructure-as-code-backend/</guid>
+      <description>&lt;p&gt;This article is part of &lt;a href=&#34;https://chechia.net/posts/2020-06-14-terraform-infrastructure-as-code/&#34;&gt;從零開始的 Infrastructu as Code: Terraform&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/chechiachang/terraform-playground&#34;&gt;Get-started examples / SOP on Github&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2020-06-15-terraform-infrastructure-as-code-transcript/&#34;&gt;Introducation to Terraform Iac: Speaker transcript&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2020-06-15-terraform-infrastructure-as-code-transcript/&#34;&gt;Introducation to Terraform Iac: Speaker transcript&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://slides.com/chechiachang/terraform-introduction/edit&#34;&gt;Presentation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Check my website &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; for other blog. &lt;a href=&#34;https://www.facebook.com/engineer.from.scratch&#34;&gt;Follow my page to get notification&lt;/a&gt;. Like my page if you really like it :)&lt;/p&gt;
@@ -693,13 +626,13 @@ Vault v1.14.3 (56debfa71653e72433345f23cd26276bc90629ce), built 2023-09-11T21:23
     </item>
     <item>
       <title>Terraform Infrastructure as Code: CI/CD automation</title>
-      <link>http://localhost:1313/posts/2020-10-03-terraform-infrastructure-as-code-automation/</link>
+      <link>https://chechia.net/posts/2020-10-03-terraform-infrastructure-as-code-automation/</link>
       <pubDate>Sat, 03 Oct 2020 11:15:48 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2020-10-03-terraform-infrastructure-as-code-automation/</guid>
-      <description>&lt;p&gt;This article is part of &lt;a href=&#34;http://localhost:1313/posts/2020-06-14-terraform-infrastructure-as-code/&#34;&gt;從零開始的 Infrastructu as Code: Terraform&lt;/a&gt;&lt;/p&gt;
+      <guid>https://chechia.net/posts/2020-10-03-terraform-infrastructure-as-code-automation/</guid>
+      <description>&lt;p&gt;This article is part of &lt;a href=&#34;https://chechia.net/posts/2020-06-14-terraform-infrastructure-as-code/&#34;&gt;從零開始的 Infrastructu as Code: Terraform&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/chechiachang/terraform-playground&#34;&gt;Get-started examples / SOP on Github&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2020-06-15-terraform-infrastructure-as-code-transcript/&#34;&gt;Introducation to Terraform Iac: Speaker transcript&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2020-06-15-terraform-infrastructure-as-code-transcript/&#34;&gt;Introducation to Terraform Iac: Speaker transcript&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://slides.com/chechiachang/terraform-introduction/edit&#34;&gt;Presentation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Check my website &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; for other blog. &lt;a href=&#34;https://www.facebook.com/engineer.from.scratch&#34;&gt;Follow my page to get notification&lt;/a&gt;. Like my page if you really like it :)&lt;/p&gt;
@@ -728,13 +661,13 @@ Vault v1.14.3 (56debfa71653e72433345f23cd26276bc90629ce), built 2023-09-11T21:23
     </item>
     <item>
       <title>Terraform Infrastructure as Code: Example repository</title>
-      <link>http://localhost:1313/posts/2020-10-02-terraform-infrastructure-as-code-repository-example/</link>
+      <link>https://chechia.net/posts/2020-10-02-terraform-infrastructure-as-code-repository-example/</link>
       <pubDate>Fri, 02 Oct 2020 11:15:48 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2020-10-02-terraform-infrastructure-as-code-repository-example/</guid>
-      <description>&lt;p&gt;This article is part of &lt;a href=&#34;http://localhost:1313/posts/2020-06-14-terraform-infrastructure-as-code/&#34;&gt;從零開始的 Infrastructu as Code: Terraform&lt;/a&gt;&lt;/p&gt;
+      <guid>https://chechia.net/posts/2020-10-02-terraform-infrastructure-as-code-repository-example/</guid>
+      <description>&lt;p&gt;This article is part of &lt;a href=&#34;https://chechia.net/posts/2020-06-14-terraform-infrastructure-as-code/&#34;&gt;從零開始的 Infrastructu as Code: Terraform&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/chechiachang/terraform-playground&#34;&gt;Get-started examples / SOP on Github&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2020-06-15-terraform-infrastructure-as-code-transcript/&#34;&gt;Introducation to Terraform Iac: Speaker transcript&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2020-06-15-terraform-infrastructure-as-code-transcript/&#34;&gt;Introducation to Terraform Iac: Speaker transcript&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://slides.com/chechiachang/terraform-introduction/edit&#34;&gt;Presentation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Check my website &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; for other blog. &lt;a href=&#34;https://www.facebook.com/engineer.from.scratch&#34;&gt;Follow my page to get notification&lt;/a&gt;. Like my page if you really like it :)&lt;/p&gt;
@@ -756,13 +689,13 @@ Vault v1.14.3 (56debfa71653e72433345f23cd26276bc90629ce), built 2023-09-11T21:23
     </item>
     <item>
       <title>Terraform Infrastructure as Code Transcript</title>
-      <link>http://localhost:1313/posts/2020-06-15-terraform-infrastructure-as-code-transcript/</link>
+      <link>https://chechia.net/posts/2020-06-15-terraform-infrastructure-as-code-transcript/</link>
       <pubDate>Mon, 15 Jun 2020 10:58:56 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2020-06-15-terraform-infrastructure-as-code-transcript/</guid>
-      <description>&lt;p&gt;This article is part of &lt;a href=&#34;http://localhost:1313/posts/2020-06-14-terraform-infrastructure-as-code/&#34;&gt;從零開始的 Infrastructu as Code: Terraform&lt;/a&gt;&lt;/p&gt;
+      <guid>https://chechia.net/posts/2020-06-15-terraform-infrastructure-as-code-transcript/</guid>
+      <description>&lt;p&gt;This article is part of &lt;a href=&#34;https://chechia.net/posts/2020-06-14-terraform-infrastructure-as-code/&#34;&gt;從零開始的 Infrastructu as Code: Terraform&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/chechiachang/terraform-playground&#34;&gt;Get-started examples / SOP on Github&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2020-06-15-terraform-infrastructure-as-code-transcript/&#34;&gt;Introducation to Terraform Iac: Speaker transcript&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2020-06-15-terraform-infrastructure-as-code-transcript/&#34;&gt;Introducation to Terraform Iac: Speaker transcript&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://slides.com/chechiachang/terraform-introduction/edit&#34;&gt;Presentation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Check my website &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; for other blog. &lt;a href=&#34;https://www.facebook.com/engineer.from.scratch&#34;&gt;Follow my page to get notification&lt;/a&gt;. Like my page if you really like it :)&lt;/p&gt;
@@ -772,7 +705,7 @@ Vault v1.14.3 (56debfa71653e72433345f23cd26276bc90629ce), built 2023-09-11T21:23
 &lt;p&gt;開始之前，先分享一些資源&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://slides.com/chechiachang/terraform-introduction/edit&#34;&gt;投影片&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2020-06-15-terraform-infrastructure-as-code-transcript/&#34;&gt;講稿&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2020-06-15-terraform-infrastructure-as-code-transcript/&#34;&gt;講稿&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/chechiachang/terraform-playground&#34;&gt;程式碼&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/chechiachang/terraform-playground/blob/master/SOP.md&#34;&gt;SOP 範本&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.facebook.com/engineer.from.scratch/&#34;&gt;Facebook 粉專&lt;/a&gt;&lt;/li&gt;
@@ -785,13 +718,13 @@ Vault v1.14.3 (56debfa71653e72433345f23cd26276bc90629ce), built 2023-09-11T21:23
     </item>
     <item>
       <title>從零開始的 Infrastructure as Code: Terraform - 01</title>
-      <link>http://localhost:1313/posts/2020-06-14-terraform-infrastructure-as-code/</link>
+      <link>https://chechia.net/posts/2020-06-14-terraform-infrastructure-as-code/</link>
       <pubDate>Sun, 14 Jun 2020 16:46:09 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2020-06-14-terraform-infrastructure-as-code/</guid>
-      <description>&lt;p&gt;This article is part of &lt;a href=&#34;http://localhost:1313/posts/2020-06-14-terraform-infrastructure-as-code/&#34;&gt;從零開始的 Infrastructu as Code: Terraform&lt;/a&gt;&lt;/p&gt;
+      <guid>https://chechia.net/posts/2020-06-14-terraform-infrastructure-as-code/</guid>
+      <description>&lt;p&gt;This article is part of &lt;a href=&#34;https://chechia.net/posts/2020-06-14-terraform-infrastructure-as-code/&#34;&gt;從零開始的 Infrastructu as Code: Terraform&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/chechiachang/terraform-playground&#34;&gt;Get-started examples / SOP on Github&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2020-06-15-terraform-infrastructure-as-code-transcript/&#34;&gt;Introducation to Terraform Iac: Speaker transcript&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2020-06-15-terraform-infrastructure-as-code-transcript/&#34;&gt;Introducation to Terraform Iac: Speaker transcript&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://slides.com/chechiachang/terraform-introduction/edit&#34;&gt;Presentation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Check my website &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; for other blog. &lt;a href=&#34;https://www.facebook.com/engineer.from.scratch&#34;&gt;Follow my page to get notification&lt;/a&gt;. Like my page if you really like it :)&lt;/p&gt;

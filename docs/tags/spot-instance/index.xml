@@ -2,35 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Spot-Instance on Che-Chia Chang</title>
-    <link>http://localhost:1313/tags/spot-instance/</link>
+    <link>https://chechia.net/tags/spot-instance/</link>
     <description>Recent content in Spot-Instance on Che-Chia Chang</description>
     <image>
       <title>Che-Chia Chang</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.147.7</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 29 Sep 2020 15:03:19 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/spot-instance/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Gcp Preemptible Instance Case Study</title>
-      <link>http://localhost:1313/posts/2020-09-29-gcp-preemptible-instance-case-study/</link>
-      <pubDate>Tue, 29 Sep 2020 15:03:19 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2020-09-29-gcp-preemptible-instance-case-study/</guid>
-      <description>&lt;p&gt;Day 1 - 需不需要 Kubernetes，這是個好問題XD，從需求量化分析，根據數據做科學決策&lt;/p&gt;
-&lt;p&gt;Day 2 - Borg Omega and Kubernete，Kubernetes 的前日今生，與 Google 十餘年的容器化技術
-Day 3 - Borg Omega and Kubernete， Google 十餘年的容器化技術，應用導向的架構 (Application-oriented infrastructure)
-Day 4 - Borg Omega and Kubernete， 容器作為管理單位 (Container as the unit of management)
-Day 5 - Borg Omega and Kubernete，協調管理只是開始，而不是終點 (Orchestration is the beginning, not the end)
-Day 6 - Borg Omega and Kubernete，前車之鑑 (Things to avoid)
-Day 7 - Borg Omega and Kubernete，其他困難的開放問題&lt;/p&gt;</description>
-    </item>
+    <lastBuildDate>Sat, 26 Sep 2020 17:24:20 +0800</lastBuildDate>
+    <atom:link href="https://chechia.net/tags/spot-instance/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Gcp Preemptible Instance Kubernetes</title>
-      <link>http://localhost:1313/posts/2020-09-26-gcp-preemptible-instance-kubernetes/</link>
+      <link>https://chechia.net/posts/2020-09-26-gcp-preemptible-instance-kubernetes/</link>
       <pubDate>Sat, 26 Sep 2020 17:24:20 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2020-09-26-gcp-preemptible-instance-kubernetes/</guid>
+      <guid>https://chechia.net/posts/2020-09-26-gcp-preemptible-instance-kubernetes/</guid>
       <description>&lt;h3 id=&#34;先占虛擬機與-kubernetes&#34;&gt;先占虛擬機與 Kubernetes&lt;/h3&gt;
 &lt;p&gt;在 GCP 使用先占虛擬機，會需要面對先占虛擬機的額外限制&lt;/p&gt;
 &lt;ul&gt;
@@ -77,9 +64,9 @@ Day 7 - Borg Omega and Kubernete，其他困難的開放問題&lt;/p&gt;</descri
     </item>
     <item>
       <title>Gcp Preemptible Instance Introduction</title>
-      <link>http://localhost:1313/posts/2020-09-26-gcp-preemptible-instance-introduction/</link>
+      <link>https://chechia.net/posts/2020-09-26-gcp-preemptible-instance-introduction/</link>
       <pubDate>Sat, 26 Sep 2020 11:03:40 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2020-09-26-gcp-preemptible-instance-introduction/</guid>
+      <guid>https://chechia.net/posts/2020-09-26-gcp-preemptible-instance-introduction/</guid>
       <description>&lt;h1 id=&#34;先占虛擬機技術文件二三事&#34;&gt;先占虛擬機，技術文件二三事&lt;/h1&gt;
 &lt;p&gt;第一篇的內容大部份還是翻譯跟講解官方文件。後面幾篇才會有實際的需求與解決方案分析。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://cloud.google.com/compute/docs/instances/preemptible&#34;&gt;Google 先占虛擬機官方文件&lt;/a&gt;&lt;/p&gt;
@@ -125,9 +112,9 @@ n1-standard-64	64	240GB	$3.5200		$0.7040&lt;/p&gt;</description>
     </item>
     <item>
       <title>Gcp Preemptible Instance Resource Calculation</title>
-      <link>http://localhost:1313/posts/2020-09-25-gcp-preemptible-instance-resource-calculation/</link>
+      <link>https://chechia.net/posts/2020-09-25-gcp-preemptible-instance-resource-calculation/</link>
       <pubDate>Fri, 25 Sep 2020 12:22:02 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2020-09-25-gcp-preemptible-instance-resource-calculation/</guid>
+      <guid>https://chechia.net/posts/2020-09-25-gcp-preemptible-instance-resource-calculation/</guid>
       <description>&lt;h3 id=&#34;關於資源評估&#34;&gt;關於資源評估&lt;/h3&gt;
 &lt;p&gt;架構團隊提供虛擬機給應用，有個問題時常出現：應該分配多少資源給應用？例如：後端準備一個 API server，SRE 這邊要準備多少什麼規格的機器？&lt;/p&gt;
 &lt;p&gt;以往使用虛擬機直接部署應用時，會需要明確規劃各群虛擬機，各自需要執行的應用，如果沒有做資源的事前評估，有可能放上機器運行後就發生資源不足。&lt;/p&gt;
@@ -160,9 +147,9 @@ n1-standard-64	64	240GB	$3.5200		$0.7040&lt;/p&gt;</description>
     </item>
     <item>
       <title>Gcp Preemptible Instance Requirement</title>
-      <link>http://localhost:1313/posts/2020-09-24-gcp-preemptible-instance-requirement/</link>
+      <link>https://chechia.net/posts/2020-09-24-gcp-preemptible-instance-requirement/</link>
       <pubDate>Thu, 24 Sep 2020 13:39:12 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2020-09-24-gcp-preemptible-instance-requirement/</guid>
+      <guid>https://chechia.net/posts/2020-09-24-gcp-preemptible-instance-requirement/</guid>
       <description>&lt;h1 id=&#34;需求規劃&#34;&gt;需求規劃&lt;/h1&gt;
 &lt;p&gt;使用先占節點比起使用一般隨選虛擬機，會多出許多技術困難需要克服，只有節省下的成本大於整體技術成本時，我們才會選用先占節點。因此這邊要進行成本精算，重新調整的架構下，實際到底能省多少錢。務必使用 &lt;a href=&#34;https://cloud.google.com/products/calculator?hl=zh-tw&#34;&gt;Google Cloud Pricing Calculator&lt;/a&gt; 精算成本。&lt;/p&gt;
 &lt;p&gt;另外，雖然先占虛擬機會有很多額外的限制與技術困難，但實務上還是要對比實際的需求，有些限制與需求是衝突的，有些限制則完全不會影響我們的需求。前者當然會帶給我們較高的導入難度，後者可能會非常輕鬆。&lt;/p&gt;
@@ -202,9 +189,9 @@ n1-standard-64	64	240GB	$3.5200		$0.7040&lt;/p&gt;</description>
     </item>
     <item>
       <title>Gcp Preemptible Instance Speficication</title>
-      <link>http://localhost:1313/posts/2020-09-23-gcp-preemptible-instance-speficication/</link>
+      <link>https://chechia.net/posts/2020-09-23-gcp-preemptible-instance-speficication/</link>
       <pubDate>Wed, 23 Sep 2020 16:23:14 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2020-09-23-gcp-preemptible-instance-speficication/</guid>
+      <guid>https://chechia.net/posts/2020-09-23-gcp-preemptible-instance-speficication/</guid>
       <description>&lt;h1 id=&#34;先占虛擬機終止流程-preemption-process&#34;&gt;先占虛擬機終止流程 (Preemption process)&lt;/h1&gt;
 &lt;p&gt;子曰：未知生焉知死。但做工程師要反過來，考量最差情形，也就是要知道應用可能如何死去。不知道應用可能怎麼死，別說你知道應用活得好好的，大概想表達這麼意思。&lt;/p&gt;
 &lt;p&gt;這對先占虛擬機來說特別重要，一般應用面對的機器故障或是機器終止，在使用先占西你幾的狀況下，變成每日的必然，因此，需要對應用的終止情境，與終止流程有更精細的掌控。如同前幾篇所說的，先占虛擬機會被公有雲收回，但收回的時候不會突然機器就 ben 不見，會有一個固定的流程。&lt;/p&gt;
@@ -249,9 +236,9 @@ n1-standard-64	64	240GB	$3.5200		$0.7040&lt;/p&gt;</description>
     </item>
     <item>
       <title>Gcp Preemptible Instance Requirement Distributed</title>
-      <link>http://localhost:1313/posts/2020-09-22-gcp-preemptible-instance-requirement-distributed/</link>
+      <link>https://chechia.net/posts/2020-09-22-gcp-preemptible-instance-requirement-distributed/</link>
       <pubDate>Tue, 22 Sep 2020 14:39:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2020-09-22-gcp-preemptible-instance-requirement-distributed/</guid>
+      <guid>https://chechia.net/posts/2020-09-22-gcp-preemptible-instance-requirement-distributed/</guid>
       <description>&lt;p&gt;我們以下幾個需求：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;執行短期的 batch job&lt;/li&gt;
@@ -285,9 +272,9 @@ n1-standard-64	64	240GB	$3.5200		$0.7040&lt;/p&gt;</description>
     </item>
     <item>
       <title>Gcp Preemptible Instance</title>
-      <link>http://localhost:1313/posts/2020-09-21-gcp-preemptible-instance/</link>
+      <link>https://chechia.net/posts/2020-09-21-gcp-preemptible-instance/</link>
       <pubDate>Mon, 21 Sep 2020 09:22:17 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2020-09-21-gcp-preemptible-instance/</guid>
+      <guid>https://chechia.net/posts/2020-09-21-gcp-preemptible-instance/</guid>
       <description>&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
 &lt;p&gt;鐵人賽的第二部分，要帶來公有雲省錢系列文章。&lt;/p&gt;
 &lt;p&gt;架構的成本，很多時候會影響架構的設計與需求。公司的營運都需要在成本與需求之前平衡，成本其實是影響公司決策的重要因素。身為架構管理員，應該要試著量化並且進行成本管理，提出解決方案時，也需要思考如何幫公司開源節流。&lt;/p&gt;

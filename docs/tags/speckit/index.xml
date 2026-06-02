@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Speckit on Che-Chia Chang</title>
-    <link>http://localhost:1313/tags/speckit/</link>
+    <link>https://chechia.net/tags/speckit/</link>
     <description>Recent content in Speckit on Che-Chia Chang</description>
     <image>
       <title>Che-Chia Chang</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.147.7</generator>
     <language>en</language>
     <lastBuildDate>Sun, 03 May 2026 13:20:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/speckit/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://chechia.net/tags/speckit/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>When Not to Vibe：從 Vibe Coding 到 Spec-driven AI Engineering 的轉折點</title>
-      <link>http://localhost:1313/posts/2026-07-01-speckit-cloud-summit/</link>
+      <link>https://chechia.net/posts/2026-07-01-speckit-cloud-summit/</link>
       <pubDate>Sun, 03 May 2026 13:20:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/2026-07-01-speckit-cloud-summit/</guid>
+      <guid>https://chechia.net/posts/2026-07-01-speckit-cloud-summit/</guid>
       <description>這場分享從 vibe coding 的失焦問題出發，拆解 LLM 在長時間任務中的限制，並說明 SpecKit 在 spec-driven AI engineering 中的角色、代價與適用場景，以及從 spec-driven 走向 agent-driven 的演進方向。</description>
     </item>
   </channel>
