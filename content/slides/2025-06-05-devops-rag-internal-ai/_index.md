@@ -66,8 +66,8 @@ docker exec -it notebook pip install pandas openai qdrant_client tqdm tenacity w
 
 ### 投影片與教材與完整程式碼放在網站上
 
-- [https://chechia.net](https://chechia.net)
-- [https://chechia.net/zh-hant/slides/2025-06-05-devops-rag-internal-ai/](https://chechia.net/zh-hant/slides/2025-06-05-devops-rag-internal-ai/)
+- [chechia.net](https://chechia.net)
+- [../../slides/2025-06-05-devops-rag-internal-ai/](../../slides/2025-06-05-devops-rag-internal-ai/)
 - :memo: [Github 投影片原始碼與講稿](https://github.com/chechiachang/chechiachang.github.io-src/blob/master/content/zh-hant/slides/2025-06-05-devops-rag-internal-ai/index.md)
 
 ---
@@ -89,7 +89,7 @@ docker exec -it notebook pip install pandas openai qdrant_client tqdm tenacity w
 - Che Chia Chang
 - SRE @ [Maicoin](https://www.cake.me/companies/maicoin/jobs)
 - [Microsoft MVP](https://mvp.microsoft.com/zh-TW/MVP/profile/e407d0b9-5c01-eb11-a815-000d3a8ccaf5)
-- 個人部落格[chechia.net](https://chechia.net/) 投影片講稿，鐵人賽 (Terraform / Vault 手把手入門 / Etcd Workshop)
+- 個人部落格[chechia.net](https://chechia.net) 投影片講稿，鐵人賽 (Terraform / Vault 手把手入門 / Etcd Workshop)
 - :memo: [今天的投影片原始碼與講稿](https://github.com/chechiachang/chechiachang.github.io-src/blob/master/content/zh-hant/slides/2025-06-05-devops-rag-internal-ai/index.md)
 
 ---

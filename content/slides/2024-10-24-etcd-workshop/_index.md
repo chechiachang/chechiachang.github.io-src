@@ -36,7 +36,7 @@ reveal_hugo:
 ### 手把手搭建 etcd 與 K8s control plane
 
 Che Chia Chang
-[https://chechia.net/](https://chechia.net/)
+[chechia.net](https://chechia.net)
 
 {{% note %}}
 {{% /note %}}
@@ -48,7 +48,7 @@ Che Chia Chang
 - Che Chia Chang
 - SRE @ [Maicoin](https://www.cake.me/companies/maicoin/jobs)
 - [Microsoft MVP](https://mvp.microsoft.com/zh-TW/MVP/profile/e407d0b9-5c01-eb11-a815-000d3a8ccaf5)
-- 個人部落格[chechia.net](https://chechia.net/)
+- 個人部落格[chechia.net](https://chechia.net)
 - presentation and speaker notes
 - 鐵人賽 (Terraform / Vault 手把手入門)
 

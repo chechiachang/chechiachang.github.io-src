@@ -22,7 +22,7 @@ category: ["kubernetes"]
 
 各位好，我是Che-Chia Chang，專長 DevOps & Kubernetes
 
-- [今年不保證不爛尾的 2021 鐵人挑戰頁面](https://chechia.net)
+- [今年不保證不爛尾的 2021 鐵人挑戰頁面](https://chechia.net/)
 - [第一手消息發布，免費線上諮詢，請見 FB](https://www.facebook.com/engineer.from.scratch)
 - [往年回顧 4 萬餘字的血淚 30 日 - 2020 鐵人挑戰 優等](https://ithelp.ithome.com.tw/users/20120327/ironman/2444)
 

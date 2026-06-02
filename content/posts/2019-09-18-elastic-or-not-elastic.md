@@ -24,7 +24,7 @@ draft: false
 - Elasticsearch 日常維護：數據清理，效能調校，永久儲存
 - Debug ELK stack on GCP
 
-對我的文章有興趣，歡迎到我的網站上 [https://chechia.net](https://chechia.net) 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。
+對我的文章有興趣，歡迎到我的網站上 [chechia.net](https://chechia.net) 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。
 
 ---
 
@@ -38,7 +38,7 @@ draft: false
 
 [Elastic Cloud](https://www.elastic.co/cloud/): ELK 的 Sass
 
-[Self-hosted ELK](https://chechia.net/posts/self-host-elk-stack-on-gcp/)
+[Self-hosted ELK](../../posts/self-host-elk-stack-on-gcp/)
 
 或是依照需求混搭，各個服務使用的各層套件是可以相容，例如
 

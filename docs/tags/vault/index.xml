@@ -60,9 +60,9 @@
       <link>http://localhost:1313/posts/2023-10-10-vault-workshop-integrated-storage/</link>
       <pubDate>Tue, 10 Oct 2023 04:42:26 +0800</pubDate>
       <guid>http://localhost:1313/posts/2023-10-10-vault-workshop-integrated-storage/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://localhost:1313/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day--integrated-backend&#34;&gt;Day ??: Integrated Backend&lt;/h1&gt;
 &lt;p&gt;集成存儲&lt;/p&gt;
 &lt;p&gt;Vault 支援多種存儲選項，用於持久存儲 Vault 資訊。自 Vault 1.4 起，提供了整合式存儲選項。此存儲後端不依賴於任何第三方系統，實現高可用性語義，支援企業複製功能，並提供備份/還原工作流。&lt;/p&gt;
@@ -88,13 +88,20 @@
       <description>Article description.</description>
     </item>
     <item>
+      <title>DevOpsDay: HashiCorp Vault 自建金鑰管理最佳入坑姿勢</title>
+      <link>http://localhost:1313/slides/2023-09-26-devopsday-2023-vault/</link>
+      <pubDate>Thu, 21 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/slides/2023-09-26-devopsday-2023-vault/</guid>
+      <description>從導入 HashiCorp Vault 作為起點，直接提供實務上經驗，分享建議的入坑設定</description>
+    </item>
+    <item>
       <title>Vault Workshop 10: Deploy with Docker</title>
       <link>http://localhost:1313/posts/2023-09-21-vault-workshop-deploy-on-kubernetes/</link>
       <pubDate>Thu, 14 Sep 2023 06:42:26 +0800</pubDate>
       <guid>http://localhost:1313/posts/2023-09-21-vault-workshop-deploy-on-kubernetes/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://localhost:1313/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day-09-deploy-with-docker&#34;&gt;Day 09: Deploy with Docker&lt;/h1&gt;
 &lt;h3 id=&#34;local-with-docker&#34;&gt;Local with Docker&lt;/h3&gt;
 &lt;h3 id=&#34;minikube&#34;&gt;minikube&lt;/h3&gt;
@@ -124,9 +131,9 @@ sudo install minikube-darwin-arm64 /usr/local/bin/minikube
       <link>http://localhost:1313/posts/2023-09-20-vault-workshop-ha-docker/</link>
       <pubDate>Thu, 14 Sep 2023 05:42:26 +0800</pubDate>
       <guid>http://localhost:1313/posts/2023-09-20-vault-workshop-ha-docker/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://localhost:1313/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day-09-deploy-with-docker&#34;&gt;Day 09: Deploy with Docker&lt;/h1&gt;
 &lt;h3 id=&#34;vault-configuration&#34;&gt;Vault configuration&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;/code&gt;&lt;/pre&gt;
@@ -150,9 +157,9 @@ sudo install minikube-darwin-arm64 /usr/local/bin/minikube
       <link>http://localhost:1313/posts/2023-09-19-vault-workshop-docker-and-initialization/</link>
       <pubDate>Thu, 14 Sep 2023 04:42:26 +0800</pubDate>
       <guid>http://localhost:1313/posts/2023-09-19-vault-workshop-docker-and-initialization/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://localhost:1313/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day-08-vault-in-docker-and-initialization&#34;&gt;Day 08: Vault in Docker and Initialization&lt;/h1&gt;
 &lt;h3 id=&#34;vault-in-container&#34;&gt;Vault in container&lt;/h3&gt;
 &lt;p&gt;前幾天我們使用 vault dev Server 來啟用測試用的 Vault server。&lt;/p&gt;
@@ -189,9 +196,9 @@ cd deploy/00-docker-dev/
       <link>http://localhost:1313/posts/2023-09-18-vault-workshop-policy-and-approle/</link>
       <pubDate>Thu, 14 Sep 2023 03:42:26 +0800</pubDate>
       <guid>http://localhost:1313/posts/2023-09-18-vault-workshop-policy-and-approle/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://localhost:1313/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day-07-policy--approle&#34;&gt;Day 07: Policy &amp;amp; Approle&lt;/h1&gt;
 &lt;p&gt;在 Vault 中，策略（Policies）控制著使用者可以訪問的資源。在上一篇身份驗證中，你已經學到了身份驗證方法(authentication method)。而這一節是關於授權(Authorization)，也就是合法的用戶登入後，應該能夠取得怎樣的權限。&lt;/p&gt;
 &lt;p&gt;在身份驗證方面，Vault 提供了多種啟用和使用的選項或方法。Vault 在授權和 policy 方面也使用相同的設計。所有身份驗證方法都將登入者的身份 map 回與 Vault 配置的核心 policy。&lt;/p&gt;
@@ -218,9 +225,9 @@ path &amp;quot;secret/data/foo&amp;quot; {
       <link>http://localhost:1313/posts/2023-09-17-vault-workshop-authentication-github/</link>
       <pubDate>Thu, 14 Sep 2023 02:42:26 +0800</pubDate>
       <guid>http://localhost:1313/posts/2023-09-17-vault-workshop-authentication-github/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://localhost:1313/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day-06github-auth-method&#34;&gt;Day 06：Github auth method&lt;/h1&gt;
 &lt;h3 id=&#34;不需要使用-root-token-的-auth-method-github&#34;&gt;不需要使用 root token 的 auth method: github&lt;/h3&gt;
 &lt;p&gt;Vault 支援用於人員使用者的身份驗證方法。GitHub 身份驗證，使用戶可以通過提供他們的 GitHub 憑證來驗證 Vault，並收到一個 Vault token。&lt;/p&gt;
@@ -235,9 +242,9 @@ path &amp;quot;secret/data/foo&amp;quot; {
       <link>http://localhost:1313/posts/2023-09-16-vault-workshop-authentication/</link>
       <pubDate>Thu, 14 Sep 2023 01:42:26 +0800</pubDate>
       <guid>http://localhost:1313/posts/2023-09-16-vault-workshop-authentication/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://localhost:1313/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day-05authentication&#34;&gt;Day 05：Authentication&lt;/h1&gt;
 &lt;p&gt;在前面的文章中，你已經創建了第一個秘密，了解了秘密引擎，並在以開發模式啟動的 Vault 服務器中探索了動態秘密。&lt;/p&gt;
 &lt;p&gt;接下來的內容中，我們將深入研究使用 Vault token 和 GitHub 憑證進行身份驗證。&lt;/p&gt;
@@ -278,9 +285,9 @@ You may need to set the following environment variables:
       <link>http://localhost:1313/posts/2023-09-15-vault-workshop-secret-engine-kv-v2/</link>
       <pubDate>Thu, 14 Sep 2023 00:42:26 +0800</pubDate>
       <guid>http://localhost:1313/posts/2023-09-15-vault-workshop-secret-engine-kv-v2/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://localhost:1313/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day-04secret-engine-kv-v2&#34;&gt;Day 04：Secret Engine KV V2&lt;/h1&gt;
 &lt;p&gt;KV秘密引擎，用於在Vault的已配置物理Storage中，存儲任意秘密。&lt;/p&gt;
 &lt;p&gt;key 名稱必須始終是字符串。如果你直接通過CLI編寫非字串 value，它們將被轉換為字串。但是，你可以通過從JSON文件中將key-value pair寫入Vault，或使用HTTP API來保留非字串 value。&lt;/p&gt;
@@ -309,9 +316,9 @@ sys/          system       system_c063e514       system endpoints used for contr
       <link>http://localhost:1313/posts/2023-09-14-vault-workshop-secret-engine/</link>
       <pubDate>Wed, 13 Sep 2023 22:42:26 +0800</pubDate>
       <guid>http://localhost:1313/posts/2023-09-14-vault-workshop-secret-engine/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://localhost:1313/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day-03細探-secret-engine-秘密引擎&#34;&gt;Day 03：細探 Secret Engine 秘密引擎&lt;/h1&gt;
 &lt;h3 id=&#34;什麼是秘密引擎&#34;&gt;什麼是秘密引擎？&lt;/h3&gt;
 &lt;p&gt;秘密引擎是Vault的組件，用於存儲、生成或加密秘密。在前面的內容中，你使用了Key/Value v2 秘密引擎來存儲數據。一些秘密引擎，比如鍵/值秘密引擎，僅僅是用來存儲和讀取數據的。其他秘密引擎則連接到其他服務並根據需求生成動態憑證。還有一些秘密引擎提供加密作為服務。&lt;/p&gt;
@@ -339,10 +346,10 @@ Code: 403. Errors:
       <link>http://localhost:1313/posts/2023-09-13-vault-workshop-get-started/</link>
       <pubDate>Wed, 13 Sep 2023 21:42:26 +0800</pubDate>
       <guid>http://localhost:1313/posts/2023-09-13-vault-workshop-get-started/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
 &lt;h1 id=&#34;day-02-準備執行一個本地開發用途的-vault&#34;&gt;Day 02 準備：執行一個本地開發用途的 Vault&lt;/h1&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://chechia.net/zh-hant/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://localhost:1313/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;準備工作&#34;&gt;準備工作&lt;/h3&gt;
 &lt;p&gt;在開始進行 Vault 30 天 workshop 之前，有一些準備工作需要完成：&lt;/p&gt;
 &lt;p&gt;步驟1：下載 Vault Binary&lt;/p&gt;
@@ -375,7 +382,7 @@ Vault v1.14.3 (56debfa71653e72433345f23cd26276bc90629ce), built 2023-09-11T21:23
       <link>http://localhost:1313/posts/2023-09-12-vault-workshop-introduction/</link>
       <pubDate>Tue, 12 Sep 2023 20:35:19 +0800</pubDate>
       <guid>http://localhost:1313/posts/2023-09-12-vault-workshop-introduction/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
 &lt;h1 id=&#34;day-01-前言從零開始的-hashicorp-vault-workshop&#34;&gt;Day 01 前言：從零開始的 Hashicorp Vault Workshop&lt;/h1&gt;
 &lt;p&gt;從零開始 workshop 系列已經做了四年，內容包含 k8s, terraform, aws 等。&lt;/p&gt;
@@ -388,13 +395,13 @@ Vault v1.14.3 (56debfa71653e72433345f23cd26276bc90629ce), built 2023-09-11T21:23
 &lt;li&gt;官方最新文件繁中翻譯 (chatGPT based)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;建議讀者務必跟著操作，不要只是看過&lt;/p&gt;
-&lt;p&gt;其他文章 &lt;a href=&#34;https://chechia.net/&#34;&gt;https://chechia.net/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;其他文章 &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;過去的 Workshop&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2022/&#34;&gt;2022 鐵人賽: Terraform IaC Best Practice on AWS Cloud / 在 aws 公有雲上找 IaC 最佳實踐 (因故退賽)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2022/&#34;&gt;2022 鐵人賽: Terraform IaC Best Practice on AWS Cloud / 在 aws 公有雲上找 IaC 最佳實踐 (因故退賽)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/users/20120327/ironman/4057&#34;&gt;2021 鐵人賽: Terraform Workshop - Infrastructure as Code for Public Cloud&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2020/&#34;&gt;2020 鐵人賽: Kubernetes X DevOps X 從零開始導入工具 X 需求分析&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2019/&#34;&gt;2019 鐵人賽: Kubernetes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2020/&#34;&gt;2020 鐵人賽: Kubernetes X DevOps X 從零開始導入工具 X 需求分析&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2019/&#34;&gt;2019 鐵人賽: Kubernetes&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;預定內容與許願清單&#34;&gt;預定內容與許願清單&lt;/h1&gt;
 &lt;p&gt;本 workshop 預計有底下內容&lt;/p&gt;</description>

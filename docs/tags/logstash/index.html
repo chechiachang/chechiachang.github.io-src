@@ -20,7 +20,7 @@ ELK 的 beats 是輕量級的系統監測收集器，beats 收集到的 data 經
 beat 有許多種類，依據收集的 data 區別：
 Auditbeat: Audit data Filebeat: Log files Functionbeat: Cloud data Heartbeat: Availability Journalbeat: Systemd journals Metricbeat: Metrics Packetbeat: Network traffic Winlogbeat: Windows event logs 這邊先以 filebeat 為例，在 GCE 上收集圓端服務節點上的服務日誌與系統日誌，並在 ELK 中呈現。
 ...</p></div><footer class=entry-footer><span title='2019-09-18 19:10:50 +0800 CST'>September 18, 2019</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;460 words&nbsp;·&nbsp;chechiachang</footer><a class=entry-link aria-label="post link to Monitoring GCE With ELK" href=http://localhost:1313/posts/2019-09-18-monitoring-gce-with-elk/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>Secure Elk Stack</h2></header><div class=entry-content><p>2020 It邦幫忙鐵人賽 系列文章
-Self-host ELK stack on GCP Secure ELK Stask 監測 Google Compute Engine 上服務的各項數據 監測 Google Kubernetes Engine 的各項數據 是否選擇 ELK 作為解決方案 使用 logstash pipeline 做數據前處理 Elasticsearch 日常維護：數據清理，效能調校，永久儲存 Debug ELK stack on GCP 對我的文章有興趣，歡迎到我的網站上 https://chechia.net 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。
+Self-host ELK stack on GCP Secure ELK Stask 監測 Google Compute Engine 上服務的各項數據 監測 Google Kubernetes Engine 的各項數據 是否選擇 ELK 作為解決方案 使用 logstash pipeline 做數據前處理 Elasticsearch 日常維護：數據清理，效能調校，永久儲存 Debug ELK stack on GCP 對我的文章有興趣，歡迎到我的網站上 chechia.net 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。
 –
 上篇Self-host ELK stack on GCP 介紹了，elk stack 基本的安裝，安裝完獲得一個只支援 http (裸奔)的 elk stack，沒有 https 在公開網路上使用是非常危險的。這篇要來介紹如何做安全性設定。
 官方的文件在這裡，碎念一下，除非對 ELK 的功能有一定了解，不然這份真的不是很友善。建議從官方文件底下的Tutorial: Getting started with security 開始，過程比較不會這麼血尿。
@@ -29,7 +29,7 @@ enable x-pack & activate basic license Generate self-signed ca, server certifica
 ...</p></div><footer class=entry-footer><span title='2019-09-15 23:00:33 +0800 CST'>September 15, 2019</span>&nbsp;·&nbsp;8 min&nbsp;·&nbsp;1527 words&nbsp;·&nbsp;chechiachang</footer><a class=entry-link aria-label="post link to Secure Elk Stack" href=http://localhost:1313/posts/2019-09-15-secure-elk-stack/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>Self-host ELK stack - Installation</h2></header><div class=entry-content><p>2020 It邦幫忙鐵人賽 系列文章
 Self-host ELK stack on GCP Secure ELK Stask 監測 Google Compute Engine 上服務的各項數據 監測 Google Kubernetes Engine 的各項數據 是否選擇 ELK 作為解決方案 使用 logstash pipeline 做數據前處理 Elasticsearch 日常維護：數據清理，效能調校，永久儲存 Debug ELK stack on GCP 作為範例的 ELK 的版本是當前的 stable release 7.3.1。
 由於我比較熟悉 GCP / GKE 的服務，這篇的操作過程都會以 GCP 平台作為範例，不過操作過程大體上是跨平台通用的。
-對我的文章有興趣，歡迎到我的網站上 https://chechia.net 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。
+對我的文章有興趣，歡迎到我的網站上 chechia.net 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。
 –
 簡介 ELK stack 官方說明文件
 ELK 的元件 Elasticsearch: 基於 Lucene 的分散式全文搜索引擎 Logstash: 數據處理 pipeline Kibana: ELK stack 的管理後台與數據視覺化工具 Beats: 輕量級的應用端數據收集器，會從被監控端收集 log 與監控數據(metrics) ELK 的工作流程 beats -> (logstash) -> elasticsearch -> kibana

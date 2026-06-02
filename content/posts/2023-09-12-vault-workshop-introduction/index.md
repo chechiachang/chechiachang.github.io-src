@@ -29,7 +29,7 @@ tags: ["vault", "iac", "workshop", "terraform", "鐵人賽2023", "chatgpt"]
 categories: ["vault"]
 ---
 
-如果你希望追蹤最新的草稿，請見[鐵人賽2023](https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/)
+如果你希望追蹤最新的草稿，請見[鐵人賽2023](../../tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/)
 
 本 workshop 也接受網友的許願清單，[如果有興趣的題目可於第一篇底下留言](https://ithelp.ithome.com.tw/articles/10317378)，筆者會盡力實現，但不做任何保證
 
@@ -49,14 +49,14 @@ categories: ["vault"]
 
 建議讀者務必跟著操作，不要只是看過
 
-其他文章 [https://chechia.net/](https://chechia.net/)
+其他文章 [chechia.net](https://chechia.net)
 
 過去的 Workshop 
 
-- [2022 鐵人賽: Terraform IaC Best Practice on AWS Cloud / 在 aws 公有雲上找 IaC 最佳實踐 (因故退賽)](https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2022/)
+- [2022 鐵人賽: Terraform IaC Best Practice on AWS Cloud / 在 aws 公有雲上找 IaC 最佳實踐 (因故退賽)](../../tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2022/)
 - [2021 鐵人賽: Terraform Workshop - Infrastructure as Code for Public Cloud](https://ithelp.ithome.com.tw/users/20120327/ironman/4057)
-- [2020 鐵人賽: Kubernetes X DevOps X 從零開始導入工具 X 需求分析](https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2020/)
-- [2019 鐵人賽: Kubernetes](https://chechia.net/zh-hant/tag/%E9%90%B5%E4%BA%BA%E8%B3%BD2019/)
+- [2020 鐵人賽: Kubernetes X DevOps X 從零開始導入工具 X 需求分析](../../tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2020/)
+- [2019 鐵人賽: Kubernetes](../../tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2019/)
 
 # 預定內容與許願清單
 

@@ -259,7 +259,7 @@ without-mcp/
 
 - MCP：[https://modelcontextprotocol.io/specification/2025-06-18](https://modelcontextprotocol.io/specification/2025-06-18)
 - 開源實作：[https://github.com/chechiachang/mcp-playground/tree/main](https://github.com/chechiachang/mcp-playground/tree/main)
-- 投影片與講稿：[https://chechia.net](https://chechia.net)
+- 投影片與講稿：[chechia.net](https://chechia.net)
 
 ---
 

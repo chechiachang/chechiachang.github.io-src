@@ -211,7 +211,7 @@ Spec-driven development
 
 今天早上的 workshop
 
-- Lab 09:00 - 10:30 [Spec-driven development with Spec-kit](https://chechia.net/posts/2026-07-01-ws-speckit-ai-ent/)
+- Lab 09:00 - 10:30 [Spec-driven development with Spec-kit](../../posts/2026-07-01-ws-speckit-ai-ent/)
 
 ---
 

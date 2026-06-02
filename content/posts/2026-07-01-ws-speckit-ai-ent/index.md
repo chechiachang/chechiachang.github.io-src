@@ -4,7 +4,7 @@ date: '2026-05-01T13:20:00Z'
 # weight: 1
 # aliases: ["/test"]
 tags: ["openai", "generative", "ai", "kubernetes", "devops"]
-categories: ["generative", "ai"]
+categories: ["generative", "ai", "workshop"]
 description: Spec-driven development (SDD) is a software development approach that emphasizes the use of specifications to drive the development process. In this workshop, we will explore how to implement SDD using Spec-kit, a powerful tool for creating and managing specifications. We will cover the basics of SDD, how to create effective specifications, and how to use Spec-kit to automate the development process. By the end of this workshop, you will have a solid understanding of SDD and how to apply it in your projects using Spec-kit.
 #canonicalURL: "https://canonical.url/to/page"
 
@@ -39,7 +39,7 @@ disableShare: false
 ### 📅 活動時間：2026-07-02 09:00-10:30
 ### 🔗 [活動連結](https://aienterprise.ithome.com.tw/2026/session/4788)
 ### 📘 聯繫我 [Facebook](https://www.facebook.com/engineer.from.scratch)
-### 📑 [投影片](https://chechia.net/slides/2026-07-01-ws-speckit-ai-ent/)
+### 📑 [投影片](../../slides/2026-07-01-ws-speckit-ai-ent/)
 
 ---
 
@@ -107,9 +107,7 @@ Che-Chia Chang 是一名專注於後端開發、開發維運、容器化應用�
 Che-Chia Chang is a technology expert specializing in backend development, DevOps, site reliability engineering (SRE), containerized applications, and Kubernetes development and management. He is also recognized as a Microsoft Most Valuable Professional (MVP).
 
 Actively engaged in the Taiwanese tech community, he frequently shares insights on DevOps, SRE, Kubernetes, and cloud computing at CNTUG, DevOps Taipei, GDG Taipei, and Golang Taipei Meetup. Passionate about promoting best practices in development and operations, he continuously explores and applies the latest advancements in cloud and AI technologies.
-
 https://chechia.net
-
 ### Ref
 
 - git clone exaple repo

@@ -43,7 +43,7 @@ reveal_hugo:
 - Che Chia Chang
 - SRE @ [Maicoin](https://www.linkedin.com/company/maicoin/jobs/)
 - [Microsoft MVP](https://mvp.microsoft.com/zh-TW/MVP/profile/e407d0b9-5c01-eb11-a815-000d3a8ccaf5)
-- 個人部落格[chechia.net](https://chechia.net/)
+- 個人部落格[chechia.net](https://chechia.net)
 - presentation and speaker notes
 - 鐵人賽 (Terraform / Vault 手把手入門)
 
@@ -649,7 +649,7 @@ Saving Plan / RI 是一種長期的合約，你可以跟雲端服務商簽約，
 
 ### 感謝
 
-- presentation and speaker notes [chechia.net](https://chechia.net/)
+- presentation and speaker notes [chechia.net](https://chechia.net)
 
 - [Maicoin 職缺](https://www.linkedin.com/company/maicoin/jobs/)
 - 公司福利不錯，業務成長中，想一起共事，歡迎找我聊

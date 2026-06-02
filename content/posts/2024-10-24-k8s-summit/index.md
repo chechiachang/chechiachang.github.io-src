@@ -83,5 +83,4 @@ Microsoft 最有價值從業人員 MVP。
 
 Che-Chia Chang, an SRE specialize in container and Kubernetes operation. An active member of CNTUG, DevOps Taipei, GDS Taipei, Golang Taiwan Meetup.
 Microsoft Most Valuable Professional since 2020.
-
 https://chechia.net
