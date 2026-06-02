@@ -42,6 +42,20 @@
       <description>Etcd 是 Kubernetes 的重要元件之一，本次工作坊將帶領觀眾初探 Etcd，包含安裝，設定，以及操作。並藉由本地的 Etcd 來架設一個最簡單的 Kubernetes Cluster。工作坊內容請見投影片</description>
     </item>
     <item>
+      <title>K8s Summit 2025: RAG &#43; k8sGPT 檢索增強生成與 K8sGPT</title>
+      <link>http://localhost:1313/slides/2025-10-23-k8sgpt-rag/</link>
+      <pubDate>Wed, 01 Oct 2025 00:45:00 +0000</pubDate>
+      <guid>http://localhost:1313/slides/2025-10-23-k8sgpt-rag/</guid>
+      <description>K8sGPT 是一套結合 AI 與最佳實踐的 Kubernetes 問題診斷與修復工具，能有效降低故障排除難度並自動化修復流程。RAG（Retrieval-Augmented Generation 檢索增強生成）結合檢索系統與生成式模型（如 GPT）的自然語言處理架構，在生成答案時引用外部知識，使模型回答更準確且具事實根據。本演講將介紹如何使用 RAG 技術來增強 Kubernetes 問題診斷與修復的能力，並展示 k8sGPT 的實際應用。</description>
+    </item>
+    <item>
+      <title>K8s Summit 2025: Workshop: Get started with Etcd &amp; Kubernetes</title>
+      <link>http://localhost:1313/slides/2025-10-22-etcd-workshop/</link>
+      <pubDate>Wed, 25 Jun 2025 00:45:00 +0000</pubDate>
+      <guid>http://localhost:1313/slides/2025-10-22-etcd-workshop/</guid>
+      <description>Etcd 是 Kubernetes 的重要元件之一，本次工作坊將帶領觀眾初探 Etcd，包含安裝，設定，以及操作。並藉由本地的 Etcd 來架設一個最簡單的 Kubernetes Cluster。工作坊內容請見投影片</description>
+    </item>
+    <item>
       <title>Workshop: Kubernetes Summit: Get started with Etcd &amp; Kubernetes</title>
       <link>http://localhost:1313/posts/2024-10-24-k8s-summit/</link>
       <pubDate>Wed, 23 Oct 2024 13:20:00 +0000</pubDate>
@@ -49,11 +63,60 @@
       <description>Etcd 是 Kubernetes 的重要元件之一，本次工作坊將帶領觀眾初探 Etcd，包含安裝，設定，以及操作。並藉由本地的 Etcd 來架設一個最簡單的 Kubernetes Cluster。工作坊內容請見投影片</description>
     </item>
     <item>
+      <title>Hashicorp: managed database credentials with Hashicorp Vault</title>
+      <link>http://localhost:1313/slides/2024-08-28-hashicorp-vault-database/</link>
+      <pubDate>Tue, 20 Aug 2024 11:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/slides/2024-08-28-hashicorp-vault-database/</guid>
+      <description>分享如何使用 Hashicorp Vault 管理資料庫的帳號密碼，並透過 AWS IAM Role 與 Kubernetes Service Account 進行驗證，以及如何連線到資料庫，監控與審查。</description>
+    </item>
+    <item>
+      <title>Kubernetes Summit: Get started with etcd &amp; Kubernetes</title>
+      <link>http://localhost:1313/slides/2024-10-24-etcd-workshop/</link>
+      <pubDate>Mon, 05 Aug 2024 00:45:00 +0000</pubDate>
+      <guid>http://localhost:1313/slides/2024-10-24-etcd-workshop/</guid>
+      <description>etcd 是 Kubernetes 的重要元件之一，本次工作坊將帶領觀眾初探 etcd，包含安裝，設定，以及操作。並藉由本地的 etcd 來架設一個最簡單的 Kubernetes Cluster。</description>
+    </item>
+    <item>
+      <title>Kubernetes Summit: Upgrade A VM Based Cluster</title>
+      <link>http://localhost:1313/slides/2024-10-23-upgrade-k8s-cluster/</link>
+      <pubDate>Sun, 04 Aug 2024 12:45:00 +0000</pubDate>
+      <guid>http://localhost:1313/slides/2024-10-23-upgrade-k8s-cluster/</guid>
+      <description>分享如何升級 VM-based Kubernetes Cluster 的版本，包含 etcd，control plane，與 node。升級前如何規劃，升級步驟該如何操作，升級後應該如何檢查。</description>
+    </item>
+    <item>
+      <title>Cloud Summit: Cloud Infrastructure Saving Engineering  雲端省錢工程</title>
+      <link>http://localhost:1313/slides/2024-07-03-saving-money-on-cloud-k8s/</link>
+      <pubDate>Mon, 01 Jul 2024 12:45:00 +0000</pubDate>
+      <guid>http://localhost:1313/slides/2024-07-03-saving-money-on-cloud-k8s/</guid>
+      <description>分享幾個節省雲端開銷的方法，包含：導入 spot instance，成本計算與預測工具，動態資源調整HPA與VPA，saving plan</description>
+    </item>
+    <item>
+      <title>SRE Conference: Cloud Infrastructure Saving Engineering  雲端省錢工程</title>
+      <link>http://localhost:1313/slides/2024-04-26-saving-money-on-cloud-k8s/</link>
+      <pubDate>Tue, 26 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/slides/2024-04-26-saving-money-on-cloud-k8s/</guid>
+      <description>分享幾個節省雲端開銷的方法，包含：導入 spot instance，成本計算與預測工具，動態資源調整HPA與VPA，saving plan</description>
+    </item>
+    <item>
       <title>Kubernetes Summit: Resource as Code for Kubernetes: Stop kubectl apply</title>
       <link>http://localhost:1313/posts/2023-10-25-k8s-day-hashicorp-vault-the-perfect-beginner-guide/</link>
       <pubDate>Wed, 25 Oct 2023 12:19:02 +0800</pubDate>
       <guid>http://localhost:1313/posts/2023-10-25-k8s-day-hashicorp-vault-the-perfect-beginner-guide/</guid>
       <description>Article description.</description>
+    </item>
+    <item>
+      <title>Kubernetes Summit: Resource as Code for Kubernetes: Stop kubectl apply</title>
+      <link>http://localhost:1313/slides/2023-10-25-k8s-resource-as-code/</link>
+      <pubDate>Mon, 23 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/slides/2023-10-25-k8s-resource-as-code/</guid>
+      <description>將 k8s resource 以 code 管理，推上 vcs，並使用 argoCD, secret operator 等工具進行管理，來讓避免低級的人工操作錯誤，降低團隊整體失誤率，並降低 k8s admin 管理的成本，提高管理效率</description>
+    </item>
+    <item>
+      <title>DevOpsDay: HashiCorp Vault 自建金鑰管理最佳入坑姿勢</title>
+      <link>http://localhost:1313/slides/2023-09-26-devopsday-2023-vault/</link>
+      <pubDate>Thu, 21 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/slides/2023-09-26-devopsday-2023-vault/</guid>
+      <description>從導入 HashiCorp Vault 作為起點，直接提供實務上經驗，分享建議的入坑設定</description>
     </item>
     <item>
       <title>Hashicorp Comminity Presentation Vault Introduction</title>
@@ -439,6 +502,83 @@
 &lt;p&gt;As a devops,
 I would like to introduce terraform (IaC)
 so that I can&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Deploy Kafka on Kubernetes</title>
+      <link>http://localhost:1313/slides/2019-10-18-kafka-on-k8s/</link>
+      <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/slides/2019-10-18-kafka-on-k8s/</guid>
+      <description>&lt;h3 id=&#34;deploy-kafka-on-kubernetes&#34;&gt;Deploy Kafka on Kubernetes&lt;/h3&gt;
+&lt;p&gt;Che-Chia Chang&lt;/p&gt;
+&lt;p&gt;QRCode&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;about-me&#34;&gt;About Me&lt;/h3&gt;
+&lt;p&gt;David (Che-Chia) Chang&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Backend / Devops @ &lt;a href=&#34;https://machix.com/&#34;&gt;MachiX&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.meetup.com/golang-taipei-meetup/&#34;&gt;Golang Taipei Meetup&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/users/20120327/ironman/2444&#34;&gt;2020 Ithelp Ironman Challenge&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t.me/chechiachang&#34;&gt;https://t.me/chechiachang&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;outline&#34;&gt;Outline&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Introduction to Kafka&lt;/li&gt;
+&lt;li&gt;Deploy Kafka with Helm&lt;/li&gt;
+&lt;li&gt;Kafka Topology&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10219040&#34;&gt;Ithelp Ironman 30 days Challenge (7th-12nd day)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
+&lt;figure&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;https://kafka.apache.org/images/logo.png&#34; width=&#34;70%&#34; height=&#34;70%&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://kafka.apache.org/&#34;&gt;https://kafka.apache.org/&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;distributed-streaming-platform&#34;&gt;Distributed streaming platform&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Publish &amp;amp; Subscribe: r/w data like messaging system&lt;/li&gt;
+&lt;li&gt;Store data in distributed, replicated, fault-tolerant cluster&lt;/li&gt;
+&lt;li&gt;Scalable&lt;/li&gt;
+&lt;li&gt;Realtime&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;concepts&#34;&gt;Concepts&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Kafka run as a cluster&lt;/li&gt;
+&lt;li&gt;Kafka cluster stores streams of &lt;strong&gt;records&lt;/strong&gt; in categories called &lt;strong&gt;topics&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;record = (key, value, timestamp)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;kafka-diagram&#34;&gt;Kafka Diagram&lt;/h3&gt;
+&lt;figure&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;https://kafka.apache.org/23/images/kafka-apis.png&#34; width=&#34;70%&#34; height=&#34;70%&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h3 id=&#34;topic-partitions&#34;&gt;Topic Partitions&lt;/h3&gt;
+&lt;figure&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;https://kafka.apache.org/23/images/log_anatomy.png&#34; width=&#34;70%&#34; height=&#34;70%&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h3 id=&#34;topic-partitions-1&#34;&gt;Topic Partitions&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Data categorized by topic&lt;/li&gt;
+&lt;li&gt;Data replicated in partitions&lt;/li&gt;
+&lt;li&gt;Durability
+&lt;ul&gt;
+&lt;li&gt;consumer able to r/w complete data from at least 1 partition&lt;/li&gt;
+&lt;li&gt;in order&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;distributed-data-streaming&#34;&gt;Distributed Data Streaming&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Scalible r/w bandwith&lt;/p&gt;</description>
     </item>
     <item>
       <title>Kubernetes Custom Resource Deployment</title>
