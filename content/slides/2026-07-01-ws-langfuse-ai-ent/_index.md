@@ -860,7 +860,17 @@ LLM as a Judge Evaluator 是顯微鏡：避免以管窺天
 
 - 1. 人類只憑感覺，忽略量化分數
 - 2. 量化分數推翻人類的感覺
-- 獲取更多客觀量化評分，加強人類觀察力，作為 Decision Gate 的依據
+
+---
+
+##### On the same page
+
+- Dev Team
+  - Cost Chargeback
+  - Model & Tool Evaluation
+- Stakeholders 對齊長官的期待
+  - 效能量化指標：正確率，Error Rate，Latency，Cost
+  - 不是有 AI 就可以十倍產出，開除人類員工
 
 {{% /section %}}
 
