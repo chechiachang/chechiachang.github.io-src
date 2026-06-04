@@ -168,7 +168,11 @@ VSCode 與 CLI 甚至 AI Gateway 都會注入工具
 #   User 可能有多輪內容
 #   Assistant
 </code></pre></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=vscode-chat-debug.png data-background-opacity=1 data-background-size=80%></section><section><h5 id=小結know-your-agent>小結：Know Your Agent</h5><p>進入全自動 Agent 前，確定 Agent 設定符合需求</p><ul><li>手動運行浪費錢 -> 自動運行花式燒錢💸</li><li>以 team 為單位 review agent 設定</li><li>10000 Token ，想像他是 gpt-5.4-pro （nano 的 x150 倍）</li><li>人Token神話：給員工多少 Token 預算，就會用完多少 Token</li></ul><aside class=notes><p>人月神話/Parkinson&rsquo;s Law，「工作會自動膨脹，填滿可用的時間」
-面對問題，有人在等更未來強大模型來解決，有人在試圖用更便宜的模型現在解決</p></aside></section></section><section><section data-shortcode-section><h4 id=case-1-導入-rtk-是否有幫助>Case 1: 導入 rtk 是否有幫助</h4><p>情境：有同事來問 <a href=https://github.com/rtk-ai/rtk>https://github.com/rtk-ai/rtk</a> 好像會省 Token？適不適合我們專案？</p><pre><code class=language-text>理解工具 Know Your Stuff 
+面對問題，有人在等更未來強大模型來解決，有人在試圖用更便宜的模型現在解決</p></aside></section></section><section><section data-shortcode-section><h4 id=case-1-導入-rtk-是否有幫助>Case 1: 導入 rtk 是否有幫助</h4><p>情境：有同事來問 <a href=https://github.com/rtk-ai/rtk>https://github.com/rtk-ai/rtk</a> 好像會省 Token？適不適合我們專案？</p><pre><code class=language-text>理解自己團隊
+    面對的問題核心是什麼？
+    學新的 framework 能力與成本
+
+理解工具 Know Your Stuff 
     什麼是 rtk？有什麼功能？
     支援哪些 cmd？
 
@@ -216,7 +220,7 @@ Custom models=gpt-5.4-nano
 
 # Create Connection
 #   選擇 Azure / gpt-5.4-nano &gt; Save
-</code></pre></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=create-llm-connection.png data-background-opacity=1 data-background-size=80%></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=default-model.png data-background-opacity=1 data-background-size=80%></section><section><h4 id=llm-as-a-judgerun-evaluator>LLM-as-a-Judge：Run Evaluator</h4><pre><code class=language-text># Helpfulness
+</code></pre></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=create-llm-connection.png data-background-opacity=1 data-background-size=80%></section><section data-noprocess data-shortcode-slide data-background-color=#000000 data-background-image=default-model.png data-background-opacity=1 data-background-size=80%></section><section><h4 id=llm-as-a-judgerun-evaluator>LLM-as-a-Judge：Run Evaluator</h4><p>agent evaluation有很多個metrics，例如</p><pre><code class=language-text># Helpfulness
 #   Run on Observations
 
 Type any of GENERATION

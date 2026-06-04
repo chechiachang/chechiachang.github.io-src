@@ -513,6 +513,10 @@ VSCode 與 CLI 甚至 AI Gateway 都會注入工具
 情境：有同事來問 https://github.com/rtk-ai/rtk 好像會省 Token？適不適合我們專案？
 
 ```text
+理解自己團隊
+    面對的問題核心是什麼？
+    學新的 framework 能力與成本
+
 理解工具 Know Your Stuff 
     什麼是 rtk？有什麼功能？
     支援哪些 cmd？
@@ -621,6 +625,8 @@ Custom models=gpt-5.4-nano
 ---
 
 #### LLM-as-a-Judge：Run Evaluator
+
+agent evaluation有很多個metrics，例如
 
 ```text
 # Helpfulness
