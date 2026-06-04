@@ -27,18 +27,18 @@ reveal_hugo:
 
 - 攜帶筆電，可上網
 - 安裝好操作環境
-  - [VS Code](https://code.visualstudio.com/)
+  - [VSCode](https://code.visualstudio.com/)
 - 下載 [workshop 範例程式碼](https://github.com/chechiachang/llm-o11y)
 - 講師會提供 Azure OpenAI API Key
 - 已經會用其他 agent CLI（如 codex CLI）用習慣的即可
 
 ---
 
-#### VS Code
+#### VSCode
 
-安裝 VS Code：[https://code.visualstudio.com/](https://code.visualstudio.com/)
+安裝 VSCode：[https://code.visualstudio.com/](https://code.visualstudio.com/)
 ```text
-# 打開 VS Code，底下 Terminal
+# 打開 VSCode，底下 Terminal
 
 # git clone 程式碼 speckit-playground
 git clone https://github.com/chechiachang/llm-o11y.git
@@ -51,7 +51,7 @@ git clone https://github.com/chechiachang/llm-o11y.git
 
 ---
 
-#### 打開 VS Code，底下 Terminal
+#### 打開 VSCode，底下 Terminal
 
 ```text
 cd llm-o11y
@@ -92,11 +92,11 @@ docker compose pull
 #### 啟動服務
 
 ```text
-# VS Code Terminal
+# VSCode Terminal
 docker compose up -d
 
-# 透過 http://localhost:8080/ 存取 bifrost ai gateway
-# 透過 http://localhost:3000/ 存取 langfuse UI
+# 透過 http://localhost:8080/ 存取 Bifrost AI Gateway
+# 透過 http://localhost:3000/ 存取 Langfuse UI
 #     chechia@chechia.net / password
 #
 # 透過 http://localhost:9001/ 存取 minio UI
@@ -117,10 +117,10 @@ docker compose up -d
 
 ---
 
-#### VSCode 使用 bifrost gateway
+#### 在 VSCode 中使用 Bifrost Gateway
 
 ```text
-VS Code 右側 Secondary Sidebar > Chat
+VSCode 右側 Secondary Sidebar > Chat
     底下 Model (ex Auto, GPT-5.4) > 跳出可用 Model 列表
 
 Model 右上角齒輪 > Manage Model Settings
@@ -142,7 +142,7 @@ Model 右上角齒輪 > Manage Model Settings
 
 ---
 
-#### 設定 Model 使用 bifrost gateway
+#### 設定 Model 連到 Bifrost Gateway
 
 ```text
 # chatLanguageModels.json 填入: id, name, url
@@ -168,7 +168,7 @@ Model 右上角齒輪 > Manage Model Settings
 
 # 回到 Model 列表，選擇剛剛新增的 Azure GPT-5.4 Nano
 #   使用 VSCode Chat，跟 Bifrost Azure say hi
-#       預期 bifrost 沒填 api key 不可用
+#       預期 Bifrost 沒填 API key 不可用
 
 # Model 列表選擇其他 Model (ex auto)，可以先用免費版
 ```
@@ -206,9 +206,9 @@ Model 右上角齒輪 > Manage Model Settings
 #### 大綱
 
 - AI Gateway & Observability stack
-- Tracing & token 花費，Agent 如何花 token
+- Tracing & Token 花費，Agent 如何花 Token
 - 情境1 同事問 rtk 好像會省 Token，要不要導入
-- Llm-as-a-judge evaluator
+- LLM-as-a-Judge Evaluator
 - Dataset & Experiment based on past tracing
 - 情境2 Evaluate multi-turn agent
 
@@ -216,10 +216,10 @@ Model 右上角齒輪 > Manage Model Settings
 
 #### 遇到問題
 
-- 先問 chatGPT 再問講師
-  - 大多時候chatGPT是對的，性能優於講師
-  - 問題變成如何確定 chatGPT 是對的
-- 講師會問你 chatGPT 怎麼說的，或是你怎麼想的
+- 先問 ChatGPT 再問講師
+  - 大多時候 ChatGPT 是對的，性能優於講師
+  - 問題變成如何確定 ChatGPT 是對的
+- 講師會問你 ChatGPT 怎麼說的，或是你怎麼想的
 - 多嘗試多操作，workshop 重點在累積動手的經驗
 
 ---
@@ -249,25 +249,25 @@ docker compose up -d
 
 ---
 
-##### 測試 Bifrost gateway 是否可用
+##### 測試 Bifrost Gateway 是否可用
 
 - VSCode Chat 選擇 Azure GPT-5.4 Nano Model
 - 使用 Bifrost 在 Chat 中 say hi
-- 預期 bifrost 有回應
+- 預期 Bifrost 有回應
 
 ---
 
 ##### 現況整理：Bifrost 是什麼？
 
-http://localhost:8080/ 到 Bifrost AI gateway
+http://localhost:8080/ 到 Bifrost AI Gateway
 
 ```
 # 左手工具列 Observability
 # Dashboard 觀察 Token Usage
-#   包含 Input / Output token、Cached
+#   包含 Input / Output Token、Cached
 
 # LLM Logs 點一筆，看到 User Prompt、Model Response、Tools
-# 點 More details，看到時間、token 數、費用估算
+# 點 More details，看到時間、Token 數、費用估算
 ```
 
 [Complete Guide to O11y in Bifrost](https://www.getmaxim.ai/articles/complete-guide-to-llm-logging-otel-tracing-and-observability-in-bifrost/)
@@ -290,18 +290,18 @@ http://localhost:8080/ 到 Bifrost AI gateway
 
 - Bifrost AI Gateway 提供團隊或公司 LLM Proxy 服務
   - 支援多種模型，Routing，預算設定，並及時計價
-  - 人員與團隊管理，配發虛擬 api key，設定團隊預算
+  - 人員與團隊管理，配發虛擬 API Key，設定團隊預算
   - OTel tracing，串接 o11y 工具（如 Langfuse）
 
 ---
 
 ##### 現況整理：Langfuse 是什麼？
 
-[http://localhost:3000/](http://localhost:3000/) 到 langfuse UI
+[http://localhost:3000/](http://localhost:3000/) 到 Langfuse UI
 
 ```text
 # 進入Langfuse UI
-#     Organizations 選擇 chachia
+#     Organizations 選擇 chechia
 #     Project 選擇 default
 ```
 
@@ -326,7 +326,7 @@ http://localhost:8080/ 到 Bifrost AI gateway
 
 ---
 
-##### 不同 CLI 需求做 o11y 設定
+##### 針對不同 CLI 做 o11y 設定
 
 Coding Agent 可能內建 tracing 功能，或需額外設定
 - Codex 支援 otel ，但功能不完整
@@ -338,7 +338,7 @@ LLM Application 需要自己串接 otel/langfuse SDK
 
 ---
 
-CLI - AI Gateway - Observability
+CLI -> AI Gateway -> Observability
 
 {{< mermaid >}}
 graph LR
@@ -369,13 +369,13 @@ graph LR
 
 ```text
 # 請 VSCode Chat 說一個笑話，產生一筆 tracing
-#   為何講個笑話就花 10000+ token？💸
+#   為何講個笑話就花 10000+ Token？💸
 
 # Langfuse > Tracing > Observations
 # 找到這筆 observation
-#   總共花了多少 token？
+#   總共花了多少 Token？
 #   花在什麼東西上面？
-#   有沒有 cached token？
+#   有沒有 cached Token？
 
 # 打開 observation detail
 # 對照 input / output / cached
@@ -383,22 +383,22 @@ graph LR
 
 ---
 
-#### Task 2: Understand Cached token
+#### Task 2: Understand Cached Token
 
 ```text
 # 請 VSCode Chat 說第二個笑話，以及第三個笑話
-#   第二筆與第三筆 observation 的 token 花費有什麼不同？
+#   第二筆與第三筆 observation 的 Token 花費有什麼不同？
 
 # 打開 observation detail
 #   對照 input / output / cached
 
 # Use /compact 或 /clear 指令後，請 VSCode Chat 說第四個笑話
-#   第四個笑話的 token 花費有什麼不同？
+#   第四個笑話的 Token 花費有什麼不同？
 ```
 
 ---
 
-#### Task 3: 調整 VSCode enabled tools
+#### Task 3: 調整 VSCode 啟用的 tools
 
 
 ```text
@@ -412,7 +412,7 @@ graph LR
 #   哪些工具是必要的？
 
 # 停用後 /clear 開啟新 session
-#   token 花費有沒有下降？
+#   Token 花費有沒有下降？
 ```
 
 ---
@@ -420,12 +420,12 @@ graph LR
 #### Tools
 
 ```text
-同一 Session 重複相同 prompt，Cached token 降低成本
+同一 Session 重複相同 prompt，Cached Token 降低成本
     然而很多工具整個 Session 都不會用到💸
 
-VSCode 與 CLI 甚至 ai gateway 都會注入工具
+VSCode 與 CLI 甚至 AI Gateway 都會注入工具
     VSCode default 有 40+ tools💸
-    bifrost 的 `session_store_sql`
+    Bifrost 的 `session_store_sql`
 
 建議拆分不同 agent 分配工具
     規劃時使用 Plan agent (readonly)
@@ -438,16 +438,16 @@ VSCode 與 CLI 甚至 ai gateway 都會注入工具
 
 ---
 
-#### Task 4: 調整 Instruction
+#### Task 4: 調整 Instructions
 
-就算 VSCode Tools 全關，也大概剩下 2000+ token 的基礎花費
+就算 VSCode Tools 全關，也大概剩下 2000+ Token 的基礎花費
 
 ```
-# langfuse observation: type=GENERATION name=llm.call
-#   observation detail，找到 token 的來源
+# Langfuse observation: type=GENERATION name=llm.call
+#   observation detail，找到 Token 的來源
 
 # AGENTS.md
-#   是否夠精簡? VScode 是否有讀取 AGENTS.md 內容?
+#   是否夠精簡? VSCode 是否有讀取 AGENTS.md 內容?
 #   VSCode `cmd + ,` 開啟設定，chat.useAgentsMdFile=true
 
 # .github/copilot-instructions.md
@@ -457,7 +457,7 @@ VSCode 與 CLI 甚至 ai gateway 都會注入工具
 
 ---
 
-#### Agent Instruction
+#### Agent Instructions
 
 - 許多 CLI system instruction 是固定的，無法修改
   - 包含權限與安全性設定
@@ -468,10 +468,10 @@ VSCode 與 CLI 甚至 ai gateway 都會注入工具
 
 ---
 
-#### CLI debug 模式
+#### CLI Debug 模式
 
 ```
-# VSCode Chat 中，`/debug` 指令開啟 debug 模式
+# VSCode Chat 中，`/debug` 指令開啟 Debug 模式
 #   點 title [tokens tks][latency ms][timestamp]
 #   發現 VSCode 使用小模型 (gpt-4o-mini) 額外為對話命名
 
@@ -494,7 +494,7 @@ VSCode 與 CLI 甚至 ai gateway 都會注入工具
 
 - 手動運行浪費錢 -> 自動運行花式燒錢💸
 - 以 team 為單位 review agent 設定
-- 10000 token ，想像他是 gpt-5.4-pro （nano 的 x150 倍）
+- 10000 Token ，想像他是 gpt-5.4-pro （nano 的 x150 倍）
 - 人Token神話：給員工多少 Token 預算，就會用完多少 Token
 
 {{% note %}}
@@ -513,19 +513,23 @@ VSCode 與 CLI 甚至 ai gateway 都會注入工具
 情境：有同事來問 https://github.com/rtk-ai/rtk 好像會省 Token？適不適合我們專案？
 
 ```text
+理解自己團隊
+    面對的問題核心是什麼？
+    學新的 framework 能力與成本
+
 理解工具 Know Your Stuff 
     什麼是 rtk？有什麼功能？
     支援哪些 cmd？
 
 理解用例 Know Your Case
     https://github.com/chechiachang/llm-o11y 在做什麼？跑些什麼
-    從 langfuse 觀察目前的 token 花費在哪些地方？
+    從 Langfuse 觀察目前的 Token 花費在哪些地方？
         主要花費在哪個部分？
         最常跑的 cmd 是什麼？有無落在 rtk 支援的 cmd 上？
 
 導入實驗 Experiment
-    嘗試導入 rtk 到 llm-olly 專案內
-    觀察 token 花費的變化
+    嘗試導入 rtk 到 llm-o11y 專案內
+    觀察 Token 花費的變化
 
 適不適合專案
     導入 rtk 會在 llm-o11y 增加哪些 Token 花費？貴多少？
@@ -538,10 +542,10 @@ VSCode 與 CLI 甚至 ai gateway 都會注入工具
 
 ---
 
-#### Case 1: 導入 rtk 是否有幫助: Experiment
+#### Case 1：導入 rtk 是否有幫助 - Experiment
 
 ```text
-# 安裝 rtk cli: https://github.com/rtk-ai/rtk/releases/tag/v0.42.0
+# 安裝 rtk CLI: https://github.com/rtk-ai/rtk/releases/tag/v0.42.0
 
 # 專案內啟用 rtk
 rtk init --copilot
@@ -549,7 +553,7 @@ rtk init --copilot
 # 檢查 repo 內 instruction 是否有被 rtk 修改
 #     例如 copilot-instructions.md，AGENTS.md
 
-# 觸發 Agent 執行，觀察 token 花費
+# 觸發 Agent 執行，觀察 Token 花費
 
 # 移除 rtk
 rtk unpatch --global
@@ -557,11 +561,11 @@ rtk unpatch --global
 
 ---
 
-#### Case 1: 導入 rtk 是否有幫助: 團隊溝通對齊
+#### Case 1：導入 rtk 是否有幫助 - 團隊溝通對齊
 
 為何同事會覺得會省 Token？
 - rtk 的宣傳文案提到「節省 Token」，實際上專案吃不到「節省 Token 的 cmd」
-- 同事可能看到別人導入 rtk 後 token 花費下降，就覺得導入 rtk 就會省 token
+- 同事可能看到別人導入 rtk 後 Token 花費下降，就覺得導入 rtk 就會省 Token
 
 {{% fragment %}} 改善流程與文化：如何補齊團隊內的資訊，並建立評估的流程與心態 {{% /fragment %}}
 
@@ -592,7 +596,7 @@ rtk unpatch --global
 
 ---
 
-#### LLM-as-a-Judge Evaluators
+#### LLM-as-a-Judge：Create Connection
 
 ```text
 # Langfuse > Evaluation > LLM-as-a-Judge
@@ -620,7 +624,9 @@ Custom models=gpt-5.4-nano
 
 ---
 
-#### LLM-as-a-Judge Evaluators
+#### LLM-as-a-Judge：Run Evaluator
+
+agent evaluation有很多個metrics，例如
 
 ```text
 # Helpfulness
@@ -640,7 +646,7 @@ And Name any of llm.call
 
 ---
 
-#### LLM-as-a-Judge Evaluators
+#### LLM-as-a-Judge：Example Prompts
 
 指派工作給 Agent，並觀察評分。以下是範例
 
@@ -658,7 +664,7 @@ And Name any of llm.call
 
 ---
 
-#### Task 5: LLM-as-a-Judge Evaluators
+#### Task 5: Judge Helpfulness
 
 ```text
 # 觀察 Helpfulness 分數
@@ -676,7 +682,7 @@ And Name any of llm.call
 
 ---
 
-#### Task 5: LLM-as-a-Judge Evaluators 除錯
+#### Task 5: Judge Debugging
 
 ```text
 # 看起來評分合不合理
@@ -724,7 +730,7 @@ And Name any of llm.call
 
 ---
 
-#### Task 6: 建立自己的 Evaluator
+#### Task 6: Create Custom Evaluator
 
 
 ```text
@@ -745,7 +751,7 @@ Apply Patch Description:
 
 ---
 
-#### Task 6: 建立自己的 Evaluator
+#### Task 6: Filter Tool Calls
 
 透過條件下 Filter，只評分 apply patch 工具的呼叫
 
@@ -774,7 +780,7 @@ And Called Tool Names: apply_patch
 
 ---
 
-#### Task 6: 建立自己的 Evaluator
+#### Task 6: Test with VSCode
 
 
 ```text
@@ -796,7 +802,7 @@ Review ./github/agents/caveman.agent.md, polish the wording, and keep it compact
 
 ---
 
-#### Task 6: 建立自己的 Evaluator
+#### Task 6: Add Another Tool Call
 
 選擇另外一個 tool call，例如 search，建立另一個 Evaluator
 
@@ -854,7 +860,17 @@ LLM as a Judge Evaluator 是顯微鏡：避免以管窺天
 
 - 1. 人類只憑感覺，忽略量化分數
 - 2. 量化分數推翻人類的感覺
-- 獲取更多客觀量化評分，加強人類觀察力，作為 Decision Gate 的依據
+
+---
+
+##### On the same page
+
+- Dev Team
+  - Cost Chargeback
+  - Model & Tool Evaluation
+- Stakeholders 對齊長官的期待
+  - 效能量化指標：正確率，Error Rate，Latency，Cost
+  - 不是有 AI 就可以十倍產出，開除人類員工
 
 {{% /section %}}
 
@@ -908,7 +924,7 @@ Tracing 原始資料太雜亂，不適合直接使用
 
 ---
 
-##### script 只是示範實務的步驟
+##### script 只是示範實作流程
 
 實務資料整理相當複雜
 - 需要根據 use case 調整，才能整理出堪用的資料
@@ -917,7 +933,7 @@ Tracing 原始資料太雜亂，不適合直接使用
 
 ---
 
-##### Data preprocessing：挑選內容
+##### Data preprocessing：篩選資料
 
 dataset 是「日常工作的tracing」，包含有效跟無效的紀錄
 - 想要挑選高效的 tracing 來訓練模型
@@ -927,7 +943,7 @@ dataset 是「日常工作的tracing」，包含有效跟無效的紀錄
 
 ---
 
-##### 使用 dataset 進行 experiment
+##### 用 dataset 跑 experiment
 
 - Dataset 是 gpt-5.4 做過的題目（跟答案）
 - Experiment 是測試 gpt-5.5 在同一題目上的表現
@@ -951,7 +967,7 @@ User: {{input}}
 
 ---
 
-##### 使用 dataset 進行 experiment
+##### 設定 experiment 參數
 
 測試不同 model / agent / tool 的表現
 
@@ -994,12 +1010,12 @@ input: 100 / 100
 
 ---
 
-##### 情境 3：同事來問有 gpt-5.5 為何不用 5.5 要用 5.4
+##### 情境 3：同事來問：既然有 gpt-5.5，為何還用 5.4？
 
 https://llmoverwatch.com/#historical-trends
 - gpt-5.4-mini Response Time 是 gpt-5.5 的 50%
 - 成本
-- 模型行為改變 Model Vesion Drift
+- 模型行為改變 Model Version Drift
   - [ChatGPT’s Behavior Changing over Time](https://www.newsbeast.gr/files/1/2023/07/2307.09009.pdf)
 
 ---
@@ -1012,10 +1028,10 @@ https://llmoverwatch.com/#historical-trends
 
 ---
 
-##### 情境 3：同事來問有 gpt-5.5 為何不用 5.5 要用 5.4
+##### 情境 3：同事來問：要不要改用 gpt-5.5？
 
 搶著用新模型之餘，也要觀察新模型的表現，是否真的有提升
-- 不要只信官方 benchmark，或是上面的 llm overwatch
+- 不要只信官方 benchmark，或是上面的 LLM Overwatch
 - 還要看自己專案的實際表現
 
 針對不同任務選不同模型!!!
@@ -1030,7 +1046,7 @@ https://llmoverwatch.com/#historical-trends
 
 ##### 總結：Observability 到 Decision System
 
-- LLM call metadata（token usage, latency）：客觀數據
+- LLM call metadata（Token usage, latency）：客觀數據
 - LLM-as-a-Judge Evaluator：狹隘但便利的量化評分
 - Dataset Experiment：基於具體 Input / Expected Output 的比較
 - 最後加上人類意見，作為 Decision Gate
@@ -1048,12 +1064,12 @@ https://llmoverwatch.com/#historical-trends
 
 ---
 
-##### 情境 3: Monitoring & Evaluate long running agent
+##### 情境 3：Monitoring & Evaluating a Long-Running Agent
 
 Observability for Multi Turn Agent
 
 ```
-# 模擬開發，觀察 trace 與 token 花費
+# 模擬開發，觀察 trace 與 Token 花費
 # 參考上午 Lab [Spec-driven development with Spec-kit](../../posts/2026-07-01-ws-speckit-ai-ent/)
 
 /clear # 清除 session，開始新的對話
@@ -1084,4 +1100,3 @@ specify init --here --integration copilot
 
 ...(後續開發過程中對答）
 ```
-

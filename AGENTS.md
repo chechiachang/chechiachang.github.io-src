@@ -10,6 +10,7 @@ All instructions and skills must be compact and extremely minimal.
 - Never ask approval. Execute directly with the safest reasonable default.
 - Ask only if blocked by missing required secret/credential/account value.
 - Use repo-local `./tmp` for temporary files; do not use OS-wide temp directories.
+- Normalize wording and terms, e.g. `token` -> `Token`.
 
 ## Agents
 - `ingest-agent`: Ingest `./content/*`.

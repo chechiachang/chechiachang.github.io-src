@@ -2878,6 +2878,31 @@ signed by A&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
+      <link>https://chechia.net/transcripts/2026-07-01-langfuse-ai-ent/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://chechia.net/transcripts/2026-07-01-langfuse-ai-ent/</guid>
+      <description>&lt;h1 id=&#34;2026-07-01-talk-transcript-llm-o11y-從-observability-到-decision-system&#34;&gt;2026-07-01 Talk Transcript: LLM O11y 從 Observability 到 Decision System&lt;/h1&gt;
+&lt;h2 id=&#34;slide-1&#34;&gt;Slide 1&lt;/h2&gt;
+&lt;p&gt;今天這 30 分鐘我想先講清楚一件事：很多團隊已經有 Langfuse、tracing、logging，但真正缺的不是可觀測性本身，而是把這些觀測轉成決策的方法。這場分享會從「看見系統」走到「讓人可以做判斷」。&lt;/p&gt;
+&lt;h2 id=&#34;slide-2&#34;&gt;Slide 2&lt;/h2&gt;
+&lt;p&gt;先講痛點：AI 工具很多，模型也很多，framework 更是每天都在變，但團隊很常缺的是數據化決策，而不是更多直覺。最後就變成選型靠感覺、升級靠印象、上 production 靠運氣。&lt;/p&gt;
+&lt;h2 id=&#34;slide-3&#34;&gt;Slide 3&lt;/h2&gt;
+&lt;p&gt;今天的大綱很簡單，先講痛點，再講解法，接著把「效率」定義清楚，然後一步一步收斂變因，最後看 Langfuse 能收集什麼，怎麼從 baseline 走到 human decision。&lt;/p&gt;
+&lt;h2 id=&#34;slide-4&#34;&gt;Slide 4&lt;/h2&gt;
+&lt;p&gt;如果目標是 Coding Agent 效能更好，那我們其實很直接，就是希望產出更穩定、成本更可控、升級風險更小。這些需求聽起來很抽象，但都可以被拆成可觀測、可比較的指標。&lt;/p&gt;
+&lt;h2 id=&#34;slide-5&#34;&gt;Slide 5&lt;/h2&gt;
+&lt;p&gt;解法的第一步不是先優化，而是先落實 o11y，把所有行為都觀測起來。至少要看得到 prompt、response、tool call、latency、token、cost 和 execution path，先把系統看清楚，才有可能談改善。&lt;/p&gt;
+&lt;h2 id=&#34;slide-6&#34;&gt;Slide 6&lt;/h2&gt;
+&lt;p&gt;這裡我想先定義效率，不然大家會一直在講不同的東西。我會先用一個簡化的公式來看：有用的 output，除以時間、成本、iteration，才是我們要的效率；如果這三個變數沒定義，效率就只是主觀感覺。&lt;/p&gt;
+&lt;h2 id=&#34;slide-7&#34;&gt;Slide 7&lt;/h2&gt;
+&lt;p&gt;但問題是變因太多，model 版本、instruction、tools、workload、context 長度、evaluation 方法，每一個都可能影響結果。只要沒有先收斂變因，你就很難知道是改善了，還是其實惡化了。&lt;/p&gt;
+&lt;h2 id=&#34;slide-8&#34;&gt;Slide 8&lt;/h2&gt;
+&lt;p&gt;所以先做 baseline，是 Action 0。先收 tracing，先把日常工作看清楚，先把 workload baseline 建起來，讓後面每個改動都有參考點，不然所有比較都會飄在空中。&lt;/p&gt;
+&lt;h2 id=&#34;slide-9&#34;&gt;Slide 9&lt;/h2&gt;
+&lt;p&gt;以 Langfuse 來說，至少可以收 trace、span、metadata、metrics、latency、token 和 cost。這些資訊不是終點，但它們是最基本的材料；沒有這些資料，你連 baseline 都很難做完整。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
       <link>https://chechia.net/transcripts/2026-07-01-ws-speckit-ai-ent/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://chechia.net/transcripts/2026-07-01-ws-speckit-ai-ent/</guid>
