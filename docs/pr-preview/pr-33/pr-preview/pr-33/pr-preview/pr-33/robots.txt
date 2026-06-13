@@ -1,3 +1,0 @@
-User-agent: *
-Disallow:
-Sitemap: https://chechia.net/pr-preview/pr-33/sitemap.xml
