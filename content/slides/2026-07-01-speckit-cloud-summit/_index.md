@@ -209,7 +209,7 @@ Spec-driven development
 
 #### 細節請參考
 
-今天早上的 workshop
+明天早上的 workshop
 
 - Lab 09:00 - 10:30 [Spec-driven development with Spec-kit](../../posts/2026-07-01-ws-speckit-ai-ent/)
 

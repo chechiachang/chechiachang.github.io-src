@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- 0.147.7</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 03 May 2026 13:20:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 25 Jun 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://chechia.net/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>規格驅動的 AI 強化 DevOps - 演講逐字稿</title>
+      <link>https://chechia.net/transcripts/2026-06-25-speckit-devops/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://chechia.net/transcripts/2026-06-25-speckit-devops/</guid>
+      <description>DevOpsDay 演講逐字稿：以 Spec-driven development 結合 AI 與 Spec-kit，把 SOP 與 Runbook 轉成可執行規格，建立可驗證、可回饋的 DevOps 自動化流程。</description>
+    </item>
     <item>
       <title>When Not to Vibe：從 Vibe Coding 到 Spec-driven AI Engineering 的轉折點</title>
       <link>https://chechia.net/posts/2026-07-01-speckit-cloud-summit/</link>

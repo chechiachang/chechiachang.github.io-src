@@ -8,7 +8,28 @@
     <loc>https://chechia.net/slides/</loc>
     <lastmod>2036-05-02T09:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://chechia.net/tags/ai/</loc>
+    <lastmod>2026-06-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://chechia.net/tags/devops/</loc>
+    <lastmod>2026-06-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://chechia.net/tags/sdd/</loc>
+    <lastmod>2026-06-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://chechia.net/tags/speckit/</loc>
+    <lastmod>2026-06-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://chechia.net/tags/</loc>
+    <lastmod>2026-06-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://chechia.net/tags/transcript/</loc>
+    <lastmod>2026-06-25T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://chechia.net/transcripts/</loc>
+    <lastmod>2026-06-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://chechia.net/transcripts/2026-06-25-speckit-devops/</loc>
     <lastmod>2026-06-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://chechia.net/tags/agent/</loc>
@@ -21,9 +42,6 @@
     <lastmod>2026-06-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://chechia.net/categories/</loc>
-    <lastmod>2026-06-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://chechia.net/tags/devops/</loc>
     <lastmod>2026-06-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://chechia.net/tags/evaluation/</loc>
@@ -44,13 +62,7 @@
     <loc>https://chechia.net/posts/</loc>
     <lastmod>2026-06-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://chechia.net/tags/</loc>
-    <lastmod>2026-06-08T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://chechia.net/categories/ai/</loc>
-    <lastmod>2026-05-03T13:20:00+00:00</lastmod>
-  </url><url>
-    <loc>https://chechia.net/tags/ai/</loc>
     <lastmod>2026-05-03T13:20:00+00:00</lastmod>
   </url><url>
     <loc>https://chechia.net/categories/generative/</loc>
@@ -60,9 +72,6 @@
     <lastmod>2026-05-03T13:20:00+00:00</lastmod>
   </url><url>
     <loc>https://chechia.net/tags/openai/</loc>
-    <lastmod>2026-05-03T13:20:00+00:00</lastmod>
-  </url><url>
-    <loc>https://chechia.net/tags/speckit/</loc>
     <lastmod>2026-05-03T13:20:00+00:00</lastmod>
   </url><url>
     <loc>https://chechia.net/posts/2026-07-01-speckit-cloud-summit/</loc>
@@ -96,9 +105,6 @@
     <lastmod>2026-05-02T13:20:00+00:00</lastmod>
   </url><url>
     <loc>https://chechia.net/categories/devops/</loc>
-    <lastmod>2026-05-02T12:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://chechia.net/tags/sdd/</loc>
     <lastmod>2026-05-02T12:00:00+00:00</lastmod>
   </url><url>
     <loc>https://chechia.net/tags/spec-kit/</loc>
