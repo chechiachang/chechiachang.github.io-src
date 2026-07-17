@@ -1,5 +1,8 @@
 # Conferences
 
+- 2026 DevOpsDay
+- 2026 Ithome AI Enterprise
+- 2026 Ithome Cloud Summit
 - 2025 Hello World Dev Conf
 - 2025 Ithome Kubernetes Summit
 - 2025 DevOpsDay
