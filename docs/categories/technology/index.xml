@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Technology on Che-Chia Chang</title>
-    <link>http://localhost:1313/categories/technology/</link>
+    <link>https://chechia.net/categories/technology/</link>
     <description>Recent content in Technology on Che-Chia Chang</description>
     <image>
       <title>Che-Chia Chang</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.147.7</generator>
     <language>en</language>
     <lastBuildDate>Thu, 09 Jun 2022 01:04:12 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/technology/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://chechia.net/categories/technology/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>IThome 2022 DevOpsDay Introducing policy as code for terraform</title>
-      <link>http://localhost:1313/posts/2022-06-09-ithome-devopsday-2022-proposal-introduce-policy-as-code-for-terraform-/</link>
+      <link>https://chechia.net/posts/2022-06-09-ithome-devopsday-2022-proposal-introduce-policy-as-code-for-terraform-/</link>
       <pubDate>Thu, 09 Jun 2022 01:04:12 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2022-06-09-ithome-devopsday-2022-proposal-introduce-policy-as-code-for-terraform-/</guid>
+      <guid>https://chechia.net/posts/2022-06-09-ithome-devopsday-2022-proposal-introduce-policy-as-code-for-terraform-/</guid>
       <description>&lt;h3 id=&#34;titleq&#34;&gt;Titleq&lt;/h3&gt;
 &lt;p&gt;從零導入 Policy as Code 到 terraform 甘苦談 - Introducing policy as code for terraform&lt;/p&gt;
 &lt;h3 id=&#34;presentation&#34;&gt;Presentation&lt;/h3&gt;
@@ -35,9 +35,9 @@
     </item>
     <item>
       <title>2022 05 21 COSCUP Operating Time Series Database in K8s</title>
-      <link>http://localhost:1313/posts/2022-05-21-coscup-proposal-operating-time-series-database-in-k8s/</link>
+      <link>https://chechia.net/posts/2022-05-21-coscup-proposal-operating-time-series-database-in-k8s/</link>
       <pubDate>Sat, 21 May 2022 01:04:12 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2022-05-21-coscup-proposal-operating-time-series-database-in-k8s/</guid>
+      <guid>https://chechia.net/posts/2022-05-21-coscup-proposal-operating-time-series-database-in-k8s/</guid>
       <description>&lt;h3 id=&#34;titleq&#34;&gt;Titleq&lt;/h3&gt;
 &lt;p&gt;在 k8s 上跑 time series database 甘苦談 - Operating Time Series Database in K8s&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://docs.google.com/presentation/d/1PZryGImYRALMJfbEMuf_jPd2P-qzIwDmVd5DgXSuqq0/edit&#34;&gt;Google Slides&lt;/a&gt;
@@ -51,43 +51,10 @@ Youtube live record: &lt;a href=&#34;https://youtu.be/YexUnVOZC8M?t=9421&#34;&gt
 &lt;p&gt;DBMSs, including RDBMS, have many similar requirements on aspect of infrastructure operation. They all require stability, high availability, backup and restore utilities, cpu / memory resource management, disaster recovery&amp;hellip;etc. People often ask about that whether is it ok to run DBMS in kubernetes cluster or not. This lecture try to provide some points from our experiences dealing with real-world issues.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>2022 03 11 Ithome Cloud Summit K8s Failure Stories</title>
-      <link>http://localhost:1313/posts/2022-03-11-ithome-cloud-summit-k8s-failure-stories-draft/</link>
-      <pubDate>Fri, 11 Mar 2022 01:04:12 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2022-03-11-ithome-cloud-summit-k8s-failure-stories-draft/</guid>
-      <description>&lt;h3 id=&#34;titleq&#34;&gt;Titleq&lt;/h3&gt;
-&lt;p&gt;別人的 K8s 死袂了 - Kubernetes Failure Stories&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://docs.google.com/presentation/d/1jIQBPQ2T4XESTOtaW441KkdatJo6mONZVGf-26CgSdc/edit&#34;&gt;Google Slides&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
-&lt;p&gt;在一個簡單的系統中，資深工程師可以很清楚地指出，這裡有出過問題、這裡有風險、這裡有雷，做後起團隊的前車之鑑。&lt;/p&gt;
-&lt;p&gt;Kubernetes 功能強大，底層架構卻十分複雜，且還在持續快速演化。再也沒有工程師可以自稱洞悉 k8s 一切，踩過所有雷，能帶領團隊避開風險。&lt;/p&gt;
-&lt;p&gt;所以我們需要多聽別人失敗的故事，從中學習別人的經驗。&lt;/p&gt;
-&lt;p&gt;業界領先企業在災難後會發布 incident report 與 postmortem，本次演講將帶聽眾導讀業界領頭公司的災後報告，並提供改善建議。&lt;/p&gt;
-&lt;h3 id=&#34;content&#34;&gt;Content&lt;/h3&gt;
-&lt;p&gt;別人的 K8s 死袂了 - Kubernetes Failure Stories&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;領頭企業的故事，別人的 k8s 怎麼死了&lt;/li&gt;
-&lt;li&gt;Improvement 1: Prometheus alert 超前部屬&lt;/li&gt;
-&lt;li&gt;Improvement 2: 避免工程師犯錯的技術棧與工作流程，Iac 自動化&lt;/li&gt;
-&lt;li&gt;Improvement 3: 團隊文化提升，接受犯錯、不貳過&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;about-me&#34;&gt;About me&lt;/h3&gt;
-&lt;p&gt;Che-Chia Chang，專長的領域是後端開發，開發維運，容器化應用，以及Kubernetes開發管理。
-Microsoft 最有價值從業人員 MVP。&lt;/p&gt;
-&lt;p&gt;目前為 Golang Taiwan Meetup Organizer，常出現於 CNTUG，DevOps Taipei，GDG Taipei， Golang Taipei Meetup。&lt;/p&gt;
-&lt;p&gt;2018 Ithome Cloud Summit
-2018 Ithome Kubernetes Summit
-2019 Ithome Cloud Summit
-2020 Ithome Cloud Summit
-2020/12/18	Cloud Native Taiwan 年末聚會
-2020/8/17	DevOps Taiwan Meetup #26 - 從零開始導入 Terraform
-2021 Ithome Cloud Summit&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>2021 11 16 Ithome Cloud Summit Vault</title>
-      <link>http://localhost:1313/posts/2021-11-16-ithome-cloud-summit-vault/</link>
+      <link>https://chechia.net/posts/2021-11-16-ithome-cloud-summit-vault/</link>
       <pubDate>Tue, 16 Nov 2021 01:04:12 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2021-11-16-ithome-cloud-summit-vault/</guid>
+      <guid>https://chechia.net/posts/2021-11-16-ithome-cloud-summit-vault/</guid>
       <description>&lt;p&gt;各位好&lt;/p&gt;
 &lt;p&gt;關於這個 QRcode&lt;/p&gt;
 &lt;p&gt;每次上台前，我都會想要帶什麼樣的內容給觀眾，讓觀眾值得花 30 分鐘在底下聽。後來就習慣先發表一篇文章，把對觀眾有幫助的資源包成一包：&lt;/p&gt;
