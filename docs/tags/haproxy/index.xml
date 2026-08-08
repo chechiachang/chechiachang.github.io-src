@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Haproxy on Che-Chia Chang</title>
-    <link>https://chechia.net/tags/haproxy/</link>
+    <link>http://localhost:1313/tags/haproxy/</link>
     <description>Recent content in Haproxy on Che-Chia Chang</description>
     <image>
       <title>Che-Chia Chang</title>
-      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.147.7</generator>
     <language>en</language>
     <lastBuildDate>Wed, 02 Oct 2019 16:12:10 +0800</lastBuildDate>
-    <atom:link href="https://chechia.net/tags/haproxy/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/haproxy/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Redis Ha HAProxy</title>
-      <link>https://chechia.net/posts/2019-10-02-redis-ha-on-haproxy/</link>
+      <link>http://localhost:1313/posts/2019-10-02-redis-ha-on-haproxy/</link>
       <pubDate>Wed, 02 Oct 2019 16:12:10 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-10-02-redis-ha-on-haproxy/</guid>
+      <guid>http://localhost:1313/posts/2019-10-02-redis-ha-on-haproxy/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;在 GKE 上部署 Redis HA (5)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-28-redis-ha-deployment/&#34;&gt;使用 helm 部署 redis-ha&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-29-redis-ha-sentinel/&#34;&gt;Redis HA with sentinel&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-30-redis-ha-topology/&#34;&gt;Redis sentinel topology&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-02-redis-ha-on-haproxy/&#34;&gt;Redis HA with HAproxy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-03-redis-ha-failure-recovery/&#34;&gt;Redis HA Failure Recovery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-28-redis-ha-deployment/&#34;&gt;使用 helm 部署 redis-ha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-29-redis-ha-sentinel/&#34;&gt;Redis HA with sentinel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-30-redis-ha-topology/&#34;&gt;Redis sentinel topology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-02-redis-ha-on-haproxy/&#34;&gt;Redis HA with HAproxy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-03-redis-ha-failure-recovery/&#34;&gt;Redis HA Failure Recovery&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Prometheus Metrics Exporter&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -57,18 +57,18 @@
     </item>
     <item>
       <title>Redis Ha Topology</title>
-      <link>https://chechia.net/posts/2019-09-30-redis-ha-topology/</link>
+      <link>http://localhost:1313/posts/2019-09-30-redis-ha-topology/</link>
       <pubDate>Mon, 30 Sep 2019 16:12:10 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-09-30-redis-ha-topology/</guid>
+      <guid>http://localhost:1313/posts/2019-09-30-redis-ha-topology/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;在 GKE 上部署 Redis HA (5)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-28-redis-ha-deployment/&#34;&gt;使用 helm 部署 redis-ha&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-29-redis-ha-sentinel/&#34;&gt;Redis HA with sentinel&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-30-redis-ha-topology/&#34;&gt;Redis sentinel topology&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-02-redis-ha-on-haproxy/&#34;&gt;Redis HA with HAproxy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-03-redis-ha-failure-recovery/&#34;&gt;Redis HA Failure Recovery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-28-redis-ha-deployment/&#34;&gt;使用 helm 部署 redis-ha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-29-redis-ha-sentinel/&#34;&gt;Redis HA with sentinel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-30-redis-ha-topology/&#34;&gt;Redis sentinel topology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-02-redis-ha-on-haproxy/&#34;&gt;Redis HA with HAproxy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-03-redis-ha-failure-recovery/&#34;&gt;Redis HA Failure Recovery&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Prometheus Metrics Exporter&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -95,18 +95,18 @@
     </item>
     <item>
       <title>Redis Ha Sentinel</title>
-      <link>https://chechia.net/posts/2019-09-29-redis-ha-sentinel/</link>
+      <link>http://localhost:1313/posts/2019-09-29-redis-ha-sentinel/</link>
       <pubDate>Sun, 29 Sep 2019 17:14:38 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-09-29-redis-ha-sentinel/</guid>
+      <guid>http://localhost:1313/posts/2019-09-29-redis-ha-sentinel/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;在 GKE 上部署 Redis HA (5)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-28-redis-ha-deployment/&#34;&gt;使用 helm 部署 redis-ha&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-29-redis-ha-sentinel/&#34;&gt;Redis HA with sentinel&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-30-redis-ha-topology/&#34;&gt;Redis sentinel topology&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-02-redis-ha-on-haproxy/&#34;&gt;Redis HA with HAproxy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-03-redis-ha-failure-recovery/&#34;&gt;Redis HA Failure Recovery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-28-redis-ha-deployment/&#34;&gt;使用 helm 部署 redis-ha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-29-redis-ha-sentinel/&#34;&gt;Redis HA with sentinel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-30-redis-ha-topology/&#34;&gt;Redis sentinel topology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-02-redis-ha-on-haproxy/&#34;&gt;Redis HA with HAproxy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-03-redis-ha-failure-recovery/&#34;&gt;Redis HA Failure Recovery&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Prometheus Metrics Exporter&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;

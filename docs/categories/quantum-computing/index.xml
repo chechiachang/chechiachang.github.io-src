@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Quantum-Computing on Che-Chia Chang</title>
-    <link>https://chechia.net/categories/quantum-computing/</link>
+    <link>http://localhost:1313/categories/quantum-computing/</link>
     <description>Recent content in Quantum-Computing on Che-Chia Chang</description>
     <image>
       <title>Che-Chia Chang</title>
-      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.147.7</generator>
     <language>en</language>
     <lastBuildDate>Sun, 02 Jun 2019 10:21:37 +0800</lastBuildDate>
-    <atom:link href="https://chechia.net/categories/quantum-computing/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/quantum-computing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Journey to Quantum Computing</title>
-      <link>https://chechia.net/posts/2019-06-02-journey-to-quantum-computing/</link>
+      <link>http://localhost:1313/posts/2019-06-02-journey-to-quantum-computing/</link>
       <pubDate>Sun, 02 Jun 2019 10:21:37 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-06-02-journey-to-quantum-computing/</guid>
+      <guid>http://localhost:1313/posts/2019-06-02-journey-to-quantum-computing/</guid>
       <description>&lt;p&gt;This post is about my learning steps for quantum-computing.&lt;/p&gt;
 &lt;p&gt;For a quick-start tutorial, check my workshop project throught the project link above.&lt;/p&gt;
 &lt;h1 id=&#34;resources&#34;&gt;Resources&lt;/h1&gt;

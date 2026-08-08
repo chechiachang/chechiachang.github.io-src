@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Prometheus on Che-Chia Chang</title>
-    <link>https://chechia.net/categories/prometheus/</link>
+    <link>http://localhost:1313/categories/prometheus/</link>
     <description>Recent content in Prometheus on Che-Chia Chang</description>
     <image>
       <title>Che-Chia Chang</title>
-      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.147.7</generator>
     <language>en</language>
     <lastBuildDate>Mon, 07 Oct 2019 08:12:10 +0800</lastBuildDate>
-    <atom:link href="https://chechia.net/categories/prometheus/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/prometheus/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Prometheus &amp; Kubernetes State Metrics Exporter</title>
-      <link>https://chechia.net/posts/2019-10-07-prometheus-kube-state-metrics-exporter/</link>
+      <link>http://localhost:1313/posts/2019-10-07-prometheus-kube-state-metrics-exporter/</link>
       <pubDate>Mon, 07 Oct 2019 08:12:10 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-10-07-prometheus-kube-state-metrics-exporter/</guid>
+      <guid>http://localhost:1313/posts/2019-10-07-prometheus-kube-state-metrics-exporter/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Prometheus / Grafana (5)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-deployment-on-kubernetes/&#34;&gt;GKE 上自架 Prometheus&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-deploy-grafana/&#34;&gt;GKE 上自架 Grafana&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-scrape/&#34;&gt;scrape config &amp;amp; exporter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-06-prometheus-exporter-library-redis-exporter/&#34;&gt;Dive into Redis Exporter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-07-prometheus-kube-state-metrics-exporter/&#34;&gt;輸出 kube-state 的監測數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-04-prometheus-deployment-on-kubernetes/&#34;&gt;GKE 上自架 Prometheus&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-04-prometheus-deploy-grafana/&#34;&gt;GKE 上自架 Grafana&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-04-prometheus-scrape/&#34;&gt;scrape config &amp;amp; exporter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-06-prometheus-exporter-library-redis-exporter/&#34;&gt;Dive into Redis Exporter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-07-prometheus-kube-state-metrics-exporter/&#34;&gt;輸出 kube-state 的監測數據&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -45,18 +45,18 @@
     </item>
     <item>
       <title>Prometheus Exporter Library &amp; Redis Exporter</title>
-      <link>https://chechia.net/posts/2019-10-06-prometheus-exporter-library-redis-exporter/</link>
+      <link>http://localhost:1313/posts/2019-10-06-prometheus-exporter-library-redis-exporter/</link>
       <pubDate>Sun, 06 Oct 2019 08:12:10 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-10-06-prometheus-exporter-library-redis-exporter/</guid>
+      <guid>http://localhost:1313/posts/2019-10-06-prometheus-exporter-library-redis-exporter/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Prometheus / Grafana (5)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-deployment-on-kubernetes/&#34;&gt;GKE 上自架 Prometheus&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-deploy-grafana/&#34;&gt;GKE 上自架 Grafana&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-scrape/&#34;&gt;scrape config &amp;amp; exporter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-06-prometheus-exporter-library-redis-exporter/&#34;&gt;Dive into Redis Exporter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-07-prometheus-kube-state-metrics-exporter/&#34;&gt;輸出 kube-state 的監測數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-04-prometheus-deployment-on-kubernetes/&#34;&gt;GKE 上自架 Prometheus&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-04-prometheus-deploy-grafana/&#34;&gt;GKE 上自架 Grafana&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-04-prometheus-scrape/&#34;&gt;scrape config &amp;amp; exporter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-06-prometheus-exporter-library-redis-exporter/&#34;&gt;Dive into Redis Exporter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-07-prometheus-kube-state-metrics-exporter/&#34;&gt;輸出 kube-state 的監測數據&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -78,18 +78,18 @@
     </item>
     <item>
       <title>Prometheus Deployment on Kubernetes</title>
-      <link>https://chechia.net/posts/2019-10-04-prometheus-deployment-on-kubernetes/</link>
+      <link>http://localhost:1313/posts/2019-10-04-prometheus-deployment-on-kubernetes/</link>
       <pubDate>Fri, 04 Oct 2019 16:12:10 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-10-04-prometheus-deployment-on-kubernetes/</guid>
+      <guid>http://localhost:1313/posts/2019-10-04-prometheus-deployment-on-kubernetes/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Prometheus / Grafana (5)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-deployment-on-kubernetes/&#34;&gt;GKE 上自架 Prometheus&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-deploy-grafana/&#34;&gt;GKE 上自架 Grafana&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-scrape/&#34;&gt;scrape config &amp;amp; exporter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-06-prometheus-exporter-library-redis-exporter/&#34;&gt;Dive into Redis Exporter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-07-prometheus-kube-state-metrics-exporter/&#34;&gt;輸出 kube-state 的監測數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-04-prometheus-deployment-on-kubernetes/&#34;&gt;GKE 上自架 Prometheus&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-04-prometheus-deploy-grafana/&#34;&gt;GKE 上自架 Grafana&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-04-prometheus-scrape/&#34;&gt;scrape config &amp;amp; exporter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-06-prometheus-exporter-library-redis-exporter/&#34;&gt;Dive into Redis Exporter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-07-prometheus-kube-state-metrics-exporter/&#34;&gt;輸出 kube-state 的監測數據&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -119,18 +119,18 @@
     </item>
     <item>
       <title>Prometheus Deploy Grafana</title>
-      <link>https://chechia.net/posts/2019-10-04-prometheus-deploy-grafana/</link>
+      <link>http://localhost:1313/posts/2019-10-04-prometheus-deploy-grafana/</link>
       <pubDate>Fri, 04 Oct 2019 08:12:10 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-10-04-prometheus-deploy-grafana/</guid>
+      <guid>http://localhost:1313/posts/2019-10-04-prometheus-deploy-grafana/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Prometheus / Grafana (5)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-deployment-on-kubernetes/&#34;&gt;GKE 上自架 Prometheus&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-deploy-grafana/&#34;&gt;GKE 上自架 Grafana&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-scrape/&#34;&gt;scrape config &amp;amp; exporter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-06-prometheus-exporter-library-redis-exporter/&#34;&gt;Dive into Redis Exporter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-07-prometheus-kube-state-metrics-exporter/&#34;&gt;輸出 kube-state 的監測數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-04-prometheus-deployment-on-kubernetes/&#34;&gt;GKE 上自架 Prometheus&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-04-prometheus-deploy-grafana/&#34;&gt;GKE 上自架 Grafana&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-04-prometheus-scrape/&#34;&gt;scrape config &amp;amp; exporter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-06-prometheus-exporter-library-redis-exporter/&#34;&gt;Dive into Redis Exporter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-07-prometheus-kube-state-metrics-exporter/&#34;&gt;輸出 kube-state 的監測數據&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -157,18 +157,18 @@
     </item>
     <item>
       <title>Prometheus Scrape</title>
-      <link>https://chechia.net/posts/2019-10-04-prometheus-scrape/</link>
+      <link>http://localhost:1313/posts/2019-10-04-prometheus-scrape/</link>
       <pubDate>Fri, 04 Oct 2019 08:12:10 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-10-04-prometheus-scrape/</guid>
+      <guid>http://localhost:1313/posts/2019-10-04-prometheus-scrape/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Prometheus / Grafana (5)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-deployment-on-kubernetes/&#34;&gt;GKE 上自架 Prometheus&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-deploy-grafana/&#34;&gt;GKE 上自架 Grafana&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-scrape/&#34;&gt;scrape config &amp;amp; exporter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-06-prometheus-exporter-library-redis-exporter/&#34;&gt;Dive into Redis Exporter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-07-prometheus-kube-state-metrics-exporter/&#34;&gt;輸出 kube-state 的監測數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-04-prometheus-deployment-on-kubernetes/&#34;&gt;GKE 上自架 Prometheus&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-04-prometheus-deploy-grafana/&#34;&gt;GKE 上自架 Grafana&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-04-prometheus-scrape/&#34;&gt;scrape config &amp;amp; exporter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-06-prometheus-exporter-library-redis-exporter/&#34;&gt;Dive into Redis Exporter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-07-prometheus-kube-state-metrics-exporter/&#34;&gt;輸出 kube-state 的監測數據&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;

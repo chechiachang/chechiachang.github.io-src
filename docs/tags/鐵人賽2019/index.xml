@@ -2,43 +2,43 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>鐵人賽2019 on Che-Chia Chang</title>
-    <link>https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2019/</link>
+    <link>http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2019/</link>
     <description>Recent content in 鐵人賽2019 on Che-Chia Chang</description>
     <image>
       <title>Che-Chia Chang</title>
-      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.147.7</generator>
     <language>en</language>
     <lastBuildDate>Sun, 13 Oct 2019 22:03:08 +0800</lastBuildDate>
-    <atom:link href="https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2019/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2019/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes Custom Resource Deployment</title>
-      <link>https://chechia.net/posts/2019-10-13-kubernetes-custom-resource-deployment/</link>
+      <link>http://localhost:1313/posts/2019-10-13-kubernetes-custom-resource-deployment/</link>
       <pubDate>Sun, 13 Oct 2019 22:03:08 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-10-13-kubernetes-custom-resource-deployment/</guid>
+      <guid>http://localhost:1313/posts/2019-10-13-kubernetes-custom-resource-deployment/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;p&gt;這邊改了一些大綱，原本的內容還有一些 kubernetes 的設定，以及 GCP 相關服務的介紹。但既然我們的主題是把東西搬上 k8s 的踩雷旅程，那我們就繼續搬，繼續踩。剩下的時間大概會有四個題目。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Nginx Ingress (3)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-08-kubernetes-nginx-ingress-controller/&#34;&gt;Deploy Nginx Ingress Controller&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-08-kubernetes-nginx-ingress-config/&#34;&gt;Configure Nginx Ingress&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-08-kubernetes-nginx-ingress-controller/&#34;&gt;Deploy Nginx Ingress Controller&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-08-kubernetes-nginx-ingress-config/&#34;&gt;Configure Nginx Ingress&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Cert-manager (3)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-10-cert-manager-deployment/&#34;&gt;Deploy cert-manager&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-11-cert-manager-how-it-work/&#34;&gt;How cert-manager work&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-12-cert-manager-complete-workflow/&#34;&gt;Cert-manager complete workflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-10-cert-manager-deployment/&#34;&gt;Deploy cert-manager&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-11-cert-manager-how-it-work/&#34;&gt;How cert-manager work&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-12-cert-manager-complete-workflow/&#34;&gt;Cert-manager complete workflow&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Kubernetes CRD &amp;amp; Operator-sdk (3)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Introduction about custom resource&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-15-kubernetes-custom-resource-with-operator-sdk/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Introduction about custom resource&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-15-kubernetes-custom-resource-with-operator-sdk/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -58,30 +58,30 @@
     </item>
     <item>
       <title>Kubernetes Custom Resources Basic</title>
-      <link>https://chechia.net/posts/2019-10-13-kubernetes-custom-resources-basic/</link>
+      <link>http://localhost:1313/posts/2019-10-13-kubernetes-custom-resources-basic/</link>
       <pubDate>Sun, 13 Oct 2019 17:28:12 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-10-13-kubernetes-custom-resources-basic/</guid>
+      <guid>http://localhost:1313/posts/2019-10-13-kubernetes-custom-resources-basic/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;p&gt;這邊改了一些大綱，原本的內容還有一些 kubernetes 的設定，以及 GCP 相關服務的介紹。但既然我們的主題是把東西搬上 k8s 的踩雷旅程，那我們就繼續搬，繼續踩。剩下的時間大概會有四個題目。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Nginx Ingress (3)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-08-kubernetes-nginx-ingress-controller/&#34;&gt;Deploy Nginx Ingress Controller&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-08-kubernetes-nginx-ingress-config/&#34;&gt;Configure Nginx Ingress&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-08-kubernetes-nginx-ingress-controller/&#34;&gt;Deploy Nginx Ingress Controller&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-08-kubernetes-nginx-ingress-config/&#34;&gt;Configure Nginx Ingress&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Cert-manager (3)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-10-cert-manager-deployment/&#34;&gt;Deploy cert-manager&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-11-cert-manager-how-it-work/&#34;&gt;How cert-manager work&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-12-cert-manager-complete-workflow/&#34;&gt;Cert-manager complete workflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-10-cert-manager-deployment/&#34;&gt;Deploy cert-manager&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-11-cert-manager-how-it-work/&#34;&gt;How cert-manager work&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-12-cert-manager-complete-workflow/&#34;&gt;Cert-manager complete workflow&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Kubernetes CRD &amp;amp; Operator-sdk (3)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Introduction about custom resource&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-15-kubernetes-custom-resource-with-operator-sdk/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Introduction about custom resource&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-15-kubernetes-custom-resource-with-operator-sdk/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -100,30 +100,30 @@
     </item>
     <item>
       <title>Cert Manager Complete Workflow</title>
-      <link>https://chechia.net/posts/2019-10-12-cert-manager-complete-workflow/</link>
+      <link>http://localhost:1313/posts/2019-10-12-cert-manager-complete-workflow/</link>
       <pubDate>Sat, 12 Oct 2019 17:41:25 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-10-12-cert-manager-complete-workflow/</guid>
+      <guid>http://localhost:1313/posts/2019-10-12-cert-manager-complete-workflow/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;p&gt;這邊改了一些大綱，原本的內容還有一些 kubernetes 的設定，以及 GCP 相關服務的介紹。但既然我們的主題是把東西搬上 k8s 的踩雷旅程，那我們就繼續搬，繼續踩。剩下的時間大概會有四個題目。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Nginx Ingress (3)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-08-kubernetes-nginx-ingress-controller/&#34;&gt;Deploy Nginx Ingress Controller&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-08-kubernetes-nginx-ingress-config/&#34;&gt;Configure Nginx Ingress&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-08-kubernetes-nginx-ingress-controller/&#34;&gt;Deploy Nginx Ingress Controller&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-08-kubernetes-nginx-ingress-config/&#34;&gt;Configure Nginx Ingress&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Cert-manager (3)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-10-cert-manager-deployment/&#34;&gt;Deploy cert-manager&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-11-cert-manager-how-it-work/&#34;&gt;How cert-manager work&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-12-cert-manager-complete-workflow/&#34;&gt;Cert-manager complete workflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-10-cert-manager-deployment/&#34;&gt;Deploy cert-manager&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-11-cert-manager-how-it-work/&#34;&gt;How cert-manager work&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-12-cert-manager-complete-workflow/&#34;&gt;Cert-manager complete workflow&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Kubernetes CRD &amp;amp; Operator-sdk (3)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Introduction about custom resource&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-15-kubernetes-custom-resource-with-operator-sdk/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Introduction about custom resource&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-15-kubernetes-custom-resource-with-operator-sdk/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -143,30 +143,30 @@
     </item>
     <item>
       <title>Cert Manager How It Work</title>
-      <link>https://chechia.net/posts/2019-10-11-cert-manager-how-it-work/</link>
+      <link>http://localhost:1313/posts/2019-10-11-cert-manager-how-it-work/</link>
       <pubDate>Fri, 11 Oct 2019 11:24:34 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-10-11-cert-manager-how-it-work/</guid>
+      <guid>http://localhost:1313/posts/2019-10-11-cert-manager-how-it-work/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;p&gt;這邊改了一些大綱，原本的內容還有一些 kubernetes 的設定，以及 GCP 相關服務的介紹。但既然我們的主題是把東西搬上 k8s 的踩雷旅程，那我們就繼續搬，繼續踩。剩下的時間大概會有四個題目。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Nginx Ingress (3)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-08-kubernetes-nginx-ingress-controller/&#34;&gt;Deploy Nginx Ingress Controller&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-08-kubernetes-nginx-ingress-config/&#34;&gt;Configure Nginx Ingress&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-08-kubernetes-nginx-ingress-controller/&#34;&gt;Deploy Nginx Ingress Controller&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-08-kubernetes-nginx-ingress-config/&#34;&gt;Configure Nginx Ingress&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Cert-manager (3)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-10-cert-manager-deployment/&#34;&gt;Deploy cert-manager&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-11-cert-manager-how-it-work/&#34;&gt;How cert-manager work&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-12-cert-manager-complete-workflow/&#34;&gt;Cert-manager complete workflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-10-cert-manager-deployment/&#34;&gt;Deploy cert-manager&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-11-cert-manager-how-it-work/&#34;&gt;How cert-manager work&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-12-cert-manager-complete-workflow/&#34;&gt;Cert-manager complete workflow&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Kubernetes CRD &amp;amp; Operator-sdk (3)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Introduction about custom resource&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-15-kubernetes-custom-resource-with-operator-sdk/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Introduction about custom resource&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-15-kubernetes-custom-resource-with-operator-sdk/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -181,30 +181,30 @@
     </item>
     <item>
       <title>Cert Manager Deployment on Kubernetes</title>
-      <link>https://chechia.net/posts/2019-10-10-cert-manager-deployment/</link>
+      <link>http://localhost:1313/posts/2019-10-10-cert-manager-deployment/</link>
       <pubDate>Thu, 10 Oct 2019 16:12:10 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-10-10-cert-manager-deployment/</guid>
+      <guid>http://localhost:1313/posts/2019-10-10-cert-manager-deployment/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;p&gt;這邊改了一些大綱，原本的內容還有一些 kubernetes 的設定，以及 GCP 相關服務的介紹。但既然我們的主題是把東西搬上 k8s 的踩雷旅程，那我們就繼續搬，繼續踩。剩下的時間大概會有四個題目。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Nginx Ingress (3)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-08-kubernetes-nginx-ingress-controller/&#34;&gt;Deploy Nginx Ingress Controller&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-08-kubernetes-nginx-ingress-config/&#34;&gt;Configure Nginx Ingress&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-08-kubernetes-nginx-ingress-controller/&#34;&gt;Deploy Nginx Ingress Controller&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-08-kubernetes-nginx-ingress-config/&#34;&gt;Configure Nginx Ingress&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Cert-manager (3)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-10-cert-manager-deployment/&#34;&gt;Deploy cert-manager&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-11-cert-manager-how-it-work/&#34;&gt;How cert-manager work&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-12-cert-manager-complete-workflow/&#34;&gt;Cert-manager complete workflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-10-cert-manager-deployment/&#34;&gt;Deploy cert-manager&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-11-cert-manager-how-it-work/&#34;&gt;How cert-manager work&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-12-cert-manager-complete-workflow/&#34;&gt;Cert-manager complete workflow&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Kubernetes CRD &amp;amp; Operator-sdk (3)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Introduction about custom resource&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-15-kubernetes-custom-resource-with-operator-sdk/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Introduction about custom resource&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-15-kubernetes-custom-resource-with-operator-sdk/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -223,30 +223,30 @@
     </item>
     <item>
       <title>Kubernetes Nginx Ingress Controller</title>
-      <link>https://chechia.net/posts/2019-10-08-kubernetes-nginx-ingress-controller/</link>
+      <link>http://localhost:1313/posts/2019-10-08-kubernetes-nginx-ingress-controller/</link>
       <pubDate>Tue, 08 Oct 2019 08:12:10 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-10-08-kubernetes-nginx-ingress-controller/</guid>
+      <guid>http://localhost:1313/posts/2019-10-08-kubernetes-nginx-ingress-controller/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;p&gt;這邊該了一些大綱，原本的內容還有一些 kubernetes 的設定，以及 GCP 相關服務的介紹。但既然我們的主題是把東西搬上 k8s 的踩雷旅程，那我們就繼續搬，繼續踩。剩下的時間大概會有四個題目。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Nginx Ingress (3)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-08-kubernetes-nginx-ingress-controller/&#34;&gt;Deploy Nginx Ingress Controller&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-08-kubernetes-nginx-ingress-config/&#34;&gt;Configure Nginx Ingress&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-08-kubernetes-nginx-ingress-controller/&#34;&gt;Deploy Nginx Ingress Controller&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-08-kubernetes-nginx-ingress-config/&#34;&gt;Configure Nginx Ingress&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Cert-manager (3)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-10-cert-manager-deployment/&#34;&gt;Deploy cert-manager&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-11-cert-manager-how-it-work/&#34;&gt;How cert-manager work&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-12-cert-manager-complete-workflow/&#34;&gt;Cert-manager complete workflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-10-cert-manager-deployment/&#34;&gt;Deploy cert-manager&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-11-cert-manager-how-it-work/&#34;&gt;How cert-manager work&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-12-cert-manager-complete-workflow/&#34;&gt;Cert-manager complete workflow&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Kubernetes CRD &amp;amp; Operator-sdk (3)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Introduction about custom resource&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-15-kubernetes-custom-resource-with-operator-sdk/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Introduction about custom resource&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-15-kubernetes-custom-resource-with-operator-sdk/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -265,30 +265,30 @@
     </item>
     <item>
       <title>Kubernetes Nginx Ingress Controller Config</title>
-      <link>https://chechia.net/posts/2019-10-08-kubernetes-nginx-ingress-config/</link>
+      <link>http://localhost:1313/posts/2019-10-08-kubernetes-nginx-ingress-config/</link>
       <pubDate>Tue, 08 Oct 2019 08:12:10 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-10-08-kubernetes-nginx-ingress-config/</guid>
+      <guid>http://localhost:1313/posts/2019-10-08-kubernetes-nginx-ingress-config/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;p&gt;這邊改了一些大綱，原本的內容還有一些 kubernetes 的設定，以及 GCP 相關服務的介紹。但既然我們的主題是把東西搬上 k8s 的踩雷旅程，那我們就繼續搬，繼續踩。剩下的時間大概會有四個題目。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Nginx Ingress (3)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-08-kubernetes-nginx-ingress-controller/&#34;&gt;Deploy Nginx Ingress Controller&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-08-kubernetes-nginx-ingress-config/&#34;&gt;Configure Nginx Ingress&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-08-kubernetes-nginx-ingress-controller/&#34;&gt;Deploy Nginx Ingress Controller&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-08-kubernetes-nginx-ingress-config/&#34;&gt;Configure Nginx Ingress&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Cert-manager (3)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-10-cert-manager-deployment/&#34;&gt;Deploy cert-manager&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-11-cert-manager-how-it-work/&#34;&gt;How cert-manager work&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-12-cert-manager-complete-workflow/&#34;&gt;Cert-manager complete workflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-10-cert-manager-deployment/&#34;&gt;Deploy cert-manager&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-11-cert-manager-how-it-work/&#34;&gt;How cert-manager work&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-12-cert-manager-complete-workflow/&#34;&gt;Cert-manager complete workflow&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Kubernetes CRD &amp;amp; Operator-sdk (3)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Introduction about custom resource&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-15-kubernetes-custom-resource-with-operator-sdk/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Introduction about custom resource&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-13-kubernetes-custom-resources-basic/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-15-kubernetes-custom-resource-with-operator-sdk/&#34;&gt;Deployment &amp;amp; Usage&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -307,18 +307,18 @@
     </item>
     <item>
       <title>Prometheus &amp; Kubernetes State Metrics Exporter</title>
-      <link>https://chechia.net/posts/2019-10-07-prometheus-kube-state-metrics-exporter/</link>
+      <link>http://localhost:1313/posts/2019-10-07-prometheus-kube-state-metrics-exporter/</link>
       <pubDate>Mon, 07 Oct 2019 08:12:10 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-10-07-prometheus-kube-state-metrics-exporter/</guid>
+      <guid>http://localhost:1313/posts/2019-10-07-prometheus-kube-state-metrics-exporter/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Prometheus / Grafana (5)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-deployment-on-kubernetes/&#34;&gt;GKE 上自架 Prometheus&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-deploy-grafana/&#34;&gt;GKE 上自架 Grafana&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-scrape/&#34;&gt;scrape config &amp;amp; exporter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-06-prometheus-exporter-library-redis-exporter/&#34;&gt;Dive into Redis Exporter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-07-prometheus-kube-state-metrics-exporter/&#34;&gt;輸出 kube-state 的監測數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-04-prometheus-deployment-on-kubernetes/&#34;&gt;GKE 上自架 Prometheus&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-04-prometheus-deploy-grafana/&#34;&gt;GKE 上自架 Grafana&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-04-prometheus-scrape/&#34;&gt;scrape config &amp;amp; exporter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-06-prometheus-exporter-library-redis-exporter/&#34;&gt;Dive into Redis Exporter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-07-prometheus-kube-state-metrics-exporter/&#34;&gt;輸出 kube-state 的監測數據&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -337,18 +337,18 @@
     </item>
     <item>
       <title>Prometheus Exporter Library &amp; Redis Exporter</title>
-      <link>https://chechia.net/posts/2019-10-06-prometheus-exporter-library-redis-exporter/</link>
+      <link>http://localhost:1313/posts/2019-10-06-prometheus-exporter-library-redis-exporter/</link>
       <pubDate>Sun, 06 Oct 2019 08:12:10 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-10-06-prometheus-exporter-library-redis-exporter/</guid>
+      <guid>http://localhost:1313/posts/2019-10-06-prometheus-exporter-library-redis-exporter/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Prometheus / Grafana (5)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-deployment-on-kubernetes/&#34;&gt;GKE 上自架 Prometheus&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-deploy-grafana/&#34;&gt;GKE 上自架 Grafana&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-scrape/&#34;&gt;scrape config &amp;amp; exporter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-06-prometheus-exporter-library-redis-exporter/&#34;&gt;Dive into Redis Exporter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-07-prometheus-kube-state-metrics-exporter/&#34;&gt;輸出 kube-state 的監測數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-04-prometheus-deployment-on-kubernetes/&#34;&gt;GKE 上自架 Prometheus&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-04-prometheus-deploy-grafana/&#34;&gt;GKE 上自架 Grafana&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-04-prometheus-scrape/&#34;&gt;scrape config &amp;amp; exporter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-06-prometheus-exporter-library-redis-exporter/&#34;&gt;Dive into Redis Exporter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-07-prometheus-kube-state-metrics-exporter/&#34;&gt;輸出 kube-state 的監測數據&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -370,18 +370,18 @@
     </item>
     <item>
       <title>Prometheus Deployment on Kubernetes</title>
-      <link>https://chechia.net/posts/2019-10-04-prometheus-deployment-on-kubernetes/</link>
+      <link>http://localhost:1313/posts/2019-10-04-prometheus-deployment-on-kubernetes/</link>
       <pubDate>Fri, 04 Oct 2019 16:12:10 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-10-04-prometheus-deployment-on-kubernetes/</guid>
+      <guid>http://localhost:1313/posts/2019-10-04-prometheus-deployment-on-kubernetes/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Prometheus / Grafana (5)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-deployment-on-kubernetes/&#34;&gt;GKE 上自架 Prometheus&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-deploy-grafana/&#34;&gt;GKE 上自架 Grafana&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-scrape/&#34;&gt;scrape config &amp;amp; exporter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-06-prometheus-exporter-library-redis-exporter/&#34;&gt;Dive into Redis Exporter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-07-prometheus-kube-state-metrics-exporter/&#34;&gt;輸出 kube-state 的監測數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-04-prometheus-deployment-on-kubernetes/&#34;&gt;GKE 上自架 Prometheus&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-04-prometheus-deploy-grafana/&#34;&gt;GKE 上自架 Grafana&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-04-prometheus-scrape/&#34;&gt;scrape config &amp;amp; exporter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-06-prometheus-exporter-library-redis-exporter/&#34;&gt;Dive into Redis Exporter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-07-prometheus-kube-state-metrics-exporter/&#34;&gt;輸出 kube-state 的監測數據&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -411,18 +411,18 @@
     </item>
     <item>
       <title>Prometheus Deploy Grafana</title>
-      <link>https://chechia.net/posts/2019-10-04-prometheus-deploy-grafana/</link>
+      <link>http://localhost:1313/posts/2019-10-04-prometheus-deploy-grafana/</link>
       <pubDate>Fri, 04 Oct 2019 08:12:10 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-10-04-prometheus-deploy-grafana/</guid>
+      <guid>http://localhost:1313/posts/2019-10-04-prometheus-deploy-grafana/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Prometheus / Grafana (5)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-deployment-on-kubernetes/&#34;&gt;GKE 上自架 Prometheus&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-deploy-grafana/&#34;&gt;GKE 上自架 Grafana&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-scrape/&#34;&gt;scrape config &amp;amp; exporter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-06-prometheus-exporter-library-redis-exporter/&#34;&gt;Dive into Redis Exporter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-07-prometheus-kube-state-metrics-exporter/&#34;&gt;輸出 kube-state 的監測數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-04-prometheus-deployment-on-kubernetes/&#34;&gt;GKE 上自架 Prometheus&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-04-prometheus-deploy-grafana/&#34;&gt;GKE 上自架 Grafana&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-04-prometheus-scrape/&#34;&gt;scrape config &amp;amp; exporter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-06-prometheus-exporter-library-redis-exporter/&#34;&gt;Dive into Redis Exporter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-07-prometheus-kube-state-metrics-exporter/&#34;&gt;輸出 kube-state 的監測數據&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -449,18 +449,18 @@
     </item>
     <item>
       <title>Prometheus Scrape</title>
-      <link>https://chechia.net/posts/2019-10-04-prometheus-scrape/</link>
+      <link>http://localhost:1313/posts/2019-10-04-prometheus-scrape/</link>
       <pubDate>Fri, 04 Oct 2019 08:12:10 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-10-04-prometheus-scrape/</guid>
+      <guid>http://localhost:1313/posts/2019-10-04-prometheus-scrape/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Prometheus / Grafana (5)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-deployment-on-kubernetes/&#34;&gt;GKE 上自架 Prometheus&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-deploy-grafana/&#34;&gt;GKE 上自架 Grafana&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-04-prometheus-scrape/&#34;&gt;scrape config &amp;amp; exporter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-06-prometheus-exporter-library-redis-exporter/&#34;&gt;Dive into Redis Exporter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-07-prometheus-kube-state-metrics-exporter/&#34;&gt;輸出 kube-state 的監測數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-04-prometheus-deployment-on-kubernetes/&#34;&gt;GKE 上自架 Prometheus&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-04-prometheus-deploy-grafana/&#34;&gt;GKE 上自架 Grafana&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-04-prometheus-scrape/&#34;&gt;scrape config &amp;amp; exporter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-06-prometheus-exporter-library-redis-exporter/&#34;&gt;Dive into Redis Exporter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-07-prometheus-kube-state-metrics-exporter/&#34;&gt;輸出 kube-state 的監測數據&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -480,18 +480,18 @@
     </item>
     <item>
       <title>Redis Ha Failure Recovery</title>
-      <link>https://chechia.net/posts/2019-10-03-redis-ha-failure-recovery/</link>
+      <link>http://localhost:1313/posts/2019-10-03-redis-ha-failure-recovery/</link>
       <pubDate>Thu, 03 Oct 2019 16:12:10 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-10-03-redis-ha-failure-recovery/</guid>
+      <guid>http://localhost:1313/posts/2019-10-03-redis-ha-failure-recovery/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;在 GKE 上部署 Redis HA (5)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-28-redis-ha-deployment/&#34;&gt;使用 helm 部署 redis-ha&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-29-redis-ha-sentinel/&#34;&gt;Redis HA with sentinel&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-30-redis-ha-topology/&#34;&gt;Redis sentinel topology&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-02-redis-ha-on-haproxy/&#34;&gt;Redis HA with HAproxy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-03-redis-ha-failure-recovery/&#34;&gt;Redis HA Failure Recovery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-28-redis-ha-deployment/&#34;&gt;使用 helm 部署 redis-ha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-29-redis-ha-sentinel/&#34;&gt;Redis HA with sentinel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-30-redis-ha-topology/&#34;&gt;Redis sentinel topology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-02-redis-ha-on-haproxy/&#34;&gt;Redis HA with HAproxy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-03-redis-ha-failure-recovery/&#34;&gt;Redis HA Failure Recovery&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Prometheus Metrics Exporter&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -523,18 +523,18 @@
     </item>
     <item>
       <title>Redis Ha HAProxy</title>
-      <link>https://chechia.net/posts/2019-10-02-redis-ha-on-haproxy/</link>
+      <link>http://localhost:1313/posts/2019-10-02-redis-ha-on-haproxy/</link>
       <pubDate>Wed, 02 Oct 2019 16:12:10 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-10-02-redis-ha-on-haproxy/</guid>
+      <guid>http://localhost:1313/posts/2019-10-02-redis-ha-on-haproxy/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;在 GKE 上部署 Redis HA (5)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-28-redis-ha-deployment/&#34;&gt;使用 helm 部署 redis-ha&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-29-redis-ha-sentinel/&#34;&gt;Redis HA with sentinel&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-30-redis-ha-topology/&#34;&gt;Redis sentinel topology&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-02-redis-ha-on-haproxy/&#34;&gt;Redis HA with HAproxy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-03-redis-ha-failure-recovery/&#34;&gt;Redis HA Failure Recovery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-28-redis-ha-deployment/&#34;&gt;使用 helm 部署 redis-ha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-29-redis-ha-sentinel/&#34;&gt;Redis HA with sentinel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-30-redis-ha-topology/&#34;&gt;Redis sentinel topology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-02-redis-ha-on-haproxy/&#34;&gt;Redis HA with HAproxy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-03-redis-ha-failure-recovery/&#34;&gt;Redis HA Failure Recovery&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Prometheus Metrics Exporter&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -565,18 +565,18 @@
     </item>
     <item>
       <title>Redis Ha Topology</title>
-      <link>https://chechia.net/posts/2019-09-30-redis-ha-topology/</link>
+      <link>http://localhost:1313/posts/2019-09-30-redis-ha-topology/</link>
       <pubDate>Mon, 30 Sep 2019 16:12:10 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-09-30-redis-ha-topology/</guid>
+      <guid>http://localhost:1313/posts/2019-09-30-redis-ha-topology/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;在 GKE 上部署 Redis HA (5)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-28-redis-ha-deployment/&#34;&gt;使用 helm 部署 redis-ha&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-29-redis-ha-sentinel/&#34;&gt;Redis HA with sentinel&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-30-redis-ha-topology/&#34;&gt;Redis sentinel topology&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-02-redis-ha-on-haproxy/&#34;&gt;Redis HA with HAproxy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-03-redis-ha-failure-recovery/&#34;&gt;Redis HA Failure Recovery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-28-redis-ha-deployment/&#34;&gt;使用 helm 部署 redis-ha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-29-redis-ha-sentinel/&#34;&gt;Redis HA with sentinel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-30-redis-ha-topology/&#34;&gt;Redis sentinel topology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-02-redis-ha-on-haproxy/&#34;&gt;Redis HA with HAproxy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-03-redis-ha-failure-recovery/&#34;&gt;Redis HA Failure Recovery&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Prometheus Metrics Exporter&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -603,18 +603,18 @@
     </item>
     <item>
       <title>Redis Ha Sentinel</title>
-      <link>https://chechia.net/posts/2019-09-29-redis-ha-sentinel/</link>
+      <link>http://localhost:1313/posts/2019-09-29-redis-ha-sentinel/</link>
       <pubDate>Sun, 29 Sep 2019 17:14:38 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-09-29-redis-ha-sentinel/</guid>
+      <guid>http://localhost:1313/posts/2019-09-29-redis-ha-sentinel/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;在 GKE 上部署 Redis HA (5)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-28-redis-ha-deployment/&#34;&gt;使用 helm 部署 redis-ha&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-29-redis-ha-sentinel/&#34;&gt;Redis HA with sentinel&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-30-redis-ha-topology/&#34;&gt;Redis sentinel topology&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-02-redis-ha-on-haproxy/&#34;&gt;Redis HA with HAproxy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-03-redis-ha-failure-recovery/&#34;&gt;Redis HA Failure Recovery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-28-redis-ha-deployment/&#34;&gt;使用 helm 部署 redis-ha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-29-redis-ha-sentinel/&#34;&gt;Redis HA with sentinel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-30-redis-ha-topology/&#34;&gt;Redis sentinel topology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-02-redis-ha-on-haproxy/&#34;&gt;Redis HA with HAproxy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-03-redis-ha-failure-recovery/&#34;&gt;Redis HA Failure Recovery&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Prometheus Metrics Exporter&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -635,18 +635,18 @@
     </item>
     <item>
       <title>Redis Ha Deployment</title>
-      <link>https://chechia.net/posts/2019-09-28-redis-ha-deployment/</link>
+      <link>http://localhost:1313/posts/2019-09-28-redis-ha-deployment/</link>
       <pubDate>Sat, 28 Sep 2019 15:14:23 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-09-28-redis-ha-deployment/</guid>
+      <guid>http://localhost:1313/posts/2019-09-28-redis-ha-deployment/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;在 GKE 上部署 Redis HA (5)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-28-redis-ha-deployment/&#34;&gt;使用 helm 部署 redis-ha&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-29-redis-ha-sentinel/&#34;&gt;Redis HA with sentinel&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-30-redis-ha-topology/&#34;&gt;Redis sentinel topology&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-02-redis-ha-on-haproxy/&#34;&gt;Redis HA with HAproxy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-10-03-redis-ha-failure-recovery/&#34;&gt;Redis HA Failure Recovery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-28-redis-ha-deployment/&#34;&gt;使用 helm 部署 redis-ha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-29-redis-ha-sentinel/&#34;&gt;Redis HA with sentinel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-30-redis-ha-topology/&#34;&gt;Redis sentinel topology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-02-redis-ha-on-haproxy/&#34;&gt;Redis HA with HAproxy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-10-03-redis-ha-failure-recovery/&#34;&gt;Redis HA Failure Recovery&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Prometheus Metrics Exporter&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -664,31 +664,31 @@
     </item>
     <item>
       <title>Kafka HA Continued</title>
-      <link>https://chechia.net/posts/2019-09-26-kafka-ha-continued/</link>
+      <link>http://localhost:1313/posts/2019-09-26-kafka-ha-continued/</link>
       <pubDate>Thu, 26 Sep 2019 22:50:32 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-09-26-kafka-ha-continued/</guid>
+      <guid>http://localhost:1313/posts/2019-09-26-kafka-ha-continued/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;ELK Stack
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Elasticsearch 日常維護：數據清理，效能調校，永久儲存&lt;/li&gt;
 &lt;li&gt;Debug ELK stack on GCP&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Kafka HA on Kubernetes(6)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-22-kafka-deployment-on-kubernetes/&#34;&gt;Deploy kafka-ha&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-23-kafka-introduction/&#34;&gt;Kafka Introduction&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-24-kafka-basic-usage/&#34;&gt;kafka 基本使用&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-25-kafka-operation-scripts/&#34;&gt;kafka operation scripts&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-25-kafka-ha-topology/&#34;&gt;集群內部的 HA topology&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-26-kafka-ha-continued/&#34;&gt;集群內部的 HA 細節&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-22-kafka-deployment-on-kubernetes/&#34;&gt;Deploy kafka-ha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-23-kafka-introduction/&#34;&gt;Kafka Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-24-kafka-basic-usage/&#34;&gt;kafka 基本使用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-25-kafka-operation-scripts/&#34;&gt;kafka operation scripts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-25-kafka-ha-topology/&#34;&gt;集群內部的 HA topology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-26-kafka-ha-continued/&#34;&gt;集群內部的 HA 細節&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Prometheus Metrics Exporter 很重要&lt;/li&gt;
 &lt;li&gt;效能調校&lt;/li&gt;
 &lt;/ul&gt;
@@ -700,31 +700,31 @@
     </item>
     <item>
       <title>Kafka HA Topology</title>
-      <link>https://chechia.net/posts/2019-09-25-kafka-ha-topology/</link>
+      <link>http://localhost:1313/posts/2019-09-25-kafka-ha-topology/</link>
       <pubDate>Wed, 25 Sep 2019 22:50:32 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-09-25-kafka-ha-topology/</guid>
+      <guid>http://localhost:1313/posts/2019-09-25-kafka-ha-topology/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;ELK Stack
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Elasticsearch 日常維護：數據清理，效能調校，永久儲存&lt;/li&gt;
 &lt;li&gt;Debug ELK stack on GCP&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Kafka HA on Kubernetes(6)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-22-kafka-deployment-on-kubernetes/&#34;&gt;Deploy kafka-ha&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-23-kafka-introduction/&#34;&gt;Kafka Introduction&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-24-kafka-basic-usage/&#34;&gt;kafka 基本使用&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-25-kafka-operation-scripts/&#34;&gt;kafka operation scripts&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-25-kafka-ha-topology/&#34;&gt;集群內部的 HA topology&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-26-kafka-ha-continued/&#34;&gt;集群內部的 HA 細節&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-22-kafka-deployment-on-kubernetes/&#34;&gt;Deploy kafka-ha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-23-kafka-introduction/&#34;&gt;Kafka Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-24-kafka-basic-usage/&#34;&gt;kafka 基本使用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-25-kafka-operation-scripts/&#34;&gt;kafka operation scripts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-25-kafka-ha-topology/&#34;&gt;集群內部的 HA topology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-26-kafka-ha-continued/&#34;&gt;集群內部的 HA 細節&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Prometheus Metrics Exporter 很重要&lt;/li&gt;
 &lt;li&gt;效能調校&lt;/li&gt;
 &lt;/ul&gt;
@@ -736,31 +736,31 @@
     </item>
     <item>
       <title>Kafka Operation Scripts</title>
-      <link>https://chechia.net/posts/2019-09-25-kafka-operation-scripts/</link>
+      <link>http://localhost:1313/posts/2019-09-25-kafka-operation-scripts/</link>
       <pubDate>Wed, 25 Sep 2019 22:50:32 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-09-25-kafka-operation-scripts/</guid>
+      <guid>http://localhost:1313/posts/2019-09-25-kafka-operation-scripts/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;ELK Stack
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Elasticsearch 日常維護：數據清理，效能調校，永久儲存&lt;/li&gt;
 &lt;li&gt;Debug ELK stack on GCP&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Kafka HA on Kubernetes(6)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-22-kafka-deployment-on-kubernetes/&#34;&gt;Deploy kafka-ha&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-23-kafka-introduction/&#34;&gt;Kafka Introduction&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-24-kafka-basic-usage/&#34;&gt;kafka 基本使用&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-25-kafka-operation-scripts/&#34;&gt;kafka operation scripts&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-25-kafka-ha-topology/&#34;&gt;集群內部的 HA topology&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-26-kafka-ha-continued/&#34;&gt;集群內部的 HA 細節&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-22-kafka-deployment-on-kubernetes/&#34;&gt;Deploy kafka-ha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-23-kafka-introduction/&#34;&gt;Kafka Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-24-kafka-basic-usage/&#34;&gt;kafka 基本使用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-25-kafka-operation-scripts/&#34;&gt;kafka operation scripts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-25-kafka-ha-topology/&#34;&gt;集群內部的 HA topology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-26-kafka-ha-continued/&#34;&gt;集群內部的 HA 細節&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Prometheus Metrics Exporter 很重要&lt;/li&gt;
 &lt;li&gt;效能調校&lt;/li&gt;
 &lt;/ul&gt;
@@ -772,31 +772,31 @@
     </item>
     <item>
       <title>Kafka-basic-usage</title>
-      <link>https://chechia.net/posts/2019-09-24-kafka-basic-usage/</link>
+      <link>http://localhost:1313/posts/2019-09-24-kafka-basic-usage/</link>
       <pubDate>Tue, 24 Sep 2019 21:59:49 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-09-24-kafka-basic-usage/</guid>
+      <guid>http://localhost:1313/posts/2019-09-24-kafka-basic-usage/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;ELK Stack
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Elasticsearch 日常維護：數據清理，效能調校，永久儲存&lt;/li&gt;
 &lt;li&gt;Debug ELK stack on GCP&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Kafka HA on Kubernetes(6)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-22-kafka-deployment-on-kubernetes/&#34;&gt;Deploy kafka-ha&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-23-kafka-introduction/&#34;&gt;Kafka Introduction&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-24-kafka-basic-usage/&#34;&gt;kafka 基本使用&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-25-kafka-operation-scripts/&#34;&gt;kafka operation scripts&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-25-kafka-ha-topology/&#34;&gt;集群內部的 HA topology&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-26-kafka-ha-continued/&#34;&gt;集群內部的 HA 細節&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-22-kafka-deployment-on-kubernetes/&#34;&gt;Deploy kafka-ha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-23-kafka-introduction/&#34;&gt;Kafka Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-24-kafka-basic-usage/&#34;&gt;kafka 基本使用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-25-kafka-operation-scripts/&#34;&gt;kafka operation scripts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-25-kafka-ha-topology/&#34;&gt;集群內部的 HA topology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-26-kafka-ha-continued/&#34;&gt;集群內部的 HA 細節&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Prometheus Metrics Exporter 很重要&lt;/li&gt;
 &lt;li&gt;效能調校&lt;/li&gt;
 &lt;/ul&gt;
@@ -808,31 +808,31 @@
     </item>
     <item>
       <title>Kafka-introduction</title>
-      <link>https://chechia.net/posts/2019-09-23-kafka-introduction/</link>
+      <link>http://localhost:1313/posts/2019-09-23-kafka-introduction/</link>
       <pubDate>Mon, 23 Sep 2019 21:59:49 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-09-23-kafka-introduction/</guid>
+      <guid>http://localhost:1313/posts/2019-09-23-kafka-introduction/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;ELK Stack
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Elasticsearch 日常維護：數據清理，效能調校，永久儲存&lt;/li&gt;
 &lt;li&gt;Debug ELK stack on GCP&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Kafka HA on Kubernetes(6)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-22-kafka-deployment-on-kubernetes/&#34;&gt;Deploy kafka-ha&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-23-kafka-introduction/&#34;&gt;Kafka Introduction&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-24-kafka-basic-usage/&#34;&gt;kafka 基本使用&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-25-kafka-operation-scripts/&#34;&gt;kafka operation scripts&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-25-kafka-ha-topology/&#34;&gt;集群內部的 HA topology&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-26-kafka-ha-continued/&#34;&gt;集群內部的 HA 細節&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-22-kafka-deployment-on-kubernetes/&#34;&gt;Deploy kafka-ha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-23-kafka-introduction/&#34;&gt;Kafka Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-24-kafka-basic-usage/&#34;&gt;kafka 基本使用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-25-kafka-operation-scripts/&#34;&gt;kafka operation scripts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-25-kafka-ha-topology/&#34;&gt;集群內部的 HA topology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-26-kafka-ha-continued/&#34;&gt;集群內部的 HA 細節&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Prometheus Metrics Exporter 很重要&lt;/li&gt;
 &lt;li&gt;效能調校&lt;/li&gt;
 &lt;/ul&gt;
@@ -844,31 +844,31 @@
     </item>
     <item>
       <title>Kafka Helm Configuration</title>
-      <link>https://chechia.net/posts/2019-09-23-kafka-helm-configuration/</link>
+      <link>http://localhost:1313/posts/2019-09-23-kafka-helm-configuration/</link>
       <pubDate>Mon, 23 Sep 2019 21:55:29 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-09-23-kafka-helm-configuration/</guid>
+      <guid>http://localhost:1313/posts/2019-09-23-kafka-helm-configuration/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;ELK Stack
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Elasticsearch 日常維護：數據清理，效能調校，永久儲存&lt;/li&gt;
 &lt;li&gt;Debug ELK stack on GCP&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Kafka HA on Kubernetes(6)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-22-kafka-deployment-on-kubernetes/&#34;&gt;Deploy kafka-ha&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-23-kafka-introduction/&#34;&gt;Kafka Introduction&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-24-kafka-basic-usage/&#34;&gt;kafka 基本使用&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-25-kafka-operation-scripts/&#34;&gt;kafka operation scripts&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-25-kafka-ha-topology/&#34;&gt;集群內部的 HA topology&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-26-kafka-ha-continued/&#34;&gt;集群內部的 HA 細節&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-22-kafka-deployment-on-kubernetes/&#34;&gt;Deploy kafka-ha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-23-kafka-introduction/&#34;&gt;Kafka Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-24-kafka-basic-usage/&#34;&gt;kafka 基本使用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-25-kafka-operation-scripts/&#34;&gt;kafka operation scripts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-25-kafka-ha-topology/&#34;&gt;集群內部的 HA topology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-26-kafka-ha-continued/&#34;&gt;集群內部的 HA 細節&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Prometheus Metrics Exporter 很重要&lt;/li&gt;
 &lt;li&gt;效能調校&lt;/li&gt;
 &lt;/ul&gt;
@@ -878,31 +878,31 @@
     </item>
     <item>
       <title>Kafka Deployment on Kubernetes</title>
-      <link>https://chechia.net/posts/2019-09-22-kafka-deployment-on-kubernetes/</link>
+      <link>http://localhost:1313/posts/2019-09-22-kafka-deployment-on-kubernetes/</link>
       <pubDate>Sun, 22 Sep 2019 09:58:41 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-09-22-kafka-deployment-on-kubernetes/</guid>
+      <guid>http://localhost:1313/posts/2019-09-22-kafka-deployment-on-kubernetes/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;ELK Stack
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Elasticsearch 日常維護：數據清理，效能調校，永久儲存&lt;/li&gt;
 &lt;li&gt;Debug ELK stack on GCP&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Kafka HA on Kubernetes(6)
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-22-kafka-deployment-on-kubernetes/&#34;&gt;Deploy kafka-ha&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-23-kafka-introduction/&#34;&gt;Kafka Introduction&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-24-kafka-basic-usage/&#34;&gt;kafka 基本使用&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-25-kafka-operation-scripts/&#34;&gt;kafka operation scripts&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-25-kafka-ha-topology/&#34;&gt;集群內部的 HA topology&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-26-kafka-ha-continued/&#34;&gt;集群內部的 HA 細節&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-22-kafka-deployment-on-kubernetes/&#34;&gt;Deploy kafka-ha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-23-kafka-introduction/&#34;&gt;Kafka Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-24-kafka-basic-usage/&#34;&gt;kafka 基本使用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-25-kafka-operation-scripts/&#34;&gt;kafka operation scripts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-25-kafka-ha-topology/&#34;&gt;集群內部的 HA topology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-26-kafka-ha-continued/&#34;&gt;集群內部的 HA 細節&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Prometheus Metrics Exporter 很重要&lt;/li&gt;
 &lt;li&gt;效能調校&lt;/li&gt;
 &lt;/ul&gt;
@@ -915,17 +915,17 @@
     </item>
     <item>
       <title>Logstash on GKE</title>
-      <link>https://chechia.net/posts/2019-09-21-logstash-on-gke/</link>
+      <link>http://localhost:1313/posts/2019-09-21-logstash-on-gke/</link>
       <pubDate>Sat, 21 Sep 2019 15:22:23 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-09-21-logstash-on-gke/</guid>
+      <guid>http://localhost:1313/posts/2019-09-21-logstash-on-gke/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Elasticsearch 日常維護：數據清理，效能調校，永久儲存&lt;/li&gt;
 &lt;li&gt;Debug ELK stack on GCP&lt;/li&gt;
 &lt;/ul&gt;
@@ -943,17 +943,17 @@
     </item>
     <item>
       <title>Monitoring GKE With Elk</title>
-      <link>https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/</link>
+      <link>http://localhost:1313/posts/2019-09-19-monitoring-gke-with-elk/</link>
       <pubDate>Thu, 19 Sep 2019 17:06:29 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/</guid>
+      <guid>http://localhost:1313/posts/2019-09-19-monitoring-gke-with-elk/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Elasticsearch 日常維護：數據清理，效能調校，永久儲存&lt;/li&gt;
 &lt;li&gt;Debug ELK stack on GCP&lt;/li&gt;
 &lt;/ul&gt;
@@ -972,17 +972,17 @@
     </item>
     <item>
       <title>Monitoring GCE With ELK</title>
-      <link>https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/</link>
+      <link>http://localhost:1313/posts/2019-09-18-monitoring-gce-with-elk/</link>
       <pubDate>Wed, 18 Sep 2019 19:10:50 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/</guid>
+      <guid>http://localhost:1313/posts/2019-09-18-monitoring-gce-with-elk/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Elasticsearch 日常維護：數據清理，效能調校，永久儲存&lt;/li&gt;
 &lt;li&gt;Debug ELK stack on GCP&lt;/li&gt;
 &lt;/ul&gt;
@@ -1005,17 +1005,17 @@
     </item>
     <item>
       <title>ELK or Not ELK</title>
-      <link>https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/</link>
+      <link>http://localhost:1313/posts/2019-09-18-elastic-or-not-elastic/</link>
       <pubDate>Wed, 18 Sep 2019 18:51:40 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/</guid>
+      <guid>http://localhost:1313/posts/2019-09-18-elastic-or-not-elastic/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Elasticsearch 日常維護：數據清理，效能調校，永久儲存&lt;/li&gt;
 &lt;li&gt;Debug ELK stack on GCP&lt;/li&gt;
 &lt;/ul&gt;
@@ -1034,23 +1034,23 @@
     </item>
     <item>
       <title>Secure Elk Stack</title>
-      <link>https://chechia.net/posts/2019-09-15-secure-elk-stack/</link>
+      <link>http://localhost:1313/posts/2019-09-15-secure-elk-stack/</link>
       <pubDate>Sun, 15 Sep 2019 23:00:33 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-09-15-secure-elk-stack/</guid>
+      <guid>http://localhost:1313/posts/2019-09-15-secure-elk-stack/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Elasticsearch 日常維護：數據清理，效能調校，永久儲存&lt;/li&gt;
 &lt;li&gt;Debug ELK stack on GCP&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;對我的文章有興趣，歡迎到我的網站上 &lt;a href=&#34;https://chechia.net&#34;&gt;chechia.net&lt;/a&gt; 閱讀其他技術文章，有任何謬誤也請各方大德直接聯繫我，感激不盡。&lt;/p&gt;
 &lt;p&gt;&amp;ndash;&lt;/p&gt;
-&lt;p&gt;上篇&lt;a href=&#34;https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt; 介紹了，elk stack 基本的安裝，安裝完獲得一個只支援 http (裸奔)的 elk stack，沒有 https 在公開網路上使用是非常危險的。這篇要來介紹如何做安全性設定。&lt;/p&gt;
+&lt;p&gt;上篇&lt;a href=&#34;http://localhost:1313/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt; 介紹了，elk stack 基本的安裝，安裝完獲得一個只支援 http (裸奔)的 elk stack，沒有 https 在公開網路上使用是非常危險的。這篇要來介紹如何做安全性設定。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.elastic.co/guide/en/elastic-stack-overview/7.3/elasticsearch-security.html&#34;&gt;官方的文件在這裡&lt;/a&gt;，碎念一下，除非對 ELK 的功能有一定了解，不然這份真的不是很友善。建議從官方文件底下的&lt;a href=&#34;https://www.elastic.co/guide/en/elastic-stack-overview/7.3/security-getting-started.html&#34;&gt;Tutorial: Getting started with security&lt;/a&gt; 開始，過程比較不會這麼血尿。&lt;/p&gt;
 &lt;p&gt;總之為了啟用 authentication &amp;amp; https，這篇要做的事情：&lt;/p&gt;
 &lt;ul&gt;
@@ -1069,17 +1069,17 @@
     </item>
     <item>
       <title>Self-host ELK stack - Installation</title>
-      <link>https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/</link>
+      <link>http://localhost:1313/posts/2019-09-15-self-host-elk-stack-on-gcp/</link>
       <pubDate>Sun, 15 Sep 2019 11:43:03 +0800</pubDate>
-      <guid>https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/</guid>
+      <guid>http://localhost:1313/posts/2019-09-15-self-host-elk-stack-on-gcp/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/2020ironman&#34;&gt;2020 It邦幫忙鐵人賽&lt;/a&gt; 系列文章&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://chechia.net/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-15-self-host-elk-stack-on-gcp/&#34;&gt;Self-host ELK stack on GCP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-15-secure-elk-stack/&#34;&gt;Secure ELK Stask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-18-monitoring-gce-with-elk/&#34;&gt;監測 Google Compute Engine 上服務的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-19-monitoring-gke-with-elk/&#34;&gt;監測 Google Kubernetes Engine 的各項數據&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-18-elastic-or-not-elastic/&#34;&gt;是否選擇 ELK 作為解決方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/2019-09-21-logstash-on-gke/&#34;&gt;使用 logstash pipeline 做數據前處理&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Elasticsearch 日常維護：數據清理，效能調校，永久儲存&lt;/li&gt;
 &lt;li&gt;Debug ELK stack on GCP&lt;/li&gt;
 &lt;/ul&gt;
