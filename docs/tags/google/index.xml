@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Google on Che-Chia Chang</title>
-    <link>https://chechia.net/tags/google/</link>
+    <link>http://localhost:1313/tags/google/</link>
     <description>Recent content in Google on Che-Chia Chang</description>
     <image>
       <title>Che-Chia Chang</title>
-      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.147.7</generator>
     <language>en</language>
     <lastBuildDate>Wed, 26 Aug 2020 13:50:52 +0800</lastBuildDate>
-    <atom:link href="https://chechia.net/tags/google/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/google/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Borg Omega and Kubernetes TLDR 摘要翻譯</title>
-      <link>https://chechia.net/posts/2020-08-26-borg-omega-and-kubernetes-tldr/</link>
+      <link>http://localhost:1313/posts/2020-08-26-borg-omega-and-kubernetes-tldr/</link>
       <pubDate>Wed, 26 Aug 2020 13:50:52 +0800</pubDate>
-      <guid>https://chechia.net/posts/2020-08-26-borg-omega-and-kubernetes-tldr/</guid>
-      <description>&lt;p&gt;這是原文翻譯的太長不讀 (TL;DR) 版本。完整翻譯請見&lt;a href=&#34;https://chechia.net/posts/2020-09-12-borg-omega-and-kubernetes/&#34;&gt;Borg Omega and Kubernetes 前世今生浩文完整翻譯&lt;/a&gt;&lt;/p&gt;
+      <guid>http://localhost:1313/posts/2020-08-26-borg-omega-and-kubernetes-tldr/</guid>
+      <description>&lt;p&gt;這是原文翻譯的太長不讀 (TL;DR) 版本。完整翻譯請見&lt;a href=&#34;http://localhost:1313/posts/2020-09-12-borg-omega-and-kubernetes/&#34;&gt;Borg Omega and Kubernetes 前世今生浩文完整翻譯&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;原文：https://storage.googleapis.com/pub-tools-public-publication-data/pdf/44843.pdf&lt;/p&gt;
 &lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
 &lt;ul&gt;

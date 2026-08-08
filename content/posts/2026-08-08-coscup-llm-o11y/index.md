@@ -12,7 +12,7 @@ showToc: true
 TocOpen: false
 #UseHugoToc: true
 
-draft: true
+draft: false
 
 hidemeta: false
 comments: true
@@ -36,7 +36,7 @@ disableShare: false
 #    hidden: false # only hide on current single page
 ---
 
-### 📅 活動時間：2026-08-08
+### 📅 活動時間：2026-08-09
 ### 🔗 [活動連結](https://coscup.org/2026/)
 ### 📘 聯繫我 [Facebook](https://www.facebook.com/engineer.from.scratch)
 ### 📑 [投影片](../../slides/2026-08-08-coscup-llm-o11y/)

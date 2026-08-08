@@ -2,16 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Agent on Che-Chia Chang</title>
-    <link>https://chechia.net/tags/agent/</link>
+    <link>http://localhost:1313/tags/agent/</link>
     <description>Recent content in Agent on Che-Chia Chang</description>
     <image>
       <title>Che-Chia Chang</title>
-      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.147.7</generator>
     <language>en</language>
-    <lastBuildDate></lastBuildDate>
-    <atom:link href="https://chechia.net/tags/agent/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 08 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/agent/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Observing and Evaluating LLM Coding Agents</title>
+      <link>http://localhost:1313/slides/2026-08-08-coscup-llm-o11y/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/slides/2026-08-08-coscup-llm-o11y/</guid>
+      <description>觀察 LLM coding agents 的行為，再建立 evaluation、dataset、regression 與 decision gate，讓模型與框架升級可驗證</description>
+    </item>
+    <item>
+      <title>Observe and evaluate LLM Coding Agents</title>
+      <link>http://localhost:1313/posts/2026-08-08-coscup-llm-o11y/</link>
+      <pubDate>Mon, 08 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2026-08-08-coscup-llm-o11y/</guid>
+      <description>LLM Coding Agent 正在改變軟體開發流程，但團隊常缺少可驗證品質與風險的機制。本分享聚焦於如何觀測與評估 LLM Coding Agent，從 tracing、資料集抽取到 LLM-as-a-judge，建立可重複的評測流程與 decision gate，讓模型與框架選型不再是賭博，而是可量化、可回歸、可持續優化的工程決策。</description>
+    </item>
+    <item>
+      <title>LLM O11y：從 Observability 到 Decision System</title>
+      <link>http://localhost:1313/slides/2026-07-01-langfuse-ai-ent/</link>
+      <pubDate>Sat, 02 May 2026 15:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/slides/2026-07-01-langfuse-ai-ent/</guid>
+      <description>30 分鐘分享，從 Langfuse Observability 出發，補上 Evaluation、Dataset、Regression 與 Decision Gate，建立可落地的 LLM Decision System。</description>
+    </item>
+    <item>
+      <title>AI Enterprise Workshop: Spec-driven development with Spec-kit</title>
+      <link>http://localhost:1313/slides/2026-07-01-ws-speckit-ai-ent/</link>
+      <pubDate>Sat, 02 May 2026 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/slides/2026-07-01-ws-speckit-ai-ent/</guid>
+      <description>90 分鐘 hands-on workshop，從 Vibe Coding 走向 Spec-driven Development（SDD），用 Spec-kit 完成從規格到實作的完整流程。</description>
+    </item>
   </channel>
 </rss>
