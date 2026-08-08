@@ -1,9 +1,0 @@
----
-title: "Terraform Tips"
-date: 2020-10-27T17:33:45+08:00
-draft: true
----
-
-1. Use output to workaround module dependency
-1. terragrunt is a must
-1. Keep your modules child flat and simple. Main, shared modules (private modules)
