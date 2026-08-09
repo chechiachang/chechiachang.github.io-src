@@ -43,7 +43,7 @@ Che-Chia Chang
 
 ---
 
-{{< slide background-image="05-claude-status.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+{{< slide background-image="05-claude-status.png" background-size="100%" background-color="#000000" background-opacity="1" >}}
 
 ---
 
@@ -118,7 +118,7 @@ Cost Management
 
 ---
 
-{{< slide background-image="00-langfuse-tracing.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+{{< slide background-image="00-langfuse-tracing.png" background-size="100%" background-color="#000000" background-opacity="1" >}}
 
 ---
 
@@ -146,7 +146,7 @@ Cost Management
 
 ---
 
-{{< slide background-image="01-cli-baseline.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+{{< slide background-image="01-cli-baseline.png" background-size="100%" background-color="#000000" background-opacity="1" >}}
 
 {{% note %}}
 - User: "hi"
@@ -183,7 +183,7 @@ Input Token Cache 只是折扣，不是免費；它可以改善 Model 在 Long C
 
 ---
 
-{{< slide background-image="02-llm-as-a-judge.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+{{< slide background-image="02-llm-as-a-judge.png" background-size="100%" background-color="#000000" background-opacity="1" >}}
 
 {{% note %}}
 使用 Langfuse 收集 Tracing 資料，
@@ -239,7 +239,7 @@ Output: README.md 修改成功
 
 ---
 
-{{< slide background-image="03-multi-turn-agent.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+{{< slide background-image="03-multi-turn-agent.png" background-size="100%" background-color="#000000" background-opacity="1" >}}
 
 ---
 
@@ -263,7 +263,7 @@ Instruction：改動前後
 
 ---
 
-{{< slide background-image="04-dataset-experiment.png" background-size="80%" background-color="#000000" background-opacity="1" >}}
+{{< slide background-image="04-dataset-experiment.png" background-size="100%" background-color="#000000" background-opacity="1" >}}
 
 {{% note %}}
 這是使用 Spec-kit 產生的 YouBike API app
