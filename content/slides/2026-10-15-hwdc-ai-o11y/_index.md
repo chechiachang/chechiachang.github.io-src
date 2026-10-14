@@ -6,6 +6,7 @@ categories: ["aiops", "observability"]
 date: '2026-08-15T00:00:00Z'
 outputs: ["Reveal"]
 reveal_hugo:
+  slide_number: true
   custom_theme: "reveal-hugo/themes/larger-font.css"
   margin: 0.2
   highlight_theme: "color-brewer"
