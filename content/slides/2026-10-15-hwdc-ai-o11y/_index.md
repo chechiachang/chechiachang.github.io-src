@@ -1,6 +1,6 @@
 ---
 title: "AI O11y：數據決策到技術選型"
-description: "從 Langfuse Observability 與 Coding Agent 的實務案例出發，建立 evaluation、dataset、regression 與 decision gate。"
+description: "從 Langfuse Observability 與 Coding Agent 的實務案例出發，建立 evaluation、dataset、regression 與 decision gate"
 tags: ["llm", "agent", "observability", "evaluation", "aiops", "devops"]
 categories: ["aiops", "observability"]
 date: '2026-08-15T00:00:00Z'
@@ -14,54 +14,54 @@ reveal_hugo:
 ---
 
 ##### AI O11y：數據決策到技術選型
-##### 從 Observability 到 Decision System
+##### Observability → Decision System
 
 Che-Chia Chang
 
 ---
 
-##### 同事問
+##### 同事在問
 
-- Spec-kit SDD 聽說很好用，要不要試？
-- rtk 聽說省 Token，要不要導入？
-- 新模型 Benchmark 贏現在用的，要不要換供應商？
+- Spec-kit SDD 好用，要不要試？
+- rtk 省 Token，要不要導入？
+- 新模型 Benchmark 更好，要不要換？
 
-身為團隊技術負責人，如何回答這些問題？
-
----
-
-##### 面對 AI 工具的快速迭代
-
-- 每個都試用看看
-- 看專家與供應商的分享
-- 採用代理商或公有雲推薦
-
-每個都試用的確是一種選擇，但團隊需要的是數據化決策。
+身為技術負責人，如何回答？
 
 ---
 
-##### 新工具冒出的速度 > 人研究的速度
+##### 面對 AI 工具快速迭代
+
+- 全部試用
+- 參考專家與供應商分享
+- 採用代理商或雲端商推薦
+
+試用是一種選擇；團隊更需要數據化決策
+
+---
+
+##### 新工具出現速度 > 研究速度
 
 {{% fragment %}}
-缺的不是更快的研究速度，而是量化評估系統。
+缺的不是更快研究，而是量化評估系統
 {{% /fragment %}}
 
 {{% fragment %}}
-讓團隊信任現有的 Stack，不 FOMO，並能驗證改動的影響。
+信任既有 Stack、免 FOMO、驗證改動成效
 {{% /fragment %}}
 
 ---
 
-##### Coding Agent 會動就好
-##### 為何還需要 Observability 與 Evaluation？
+##### Coding Agent 會動就好？
+##### 為何需要 O11y / Evaluation？
 
 ---
 
-- 紀錄 Coding Agent 效能 baseline
-  - 效能劣化時告警
-  - 紀錄原因：e.g. 上游 API 不穩定
-  - Claude API Uptime 只有 99.4%
-  - 沒有 o11y 就沒有 SLA
+- 建立效能 Baseline
+- 劣化時告警並追查原因
+  - 例如上游 API 不穩
+- Claude API Uptime 僅 99.4%
+- 沒有 O11y，就沒有 SLA
 
 {{% note %}}
 
@@ -79,15 +79,15 @@ Che-Chia Chang
 
 ---
 
-Change Management
+##### Change Management
 
-- 改變後，效能是變好還是變差
-- [Spec-kit](https://github.com/github/spec-kit) SDD 聽說好用要不要試
-- [rtk](https://github.com/rtk-ai/rtk) 聽說省 Token，要不要導入
-- [Opus 4.8](https://www.anthropic.com/claude/opus) 聽說很強
-- 改變可能會劣化
-- 改變需要成本
-- 需要數據化的決策流程，避免 FOMO
+- 改變後，效能變好還是變差？
+- [Spec-kit](https://github.com/github/spec-kit)：SDD 聽說好用
+- [rtk](https://github.com/rtk-ai/rtk)：聽說省 Token
+- [Opus 4.8](https://www.anthropic.com/claude/opus)：聽說很強
+- 改變有成本，也可能讓效能劣化
+
+用數據決策，避免 FOMO
 
 {{% note %}}
 
@@ -106,22 +106,23 @@ Change Management
 
 ---
 
-Cost Management
+##### Cost Management
 
-- 根據監測控管預算，本月花費收斂下月預算
-- charge back 團隊看見自己的成本
-- 哪些問題用錢解決，哪些不能
-- 需求進化比模型快
-  - 不會有一個超強模型解決所有問題
-- 剛好的預算，選適合的模型，選適合的問題
-  - 有效率的解決能解的問題
+- 依本月用量，收斂下月預算
+- Chargeback：讓團隊看見成本
+- 分清哪些問題能用錢解決
+- 需求演進比模型快
+- 沒有單一模型能解決所有問題
+- 用合適預算與模型
+- 有效率地解決能解的問題
 
 ---
 
-為何需要 Observability
-- Baseline
-- change management
-- cost management
+##### 為何需要 Observability
+
+- 建立 Baseline
+- 管理改變（Change）
+- 管理成本（Cost）
 
 ---
 
@@ -129,24 +130,29 @@ Cost Management
 
 ---
 
-今天的內容
+##### 今天的內容
 
 - ✅ Change & Cost Management
-- 建立 baseline 與第一次優化
-- LLM as a Judge
+- 建立 Baseline、完成第一次優化
+- LLM-as-a-Judge
 - Dataset & Experiment
-- 釐清需求：提升 Coding Agent 效能
+- 釐清 Coding Agent 效能需求
 - Decision System
 
 ---
 
 ##### 從 Observability 開始
 
-- 透過 AI Gateway 或 Observability Tool 收集 Tracing
-- 建立 LLM O11y、LLM-as-a-Judge，以及 Dataset 與 Experiment 流程
-- 技術細節請見 [LAB Cloud Summit 2026: LLM O11y](../../slides/2026-07-01-ws-langfuse-ai-ent) 或是 [LLM O11y：從 Observability 到 Decision System](https://chechia.net/posts/2026-07-01-ws-langfuse-ai-ent/)
+- 用 Gateway / O11y Tool 收集 Tracing
+- 建立流程：LLM O11y → Judge
+- Dataset → Experiment
 
-「我的 Agent 到底怎麼花 Token 的」「如何系統化評估 Agent 輸出品質」
+延伸閱讀：
+- [LLM O11y Workshop](../../slides/2026-07-01-ws-langfuse-ai-ent)
+- [Observability → Decision System](https://chechia.net/posts/2026-07-01-ws-langfuse-ai-ent/)
+
+- Agent 怎麼花 Token？
+- 如何系統化評估輸出品質？
 
 ---
 
@@ -154,25 +160,27 @@ Cost Management
 
 ---
 
-##### 導入 Gateway 或 Observability Tool 後
+##### 導入 Gateway / O11y Tool
 
-- 觀察到 Observability Stack
-- 看見量化數據：Token Usage、Latency、Error Rate
-- Chargeback 讓團隊成員看見自己的成本
-- 根據監測紀錄控管預算，而不是只看市場喊價
+- 看見 Observability Stack
+- 量化 Token Usage、Latency、Error Rate
+- Chargeback：讓團隊看見自己的成本
+- 用監測數據控管預算，不只看市場喊價
 
-先建立 Cost 與 Token Usage baseline，定義什麼是符合預算、什麼是超出預算
+- 建立 Cost / Token Usage Baseline
+- 定義預算界線
 
 ---
 
-##### Step 1: 建立 Baseline，完成第一次優化
+##### Step 1｜Baseline 與第一次優化
 
-- 先理解正在使用的 CLI
-  - VSCode Copilot、Codex、OpenCode 的行為都不相同
+- 先理解 CLI 行為
+  - Copilot、Codex、OpenCode 各不同
 - 停用不必要的 Tools
-  - VSCode Copilot 內建 50+ 個 Tools，但實務上只用到 10+ 個
+  - Copilot 內建 50+ 個 Tools
+  - 實務上只用 10+ 個
   - VSCode Extension 也可能增加 Tools
-  - AI Gateway 提供額外的控制點
+- 透過 AI Gateway 增加控制點
 
 控制你的 Coding Agent
 
@@ -190,14 +198,15 @@ Cost Management
 
 ---
 
-##### Step 1: 完成第一次優化
+##### Step 1｜第一次優化成果
 
-- Token Usage Overhead 從 20,000+ 降到 1,000+
-- 成本從 0.1 USD 降到 0.005 USD（約為原本的 5%）
-- 降低進入 Long Context 的機率（>=272K Tokens 會變成兩倍價格）
-- 把 Context Window 留給真正有用的 Context
+- Token Overhead：20,000+ → 1,000+
+- 成本：$0.10 → $0.005（降至約 5%）
+- 降低進入 Long Context 的機率
+  - ≥272K Tokens 價格翻倍
+- 把 Context Window 留給真正有用的內容
 
-https://developers.openai.com/api/docs/pricing
+[OpenAI API Pricing](https://developers.openai.com/api/docs/pricing)
 
 {{% note %}}
 Input Token Cache 只是折扣，不是免費；它可以改善 Model 在 Long Context 下的效能，
@@ -206,12 +215,12 @@ Input Token Cache 只是折扣，不是免費；它可以改善 Model 在 Long C
 
 ---
 
-##### Step 2: 用 LLM 作為 Judge
+##### Step 2｜LLM-as-a-Judge
 
-- 前一步根據 Tracing Metadata 優化成本
-- 接著根據 Tracing 的 Input/Output 優化品質
-  - 讓 LLM 根據 Input 與 Output 評估結果品質
-  - 傳統程式碼測試的場景有限，難以涵蓋 LLM 多變的使用情境
+- 依 Tracing Metadata 優化成本
+- 依 Input / Output 優化品質
+- LLM 評估輸出品質
+- 傳統測試難涵蓋多變情境
 
 ---
 
@@ -225,49 +234,41 @@ Input Token Cache 只是折扣，不是免費；它可以改善 Model 在 Long C
 
 ---
 
-##### Step 2: 以 Observation 為單位評估
+##### Step 2｜Observation 評估
 
-以 Observation 為單位，評估每次 API Call 的品質
-
-- 針對 Input、Output、Metadata 或部分資料進行評估
-- 先在小 scope 內進行量化，以管窺天
-  - 反映局部品質
-  - 但無法代表 Project 的整體品質
-
-先從局部開始，分析錯誤類型並找出改進方向
+- 評估每次 API Call
+- 看 Input、Output 與 Metadata
+- 小範圍量化，觀察局部品質
+- 不代表 Project 整體品質
+- 從局部分析錯誤類型，找出改進方向
 
 ---
 
-##### Step 2: 根據評估結果完成第二次優化
+##### Step 2｜根據評估結果優化
 
-LLM-as-a-Judge 的評估結果，持續調整
-
-- 控制其他變因，例如
-  - Metadata：Token Usage、Latency、Cost
+- 依 LLM-as-a-Judge 結果持續調整
+- 控制變因：
+  - Token Usage、Latency、Cost
   - Model Version
-- 優化 Input/Output 品質
-  - Prompt 與 Instruction
+- 調整 Prompt / Instruction
+- 改善 Input / Output 品質
 
-控制變因，調整變因，持續提升局部分數
+控制變因、調整變因，提升局部評分
 
 ---
 
-##### Step 2: Multi-turn Agent
+##### Step 2｜Multi-turn Agent
 
-Long-running Agent 很難只看最終答案來評估，例如
+Long-running Agent 不能只看最終答案：
 
 ```text
 Input: 更新 README.md
-- Assistant: 先看 README.md 內容
-- Assistant: [tool] cat README.md -> README.md 內容
-- Assistant: [tool] plan -> plan
-- ...
-- Assistant: 根據 README.md 內容，修改 README.md
-- Assistant: [tool] apply patch -> 修改後 README.md 內容
+讀取 → Plan → Apply Patch → 完成
 Output: README.md 修改成功
 ```
 
-針對單一步驟評估，例如 Plan 或 [tool] Apply Patch
+改評估單一步驟<br>
+例如 Plan 或 Apply Patch
 
 ---
 
@@ -275,22 +276,23 @@ Output: README.md 修改成功
 
 ---
 
-##### Step 3: 建立 Dataset，執行 Experiment
+##### Step 3｜Dataset & Experiment
 
-Dataset：從 Daily Work Tracing 整理出的真實考題
+**Dataset**｜真實工作考題
+從 Daily Work Tracing 整理
 
 ```text
-Input 反映真實工作需求
-Output 反映 Model 上次的回答
-LLM-as-a-Judge 的分數反映回答品質
+Input：真實工作需求
+Output：Model 的回答
+Judge Score：回答品質
 ```
 
-Experiment：使用同一份考題，控制不同變因重複執行
+**Experiment**｜同一份考題
+控制變因，重複執行
 
 ```text
-Model：5.4 -> 5.5
-Tools：改動前後
-Instruction：改動前後
+Model：5.4 → 5.5
+Tools / Instruction：改動前後
 ```
 
 ---
@@ -303,84 +305,65 @@ Instruction：改動前後
 
 ---
 
-##### Step 3: 整理 Dataset
+##### Step 3｜整理 Dataset
 
-先根據更細緻的需求定義分類 Dataset
+- Plan：Context Precision
+- Coding：Answer Correctness
+- 依 Judge 分數分類
+- 高品質案例作為改進參考
 
-- Plan 著重 Context Precision
-- Coding 著重 Answer Correctness
-
-再根據 LLM-as-a-Judge 分類 Dataset
-- 高分高品質的案例，作為未來改進的參考
-
-Warning: o11y 走進 Dataset 是一個大坑
+注意：從 O11y 走進 Dataset，是個大坑
 
 ---
 
-##### Step 3: 進行 Data Preprocessing
+##### Step 3｜Data Preprocessing
 
-- 清理 Tracing 資料格式
-- 根據需求，挑出有意義的 Features
-  - 例如 `Output.tool_calls.args`
-  - Model 收到 Input 時呼叫哪些 Tools，帶什麼參數
-- 用 Langfuse SDK Transform 成其他格式
+- 清理 Tracing 格式，挑選所需 Features
+- 例如 `Output.tool_calls.args`
+- 記錄呼叫哪些 Tools、帶哪些參數
+- 用 Langfuse SDK 轉換格式
 - Partition Dataset
 
-儲存到持久化儲存系統，作為測試題庫
+持久化儲存，作為測試題庫
 
 ---
 
-##### Step 3: 完成第三次優化
+##### Step 3｜第三次優化：選擇最佳工具
 
-針對題庫中的特定題目，測試最佳 Model
-
-- Pro, Mini, Nano
-- Thinking Effort
-- GPT-5.4, GPT-5.5
-- Codex, OpenCode, Copilot
-
-不要等待 Model 變強來解決問題
-
-選擇最佳的工具，在品質與成本之間取得平衡
+- 用題庫測試不同選項：
+  - Model：Pro、Mini、Nano
+  - Model 版本：GPT-5.4、GPT-5.5
+  - Thinking Effort
+  - Agent：Codex、OpenCode、Copilot
+- 不必等 Model 變強才解決問題
+- 選適合的工具，平衡品質與成本
 
 ---
 
-##### Step 3: Evaluation 後，就取得 Cost Estimate
+##### Step 3｜Evaluation → Cost Estimate
 
-- 完成多少題目
-- 使用的 Model 與 metrics
-  - LLM API metrics
-  - 使用多少 Token
+- 測試題數與使用的 Model
+- LLM API Metrics、Token 用量
 - Quality Estimate
 
-沒有測試做基礎的預算，其實只是市場喊價。
+沒有測試基礎的預算，只是市場喊價
 
 ---
 
-##### Step 3: Evaluation 後，就取得 Cost Estimate
+##### Step 0｜先釐清需求
 
-- 完成多少題目
-- 使用的 Model 與 metrics
-  - LLM API metrics，使用多少 Token
-- Quality Estimate
+需求應該先釐清
 
-沒有測試做基礎的預算，其實是市場喊價
-
----
-
-##### Step 0: 先釐清需求
-
-釐清需求，應該是第一件要做的事
-
-實務上，很多團隊還沒做到前兩件事
-- 沒有清楚定義需求
-- 成員對 LLM 的理解存在落差
-- 就開始討論要不要更換工具
+許多團隊卻先討論要不要換工具：
+- 需求還不清楚
+- 成員對 LLM 的理解有落差
 
 {{% fragment %}}
-建議「先建立監測」：先看見顯微鏡下的世界，再相信微生物存在，會比較容易接受
+先建立監測，讓團隊看見數據
+{{% /fragment %}}
 
-用數據調整團隊認知，後續討論才更容易回到現實
+{{% fragment %}}
+用數據調整認知，讓討論回到現實
 {{% /fragment %}}
 
 {{% note %}}
@@ -389,60 +372,64 @@ Warning: o11y 走進 Dataset 是一個大坑
 
 ---
 
-##### Step 0: 定義 Coding Agent 的效率
+##### Step 0｜Coding Agent 效率
 
-我們想提升團隊使用 Coding Agent 的效率
-
-但 Coding Agent 的效率到底是什麼？
+想提升團隊效率，先定義「效率」：
 
 {{< math >}}
-\text{整體效率 Efficiency} = \frac{\text{產出數量} \times \text{產出品質}}{\text{Token Cost} \times \text{花費時間}}
+\text{Overall Efficiency} = \frac{\text{產出數量} \times \text{產出品質}}{\text{Token Cost} \times \text{花費時間}}
 {{< /math >}}
 
 {{% fragment %}}
-降低 Cost、Latency、Error Rate
-控制 Context Window
+降低 Cost、Latency、Error Rate<br>
+控制 Context Window<br>
 提升 Output Quality
 {{% /fragment %}}
 
 ---
 
-##### Step 0: 從需求走向 Action
+##### Step 0｜從需求走向 Action
 
-依照不同任務選工具
+依任務選工具：
 
-- Model: Mini, Nano, Low Latency, Low Error Rate
-- AI Gateway Routing
-  - [AgentGateway](https://agentgateway.dev/) ✅
-  - [LiteLLM](https://docs.litellm.ai/docs/routing)👻
-- Context Management -> [rtk](https://github.com/rtk-ai/rtk)
-- 加速 Greenfield 專案開發 -> [Spec-kit](https://github.com/github/spec-kit)
-
----
-
-##### Step 0: 讓團隊 On the Same Page
-
-- Dev Team: Chargeback
-  - Model & Tool Choice
-- Stakeholders 與管理者對齊期待
-  - 量化效能指標：正確率、Error Rate、Latency、Cost
-  - 有 AI 不代表就能十倍產出
-
-有 Evaluation 後，可以明確講出「我們產出大概 2-3 倍，數據在此」
+- Model：
+  - Mini、Nano
+  - Low Latency、Low Error Rate
+- Gateway Routing：
+  - [AgentGateway](https://agentgateway.dev/)
+  - [LiteLLM](https://docs.litellm.ai/docs/routing)
+- Context Management：[rtk](https://github.com/rtk-ai/rtk)
+- Greenfield：[Spec-kit](https://github.com/github/spec-kit)
 
 ---
 
-##### Takeaway: 從觀察到決策系統
+##### Step 0｜讓團隊 On the Same Page
 
-- Step 1: 建立 Baseline，完成第一次優化
-- Step 2: 使用 LLM-as-a-Judge 評估品質
-- Step 3: 建立 Dataset，執行 Experiment
-- Step 0: 先釐清需求
-- Decision: 釐清需求 -> Take Action
+- Dev Team：Chargeback
+- 選擇 Model 與 Tool
+- 與 Stakeholders、管理者對齊期待
+- 量化效能指標：
+  - 正確率、Error Rate
+  - Latency、Cost
+- 有 AI，不代表產出就能提升十倍
+
+有 Evaluation 後，可以說：
+
+> 產出約提升 2–3 倍，數據在此
+
+---
+
+##### Takeaway｜從觀察到決策系統
+
+- Step 1：Baseline、第一次優化
+- Step 2：LLM-as-a-Judge 評估
+- Step 3：Dataset、Experiment
+- Step 0：先釐清需求
+- Decision：釐清需求 → Action
 
 ---
 
 ##### Q&A
 
-- Lab [LLM O11y：從 Observability 到 Decision System](https://chechia.net/posts/2026-07-01-ws-langfuse-ai-ent/)
-- Lab [Spec-driven development with Spec-kit](https://chechia.net/posts/2026-07-01-ws-speckit-ai-ent/)
+- Lab｜[LLM O11y Decision System](https://chechia.net/posts/2026-07-01-ws-langfuse-ai-ent/)
+- Lab｜[Spec-kit SDD](https://chechia.net/posts/2026-07-01-ws-speckit-ai-ent/)
