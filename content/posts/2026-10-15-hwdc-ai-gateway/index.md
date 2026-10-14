@@ -1,6 +1,6 @@
 ---
 title: "AI Gateway：AI 治理的第一步"
-date: '2026-10-14T00:00:00Z'
+date: '2026-09-15T00:00:00Z'
 tags: ["ai", "generative", "llm", "ai-gateway", "devops"]
 categories: ["generative", "ai"]
 description: "介紹 AI Gateway 如何統一管理模型存取、路由、成本與觀測性，並以實務情境說明團隊導入 LLM 應用時的設計考量。"
@@ -18,7 +18,7 @@ ShowPostNavLinks: true
 ### 📅 活動時間：2026-10-15
 ### 🔗 [活動連結](https://hwdc.ithome.com.tw/2026/session/4961)
 ### 📘 聯繫我 [Facebook](https://www.facebook.com/engineer.from.scratch)
-### 📑 [投影片](../../slides/2026-10-15-hwdc-ai-gateway/)
+### 📑 [投影片](/slides/2026-10-15-hwdc-ai-gateway/)
 
 ---
 
