@@ -11,12 +11,12 @@
     </image>
     <generator>Hugo -- 0.146.5</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 14 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 15 Sep 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://chechia.net/pr-preview/pr-36/categories/generative/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AI Gateway：AI 治理的第一步</title>
       <link>https://chechia.net/pr-preview/pr-36/posts/2026-10-15-hwdc-ai-gateway/</link>
-      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 15 Sep 2026 00:00:00 +0000</pubDate>
       <guid>https://chechia.net/pr-preview/pr-36/posts/2026-10-15-hwdc-ai-gateway/</guid>
       <description>介紹 AI Gateway 如何統一管理模型存取、路由、成本與觀測性，並以實務情境說明團隊導入 LLM 應用時的設計考量。</description>
     </item>

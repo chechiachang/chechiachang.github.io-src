@@ -11,34 +11,16 @@
     <loc>https://chechia.net/pr-preview/pr-36/posts/</loc>
     <lastmod>2026-10-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://chechia.net/pr-preview/pr-36/categories/ai/</loc>
-    <lastmod>2026-10-14T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://chechia.net/pr-preview/pr-36/tags/ai/</loc>
     <lastmod>2026-10-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://chechia.net/pr-preview/pr-36/posts/2026-10-15-hwdc-ai-gateway/</loc>
-    <lastmod>2026-10-14T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://chechia.net/pr-preview/pr-36/posts/2026-10-15-hwdc-ai-o11y/</loc>
-    <lastmod>2026-10-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://chechia.net/pr-preview/pr-36/tags/ai-gateway/</loc>
     <lastmod>2026-10-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://chechia.net/pr-preview/pr-36/categories/aiops/</loc>
     <lastmod>2026-10-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://chechia.net/pr-preview/pr-36/categories/</loc>
-    <lastmod>2026-10-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://chechia.net/pr-preview/pr-36/tags/devops/</loc>
-    <lastmod>2026-10-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://chechia.net/pr-preview/pr-36/categories/generative/</loc>
-    <lastmod>2026-10-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://chechia.net/pr-preview/pr-36/tags/generative/</loc>
     <lastmod>2026-10-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://chechia.net/pr-preview/pr-36/tags/langfuse/</loc>
@@ -58,6 +40,24 @@
   </url><url>
     <loc>https://chechia.net/pr-preview/pr-36/tags/tracing/</loc>
     <lastmod>2026-10-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://chechia.net/pr-preview/pr-36/categories/ai/</loc>
+    <lastmod>2026-09-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://chechia.net/pr-preview/pr-36/posts/2026-10-15-hwdc-ai-gateway/</loc>
+    <lastmod>2026-09-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://chechia.net/pr-preview/pr-36/tags/ai-gateway/</loc>
+    <lastmod>2026-09-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://chechia.net/pr-preview/pr-36/tags/devops/</loc>
+    <lastmod>2026-09-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://chechia.net/pr-preview/pr-36/categories/generative/</loc>
+    <lastmod>2026-09-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://chechia.net/pr-preview/pr-36/tags/generative/</loc>
+    <lastmod>2026-09-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://chechia.net/pr-preview/pr-36/tags/agent/</loc>
     <lastmod>2026-08-15T00:00:00+00:00</lastmod>
