@@ -70,13 +70,6 @@
       <description></description>
     </item>
     <item>
-      <title>Governance</title>
-      <link>http://localhost:1313/tags/governance/</link>
-      <pubDate>Tue, 15 Sep 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/governance/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Agent</title>
       <link>http://localhost:1313/tags/agent/</link>
       <pubDate>Sat, 15 Aug 2026 00:00:00 +0000</pubDate>
@@ -95,6 +88,13 @@
       <link>http://localhost:1313/tags/evaluation/</link>
       <pubDate>Sat, 15 Aug 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/evaluation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Governance</title>
+      <link>http://localhost:1313/tags/governance/</link>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/governance/</guid>
       <description></description>
     </item>
     <item>
