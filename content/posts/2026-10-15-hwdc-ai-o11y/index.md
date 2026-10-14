@@ -6,7 +6,7 @@ categories: ["aiops", "observability"]
 description: "介紹 LLM application 的 tracing 與 observability，並以 Langfuse 為例，從收集 traces 到分析品質、延遲與成本。"
 showToc: true
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: true
 showSummary: true
@@ -15,8 +15,10 @@ ShowBreadCrumbs: true
 ShowPostNavLinks: true
 ---
 
-### 📅 活動時間：2026-10-14
+### 📅 活動時間：2026-10-15
+### 🔗 [活動連結](https://hwdc.ithome.com.tw/2026/session/4982)
 ### 📘 聯繫我 [Facebook](https://www.facebook.com/engineer.from.scratch)
+### 📑 [投影片](../../slides/2026-10-15-hwdc-ai-o11y/)
 
 ---
 
