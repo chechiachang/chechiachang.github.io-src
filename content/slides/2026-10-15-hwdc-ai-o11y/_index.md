@@ -36,14 +36,14 @@ Che-Chia Chang
 - 參考專家與供應商分享
 - 採用代理商或雲端商推薦
 
-試用是一種選擇；團隊更需要數據化決策
+試用是一種選擇；團隊更需要<span style="color: #1d4ed8;">數據化決策</span>
 
 ---
 
 ##### 新工具出現速度 > 研究速度
 
 {{% fragment %}}
-缺的不是更快研究，而是量化評估系統
+缺的不是更快研究，而是<span style="color: #1d4ed8;">量化評估系統</span>
 {{% /fragment %}}
 
 {{% fragment %}}
@@ -58,7 +58,7 @@ Che-Chia Chang
 ---
 
 - 建立效能 Baseline
-- 劣化時告警並追查原因
+- <span style="color: #1d4ed8;">劣化時告警</span>並追查原因
   - 例如上游 API 不穩
 - Claude API Uptime 僅 99.4%
 - 沒有 O11y，就沒有 SLA
@@ -85,7 +85,7 @@ Che-Chia Chang
 - [Spec-kit](https://github.com/github/spec-kit)：SDD 聽說好用
 - [rtk](https://github.com/rtk-ai/rtk)：聽說省 Token
 - [Opus 4.8](https://www.anthropic.com/claude/opus)：聽說很強
-- 改變有成本，也可能讓效能劣化
+- <span style="color: #1d4ed8;">改變有成本</span>，也可能讓效能劣化
 
 用數據決策，避免 FOMO
 
@@ -109,10 +109,10 @@ Che-Chia Chang
 ##### Cost Management
 
 - 依本月用量，收斂下月預算
-- Chargeback：讓團隊看見成本
+- <span style="color: #1d4ed8;">Chargeback</span>：讓團隊看見成本
 - 分清哪些問題能用錢解決
 - 需求演進比模型快
-- 沒有單一模型能解決所有問題
+- <span style="color: #1d4ed8;">沒有單一模型能解決所有問題</span>
 - 用合適預算與模型
 - 有效率地解決能解的問題
 
@@ -146,11 +146,8 @@ Che-Chia Chang
 - 用 Gateway / O11y Tool 收集 Tracing
 - 建立流程：LLM O11y → Judge
 - Dataset → Experiment
-
-延伸閱讀：
 - [LLM O11y Workshop](../../slides/2026-07-01-ws-langfuse-ai-ent)
 - [Observability → Decision System](https://chechia.net/posts/2026-07-01-ws-langfuse-ai-ent/)
-
 - Agent 怎麼花 Token？
 - 如何系統化評估輸出品質？
 
@@ -164,7 +161,7 @@ Che-Chia Chang
 
 - 看見 Observability Stack
 - 量化 Token Usage、Latency、Error Rate
-- Chargeback：讓團隊看見自己的成本
+- <span style="color: #1d4ed8;">Chargeback</span>：讓團隊看見自己的成本
 - 用監測數據控管預算，不只看市場喊價
 
 - 建立 Cost / Token Usage Baseline
@@ -180,7 +177,7 @@ Che-Chia Chang
   - Copilot 內建 50+ 個 Tools
   - 實務上只用 10+ 個
   - VSCode Extension 也可能增加 Tools
-- 透過 AI Gateway 增加控制點
+- 透過 <span style="color: #1d4ed8;">AI Gateway</span> 增加控制點
 
 控制你的 Coding Agent
 
@@ -204,7 +201,7 @@ Che-Chia Chang
 - 成本：$0.10 → $0.005（降至約 5%）
 - 降低進入 Long Context 的機率
   - ≥272K Tokens 價格翻倍
-- 把 Context Window 留給真正有用的內容
+- <span style="color: #1d4ed8;">把 Context Window 留給真正有用的內容</span>
 
 [OpenAI API Pricing](https://developers.openai.com/api/docs/pricing)
 
@@ -240,7 +237,7 @@ Input Token Cache 只是折扣，不是免費；它可以改善 Model 在 Long C
 - 看 Input、Output 與 Metadata
 - 小範圍量化，觀察局部品質
 - 不代表 Project 整體品質
-- 從局部分析錯誤類型，找出改進方向
+- 從局部分析錯誤類型，<span style="color: #1d4ed8;">找出改進方向</span>
 
 ---
 
@@ -253,7 +250,7 @@ Input Token Cache 只是折扣，不是免費；它可以改善 Model 在 Long C
 - 調整 Prompt / Instruction
 - 改善 Input / Output 品質
 
-控制變因、調整變因，提升局部評分
+控制變因、調整變因，<span style="color: #1d4ed8;">提升局部評分</span>
 
 ---
 
@@ -278,7 +275,7 @@ Output: README.md 修改成功
 
 ##### Step 3｜Dataset & Experiment
 
-**Dataset**｜真實工作考題
+**Dataset**｜真實工作考題<br>
 從 Daily Work Tracing 整理
 
 ```text
@@ -287,7 +284,7 @@ Output：Model 的回答
 Judge Score：回答品質
 ```
 
-**Experiment**｜同一份考題
+**Experiment**｜同一份考題<br>
 控制變因，重複執行
 
 ```text
@@ -312,7 +309,7 @@ Tools / Instruction：改動前後
 - 依 Judge 分數分類
 - 高品質案例作為改進參考
 
-注意：從 O11y 走進 Dataset，是個大坑
+注意：從 O11y 走進<span style="color: #1d4ed8;">Dataset，是個大坑</span>
 
 ---
 
@@ -324,7 +321,7 @@ Tools / Instruction：改動前後
 - 用 Langfuse SDK 轉換格式
 - Partition Dataset
 
-持久化儲存，作為測試題庫
+持久化儲存，作為<span style="color: #1d4ed8;">測試題庫</span>
 
 ---
 
@@ -336,7 +333,7 @@ Tools / Instruction：改動前後
   - Thinking Effort
   - Agent：Codex、OpenCode、Copilot
 - 不必等 Model 變強才解決問題
-- 選適合的工具，平衡品質與成本
+- <span style="color: #1d4ed8;">選適合的工具，平衡品質與成本</span>
 
 ---
 
@@ -346,7 +343,7 @@ Tools / Instruction：改動前後
 - LLM API Metrics、Token 用量
 - Quality Estimate
 
-沒有測試基礎的預算，只是市場喊價
+沒有<span style="color: #1d4ed8;">測試基礎</span>的預算，只是市場喊價
 
 ---
 
@@ -356,7 +353,7 @@ Tools / Instruction：改動前後
 
 許多團隊卻先討論要不要換工具：
 - 需求還不清楚
-- 成員對 LLM 的理解有落差
+- 成員對 LLM 的<span style="color: #1d4ed8;">理解有落差</span>
 
 {{% fragment %}}
 先建立監測，讓團隊看見數據
@@ -405,9 +402,9 @@ Tools / Instruction：改動前後
 
 ##### Step 0｜讓團隊 On the Same Page
 
-- Dev Team：Chargeback
+- Dev Team：<span style="color: #1d4ed8;">Chargeback</span>
 - 選擇 Model 與 Tool
-- 與 Stakeholders、管理者對齊期待
+- 與 Stakeholders、管理者<span style="color: #1d4ed8;">對齊期待</span>
 - 量化效能指標：
   - 正確率、Error Rate
   - Latency、Cost
@@ -415,7 +412,7 @@ Tools / Instruction：改動前後
 
 有 Evaluation 後，可以說：
 
-> 產出約提升 2–3 倍，數據在此
+> 產出約提升 2–3 倍，<span style="color: #1d4ed8;">數據在此</span>
 
 ---
 
