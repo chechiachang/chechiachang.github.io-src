@@ -49,4 +49,7 @@ Generate `Outline` in this order:
 
 - Traditional Chinese primary, keep key technical terms in English.
 - Short headings and short bullets.
+- Keep slide copy compact; fragments are fine, complete sentences aren't required.
+- Keep visible lines to about 20 full-width character widths; insert intentional breaks before text wraps, excluding URLs and code.
+- Omit sentence-final `。` on slides.
 - Prefer problem-first and demo-first progression.

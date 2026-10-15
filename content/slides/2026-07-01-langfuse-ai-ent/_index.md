@@ -6,6 +6,7 @@ categories: ["aiops", "observability"]
 date: '2026-05-02T15:30:00Z'
 outputs: ["Reveal"]
 reveal_hugo:
+  slide_number: true
   custom_theme: "reveal-hugo/themes/robot-lung.css"
   margin: 0.2
   highlight_theme: "color-brewer"

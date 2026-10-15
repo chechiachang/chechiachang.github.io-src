@@ -18,11 +18,12 @@ post: title
 slides: title
 	hugo new --kind slides content/zh-hant/slides/$(DATE) $${TITLE}
 
-#dev:
-#	hugo server --disableFastRender -D --bind 0.0.0.0 --port 1313
+dev:
+	hugo server --disableFastRender --bind 0.0.0.0 --port 1313
 
 prod:
-	hugo server --disableFastRender -D -e production --bind 0.0.0.0 --port 1313
+	git restore docs
+	hugo server --disableFastRender -e production --bind 0.0.0.0 --port 1313
 
 
 .PHONY: hugo publish
