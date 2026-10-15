@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Docker on Che-Chia Chang</title>
-    <link>http://localhost:1313/tags/docker/</link>
+    <link>https://chechia.net/tags/docker/</link>
     <description>Recent content in Docker on Che-Chia Chang</description>
     <image>
       <title>Che-Chia Chang</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://chechia.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.147.7</generator>
     <language>en</language>
     <lastBuildDate>Thu, 14 Sep 2023 06:42:26 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://chechia.net/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Vault Workshop 10: Deploy with Docker</title>
-      <link>http://localhost:1313/posts/2023-09-21-vault-workshop-deploy-on-kubernetes/</link>
+      <link>https://chechia.net/posts/2023-09-21-vault-workshop-deploy-on-kubernetes/</link>
       <pubDate>Thu, 14 Sep 2023 06:42:26 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2023-09-21-vault-workshop-deploy-on-kubernetes/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <guid>https://chechia.net/posts/2023-09-21-vault-workshop-deploy-on-kubernetes/</guid>
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://localhost:1313/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;https://chechia.net/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day-09-deploy-with-docker&#34;&gt;Day 09: Deploy with Docker&lt;/h1&gt;
 &lt;h3 id=&#34;local-with-docker&#34;&gt;Local with Docker&lt;/h3&gt;
 &lt;h3 id=&#34;minikube&#34;&gt;minikube&lt;/h3&gt;
@@ -47,12 +47,12 @@ sudo install minikube-darwin-arm64 /usr/local/bin/minikube
     </item>
     <item>
       <title>Vault Workshop 09: Vault HA</title>
-      <link>http://localhost:1313/posts/2023-09-20-vault-workshop-ha-docker/</link>
+      <link>https://chechia.net/posts/2023-09-20-vault-workshop-ha-docker/</link>
       <pubDate>Thu, 14 Sep 2023 05:42:26 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2023-09-20-vault-workshop-ha-docker/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <guid>https://chechia.net/posts/2023-09-20-vault-workshop-ha-docker/</guid>
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://localhost:1313/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;https://chechia.net/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day-09-deploy-with-docker&#34;&gt;Day 09: Deploy with Docker&lt;/h1&gt;
 &lt;h3 id=&#34;vault-configuration&#34;&gt;Vault configuration&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;/code&gt;&lt;/pre&gt;
@@ -73,12 +73,12 @@ sudo install minikube-darwin-arm64 /usr/local/bin/minikube
     </item>
     <item>
       <title>Vault Workshop 08: Vault in Docker and Initialization</title>
-      <link>http://localhost:1313/posts/2023-09-19-vault-workshop-docker-and-initialization/</link>
+      <link>https://chechia.net/posts/2023-09-19-vault-workshop-docker-and-initialization/</link>
       <pubDate>Thu, 14 Sep 2023 04:42:26 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2023-09-19-vault-workshop-docker-and-initialization/</guid>
-      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;http://localhost:1313/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
+      <guid>https://chechia.net/posts/2023-09-19-vault-workshop-docker-and-initialization/</guid>
+      <description>&lt;p&gt;如果你希望追蹤最新的草稿，請見&lt;a href=&#34;https://chechia.net/tags/%E9%90%B5%E4%BA%BA%E8%B3%BD2023/&#34;&gt;鐵人賽2023&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本 workshop 也接受網友的許願清單，&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10317378&#34;&gt;如果有興趣的題目可於第一篇底下留言&lt;/a&gt;，筆者會盡力實現，但不做任何保證&lt;/p&gt;
-&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;http://localhost:1313/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;整篇 Workshop 會使用的範例與原始碼，放在 &lt;a href=&#34;https://chechia.net/#projects&#34;&gt;Github Repository: vault-playground&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;day-08-vault-in-docker-and-initialization&#34;&gt;Day 08: Vault in Docker and Initialization&lt;/h1&gt;
 &lt;h3 id=&#34;vault-in-container&#34;&gt;Vault in container&lt;/h3&gt;
 &lt;p&gt;前幾天我們使用 vault dev Server 來啟用測試用的 Vault server。&lt;/p&gt;
@@ -112,9 +112,9 @@ cd deploy/00-docker-dev/
     </item>
     <item>
       <title>Kubernetes Container Runtime Interface</title>
-      <link>http://localhost:1313/posts/2018-10-06-kubernetes-container-runtime-interface/</link>
+      <link>https://chechia.net/posts/2018-10-06-kubernetes-container-runtime-interface/</link>
       <pubDate>Sat, 06 Oct 2018 12:07:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2018-10-06-kubernetes-container-runtime-interface/</guid>
+      <guid>https://chechia.net/posts/2018-10-06-kubernetes-container-runtime-interface/</guid>
       <description></description>
     </item>
   </channel>
