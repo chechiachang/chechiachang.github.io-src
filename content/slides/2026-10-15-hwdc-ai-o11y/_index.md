@@ -53,25 +53,20 @@ Che-Chia Chang
 
 ---
 
-##### Coding Agent 會動就好？
 ##### 為何需要 O11y / Evaluation？
-
----
 
 - 建立效能 Baseline
 - <span style="color: #1d4ed8;">劣化時告警</span>並追查原因
-  - 例如上游 API 不穩
+  <br>例如上游 API 不穩
 - Claude API Uptime 僅 99.4%
-- 沒有 O11y，就沒有 SLA
+  <br>至少壞的時候要比使用者早知道
+- <span style="color: #1d4ed8;">沒有 O11y，就沒有 SLA</span>
+
 
 {{% note %}}
-
-至少要知道他什麼時候是壞的
-
 進行處置：切換 model 或 provider
 
 至少要知道服務劣化
-
 {{% /note %}}
 
 ---
@@ -107,26 +102,6 @@ Che-Chia Chang
 
 ---
 
-##### Cost Management
-
-- 依本月用量，收斂下月預算
-- <span style="color: #1d4ed8;">Chargeback</span>：讓團隊看見成本
-- 分清哪些問題能用錢解決
-- 需求演進比模型快
-- <span style="color: #1d4ed8;">沒有單一模型能解決所有問題</span>
-- 用合適預算與模型
-- 有效率地解決能解的問題
-
----
-
-##### 為何需要 Observability
-
-- 建立 Baseline
-- 管理改變（Change）
-- 管理成本（Cost）
-
----
-
 {{< slide content="slides.about-me" >}}
 
 ---
@@ -151,6 +126,10 @@ Che-Chia Chang
 - [Observability → Decision System](https://chechia.net/posts/2026-07-01-ws-langfuse-ai-ent/)
 - Agent 怎麼花 Token？
 - 如何系統化評估輸出品質？
+
+---
+
+##### Observability: Live Demo
 
 ---
 
