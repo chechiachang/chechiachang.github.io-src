@@ -22,11 +22,11 @@ Che-Chia Chang
 
 ##### 同事問
 
-- 我要 OpenAI，Anthropic，Gemini，<br>Kimi，Cohere，... <br>最新最強的 Model
-- 如何存取控管？SSO？
-- API Key 如何管理
+- 我要最新最強的 Model
+  <br>OpenAI Anthropic Gemini Cohere Jev ...
+- API Key 如何管理？可以 SSO 嗎？
 - 我還有多少額度？用完就下班了？
-- Provider 壞了、變慢了
+- xx Model 是不是壞了、變超慢
 
 ---
 
@@ -42,7 +42,7 @@ Che-Chia Chang
 
 ##### 現實情境
 
-- 「<span style="color: #1d4ed8;">一個人就把公司預算燒完</span>」🔥
+- 「<span style="color: #1d4ed8;">一個人就把公司預算燒完</span>」💸💸💸
 - 每個人手上都有 API Key💀
 - API 出問題，才問「是不是模型壞了」
 - 成本只到 Provider 帳單總額
@@ -61,10 +61,10 @@ Che-Chia Chang
 ##### AI Gateway：<br>團隊治理 LLM 的共同入口
 
 - 開發團隊需要好用的入口
-  - 簡單，安全，穩定
+  <br><span style="color: #1d4ed8;">簡單，安全，穩定</span>
 - 管理團隊需要查看使用情況
-  - 成本、風險評估
-  - 改進方向
+  <br>成本、風險評估
+  <br>績效、<span style="color: #1d4ed8;">持續改進方向</span>
 - 多團隊、多 Provider 時<br>可用 AI Gateway 建立<span style="color: #1d4ed8;">共同管理層</span>
 
 {{% note %}}
@@ -128,9 +128,9 @@ Apps / Agents
 
 ##### AI Gateways
 
-- [LiteLLM](https://github.com/BerriAI/litellm) 61.2k⭐ 非常棒，功能完整<br>直到被供應鏈攻擊
+- [LiteLLM](https://github.com/BerriAI/litellm) 61.2k⭐ 非常棒，功能完整<br>直到被供應鏈攻擊💀
 - [Bifrost](https://github.com/maximhq/bifrost) 8.8k⭐ Enterprise 方案
-- [Agentgateway](https://agentgateway.dev/) 5.3k⭐ 最完整的開源方案<br>免費，K8s Native，HA<br>支持其他開源整合<br>架構較複雜
+- [Agentgateway](https://agentgateway.dev/) 5.3k⭐ 最完整的開源方案<br>免費，K8s Native，HA<br>支持其他開源整合<br>架構較複雜😅
 
 ---
 
@@ -139,7 +139,7 @@ Apps / Agents
 ---
 
 - ✅為什麼是 AI Gateway
-- <span style="color: #1d4ed8;">治理的第一步是成本</span>
+- <span style="color: #1d4ed8;">治理的第一步是成本</span>💰
 - 強化安全
 - 監測穩定度
 - 持續最佳化
@@ -150,8 +150,8 @@ Apps / Agents
 
 - 營利公司必須考慮盈利
 - 導入新工具，也要約定<span style="color: #1d4ed8;">預算與責任</span>
-  - 開發團隊：預估用量、設定上限
-  - 管理團隊：核定預算、處理超支
+- 開發團隊：預估用量、設定上限
+- 管理團隊：核定預算、處理超支
 - 告警不是上限，還需要執行預算政策
 
 誰能用？該花多少錢？避免超支
@@ -163,11 +163,11 @@ Apps / Agents
 - 鑑往知來，基於過去設定預算，不市場喊價
 - <span style="color: #1d4ed8;">基於數據</span>，決定預算、成本、績效
 - [Agentgateway Observability](https://agentgateway.dev/docs/standalone/latest/documentation/observability/)
-  - Metrics：Provider, Model, Input/Output Tokens
-  - 用量 × 對應價格 → 成本估算
-  - Cache、折扣與計費差異需對帳
-  - Traces: 紀錄 span, latency, route
-  - Access Logs：存取紀錄、稽核軌跡，安全性告警
+- Metrics：Model, In/Out Tokens
+- 用量 × 對應價格 → 成本估算
+- Cache、折扣計費
+- Traces: span, latency, route
+- Access Logs：存取紀錄、稽核軌跡、<br>稽常告警
 
 ---
 
@@ -182,13 +182,14 @@ Apps / Agents
 
 ---
 
-##### 成本展示 Showback
-##### 成本分攤 Chargeback
+##### 成本 Showback & Chargeback
 
 - 用量對應價格，依團隊與服務彙總
-- 驗證身份，再對應 team/project/environment
-  - 由可信 Claims 或服務身份映射
+- 由可信 Claims (Google OAuth2) 驗證身份
+- 取得 Org, Unit, Team, Project, Env
+- 存取 Gateway 時紀錄用量
 - [OIDC Auth](https://agentgateway.dev/docs/standalone/latest/documentation/configuration/security/oidc/) / [JWT Auth](https://agentgateway.dev/docs/standalone/latest/documentation/configuration/security/jwt-authn/) 是身份入口
+- 各部門團隊取得成本，進行成本分攤
 
 <span style="color: #1d4ed8;">對齊團隊對成本的概念</span>
 
@@ -276,14 +277,25 @@ Access Token 不一定是 JWT，不應假設可以用 Google 公鑰驗證。登�
 
 ---
 
+##### 穩定度：主動監測與自動告警
+
+- [Prometheus-compatible Metrics](https://agentgateway.dev/docs/standalone/latest/documentation/observability/metrics/overview/)
+- Prometheus Stack: Prometheus + Alertmanager + Grafana
+- 過去一季 xx Model / Provider 可用性高或偏低
+- 透過 Dashboard 數據，<span style="color: #1d4ed8;">整合團隊共識</span>
+- 基於數據不靠體感「我覺得 xx Model 很好用」
+- 團隊可以選擇更適合的 Model
+
+---
+
 ##### 穩定度：Retry / Failover
 
 - [Load Balancing](https://agentgateway.dev/docs/kubernetes/latest/documentation/llm/load-balancing/)：分流到可用 Backend
 - [Failover](https://agentgateway.dev/docs/kubernetes/latest/documentation/llm/failover/)：依失敗條件切換備援
-  - 可換 Provider，也可換 Model
-  - 備援仍須符合資料政策與能力需求
+- 可換 Provider，也可換 Model
 - Retry：限制次數 Timeout 與 Backoff
-  - 429 依 Retry-After 與策略處理
+- 429 依 Retry-After 與策略處理
+- 使用者不會感受到 429 與 5xx
   - 已輸出串流、執行 Tool 的請求需另處理
 
 {{% note %}}
@@ -326,14 +338,36 @@ Access Token 不一定是 JWT，不應假設可以用 Google 公鑰驗證。登�
 
 ---
 
+##### 要不要用 AI Gateway？
+
+<table style="width:100%; max-width:none; table-layout:fixed; font-size:0.58em; line-height:1.2;">
+<colgroup><col style="width:17%;"><col style="width:41.5%;"><col style="width:41.5%;"></colgroup>
+<thead><tr><th>面向</th><th>使用 AI Gateway</th><th>不使用 Gateway</th></tr></thead>
+<tbody>
+<tr><td>基礎設施</td><td>需部署或託管、監控、升級與 HA</td><td>少一層服務，不需 Gateway 算力</td></tr>
+<tr><td>身份與治理</td><td>集中 Auth、Policy、Budget、Audit</td><td>靠 Provider 原生功能，或各 App 自行實作</td></tr>
+<tr><td>路由與穩定</td><td>統一 Route、Retry、Failover（依產品能力）</td><td>用各家機制；跨 Provider 切換由 App 處理</td></tr>
+<tr><td>客製化與相依</td><td>受 Gateway 支援的 API / Policy 限制</td><td>可用 Provider 完整功能；整合與移轉要改 App</td></tr>
+<tr><td>使用體驗</td><td>單一 API / Portal、權限與用量一致</td><td>各 Provider 帳號、Console、Key 與流程分散</td></tr>
+<tr><td>整體成本</td><td>多一份維運成本，換取用量可視與政策控管</td><td>少 Gateway 成本；整合、人工作業與超支風險仍在</td></tr>
+</tbody>
+</table>
+
+多團隊、多 Provider 值得多維運一層
+{{% note %}}
+單一團隊、單一 Provider：直接串接可能更簡單
+{{% /note %}}
+
+---
+
 ##### Takeaways
 
-- 每個 LLM 都需要 AI Gateway
+- 多團隊、Providers 時務必 AI Gateway
 - <span style="color: #1d4ed8;">O11y is a MUST</span>
 - ChargeBack 讓團隊對成本有<span style="color: #1d4ed8;">共識</span>
 - Metrics 讓長官對績效有共識
 - 不妥協的安全性
-- AI Gateway 把上面都做掉了
+- AI Gateway 提供共同管理入口
 
 ---
 
