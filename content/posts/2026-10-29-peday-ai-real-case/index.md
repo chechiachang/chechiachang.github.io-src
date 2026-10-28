@@ -16,6 +16,7 @@ ShowPostNavLinks: true
 ---
 
 ### 📅 活動時間：2026-10-29
+### 📊 投影片：[Platform Engineering 的 AI 實際落地案例](https://chechia.net/slides/2026-10-29-peday-ai-real-case/)
 ### 📘 聯繫我 [Facebook](https://www.facebook.com/engineer.from.scratch)
 
 ---
