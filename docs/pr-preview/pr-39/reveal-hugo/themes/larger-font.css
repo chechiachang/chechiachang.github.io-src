@@ -1,0 +1,9 @@
+@import url("robot-lung.css");
+
+/* Increase the base size for the deck. */
+.reveal {
+  /* font-size: 32px; */
+  font-size: 48px;
+  
+  font-family: "Noto Sans CJK TC", "PingFang TC", sans-serif;
+}
