@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ai-Engineering on Che-Chia Chang</title>
+    <link>https://chechia.net/pr-preview/pr-39/tags/ai-engineering/</link>
+    <description>Recent content in Ai-Engineering on Che-Chia Chang</description>
+    <image>
+      <title>Che-Chia Chang</title>
+      <url>https://chechia.net/pr-preview/pr-39/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://chechia.net/pr-preview/pr-39/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.146.5</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 20 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://chechia.net/pr-preview/pr-39/tags/ai-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Platform Engineering 的 AI 實際落地案例</title>
+      <link>https://chechia.net/pr-preview/pr-39/posts/2026-10-29-peday-ai-real-case/</link>
+      <pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://chechia.net/pr-preview/pr-39/posts/2026-10-29-peday-ai-real-case/</guid>
+      <description>從 Platform Engineering 的角度，分享 AI 如何進入開發、維運與治理流程，以及實際落地時的技術選擇與限制。</description>
+    </item>
+  </channel>
+</rss>

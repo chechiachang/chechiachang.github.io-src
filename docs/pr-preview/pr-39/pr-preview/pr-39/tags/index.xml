@@ -11,13 +11,41 @@
     </image>
     <generator>Hugo -- 0.146.5</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 14 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 20 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://chechia.net/pr-preview/pr-39/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ai</title>
       <link>https://chechia.net/pr-preview/pr-39/tags/ai/</link>
-      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate>
       <guid>https://chechia.net/pr-preview/pr-39/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ai-Engineering</title>
+      <link>https://chechia.net/pr-preview/pr-39/tags/ai-engineering/</link>
+      <pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://chechia.net/pr-preview/pr-39/tags/ai-engineering/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Devops</title>
+      <link>https://chechia.net/pr-preview/pr-39/tags/devops/</link>
+      <pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://chechia.net/pr-preview/pr-39/tags/devops/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Generative</title>
+      <link>https://chechia.net/pr-preview/pr-39/tags/generative/</link>
+      <pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://chechia.net/pr-preview/pr-39/tags/generative/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Platform-Engineering</title>
+      <link>https://chechia.net/pr-preview/pr-39/tags/platform-engineering/</link>
+      <pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://chechia.net/pr-preview/pr-39/tags/platform-engineering/</guid>
       <description></description>
     </item>
     <item>
@@ -53,20 +81,6 @@
       <link>https://chechia.net/pr-preview/pr-39/tags/ai-gateway/</link>
       <pubDate>Tue, 15 Sep 2026 00:00:00 +0000</pubDate>
       <guid>https://chechia.net/pr-preview/pr-39/tags/ai-gateway/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Devops</title>
-      <link>https://chechia.net/pr-preview/pr-39/tags/devops/</link>
-      <pubDate>Tue, 15 Sep 2026 00:00:00 +0000</pubDate>
-      <guid>https://chechia.net/pr-preview/pr-39/tags/devops/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Generative</title>
-      <link>https://chechia.net/pr-preview/pr-39/tags/generative/</link>
-      <pubDate>Tue, 15 Sep 2026 00:00:00 +0000</pubDate>
-      <guid>https://chechia.net/pr-preview/pr-39/tags/generative/</guid>
       <description></description>
     </item>
     <item>
