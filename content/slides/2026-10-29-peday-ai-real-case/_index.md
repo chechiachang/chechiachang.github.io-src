@@ -87,6 +87,18 @@ Che-Chia Chang
 
 ---
 
+##### 自動化｜平台架構
+
+![自動化平台架構：GitHub Gitflow、Jenkins CI/CD、CronJobs、Controller／Sidecar 與 Prometheus Stack](automation-architecture.png)
+
+{{% note %}}
+架構示意：GitHub 管理版本，Jenkins 自動測試與部署；PR 驗證與正式 Release 部署依分支／Tag 分流
+CronJobs 觸發固定 SOP，Controller 與 Sidecar 執行節點維運
+Prometheus 主動抓取 Metrics，Grafana 查詢展示，Alertmanager 通知維運團隊
+{{% /note %}}
+
+---
+
 ##### 自動化｜後來的問題
 
 - 需要持續支援新鏈，平台未必通用
@@ -197,6 +209,18 @@ Che-Chia Chang
 
 ---
 
+##### 微服務｜從探索到固定流程
+
+![微服務工具流程：開發時由 Coding Agent 撰寫腳本、人類 Review；執行時 LLM 填參數，程式控制 API 順序](static-tool-flow.png)
+
+{{% note %}}
+流程示意：開發時，先限制權限，再讓 Coding Agent 探索；把有效步驟寫成可測試的工具
+執行時，LLM 只填參數，工具驗證輸入並依固定順序呼叫 API，最後潤飾結果
+Schema 驗證不等於授權；仍需 Infra Policy 與最小權限
+{{% /note %}}
+
+---
+
 ##### 微服務｜成果：微服務工具箱
 
 - <span style="color: #1d4ed8;">LLM 從「執行流程」變成「撰寫流程」</span>
@@ -298,6 +322,18 @@ Agent = Model + Knowledge + Cost <br>+ Security
 
 ---
 
+##### Agents｜控管架構
+
+![Agent 控管架構：Knowledge 提供工作知識；AI Gateway 控制模型入口；Sandbox、Tool Policy 與微服務限制工具存取，Observability 收集 Traces](agent-control-boundaries.png)
+
+{{% note %}}
+架構示意：把模型請求與工具請求分開看，AI Gateway 的模型 Policy 不取代資料來源權限
+Sandbox 限制對外存取，Tool Policy 與微服務控制允許的操作
+Observability 收集證據；Validator 檢查結果，不取代安全邊界，也不保證結果正確
+{{% /note %}}
+
+---
+
 ##### Agents｜安全控管 Feedback Loop
 
 - 產出 Hardcode 安全控制基礎<br>人類 Agent 協作產生第一版
@@ -316,6 +352,18 @@ Agent = Model + Knowledge + Cost <br>+ Security
 PR 附上 O11y 結果，判斷是否需要調整
 可能是偶然或是特例工作
 基於資料決策，不能隨便改 Policy PR
+{{% /note %}}
+
+---
+
+##### Agents｜Policy Review Loop
+
+![Policy Review Loop：受限執行、收集 Traces、Agent 提出調整 PR、Agent 與人類 Review、驗證部署；未核准則保留原 Policy](policy-review-loop.png)
+
+{{% note %}}
+流程示意：Agent 被阻擋或做不出來，先讀取 Traces，判斷是工具問題、特例，還是確實需要改 Policy
+PR 必須附證據，由其他 Agent 與人類 Review；核准並通過驗證後才部署
+未核准或驗證失敗，不部署，原 Policy 不變；Agent 不能自行放寬權限
 {{% /note %}}
 
 ---
@@ -350,6 +398,7 @@ PR 附上 O11y 結果，判斷是否需要調整
 
 ##### Takeaways
 
+- 平台工程做的事都一樣，AI 只是加速手段
 - 挑對題目
 - 流程與安全需要 Hardcode
 - 從小工具開始堆疊平台
@@ -362,10 +411,10 @@ PR 附上 O11y 結果，判斷是否需要調整
 ---
 
 ##### Q&A
-為何開始做很多 Sandboxing 或是 Policy 控制？有出過事嗎？用現有的 CLI 或是 SDK 不是就可以了嗎？
+如何開始 AI + Platform Engineering？
 
 {{% fragment %}}
-- Policy 是本來就有的: 開發人員本來就沒有破壞性權限，只有 Readonly
-- 額外做的只有 Sandboxing 與 Validator，確保 Agent 只在合理範圍嘗試
-- 大廠的 SDK 與 CLI Sandboxing 每個都不同，要統一工具做全盤 Review
+- 找題目: 現在痛點，流程與需求大方向穩定，依賴性低，低風險
+- 自動化: 先不求 AI，先把流程自動化
+  <br> AI 只是幫助實現自動化
 {{% /fragment %}}
