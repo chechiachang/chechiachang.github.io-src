@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- 0.147.7</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 14 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 20 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://chechia.net/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Platform Engineering 的 AI 實際落地案例</title>
+      <link>https://chechia.net/posts/2026-10-29-peday-ai-real-case/</link>
+      <pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://chechia.net/posts/2026-10-29-peday-ai-real-case/</guid>
+      <description>從 Platform Engineering 的角度，分享 AI 如何進入開發、維運與治理流程，以及實際落地時的技術選擇與限制。</description>
+    </item>
     <item>
       <title>AI O11y：數據決策到技術選型</title>
       <link>https://chechia.net/posts/2026-10-15-hwdc-ai-o11y/</link>

@@ -11,16 +11,43 @@
     <loc>https://chechia.net/posts/</loc>
     <lastmod>2026-10-29T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://chechia.net/categories/ai/</loc>
+    <lastmod>2026-10-20T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://chechia.net/tags/ai/</loc>
-    <lastmod>2026-10-14T00:00:00+00:00</lastmod>
+    <lastmod>2026-10-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://chechia.net/tags/ai-engineering/</loc>
+    <lastmod>2026-10-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://chechia.net/categories/</loc>
+    <lastmod>2026-10-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://chechia.net/tags/devops/</loc>
+    <lastmod>2026-10-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://chechia.net/categories/generative/</loc>
+    <lastmod>2026-10-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://chechia.net/tags/generative/</loc>
+    <lastmod>2026-10-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://chechia.net/posts/2026-10-29-peday-ai-real-case/</loc>
+    <lastmod>2026-10-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://chechia.net/slides/2026-10-29-peday-ai-real-case/</loc>
+    <lastmod>2026-10-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://chechia.net/tags/platform-engineering/</loc>
+    <lastmod>2026-10-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://chechia.net/tags/</loc>
+    <lastmod>2026-10-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://chechia.net/posts/2026-10-15-hwdc-ai-o11y/</loc>
     <lastmod>2026-10-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://chechia.net/categories/aiops/</loc>
-    <lastmod>2026-10-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://chechia.net/categories/</loc>
     <lastmod>2026-10-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://chechia.net/tags/langfuse/</loc>
@@ -35,28 +62,13 @@
     <loc>https://chechia.net/tags/observability/</loc>
     <lastmod>2026-10-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://chechia.net/tags/</loc>
-    <lastmod>2026-10-14T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://chechia.net/tags/tracing/</loc>
     <lastmod>2026-10-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://chechia.net/categories/ai/</loc>
-    <lastmod>2026-09-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://chechia.net/posts/2026-10-15-hwdc-ai-gateway/</loc>
     <lastmod>2026-09-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://chechia.net/tags/ai-gateway/</loc>
-    <lastmod>2026-09-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://chechia.net/tags/devops/</loc>
-    <lastmod>2026-09-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://chechia.net/categories/generative/</loc>
-    <lastmod>2026-09-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://chechia.net/tags/generative/</loc>
     <lastmod>2026-09-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://chechia.net/tags/agent/</loc>
