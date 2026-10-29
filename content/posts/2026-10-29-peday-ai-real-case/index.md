@@ -1,12 +1,12 @@
 ---
 title: "Platform Engineering 的 AI 實際落地案例"
-date: '2026-10-29T00:00:00Z'
+date: '2026-10-20T00:00:00Z'
 tags: ["ai", "generative", "ai-engineering", "platform-engineering", "devops"]
 categories: ["generative", "ai"]
 description: "從 Platform Engineering 的角度，分享 AI 如何進入開發、維運與治理流程，以及實際落地時的技術選擇與限制。"
 showToc: true
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: true
 showSummary: true
@@ -16,6 +16,7 @@ ShowPostNavLinks: true
 ---
 
 ### 📅 活動時間：2026-10-29
+### 📊 投影片：[Platform Engineering 的 AI 實際落地案例](https://chechia.net/slides/2026-10-29-peday-ai-real-case/)
 ### 📘 聯繫我 [Facebook](https://www.facebook.com/engineer.from.scratch)
 
 ---
